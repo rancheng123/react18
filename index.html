@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+  <link rel="stylesheet" href="/iconfont/iconfont.css">
+  <link rel="stylesheet" href="/pc.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root" class="eidtorAll"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script src="/mousetrap.min.js"></script>
+  <script>
+    var pageData = {
+      "base": "/desktop/index.php",
+      "mobileBase": "/Form/index.php",
+      "siteId": "d6150fc7b5c4c704ea65a0dca18fbb9c",
+      "guid": "{\"guidHor\":[{\"id\":\"ediCusLin-3347\",\"value\":1052},{\"id\":\"ediCusLin-6504\",\"value\":769},{\"id\":\"ediCusLin-3596\",\"value\":1687},{\"id\":\"ediCusLin-6309\",\"value\":1472},{\"id\":\"ediCusLin-5653\",\"value\":651},{\"id\":\"ediCusLin-1827\",\"value\":2155},{\"id\":\"ediCusLin-3121\",\"value\":2604},{\"id\":\"ediCusLin-5908\",\"value\":573},{\"id\":\"ediCusLin-2773\",\"value\":285},{\"id\":\"ediCusLin-7599\",\"value\":1263},{\"id\":\"ediCusLin-4025\",\"value\":414},{\"id\":\"ediCusLin-5511\",\"value\":854},{\"id\":\"ediCusLin-1087\",\"value\":1548}],\"guidVer\":[{\"id\":\"ediCuscol-9005\",\"value\":2684},{\"id\":\"ediCuscol-1339\",\"value\":1455},{\"id\":\"ediCuscol-1030\",\"value\":3011},{\"id\":\"ediCuscol-529\",\"value\":3164},{\"id\":\"ediCuscol-525\",\"value\":3242},{\"id\":\"ediCuscol-3418\",\"value\":6216},{\"id\":\"ediCuscol-5996\",\"value\":904},{\"id\":\"ediCuscol-12\",\"value\":480},{\"id\":\"ediCuscol-3698\",\"value\":1298},{\"id\":\"ediCuscol-48\",\"value\":1438},{\"id\":\"ediCuscol-3087\",\"value\":1244},{\"id\":\"ediCuscol-5509\",\"value\":731},{\"id\":\"ediCuscol-4433\",\"value\":678},{\"id\":\"ediCuscol-537\",\"value\":5796},{\"id\":\"ediCuscol-9896\",\"value\":5650},{\"id\":\"ediCuscol-8903\",\"value\":2144}]}",
+      "ImagesGallery": {
+        "spec": [
+          {
+            "id": "1",
+            "name": "其他",
+            "listorder": "4"
+          },
+          {
+            "id": "2",
+            "name": "2:1",
+            "listorder": "3"
+          },
+          {
+            "id": "3",
+            "name": "3:2",
+            "listorder": "2"
+          }
+        ],
+        "category": [
+          {
+            "id": "1",
+            "name": "其他",
+            "listorder": "15"
+          },
+          {
+            "id": "14",
+            "name": "中国风",
+            "listorder": "14"
+          },
+          {
+            "id": "13",
+            "name": "运动",
+            "listorder": "13"
+          },
+          {
+            "id": "12",
+            "name": "教育",
+            "listorder": "12"
+          },
+          {
+            "id": "11",
+            "name": "家居",
+            "listorder": "11"
+          },
+          {
+            "id": "10",
+            "name": "节日",
+            "listorder": "10"
+          },
+          {
+            "id": "9",
+            "name": "风景",
+            "listorder": "9"
+          },
+          {
+            "id": "8",
+            "name": "美食",
+            "listorder": "8"
+          },
+          {
+            "id": "7",
+            "name": "欧美",
+            "listorder": "7"
+          },
+          {
+            "id": "6",
+            "name": "城市",
+            "listorder": "6"
+          },
+          {
+            "id": "5",
+            "name": "科技",
+            "listorder": "5"
+          },
+          {
+            "id": "3",
+            "name": "商务",
+            "listorder": "4"
+          },
+          {
+            "id": "4",
+            "name": "企业",
+            "listorder": "3"
+          },
+          {
+            "id": "15",
+            "name": "金融",
+            "listorder": "2"
+          }
+        ]
+      },
+      "IconGallery": {
+        "category": [
+          {
+            "id": "39",
+            "name": "荣誉资质",
+            "listorder": "21"
+          },
+          {
+            "id": "13",
+            "name": "菜单及主页",
+            "listorder": "20"
+          },
+          {
+            "id": "11",
+            "name": "社交",
+            "listorder": "19"
+          },
+          {
+            "id": "31",
+            "name": "人物",
+            "listorder": "18"
+          },
+          {
+            "id": "14",
+            "name": "箭头",
+            "listorder": "17"
+          },
+          {
+            "id": "33",
+            "name": "按钮",
+            "listorder": "16"
+          },
+          {
+            "id": "38",
+            "name": "机械",
+            "listorder": "15"
+          },
+          {
+            "id": "37",
+            "name": "支付",
+            "listorder": "14"
+          },
+          {
+            "id": "35",
+            "name": "旅游",
+            "listorder": "13"
+          },
+          {
+            "id": "34",
+            "name": "餐饮",
+            "listorder": "12"
+          },
+          {
+            "id": "36",
+            "name": "统计分析",
+            "listorder": "11"
+          },
+          {
+            "id": "32",
+            "name": "系统",
+            "listorder": "9"
+          },
+          {
+            "id": "30",
+            "name": "符号",
+            "listorder": "7"
+          },
+          {
+            "id": "9",
+            "name": "工具",
+            "listorder": "6"
+          },
+          {
+            "id": "12",
+            "name": "数字",
+            "listorder": "5"
+          },
+          {
+            "id": "10",
+            "name": "节日",
+            "listorder": "4"
+          },
+          {
+            "id": "8",
+            "name": "时间及地点",
+            "listorder": "3"
+          },
+          {
+            "id": "46",
+            "name": "背景形状",
+            "listorder": "2"
+          },
+          {
+            "id": "5",
+            "name": "医务",
+            "listorder": "2"
+          },
+          {
+            "id": "3",
+            "name": "其他",
+            "listorder": "1"
+          },
+          {
+            "id": "45",
+            "name": "纯色",
+            "listorder": "0"
+          }
+        ]
+      },
+      "Temp": {
+        "industry": [
+          {
+            "name": "互联网",
+            "id": "22"
+          },
+          {
+            "name": "餐饮",
+            "id": "3"
+          },
+          {
+            "name": "旅游",
+            "id": "2"
+          },
+          {
+            "name": "婚纱摄影",
+            "id": "8"
+          },
+          {
+            "name": "机械",
+            "id": "5"
+          },
+          {
+            "name": "汽车",
+            "id": "4"
+          },
+          {
+            "name": "农业",
+            "id": "25"
+          },
+          {
+            "name": "家具",
+            "id": "26"
+          },
+          {
+            "name": "娱乐",
+            "id": "23"
+          },
+          {
+            "name": "医疗",
+            "id": "6"
+          },
+          {
+            "name": "教育",
+            "id": "24"
+          },
+          {
+            "name": "其他",
+            "id": "28"
+          }
+        ],
+        "menu": [
+          {
+            "name": "水平导航",
+            "id": "28"
+          },
+          {
+            "name": "中间下拉",
+            "id": "29"
+          },
+          {
+            "name": "九宫格",
+            "id": "30"
+          },
+          {
+            "name": "左侧下拉",
+            "id": "31"
+          },
+          {
+            "name": "列表导航",
+            "id": "33"
+          },
+          {
+            "name": "右侧下拉",
+            "id": "35"
+          },
+          {
+            "name": "底部固定",
+            "id": "36"
+          },
+          {
+            "name": "顶部滑动",
+            "id": "37"
+          }
+        ],
+        "languagers": [
+          {
+            "name": "中文",
+            "id": "3"
+          },
+          {
+            "name": "英文",
+            "id": "4"
+          },
+          {
+            "name": "阿拉伯语",
+            "id": "44"
+          },
+          {
+            "name": "俄语",
+            "id": "46"
+          },
+          {
+            "name": "西班牙语",
+            "id": "49"
+          },
+          {
+            "name": "葡萄牙语",
+            "id": "50"
+          },
+          {
+            "name": "日语",
+            "id": "51"
+          },
+          {
+            "name": "法语",
+            "id": "52"
+          }
+        ]
+      },
+      "moUrl": "http://www.eyingbao.com/desktop/index.php/Home/Preview",
+      "lang": "zh",
+      "dataLang": "zh",
+      "onlineSite": "0",
+      "logo": "http://j.bjyyb.net/pclogo.png",
+      "qq": "http://wpa.qq.com/msgrd?v=3&uin=2264835362&Site=易营宝&Menu=yes",
+      "tel": "400-655-2477",
+      "imgSrc": "",
+      "siteTitle": "jessie",
+      "version": {
+        "WEBP": "1"
+      },
+      "ALICN": "http://admin.bjyybao.com",
+      "IMG_SERVER_DOMAIN": "https://t.bjyyb.net/",
+      "pagesTempList": {
+        "tppageType": [
+          {
+            "name": "关于我们",
+            "id": "1"
+          },
+          {
+            "name": "联系我们",
+            "id": "2"
+          },
+          {
+            "name": "荣誉资质",
+            "id": "3"
+          },
+          {
+            "name": "产品列表",
+            "id": "4"
+          },
+          {
+            "name": "产品内页",
+            "id": "5"
+          },
+          {
+            "name": "新闻列表",
+            "id": "6"
+          },
+          {
+            "name": "新闻内页",
+            "id": "7"
+          }
+        ],
+        "languagers": [
+          {
+            "name": "中文",
+            "id": "3"
+          },
+          {
+            "name": "英文",
+            "id": "4"
+          },
+          {
+            "name": "德语",
+            "id": "42"
+          },
+          {
+            "name": "越南语",
+            "id": "43"
+          },
+          {
+            "name": "阿拉伯语",
+            "id": "44"
+          },
+          {
+            "name": "马来西亚语",
+            "id": "45"
+          },
+          {
+            "name": "俄语",
+            "id": "46"
+          },
+          {
+            "name": "韩语",
+            "id": "47"
+          },
+          {
+            "name": "土耳其语",
+            "id": "48"
+          },
+          {
+            "name": "西班牙语",
+            "id": "49"
+          },
+          {
+            "name": "葡萄牙语",
+            "id": "50"
+          },
+          {
+            "name": "日语",
+            "id": "51"
+          },
+          {
+            "name": "法语",
+            "id": "52"
+          }
+        ]
+      },
+      "msites": [
+        "sites/79500/79669",
+        "sites/83000/83053"
+      ],
+      "webToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTA1NTExODUsImRhdGEiOnsidXNlcklkIjozMTc2NSwidXNlclR5cGUiOiJhZ2VudCIsInNjb3BlIjoiMiIsInByb2plY3RJZCI6IjUyODQ2Iiwib2VtSWQiOiIxMSIsInNpdGVUeXBlIjoic2l0ZSJ9fQ.HwITPOotBDEYuvOOgOTFngILBklZp3s2PQoaKOIi16M",
+      "apiServiceUrl": "https://api.eyingbao.com/",
+      "domainName": "http://www.eyingbao.com/desktop/index.php/Home/Preview",
+      "isTrans": "",
+      "projectId": "52846",
+      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTA1ODY3MTMsIm5iZiI6MTcxMDU4NjcxMywic2NvcGVzIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzEwNTkwMzEzLCJkYXRhIjp7InByb2plY3RJZCI6IjUyODQ2In19.N3S_LAu7i6cDUy_X4AyaAvKA4TJdCT89wM0isRC8630",
+      "editionname": "企业版",
+      "Multilingual": [],
+      "revert": "1",
+      "rpcDomain": "https://platform.eyingbao.net",
+      "backUrl": "https://member.eyingbao.com"
+    }
+  </script>
+</body>
+
+</html>
