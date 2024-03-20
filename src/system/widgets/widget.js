@@ -2,8 +2,6 @@ import React from 'react'
 
 /**
  * @method Container 容器组件，存放属性组件的外层结构
- * @date 2019-08-28
- 
  * @param {object} prop 属性对象
  * @param {string} prop.skin 通过皮肤定义组件样式 
  * @param {string} prop.title 属性名称
@@ -15,8 +13,9 @@ import React from 'react'
 
 function Container(prop) {
   var _window$public$lang$p;
+  <div className=""></div>
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return React.createElement("div", {
     className: prop.skin || null
   }, prop.title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
     className: "pcConAttTitle "

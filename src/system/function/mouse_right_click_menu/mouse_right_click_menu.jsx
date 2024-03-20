@@ -1,26 +1,12 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MouseRightClickMenu", function() { return MouseRightClickMenu; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
+import React from 'react';
 
-
-class MouseRightClickMenu {
+export default class MouseRightClickMenu extends React.Component {
   constructor(controler) {
+    super(controler)
     /**@property controler 边框控制器实例 */
     this.controler = controler;
-  }
-  /**@property {object} state 获取最新的state属性 */
-
-
-  get state() {
-    return this.controler.state;
-  }
-  /**@property {object} state 获取最新的props属性 */
-
-
-  get props() {
-    return this.controler.props;
+    this.state = controler.state;
+    this.props = controler;
   }
   /**
    * @method render 组件渲染方法
@@ -30,16 +16,12 @@ class MouseRightClickMenu {
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.rightClick());
+    return React.createElement("div", null, this.rightClick());
   }
   /**
    * @method rightClick 右键菜单增加控件选中功能结构
    * @author lby
    * @return {object} 右键菜单
-   * @data 2020-06-10
-   * 
-   * @modifyAuthor lw
-   * @data 2021-1-5
    */
   // {arr.map(item => <li id={item.id} key={item.id} onMouseDown={this.controler.rightClick.bind(this.controler)} >{ item.name??window.public.getName(item.type)}</li>)}
 
@@ -60,7 +42,7 @@ class MouseRightClickMenu {
         }
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return React.createElement("div", {
         className: "rightClick",
         onMouseMove: this.controler.theMouseMove.bind(this.controler),
         style: {
@@ -71,19 +53,19 @@ class MouseRightClickMenu {
           'right': this.state.style.right,
           'top': this.state.style.top
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, React.createElement("ul", {
         className: "rightClick-popUp"
       }, this.controler.Property_panel_list.map((e, i) => {
         if (e) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          return React.createElement("li", {
             key: i,
             className: e.iconClass,
             title: e.title,
             id: e.event,
             onMouseDown: e.event ? this.controler[e.event].bind(this.controler) : null
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, e.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          }, React.createElement("span", null, e.title), React.createElement("span", {
             className: e.iconC
-          }, e.name, e.iconC ? "" : ''), e.secondary ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          }, e.name, e.iconC ? "" : ''), e.secondary ? React.createElement("ul", {
             className: "rightClick rightclickCascade",
             style: {
               'position': 'absolute',
@@ -95,7 +77,7 @@ class MouseRightClickMenu {
           }, arr.map(item => {
             var _item$name;
 
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            return React.createElement("li", {
               id: item.id,
               key: item.id,
               onMouseDown: this.controler.rightClick.bind(this.controler)
@@ -109,7 +91,4 @@ class MouseRightClickMenu {
 
     return null;
   }
-
 }
-
-//# sourceURL=webpack:///./system/function/mouse_right_click_menu/mouse_right_click_menu.js?

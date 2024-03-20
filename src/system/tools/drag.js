@@ -1,8 +1,4 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Drag", function() { return Drag; });
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-
-import dispatcher from './dispatcher'
+import Dispatcher from './dispatcher';
 
 let range = null,
     point = '';
@@ -147,7 +143,7 @@ const Drag = {
 
     if (pid != 'Document' || range == null || range.test(type)) {
       if (type == "em-Content") {
-        const page = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch("getPageData", {
+        const page = Dispatcher.dispatch("getPageData", {
           value: component.pageId
         });
         component = page.component;
@@ -194,7 +190,7 @@ const Drag = {
       } //删除占位符
 
 
-      dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${prevId}_removeComponent`, {
+      Dispatcher.dispatch(`${prevId}_removeComponent`, {
         args: [seatId, null, false]
       }); //占位删除成功后执行的回调函数
 
@@ -202,7 +198,7 @@ const Drag = {
     } //新增占位符
 
 
-    this.seatId = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_addComponent`, {
+    this.seatId = Dispatcher.dispatch(`${id}_addComponent`, {
       args: [seat, index, (parent, target) => {
         //给占位符添加动画
         const time = setTimeout(() => {
@@ -235,7 +231,7 @@ const Drag = {
 
       left = left + width / 2, top = top + height / 2; //选中控件
 
-      dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`selectedComponent`, {
+      Dispatcher.dispatch(`selectedComponent`, {
         args: [event, left, top, element.id, resolve]
       });
     } //如果element存在则执行选中方法
@@ -292,7 +288,7 @@ const Drag = {
   drag(x, y, opts) {
     var _opts$height;
 
-    const data = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch("getIframeData"); //如果存在应用到所有属性，给应用到所有属性赋值
+    const data = Dispatcher.dispatch("getIframeData"); //如果存在应用到所有属性，给应用到所有属性赋值
 
     if (opts && opts.isApply) {
       this.isApply = opts.isApply;
@@ -435,10 +431,10 @@ const Drag = {
 
       if (id && seatId) {
         //删除占位符
-        dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_removeComponent`, {
+        Dispatcher.dispatch(`${id}_removeComponent`, {
           args: [seatId, (p, c, index) => {
             //新增控件
-            unadd != true && dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_addComponent`, {
+            unadd != true && Dispatcher.dispatch(`${id}_addComponent`, {
               args: [component, index, (target, child) => {
                 this.selectComponent(event, child, resolve);
               }, false, // 表示要渲染ui，为true则不渲染ui
@@ -454,7 +450,7 @@ const Drag = {
       } //是否应用到所有页面的控件存在，执行新增操作
       else if (isApply) {
           //新增控件
-          unadd != true && dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`addComponent`, {
+          unadd != true && Dispatcher.dispatch(`addComponent`, {
             args: [component, undefined, (target, child) => {
               this.selectComponent(event, child, resolve);
             }, false, // 表示要渲染ui，为true则不渲染ui
@@ -470,8 +466,8 @@ const Drag = {
 
 }; //注册插入位置方法
 
-dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].register('darg_range', Drag.setRange); //注册指定插入到某个容器
+Dispatcher.register('darg_range', Drag.setRange); //注册指定插入到某个容器
 
-dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].register('drag_point', Drag.setPoint);
+Dispatcher.register('drag_point', Drag.setPoint);
 
-//# sourceURL=webpack:///./system/tools/drag.js?
+export default Drag;

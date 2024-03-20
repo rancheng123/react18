@@ -11,8 +11,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 let Components = null;
 /**
  * @function getComponent 获取对应组件
- * @date 2019-09-21
- 
  * @param {string} componentType 控件类型 
  * @param {string} type 结构类型 html amp mip 
  * @return {class} 对应控件类 
@@ -46,8 +44,6 @@ async function getComponent(componentType, type, skin = '') {
 }
 /**
  * @function getChild 获取子组件
- * @date 2019-10-09
- 
  * @param {object} component 控件结构数据 
  * @param {object} data 控件属性数据 
  * @param {object} page 当前页面数据

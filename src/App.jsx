@@ -3,10 +3,11 @@ import Router from './routes'
 import logo from './assets/image/logo.png'
 import './App.css'
 import Header from './template/header/header_controler'
+import Content from './template/content/content_controler'
 
 import lineData from './assets/data'
 
-function App() {
+function App(props) {
   const [count, setCount] = useState(0);
 
   const topNber = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900]
@@ -50,6 +51,7 @@ function App() {
   return (
     <div className='editorCon'>
       <Header />
+      <Content />
       <main id="ediMain" className="pc-content">
         <div id="edit-container">
           <iframe src="/test" id='iframe' frameBorder="0" scrolling="no"></iframe>

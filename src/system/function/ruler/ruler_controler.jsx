@@ -1,14 +1,9 @@
 /* eslint-disable */
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RulerControler", function() { return RulerControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _ruler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ruler */ "./system/function/ruler/ruler.js");
+import React from 'react';
+import Dispatcher from '../../tools/dispatcher';
+import Rule from './ruler';
 
-
-
-class RulerControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export default class RulerControler extends React.Component {
   constructor(props) {
     super(props);
     this.space = 100; //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -16,7 +11,7 @@ class RulerControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
     this.init();
     /**@property {Header} view 初始化 view 实例*/
 
-    this.view = new _ruler__WEBPACK_IMPORTED_MODULE_2__["Ruler"](this); //给view 入口方法绑定this
+    this.view = new Rule(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
@@ -29,7 +24,7 @@ class RulerControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -62,10 +57,10 @@ class RulerControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
 
 
   componentDidMount() {
-    dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].register("rulerHidden", this.close, this);
-    dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].register("rulerTop", this.setTop, this); //注册获取辅助线功能
+    Dispatcher.register("rulerHidden", this.close, this);
+    Dispatcher.register("rulerTop", this.setTop, this); //注册获取辅助线功能
 
-    dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].register("getRuler", this.getRuler, this);
+    Dispatcher.register("getRuler", this.getRuler, this);
   }
   /**
    * @method componentWillUnmount 卸载组件时执行方法
@@ -75,8 +70,8 @@ class RulerControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
 
 
   componentWillUnmount() {
-    dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].unregister("rulerHidden");
-    dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].unregister("rulerHeight");
+    Dispatcher.unregister("rulerHidden");
+    Dispatcher.unregister("rulerHeight");
   }
   /**
    * @method getRuler 返回辅助线数据 

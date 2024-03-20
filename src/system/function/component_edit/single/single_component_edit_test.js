@@ -1,19 +1,10 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SingleComponentEdit", function() { return SingleComponentEdit; });
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/page/attr_proxy */ "./components/page/attr_proxy.js");
-/* harmony import */ var _tools_drag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../tools/drag */ "./system/tools/drag.js");
-
-
-
+import ReactDom from 'react-dom'
+import Dispatcher from '../../../tools/dispatcher';
+import AttrProxy from '../../../../page/attr_proxy';
+import Drag from '../../../tools/drag';
 
 /**
  * @instance {SingleComponentEdit} 单个选中编辑实例
- 
- * @version 1.0
- * @date 2019-10-30
  */
 
 const SingleComponentEdit = {
@@ -109,7 +100,7 @@ const SingleComponentEdit = {
 
         this.parent = parent; //获取代理对象
 
-        this.proxy = await new _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_2__["AttrProxy"]().init(this.parent.current.type); //删除操作点配置
+        this.proxy = await new AttrProxy().init(this.parent.current.type); //删除操作点配置
 
         delete ((_this$proxy$config = this.proxy.config) !== null && _this$proxy$config !== void 0 ? _this$proxy$config : {}).dots; //执行选中
 
@@ -125,7 +116,7 @@ const SingleComponentEdit = {
         this.unselect('select-parent-box', 'property-parent-buttons');
       }
 
-    this.proxy = await new _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_2__["AttrProxy"]().init(type);
+    this.proxy = await new AttrProxy().init(type);
     await this.select({
       node: this.node,
       Buttons,
@@ -216,8 +207,8 @@ const SingleComponentEdit = {
   unselect(boxid, btnid) {
     const box = document.querySelector(`#${boxid}`),
           btn = document.querySelector(`#${btnid}`);
-    box.children.length && react_dom__WEBPACK_IMPORTED_MODULE_0___default.a.unmountComponentAtNode(box);
-    btn && btn.children.length && react_dom__WEBPACK_IMPORTED_MODULE_0___default.a.unmountComponentAtNode(btn);
+    box.children.length && ReactDom.unmountComponentAtNode(box);
+    btn && btn.children.length && ReactDom.unmountComponentAtNode(btn);
   },
 
   /**
@@ -397,11 +388,11 @@ const SingleComponentEdit = {
 
         this.mask(id), opts.ismask = true; //获取控件数据
 
-        opts.component = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`getComponentData`, {
+        opts.component = Dispatcher.dispatch(`getComponentData`, {
           value: id
         }); //禁止循环控件本身
 
-        dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${id}_set`, {
+        Dispatcher.dispatch(`${id}_set`, {
           args: ['component.eachable', false, true]
         });
       } //如果在没有按下鼠标左键的情况下触发拖拽，则调用拖拽结束事件
@@ -415,7 +406,7 @@ const SingleComponentEdit = {
       let _type = opts.component.component.combinationType || opts.component.component.componentType; //先获取combinationType的属性，此属性存在证明是组件库中的控件，是不允许嵌套的，sxt 2021-2-2
 
 
-      _tools_drag__WEBPACK_IMPORTED_MODULE_3__["Drag"].drag(x - opts.left, y - opts.top, {
+      Drag.drag(x - opts.left, y - opts.top, {
         type: _type,
         added: () => opts.isremove = true
       });
@@ -455,18 +446,17 @@ const SingleComponentEdit = {
       this.mask(id, 'remove'); //判断数据是否存在并且控件是否可以删除
 
       if (opts.component && opts.isremove) {
-        dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${pid}_removeComponent`, {
+        Dispatcher.dispatch(`${pid}_removeComponent`, {
           args: [id, () => {
             opts.isremove = false; // false 是 unadd， true 是 isSwitch 第三个true表示新增控件时不使用新id
-
-            _tools_drag__WEBPACK_IMPORTED_MODULE_3__["Drag"].end(event, opts.component, false, true, true);
+            Drag.end(event, opts.component, false, true, true);
           }, false, // 表示要渲染ui，为true则不渲染ui
           true // 是位置更换的删除组件种类
           ]
         });
       } else //取消禁止循环控件本身
         {
-          dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${id}_set`, {
+          Dispatcher.dispatch(`${id}_set`, {
             args: ['component.eachable', true, true]
           });
         }
@@ -474,3 +464,5 @@ const SingleComponentEdit = {
   }
 
 };
+
+export default SingleComponentEdit;

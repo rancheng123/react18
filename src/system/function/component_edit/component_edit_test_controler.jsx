@@ -1,26 +1,17 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentEditControler", function() { return ComponentEditControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _component_edit_test__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component_edit_test */ "./system/function/component_edit/component_edit_test.js");
-/* harmony import */ var _single_single_component_edit_test__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./single/single_component_edit_test */ "./system/function/component_edit/single/single_component_edit_test.js");
-/* harmony import */ var _more_component_edit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./more_component_edit */ "./system/function/component_edit/more_component_edit.js");
-/* harmony import */ var _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/page/attr_proxy */ "./components/page/attr_proxy.js");
-/* harmony import */ var _mouse_right_click_menu_mouse_right_click_menu_controler__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../mouse_right_click_menu/mouse_right_click_menu_controler */ "./system/function/mouse_right_click_menu/mouse_right_click_menu_controler.js");
-/* harmony import */ var _positions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./positions */ "./system/function/component_edit/positions.js");
+import React from 'react';
+import ReactDom from 'react-dom';
+import Dispatcher from '../../tools/dispatcher';
+import ComponentEditTest from './component_edit_test'
+import SingleComponentEditTest from './single/single_component_edit_test'
+import MoreComponentEdit from './more_component_edit'
+import AttrProxy from '../../../page/attr_proxy'
+import MoreRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
+import Positions from '../../function/component_edit/positions'
+
+
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
 
 function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to set private field on non-instance"); } if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } return value; }
-
-
-
-
-
-
-
 
 
 
@@ -31,7 +22,7 @@ function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = p
  * @date 2019-11-13
  */
 
-class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+class ComponentEditControler extends React.Component {
   /**@property {string} lookup 指向查找 */
   constructor(props) {
     super(props);
@@ -48,15 +39,15 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
     this.node = null;
     /**@property {AttrProxy} proxy 属性代理 */
 
-    this.proxy = new _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_6__["AttrProxy"]();
+    this.proxy = new AttrProxy();
     /**@property {MouseRightClickMenuControler} menu 右键菜单组件 */
 
-    this.menu = _mouse_right_click_menu_mouse_right_click_menu_controler__WEBPACK_IMPORTED_MODULE_7__["MouseRightClickMenuControler"]; //组件挂载前的初始化方法，整个生命周期内只执行一次
+    this.menu = MoreRightClickMenuControler; //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {ComponentEdit} view 初始化 view 实例*/
 
-    this.view = new _component_edit_test__WEBPACK_IMPORTED_MODULE_3__["ComponentEdit"](this); //给view 入口方法绑定this
+    this.view = new ComponentEditTest["ComponentEdit"](this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
     this._initX = 0;
@@ -72,7 +63,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -95,9 +86,9 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
 
 
   componentDidMount() {
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].register('selectedHidden', this.hidden, this);
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].register("selectedComponent", this.mousedown, this);
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].register('setLookup', this.setLookup, this);
+    Dispatcher.register('selectedHidden', this.hidden, this);
+    Dispatcher.register("selectedComponent", this.mousedown, this);
+    Dispatcher.register('setLookup', this.setLookup, this);
   }
   /**
    * @method componentWillUnmount 卸载组件时执行方法
@@ -107,9 +98,9 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
 
 
   componentWillUnmount() {
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].unregister('selectedHidden');
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].unregister("selectedComponent");
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].unregister('setLookup');
+    Dispatcher.unregister('selectedHidden');
+    Dispatcher.unregister("selectedComponent");
+    Dispatcher.unregister('setLookup');
   }
 
   hidden(value) {
@@ -121,13 +112,13 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
         children: [parentBtn, btn]
       } = children[0]; //卸载父级属性按钮
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(parentBtn); //卸载属性按钮
+      ReactDom.unmountComponentAtNode(parentBtn); //卸载属性按钮
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(btn); //卸载父级选中框
+      ReactDom.unmountComponentAtNode(btn); //卸载父级选中框
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(children[1]); //卸载选中框
+      ReactDom.unmountComponentAtNode(children[1]); //卸载选中框
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(children[2]);
+      ReactDom.unmountComponentAtNode(children[2]);
     } //如果选中对象存在则调用选中框卸载方法
 
 
@@ -286,7 +277,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
   findComponent(initX, initY, stop, cid) {
     this.findPropertyBtn(); //获取总数据
 
-    const data = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch("getIframeData"); //判断data中是否存有数据
+    const data = Dispatcher.dispatch("getIframeData"); //判断data中是否存有数据
 
     if (data) {
       //判断当前是否是移动端浏览
@@ -316,7 +307,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
         componentData.component = componentData.components[componentData.i]; //类型如果是em-Content，则把数据变成当前页面的数据
 
         if (componentData.component.componentType == "em-Content") {
-          const page = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch("getPageData", {
+          const page = Dispatcher.dispatch("getPageData", {
             value: componentData.component.pageId
           });
           componentData.component = page.component;
@@ -345,7 +336,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
         componentData.i++;
       }
 
-      _positions__WEBPACK_IMPORTED_MODULE_8__["positions"].virtual = false;
+      Positions.virtual = false;
       return componentData.current ? {
         parent: componentData.current.parent,
         current: componentData.current
@@ -483,11 +474,11 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
 
   findPropertyBtn() {
     if (Array.isArray(this.state.hover)) {
-      const node = this.state.hover.find(btn => _positions__WEBPACK_IMPORTED_MODULE_8__["positions"].findBox(this._initX, this._initY, btn.absolute, btn.id, btn.current.type));
+      const node = this.state.hover.find(btn => Positions.findBox(this._initX, this._initY, btn.absolute, btn.id, btn.current.type));
 
       if (typeof node != 'undefined') {
         this.findBtn = true;
-        _positions__WEBPACK_IMPORTED_MODULE_8__["positions"].virtual = false;
+        Positions.virtual = false;
         return this.getNewNode(node);
       }
     }
@@ -555,7 +546,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
     const initY = event.pageY - top + stop;
     this._initX = initX - (document.body.clientWidth - document.querySelector('#ediMain').getBoundingClientRect().width) / 2;
     this._initY = initY;
-    this.virtualNode = _positions__WEBPACK_IMPORTED_MODULE_8__["positions"].findVirtual(this._initX, this._initY); //找到虚拟区域，保留当前位置导航按钮
+    this.virtualNode = Positions.findVirtual(this._initX, this._initY); //找到虚拟区域，保留当前位置导航按钮
 
     if (this.virtualNode !== false && this.state.hover) {
       this.node = this.virtualNode;
@@ -574,7 +565,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
       const configList = []; //判断当前查找到的控件是否是已经选中的控件，不是则if，是则else
 
       if (!(this.selected && this.selected.isNode(current))) {
-        const nodes = _positions__WEBPACK_IMPORTED_MODULE_8__["positions"].getParentNodes(this.node, this._initX);
+        const nodes = Positions.getParentNodes(this.node, this._initX);
         if (nodes === false) return;
         nodes.forEach((node, i) => {
           const cur = this.hoverState(node, stop);
@@ -682,7 +673,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
     try {
       //判断鼠标按下的是否是左键
       if (event.button == 0) {
-        this.selected = event.ctrlKey ? _more_component_edit__WEBPACK_IMPORTED_MODULE_5__["MoreComponentEdit"] : _single_single_component_edit_test__WEBPACK_IMPORTED_MODULE_4__["SingleComponentEdit"];
+        this.selected = event.ctrlKey ? MoreComponentEdit : SingleComponentEditTest;
         this.selected.controler = this; //如果id类型为function，把id值赋给变量fn，id赋为空
 
         if (typeof id == 'function') {
@@ -701,5 +692,7 @@ class ComponentEditControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
 }
 
 var _lookup = new WeakMap();
+
+export default ComponentEditControler;
 
 //# sourceURL=webpack:///./system/function/component_edit/component_edit_test_controler.js?

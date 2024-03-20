@@ -1,9 +1,8 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MouseRightClickMenuControler", function() { return MouseRightClickMenuControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _mouse_right_click_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mouse_right_click_menu */ "./system/function/mouse_right_click_menu/mouse_right_click_menu.js");
+import React from 'react';
+import Dispatcher from '../../tools/dispatcher';
+import MouseRightClickMenu from './mouse_right_click_menu';
+import { ModuleGraph } from 'vite';
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -11,7 +10,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  //用来存储复制后的内容 author   lw data 2021-1-5  因为触发剪切方法时，组建销毁会初始化this.stete，所以要定义一个全局变量用来存贮复制后的值。 
 
 var copyObj = null;
-class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export default class MouseRightClickMenuControler extends React.Component {
   constructor(props) {
     super(props); //鼠标右键展示面板一级数据内容
 
@@ -49,7 +48,7 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
           y = null;
         }
 
-        dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`selectedComponent`, {
+        Dispatcher.dispatch(`selectedComponent`, {
           args: [{
             button: 0,
             isdrag: false
@@ -64,7 +63,7 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
                     arr.push({
                       id: obj.parent.id,
                       type: obj.parent.type,
-                      name: dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${obj.parent.id}_get`).data.document_data.componentName
+                      name: Dispatcher.dispatch(`${obj.parent.id}_get`).data.document_data.componentName
                     });
                   }
                 }
@@ -107,24 +106,21 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
     this.init();
     /**@property {Border} view 初始化 view 实例*/
 
-    this.view = new _mouse_right_click_menu__WEBPACK_IMPORTED_MODULE_2__["MouseRightClickMenu"](this); //给view 入口方法绑定this
+    this.view = new MouseRightClickMenu(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-30
-   * @author sxt
    * @return {object} 待渲染的组件对象
    */
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return <MouseRightClickMenu {...this} />
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @author 
    */
 
 
@@ -132,11 +128,12 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
     let _this = this;
 
     _this.state = {};
-    __webpack_require__.e(/*! import() | mousetrap */ "mousetrap").then(__webpack_require__.t.bind(null, /*! mousetrap */ "./node_modules/mousetrap/mousetrap.min.js", 7)).then(module => {
-      module.bind('del', () => this.remove()); // module.bind('ctrl+c', () => this.copy());
+    window.Mousetrap.bind('del', () => this.remove());
+    // __webpack_require__.e(/*! import() | mousetrap */ "mousetrap").then(__webpack_require__.t.bind(null, /*! mousetrap */ "./node_modules/mousetrap/mousetrap.min.js", 7)).then(module => {
+      // module.bind('del', () => this.remove()); // module.bind('ctrl+c', () => this.copy());
       // module.bind('ctrl+v', () => this.paste());
       // module.bind('ctrl+x', () => this.shear()); 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 lw 2021-4-22
-    }); //author: lby date:2020-06-16
+    // }); //author: lby date:2020-06-16
 
     document.oncontextmenu = function (e) {
       e.stopPropagation();
@@ -199,15 +196,12 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
   /**
      * @method handleContextMenu 绑定鼠标右击事件
      * @data 2021-1-5
-     * @author lw
      * @param e 事件对象
      */
 
 
   /**
   * @method calculationPosition 计算展开的位置
-  * @data 2020-06-11
-  * @author lby
   * @param e 事件对象
   * @return 定位的属性值
   */
@@ -245,7 +239,6 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
   /**
   * @method rightClick 关闭鼠标右键弹出框
   * @data 2020-06-17
-  * @author lby
   * @param e 事件对象
   */
 
@@ -255,7 +248,7 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
     let x = that.state.xyPosition.xaxis;
     let y = that.state.xyPosition.yaxis;
     let id = e.target && e.target.id;
-    dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`selectedComponent`, {
+    Dispatcher.dispatch(`selectedComponent`, {
       args: [{
         button: 0,
         isdrag: false
@@ -269,7 +262,6 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
   /**
   * @method Simulatedclick 模拟点击属性面板
   * @data 2021-1-27
-  * @author lw
   */
 
 
@@ -285,7 +277,6 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
   /**
       * @method mouseMove 鼠标划入菜单的时候取消选中
       * @data 2020-06-18
-      * @author lby
       * @param e 事件对象
       */
 
@@ -296,7 +287,6 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
   /**
    * @method remove 删除快捷键
    * @date 2019-12-04
-   * @author nf
    */
 
 
@@ -320,7 +310,7 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
           component: {
             components
           }
-        } = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${id}_get`);
+        } = Dispatcher.dispatch(`${id}_get`);
         _components = components;
       } //父级是否是Header|Content|Footer
 
@@ -334,7 +324,7 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
           const children = _components.filter(e => {
             var _Dispatcher$dispatch, _Dispatcher$dispatch$, _Dispatcher$dispatch$2;
 
-            return ((_Dispatcher$dispatch = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${e.id}_get`)) === null || _Dispatcher$dispatch === void 0 ? void 0 : (_Dispatcher$dispatch$ = _Dispatcher$dispatch.data) === null || _Dispatcher$dispatch$ === void 0 ? void 0 : (_Dispatcher$dispatch$2 = _Dispatcher$dispatch$.theme_data.style) === null || _Dispatcher$dispatch$2 === void 0 ? void 0 : _Dispatcher$dispatch$2.pchidden) != 'none';
+            return ((_Dispatcher$dispatch = Dispatcher.dispatch(`${e.id}_get`)) === null || _Dispatcher$dispatch === void 0 ? void 0 : (_Dispatcher$dispatch$ = _Dispatcher$dispatch.data) === null || _Dispatcher$dispatch$ === void 0 ? void 0 : (_Dispatcher$dispatch$2 = _Dispatcher$dispatch$.theme_data.style) === null || _Dispatcher$dispatch$2 === void 0 ? void 0 : _Dispatcher$dispatch$2.pchidden) != 'none';
           }); //过滤掉隐藏控件后还剩一个控件的话，不允许删除
 
 
@@ -351,11 +341,11 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
         if (skin == 'box.box.s111.313' && _components && _components.length == 1) {
           return;
         } else {
-          dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${key}removeComponent`, {
+          Dispatcher.dispatch(`${key}removeComponent`, {
             args: [current.id || ""]
           }); //清空hover框、选中框、属性按钮
 
-          dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch("selectedHidden", {
+          Dispatcher.dispatch("selectedHidden", {
             value: true
           });
         }
@@ -381,7 +371,7 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
       } = node;
 
       if (id && copable != false) {
-        const component = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch('getComponentData', {
+        const component = Dispatcher.dispatch('getComponentData', {
           value: id
         });
         copyObj = component;
@@ -407,7 +397,7 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
             id = false
           }
         } = node;
-        dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`${id}_addComponent`, {
+        Dispatcher.dispatch(`${id}_addComponent`, {
           args: [copyObj, index]
         });
       }
@@ -428,5 +418,3 @@ class MouseRightClickMenuControler extends react__WEBPACK_IMPORTED_MODULE_0___de
   }
 
 }
-
-//# sourceURL=webpack:///./system/function/mouse_right_click_menu/mouse_right_click_menu_controler.js?

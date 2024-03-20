@@ -2,6 +2,7 @@ import React from 'react'
 
 export default class Content extends React.Component {
   constructor(controler) {
+    super(controler)
     /**@property controler header控制器实例 */
     this.controler = controler;
     /**@property toolbars 工具栏配置 */
@@ -28,20 +29,12 @@ export default class Content extends React.Component {
       type: "collection"
     }]; //绑定this
 
+    this.state = controler.state
+    this.props = controler.props
+
     this.iframe = this.iframe.bind(this);
   }
-  /**@property {object} state 获取最新的state属性 */
 
-
-  get state() {
-    return this.controler.state;
-  }
-  /**@property {object} props 获取最新的props属性 */
-
-
-  get props() {
-    return this.controler.props;
-  }
 
   render() {
     const {
@@ -68,6 +61,12 @@ export default class Content extends React.Component {
         height: "calc(100% - 20px)"
       };
     }
+
+    const dom = (
+      <div id='ediMain' className={`${type}-content`} style={_style}>
+        
+      </div>
+    )
 
     return React.createElement("main", {
       id: "ediMain",

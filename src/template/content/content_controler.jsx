@@ -1,8 +1,8 @@
 import React from 'react'
 import Dispatcher from "../../system/tools/dispatcher";
 import Content from './content'
-import RulerControler from '../../system/function/ruler/ruler_controler.js'
-import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler.js'
+// import RulerControler from '../../system/function/ruler/ruler_controler'
+// import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler'
 
 export default class ContentControler extends React.Component {
   constructor(props) {
@@ -11,10 +11,9 @@ export default class ContentControler extends React.Component {
     this.init();
     /**@property {RulerControler} 标尺组件控制器 */
 
-    this.ruler = RulerControler;
+    // this.ruler = RulerControler;
     /**@property {ComponentEditControler} 控件编辑组件控制器 */
-
-    this.componentEdit = ComponentEditTestControler;
+    // this.componentEdit = ComponentEditTestControler;
     /**@property {Header} view 初始化 view 实例*/
 
     this.view = new Content(this); //给view pc编辑入口方法绑定this
@@ -23,19 +22,15 @@ export default class ContentControler extends React.Component {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-10
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    return <Content {...this} />
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次 
-   * @date 2019-09-10
-   * @author wyq
    */
 
 
