@@ -52,14 +52,15 @@ function App(props) {
     <div className='editorCon'>
       <Header />
       <Content />
-      <main id="ediMain" className="pc-content">
+      {/* <main id="ediMain" className="pc-content">
         <div id="edit-container">
           <iframe src="/test" id='iframe' frameBorder="0" scrolling="no"></iframe>
         </div>
         <div className="property-modal">
           <div className="auxiliary" style={{ height: "6383.41px" }}>
             <div>
-              <div className="topNumber"><i className="rulertop"></i>
+              <div className="topNumber">
+              <i className="rulertop"></i>
                 <div className="rultopNum">
                   <ul className="topNber">
                     {
@@ -160,8 +161,8 @@ function App(props) {
             </div>
           </div>
         </div>
-      </main >
-      <Router />
+      </main > */}
+      {/* <Router /> */}
     </div>
   )
 }

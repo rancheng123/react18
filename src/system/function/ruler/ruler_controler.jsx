@@ -1,37 +1,17 @@
 /* eslint-disable */
 import React from 'react';
 import Dispatcher from '../../tools/dispatcher';
-import Rule from './ruler';
+// import Rule from './ruler';
 
 export default class RulerControler extends React.Component {
   constructor(props) {
     super(props);
     this.space = 100; //组件挂载前的初始化方法，整个生命周期内只执行一次
-
     this.init();
-    /**@property {Header} view 初始化 view 实例*/
-
-    this.view = new Rule(this); //给view 入口方法绑定this
-
-    this.view.render = this.view.render.bind(this.view);
-  }
-  /**
-   * @method render 挂载组件方法
-   * @date 2019-09-10
-   
-   * @return {object} 待渲染的组件对象
-   */
-
-
-  render() {
-    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-09-10
-   
    */
-
 
   init() {
     this.vertical = new Array(Math.ceil(1090 / this.space)).fill(0);
@@ -50,9 +30,7 @@ export default class RulerControler extends React.Component {
     };
   }
   /**
-   * @method componentDidMount 组件第一次挂载完毕执行方法
-   * @date 2020-01-07
-   
+   * @method componentDidMount 组件第一次挂载完毕执行方法   
    */
 
 
@@ -64,8 +42,6 @@ export default class RulerControler extends React.Component {
   }
   /**
    * @method componentWillUnmount 卸载组件时执行方法
-   * @date 2020-01-07
-   
    */
 
 
@@ -73,13 +49,11 @@ export default class RulerControler extends React.Component {
     Dispatcher.unregister("rulerHidden");
     Dispatcher.unregister("rulerHeight");
   }
+
   /**
    * @method getRuler 返回辅助线数据 
-   * @date 2020-02-24
-   * @author sxt 
    * @return {Object} guidHor和guidVer
    */
-
 
   getRuler() {
     let {
@@ -91,26 +65,22 @@ export default class RulerControler extends React.Component {
       guidVer: guidVer
     };
   }
+
   /**
    * @method close 关闭标尺 
-   * @date 2020-01-07
-   
    * @param {boolean} ishidden 布尔值 true 关闭 false 不关闭 
    */
-
 
   close(ishidden) {
     this.setState({
       hidden: ishidden
     });
   }
+
   /**
    * @method setWidth 设置宽度
-   * @date 2020-01-07
-   
    * @param {number} width 宽度值 
    */
-
 
   setWidth(width) {
     this.setState({
@@ -118,29 +88,25 @@ export default class RulerControler extends React.Component {
     });
     this.horizontal = new Array(Math.ceil(width / this.space)).fill(0);
   }
+
   /**
    * @method setTop 设置头部辅助线位置
-   * @date 2020-01-14
-   
    * @param {number} top top值 
    */
-
 
   setTop(top) {
     this.setState({
       top: top
     });
   }
+
   /**
    * @function drag 拖拽开始
-   * @date 2020-02-26
-   * @author sxt 
    * @param {String} type 类型
    * @param {String} id 当前项id
    * @param {String} i 当前项位置
    * @param {Object} event 事件对象
    */
-
 
   start(type, id, i, event) {
     try {
@@ -178,8 +144,6 @@ export default class RulerControler extends React.Component {
   }
   /**
    * @function drag 拖拽开始
-   * @date 2020-02-26
-   * @author sxt 
    * @param {Object} opts 位置数据
    * @param {Object} event 事件对象
    */
@@ -213,8 +177,6 @@ export default class RulerControler extends React.Component {
   }
   /**
   * @function end 拖拽结束
-  * @date 2020-02-26
-  * @author sxt 
   * @param {Object} opts 位置数据
   * @param {Object} event 事件对象
   */
@@ -401,6 +363,117 @@ export default class RulerControler extends React.Component {
     }).catch(error => console.log("Error", error));
   }
 
-}
 
-//# sourceURL=webpack:///./system/function/ruler/ruler_controler.js?
+
+  ruler(props) {
+    return (
+      <div
+        className={`${props.dir}Number`}
+        onClick={this.addGuid.bind(this, props.type)}
+      >
+        <i className={`ruler${props.dir}`}></i>
+        <div className={"rul" + props.dir + "Num"} style={props.style || null}>
+          <ul className={props.dir + "Nber"}>
+            {
+              props.numbers.map((item, index) => {
+                return <li key={index}>{index * this.space}</li>
+              }) 
+            }
+          </ul>
+        </div>
+      </div>
+    )
+  }
+
+  getGuid(type, event) {
+    let state = this.state || {};
+    let _data = [], idName = "";
+
+    if (type == "left") {
+      _data = state.guidHor || [];
+      idName = "guidHor-";
+    } else {
+      _data = state.guidVer || [];
+      idName = "ediCuscol-";
+    }
+
+    return _data.map((e, i) => {
+      let _id = e.id,
+          _value = e.value;
+
+      if (!_value) {
+        return null;
+      }
+
+      return (
+        <div 
+          className={_id.split("-")[0]} 
+          id={_id} 
+          key={_id} 
+          data-index={i} 
+          style={{ [type]: _value }}>
+          <div className="cusLines"></div>
+          <div className="cusLinCon">
+            <i 
+              className="iconfont" 
+              data-draggable="true" 
+              onMouseDown={this.start.bind(this,type, _id, i)}>
+                
+            </i>
+            <p className="cusLinNum">
+              <input
+                type="text"
+                className="coordinte"
+                placeholder={_value}
+                onFocus={this.focus.bind(this, i)}
+                onBlur={this.blur.bind(this, i)}
+                 />
+              <span>px</span>
+              <i className="iconfont" data-emname="del-guid" onClick={this.delete.bind(this, i, type)}></i>
+            </p>
+          </div>
+        </div>
+      )
+    });
+  }
+
+  
+  /**
+   * @method render 挂载组件方法
+   * @date 2019-09-10
+   
+   * @return {object} 待渲染的组件对象
+   */
+
+
+  render() {
+    return (
+      <div className='auxiliary' style={{height: this.props.height}}>
+        {
+          !this.state.hidden && (
+            <div>
+                {
+                  this.ruler({ numbers: this.horizontal, dir: "top", type: "guidHor"})
+                }
+                {
+                  this.ruler({ numbers: this.vertical, dir: "right", type: "guidVer"})
+                }
+                <div id="horizontal">
+                  {this.getGuid("left")}
+                </div>
+                <div id="vertical">
+                  {this.getGuid("top")}
+                </div>
+            </div>
+          )
+        }
+        <div class="ediLines">
+          <div class="ediConLines">
+            <div class="eLines eLi3" style={{top: this.state.top}} />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+}

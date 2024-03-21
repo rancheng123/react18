@@ -1,10 +1,11 @@
 import React from 'react'
 
 export default class Content extends React.Component {
-  constructor(controler) {
-    super(controler)
+  constructor(props) {
+    super(props);
+    console.log(props.init, '哈哈哈哈')
     /**@property controler header控制器实例 */
-    this.controler = controler;
+    this.controler = props;
     /**@property toolbars 工具栏配置 */
 
     this.toolbars = [{
@@ -29,8 +30,7 @@ export default class Content extends React.Component {
       type: "collection"
     }]; //绑定this
 
-    this.state = controler.state
-    this.props = controler.props
+    this.state = props.state
 
     this.iframe = this.iframe.bind(this);
   }
@@ -62,11 +62,23 @@ export default class Content extends React.Component {
       };
     }
 
+    const siteId = window.pageData.siteId;
+
     const dom = (
       <div id='ediMain' className={`${type}-content`} style={_style}>
-        
+        <div id='edit-container'>
+          <iframe 
+            id="iframe"
+            scrolling="no"
+            // onLoad={this.props.load.bind(this.props)}
+            src={`/test.html`} 
+            // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
+          />
+        </div>
       </div>
     )
+
+    return dom
 
     return React.createElement("main", {
       id: "ediMain",

@@ -1,7 +1,7 @@
 import React from 'react'
 import Dispatcher from "../../system/tools/dispatcher";
 import Content from './content'
-// import RulerControler from '../../system/function/ruler/ruler_controler'
+import RulerControler from '../../system/function/ruler/ruler_controler'
 // import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler'
 
 export default class ContentControler extends React.Component {
@@ -21,18 +21,8 @@ export default class ContentControler extends React.Component {
     this.view.render = this.view.render.bind(this.view);
   }
   /**
-   * @method render 挂载组件方法
-   * @return {object} 待渲染的组件对象
-   */
-
-
-  render() {
-    return <Content {...this} />
-  }
-  /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次 
    */
-
 
   init() {
     const location = window.public.location;
@@ -354,8 +344,6 @@ export default class ContentControler extends React.Component {
   }
   /**
    * @method Designpageclick 模拟点击属性面板
-   * @data 2021-1-28
-   * @author lw
    */
 
 
@@ -366,7 +354,47 @@ export default class ContentControler extends React.Component {
       designIcoclick.click();
     }
   }
+  
+  /**
+   * @method render 挂载组件方法
+   * @return {object} 待渲染的组件对象
+   */
 
+
+  render() {
+    console.log(this, 'heiheihei')
+    const {state: { type, height, rulerShow, edibtn }} = this;
+    let _style = null;
+
+    if (type == 'pc' && rulerShow) {
+      _style = {top: "60px", height: "calc(100% - 60px)"};
+    } //页面为pc，并且头部工具栏隐藏时，top变化 sxt 2022-12-12
+
+    if (type == 'pc' && !edibtn) {
+      _style = {
+        top: "20px",
+        height: "calc(100% - 20px)"
+      };
+    }
+
+    const siteId = window.pageData.siteId;
+    return (
+      <div id='ediMain' className={`${type}-content`} style={_style}>
+        <div id='edit-container'>
+          <iframe 
+            id="iframe"
+            scrolling="no"
+            // onLoad={this.props.load.bind(this.props)}
+            src={`/test.html`} 
+            // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
+          />
+        </div>
+        <div className='property-modal'>
+          {
+            type == 'pc' && !rulerShow ? <RulerControler height={height} /> : null
+          }
+        </div>
+      </div>
+    )
+  }
 }
-
-//# sourceURL=webpack:///./ui/content/content_controler.js?
