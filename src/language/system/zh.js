@@ -21,6 +21,7 @@ window.public.lang = {
     backOff:'后退(Ctrl + z)',
     forwards:'前进(Ctrl + y)',
     ComputerEditing:'电脑编辑',
+    ipadEditing:'平板编辑',
     MobileEditing :'移动编辑',
     OnlineService:'在线客服',
     preservation:'保存',

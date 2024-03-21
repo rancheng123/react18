@@ -26,9 +26,38 @@
 /*left*/
 .ediHeLeft {
 	float: left;
+	display:flex;
+	height: 32px;
+	align-items: center;
 }
 
-.edipage,.lanpage{
+.ediHeLeft .ediDevice{
+}
+
+.ediHeLeft .ediDevice ul  {
+	display: flex;
+}
+.ediHeLeft .ediDevice ul li {
+	width:46px;
+	height: 32px;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 32px;
+	margin-left: 10px;
+	color: #6E7289;
+	background-color: #272D47;
+}
+.ediHeLeft .ediDevice ul li:hover{
+	color: #fff;
+	background-color: #7E4DF7;
+}
+.ediHeLeft .ediDevice ul li a{
+	font-size:14px;
+	color: inherit;
+}
+
+
+/* .edipage,.lanpage{
 	width: 240px;
 	height: 36px;
 	line-height: 36px;
@@ -38,16 +67,16 @@
 	font-size: 16px;
 	vertical-align: top;
 	cursor: pointer;
-}
-.lanpage{ width:150px; margin-left: 2px; padding-left: 5px;}
-
+} */
+/* .lanpage{ width:150px; margin-left: 2px; padding-left: 5px;} */
+/* 
 .edipage .iconfont,.lanpage .iconfont{
 	color: #f2f2f2;
 	padding-left: 5px;
 	float: left;
 	position: relative;
 	top: 2px;
-}
+} */
 
 .pageBtn {
 	cursor: pointer;
@@ -58,15 +87,32 @@
 	color: #fff;
 }
 
-.edipage span,.lanpage span{
+/* .edipage span,.lanpage span{
 	font-size: 14px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	float: left;
 }
-.edipage span{width: calc(100% - 52px);}
 .lanpage span{width: calc(100% - 30px);}
+.langSelect .ant-select-selector {
+	color: #fff;
+	background: #323A5B !important;
+	border-radius: 4px !important;
+	border:0 !important;
+}
+.langSelect  .ant-select-selection-item{
+	color: #fff !important;
+}
+.langSelect .ant-select-arrow{
+	color: #fff !important; 
+
+}
+.langSelectChild{
+	color:inherit;
+	font-size: 14px;
+} */
+
 
 .rulerPos {
 	display: inline-block;
@@ -115,9 +161,9 @@
 }
 
 .Pos input:hover,
-.edipage:hover,.lanpage:hover {
+/* .edipage:hover,.lanpage:hover {
 	background: rgba(14, 15, 18, 1);
-}
+} */
 
 .ediHeLeft>span {
 	color: #f2f2f2;
@@ -139,7 +185,8 @@
 .ediHeRight ul {
 	width: 100%;
 	white-space: normal;
-  margin: 0;
+  	margin: 0;
+	overflow: hidden;
 }
 
 .ediHeRight ul li {
@@ -155,32 +202,46 @@
   border-radius: 4px;
 }
 .ediHeRight ul li i.versionName{border: 1px solid #ddd; border-radius: 2px;padding: 1px 3px;transform: skewX(-25deg);-webkit-transform: skewX(-25deg); -moz-transform: skewX(-25deg);display: inline-block; height: 16px;line-height: 16px; font-size: 10px;}
-.ediHeRight ul li .iconfont {
-	color: #f2f2f2;
-}
+/* .ediHeRight ul li .iconfont {
+	color: #6E7289;
+} */
 
 .ediHeRight ul li a {
 	font-size: 13px;
-	color: #f2f2f2;
-	padding: 8px;
+	color: #6E7289;
+	/* padding: 8px; */
 	/* min-width: 48px; */
 	box-sizing: border-box;
 	display: block;
 	text-align: center;
 	height: 32px;
-  width: 32px;
-	/* line-height: 32px; */
+ 	width: 32px;
+	line-height: 32px;
 	transition: background 0.15s ease-in;
 	transition-delay: 0.15s;
+}
+.ediHeRight ul .textBtn{
+	padding:0 16px;
+}
+.ediHeRight ul .textBtn:hover{
+	background: #116DFF;
+}
+
+.ediHeRight ul .firstTextBtn{
+	margin-left:30px;
 }
 .ediHeRight .e_ulBox li:nth-child(2) a i{font-size: 12px;}
 .btn {
   border: 1px solid #6E7289;
   height: 32px;
+  line-height: 32px;
   width: auto !important;
 }
 .btn>a {
   width: auto !important;
+}
+.ediHeRight ul li a .iconfont {
+	font-size: 14px;
 }
 @media screen and (max-width: 1024px) {
 	.edipage {
@@ -289,7 +350,7 @@
 }
 
 .ediHeRight ul li a:hover,
-.ediHeRight ul li .iconfont:hover {
+.ediHeRight ul li:hover a{
 	color: #fff;
 }
 

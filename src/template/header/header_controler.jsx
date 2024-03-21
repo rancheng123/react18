@@ -1,7 +1,10 @@
 import React from 'react'
-import Dispatcher from '../../system/tools/dispatcher';
-import Header from './header';
-import History from '../../system/tools/history';
+import Dispatcher from '@/system/tools/dispatcher';
+import History from '@/system/tools/history';
+import logo from '@/assets/image/logo.png'
+import { Select,Button} from 'antd';
+import './header.less'
+import EditPage from './editPage.jsx'
 
 /**
  * @class {HeaderControler} 编辑页头部控制器类
@@ -16,15 +19,18 @@ export default class HeaderControler extends React.Component {
     this.btn_list = [//将语言包内的数组改为JSON格式 headList lw 2020-12-11   
       {
         "event": "rulerShow",
-        'title': window.public.lang.guide
+        'title': window.public.lang.guide,
+        'iconName': "&#xe76f;"
       },
       {
         "event": "rulerShow",
-        'title': window.public.lang.image
+        'title': window.public.lang.image,
+        'iconName': "&#xe78d;"
       },
       {
         "event": "rulerShow",
-        'title': window.public.lang.font
+        'title': window.public.lang.font,
+        'iconName': "&#xe76a;"
       }, {
         "event": "showHidden",
         "iconName": "&#xe7a1;",
@@ -35,40 +41,86 @@ export default class HeaderControler extends React.Component {
       {"iconClass":"iconfont","iconName":"&#xe771;","event":"redo",'title':window.public.lang.forwards},
       // {
       //   "iconName": "",
-      //   "iconClass": "yiyingbaoicon",
+      //   "iconClass": "",
       //   "event": "switchPcEdit",
       //   'title': window.public.lang.ComputerEditing
       // }, {
       //   "iconName": "",
-      //   "iconClass": "yiyingbaoicon",
+      //   "iconClass": "",
       //   "event": "switchMoEdit",
       //   'title': window.public.lang.MobileEditing
       // },
       {
         "event": "preview",
-        'title': window.public.lang.preview
+        'title': window.public.lang.preview,
+        'iconName': window.public.lang.preview,
+        className: 'btn textBtn firstTextBtn'
       }, //判断是否上线，上线显示发布，不上线不显示发布
        {
         "event": "save",
-        'title': window.public.lang.preservation
+        'title': window.public.lang.preservation,
+        'iconName': window.public.lang.preservation,
+        className: 'btn textBtn'
       },
       window.pageData.onlineSite == 0 ? null : {
         "event": "publish",
-        'title': window.public.lang.release
+        'title': window.public.lang.release,
+        className: 'btn textBtn',
+        iconName: window.public.lang.release
       }, {
         "event": "manage",
-        'title': window.public.lang.returnAdministration
-      }, window.pageData.revert === "0" ? null : {
-        "href": window.pageData.backUrl || "/index.php/webinfo/myWeb",
-        'title': window.public.lang.return
+        'title': window.public.lang.returnAdministration,
+        className: 'btn textBtn',
+        iconName: window.public.lang.returnAdministration
       }]; //组件挂载前的初始化方法，整个生命周期内只执行一次
+    
+    
+    // 设备数据
+    this.device_list = [
+      {
+        "event": "switchPcEdit",
+        'title': window.public.lang.ComputerEditing,
+        'iconName': "&#xe772;"
+      },
+      {
+        "event": "switchPcEdit",
+        'title': window.public.lang.ipadEditing,
+        'iconName': "&#xe768;"
+      },
+      {
+        "event": "switchMoEdit",
+        'title': window.public.lang.MobileEditing,
+        'iconName': "&#xe76c;"
+      },
+    ] 
+
+    // 语言数据
+    this.lang_list= [
+      'Chinese', 'German' ,'Arabic', 'Spanish' ,'Korean' ,'Italian'
+    ]
+
+    // 页面数据
+    this.page_list = [
+      '产品列表页',
+      '产品详情页',
+      '案例列表页',
+      '案例详情页',
+      '新闻列表页',
+      '新闻详情页',
+      '下载列表页',
+      'FAQ列表页',
+      '证书列表页',
+      '视频列表页',
+      '单页',
+      '空白页',
+    ]
 
     this.init();
     /**@property {Header} view 初始化 view 实例*/
 
-    this.view = new Header(this); //给view 入口方法绑定this
+    // this.view = new Header(this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
   }
   /**
    * @method render 挂载组件方法
@@ -77,7 +129,110 @@ export default class HeaderControler extends React.Component {
 
   render() {
     console.log(this.switchPcEdit, '’急啊急啊纠结啊')
-    return this.view.render()
+    return (
+      <header id="ediHeader">
+        <div className="ediHeLeft">
+          <img src={logo} width="128" />
+          {/* <div className="edipage">
+            <i className="iconfont">&#xe67e;</i>
+            <span>当前页面:HOME</span>
+            <i className="iconfont pageBtn"></i>
+          </div> */}
+          <div className="ediLang">
+            <Select
+              className='langSelect'
+              defaultValue="Chinese"
+              style={{ width: '150px',height:"32px"}}
+              options={[
+                {
+                  label: <span className='langSelectTitle'>我的网站语言</span>,
+                  title:"lang",
+                  options: this.lang_list.map((item,index)=>{
+                    return (
+                      {
+                        label:<span className='langSelectChild' key={item}>{item}</span>,
+                        value:item
+                      }
+                    )
+                  }),
+                }
+              ]}
+            />
+            <Button type="primary" className='translateBtn'>翻译</Button>
+          </div>
+
+          <div className="edipage">
+            <EditPage pageList={this.page_list}/>
+          </div>
+
+          <div className='ediDevice'>
+              <ul>
+                {
+                  this.device_list.map((item, index) => {
+                    return (
+                      <li
+                        key={item.event}
+                        id={item.event}
+                        title={item.title}
+                        className={item.className}
+                        onClick={item.event ? this[item.event].bind(this) : () => {}}
+                      >
+                        <a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a> 
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+          </div>
+        </div>
+        
+        <div className="ediHeRight">
+          <ul className="e_ulBox">
+            {
+              this.btn_list.map((item, index) => {
+                // console.log(item.event, this[item.event])
+                if (!item) return null
+                return (
+                  <li
+                    key={index}
+                    id={item.event}
+                    title={item.title}
+                    className={item.className}
+                    onClick={item.event ? this[item.event].bind(this) : () => {}}
+                  >
+                    {
+                      // item.event === 'rulerShow' ? (
+                      //   <a>
+                      //     <svg t="1582531184791" width="22" height="22" className="icon" fill='#7E4DF7'
+                      //       viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5778">
+                      //       <path
+                      //         d="M413.84598 635.535515h292.849778V342.685737H413.84598v292.849778z m341.656565 97.614869v48.806788h97.620041v-48.806788h-97.620041z m-146.421656 48.806788h97.614869v-48.806788h-97.614869v48.806788z m-146.428121 0h97.62004v-48.806788h-97.62004v48.806788z m-146.42295 0h97.614869v-48.806788h-97.614869v48.806788zM169.80299 733.150384v48.806788h97.614869v-48.806788H169.80299z m97.614869 146.426828h48.811959v-97.62004h-48.811959v97.62004z m48.811959-244.041697h-48.811959v97.614869h48.811959v-97.614869z m0-146.428121h-48.811959v97.62004h48.811959v-97.62004z m0-146.421657h-48.811959v97.614869h48.811959v-97.614869z m0-146.428121h-48.811959v97.614869h48.811959v-97.614869z"
+                      //         p-id="5779" fill="#ffffff"></path>
+                      //     </svg></a>
+                      // ) : (<a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a>)
+
+                      <a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a>
+                    }
+                  </li>
+                )
+              })
+            }
+
+            {/* <li title="组件显示/隐藏" onClick={() => hanlderIcon('showHidden')} id="showHidden"><a>{state.showHidden ? <i className="iconfont">&#xe7a1;</i> : <i className="iconfont">&#xe798;</i>}</a></li>
+            <li title="图片" id="showImage"><a><i className="iconfont">&#xe78d;</i></a></li>
+            <li title="字体" id="showFont"><a><i className="iconfont">&#xe76a;</i></a></li>
+
+            <li title="撤销" id="switchPcEdit"><a><i className="iconfont">&#xe775;</i></a></li>
+            <li title="恢复" id="switchMoEdit"><a><i className="iconfont">&#xe771;</i></a></li>
+            <li title="预览" id="preview" className='btn'><a><i>预览</i></a></li>
+            <li title="保存" id="save" className='btn'><a><i>保存</i></a></li>
+            <li title="发布" id="manage" className='btn'><a><i>发布</i></a></li>
+            <li title="返回后台" className='btn'><a href="/"><i>返回后台</i></a></li> */}
+          </ul>
+        </div>
+        <div className="hideBtn" data-hidden="false"><i className="iconfont"></i></div>
+      </header>
+    ) 
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -181,8 +336,6 @@ export default class HeaderControler extends React.Component {
   }
   /**
    * @method progress 创建或删除进度条
-   * @date 2019-11-29
-   
    * @param {object} element 元素节点 
    * @param {object} action  执行行为
    */
