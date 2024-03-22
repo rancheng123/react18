@@ -3,8 +3,8 @@ import Dispatcher from '@/system/tools/dispatcher';
 import History from '@/system/tools/history';
 import logo from '@/assets/image/logo.png'
 import { Select,Button} from 'antd';
-import './header.less'
 import EditPage from './editPage.jsx'
+import styles from './header.module.less'
 
 /**
  * @class {HeaderControler} 编辑页头部控制器类
@@ -138,19 +138,19 @@ export default class HeaderControler extends React.Component {
             <span>当前页面:HOME</span>
             <i className="iconfont pageBtn"></i>
           </div> */}
-          <div className="ediLang">
+          <div className={styles.ediLang}>
             <Select
-              className='langSelect'
+              className={styles.langSelect}
               defaultValue="Chinese"
               style={{ width: '150px',height:"32px"}}
               options={[
                 {
-                  label: <span className='langSelectTitle'>我的网站语言</span>,
+                  label: <span className={styles.langSelectTitle}>我的网站语言</span>,
                   title:"lang",
                   options: this.lang_list.map((item,index)=>{
                     return (
                       {
-                        label:<span className='langSelectChild' key={item}>{item}</span>,
+                        label:<span className={styles.langSelectChild} key={item}>{item}</span>,
                         value:item
                       }
                     )
@@ -158,14 +158,14 @@ export default class HeaderControler extends React.Component {
                 }
               ]}
             />
-            <Button type="primary" className='translateBtn'>翻译</Button>
+            <Button type="primary" className={styles.translateBtn}>翻译</Button>
           </div>
 
-          <div className="edipage">
+          <div className={styles.edipage}>
             <EditPage pageList={this.page_list}/>
           </div>
 
-          <div className='ediDevice'>
+          <div className={styles.ediDevice}>
               <ul>
                 {
                   this.device_list.map((item, index) => {

@@ -3,38 +3,39 @@
 /* 公用 */
 
 .eidtorAll {
-	position: relative;
-	height: 100vh;
-	width: 100%;
+  position: relative;
+  height: 100vh;
+  width: 100%;
 }
 
-.editorCon {z-index: 0;height: 100%;width: 100%;}
+.editorCon {
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+}
 
 /*header start*/
 #ediHeader {
-	width: 100%;
-	height: 60px;
-	background-color: #1A1C33;
-	position: fixed;
-	top: 0px;
-	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
-	transition: top 0.3s ease-in;
+  width: 100%;
+  height: 60px;
+  background-color: #1a1c33;
+  position: fixed;
+  top: 0px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+  transition: top 0.3s ease-in;
   padding: 14px 30px;
   box-sizing: border-box;
 }
 
 /*left*/
 .ediHeLeft {
-	float: left;
-	display:flex;
-	height: 32px;
-	align-items: center;
+  float: left;
+  display: flex;
+  height: 32px;
+  align-items: center;
 }
 
-.ediHeLeft .ediDevice{
-}
-
-.ediHeLeft .ediDevice ul  {
+/* .ediHeLeft .ediDevice ul  {
 	display: flex;
 }
 .ediHeLeft .ediDevice ul li {
@@ -54,8 +55,7 @@
 .ediHeLeft .ediDevice ul li a{
 	font-size:14px;
 	color: inherit;
-}
-
+} */
 
 /* .edipage,.lanpage{
 	width: 240px;
@@ -79,12 +79,12 @@
 } */
 
 .pageBtn {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .pageBtn:hover,
 .pageBtn.on {
-	color: #fff;
+  color: #fff;
 }
 
 /* .edipage span,.lanpage span{
@@ -113,51 +113,50 @@
 	font-size: 14px;
 } */
 
-
 .rulerPos {
-	display: inline-block;
-	vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .rulerPos ul li {
-	float: left;
-	color: #f2f2f2;
-	padding: 5px;
+  float: left;
+  color: #f2f2f2;
+  padding: 5px;
 }
 
 .rulerPos ul li h5 {
-	float: left;
-	font-size: 12px;
-	padding-right: 5px;
+  float: left;
+  font-size: 12px;
+  padding-right: 5px;
 }
 
 .Pos {
-	float: left;
-	position: relative;
+  float: left;
+  position: relative;
 }
 
 .Pos input {
-	font-size: 10px;
-	background: #1c202e;
-	border-radius: 4px;
-	border: 0px;
-	width: 38px;
-	height: 20px;
-	position: relative;
-	top: 2px;
-	color: #ccc;
+  font-size: 10px;
+  background: #1c202e;
+  border-radius: 4px;
+  border: 0px;
+  width: 38px;
+  height: 20px;
+  position: relative;
+  top: 2px;
+  color: #ccc;
 }
 
 .Pos input:disabled,
 .Pos input:hover:disabled {
-	opacity: 0.4;
-	pointer-events: none;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .Pos input::-webkit-outer-spin-button,
 .Pos input::-webkit-inner-spin-button {
-	opacity: 0;
-	display: none;
+  opacity: 0;
+  display: none;
 }
 
 .Pos input:hover,
@@ -166,572 +165,696 @@
 } */
 
 .ediHeLeft>span {
-	color: #f2f2f2;
-	font-size: 12px;
-	padding: 0px 5px;
-	vertical-align: middle;
-	min-width: 20px;
-	display: inline-block;
-	text-align: center;
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 0px 5px;
+  vertical-align: middle;
+  min-width: 20px;
+  display: inline-block;
+  text-align: center;
 }
 
 /*right*/
 .ediHeRight {
-	position: absolute;
-	top: 0;
-	right: 30px;
+  position: absolute;
+  top: 0;
+  right: 30px;
 }
 
 .ediHeRight ul {
-	width: 100%;
-	white-space: normal;
-  	margin: 0;
-	overflow: hidden;
+  width: 100%;
+  white-space: normal;
+  margin: 0;
+  overflow: hidden;
 }
 
 .ediHeRight ul li {
-	float: left;
-	/* border-left: 1px solid rgba(224, 224, 224, 0.2); */
-	position: relative;
-	text-align: center;
-	cursor: pointer;
-	transition: all 0.4s;
+  float: left;
+  /* border-left: 1px solid rgba(224, 224, 224, 0.2); */
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s;
   margin-top: 14px;
-  background: #272D47;
+  background: #272d47;
   margin-left: 10px;
   border-radius: 4px;
 }
-.ediHeRight ul li i.versionName{border: 1px solid #ddd; border-radius: 2px;padding: 1px 3px;transform: skewX(-25deg);-webkit-transform: skewX(-25deg); -moz-transform: skewX(-25deg);display: inline-block; height: 16px;line-height: 16px; font-size: 10px;}
+.ediHeRight ul li i.versionName {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 1px 3px;
+  transform: skewX(-25deg);
+  -webkit-transform: skewX(-25deg);
+  -moz-transform: skewX(-25deg);
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  font-size: 10px;
+}
 /* .ediHeRight ul li .iconfont {
 	color: #6E7289;
 } */
 
 .ediHeRight ul li a {
-	font-size: 13px;
-	color: #6E7289;
-	/* padding: 8px; */
-	/* min-width: 48px; */
-	box-sizing: border-box;
-	display: block;
-	text-align: center;
-	height: 32px;
- 	width: 32px;
-	line-height: 32px;
-	transition: background 0.15s ease-in;
-	transition-delay: 0.15s;
+  font-size: 13px;
+  color: #6e7289;
+  /* padding: 8px; */
+  /* min-width: 48px; */
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  transition: background 0.15s ease-in;
+  transition-delay: 0.15s;
 }
-.ediHeRight ul .textBtn{
-	padding:0 16px;
+.ediHeRight ul .textBtn {
+  padding: 0 16px;
 }
-.ediHeRight ul .textBtn:hover{
-	background: #116DFF;
+.ediHeRight ul .textBtn:hover {
+  background: #116dff;
 }
 
-.ediHeRight ul .firstTextBtn{
-	margin-left:30px;
+.ediHeRight ul .firstTextBtn {
+  margin-left: 30px;
 }
-.ediHeRight .e_ulBox li:nth-child(2) a i{font-size: 12px;}
+.ediHeRight .e_ulBox li:nth-child(2) a i {
+  font-size: 12px;
+}
 .btn {
-  border: 1px solid #6E7289;
+  border: 1px solid #6e7289;
   height: 32px;
   line-height: 32px;
   width: auto !important;
 }
-.btn>a {
+.btn > a {
   width: auto !important;
 }
 .ediHeRight ul li a .iconfont {
-	font-size: 14px;
+  font-size: 14px;
 }
 @media screen and (max-width: 1024px) {
-	.edipage {
-		width: 200px;
-	}
-	.lanClick{left:349px;}
-	.ediHeRight ul li a {
-		padding: 0px 2px;
-		min-width: 46px;
-		font-size: 13px;
-	}
+  .edipage {
+    width: 200px;
+  }
+  .lanClick {
+    left: 349px;
+  }
+  .ediHeRight ul li a {
+    padding: 0px 2px;
+    min-width: 46px;
+    font-size: 13px;
+  }
 
-	.ediHeLeft>span {
-		min-width: 4px;
-		padding: 0px;
-		display: none;
-	}
+  .ediHeLeft > span {
+    min-width: 4px;
+    padding: 0px;
+    display: none;
+  }
 
-	.Pos input {
-		width: 32px;
-	}
+  .Pos input {
+    width: 32px;
+  }
 
-	.rultopNum .topNber li:last-child {
-		display: none;
-	}
+  .rultopNum .topNber li:last-child {
+    display: none;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-	.edipage {
-		width: 200px;
-	}
-	.lanClick{left:349px;}
+  .edipage {
+    width: 200px;
+  }
+  .lanClick {
+    left: 349px;
+  }
 
-	.ediHeRight ul li a {
-		padding: 8px;
-		/* min-width: 46px; */
-		font-size: 13px;
-	}
+  .ediHeRight ul li a {
+    padding: 8px;
+    /* min-width: 46px; */
+    font-size: 13px;
+  }
 
-	.rulerPos ul li {
-		padding: 5px 2px;
-	}
+  .rulerPos ul li {
+    padding: 5px 2px;
+  }
 
-	.ediHeLeft>span {
-		min-width: 4px;
-		padding: 0px;
-		display: none;
-	}
+  .ediHeLeft > span {
+    min-width: 4px;
+    padding: 0px;
+    display: none;
+  }
 
-	.Pos input {
-		width: 32px;
-	}
+  .Pos input {
+    width: 32px;
+  }
 
-	.rultopNum .topNber li:last-child {
-		display: none;
-	}
+  .rultopNum .topNber li:last-child {
+    display: none;
+  }
 }
 
 @media (min-width: 1281px) and (max-width: 1440px) {
-	.edipage {
-		width: 200px;
-	}
-	.lanClick{left:349px;}
+  .edipage {
+    width: 200px;
+  }
+  .lanClick {
+    left: 349px;
+  }
 
-	.ediHeRight ul li a {
-		padding: 0px 2px;
-		min-width: 52px;
-	}
+  .ediHeRight ul li a {
+    padding: 0px 2px;
+    min-width: 52px;
+  }
 
-	.rulerPos ul li {
-		padding: 5px 2px;
-	}
+  .rulerPos ul li {
+    padding: 5px 2px;
+  }
 
-	.ediHeLeft>span {
-		min-width: 4px;
-		padding: 0px;
-	}
+  .ediHeLeft > span {
+    min-width: 4px;
+    padding: 0px;
+  }
 
-	.Pos input {
-		width: 32px;
-	}
+  .Pos input {
+    width: 32px;
+  }
 }
 
 @media screen and (max-width: 1200px) {
-	.rulerPos {
-		width: 143px;
-	}
+  .rulerPos {
+    width: 143px;
+  }
 
-	.rulerPos ul li {
-		padding: 1px 2px
-	}
+  .rulerPos ul li {
+    padding: 1px 2px;
+  }
 
-	.rulerPos ul>li:first-child,
-	.rulerPos ul>li:nth-child(3) {
-		width: 84px;
-	}
+  .rulerPos ul > li:first-child,
+  .rulerPos ul > li:nth-child(3) {
+    width: 84px;
+  }
 
-	.rulerPos ul>li:last-child,
-	.rulerPos ul>li:nth-child(2) {
-		width: 56px;
-	}
+  .rulerPos ul > li:last-child,
+  .rulerPos ul > li:nth-child(2) {
+    width: 56px;
+  }
 
-	.rulerPos ul>li:nth-child(2) {
-		padding-left: 6px;
-	}
+  .rulerPos ul > li:nth-child(2) {
+    padding-left: 6px;
+  }
 }
 
 .ediHeRight ul li a:hover,
-.ediHeRight ul li:hover a{
-	color: #fff;
+.ediHeRight ul li:hover a {
+  color: #fff;
 }
 
 .ediHeRight ul li:hover,
 .ediHeRight ul li.on {
-	background: #7E4DF7;
+  background: #7e4df7;
 }
 
 .hideBtn {
-	height: 18px;
-	width: 110px;
-	background: #1c202e;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	position: fixed;
-	top: 0px;
-	left: calc(50% - 55px);
-	text-align: center;
-	transition: background 0.15s ease-in;
-	transition-delay: 0.15s;
-	cursor: pointer;
+  height: 18px;
+  width: 110px;
+  background: #1c202e;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: fixed;
+  top: 0px;
+  left: calc(50% - 55px);
+  text-align: center;
+  transition: background 0.15s ease-in;
+  transition-delay: 0.15s;
+  cursor: pointer;
 }
 
 .hideBtn .iconfont {
-	color: rgba(242, 242, 242, 0.5);
-	line-height: 15px;
-	font-size: 1.2rem;
+  color: rgba(242, 242, 242, 0.5);
+  line-height: 15px;
+  font-size: 1.2rem;
 }
 
 .hideBtn .iconfont.on {
-	display: none;
+  display: none;
 }
 
 .hideBtn:hover {
-	background: #2196f3;
+  background: #2196f3;
 }
 
 /*媒体查询*/
 .takeBack {
-	top: -58px !important;
+  top: -58px !important;
 }
 
 /*客服*/
 .qqkfIcon {
-	width: 22px;
-	cursor: pointer;
-	position: relative;
-	transform: scale(1);
-	transform: rotateY(0deg);
-	-webkit-transition: transform 0.3s ease-in, top 0.3s, left 0.3s;
-	-moz-transition: transform 0.3s ease-in, top 0.3s, left 0.3s;
-	transition: transform 0.3s ease-in, top 0.3s, left 0.3s;
-	-webkit-animation-duration: 1s;
-	animation-duration: 1s;
-	animation-fill-mode: both;
-	background: url(../images/QQicon.png) no-repeat center center;
-	background-size: 100%;
-	height: 100%;
-	display: inline-block;
+  width: 22px;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1);
+  transform: rotateY(0deg);
+  -webkit-transition: transform 0.3s ease-in, top 0.3s, left 0.3s;
+  -moz-transition: transform 0.3s ease-in, top 0.3s, left 0.3s;
+  transition: transform 0.3s ease-in, top 0.3s, left 0.3s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  background: url(../images/QQicon.png) no-repeat center center;
+  background-size: 100%;
+  height: 100%;
+  display: inline-block;
 }
 
 .qqkfIcon:hover {
-	animation-name: bounceCon;
-	-webkit-animation-name: bounceCon;
+  animation-name: bounceCon;
+  -webkit-animation-name: bounceCon;
 }
 
 @-webkit-keyframes bounceCon {
-	40% {
-		-webkit-transform: translateY(-5px);
-		-ms-transform: translateY(-5px);
-		transform: translateY(-5px);
-	}
+  40% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
 
-	60% {
-		-webkit-transform: translateY(-5px);
-		-ms-transform: translateY(-5px);
-		transform: translateY(-5px);
-	}
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
 
-	0%,
-	20%,
-	50%,
-	80% {
-		-webkit-transform: translateY(0);
-		-ms-transform: translateY(0);
-		transform: translateY(0);
-	}
+  0%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
 
-	100% {
-		-webkit-transform: translateY(0);
-		-ms-transform: translateY(0);
-		transform: translateY(0);
-	}
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 
 /*2018-8-25 wp 媒体查询*/
 @media screen and (max-width: 1366px) {
-	.ediHeRight ul li a {padding: 8px;}
-	.edipage {	width: 200px;}
-	.lanClick{left:349px;}
+  .ediHeRight ul li a {
+    padding: 8px;
+  }
+  .edipage {
+    width: 200px;
+  }
+  .lanClick {
+    left: 349px;
+  }
 }
 
 /*header end*/
-#ediMain {width: 100%;position: relative;top: 80px;height: calc(100% - 80px);transition: 0.4s ease-in-out top, 0.4s ease-in-out height;}
-#ediMain.mo-content {width: 375px;height: 100%;max-height: calc(100% - 100px);box-sizing: border-box;margin: 0 auto; box-shadow: 0 0 8px rgba(0,0,0,0.1);padding: 0;}
-#ediMain.mo-content #edit-container .container{padding: 0; margin: 0;width: 100%;}
-#edit-container {width: 100%;height: 100%;position: absolute;top: 0;overflow-x: hidden;overflow-y: scroll;}
-.contentUp {top: 0px !important;height: calc(100% - 0px) !important;}
-.auxiliary {width: 100%;height: 100%;overflow: hidden;position: relative;}
-.auxiliary>div {height: 100%;}
-.property-modal {width: 100%;height: 100%;position: absolute;top: 0;overflow-y: scroll;overflow-x: hidden;}
-#ediMain.mo-content .property-modal::-webkit-scrollbar,#ediMain.mo-content #edit-container::-webkit-scrollbar{width: 0px;background-color: #ddd;}
-#ediMain.mo-content .property-modal::-webkit-scrollbar-track,#ediMain.mo-content #edit-container::-webkit-scrollbar-track{ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); border-radius: 10px; background-color: #F5F5F5;}
-#ediMain.mo-content .property-modal::-webkit-scrollbar-thumb,#ediMain.mo-content #edit-container::-webkit-scrollbar-thumb
-{border-radius: 6px;-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.3); background-color: #ccc;}
-#selected-mask {position: absolute;top: 0;width: 100%;overflow: hidden;height: 100%;}
-.remo_help{ display: block; padding: 2px 13px;width:320px;top:0px;left:400px; box-sizing: border-box; border: 1px dashed #f8eca8; position: absolute;border-radius:3px; background-color: #fdfceb;color: #999;font-size: 13px;line-height: 21px;}
-.remo_help::before{content: '';position: absolute;left:-10px;border:5px solid transparent;border-right-color: #fdfceb;top:7px;z-index: 2;}
-.remo_help::after{content: '';position: absolute;left:-12px;border:6px solid transparent;border-right-color: #f8eca8;top:6px;z-index: 1;}
-.remo_help i{font-style: normal; font-size: 24px;font-weight: 200;position: absolute; right: 0px;top: 2px;}
+#ediMain {
+  width: 100%;
+  position: relative;
+  top: 80px;
+  height: calc(100% - 80px);
+  transition: 0.4s ease-in-out top, 0.4s ease-in-out height;
+}
+#ediMain.mo-content {
+  width: 375px;
+  height: 100%;
+  max-height: calc(100% - 100px);
+  box-sizing: border-box;
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+#ediMain.mo-content #edit-container .container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+#edit-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.contentUp {
+  top: 0px !important;
+  height: calc(100% - 0px) !important;
+}
+.auxiliary {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.auxiliary > div {
+  height: 100%;
+}
+.property-modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#ediMain.mo-content .property-modal::-webkit-scrollbar,
+#ediMain.mo-content #edit-container::-webkit-scrollbar {
+  width: 0px;
+  background-color: #ddd;
+}
+#ediMain.mo-content .property-modal::-webkit-scrollbar-track,
+#ediMain.mo-content #edit-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+#ediMain.mo-content .property-modal::-webkit-scrollbar-thumb,
+#ediMain.mo-content #edit-container::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  background-color: #ccc;
+}
+#selected-mask {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+.remo_help {
+  display: block;
+  padding: 2px 13px;
+  width: 320px;
+  top: 0px;
+  left: 400px;
+  box-sizing: border-box;
+  border: 1px dashed #f8eca8;
+  position: absolute;
+  border-radius: 3px;
+  background-color: #fdfceb;
+  color: #999;
+  font-size: 13px;
+  line-height: 21px;
+}
+.remo_help::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  border: 5px solid transparent;
+  border-right-color: #fdfceb;
+  top: 7px;
+  z-index: 2;
+}
+.remo_help::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  border: 6px solid transparent;
+  border-right-color: #f8eca8;
+  top: 6px;
+  z-index: 1;
+}
+.remo_help i {
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 200;
+  position: absolute;
+  right: 0px;
+  top: 2px;
+}
 
 /*标尺 strat*/
 .rightNumber.hideRuler {
-	position: relative;
-	left: -50px;
+  position: relative;
+  left: -50px;
 }
 .topNumber.hideRuler {
-	position: relative;
-	top: -60px;
+  position: relative;
+  top: -60px;
 }
-.rightNumber,.topNumber{
-	opacity: 1;
-	transition: left 0.3s ease-in;
+.rightNumber,
+.topNumber {
+  opacity: 1;
+  transition: left 0.3s ease-in;
 }
 .topNumber:hover,
 .rightNumber:hover {
-	opacity: 0.8;
-	transition: opacity 0.15s ease-out;
+  opacity: 0.8;
+  transition: opacity 0.15s ease-out;
 }
 .topNumber {
-	width: 100%;
-	height: 20px;
-	position: fixed;
-	top: 60px;
+  width: 100%;
+  height: 20px;
+  position: fixed;
+  top: 60px;
 }
 .rulertop {
-	display: block;
-	height: 20px;
-	width: 100%;
-	background: rgba(147, 150, 163, .8) url(/src/assets/image/ruler.png) repeat-x;
-	background-position: 0 center;
+  display: block;
+  height: 20px;
+  width: 100%;
+  background: rgba(147, 150, 163, 0.8) url(/src/assets/image/ruler.png) repeat-x;
+  background-position: 0 center;
 }
 .rultopNum {
-	position: absolute;
-	bottom: 2px;
+  position: absolute;
+  bottom: 2px;
 }
 
 .topNber {
-	position: relative;
-	top: -4px;
-	display: flex;
+  position: relative;
+  top: -4px;
+  display: flex;
 }
 
 .topNber li {
-	width: 100px;
-	font-size: 12px;
-	pointer-events: none;
-	color: #404567;
+  width: 100px;
+  font-size: 12px;
+  pointer-events: none;
+  color: #404567;
 }
 
 .rightNumber {
-	width: 20px;
-	overflow: hidden;
-	height: 100%;
-	top: 0px;
-	left: 0px;
-	position: relative;
+  width: 20px;
+  overflow: hidden;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: relative;
 }
 
 .rightNumber,
 .topNumber {
-	cursor: url(./assets/image/curLineadd.png), auto;
+  cursor: url(./assets/image/curLineadd.png), auto;
 }
 
 .rulerright {
-	display: block;
-	position: absolute;
-	padding-left: 5px;
-	height: 100%;
-	width: 20px;
-	background: rgba(147, 150, 163, .8) url(./assets/image/ruler_v.png) repeat-y;
-	background-position: 3px 0px;
+  display: block;
+  position: absolute;
+  padding-left: 5px;
+  height: 100%;
+  width: 20px;
+  background: rgba(147, 150, 163, 0.8) url(./assets/image/ruler_v.png) repeat-y;
+  background-position: 3px 0px;
 }
 
 .rulrightNum {
-	position: absolute;
-	left: 6px;
+  position: absolute;
+  left: 6px;
 }
 
 .rightNber li {
-	width: 0px;
-	height: 100px;
-	font-size: 12px;
-	word-break: break-all;
-	pointer-events: none;
-	color: #404567;
+  width: 0px;
+  height: 100px;
+  font-size: 12px;
+  word-break: break-all;
+  pointer-events: none;
+  color: #404567;
 }
 
 /*辅助线*/
 .ediLines {
-	pointer-events: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: inherit;
-	shape-rendering: crispEdges;
-	transition: top 0.3s ease-in;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  shape-rendering: crispEdges;
+  transition: top 0.3s ease-in;
 }
 
 .ediConLines {
-	pointer-events: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	shape-rendering: crispEdges;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  shape-rendering: crispEdges;
 }
 
 .eLines {
-	border-top: thin dashed #000;
-	border-left: thin dashed #000;
-	box-sizing: border-box;
+  border-top: thin dashed #000;
+  border-left: thin dashed #000;
+  box-sizing: border-box;
 }
 
 .eLi1 {
-	width: 1px;
-	height: 100%;
-	position: absolute;
-	left: 470px;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 470px;
 }
 
 .eLi2 {
-	width: 1px;
-	height: 100%;
-	position: absolute;
-	left: calc(980px + 470px);
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: calc(980px + 470px);
 }
 
 .eLi3 {
-	width: 99.9%;
-	height: 1px;
-	position: absolute;
-	top: 130px;
+  width: 99.9%;
+  height: 1px;
+  position: absolute;
+  top: 130px;
 }
 
 /*列 自定义辅助线*/
 #horizontal,
 .ver-line {
-	position: fixed;
-	height: 100vh;
-	top: 60px;
-	transition: top 0.3s ease-in;
-	z-index: 120;
+  position: fixed;
+  height: 100vh;
+  top: 60px;
+  transition: top 0.3s ease-in;
+  z-index: 120;
 }
 
 #horizontal.select {
-	top: 0px;
+  top: 0px;
 }
 
 .ediCusLin {
-	display: inline-block;
-	position: absolute;
-	width: 1px;
-	height: 120%;
-	top: 4px;
-	left: 480px;
+  display: inline-block;
+  position: absolute;
+  width: 1px;
+  height: 120%;
+  top: 4px;
+  left: 480px;
 }
 
 .ediCusLin.on {
-	top: 4px;
+  top: 4px;
 }
 
 .cusLines {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: calc(100% - 48px);
-	width: 1px;
-	background-color: #8FF9FF;
-	pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(100% - 48px);
+  width: 1px;
+  background-color: #8ff9ff;
+  pointer-events: none;
 }
 
 .cusLinCon {
-	display: inline-block;
-	position: absolute;
-	top: -12px;
-	left: -8px;
-	cursor: w-resize !important;
+  display: inline-block;
+  position: absolute;
+  top: -12px;
+  left: -8px;
+  cursor: w-resize !important;
 }
 
-.cusLinCon>i {
-	color: #7adee4;
+.cusLinCon > i {
+  color: #7adee4;
 }
 
 .cusLinNum {
-	display: none;
-	width: 78px;
-	height: 24px;
-	background: #fff;
-	border-radius: 50px;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-	position: relative;
-	top: -5px;
-	left: 15px;
+  display: none;
+  width: 78px;
+  height: 24px;
+  background: #fff;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  top: -5px;
+  left: 15px;
 }
 
 .cusLinNum span {
-	position: absolute;
-	right: 20px;
+  position: absolute;
+  right: 20px;
 }
 
 .cusLinNum input {
-	background: rgba(0, 0, 0, 0);
-	border: none;
-	width: calc(100% - 40px);
-	height: 22px;
-	border-radius: 50px;
-	margin: 1px 4px;
-	color: #292f44;
-	font-size: 12px;
-	display: inline-block;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  width: calc(100% - 40px);
+  height: 22px;
+  border-radius: 50px;
+  margin: 1px 4px;
+  color: #292f44;
+  font-size: 12px;
+  display: inline-block;
 }
 
 .cusLinNum input::-webkit-outer-spin-button,
 .cusLinNum input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 .cusLinNum i {
-	width: 12px;
-	position: absolute;
-	right: 5px;
-	top: 3px;
-	font-size: .8rem;
-	color: #292f44;
-	cursor: pointer;
+  width: 12px;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  font-size: 0.8rem;
+  color: #292f44;
+  cursor: pointer;
 }
 
 /*行 自定义辅助线*/
 .ediCuscol {
-	position: absolute;
-	top: 200px;
-	left: 0px;
-	height: 2px;
-	width: 100%;
-	border-color: #91f7fd;
+  position: absolute;
+  top: 200px;
+  left: 0px;
+  height: 2px;
+  width: 100%;
+  border-color: #91f7fd;
 }
 
 .ediCuscol .cusLines {
-	width: 100%;
-	height: 1px;
+  width: 100%;
+  height: 1px;
 }
 
 .ediCuscol .cusLinCon {
-	position: absolute;
-	top: -31px;
-	left: -2px;
-	cursor: n-resize !important;
+  position: absolute;
+  top: -31px;
+  left: -2px;
+  cursor: n-resize !important;
 }
-.cusLinCon>i {
+.cusLinCon > i {
   border: 10px solid transparent;
-  border-top-color: #116DFF;
+  border-top-color: #116dff;
   left: -2px;
   font-size: 0;
   position: relative;
 }
 
-.ediCuscol .cusLinCon>i {
-	display: block;
+.ediCuscol .cusLinCon > i {
+  display: block;
   width: 0px;
   transform: rotate(-90deg);
   position: relative;
@@ -739,38 +862,38 @@
   left: 0;
   font-size: 0;
   border: 10px solid transparent;
-  border-top-color: #116DFF;
+  border-top-color: #116dff;
 }
 
 .ediCuscol .cusLinNum {
-	top: 0px;
-	left: 15px;
+  top: 0px;
+  left: 15px;
 }
 
 .cusLinCon:hover .cusLinNum {
-	display: block;
+  display: block;
 }
 
 .cusLinNum:hover {
-	background: #e8f5fe;
+  background: #e8f5fe;
 }
 
 /*对齐辅助线*/
-.hor-line>div {
-	position: absolute;
-	left: 6px;
-	width: 100vw;
-	height: 1px;
-	background: #ff00ff;
-	z-index: 2500;
+.hor-line > div {
+  position: absolute;
+  left: 6px;
+  width: 100vw;
+  height: 1px;
+  background: #ff00ff;
+  z-index: 2500;
 }
 
-.ver-line>div {
-	position: absolute;
-	top: 6px;
-	height: 100vh;
-	width: 1px;
-	background: #ff00ff;
+.ver-line > div {
+  position: absolute;
+  top: 6px;
+  height: 100vh;
+  width: 1px;
+  background: #ff00ff;
 }
 
 /*标尺 end*/
@@ -867,209 +990,359 @@
 /*更换ICON*/
 .columnsText,
 .sildeText {
-	min-width: 30px;
-	padding: 0px 20px;
-	color: #fff;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
-	height: 30px;
-	line-height: 30px;
-	position: absolute;
-	top: -30px;
-	left: -3px;
-	display: block;
-	background: #2196f3;
-	position: absolute;
+  min-width: 30px;
+  padding: 0px 20px;
+  color: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  top: -30px;
+  left: -3px;
+  display: block;
+  background: #2196f3;
+  position: absolute;
 }
 
 .sildeText {
-	min-width: 120px;
+  min-width: 120px;
 }
 
 .hoverBox .sildeText {
-	min-width: 40px;
-	height: 22px;
-	line-height: 22px;
-	top: -25px;
-	background: #2b81cb;
+  min-width: 40px;
+  height: 22px;
+  line-height: 22px;
+  top: -25px;
+  background: #2b81cb;
 }
 
 .hoverBox .active {
-	height: 30px;
-	line-height: 30px;
-	top: -30px;
-	background: #2196f3;
+  height: 30px;
+  line-height: 30px;
+  top: -30px;
+  background: #2196f3;
 }
 
-.hoverBox>div:last-child {
-	left: 93px;
+.hoverBox > div:last-child {
+  left: 93px;
 }
 
 .sildeTextCon {
-	padding: 0px 15px;
+  padding: 0px 15px;
 }
 
 .arrowSlide {
-	width: 20px;
-	height: 20px;
-	top: -2px;
-	border-radius: 50%;
-	background-color: #2b81cb;
-	display: inline-block;
-	margin-left: 6px;
-	margin-right: 6px;
-	position: absolute;
-	transition: 0.3s ease-in 0s;
+  width: 20px;
+  height: 20px;
+  top: -2px;
+  border-radius: 50%;
+  background-color: #2b81cb;
+  display: inline-block;
+  margin-left: 6px;
+  margin-right: 6px;
+  position: absolute;
+  transition: 0.3s ease-in 0s;
 }
 
 .arrowSlide:hover {
-	cursor: pointer;
-	background-color: #d3edff;
+  cursor: pointer;
+  background-color: #d3edff;
 }
 
 .arrowSlide:hover:after {
-	border-color: #3899ec;
+  border-color: #3899ec;
 }
 
 .arrowSlide:after {
-	border-left: 2px solid #fff;
-	border-top: 2px solid #fff;
-	content: '';
-	height: 7px;
-	position: absolute;
-	width: 7px;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  content: "";
+  height: 7px;
+  position: absolute;
+  width: 7px;
 }
 
 .nextArrow {
-	right: 0;
-	top: 5px;
+  right: 0;
+  top: 5px;
 }
 
 .prevArrow {
-	left: 0;
-	top: 5px;
+  left: 0;
+  top: 5px;
 }
 
 .nextArrow:after {
-	left: calc(50% - 5px);
-	top: calc(50% - 4px);
-	-webkit-transform: rotate(135deg);
-	transform: rotate(135deg);
+  left: calc(50% - 5px);
+  top: calc(50% - 4px);
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 
 .prevArrow:after {
-	left: calc(50% - 2px);
-	top: calc(50% - 4px);
-	-webkit-transform: rotate(-45deg);
-	transform: rotate(-45deg);
+  left: calc(50% - 2px);
+  top: calc(50% - 4px);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 /*9-27 箭头修改*/
 .bs-tooltip-bottom .arrow {
-	background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0);
 }
 
-.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-auto[x-placement^="bottom"] .arrow::before,
 .bs-tooltip-bottom .arrow::before {
-	border: 6px solid rgba(0, 0, 0, 0) !important;
-	border-bottom-color: #fff !important;
+  border: 6px solid rgba(0, 0, 0, 0) !important;
+  border-bottom-color: #fff !important;
 }
 
 .tooltip .arrow::before {
-	position: absolute;
-	content: "";
-	top: -6px;
+  position: absolute;
+  content: "";
+  top: -6px;
 }
 
 /*属性 鼠标划过*/
 .toolWidth li,
 .texTitle li {
-	padding: 5px 15px;
-	cursor: pointer;
+  padding: 5px 15px;
+  cursor: pointer;
 }
 
 .toolWidth li {
-	margin: 3px 0px;
+  margin: 3px 0px;
 }
 
 .toolWidth li:hover,
 .toolImgAdd:hover {
-	background-color: #e8f5fe;
+  background-color: #e8f5fe;
 }
 
 /*控件属性按钮 start*/
 /* 控件 end*/
 /*发布 start*/
-.publish-progress{
-	margin: 10px auto;
-    width: 83%;
-    margin-left: 10px;
-	-webkit-appearance: none;
-	height: 23px;
-	background-color: #eceeef;
-	border:0px;
+.publish-progress {
+  margin: 10px auto;
+  width: 83%;
+  margin-left: 10px;
+  -webkit-appearance: none;
+  height: 23px;
+  background-color: #eceeef;
+  border: 0px;
 }
-.publish-progress::-webkit-progress-value{
-	background-color: #1582dc;
-	background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+.publish-progress::-webkit-progress-value {
+  background-color: #1582dc;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
 }
-.publish-progress::-webkit-progress-bar{
-	background-color: #eceeef;
+.publish-progress::-webkit-progress-bar {
+  background-color: #eceeef;
 }
-.publish-progress::-moz-progress-bar{
-	background-color: #1582dc;
-	background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+.publish-progress::-moz-progress-bar {
+  background-color: #1582dc;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
 }
 /*发布 end*/
 
 /*选项卡快速切换 start*/
-.tab-fasthandover{
-	width: 90px;
-	/* margin-top: -75px;
+.tab-fasthandover {
+  width: 90px;
+  /* margin-top: -75px;
 	margin-left: 10px; */
-	/* padding: 0px 20px; */
-    color: #fff;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    height: 30px;
-    line-height: 30px;
-	background: #2196f3;
-	position: absolute;
-	right: 0;
-	text-align: center;
+  /* padding: 0px 20px; */
+  color: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 30px;
+  line-height: 30px;
+  background: #2196f3;
+  position: absolute;
+  right: 0;
+  text-align: center;
 }
-.tab-fasthandover .info{
-	/* margin: 0 0 0 27px; */
+.tab-fasthandover .info {
+  /* margin: 0 0 0 27px; */
 }
 /*选项卡快速切换 end*/
 /* 添加版块按钮样式 */
-.componentAddTop,.componentAddBottom{position: absolute; cursor:pointer; width: 112px; height: 30px;line-height: 30px; background: #2196f3;border-radius: 3px;text-align: center;color: #fff;left: calc(50% - 60px);top: -15px;}
-.componentAddBottom{bottom:-15px;top:auto}
-.componentAddStyle .listAddButton{bottom:15px;}
+.componentAddTop,
+.componentAddBottom {
+  position: absolute;
+  cursor: pointer;
+  width: 112px;
+  height: 30px;
+  line-height: 30px;
+  background: #2196f3;
+  border-radius: 3px;
+  text-align: center;
+  color: #fff;
+  left: calc(50% - 60px);
+  top: -15px;
+}
+.componentAddBottom {
+  bottom: -15px;
+  top: auto;
+}
+.componentAddStyle .listAddButton {
+  bottom: 15px;
+}
 
-.blockcont{width: 100%; position: relative; height: 200px;}
+.blockcont {
+  width: 100%;
+  position: relative;
+  height: 200px;
+}
 
-.addblockfloat{ position:fixed;top:0;width:100%; box-shadow:0 0 10px rgba(0,0,0,0.2); z-index:999999999999999; background:#fff; min-height:360px;}
-.blockseries{ background:#ededed; padding:20px 0; text-align:center; }
-.blockseries ul{width:980px;margin:0 auto;display: flex;}
-.blockseries li{ display: inline-block; text-align:center; align-items: center; justify-items: center;flex: 1; cursor: pointer;}
-.blockseries li.on{color: #2196f3;font-weight: 400;}
-.blockcont{width: 100%;overflow: hidden;margin-bottom: 15px;}
+.addblockfloat {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999999999999999;
+  background: #fff;
+  min-height: 360px;
+}
+.blockseries {
+  background: #ededed;
+  padding: 20px 0;
+  text-align: center;
+}
+.blockseries ul {
+  width: 980px;
+  margin: 0 auto;
+  display: flex;
+}
+.blockseries li {
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  flex: 1;
+  cursor: pointer;
+}
+.blockseries li.on {
+  color: #2196f3;
+  font-weight: 400;
+}
+.blockcont {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
 
-.blockbox{margin: 20px 0;position: absolute; transition: all 0.5s linear 0s;}
-.blockbox li{height: 180px;border:1px solid #e3e2e8;position: relative;display: inline-block; margin: 0 10px;cursor: pointer;box-sizing: border-box;}
-.blockbox li p{display: none;}
-.blockbox li:hover,.blockbox li.active{border:1px solid #2196f3}
-.blockbox li.active p{position: absolute;width: 15px;height: 15px;right:-8px;top:-8px;display:block;border-radius: 15px;background: #2196f3; border:1px solid #fff;color: #fff;font-size: 14px;text-align: center;line-height: 15px; padding: 3px;}
-.blockbox li:first-child:before{position: absolute;width: 100%;height: 100%;line-height:161px;font-size: 12px;color: #666;text-align: center;content: '空白通栏';z-index: -1;}
+.blockbox {
+  margin: 20px 0;
+  position: absolute;
+  transition: all 0.5s linear 0s;
+}
+.blockbox li {
+  height: 180px;
+  border: 1px solid #e3e2e8;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.blockbox li p {
+  display: none;
+}
+.blockbox li:hover,
+.blockbox li.active {
+  border: 1px solid #2196f3;
+}
+.blockbox li.active p {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: -8px;
+  top: -8px;
+  display: block;
+  border-radius: 15px;
+  background: #2196f3;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 15px;
+  padding: 3px;
+}
+.blockbox li:first-child:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 161px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  content: "空白通栏";
+  z-index: -1;
+}
 
-.addblockfloat .em-layer-footer{border-top: 1px solid #eee;padding: 15px 0; text-align: center;}
-.addblockfloat .em-layer-footer button{border-radius: 20px;font-size: 14px;text-align: center;line-height: 24px; padding: 3px 20px;border:0;margin: 0 10px;}
-.addblockfloat .em-layer-footer .em-button-ensure{background: #2196f3;color: #fff;float: none;}
-.addblockfloat .em-layer-footer .em-button-cancel{background: #fff;color: #2196f3;border:1px solid #eee}
-.addblockfloat .em-layer-footer .em-button-cancel:hover{color: #2196f3!important;}
+.addblockfloat .em-layer-footer {
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+  text-align: center;
+}
+.addblockfloat .em-layer-footer button {
+  border-radius: 20px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  padding: 3px 20px;
+  border: 0;
+  margin: 0 10px;
+}
+.addblockfloat .em-layer-footer .em-button-ensure {
+  background: #2196f3;
+  color: #fff;
+  float: none;
+}
+.addblockfloat .em-layer-footer .em-button-cancel {
+  background: #fff;
+  color: #2196f3;
+  border: 1px solid #eee;
+}
+.addblockfloat .em-layer-footer .em-button-cancel:hover {
+  color: #2196f3 !important;
+}
 
-.slidePointBox{text-align: center; margin: 25px auto;}
-.slidePointBox ul li.slidePoint{width: 20px; height: 20px; display: inline-block;}
-.slidePointBox ul li.slidePoint button{ width: 12px; height: 12px;border-radius: 12px; background: #ccc;font-size: 0;border: 0;}
-.slidePointBox ul li.on button{  background: #666;}
+.slidePointBox {
+  text-align: center;
+  margin: 25px auto;
+}
+.slidePointBox ul li.slidePoint {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.slidePointBox ul li.slidePoint button {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  background: #ccc;
+  font-size: 0;
+  border: 0;
+}
+.slidePointBox ul li.on button {
+  background: #666;
+}
