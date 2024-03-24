@@ -6,7 +6,6 @@ import { Select,Button} from 'antd';
 import EditPage from './editPage.jsx'
 import styles from './header.module.less'
 
-import logo from '../../assets/image/logo.png'
 
 /**
  * @class {HeaderControler} 编辑页头部控制器类
