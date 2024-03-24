@@ -123,7 +123,7 @@ function App(props) {
                         <li className="manageIco tipbpx" id="cduKvkj-manage" data-title="项管理"><i></i><em></em></li>
                         <li className="animationIco tipbpx" id="cduKvkj-animation" data-title="出场动画"><i></i><em></em></li>
                         <li className="collectionIco tipbpx" id="cduKvkj-collection" data-title="收藏"><i></i><em></em></li>
-                        <li className="hidingIco tipbpx" id="cduKvkj-hiding" data-title="隐藏"><i></i><em></em></li>
+                        <li className="whidingIco tipbpx" id="cduKvkj-hiding" data-title="隐藏"><i></i><em></em></li>
                       </ul>
                     </div>
                   </div>

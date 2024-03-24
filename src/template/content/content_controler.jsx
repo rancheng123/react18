@@ -1,8 +1,8 @@
 import React from 'react'
 import Dispatcher from "../../system/tools/dispatcher";
-import Content from './content'
+// import Content from './content'
 import RulerControler from '../../system/function/ruler/ruler_controler'
-// import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler'
+import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler'
 
 export default class ContentControler extends React.Component {
   constructor(props) {
@@ -11,14 +11,11 @@ export default class ContentControler extends React.Component {
     this.init();
     /**@property {RulerControler} 标尺组件控制器 */
 
-    // this.ruler = RulerControler;
     /**@property {ComponentEditControler} 控件编辑组件控制器 */
-    // this.componentEdit = ComponentEditTestControler;
-    /**@property {Header} view 初始化 view 实例*/
 
-    this.view = new Content(this); //给view pc编辑入口方法绑定this
+    // this.view = new Content(this); //给view pc编辑入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次 
@@ -362,7 +359,6 @@ export default class ContentControler extends React.Component {
 
 
   render() {
-    console.log(this, 'heiheihei')
     const {state: { type, height, rulerShow, edibtn }} = this;
     let _style = null;
 
@@ -393,6 +389,7 @@ export default class ContentControler extends React.Component {
           {
             type == 'pc' && !rulerShow ? <RulerControler height={height} /> : null
           }
+          <ComponentEditTestControler height={height} />
         </div>
       </div>
     )

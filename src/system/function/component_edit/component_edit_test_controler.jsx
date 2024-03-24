@@ -1,25 +1,22 @@
+/*eslint-disable*/
 import React from 'react';
 import ReactDom from 'react-dom';
 import Dispatcher from '../../tools/dispatcher';
-import ComponentEditTest from './component_edit_test'
-import SingleComponentEditTest from './single/single_component_edit_test'
+// import ComponentEditTest from './component_edit_test'
+// import SingleComponentEditTest from './single/single_component_edit_test'
 import MoreComponentEdit from './more_component_edit'
-import AttrProxy from '../../../page/attr_proxy'
-import MoreRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
+// import AttrProxy from '../../../page/attr_proxy'
+// import MoreRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
 import Positions from '../../function/component_edit/positions'
-
+import ConfigBtn from './single/ConfigBtn'
 
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
 
 function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to set private field on non-instance"); } if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } return value; }
 
 
-
 /**
  * @class {ComponentEditControler} 控件编辑控制器类
- 
- * @version 1.0
- * @date 2019-11-13
  */
 
 class ComponentEditControler extends React.Component {
@@ -39,38 +36,25 @@ class ComponentEditControler extends React.Component {
     this.node = null;
     /**@property {AttrProxy} proxy 属性代理 */
 
-    this.proxy = new AttrProxy();
+    // this.proxy = new AttrProxy();
     /**@property {MouseRightClickMenuControler} menu 右键菜单组件 */
 
-    this.menu = MoreRightClickMenuControler; //组件挂载前的初始化方法，整个生命周期内只执行一次
+    // this.menu = MoreRightClickMenuControler; //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {ComponentEdit} view 初始化 view 实例*/
 
-    this.view = new ComponentEditTest["ComponentEdit"](this); //给view 入口方法绑定this
+    // this.view = new ComponentEditTest["ComponentEdit"](this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
     this._initX = 0;
     this.findBtn = false;
     this.virtualNode = false;
   }
+ 
   /**
-   * @method render 挂载组件方法
-   * @date 2019-11-13
-   
-   * @return {object} 待渲染的组件对象
+   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次   
    */
-
-
-  render() {
-    return React.createElement(this.view.render, null);
-  }
-  /**
-   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-11-13
-   
-   */
-
 
   init() {
     this.state = {
@@ -80,10 +64,7 @@ class ComponentEditControler extends React.Component {
   }
   /**
    * @method componentDidMount 组件第一次挂载完毕执行方法
-   * @date 2020-01-07
-   
    */
-
 
   componentDidMount() {
     Dispatcher.register('selectedHidden', this.hidden, this);
@@ -92,10 +73,7 @@ class ComponentEditControler extends React.Component {
   }
   /**
    * @method componentWillUnmount 卸载组件时执行方法
-   * @date 2020-01-07
-   
    */
-
 
   componentWillUnmount() {
     Dispatcher.unregister('selectedHidden');
@@ -533,8 +511,6 @@ class ComponentEditControler extends React.Component {
   }
   /**
    * @method hover 
-   * @date 2019-10-12
-   
    * @param {event} event 事件对象 
    */
 
@@ -673,7 +649,7 @@ class ComponentEditControler extends React.Component {
     try {
       //判断鼠标按下的是否是左键
       if (event.button == 0) {
-        this.selected = event.ctrlKey ? MoreComponentEdit : SingleComponentEditTest;
+        this.selected = event.ctrlKey ? MoreComponentEdit : 'SingleComponentEditTest';
         this.selected.controler = this; //如果id类型为function，把id值赋给变量fn，id赋为空
 
         if (typeof id == 'function') {
@@ -689,10 +665,147 @@ class ComponentEditControler extends React.Component {
     }
   }
 
+  
+  /**
+   * @method hoverBox 鼠标滑过提示框结构
+   * @date 2019-10-30
+   
+   * @param {object} props 参数对象 
+   */
+
+
+  hoverBox({ data, index }) {
+    if (data) {
+      const { layout } = data; //layout.top-=1;
+      const cls = index === 0 ? 'contHovBox' : 'contHovBox cellHoverbox';
+      return <div className={cls} style={layout}></div>
+      //  React.createElement("div", {
+      //   className: cls,
+      //   style: layout
+      // });
+    }
+    return null;
+  }
+
+  /**
+   * @method hoverBox 鼠标滑过提示框结构
+   * @param {object} props 参数对象 
+   */
+  hoverBtn({ data, index }) {
+    if (data) {
+      if (data.absolute) {
+        const { absolute: { left, top, name, fixedWidth, itemWidth, items }, current: { hidden } } = data; 
+        // console.log(items,"结构中items");
+        return items.length && hidden != 1 ? React.createElement(ConfigBtn["ConfigBtnWaper"], {
+          style: { left, top },
+          name: name,
+          index: index,
+          fixedWidth: fixedWidth
+        }, React.createElement("ul", {
+          className: "functionUL",
+          style: {
+            width: itemWidth
+          }
+        }, items.map(({ name, type, hidden, current, selected, show, className = type }, i) => {
+          if (hidden != true) {
+            //判断控件是否在指定条件下显示
+            if (show && !this.isShow(data, show)) {
+              return null;
+            }
+
+            return React.createElement(ConfigBtn["ConfigButton"], {
+              select: selected,
+              key: i,
+              current: current,
+              name: name,
+              type: type,
+              className: className,
+              mousedown: this.hoverDown.bind(this, type)
+            });
+          }
+
+          return null;
+        }))) : null;
+      }
+
+      return null;
+    }
+
+    return null;
+  }
+
+  hoverDom() {
+    if (this.state.hover) {
+      const d = (
+        <div className='component-hover'>
+          {
+            this.state.hover.map((data, index) => {
+              if (data) {
+                const { layout } = data;
+                const cls = index === 0 ? 'contHovBox' : 'contHovBox cellHoverbox';
+                return <div key={index} className={cls} style={layout}></div>
+              }
+              return null;
+            })
+          }
+        </div>
+      )
+      return React.createElement("div", {
+        className: "component-hover"
+      }, this.state.hover.map((data, i) => {
+        return React.createElement(this.hoverBox, {
+          key: i,
+          index: i,
+          data: data
+        });
+      }), this.state.hover.map((data, i) => {
+        return React.createElement(this.hoverBtn, {
+          key: i,
+          index: i,
+          data: data
+        });
+      }));
+    }
+
+    return null;
+  }
+
+   /**
+   * @method render 挂载组件方法
+   * @return {object} 待渲染的组件对象
+   */
+
+   render() {
+    const dom = (
+      <div 
+        id="selected-mask" 
+        style={{height: this.props.height}}
+        onMouseMove={this.state.ismove ? this.hover.bind(this) : null}
+        onMouseDown={this.mousedown.bind(this)}
+      >
+        {
+          this.state.hidden == false && (
+            <div>
+              {this.hoverDom()}
+            </div>
+          )
+        }
+        <div className='component-selected'>
+          <div onMouseMove={e => e.stopPropagation()} onMouseLeave={e => e.stopPropagation()}>
+            <div id='property-parent-buttons' className="editControl"></div>
+            <div id="property-buttons" className='editControl'></div>
+            <div id="select-parent-box"></div>
+            <div id="select-box"></div>
+            <div className="component-menu"></div>
+          </div>
+        </div>
+      </div>
+    )
+    return dom // React.createElement(this.view.render, null);
+  }
+
 }
 
 var _lookup = new WeakMap();
 
 export default ComponentEditControler;
-
-//# sourceURL=webpack:///./system/function/component_edit/component_edit_test_controler.js?

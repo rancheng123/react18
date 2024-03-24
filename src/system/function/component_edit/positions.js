@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Hoverbtns from "../../../config/hover_btns";
 import ConfigBtn from './single/ConfigBtn';
 import Dispatcher from "../../tools/dispatcher";
@@ -6,8 +7,7 @@ import Dispatcher from "../../tools/dispatcher";
  * @description: 位置计算
  * @param {type} 
  * @return: void
- * @author: Eric
- * @Date: 2020-03-11 13:32:21
+ * 
  */
 
 const wh = 29,
@@ -23,8 +23,6 @@ const positions = {
    * @description: 查找虚拟控件
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 13:05:39
    */
   findVirtual(x, y) {
     //console.log(this.virtual,'this.virtual')
@@ -48,8 +46,6 @@ const positions = {
    * @description: 查找区域
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 16:27:28
    */
   findBox(x, y, box, id, name) {
     const {
@@ -76,8 +72,6 @@ const positions = {
    * @description: 按钮组名称宽度，根据名称文字个数返回宽度
    * @param {len} 
    * @return: int
-   * @author: Eric
-   * @Date: 2020-03-10 14:14:30
    */
   getTextWidth(len) {
     // const padding = 50;
@@ -112,8 +106,6 @@ const positions = {
    * @description: 检测两条轴线是否相交
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 09:14:39
    */
   crossCheck(a1, b1, a2, b2) {
     return a1 < b2 && a2 < b1 ? true : false;
@@ -123,8 +115,6 @@ const positions = {
    * @description: 校对垂直位置
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 16:02:31
    */
   proofreadingVerticalPosition(parentNav, currentNav) {
     const left = parentNav.left < currentNav.left ? parentNav.left : currentNav.left;
@@ -143,8 +133,6 @@ const positions = {
    * @description: 校对水平位置
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 16:02:31
    */
   proofreadingPosition(parentNav, currentNav) {
     let d1 = 0,
@@ -172,8 +160,6 @@ const positions = {
    * @description: 创建固定区域节点
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 16:21:31
    */
   createFixedNode(box, current, parent) {
     //console.log(current,parent,'current,parent');
@@ -197,8 +183,6 @@ const positions = {
    * @description: 创建虚拟区域节点
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 16:21:31
    */
   createVirtualNode(current, parent) {
     return {
@@ -226,8 +210,6 @@ const positions = {
    * @description: 导航与导航的重叠,由于只有两层级，无需循环判断
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 16:32:27
    */
   navToNav(list) {
     if (list.length == 1) {
@@ -290,8 +272,6 @@ const positions = {
    * @param {rectList} 矩形列表
    * @param {screen} 屏幕对象
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 13:33:22
    */
   init(list, docWidth, docHeight) {
     this.docWidth = docWidth;
@@ -307,8 +287,6 @@ const positions = {
    * @description: 计算被选中控件的导航按钮初始化操作
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 16:29:50
    */
   active(item) {
     const {
@@ -335,8 +313,6 @@ const positions = {
    * @description: 当前选择
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-16 18:22:59
    */
   currentSelect(item, btns) {
     const comp = this.conversion(item); //const len = this.getLenByItems(btns,'icon');
@@ -363,8 +339,6 @@ const positions = {
    * @description: 初始化按钮组
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-12 10:02:44
    */
   initItems(type, skin) {
     var _HoverConfig$_type$st;
@@ -405,8 +379,6 @@ const positions = {
    * @description: 鼠标经过容器按钮过滤
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-17 14:33:59
    */
   filterHoverboxButton(items, id) {
     let len = items.length;
@@ -462,8 +434,6 @@ const positions = {
    * @description: 数据源按钮过滤
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-12 14:33:59
    */
   filterSourceDataButton(items, id) {
     let len = items.length;
@@ -499,8 +469,6 @@ const positions = {
    * @description: 获取项目长度
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-16 18:24:12
    */
   getLenByItems(items, type) {
     if (type == 'icon') {
@@ -520,8 +488,6 @@ const positions = {
    * @description: 初始化button个数
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-12 09:46:56
    */
   filterItems(_item, items) {
     const {
@@ -656,8 +622,6 @@ const positions = {
    * @description: comp对象初始化
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 16:02:15
    */
   conversion(item) {
     const {
@@ -686,8 +650,6 @@ const positions = {
    * @description: 相对检测策略
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 13:50:40
    */
   relativeStrategy(rectList) {
     return rectList.map(({
@@ -722,8 +684,6 @@ const positions = {
    * @description:屏幕位置检测 
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 17:42:26
    */
   screenPosition(nav, comp) {
     const {
@@ -764,8 +724,6 @@ const positions = {
    * @description: 
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 16:33:06
    */
   angularPosition({
     inout,
@@ -782,8 +740,6 @@ const positions = {
    * @description: 外角定位
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-12 12:42:41
    */
   angularOutsidePosition(direction, nav, {
     top,
@@ -847,8 +803,6 @@ const positions = {
    * @description: 内角定位
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-12 12:42:41
    */
   angularInsidePosition(direction, nav, {
     top,
@@ -895,8 +849,6 @@ const positions = {
    * @description: 获取标尺宽度
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 18:16:20
    */
   getRuleWidth() {
     if (document.querySelector('.auxiliary')) {
@@ -910,8 +862,6 @@ const positions = {
    * @description: 初始化位置检测
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 15:47:04
    */
   initPosition(nav, comp) {
     switch (nav.type) {

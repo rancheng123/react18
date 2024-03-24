@@ -20,7 +20,6 @@ export default class MouseRightClickMenu extends React.Component {
   }
   /**
    * @method rightClick 右键菜单增加控件选中功能结构
-   * @author lby
    * @return {object} 右键菜单
    */
   // {arr.map(item => <li id={item.id} key={item.id} onMouseDown={this.controler.rightClick.bind(this.controler)} >{ item.name??window.public.getName(item.type)}</li>)}

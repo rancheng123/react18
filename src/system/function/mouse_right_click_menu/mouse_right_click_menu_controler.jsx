@@ -1,6 +1,6 @@
 import React from 'react';
 import Dispatcher from '../../tools/dispatcher';
-import MouseRightClickMenu from './mouse_right_click_menu';
+// import MouseRightClickMenu from './mouse_right_click_menu';
 import { ModuleGraph } from 'vite';
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -106,19 +106,11 @@ export default class MouseRightClickMenuControler extends React.Component {
     this.init();
     /**@property {Border} view 初始化 view 实例*/
 
-    this.view = new MouseRightClickMenu(this); //给view 入口方法绑定this
+    // this.view = new MouseRightClickMenu(this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
   }
-  /**
-   * @method render 挂载组件方法
-   * @return {object} 待渲染的组件对象
-   */
 
-
-  render() {
-    return <MouseRightClickMenu {...this} />
-  }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
    */
@@ -416,5 +408,88 @@ export default class MouseRightClickMenuControler extends React.Component {
 
     this.remove();
   }
+
+    /**
+   * @method render 挂载组件方法
+   * @return {object} 待渲染的组件对象
+   */
+
+
+    render() {
+
+      let arr = this.state.data ? this.state.data : [];
+
+      if (arr && arr.length != 0) {
+        let _marginLeft = '-10px';
+        if (window.public.type == "pc") {
+          let winW = window.innerWidth,
+              left = this.state.style.left || winW,
+              rightClickWidth = 210 + 130; //
+  
+          if (winW - left <= rightClickWidth) {
+            _marginLeft = '-340px';
+          }
+        }
+
+        return (
+          <div 
+            className='rightClick'
+            onMouseMove={this.theMouseMove.bind(this)}
+            style={{
+              'display': 'block',
+              'position': 'absolute',
+              'left': this.state.style.left,
+              'bottom': this.state.style.bottom,
+              'right': this.state.style.right,
+              'top': this.state.style.top
+            }}
+          >
+            <ul className="rightClick-popUp">
+              {
+                this.Property_panel_list.map((e, index) => {
+                  return (
+                    <li 
+                      key={index} 
+                      id={e.event}
+                      className={e.iconClass} 
+                      title={e.title} 
+                      onMouseDown={e.event ? this[e.event].bind(this) : null}
+                    >
+                      <span>{e.title}</span>
+                      <span className={e.iconC}>{e.name}{e.iconC ? "" : ''}</span>
+                      {
+                        e.secondary && (
+                          <ul className="rightClick rightclickCascade" style={{
+                            'position': 'absolute',
+                            'left': '100%',
+                            'top': '-15px',
+                            'marginLeft': _marginLeft,
+                            'zIndex': '1'
+                          }}>
+                            {
+                              arr.map(item => {
+                                var _item$name;
+                                return (
+                                  <li key={item.id} id={item.id} onMouseDown={this.rightClick.bind(this)}>
+                                    {
+                                    (_item$name = item.name) !== null && _item$name !== void 0 ? _item$name : window.public.getName(item.type)
+                                    }
+                                  </li>
+                                )
+                              })
+                            }
+                          </ul>
+                        )
+                      }
+                    </li>
+                  )
+                })
+              }
+            </ul>
+          </div>
+        )
+      }
+      // return <MouseRightClickMenu {...this} />
+    }
 
 }

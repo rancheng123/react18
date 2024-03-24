@@ -467,9 +467,9 @@ export default class RulerControler extends React.Component {
             </div>
           )
         }
-        <div class="ediLines">
-          <div class="ediConLines">
-            <div class="eLines eLi3" style={{top: this.state.top}} />
+        <div className="ediLines">
+          <div className="ediConLines">
+            <div className="eLines eLi3" style={{top: this.state.top}} />
           </div>
         </div>
       </div>
