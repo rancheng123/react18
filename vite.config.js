@@ -15,7 +15,7 @@ export default defineConfig({
       less: {
         javascriptEnabled: true,
         modifyVars: {
-          "primary-color": "#EAA516", //全局样式
+          // "primary-color": "#EAA516", //全局样式
         },
       }
     }

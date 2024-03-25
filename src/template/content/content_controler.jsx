@@ -8,7 +8,7 @@ export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
-    this.init();
+    // this.init();
     /**@property {RulerControler} 标尺组件控制器 */
 
     /**@property {ComponentEditControler} 控件编辑组件控制器 */
@@ -16,6 +16,40 @@ export default class ContentControler extends React.Component {
     // this.view = new Content(this); //给view pc编辑入口方法绑定this
 
     // this.view.render = this.view.render.bind(this.view);
+    this.state = {
+      display: null,
+      edibtn: null,
+      type: '',
+      pageid: '',
+      height: 0,
+      search: '',
+      rulerShow:null,
+    }; 
+
+    // 右侧操作栏
+    this.toolbars = [{
+      iconClass: "yiyingbaoicon",
+      iconName: "&#xe76e;",
+      type: "componentLibrary"
+    }, {
+      iconClass: "iconfont",
+      iconName: "&#xe773;",
+      type: "widgetLibrary"
+    },
+    // {
+    //   iconClass: "yiyingbaoicon",
+    //   iconName: "",
+    //   type: "setUp"
+    // },
+     {
+      iconClass: "yiyingbaoicon",
+      iconName: "&#xe774;",
+      type: "template"
+    }, {
+      iconClass: "yiyingbaoicon",
+      iconName: "&#xe76d;",
+      type: "collection"
+    }]; //绑定this
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次 
@@ -26,14 +60,15 @@ export default class ContentControler extends React.Component {
     const pageid = location.getHash('pageid');
     const type = window.public.type = location.getHash('type') || 'pc'; //
 
-    this.state = {
+    this.setState({
       display: false,
       edibtn: true,
       type: type,
       pageid: pageid,
       height: 0,
-      search: `?pageid=${pageid}&type=${type}`
-    }; //注册切换编辑事件
+      search: `?pageid=${pageid}&type=${type}`,
+      rulerShow:false,
+    }); //注册切换编辑事件
 
     Dispatcher.register("switchEdit", this.switchEdit, this); //注册隐藏工具栏事件
 
@@ -117,6 +152,8 @@ export default class ContentControler extends React.Component {
     } = this.state || {};
     this.setState({
       rulerShow: !rulerShow
+    },()=>{
+      console.log('更新');
     });
   }
 
@@ -351,6 +388,54 @@ export default class ContentControler extends React.Component {
       designIcoclick.click();
     }
   }
+
+
+  // 组件渲染执行的方法
+  componentDidMount(){
+      this.init()
+  }
+
+  // 渲染右侧工具栏
+  renderEdiTool(){
+    const {state: { type, edibtn }} = this;
+      if(type == 'pc') {
+        return (
+          <div id="ediTool">
+              {
+                edibtn ?
+                <div id="ediToolbtn">
+                  <ul className="edibtn">
+                    { 
+                      this.toolbars.map((item,index)=>{
+                        return (
+                          <li 
+                            key={index}
+                            data-type={item.type} 
+                            className={`${item.type}`} 
+                            // onClick={}
+                          >
+                            <a>
+                              <i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i>
+                              <p>{ window.public.lang.toolbars[index]}</p>
+                            </a>
+                          </li>
+                        )
+                      })
+                    }
+                  </ul>
+                </div>
+                : null
+              }
+            
+            <div id="edit-toolbar-content" data-add="c9IoTZL_1"></div>
+          </div>
+        )
+      } else {
+        return (null)
+      }
+          
+  }
+
   
   /**
    * @method render 挂载组件方法
@@ -372,7 +457,7 @@ export default class ContentControler extends React.Component {
         height: "calc(100% - 20px)"
       };
     }
-
+    console.log(height,'height');
     const siteId = window.pageData.siteId;
     return (
       <div id='ediMain' className={`${type}-content`} style={_style}>
@@ -391,6 +476,8 @@ export default class ContentControler extends React.Component {
           }
           <ComponentEditTestControler height={height} />
         </div>
+        
+        {this.renderEdiTool()}
       </div>
     )
   }
