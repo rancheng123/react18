@@ -489,6 +489,8 @@ export default class MouseRightClickMenuControler extends React.Component {
           </div>
         )
       }
+
+      return null
       // return <MouseRightClickMenu {...this} />
     }
 

@@ -45,15 +45,7 @@ function query(key, component, data, fn) {
 function render(component, theme_data) {
   var _theme_data$document;
 
-  const {
-    id = 'document'
-  } = component,
-        {
-    public: {
-      dom,
-      type
-    }
-  } = window;
+  const { id = 'document' } = component, { public: { dom, type } } = window;
   theme_data = (_theme_data$document = theme_data.document) !== null && _theme_data$document !== void 0 ? _theme_data$document : theme_data; //解析样式
 
   const promise = Util.cssParser(component, theme_data, type == 'pc' ? "html" : 'mo'); //获取控件样式节点

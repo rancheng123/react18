@@ -308,13 +308,20 @@ export default class ContentControler extends React.Component {
 
 
   template() {
-    __webpack_require__.e(/*! import() | resource_manager */ "resource_manager").then(__webpack_require__.bind(null, /*! ../../system/function/resource/resource_manager */ "./system/function/resource/resource_manager.js")).then(module => {
+    import('../../system/function/resource/resource_manager.js').then(module => {
       module.resourceManager("template").then(module => {
         module.resource({
           selected: null
         });
       });
     });
+    // __webpack_require__.e(/*! import() | resource_manager */ "resource_manager").then(__webpack_require__.bind(null, /*! ../../system/function/resource/resource_manager */ "./system/function/resource/resource_manager.js")).then(module => {
+    //   module.resourceManager("template").then(module => {
+    //     module.resource({
+    //       selected: null
+    //     });
+    //   });
+    // });
   }
   /**
   * @method collection 弹出收藏面板
