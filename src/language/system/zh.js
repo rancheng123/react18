@@ -10,7 +10,7 @@ window.public.lang = {
     currentPage:"当前页面",
     
     //toolbars:["工具库","背景","模板","收藏","站点设置"],
-    toolbars:["组件库","控件库","设置","模板","收藏"],
+    toolbars:["组件库","控件库","模板库","收藏","设置"],
     moEditPrompt:"请勿在手机编辑界面删除控件，不需要展示的控件可以设置隐藏。",
     moEditPrompta:"手机编辑界面修改控件样式和隐藏控件，不影响电脑端效果。",
     /** headList该数组已经删除，优化在header_controler.js 文件内的数组中 用键值对的方式取这里面的 header_menu */

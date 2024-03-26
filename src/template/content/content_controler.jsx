@@ -4,6 +4,9 @@ import Dispatcher from "../../system/tools/dispatcher";
 import RulerControler from '../../system/function/ruler/ruler_controler'
 import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler'
 
+import CollectionControler from '../toolbar/collection/collection_controler'
+
+
 export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -246,6 +249,7 @@ export default class ContentControler extends React.Component {
 
 
   showToolbars(type, event) {
+    console.log('type', type);
     //判断是否存在弹出此工具栏的面板
     if (this[type]) {
       this[type]();
@@ -320,11 +324,7 @@ export default class ContentControler extends React.Component {
 
 
   collection() {
-    Promise.all(/*! import() | collection_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("collection_controler")]).then(__webpack_require__.bind(null, /*! ../toolbar/collection/collection_controler */ "./ui/toolbar/collection/collection_controler.js")).then(({
-      CollectionControler
-    }) => {
-      CollectionControler.collection("edit-toolbar-content");
-    });
+    CollectionControler.collection("edit-toolbar-content");
   }
   /**
    * @method setUp 弹出设置面板
@@ -412,7 +412,7 @@ export default class ContentControler extends React.Component {
                             key={index}
                             data-type={item.type} 
                             className={`${item.type}`} 
-                            // onClick={}
+                            onClick={()=>this.showToolbars(item.type)}
                           >
                             <a>
                               <i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i>

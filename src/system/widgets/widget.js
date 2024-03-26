@@ -17,11 +17,11 @@ function Container(prop) {
 
   return React.createElement("div", {
     className: prop.skin || null
-  }, prop.title ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+  }, prop.title ? React.a.createElement("h5", {
     className: "pcConAttTitle "
-  }, window.public.lang[prop.help] && prop.help ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Help, {
+  }, window.public.lang[prop.help] && prop.help ? React.createElement(Help, {
     help: prop.help
-  }) : null, (_window$public$lang$p = window.public.lang[prop.title]) !== null && _window$public$lang$p !== void 0 ? _window$public$lang$p : prop.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, prop.unit ? ` (${prop.unit})` : "")) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }) : null, (_window$public$lang$p = window.public.lang[prop.title]) !== null && _window$public$lang$p !== void 0 ? _window$public$lang$p : prop.title, React.createElement("span", null, prop.unit ? ` (${prop.unit})` : "")) : null, React.createElement("div", {
     className: "pcConAttCon"
   }, prop.children));
 }
@@ -39,12 +39,12 @@ function Container(prop) {
 function Help(prop) {
   const title = window.public.lang[prop.help]; // onMouseEnter = {e=>$(e.currentTarget).tooltip()} 不引jq无法调取事件（存在的问题）
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return React.createElement("div", {
     className: prop.skin || "helpcon",
     title: title,
     "data-placement": "bottom",
     "data-original-title": title
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, React.createElement("img", {
     src: "/desktop/Public/images/controlProperty/help.png",
     className: "helpImg"
   }));
@@ -75,7 +75,7 @@ function Help(prop) {
 function Input(prop) {
   var _prop$type, _prop$min, _prop$max, _prop$maxlength;
 
-  const input = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  const input = React.createElement("input", {
     className: "pcInputTextStyle",
     id: prop.id || null,
     type: (_prop$type = prop.type) !== null && _prop$type !== void 0 ? _prop$type : 'text',
@@ -94,11 +94,11 @@ function Input(prop) {
     return input;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help
-  }, input, prop.maxlength ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, input, prop.maxlength ? React.createElement("span", {
     className: "maxlengthInput"
   }, prop.value.length, "/", prop.maxlength) : null, prop.children);
 }
@@ -123,7 +123,7 @@ function Input(prop) {
 function Textarea(prop) {
   var _prop$maxlength2;
 
-  const textarea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+  const textarea = React.createElement("textarea", {
     className: "pcInputTextStyle pcTextarea",
     id: prop.id || null,
     type: "text",
@@ -139,11 +139,11 @@ function Textarea(prop) {
     return textarea;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help
-  }, textarea, prop.maxlength ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, textarea, prop.maxlength ? React.createElement("span", {
     className: "maxlengthTextarea"
   }, prop.value.length, "/", prop.maxlength) : null);
 }
@@ -188,28 +188,28 @@ function Radio(prop) {
       propValue = propValue.toString();
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    return React.createElement("label", {
       key: i,
       className: "em-radio-label"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, React.createElement("input", {
       type: "radio",
       name: prop.id,
       id: `${prop.id}-${value}`,
       checked: value != propValue ? "" : "checked",
       value: value,
       onChange: prop.change || null
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    }), React.createElement("i", {
       className: "radio-Select"
     }, prop.showName ? name : null), name ? prop.isLang ? name : window.public.lang[name] : null);
   });
 
   if (prop.basic) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       className: prop.skin || `em-radio-component`
     }, radio);
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin || `em-radio-component`,
     title: prop.title,
     help: prop.help
@@ -231,7 +231,7 @@ function Radio(prop) {
 
 
 function Button(prop) {
-  const button = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  const button = React.createElement("button", {
     className: "em-button-component",
     onClick: prop.click
   }, prop.btnName);
@@ -240,7 +240,7 @@ function Button(prop) {
     return button;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help
@@ -272,9 +272,9 @@ function Button(prop) {
 function Range(prop) {
   var _prop$children;
 
-  const range = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  const range = React.createElement("div", {
     className: `em-drag-slider${prop.units ? ' em-drag-select-slider' : ''}`
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, React.createElement("input", {
     type: "range",
     className: "slider-range-input",
     step: prop.step || 1,
@@ -307,7 +307,7 @@ function Range(prop) {
     return range;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help
@@ -332,15 +332,15 @@ function Range(prop) {
 
 
 function Select(prop) {
-  const select = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+  const select = React.createElement("select", {
     className: "em-select-box",
     id: prop.id,
     value: prop.value || "",
     disabled: prop.disabled,
     onChange: prop.change
-  }, prop.isChoose ? null : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+  }, prop.isChoose ? null : React.createElement("option", {
     value: ""
-  }, window.public.lang["pleaseChoose"]), prop.list.map((e, i) => e.hidden != true ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+  }, window.public.lang["pleaseChoose"]), prop.list.map((e, i) => e.hidden != true ? React.createElement("option", {
     key: i,
     label: e.name,
     value: e.value
@@ -350,7 +350,7 @@ function Select(prop) {
     return select;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     help: prop.help,
     title: prop.title
@@ -370,24 +370,24 @@ function Select(prop) {
 
 
 function OnOff(prop) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+  }, React.createElement("label", {
     className: "em-on-off switchBtn btnColor"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, React.createElement("input", {
     type: "checkbox",
     onChange: prop.change,
     checked: prop.checked,
     className: "input input-switch"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), React.createElement("div", {
     className: "statusBtn"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, React.createElement("p", {
     className: "closeBtn"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "▁")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, React.createElement("i", null, "▁")), React.createElement("p", {
     className: "openBtn"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "✔")))));
+  }, React.createElement("i", null, "✔")))));
 }
 /**
  * @method ShowInfo 显示信息组件
@@ -410,14 +410,14 @@ function OnOff(prop) {
 
 
 function ShowInfo(prop) {
-  const show = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  const show = React.createElement("div", null, React.createElement("div", {
     className: "setDataP",
     onClick: prop.click
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, React.createElement("p", {
     className: "pcsetDataSource"
-  }, prop.value), !prop.unuseArrow ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }, prop.value), !prop.unuseArrow ? React.createElement("i", {
     className: "iconBor" + (prop.iconClass ? " " + prop.iconClass : "")
-  }, prop.icon || "▼") : null), prop.isButton ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, prop.icon || "▼") : null), prop.isButton ? React.createElement("button", {
     className: "pcwindow.publicButton",
     onClick: prop.btnClick
   }, window.public.lang[prop.btnTitle]) : null);
@@ -426,7 +426,7 @@ function ShowInfo(prop) {
     return show;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help,
@@ -449,30 +449,30 @@ function ShowInfo(prop) {
 
 function SelectIcon(prop) {
   let icon = prop.icon || {};
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help,
-    children: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    children: React.createElement("div", null, React.createElement("div", {
       className: "btnIconDiv"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    }, React.createElement("p", {
       className: `pcBtnBg OperatingImg yiyingbaoicon`,
       style: {
         lineHeight: "35px",
         background: icon.iconSrc
       }
-    }, icon.iconName ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, icon.iconName) : null, icon.iconSrc ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, icon.iconName ? React.createElement("i", null, icon.iconName) : null, icon.iconSrc ? React.createElement("img", {
       src: icon.iconSrc
-    }) : null), prop.delIcon ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }) : null), prop.delIcon ? React.createElement("div", {
       className: "iconClose"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, React.createElement("img", {
       width: "17",
       onClick: prop.delIcon || null,
       src: "http://www.eyingbao.com/system/webdesign/images/createWebClose.png",
       style: {
         "cursor": "pointer"
       }
-    })) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    })) : null), React.createElement("button", {
       type: "text",
       className: "publicButton",
       onClick: prop.click
@@ -522,16 +522,16 @@ function Align(prop) {
     }];
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: `em-align-select ${skin}`,
     title: title
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Input, {
+  }, React.createElement(Input, {
     readonly: "readonly",
     basic: true,
     value: window.public.lang[value]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }), React.createElement("ul", {
     className: "pcBoxAlign"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Radio, {
+  }, React.createElement(Radio, {
     list: list,
     basic: true,
     value: prop.value,
@@ -564,25 +564,25 @@ function SelectImage(prop) {
     src = src.indexOf("@") != -1 ? src.replace(/@[\w]+/, "@jw120") : src + "@jw120";
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help,
-    children: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    children: React.createElement("div", {
       className: "pcConChangeImg",
       onClick: prop.click
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, React.createElement("div", {
       className: "pcClick_img_sel"
-    }, src ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, src ? React.createElement("img", {
       src: src,
       className: "pcSelect_img"
-    }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }) : null, React.createElement("span", {
       className: "pcSelect_middel_span"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    })), React.createElement("div", {
       id: "pcSelectImg"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    }, React.createElement("i", {
       className: "pcImgSizeMass"
-    }, ratio.split(";")[0]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, ratio.split(";")[0]), React.createElement("span", {
       className: "pcTitle_xzimg"
     }, window.public.lang["clickChangeImage"])))
   });
@@ -604,7 +604,7 @@ function ImageQuality(prop) {
 
   let _data = prop.data || {};
 
-  const quality = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Select, {
+  const quality = React.createElement("div", null, React.createElement(Select, {
     id: "imageQuality",
     unuseLi: true,
     basic: true // mo端先读mo质量，没有再读pc质量值
@@ -645,13 +645,13 @@ function ImageQuality(prop) {
       value: "original"
     }],
     change: prop.change
-  }), _data.dataSize ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), _data.dataSize ? React.createElement("input", {
     className: "pcInputTextStyle",
     type: "text",
     readOnly: "readonly",
     placeholder: (_data.dataSize || "") + "KB"
   }) : false);
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     help: prop.help,
     title: "imageQuality"
@@ -679,7 +679,7 @@ function OriginalFormat(prop) {
     return null;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Radio, {
+  return React.createElement(Radio, {
     title: "originalFormat",
     id: "originalFormat",
     value: (_ref2 = (_data$2 = _data[`${prefix !== null && prefix !== void 0 ? prefix : ''}dataRetain`]) !== null && _data$2 !== void 0 ? _data$2 : _data['dataRetain']) !== null && _ref2 !== void 0 ? _ref2 : "noRetain",
@@ -752,10 +752,10 @@ function ColorPicker(prop) {
       }
     }); //清除方法
   }, [color]);
-  const picker = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  const picker = React.createElement("div", {
     id: prop.id,
     className: "em-color-picker"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: prop.id,
     style: {
       padding: '5px'
@@ -766,7 +766,7 @@ function ColorPicker(prop) {
     return picker;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title
   }, picker);
@@ -788,7 +788,7 @@ function ColorPicker(prop) {
 
 
 function Search(prop) {
-  const search = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  const search = React.createElement("input", {
     className: "pcInputTextStyle",
     id: prop.id || null,
     type: "search",
@@ -801,11 +801,11 @@ function Search(prop) {
     return search;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin,
     title: prop.title,
     help: prop.help,
-    children: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    children: React.createElement("div", {
       className: "pcDropDownWidth"
     }, search)
   });
@@ -841,10 +841,10 @@ function CheckBox(prop) {
           value = e;
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    return React.createElement("label", {
       key: i,
       className: "em-radio-label"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    }, React.createElement("input", {
       type: "checkbox",
       name: prop.id,
       id: `${prop.id}-${value}`,
@@ -852,18 +852,18 @@ function CheckBox(prop) {
       checked: propValue.indexOf(value) != -1 ? true : false,
       value: value,
       onChange: prop.change || null
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+    }), React.createElement("i", {
       className: "radio-Select"
     }, prop.showName ? name : null), name ? prop.isLang ? name : window.public.lang[name] : null);
   });
 
   if (prop.basic) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       className: prop.skin || `em-radio-component`
     }, checkbox);
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
+  return React.createElement(Container, {
     skin: prop.skin || 'em-radio-component',
     title: prop.title,
     help: prop.help
@@ -901,35 +901,35 @@ function ComboBoxData(prop) {
   }
 
   let nameTitle = window.public.lang[prop.title];
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return React.createElement("div", {
     className: prop.className
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "seLectBtn onSelect"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("font", null, nameTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, React.createElement("font", null, nameTitle), React.createElement("p", {
     onClick: prop.click
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, React.createElement("span", {
     className: "wpComboBoxDataText"
-  }, prop.dataName || window.public.lang["pleaseChoose"]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+  }, prop.dataName || window.public.lang["pleaseChoose"]), React.createElement("i", {
     className: "iconfont iconBor"
-  }, "\uE650")), prop.isShow ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "\uE650")), prop.isShow ? React.createElement("div", {
     className: "dateLibrary textConPanl  dataComboBox",
     style: prop.isShow ? {
       "display": "block"
     } : {
       "display": "none"
     }
-  }, prop.isSearch ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, prop.isSearch ? React.createElement("div", {
     className: "dataComSearch"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "dataformSearch"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, React.createElement("input", {
     type: "text",
     className: "searchFrom1 search",
     placeholder: window.public.lang["searchContent"],
     onChange: prop.change
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), React.createElement("button", {
     className: "yiyingbaoicon dataButton"
-  }, "\uE776"))) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+  }, "\uE776"))) : null, React.createElement("ul", {
     className: "dataComList"
   }, setList.map((e, i) => {
     let _class = "dataComList_" + (e.layer || 1); //传过来的选中为数组时
@@ -957,14 +957,14 @@ function ComboBoxData(prop) {
       }
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    return React.createElement("li", {
       "data-value": e[prop.name],
       key: e.id,
       title: e[prop.name],
       className: _class,
       onClick: _noClick ? prop.select.bind(null, e) : null,
       "data-id": e.id
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, e[prop.name]));
+    }, React.createElement("span", null, e[prop.name]));
   }))) : null));
 }
 

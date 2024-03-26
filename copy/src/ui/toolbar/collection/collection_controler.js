@@ -1,0 +1,242 @@
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionControler", function() { return CollectionControler; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _collection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./collection */ "./ui/toolbar/collection/collection.js");
+/* harmony import */ var layer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! layer */ "./system/widgets/layer.js");
+/* harmony import */ var _drag_add__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../drag_add */ "./ui/toolbar/drag_add.js");
+
+
+
+
+
+class CollectionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
+
+    this.init();
+    /**@property {Collection} view 初始化 view 实例*/
+
+    this.view = new _collection__WEBPACK_IMPORTED_MODULE_2__["Collection"](this); //给view 入口方法绑定this
+
+    this.view.render = this.view.render.bind(this.view);
+  }
+
+  static collection(id) {
+    const element = document.querySelector(`#${id}`);
+    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CollectionControler, {
+      id: id
+    }), element);
+  }
+  /**
+   * @method render 挂载组件方法
+   * @date 2019-09-25
+   * @author sxt 
+   * @return {object} 待渲染的组件对象
+   */
+
+
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+  }
+  /**
+   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
+   * @date 2019-09-25
+   * @author sxt
+   */
+
+
+  init() {
+    let colists = "";
+    this.state = {
+      colists: []
+    };
+  }
+
+  componentWillMount() {
+    let isLoad = window.public.isCellection;
+
+    if (!isLoad) {
+      this.getAjaxList();
+    } else {
+      if (localStorage.colistsResp) {
+        let colists = JSON.parse(localStorage.colistsResp);
+        this.setState({
+          colists: colists
+        });
+      }
+    }
+  }
+
+  close(close) {
+    this.__proto__.close = close;
+  }
+
+  help() {} //获取收藏列表
+
+
+  getAjaxList() {
+    let _collList = {};
+    let _last = null;
+    fetch("/desktop/index.php/Edit/Collection/getcollist", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `edition=${localStorage.editionResp}&pagetype=6`
+    }).then(response => response.json()).then(data => {
+      if (data.suc == 0) {
+        window.public.isCellection = true;
+        _collList = data.msg;
+
+        if (_collList.colists) {
+          localStorage.dataResp = JSON.stringify(_collList.colfield);
+          localStorage.colistsResp = JSON.stringify(_collList.colists);
+          localStorage.editionResp = _collList.edition;
+          this.setState({
+            colists: _collList.colists
+          });
+        } else {
+          //请求不成功时，获取缓存的值 sxt 2020-5-21
+          if (localStorage.colistsResp) {
+            let colists = JSON.parse(localStorage.colistsResp);
+            this.setState({
+              colists: colists
+            });
+          }
+        }
+      } else {// Layer.alert({area:["420px","225px"],skin:"",close:true,cancel:true,ensure:true,content:window.public.lnag["addFailed"]})
+        //pageSaveTips(Public.lang["failedGetList"]);
+      }
+    }).catch(error => console.log("Error", error));
+  }
+  /**
+   * @method emptyList 全部清除方法
+   * @date 2020-2-15
+   * @author sxt
+   */
+
+
+  emptyList(e) {
+    let _times = new Date().getTime();
+
+    fetch("/desktop/index.php/Edit/Collection/dels", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `edition=${_times}&pagetype=6`
+    }).then(response => response.json()).then(data => {
+      if (data.suc == 0) {
+        localStorage.dataResp = "";
+        localStorage.colistsResp = "";
+        localStorage.editionResp = "";
+        this.setState({
+          colists: ""
+        });
+      } else {
+        layer__WEBPACK_IMPORTED_MODULE_3__["Layer"].alert({
+          area: ["420px", "225px"],
+          skin: "",
+          close: true,
+          cancel: true,
+          ensure: true,
+          content: window.public.lnag["emptyFailed"]
+        });
+      }
+    }).catch(error => console.log("Error", error));
+    e.stopPropagation();
+  }
+  /**
+   * @method deleteList 单个清除方法
+   * @date 2020-2-15
+   * @author sxt
+   * @param {string} id 删除的项id
+   * @return {object} 控件数据 
+   */
+
+
+  deleteList(id, e) {
+    let _times = new Date().getTime();
+
+    fetch("/desktop/index.php/Edit/Collection/delcoll", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `id=${id}&edition=${_times}`
+    }).then(response => response.json()).then(data => {
+      if (data.suc == 0) {
+        localStorage.editionResp = _times;
+
+        var _list = JSON.parse(localStorage.colistsResp),
+            _index = null;
+
+        _list.findIndex(function (e, i) {
+          if (e.id == id) {
+            _index = i;
+          }
+        });
+
+        _list.splice(_index, 1);
+
+        this.setState({
+          colists: _list
+        });
+        window.localStorage.colistsResp = JSON.stringify(_list);
+      } else {
+        layer__WEBPACK_IMPORTED_MODULE_3__["Layer"].alert({
+          area: ["420px", "225px"],
+          skin: "",
+          close: true,
+          cancel: true,
+          ensure: true,
+          content: window.public.lnag["deleteFailed"]
+        });
+      }
+    }).catch(error => console.log("Error", error));
+    e.stopPropagation();
+  }
+  /**
+   * @method start 拖拽开始执行方法
+   * @date 2020-2-19
+   * @author sxt
+   * @param {string} skin 皮肤
+   * @param {event} event 事件对象
+   */
+
+
+  start(id, event) {
+    this.id = id;
+    new _drag_add__WEBPACK_IMPORTED_MODULE_4__["DragAdd"](this).start(event);
+  }
+  /**
+   * @method getData 获取控件数据
+   * @date 2020-2-18
+   * @author sxt
+   * @return {object} 控件数据 
+   */
+
+
+  async getData() {
+    if (this.id) {
+      let data = await JSON.parse(localStorage.dataResp)[this.id];
+      let structure = data.structure;
+
+      if (structure) {
+        //收藏的控件把禁拖属性和禁删属性都去掉 sxt 2024-1-24
+        delete structure.isDragable;
+        delete structure.removable;
+      }
+
+      return data;
+    }
+
+    return null;
+  }
+
+}
+
+//# sourceURL=webpack:///./ui/toolbar/collection/collection_controler.js?
