@@ -1,26 +1,25 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./ui/toolbar/set_up/fontFamily/style.css");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _fonts_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./fonts.json */ "./ui/toolbar/set_up/fontFamily/fonts.json");
-var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./fonts.json */ "./ui/toolbar/set_up/fontFamily/fonts.json", 1);
-/* harmony import */ var layer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! layer */ "./system/widgets/layer.js");
+// 导入 React 库
+import React,{useState,useEffect} from 'react';
+// 导入 dispatcher 工具
+import Dispatcher from '@/system/tools/dispatcher.js';
+// 导入样式表
+import './style.css';
+// 导入字体 JSON 数据
+import fonts from './fonts.json';
+// 导入自定义 UI 库或工具
+import Layer from '@/system/widgets/layer.js';
 
 
 
-
-
-/* harmony default export */ __webpack_exports__["default"] = (() => {
-  const [familyShow, setfamilyShow] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  const [familyTab, setfamilyTab] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("system");
-  const [familyData, setFamilyData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("Arial");
-  const [familyName, setFamilyName] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("Arial");
-  const [pageNmae, setPageName] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const [familList, setFamilyList] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  const [uschek, setUserCheck] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+const fontFamily = () => {
+  const [familyShow, setfamilyShow] = useState(false);
+  const [familyTab, setfamilyTab] = useState("system");
+  const [familyData, setFamilyData] = useState("Arial");
+  const [familyName, setFamilyName] = useState("Arial");
+  const [pageNmae, setPageName] = useState([]);
+  const [familList, setFamilyList] = useState([]);
+  const [uschek, setUserCheck] = useState(false);
+  useEffect(() => {
     let src = `${pageData.apiServiceUrl}index.php/fonts?list_rows=1000&page=1`;
     fetch(src, {
       method: 'GET',
@@ -32,7 +31,7 @@ var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_
       if (data.data) {
         var _item$data$theme_data, _item$data$theme_data2, _item$data$theme_data3, _item$data$theme_data4, _item$data$theme_data5, _item$data$theme_data6;
 
-        let item = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch("getIframeData");
+        let item = Dispatcher.dispatch("getIframeData");
         let name = ((_item$data$theme_data = item.data.theme_data) === null || _item$data$theme_data === void 0 ? void 0 : (_item$data$theme_data2 = _item$data$theme_data.SITE_HEADER) === null || _item$data$theme_data2 === void 0 ? void 0 : (_item$data$theme_data3 = _item$data$theme_data2.style) === null || _item$data$theme_data3 === void 0 ? void 0 : _item$data$theme_data3.fontPageFamily) ? (_item$data$theme_data4 = item.data.theme_data) === null || _item$data$theme_data4 === void 0 ? void 0 : (_item$data$theme_data5 = _item$data$theme_data4.SITE_HEADER) === null || _item$data$theme_data5 === void 0 ? void 0 : (_item$data$theme_data6 = _item$data$theme_data5.style) === null || _item$data$theme_data6 === void 0 ? void 0 : _item$data$theme_data6.fontPageFamily : "";
 
         if (name.indexOf('font_') == -1) {
@@ -82,7 +81,7 @@ var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_
         hoveName = window.public.lang["fontEmpower"];
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return React.createElement("li", {
         key: e.value,
         className: e.value == value ? 'on' : null,
         onClick: () => {
@@ -90,11 +89,11 @@ var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_
           setFamilyName(e.name);
           setfamilyShow(false);
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, React.createElement("p", {
         className: "textNameP"
-      }, name, size ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, name, size ? React.createElement("span", {
         className: "textNameSize"
-      }, " (", size, ")") : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, " (", size, ")") : null), React.createElement("span", {
         className: "textHoverSpan"
       }, hoveName));
     });
@@ -105,7 +104,7 @@ var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_
     if (list.length >= 1) {
       return list.map(e => {
         let keyFont = `font_${e.id}`;
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        return React.createElement("li", {
           key: e.id,
           className: keyFont == value ? 'on' : null,
           onClick: () => {
@@ -124,12 +123,12 @@ var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_
     (async () => {
       try {
         if (pageNmae.length == 0) {
-          dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch(`document_set`, {
+          Dispatcher.dispatch(`document_set`, {
             args: [`theme_data.SITE_HEADER.style.fontPageFamily`, familyData]
           });
-          let savePage = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch("savePage");
+          let savePage = Dispatcher.dispatch("savePage");
           await savePage.then(() => {
-            let data = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch("getIframeData"),
+            let data = Dispatcher.dispatch("getIframeData"),
                 dataItems = data.data.document_data.MAIN_MENU.items || [],
                 tempitems = data.data.document_data.MAIN_MENU.tempitems || [];
             let pids = [];
@@ -205,56 +204,56 @@ var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_
     return true;
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return React.createElement("div", {
     className: "settingFontPadding"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "settingFontTop"
-  }, "\u5168\u5C40\u5B57\u4F53\uFF1A"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "\u5168\u5C40\u5B57\u4F53\uFF1A"), React.createElement("div", null, React.createElement("div", {
     style: {
       marginBottom: "5px"
     }
-  }, "\u9ED8\u8BA4\uFF1A"), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "\u9ED8\u8BA4\uFF1A"), " ", React.createElement("div", {
     className: "settingSetDataP"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "rowMaxFont"
-  }, familyName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, familyName), React.createElement("div", null, React.createElement("button", {
     className: "settingButton",
     onClick: () => {
       setfamilyShow(true);
     }
-  }, "\u66F4\u6362"))), familyShow ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "\u66F4\u6362"))), familyShow ? React.createElement("div", {
     className: "setting-fontStyle-box settingOption"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "tabs-header"
   }, tabList.map(e => {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       key: e.value,
       onClick: () => {
         setfamilyTab(e.value);
       },
       className: e.value == familyTab ? 'tab-item tab_active' : "tab-item"
     }, window.public.lang[e.name]);
-  })), familyTab == 'system' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), familyTab == 'system' ? React.createElement("div", {
     className: "tabs-content"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "font-family-type-wrap type-wrap01"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, familyList(_fonts_json__WEBPACK_IMPORTED_MODULE_3__, familyData)))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("ul", null, familyList(fonts, familyData)))) : React.createElement("div", {
     className: "font-family-type-wrap type-wrap02"
-  }, familList.length < 1 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  }, familList.length < 1 ? React.createElement("p", {
     className: "noFont"
-  }, window.public.lang["uploadFontHelp"]) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, window.public.lang["uploadFontHelp"]) : null, React.createElement("div", {
     className: "type-wrapCon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, familyCustomList(familList, familyData))))) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("ul", null, familyCustomList(familList, familyData))))) : null), React.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'center'
     }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "buttonFontAPP",
     onClick: () => {
       setUserCheck(true);
     }
-  }, "\u6574\u7AD9\u5B57\u4F53\u66FF\u6362")), uschek ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(layer__WEBPACK_IMPORTED_MODULE_4__["Layer"].open, {
+  }, "\u6574\u7AD9\u5B57\u4F53\u66FF\u6362")), uschek ? React.createElement(Layer.open, {
     titles: ["提示："],
     area: ["466px", "250px"],
     close: () => {
@@ -262,23 +261,23 @@ var _fonts_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_
       setUserCheck(false);
     },
     ensure: () => onOk()
-  }, pageNmae && pageNmae.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, pageNmae && pageNmae.length > 0 ? React.createElement("div", {
     className: "pressCss"
   }, pageNmae.map((e, i) => {
-    return i >= pageNmae.length - 3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return i >= pageNmae.length - 3 ? React.createElement("div", {
       className: "cssend"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, React.createElement("div", {
       className: "circle-with-checkbox"
     }), e, " \u9875\u9762\u66FF\u6362\u5B8C\u6BD5") : "";
-  })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })) : React.createElement("div", {
     className: "cssMargin"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: "csstitleFont"
-  }, "1.\u6574\u7AD9\u5B57\u4F53\u66FF\u6362\u540E\u4E0D\u53EF\u8FD8\u539F\uFF0C\u8BF7\u8C28\u614E\u4F7F\u7528\uFF01"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "1.\u6574\u7AD9\u5B57\u4F53\u66FF\u6362\u540E\u4E0D\u53EF\u8FD8\u539F\uFF0C\u8BF7\u8C28\u614E\u4F7F\u7528\uFF01"), React.createElement("div", {
     className: "csstitleFont"
-  }, "2.\u5B57\u4F53\u66FF\u6362\u4F1A\u5237\u65B0\u7F16\u8F91\u754C\u9762\uFF0C\u8BF7\u786E\u4FDD\u7F51\u7AD9\u5DF2\u7ECF\u4FDD\u5B58\u6700\u65B0\u72B6\u6001 !"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "2.\u5B57\u4F53\u66FF\u6362\u4F1A\u5237\u65B0\u7F16\u8F91\u754C\u9762\uFF0C\u8BF7\u786E\u4FDD\u7F51\u7AD9\u5DF2\u7ECF\u4FDD\u5B58\u6700\u65B0\u72B6\u6001 !"), React.createElement("div", {
     className: "csstitleFont1"
   }, "\u70B9\u51FB\u786E\u8BA4\u6309\u94AE\uFF0C\u9ED8\u8BA4\u60A8\u5DF2\u77E5\u6653\u4EE5\u4E0A\u63D0\u793A\u4FE1\u606F\u3002"))) : "");
-});
-
+};
+export default fontFamily
 //# sourceURL=webpack:///./ui/toolbar/set_up/fontFamily/fontFamily.js?

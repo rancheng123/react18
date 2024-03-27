@@ -5,7 +5,7 @@
 // /* harmony import */ var _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/page/attr_proxy */ "./components/page/attr_proxy.js");
 
 // 导入 layer 模块
-// import layer from 'layer';
+import Layer from '../../system/widgets/layer';
 // 导入系统工具中的 drag 模块
 import Drag from '../../system/tools/drag';
 // 导入页面属性代理组件
@@ -233,7 +233,7 @@ export default class DragAdd {
     //是否存在action，存在值为close，执行关闭操作，只不存在，执行弹出提示操作。
     if (action != 'close') {
       //弹出提示框
-      layer__WEBPACK_IMPORTED_MODULE_0__["Layer"].alert({
+      Layer.alert({
         area: ["350px", "230px"],
         icon: 'warn',
         close: true,

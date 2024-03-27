@@ -1,15 +1,8 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Toolbar", function() { return Toolbar; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
 
 // 导入 React 库
 import React from 'react';
-// 导入 ReactDOM 库
-import ReactDOM from 'react-dom';
+// 导入 ReactDom 库
+import ReactDom from 'react-dom';
 // 导入 dispatcher 模块
 import Dispatcher from '../../system/tools/dispatcher';
 
@@ -73,7 +66,7 @@ export default function Toolbar(props) {
 Toolbar.close = function () {
   const content = document.querySelector("#edit-toolbar-content");
   Dispatcher.dispatch("hideToolbars");
-  ReactDOM.a.unmountComponentAtNode(content);
+  ReactDom.unmountComponentAtNode(content);
 };
 
 //# sourceURL=webpack:///./ui/toolbar/toolbar.js?

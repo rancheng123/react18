@@ -1,6 +1,7 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Page", function() { return Page; });
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
+
+// 导入 dispatcher 模块
+import Dispatcher from '../../system/tools/dispatcher';
+
 
 /**
  * @class PageControler 页面设置控制器类
@@ -27,7 +28,7 @@ const Page = {
    * @author wyq
    */
   set() {
-    const iframeData = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch('document_get');
+    const iframeData = Dispatcher.dispatch('document_get');
     const {
       component: {
         children: [header, content, footer]
@@ -38,7 +39,7 @@ const Page = {
     } = iframeData;
     const {
       component: page
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${content.pageId}_get`);
+    } = Dispatcher.dispatch(`${content.pageId}_get`);
     const value = theme_data.document.style.w1920u,
           num = value + value;
     const componentList = [].concat(header.components, page.components, footer.components); //循环数组
@@ -52,13 +53,13 @@ const Page = {
               style = {}
             }
           }
-        } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${e.id}_get`); //如果paddingLeft不存在或等于零，则转换为自动边距
+        } = Dispatcher.dispatch(`${e.id}_get`); //如果paddingLeft不存在或等于零，则转换为自动边距
 
         if (style.paddingLeft == undefined || style.paddingLeft == 0) {
           //计算宽度
           const width = this.calcWidth(e.id, value, value); //设置页面边距
 
-          dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${e.id}_set`, {
+          Dispatcher.dispatch(`${e.id}_set`, {
             args: ['theme_data.style.', {
               paddingLeft: value,
               paddingLeftUnit: '%',
@@ -79,7 +80,7 @@ const Page = {
    * @author wyq
    */
   clear() {
-    dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch('document_remove', {
+    Dispatcher.dispatch('document_remove', {
       value: 'theme_data.document'
     });
   },
@@ -99,7 +100,7 @@ const Page = {
     const width = component.offsetWidth;
     const cwidth = width - (width * (value1 / 100) + width * (value2 / 100)); //修改控件宽度
 
-    dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_set`, {
+    Dispatcher.dispatch(`${id}_set`, {
       args: ['component.layout.width', width]
     }); //返回控件宽度
 
@@ -107,5 +108,7 @@ const Page = {
   }
 
 };
+
+export default Page;
 
 //# sourceURL=webpack:///./ui/toolbar/set_up/page.js?

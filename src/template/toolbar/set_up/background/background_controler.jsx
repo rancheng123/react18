@@ -1,15 +1,23 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BackgroundControler", function() { return BackgroundControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./background */ "./ui/toolbar/set_up/background/background.js");
+// __webpack_require__.r(__webpack_exports__);
+// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BackgroundControler", function() { return BackgroundControler; });
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
+// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+// /* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
+// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
+// /* harmony import */ var _background__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./background */ "./ui/toolbar/set_up/background/background.js");
 
-
-
+// 导入 React 库
+import React from 'react';
+// 导入 ReactDOM 库
+import ReactDom from 'react-dom';
+// 导入 widget 模块
+import Widget from '@/system/widgets/widget.js';
+// 导入 dispatcher 模块
+import Dispatcher from '@/system/tools/dispatcher.js';
+// 导入 Background 模块
+import Background from './background.js';
 
 
 /**
@@ -19,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
  * @date 2020-02-07
  */
 
-class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export default class BackgroundControler extends React.Component {
   constructor(props) {
     super(props);
     /**@property {string} 页面id */
@@ -29,7 +37,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
     this.init();
     /**@property {Background} view 初始化 view 实例*/
 
-    this.view = new _background__WEBPACK_IMPORTED_MODULE_4__["Background"](this); //给view 入口方法绑定this
+    this.view = new Background(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
@@ -45,7 +53,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
 
   static background(id) {
     const element = document.querySelector(`#${id}`);
-    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BackgroundControler, null), element);
+    ReactDom.render(React.createElement(BackgroundControler, null), element);
   }
   /**
    * @method render 挂载组件方法
@@ -56,7 +64,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -68,7 +76,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
   init() {
     var _children$2$pageId, _design_data$this$id;
 
-    const data = dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch('document_get');
+    const data = Dispatcher.dispatch('document_get');
     const {
       component: {
         children
@@ -92,7 +100,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
 
 
   backgroundColor(bgColor) {
-    dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch('document_set', {
+    Dispatcher.dispatch('document_set', {
       args: [`design_data.${this.id}`, {
         bgColor,
         type: 'BackgroundColor'
@@ -121,7 +129,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
 
 
   backgroundImage(uri) {
-    dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch('document_set', {
+    Dispatcher.dispatch('document_set', {
       args: [`design_data.${this.id}.`, {
         uri,
         type: 'Image'
@@ -142,7 +150,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
 
 
   setVideo(datas, uri) {
-    dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch('document_set', {
+    Dispatcher.dispatch('document_set', {
       args: [`design_data.${this.id}`, {
         uri,
         type: 'video'
@@ -222,10 +230,10 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
       data: {
         design_data = {}
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch('document_get');
+    } = Dispatcher.dispatch('document_get');
     let data = JSON.parse(JSON.stringify(design_data)),
         oldData = {};
-    widget__WEBPACK_IMPORTED_MODULE_2__["Widget"].PageSelector({
+    Widget.PageSelector({
       element: document.querySelector('#function-modal'),
       isBackground: true,
       data,
@@ -242,7 +250,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
           };
         }
 
-        dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch('document_set', {
+        Dispatcher.dispatch('document_set', {
           args: [`design_data.${id}`, data[id]]
         });
       },
@@ -250,7 +258,7 @@ class BackgroundControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.C
         list.length ? list.forEach(e => {
           oldData[e] = data[e], data[e] = data[this.id];
         }) : data = oldData;
-        dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch('document_set', {
+        Dispatcher.dispatch('document_set', {
           args: [`design_data.`, JSON.parse(JSON.stringify(data))]
         });
       }

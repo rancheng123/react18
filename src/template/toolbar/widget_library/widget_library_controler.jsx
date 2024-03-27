@@ -1,20 +1,18 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WidgetLibraryControler", function() { return WidgetLibraryControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _config_widget_library_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../config/widget_library_config.json */ "./config/widget_library_config.json");
-var _config_widget_library_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../../config/widget_library_config.json */ "./config/widget_library_config.json", 1);
-/* harmony import */ var _config_component_library_config_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../config/component_library_config.json */ "./config/component_library_config.json");
-var _config_component_library_config_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../../config/component_library_config.json */ "./config/component_library_config.json", 1);
-/* harmony import */ var _widget_library__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./widget_library */ "./ui/toolbar/widget_library/widget_library.js");
-/* harmony import */ var _drag_add__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../drag_add */ "./ui/toolbar/drag_add.js");
-/* harmony import */ var _components_page_components_manager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/page/components_manager */ "./components/page/components_manager.js");
 
-
-
-
+// 导入 React 库
+import React from 'react';
+// 导入 ReactDOM 库
+import ReactDom from 'react-dom';
+// 导入 widget_library_config.json 文件
+// import widgetLibraryConfig from '../../../config/widget_library_config.json';
+// 导入 component_library_config.json 文件
+// import componentLibraryConfig from '../../../config/component_library_config.json';
+// 导入 widget_library 模块
+import WidgetLibrary from './widget_library/widget_library';
+// 导入 drag_add 模块
+import DragAdd from '../drag_add';
+// 导入 components_manager 模块
+import ComponentsManager from '@/components/page/components_manager';
 
 
 
@@ -22,7 +20,7 @@ var nmbTerm = null; //用来存储切换控件库内选项的index lw date 2021-
 
 var nmbTermid = null; //用来存储切换控件库内选项的id   lw
 
-class WidgetLibraryControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export default class WidgetLibraryControler extends React.Component {
   constructor(props) {
     super(props);
     let configType = props.configType || "";
@@ -50,14 +48,14 @@ class WidgetLibraryControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
     this.init();
     /**@property {WidgetLibrary} view 初始化 view 实例*/
 
-    this.view = new _widget_library__WEBPACK_IMPORTED_MODULE_4__["WidgetLibrary"](this); //给view 入口方法绑定this
+    this.view = new WidgetLibrary(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
 
   static widgetLibrary(id, configType) {
     const element = document.querySelector(`#${id}`);
-    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WidgetLibraryControler, {
+    ReactDom.render(React.createElement(WidgetLibraryControler, {
       id: id,
       configType: configType
     }), element);
@@ -71,7 +69,7 @@ class WidgetLibraryControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -229,7 +227,7 @@ class WidgetLibraryControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
   async getData() {
     if (this.skin) {
       const [type, classname] = this.skin.split(".");
-      const module = await Object(_components_page_components_manager__WEBPACK_IMPORTED_MODULE_6__["componentsManager"])(type);
+      const module = await ComponentsManager(type);
 
       if (module) {
         const name = window.humpJoin(classname, "_");
@@ -251,7 +249,7 @@ class WidgetLibraryControler extends react__WEBPACK_IMPORTED_MODULE_0___default.
 
   start(skin, event) {
     this.skin = skin;
-    new _drag_add__WEBPACK_IMPORTED_MODULE_5__["DragAdd"](this).start(event);
+    new DragAdd(this).start(event);
   }
 
 }
