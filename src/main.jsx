@@ -32,7 +32,7 @@ import './language/system/zh.js'
   }
 
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+export const root = ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App load={load} unload={unload} />
   </React.StrictMode>

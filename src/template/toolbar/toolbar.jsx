@@ -1,11 +1,9 @@
-
 // 导入 React 库
-import React from 'react';
+// import React from "react";
 // 导入 ReactDom 库
-import ReactDom from 'react-dom';
+import {createRoot} from "react-dom/client";
 // 导入 dispatcher 模块
-import Dispatcher from '../../system/tools/dispatcher';
-
+import Dispatcher from "../../system/tools/dispatcher";
 
 /**
  * @function Toolbar 工具栏面板组件
@@ -22,40 +20,61 @@ import Dispatcher from '../../system/tools/dispatcher';
  */
 
 export default function Toolbar(props) {
-  const {
-    children,
-    title,
-    isbtn,
-    click,
-    btnTitle,
-    help
-  } = props;
+  console.log(props, 'toolbar');
+  const { children, title, isbtn, click, btnTitle, help } = props;
   let Tabs = null,
-      Content = null,
-      Anchor = null;
-  Array.isArray(children) ? [Tabs, Content, Anchor] = children : Content = children;
-  return React.createElement("div", {
-    id: "toolCon",
-    className: Tabs ? '' : 'tool-no-nav'
-  }, Tabs ? React.createElement("div", {
-    className: "toolFont"
-  }, Tabs) : null, React.createElement("div", {
-    className: "toolAdd"
-  }, React.createElement("div", {
-    className: "toolAddTit"
-  }, title ? React.createElement("h4", null, title) : null, React.createElement("span", null, React.createElement("i", {
-    onClick: help
-  }, "?"), React.createElement("i", {
-    onClick: Toolbar.close,
-    id: "panel-close"
-  }, "\xD7"))), React.createElement("div", {
-    id: "toolText"
-  }, Content), isbtn ? React.createElement("div", {
-    className: "panlBottom"
-  }, React.createElement("button", {
-    className: "contorlBtn",
-    onClick: click
-  }, React.createElement("font", null, btnTitle))) : null), Anchor);
+    Content = null,
+    Anchor = null;
+  Array.isArray(children)
+    ? ([Tabs, Content, Anchor] = children)
+    : (Content = children);
+  // return React.createElement("div", {
+  //   id: "toolCon",
+  //   className: Tabs ? '' : 'tool-no-nav'
+  // }, Tabs ? React.createElement("div", {
+  //   className: "toolFont"
+  // }, Tabs) : null, React.createElement("div", {
+  //   className: "toolAdd"
+  // }, React.createElement("div", {
+  //   className: "toolAddTit"
+  // }, title ? React.createElement("h4", null, title) : null, React.createElement("span", null, React.createElement("i", {
+  //   onClick: help
+  // }, "?"), React.createElement("i", {
+  //   onClick: Toolbar.close,
+  //   id: "panel-close"
+  // }, "\xD7"))), React.createElement("div", {
+  //   id: "toolText"
+  // }, Content), isbtn ? React.createElement("div", {
+  //   className: "panlBottom"
+  // }, React.createElement("button", {
+  //   className: "contorlBtn",
+  //   onClick: click
+  // }, React.createElement("font", null, btnTitle))) : null), Anchor);
+
+  return (
+    <div id="toolCon" className={Tabs ? "" : "tool-no-nav"}>
+      {Tabs ? <div className="toolFont">{Tabs}</div> : null}
+      <div className="toolAdd">
+        <div className="toolAddTit">
+          {title ? <h4>{title}</h4> : null}
+          <span>
+            <i onClick={help}>?</i>
+            <i onClick={Toolbar.close} id="panel-close">
+              ×
+            </i>
+          </span>
+        </div>
+        <div id="toolText">{Content}</div>
+        {isbtn ? (
+          <div className="panlBottom">
+            <button className="contorlBtn" onClick={click}>
+              <font>{btnTitle}</font>
+            </button>
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
 }
 /**
  * @function close 关闭面板
@@ -66,7 +85,11 @@ export default function Toolbar(props) {
 Toolbar.close = function () {
   const content = document.querySelector("#edit-toolbar-content");
   Dispatcher.dispatch("hideToolbars");
-  ReactDom.unmountComponentAtNode(content);
+
+  // 原有卸载组件方法
+  // ReactDom.unmountComponentAtNode(content);
+  // 新卸载组件方法
+  createRoot(content).unmount()
 };
 
 //# sourceURL=webpack:///./ui/toolbar/toolbar.js?

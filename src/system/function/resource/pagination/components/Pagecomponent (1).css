@@ -1,0 +1,6 @@
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".page-container:after {\n    content: '.';\n    display: block;\n    height: 0;\n    overflow: hidden;\n    clear: both;\n}\n.page-container {\n    zoom: 1\n}\n\n.page-container li {\n    list-style: none;\n    padding: 0px 8px;\n    cursor: pointer;\n    border: 1px solid #ccc;\n    height: 28px;\n    line-height: 28px;\n    margin-right: 8px;\n\tdisplay: inline-block;\n}\n\n.page-container li:last-child {\n    margin-right: 0px;\n}\n\n/*当前页样式*/\n.activePage {\n    color: #fff !important;\n    background: #54b0bd;\n    border-color: #54b0bd !important;\n}\n\n/*没有上一页和下一页时样式*/\n.nomore {\n    color: #b5b5b5 !important;\n    cursor: not-allowed !important;\n}\n", ""]);
+
+
+//# sourceURL=webpack:///./system/function/resource/pagination/components/Pagecomponent.css?./node_modules/css-loader/dist/cjs.js

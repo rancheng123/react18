@@ -1,7 +1,8 @@
 // 导入 React 库
 import React from 'react';
 // 导入 ReactDom 库
-import ReactDom from 'react-dom'
+// import ReactDom from 'react-dom'
+import { createRoot } from 'react-dom/client';
 // 导入 collection 模块
 import Collection from './collection';
 // 导入 layer 模块
@@ -19,16 +20,20 @@ export default class CollectionControler extends React.Component{
     this.init();
     /**@property {Collection} view 初始化 view 实例*/
 
-    this.view = new Collection; //给view 入口方法绑定this
+    // this.view = new Collection; //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
   }
 
   static collection(id) {
     const element = document.querySelector(`#${id}`);
-    ReactDom.render(React.createElement(CollectionControler, {
-      id: id
-    }), element);
+    
+    // React 17 写法
+    // ReactDom.render(React.createElement(CollectionControler, {
+    //   id: id
+    // }), element);
+    // React 18 写法
+    createRoot(element).render(<Collection title={window.public.lang["collection"]}/>)
   }
   /**
    * @method render 挂载组件方法
@@ -39,7 +44,8 @@ export default class CollectionControler extends React.Component{
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return null
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
