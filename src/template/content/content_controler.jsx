@@ -5,6 +5,7 @@ import RulerControler from '../../system/function/ruler/ruler_controler'
 import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler'
 
 import CollectionControler from '../toolbar/collection/collection_controler'
+import WidgetLibraryControler from '../toolbar/widget_library/widget_library_controler'
 
 
 export default class ContentControler extends React.Component {
@@ -281,9 +282,10 @@ export default class ContentControler extends React.Component {
     var box = document.getElementById("edit-toolbar-content"),
         close = box.querySelector("#panel-close");
     close && close.click();
-    Promise.all(/*! import() | widget_library_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("widget_library_controler")]).then(__webpack_require__.bind(null, /*! ../toolbar/widget_library/widget_library_controler */ "./ui/toolbar/widget_library/widget_library_controler.js")).then(module => {
-      module.WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
-    });
+    // Promise.all(/*! import() | widget_library_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("widget_library_controler")]).then(__webpack_require__.bind(null, /*! ../toolbar/widget_library/widget_library_controler */ "./ui/toolbar/widget_library/widget_library_controler.js")).then(module => {
+    //   module.WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
+    // });
+    WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
   }
   /**
    * @method componentLibrary 组件工具栏弹出面板

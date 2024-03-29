@@ -6,12 +6,13 @@ import { createRoot } from 'react-dom/client';
 import WidgetLibraryConfig from '@/config/widget_library_config.js';
 // 导入 component_library_config.json 文件
 import componentLibraryConfig from '@/config/component_library_config.js';
+// 导入 widget_library 模块
+import WidgetLibrary from './widget_library.jsx';
 // 导入 drag_add 模块
 import DragAdd from '../drag_add';
 // 导入 components_manager 模块
 import ComponentsManager from '@/components/page/components_manager';
-// 导入 toolbar 模块
-import Toolbar from "../toolbar";
+
 
 
 var nmbTerm = null; //用来存储切换控件库内选项的index lw date 2021-2-3
@@ -46,9 +47,9 @@ export default class WidgetLibraryControler extends React.Component {
     this.init();
     /**@property {WidgetLibrary} view 初始化 view 实例*/
 
-    // this.view = new WidgetLibrary(this); //给view 入口方法绑定this
+    this.view = new WidgetLibrary(this); //给view 入口方法绑定this
 
-    // this.view.render = this.view.render.bind(this.view);
+    this.view.render = this.view.render.bind(this.view);
   }
 
   static widgetLibrary(id, configType) {
@@ -69,20 +70,9 @@ export default class WidgetLibraryControler extends React.Component {
 
   render() {
     // return React.createElement(this.view.render, null);
-    const {
-      public: { lang },
-    } = window;
 
     return (
-      <Toolbar
-          id={this.props.id}
-          title={lang.add + this.state.current.name}
-          // help={this.controler.help.bind(this.controler)}
-        >
-          {this.menus()}
-          {this.content()}
-          {this.configType !== "component" && this.anchor()}
-        </Toolbar>
+      <WidgetLibrary {...this} selectTab={this.selectTab}  jumpAnchor={this.jumpAnchor}  anchorMouseLeave={this.anchorMouseLeave}  anchorMouseEnter={this.anchorMouseEnter}  start={this.start}  />
     )
 
   }
@@ -114,7 +104,7 @@ export default class WidgetLibraryControler extends React.Component {
    */
 
 
-  selectTab(tab) {
+  selectTab = (tab) =>  {
     nmbTermid = tab.id;
     var tabsArray = this.tabs; //获取控件库数组 lw 2021-2-3
 
@@ -268,227 +258,6 @@ export default class WidgetLibraryControler extends React.Component {
     new DragAdd(this).start(event);
   }
 
-
-
-  /**
-   * @method menus 工具库右侧导航项
-   * @date 2019-09-25
-   * @author sxt
-   * @return {object} 工具库右侧导航项结构
-   */
-
-  menus() {
-    return (
-      <ul className="toolFontit">
-        {this.tabs.map((e, i) => {
-          return (
-            <li
-              key={e.id}
-              className={this.state.current.id !== e.id ? null : "on"}
-              onClick={()=>this.selectTab(e)}
-            >
-              <a>
-                <span>{e.name}</span>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    );
-  }
-
-
-  /**
-   * @method componentHtml 组件库内容项
-   * @date 2021-1-20
-   * @author sxt
-   * @return {object} 组件库内容项结构
-   */
-
-  componentHtml() {
-    let components = this.group[this.state.current.id];
-    return (
-      <div
-        className="content_2 content blockbox"
-        id={`component-${this.state.current.id}`}
-        style={{ position: "relative" }}
-      >
-        {components.map((e, i) => {
-          return (
-            <div key={i}>
-              <div className="imgTopic">
-                <div className="imgThemeStyle">
-                  <div
-                    key={e.skin}
-                    data-key={e.skin}
-                    className={
-                      e.skinStyle || e.skin.split(".").slice(2, 4).join("-")
-                    }
-                    onMouseDown={()=> this.start(e)}
-                  />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-
-
-  /**
-   * @method toolLibraryHtml 工具库内容项
-   * @date 2021-1-20
-   * @author sxt
-   * @return {object} 工具库内容项结构
-   */
-
-  toolLibraryHtml() {
-    let { tabs, group } = this.group[this.state.current.id];
-    return (
-      <div className="content_2 content" style={{ position: "relative" }}>
-        {tabs.map((e, i) => {
-          return (
-            <div key={i}>
-              <a name={e.id} />
-              <div
-                className="toolSmalltit"
-                style={{ position: "relative" }}
-                id={e.id}
-              >
-                <h4>{e.name}</h4>
-              </div>
-              <div className="imgTopic">
-                <div className="imgThemeStyle">
-                  <ul id={`em-${e.id}`}>
-                    {group[e.id].map((t) => {
-                      const { skin, videoPath, skinStyle } = t;
-                      return (
-                        <li
-                          key={skin}
-                          data-key={skin}
-                          className={
-                            skinStyle || skin.split(".").slice(2, 4).join("-")
-                          }
-                          onMouseDown={()=> this.start(t)}
-                        >
-                          {this.video({path:videoPath})}
-                          {t.need_pay ? (
-                            <div className="component_pay">
-                              <p></p>
-                            </div>
-                          ) : null}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-
-
-  /**
-   * @method menus 工具库内容项
-   * @date 2019-09-25
-   * @author sxt
-   * @return {object} 工具库内容项结构
-   */
-
-  content() {
-    let configType = this.configType; //类型为组件库时，走组件库的结构 sxt 2021-1-20
-
-    if (configType == "component") {
-      return this.componentHtml();
-    } else {
-      return this.toolLibraryHtml();
-    }
-  }
-
-
-  /**
-   * @method video 视频结构
-   * @param {object} props 参数对象
-   * @param {string} props.path 视频路径
-   * @return {object} 视频结构
-   */
-
-  video(props) {
-    if (props.path) {
-      return (
-        <div
-          className="desVideo"
-          onMouseEnter={(e) => e.currentTarget.querySelector("video").play()}
-          onMouseLeave={(e) => {
-            const _video = e.currentTarget.querySelector("video");
-            _video.currentTime = 0;
-            _video.pause();
-          }}
-        >
-          <video
-            style={{ width: "100%", height: "60px" }}
-            src={props.path}
-            loop
-          />
-        </div>
-      );
-    }
-
-    return null;
-  }
-
-
-  /**
-   * @method menus 工具库锚点项
-   * @date 2019-09-25
-   * @author sxt
-   * @return {object} 工具库锚点项结构
-   */
-
-  anchor() {
-    let { current, jump, prompt } = this.state,
-      { tabs } = this.group[current.id];
-    return (
-      <div className="anchorsCon open">
-        <div className="anchorsSection">
-          <ul className="anchorsMain">
-            {tabs.map((e, i) => {
-              if (i === 0 && !jump) {
-                jump = e.id;
-              }
-
-              return (
-                <li
-                  key={e + i}
-                  className={e.id !== jump ? "" : "selected"}
-                  data-anchor-name={e.id}
-                  onMouseEnter={()=>this.anchorMouseEnter(e)}
-                  onMouseLeave={()=>this.anchorMouseLeave(e)}
-                >
-                  <a
-                    href={"#" + e.id}
-                    onClick={()=> this.jumpAnchor(e)}
-                  >
-                    <div className="anchorsPin" />
-                  </a>
-                  {e.id !== (prompt || jump) ? null : (
-                    <div className="anchor-popover">
-                      <h4>{e.name}</h4>
-                      <section />
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    );
-  }
 }
 
 //# sourceURL=webpack:///./ui/toolbar/widget_library/widget_library_controler.js?

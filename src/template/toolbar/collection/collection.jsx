@@ -12,7 +12,6 @@ import Toolbar from '../toolbar';
 export default class Collection extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props,'Collection');
     this.props = props;
     /**@property controler WidgetLibrary控制器实例 */
     // this.controler = controler;
@@ -47,7 +46,7 @@ export default class Collection extends React.Component {
 
     return (
       <>
-        <Toolbar title={this.props && this.props.title}/>
+        <Toolbar id={this.props.id} title={ window.public.lang["collection"]}  />
         {this.content()}
       </>
     )

@@ -1,7 +1,5 @@
 // 导入 React 库
 import React from 'react';
-// 导入 ReactDom 库
-// import ReactDom from 'react-dom'
 import { createRoot } from 'react-dom/client';
 // 导入 collection 模块
 import Collection from './collection';
@@ -16,7 +14,7 @@ import DragAdd from '../drag_add';
 export default class CollectionControler extends React.Component{
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
-
+    this.props = props
     this.init();
     /**@property {Collection} view 初始化 view 实例*/
 
@@ -33,7 +31,7 @@ export default class CollectionControler extends React.Component{
     //   id: id
     // }), element);
     // React 18 写法
-    createRoot(element).render(<Collection title={window.public.lang["collection"]}/>)
+    createRoot(element).render(<CollectionControler id={id}/>)
   }
   /**
    * @method render 挂载组件方法
@@ -45,7 +43,9 @@ export default class CollectionControler extends React.Component{
 
   render() {
     // return React.createElement(this.view.render, null);
-    return null
+    return (
+      <Collection />
+    )
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
