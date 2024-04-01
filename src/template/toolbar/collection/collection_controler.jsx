@@ -31,7 +31,9 @@ export default class CollectionControler extends React.Component{
     //   id: id
     // }), element);
     // React 18 写法
-    createRoot(element).render(<CollectionControler id={id}/>)
+  
+    const root = createRoot(element)
+    root.render(<CollectionControler id={id}  root={root}/>)
   }
   /**
    * @method render 挂载组件方法
@@ -44,7 +46,7 @@ export default class CollectionControler extends React.Component{
   render() {
     // return React.createElement(this.view.render, null);
     return (
-      <Collection />
+      <Collection  root={this.props.root}/>
     )
   }
   /**

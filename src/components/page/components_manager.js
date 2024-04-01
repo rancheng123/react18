@@ -1,6 +1,23 @@
 // 导入 components_map.json 文件
 import componentsMap from './components_map.json';
 
+
+// 假设 path 和 name 已经定义
+const dynamicImport = async (path, name) => {
+  try {
+    // 构建动态路径
+    const Module = await import(`../../components/${path.split('/')[0]}/${path.split('/')[1]}.js`)
+    console.log(Module,'Module');
+    // 调用 comProxy 函数并传入模块中指定的导出
+    return comProxy(Module[name]);
+  } catch (error) {
+    console.error('Dynamic import failed:', error);
+  }
+};
+
+
+
+
 /**
  * @function componentsManager 控件结构管理器
  * @author wyq
@@ -22,8 +39,8 @@ export default function componentsManager(type) {
     const {
       path,
       name
-    } = componentsMap || {};
-    return path && name ? __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(Module => comProxy(Module[name])) : null;
+    } = componentsMap[type] || {};
+    return path && name ? dynamicImport(path, name) : null;
   } else {
     return null;
   }

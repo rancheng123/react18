@@ -1,0 +1,55 @@
+{
+    "items": {
+        "text.title.s36.211": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Text",
+                "skin": "text.title.s36.211"
+            },
+            "data": {
+                "componentType": "em-Text",
+                "text": "我是一个标题。点击添加文本和编辑设置，操作很简单。",
+                "fontLabel": "",
+                "skin": "text.title.s36.211"
+            },
+            "style": {
+                "skin": "text.title.s36.211",
+                "style": {
+                    "marginTop": "3",
+                    "marginRight": "0",
+                    "marginBottom": "3",
+                    "marginLeft": "0",
+                    "momarginTop": "1",
+                    "momarginRight": "3",
+                    "momarginBottom": "1",
+                    "momarginLeft": "3",
+                    "textColor": "#000000",
+                    "textSize": 2.4,
+                    "motextSize": 2.4,
+                    "lineHeight": 170,
+                    "molineHeight": 170,
+                    "textSizeUnit": "rem",
+                    "motextSizeUnit": "rem",
+                    "lineHeightUnit": "%",
+                    "molineHeightUnit": "%",
+                    "marginTopUnit": "rem",
+                    "marginRightUnit": "%",
+                    "marginBottomUnit": "rem",
+                    "marginLeftUnit": "%",
+                    "momarginTopUnit": "%",
+                    "momarginRightUnit": "%",
+                    "momarginBottomUnit": "%",
+                    "momarginLeftUnit": "%",
+                    "paddingTopUnit": "%",
+                    "paddingRightUnit": "%",
+                    "paddingBottomUnit": "%",
+                    "paddingLeftUnit": "%",
+                    "mopaddingTopUnit": "%",
+                    "mopaddingRightUnit": "%",
+                    "mopaddingBottomUnit": "%",
+                    "mopaddingLeftUnit": "%"
+                }
+            }
+        }
+    }
+}

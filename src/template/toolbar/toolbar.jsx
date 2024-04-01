@@ -20,8 +20,7 @@ import Dispatcher from "../../system/tools/dispatcher";
  */
 
 export default function Toolbar(props) {
-  console.log(props, 'toolbar');
-  const { children, title, isbtn, click, btnTitle, help } = props;
+  const { children, title, isbtn, click, btnTitle, help ,root} = props;
   let Tabs = null,
     Content = null,
     Anchor = null;
@@ -59,7 +58,7 @@ export default function Toolbar(props) {
           {title ? <h4>{title}</h4> : null}
           <span>
             <i onClick={help}>?</i>
-            <i onClick={Toolbar.close} id="panel-close">
+            <i onClick={()=>Toolbar.close(root)} id="panel-close">
               ×
             </i>
           </span>
@@ -82,14 +81,14 @@ export default function Toolbar(props) {
  * @author wyq
  */
 
-Toolbar.close = function () {
+Toolbar.close = function (root) {
   const content = document.querySelector("#edit-toolbar-content");
   Dispatcher.dispatch("hideToolbars");
 
   // 原有卸载组件方法
   // ReactDom.unmountComponentAtNode(content);
   // 新卸载组件方法
-  createRoot(content).unmount()
+  root ? root.unmount() : createRoot(content).unmount()
 };
 
 //# sourceURL=webpack:///./ui/toolbar/toolbar.js?

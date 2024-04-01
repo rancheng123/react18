@@ -117,8 +117,10 @@ export default class DragAdd {
 
     if (!opts.component) {
       //关闭面板
-      this.component.view.close(); //获取控件数据  
+      // this.component.view.close(); 
+      this.component.view ?  this.component.view.close() :  this.component.close(); 
 
+      //获取控件数据  
       this.component.getData().then(component => opts.component = component);
     } else {
       //控件是否允许拖入

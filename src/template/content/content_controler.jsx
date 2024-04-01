@@ -250,7 +250,6 @@ export default class ContentControler extends React.Component {
 
 
   showToolbars(type, event) {
-    console.log('type', type);
     //判断是否存在弹出此工具栏的面板
     if (this[type]) {
       this[type]();
@@ -466,7 +465,6 @@ export default class ContentControler extends React.Component {
         height: "calc(100% - 20px)"
       };
     }
-    console.log(height,'height');
     const siteId = window.pageData.siteId;
     return (
       <div id='ediMain' className={`${type}-content`} style={_style}>

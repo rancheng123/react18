@@ -1,0 +1,21 @@
+{
+    "text.tex.s35": {
+        "css": {
+            ".%A": "margin:[momarginTop][momarginTopUnit] [momarginRight][momarginRightUnit] [momarginBottom][momarginBottomUnit] [momarginLeft][momarginLeftUnit];display:[mohidden];padding:[mopaddingTop][mopaddingTopUnit] [mopaddingRight][mopaddingRightUnit] [mopaddingBottom][mopaddingBottomUnit] [mopaddingLeft][mopaddingLeftUnit];background-color:[mobgColor];background-image:[moLinearGradient];border-radius:[moborRadius];box-shadow:[moshadow];border:[moborWidth]px [moborStyle] [moborColor];border-left:[moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right:[moborRightWidth]px [moborRightStyle] [moborRightColor];border-top:[moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom:[moborBottomWidth]px [moborBottomStyle] [moborBottomColor];min-height:[height]rem;letter-spacing:[moletterSpace][moletterSpaceUnit];",
+            ".%A .textLineP": "font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];text-align:[motextAlign];-webkit-text-size-adjust: 100%;",
+            ".%A .pagepointA": "font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];",
+            ".%A.overflowHiding": "overflow: hidden; height:[height]rem;",
+            ".%A.overflowScrolling": "overflow-y: auto; height:[height]rem;",
+            ".proList .%A .textLineP,.proList .%A .textLineP>p": "line-clamp:[showRow];-webkit-line-clamp:[showRow];"
+        }
+    },
+    "text.tex.s444": {
+        "css": {
+            ".%A": "margin:[momarginTop][momarginTopUnit] [momarginRight][momarginRightUnit] [momarginBottom][momarginBottomUnit] [momarginLeft][momarginLeftUnit];display:[mohidden];padding:[mopaddingTop][mopaddingTopUnit] [mopaddingRight][mopaddingRightUnit] [mopaddingBottom][mopaddingBottomUnit] [mopaddingLeft][mopaddingLeftUnit];font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];text-align:[motextAlign];background-color:[mobgColor];border-radius:[moborRadius];box-shadow:[moshadow];border:[moborWidth]px [moborStyle] [moborColor];border-left:[moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right:[moborRightWidth]px [moborRightStyle] [moborRightColor];border-top:[moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom:[moborBottomWidth]px [moborBottomStyle] [moborBottomColor];min-height:[height]rem;letter-spacing:[moletterSpace][moletterSpaceUnit];",
+            ".%A .pagepointA": "font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];letter-spacing:[moletterSpace][moletterSpaceUnit];",
+            ".%A.overflowHiding": "overflow: hidden; height:[height]rem;",
+            ".%A.overflowScrolling": "overflow-y: auto; height:[height]rem;",
+            ".proList .%A .textLineP,.proList .%A .textLineP>p": "line-clamp:[showRow];-webkit-line-clamp:[showRow]"
+        }
+    }
+}

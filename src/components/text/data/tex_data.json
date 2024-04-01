@@ -1,0 +1,122 @@
+{
+    "items": {
+        "text.tex.s35.210": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Text",
+                "skin": "text.tex.s35.210"
+            },
+            "data": {
+                "componentType": "em-Text",
+                "text": "<span>我是一个段落。点击添加文本和编辑设置，操作很简单。</span>",
+                "fontLabel": "",
+                "skin": "text.tex.s35.210"
+            },
+            "style": {
+                "skin": "text.tex.s35.210",
+                "style": {
+                    "marginTop": "3",
+                    "marginRight": "0",
+                    "marginBottom": "3",
+                    "marginLeft": "0",
+                    "momarginTop": "1",
+                    "momarginRight": "3",
+                    "momarginBottom": "1",
+                    "momarginLeft": "3",
+                    "textColor": "#666",
+                    "textSize": 1.6,
+                    "motextSize": 1.6,
+                    "lineHeight": 170,
+                    "molineHeight": 170,
+                    "textSizeUnit": "rem",
+                    "motextSizeUnit": "rem",
+                    "lineHeightUnit": "%",
+                    "molineHeightUnit": "%",
+                    "marginTopUnit": "rem",
+                    "marginRightUnit": "%",
+                    "marginBottomUnit": "rem",
+                    "marginLeftUnit": "%",
+                    "momarginTopUnit": "%",
+                    "momarginRightUnit": "%",
+                    "momarginBottomUnit": "%",
+                    "momarginLeftUnit": "%",
+                    "paddingTopUnit": "%",
+                    "paddingRightUnit": "%",
+                    "paddingBottomUnit": "%",
+                    "paddingLeftUnit": "%",
+                    "mopaddingTopUnit": "%",
+                    "mopaddingRightUnit": "%",
+                    "mopaddingBottomUnit": "%",
+                    "mopaddingLeftUnit": "%"
+                }
+            }
+        },
+        "text.tex.s444.548": {
+            "structure": {
+                "drag_in_time": "2022/7/21 16:05:06",
+                "componentType": "em-Text",
+                "skin": "text.tex.s444.548",
+                "type": "Component",
+                "removable": false,
+                "copable": false,
+                "isDragable": true
+            },
+            "data": {
+                "componentType": "em-Text",
+                "loopPlay": "2",
+                "fontLabel": "",
+                "skin": "text.tex.s444.548",
+                "text": "{cookieIntroduction}",
+                "playToolbar": "1",
+                "categoryName": "文本",
+                "autoplay": "2"
+            },
+            "style": {
+                "skin": "text.tex.s444.548",
+                "style": {
+                    "fontFamily": "微软雅黑",
+                    "letterSpaceUnit": "px",
+                    "lineHeight": 170,
+                    "lineHeightUnit": "%",
+                    "marginBottom": "0",
+                    "marginBottomUnit": "rem",
+                    "marginLeft": 2.6,
+                    "marginLeftUnit": "rem",
+                    "marginRight": 0.5,
+                    "marginRightUnit": "rem",
+                    "marginTop": 8,
+                    "marginTopUnit": "px",
+                    "mofontFamily": "微软雅黑",
+                    "moletterSpaceUnit": "px",
+                    "molineHeight": 170,
+                    "molineHeightUnit": "%",
+                    "momarginBottom": "1",
+                    "momarginBottomUnit": "rem",
+                    "momarginLeft": 0,
+                    "momarginLeftUnit": "rem",
+                    "momarginRight": 0,
+                    "momarginRightUnit": "rem",
+                    "momarginTop": "1",
+                    "momarginTopUnit": "rem",
+                    "mopaddingBottomUnit": "rem",
+                    "mopaddingLeftUnit": "rem",
+                    "mopaddingRightUnit": "rem",
+                    "mopaddingTopUnit": "rem",
+                    "motextAlign": "justify",
+                    "motextSize": 1.6,
+                    "motextSizeUnit": "rem",
+                    "padLeft": 0,
+                    "padRight": 0,
+                    "paddingBottomUnit": "rem",
+                    "paddingLeftUnit": "rem",
+                    "paddingRightUnit": "rem",
+                    "paddingTopUnit": "rem",
+                    "textAlign": "center",
+                    "textColor": "#666",
+                    "textSize": 1.6,
+                    "textSizeUnit": "rem"
+                }
+            }
+        }
+    }
+}

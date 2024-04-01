@@ -8,8 +8,8 @@ import WidgetLibraryConfig from '@/config/widget_library_config.js';
 import componentLibraryConfig from '@/config/component_library_config.js';
 // 导入 drag_add 模块
 import DragAdd from '../drag_add';
-// 导入 components_manager 模块
-import ComponentsManager from '@/components/page/components_manager';
+// 导入 components_manager函数
+import componentsManager from '@/components/page/components_manager';
 // 导入 toolbar 模块
 import Toolbar from "../toolbar";
 
@@ -133,7 +133,8 @@ export default class WidgetLibraryControler extends React.Component {
   }
 
   close(close) {
-    this.__proto__.close = close;
+    // this.__proto__.close = close;
+    Toolbar.close();
   }
 
   help() {}
@@ -243,8 +244,7 @@ export default class WidgetLibraryControler extends React.Component {
   async getData() {
     if (this.skin) {
       const [type, classname] = this.skin.split(".");
-      const module = await ComponentsManager(type);
-
+      const module = await componentsManager(type);
       if (module) {
         const name = window.humpJoin(classname, "_");
         const data = await module.getData(name);
@@ -370,7 +370,7 @@ export default class WidgetLibraryControler extends React.Component {
                           className={
                             skinStyle || skin.split(".").slice(2, 4).join("-")
                           }
-                          onMouseDown={()=> this.start(t)}
+                          onMouseDown={(event)=> this.start(skin,event)}
                         >
                           {this.video({path:videoPath})}
                           {t.need_pay ? (

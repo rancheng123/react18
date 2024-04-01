@@ -1,0 +1,125 @@
+{
+    "dots": {
+        "btns": [
+            "top",
+            "top-left",
+            "left"
+        ],
+        "list": [
+            "right",
+            "bottom-right"
+        ]
+    },
+    "pc": {
+        "tabs": [
+            {
+                "name": "textProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design"
+            },
+            {
+                "name": "setUp",
+                "type": "setting"
+            },
+            {
+                "name": "animation",
+                "type": "animation"
+            },
+            {
+                "name": "picture",
+                "type": "picture",
+                "hidden": false
+            }
+        ],
+        "btns": [
+            {
+                "name": "changeText",
+                "type": "ckeditor",
+                "className": "edit"
+            },
+            {
+                "name": "textProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design",
+                "hidden": false
+            },
+            {
+                "name": "animation",
+                "type": "animation"
+            },
+            {
+                "name": "quote",
+                "type": "quote",
+                "show": "Hoverbox 2"
+            }
+        ]
+    },
+    "mo": {
+        "tabs": [
+            {
+                "name": "design",
+                "type": "design",
+                "hidden": true
+            },
+            {
+                "name": "picture",
+                "type": "picture",
+                "hidden": false
+            }
+        ],
+        "btns": [
+            {
+                "name": "design",
+                "type": "design"
+            }
+        ]
+    },
+    "group": {
+        "basic": {
+            "all": {
+                "include": "controlsName|selectionContentSet|dataText|link|overflowPart|minHeight|accordingNumber|anchorSet"
+            },
+            "text.tex.s444": {
+                "include": "controlsName|anchorSet"
+            }
+        },
+        "design": {
+            "all": {
+                "include": "text|background|border|radius|shadow|position",
+                "group": {
+                    "text": {
+                        "include": "size|family|color|style|align|lineHeight|headLine|letterSpace"
+                    }
+                }
+            }
+        },
+        "setting": {
+            "all": {
+                "tabs": [
+                    "hover"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow",
+                        "group": {
+                            "text": {
+                                "include": "size|family|color|style"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "picture": {
+            "all": {
+                "include": "imgBig|imageQuality|originalFormat"
+            }
+        }
+    }
+}

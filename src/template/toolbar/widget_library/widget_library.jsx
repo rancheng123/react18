@@ -12,7 +12,6 @@ import Toolbar from "../toolbar";
 export default class WidgetLibrary extends React.Component{
   constructor(controler) {
     super(controler)
-    console.log(controler,'controler');
     /**@property controler WidgetLibrary控制器实例 */
     this.controler = controler;
     this.state = this.controler.state;

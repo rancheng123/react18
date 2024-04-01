@@ -46,7 +46,7 @@ export default class Collection extends React.Component {
 
     return (
       <>
-        <Toolbar id={this.props.id} title={ window.public.lang["collection"]}  />
+        <Toolbar root={this.props.root} id={this.props.id} title={ window.public.lang["collection"]}  />
         {this.content()}
       </>
     )
@@ -59,7 +59,8 @@ export default class Collection extends React.Component {
 
 
   close() {
-    Toolbar.close();
+    console.log(this.props,'this.props');
+    Toolbar.close(this.props);
   }
   /**
       * @method menus 工具库内容项
