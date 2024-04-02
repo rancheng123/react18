@@ -1,11 +1,16 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s35", function() { return s35; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-/* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/component */ "./components/text/view/components/component.js");
+// __webpack_require__.r(__webpack_exports__);
+// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s35", function() { return s35; });
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+// /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
+// /* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/component */ "./components/text/view/components/component.js");
 
-
+// 导入 React 模块
+import React from "react";
+// 导入 Util 模块
+import Util from "@/components/page/util/util.js";
+// 导入 "../components/component" 模块
+import Component from "../components/component";
 
 function s35() {
   var _this$props$context;
@@ -33,21 +38,21 @@ function s35() {
   let _daSource = dataSource && dataSource.companyField; //数据源存在时，给控件data-source的自定义属性，用于查找数据源 sxt 2020-12-16
 
 
-  if (!util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+  if (!Util.source) {
     if (dataSource && (dataSource.sign || dataSource.companyField == "publish_time" || dataSource.companyField == "add_time" || dataSource.companyField == "edit_time" || dataSource.companyField == "online_time" || dataSource.companyField == "offline_time")) {
-      text = util__WEBPACK_IMPORTED_MODULE_1__["Util"].timeTypeCont(id, document_data, 'text', context);
+      text = Util.timeTypeCont(id, document_data, 'text', context);
     } else {
-      text = util__WEBPACK_IMPORTED_MODULE_1__["Util"].getComponentText(id, document_data, 'text', context);
+      text = Util.getComponentText(id, document_data, 'text', context);
     }
   } else {
-    text = util__WEBPACK_IMPORTED_MODULE_1__["Util"].getComponentText(id, document_data, 'text', context);
+    text = Util.getComponentText(id, document_data, 'text', context);
   }
 
   let _text = text || "",
       textLineP = "textLineP"; //在编辑页面时,text无内容时,给个占位的文字
 
 
-  if (!util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+  if (!Util.source) {
     _text = text || "未定义";
   } //设置了h标签,并且不为not时,拼接h标签
 
@@ -61,24 +66,24 @@ function s35() {
     _text = `<${fontLabel} class="textLineP">${str}</${fontLabel}>`;
   }
 
-  let detailIClassenlarge = _components_component__WEBPACK_IMPORTED_MODULE_2__["Component"].getDetailClass && _components_component__WEBPACK_IMPORTED_MODULE_2__["Component"].getDetailClass(_daSource);
+  let detailIClassenlarge = Component.getDetailClass && Component.getDetailClass(_daSource);
   let hiddenClass = ""; //hidden存在,证明控件要隐藏
 
   if (hidden) {
     //预览时不返回结构,编辑页用class控件隐藏
-    if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+    if (Util.source) {
       return null;
     } else {
       hiddenClass = "hidden";
     }
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(util__WEBPACK_IMPORTED_MODULE_1__["Util"].linkDecorator, {
-    link: util__WEBPACK_IMPORTED_MODULE_1__["Util"].setLinkUrl(context.link, link),
+  return React.createElement(Util.linkDecorator, {
+    link: Util.setLinkUrl(context.link, link),
     type: "html",
     id: id,
     className: `listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: textLineP ? textLineP : null,
     "data-source": _daSource,
     "data-companyLabelText": dataSource ? dataSource.companyLabelText : null,
@@ -87,5 +92,7 @@ function s35() {
     }
   }));
 }
+
+export default s35
 
 //# sourceURL=webpack:///./components/text/view/html/tex_s35_view.js?

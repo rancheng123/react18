@@ -1,0 +1,13 @@
+{
+    "component.advanced.s335": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "height:100%;margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]"
+                }
+            }
+        }
+    }
+}

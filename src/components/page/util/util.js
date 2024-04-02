@@ -1,14 +1,16 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Util", function() { return Util; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _system_tools_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../system/tools/component */ "./system/tools/component.js");
-/* harmony import */ var _components_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components_manager */ "./components/page/components_manager.js");
-/* harmony import */ var _link_decorator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./link_decorator */ "./components/page/util/link_decorator.js");
-/* harmony import */ var _image_path__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./image_path */ "./components/page/util/image_path.js");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+// 导入 React 库
+import React from 'react';
+// 导入自定义的 dispatcher 模块
+import Dispatcher from '@/system/tools/dispatcher';
+// 导入自定义的 component 模块
+import ComponentDecorator from '@/system/tools/component';
+// 导入自定义的 components_manager 模块
+import componentsManager from '../components_manager';
+// 导入自定义的 link_decorator 模块
+import LinkDecorator from './link_decorator';
+// 导入自定义的 image_path 模块
+import ImagePath from './image_path';
 
 
 
@@ -34,7 +36,7 @@ async function getComponent(componentType, type, skin = '') {
   }
 
   if (Components[keyName] == undefined) {
-    const module = await Object(_components_manager__WEBPACK_IMPORTED_MODULE_3__["componentsManager"])(componentType); //判断是否获取到了工厂对象
+    const module = await componentsManager(componentType); //判断是否获取到了工厂对象
 
     if (module) {
       cate = window.humpJoin(cate, '_'); //获取视图类
@@ -45,7 +47,7 @@ async function getComponent(componentType, type, skin = '') {
         cate
       });
       const Controler = module.getControler ? await module.getControler(type) : null;
-      Components[keyName] = Object(_system_tools_component__WEBPACK_IMPORTED_MODULE_2__["ComponentDecorator"])(View, Controler);
+      Components[keyName] = ComponentDecorator(View, Controler);
     }
   }
 
@@ -67,7 +69,7 @@ async function getComponent(componentType, type, skin = '') {
 
 async function getChild(component, data, page, type, context, clone, props) {
   //验证控件数据是否合法
-  if (dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch("validate", {
+  if (Dispatcher.dispatch("validate", {
     args: [component, data]
   })) {
     let {
@@ -83,13 +85,13 @@ async function getChild(component, data, page, type, context, clone, props) {
       //获取控件数据
       const {
         data: comdata
-      } = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch("get", {
+      } = Dispatcher.dispatch("get", {
         args: [component, data]
       }); //获取控件样式
 
       const style = await Util.cssParser(component, comdata.theme_data, type); //解析样式
 
-      style && list.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
+      style && list.push(React.createElement("style", {
         key: `style_${id}`,
         id: `style_${id}`,
         dangerouslySetInnerHTML: {
@@ -97,7 +99,7 @@ async function getChild(component, data, page, type, context, clone, props) {
         }
       })); //判断是否存在子数据
 
-      list.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, _extends({
+      list.push(React.createElement(Component, _extends({
         key: id,
         component: component,
         data: comdata,
@@ -153,12 +155,12 @@ const Util = {
     const Page = await getComponent("document", type); //获取控件样式
 
     const style = await Util.cssParser(structure, data.theme_data.document, type);
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, style ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
+    return React.createElement(React.Fragment, null, style ? React.createElement("style", {
       id: "style_document",
       dangerouslySetInnerHTML: {
         __html: style
       }
-    }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Page, {
+    }) : null, React.createElement(Page, {
       component: structure,
       data: data,
       pages: pages
@@ -192,7 +194,7 @@ const Util = {
         } //判断是否存在数据
 
 
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Util.component, {
+        return React.createElement(Util.component, {
           component: component,
           page: page,
           key: `${component.id}${component.skin}`,
@@ -221,11 +223,11 @@ const Util = {
   },
 
   linkDecorator(prop) {
-    return _link_decorator__WEBPACK_IMPORTED_MODULE_4__["LinkDecorator"][prop.type || 'html'](prop);
+    return LinkDecorator[prop.type || 'html'](prop);
   },
 
   imagePath(prop) {
-    return _image_path__WEBPACK_IMPORTED_MODULE_5__["ImagePath"].imageUri(prop);
+    return ImagePath.imageUri(prop);
   },
 
   /**
@@ -254,7 +256,7 @@ const Util = {
       Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
         const {
           data
-        } = dispatcher__WEBPACK_IMPORTED_MODULE_1__["Dispatcher"].dispatch('getData', {
+        } = Dispatcher.dispatch('getData', {
           value: component
         }); //获取控件结构
 
@@ -475,4 +477,5 @@ const Util = {
 
 };
 
+export default Util
 //# sourceURL=webpack:///./components/page/util/util.js?

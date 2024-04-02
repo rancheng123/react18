@@ -1,0 +1,315 @@
+{
+    "component.row.s369": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s372": {
+        "css": {
+            ".%": "background-color:[bgColor];background-image:[LinearGradient];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s374": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s375": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s376": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s377": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s378": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s379": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s380": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s381": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s382": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s383": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s386": {
+        "css": {
+            ".%": "background-color:[bgColor];background-image:[LinearGradient];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s387": {
+        "css": {
+            ".%": "background-color:[bgColor];background-image:[LinearGradient];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s388": {
+        "css": {
+            ".%": "background-color:[bgColor];background-image:[LinearGradient];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];;border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s389": {
+        "css": {
+            ".%": "background-color:[bgColor];background-image:[LinearGradient];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s390": {
+        "css": {
+            ".%": "background-color:[bgColor];background-image:[LinearGradient];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s404": {
+        "css": {
+            "#%": "background-color:[bgColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    "#%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>#%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s420": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s457": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.row.s468": {
+        "css": {
+            ".%": "background-color:[bgColor];background-image:[LinearGradient];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];border-radius:[borRadius];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+                    ".%>.rowcol": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    }
+}

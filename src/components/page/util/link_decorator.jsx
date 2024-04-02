@@ -1,7 +1,5 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkDecorator", function() { return LinkDecorator; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+// 导入 React 库
+import React from 'react';
 
 /**
 * @method LinkDecorator 链接公用拼接属性方法
@@ -576,16 +574,16 @@ const LinkDecorator = {
         }
 
         let _application = `<div><input type="hidden" name="number" class="tb-text" value="1" title="" [value]="goodsNumber.number||1" /><input type="hidden" name="action" value=${operation} /><input type="hidden"  name="goodsId" value=${shopid} /></div>`;
-        _btnhtml = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        _btnhtml = React.createElement("form", {
           className: "ampctlBtn",
           method: method,
           target: target,
           "action-xhr": action
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, React.createElement("div", {
           dangerouslySetInnerHTML: {
             __html: _application
           }
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }), React.createElement("button", {
           type: "submit",
           role: "formButton",
           tabIndex: "10",
@@ -603,41 +601,41 @@ const LinkDecorator = {
         }
 
         let _application = `<div><input type="hidden" name="number" class="tb-text" value="1" title="" m-bind:value="goodsNumber.number||1" /><input type="hidden" name="action" value=${operation} /><input type="hidden"  name="goodsId" value=${shopid} /></div>`;
-        _btnhtml = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("mip-form", {
+        _btnhtml = React.createElement("mip-form", {
           class: "ampctlBtn",
           method: method,
           target: target,
           "fetch-url": action
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, React.createElement("div", {
           dangerouslySetInnerHTML: {
             __html: _application
           }
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }), React.createElement("button", {
           type: "submit",
           on: _shopOn
         }, prop.children));
       }
     } else {
       if (pageType == "amp") {
-        _btnhtml = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        _btnhtml = React.createElement("form", {
           className: "ampctlBtn",
           method: method,
           target: target,
           action: action
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, React.createElement("input", {
           type: "hidden",
           name: "number",
           class: "tb-text",
           value: "1"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }), React.createElement("input", {
           type: "hidden",
           name: "action",
           value: "add"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }), React.createElement("input", {
           type: "hidden",
           name: "goodsId",
           value: shopid
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }), React.createElement("button", {
           type: "submit",
           role: "formButton",
           tabIndex: "1"
@@ -645,25 +643,25 @@ const LinkDecorator = {
       }
 
       if (pageType == "mip") {
-        _btnhtml = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("mip-form", {
+        _btnhtml = React.createElement("mip-form", {
           class: "ampctlBtn",
           method: method,
           target: target,
           url: action
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, React.createElement("input", {
           type: "hidden",
           name: "number",
           class: "tb-text",
           value: "1"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }), React.createElement("input", {
           type: "hidden",
           name: "action",
           value: "add"
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }), React.createElement("input", {
           type: "hidden",
           name: "goodsId",
           value: shopid
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }), React.createElement("button", {
           type: "submit",
           role: "formButton",
           tabIndex: "1"
@@ -671,7 +669,7 @@ const LinkDecorator = {
       }
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(getTag, attributes, _btnhtml);
+    return React.createElement(getTag, attributes, _btnhtml);
   },
 
   /**
@@ -712,10 +710,12 @@ const LinkDecorator = {
     if (attributes.formData) {
       return this.shopCart(getTag, attributes, prop);
     } else {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(getTag, attributes, prop.children);
+      return React.createElement(getTag, attributes, prop.children);
     }
   }
 
 };
+
+export default LinkDecorator;
 
 //# sourceURL=webpack:///./components/page/util/link_decorator.js?

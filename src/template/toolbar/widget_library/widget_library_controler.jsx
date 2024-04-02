@@ -324,7 +324,7 @@ export default class WidgetLibraryControler extends React.Component {
                     className={
                       e.skinStyle || e.skin.split(".").slice(2, 4).join("-")
                     }
-                    onMouseDown={()=> this.start(e)}
+                    onMouseDown={(event)=> this.start(e.skin,event)}
                   />
                 </div>
               </div>

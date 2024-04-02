@@ -1,0 +1,92 @@
+{
+    "component.rowColumn.s94": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    ".%>.rowList>.col": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.rowColumn.s100": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    ".%>.rowList>.col": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.rowColumn.s101": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    ".%>.rowList>.col": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.rowColumn.s102": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    ".%>.rowList>.col": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.rowColumn.s103": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    ".%>.rowList>.col": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    },
+    "component.rowColumn.s104": {
+        "css": {
+            ".%": "background-color:[bgColor];",
+            ".%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    ".%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding-top:[paddingTop][paddingTopUnit];padding-bottom:[paddingBottom][paddingBottomUnit];display:[pchidden];padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit]",
+                    ".%>.rowList>.col": "padding:0 [colspacing][colspacingUnit];"
+                },
+                "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                    "#document>.auto-margin>.%": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+                }
+            }
+        }
+    }
+}

@@ -1,10 +1,7 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s36", function() { return s36; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-/* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/component */ "./components/text/view/components/component.js");
 
+import React from 'react';
+import Util from "@/components/page/util/util.js";
+import Component from "../components/component";
 
 
 function s36() {
@@ -42,7 +39,7 @@ function s36() {
 
   const context = (_this$props$context = this.props.context) !== null && _this$props$context !== void 0 ? _this$props$context : {}; //控件是列表数据源时，并且传过来了列表数据时 获取数据中的内容 sxt 2020-2-28
 
-  if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source == undefined && dataSource && dataSource.type == "list" && context) {
+  if (Util.source == undefined && dataSource && dataSource.type == "list" && context) {
     text = `${dataSource.companyLabelText}${context[dataSource.companyField]}`;
   } //类型为数据源并且列表数据是自定义时，读取传过来的值 sxt 2020-11-10
 
@@ -51,20 +48,20 @@ function s36() {
     text = context[dataSource.companyField];
   }
 
-  if (!util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+  if (!Util.source) {
     if (dataSource && (dataSource.sign || dataSource.companyField == "publish_time" || dataSource.companyField == "add_time" || dataSource.companyField == "edit_time" || dataSource.companyField == "online_time" || dataSource.companyField == "offline_time")) {
-      text = util__WEBPACK_IMPORTED_MODULE_1__["Util"].timeTypeCont(id, document_data, 'text', context);
+      text = Util.timeTypeCont(id, document_data, 'text', context);
     } else {
-      text = util__WEBPACK_IMPORTED_MODULE_1__["Util"].getComponentText(id, document_data, 'text', context);
+      text = Util.getComponentText(id, document_data, 'text', context);
     }
   } else {
-    text = util__WEBPACK_IMPORTED_MODULE_1__["Util"].getComponentText(id, document_data, 'text', context);
+    text = Util.getComponentText(id, document_data, 'text', context);
   }
 
   let _text = text || "",
       textLineP = "textLineP";
 
-  if (!util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+  if (!Util.source) {
     _text = text || "未定义";
   }
 
@@ -77,24 +74,24 @@ function s36() {
     _text = `<${fontLabel} class="textLineP">${str}</${fontLabel}>`;
   }
 
-  let detailIClassenlarge = _components_component__WEBPACK_IMPORTED_MODULE_2__["Component"].getDetailClass(_daSource);
+  let detailIClassenlarge = Component.getDetailClass(_daSource);
   let hiddenClass = ""; //hidden存在,证明控件要隐藏
 
   if (hidden) {
     //预览时不返回结构,编辑页用class控件隐藏
-    if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+    if (Util.source) {
       return null;
     } else {
       hiddenClass = "hidden";
     }
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(util__WEBPACK_IMPORTED_MODULE_1__["Util"].linkDecorator, {
-    link: util__WEBPACK_IMPORTED_MODULE_1__["Util"].setLinkUrl(context.link, link),
+  return React.createElement(Util.linkDecorator, {
+    link: Util.setLinkUrl(context.link, link),
     type: "html",
     id: id,
     className: `listTxt ${id}A  ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, React.createElement("div", {
     className: textLineP ? textLineP : null,
     "data-source": _daSource,
     "data-companyLabelText": dataSource ? dataSource.companyLabelText : null,
@@ -104,4 +101,5 @@ function s36() {
   }));
 }
 
+export default s36
 //# sourceURL=webpack:///./components/text/view/mo/title_s36_view.js?

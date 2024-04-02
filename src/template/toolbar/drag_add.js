@@ -114,7 +114,7 @@ export default class DragAdd {
     } = opts;
     let left = event.clientX - x,
         top = event.clientY - y - main.offsetTop;
-
+    console.log(this.component,'this.component');
     if (!opts.component) {
       //关闭面板
       // this.component.view.close(); 

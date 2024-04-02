@@ -11,7 +11,7 @@ const dynamicImport = async (path, name) => {
     // 调用 comProxy 函数并传入模块中指定的导出
     return comProxy(Module[name]);
   } catch (error) {
-    console.error('Dynamic import failed:', error);
+    console.error('err', error);
   }
 };
 
@@ -27,6 +27,7 @@ const dynamicImport = async (path, name) => {
  */
 
 export default function componentsManager(type) {
+  
   //检测类型是否是字符串
   if (typeof type == "string") {
     //检测类型中是否存在中划线

@@ -1,5 +1,3 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImagePath", function() { return ImagePath; });
 const ImagePath = {
   /**
   * @method imageUri 返回图片拼接好的路径
@@ -33,5 +31,7 @@ const ImagePath = {
   }
 
 };
+
+export default ImagePath;
 
 //# sourceURL=webpack:///./components/page/util/image_path.js?
