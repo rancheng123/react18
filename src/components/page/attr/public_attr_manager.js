@@ -1,5 +1,3 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublicAttrManager", function() { return PublicAttrManager; });
 /**
  * @function connect 连接处理模块路径与模块名 
  * @date 2019-11-7
@@ -164,5 +162,7 @@ const PublicAttrManager = {
   }
 
 };
+
+export default PublicAttrManager
 
 //# sourceURL=webpack:///./components/page/attr/public_attr_manager.js?

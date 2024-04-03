@@ -1,10 +1,9 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentSelectBox", function() { return ComponentSelectBox; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _page_attr_select_box_select_box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../page/attr/select_box/select_box */ "./components/page/attr/select_box/select_box.js");
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-
+// 导入 React 库
+import React from 'react';
+// 导入自定义的 select_box 模块
+import SelectBox from '../../page/attr/select_box/select_box';
+// 导入自定义的 dispatcher 模块
+import Dispatcher from '@/system/tools/dispatcher.js';
 
 
 /**
@@ -14,7 +13,7 @@ __webpack_require__.r(__webpack_exports__);
  * @date 2020-02-21
  */
 
-class ComponentSelectBox extends _page_attr_select_box_select_box__WEBPACK_IMPORTED_MODULE_1__["SelectBox"] {
+export default class ComponentSelectBox extends SelectBox{
   constructor(node, container) {
     super(node, container);
   }
@@ -31,19 +30,19 @@ class ComponentSelectBox extends _page_attr_select_box_select_box__WEBPACK_IMPOR
       return null;
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       className: "componentAddStyle"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, React.createElement("div", {
       onMouseDown: this.addStyle.bind(this, "top"),
       onMouseMove: e => e.stopPropagation(),
       className: "componentAddTop"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, React.createElement("span", {
       className: "info"
-    }, "\u4E0A\u90E8\u6DFB\u52A0\u7EC4\u4EF6")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, "\u4E0A\u90E8\u6DFB\u52A0\u7EC4\u4EF6")), React.createElement("div", {
       onMouseDown: this.addStyle.bind(this, "bottom"),
       onMouseMove: e => e.stopPropagation(),
       className: "componentAddBottom"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, React.createElement("span", {
       className: "info"
     }, "\u4E0B\u90E8\u6DFB\u52A0\u7EC4\u4EF6")));
   }
@@ -74,7 +73,7 @@ class ComponentSelectBox extends _page_attr_select_box_select_box__WEBPACK_IMPOR
       component: {
         components
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(fnName); //获取控件父级数据
+    } = Dispatcher.dispatch(fnName); //获取控件父级数据
     //获取当前控件在父级的位置，
 
     for (let i = 0; i < components.length; i++) {

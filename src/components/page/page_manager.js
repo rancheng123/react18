@@ -1,5 +1,5 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageManager", function() { return PageManager; });
+// __webpack_require__.r(__webpack_exports__);
+// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageManager", function() { return PageManager; });
 /**
  * @instance {PageManager} 页面管理工厂对象
  * @author wyq
@@ -29,4 +29,5 @@ const PageManager = {
 
 };
 
+export default PageManager
 //# sourceURL=webpack:///./components/page/page_manager.js?

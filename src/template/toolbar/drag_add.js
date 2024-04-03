@@ -1,15 +1,9 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DragAdd", function() { return DragAdd; });
-// /* harmony import */ var layer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! layer */ "./system/widgets/layer.js");
-// /* harmony import */ var _system_tools_drag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../system/tools/drag */ "./system/tools/drag.js");
-// /* harmony import */ var _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/page/attr_proxy */ "./components/page/attr_proxy.js");
-
 // 导入 layer 模块
 import Layer from '../../system/widgets/layer';
 // 导入系统工具中的 drag 模块
 import Drag from '../../system/tools/drag';
 // 导入页面属性代理组件
-// import AttrProxy from '../../components/page/attr_proxy';
+import AttrProxy from '@/components/page/attr_proxy';
 
 /**
  * @class DragAdd 拖拽新增实例 封装拖拽新增算法
@@ -180,7 +174,7 @@ export default class DragAdd {
             component = structure
           }
         } = opts;
-        const proxy = await new _components_page_attr_proxy__WEBPACK_IMPORTED_MODULE_2__["AttrProxy"]().init(component.componentType); //生成时间
+        const proxy = await new AttrProxy().init(component.componentType); //生成时间
 
         const time = new Date().toLocaleString('zh-cn', {
           hour12: false

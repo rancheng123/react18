@@ -7,7 +7,7 @@ const dynamicImport = async (path, name) => {
   try {
     // 构建动态路径
     const Module = await import(`../../components/${path.split('/')[0]}/${path.split('/')[1]}.js`)
-    console.log(Module,'Module');
+    console.log(Module,name,path,'Module');
     // 调用 comProxy 函数并传入模块中指定的导出
     return comProxy(Module[name]);
   } catch (error) {

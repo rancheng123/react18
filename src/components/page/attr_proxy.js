@@ -191,5 +191,3 @@ var _module = new WeakMap();
 var _type = new WeakMap();
 
 var _config = new WeakMap();
-
-//# sourceURL=webpack:///./components/page/attr_proxy.js?
