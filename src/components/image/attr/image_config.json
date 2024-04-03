@@ -1,0 +1,462 @@
+{
+  "dots": {
+    "btns": [
+      "left",
+      "top-left",
+      "top"
+    ],
+    "list": [
+      "right",
+      "bottom-right"
+    ]
+  },
+  "pc": {
+    "tabs": {
+      "all": [
+        {
+          "name": "imageProperty",
+          "type": "basic"
+        },
+        {
+          "name": "design",
+          "type": "design"
+        },
+        {
+          "name": "setUp",
+          "type": "setting"
+        },
+        {
+          "name": "style",
+          "type": "custom"
+        },
+        {
+          "name": "animation",
+          "type": "animation"
+        }
+      ],
+      "image.commonImg.s402": [
+        {
+          "name": "imageProperty",
+          "type": "basic"
+        },
+        {
+          "name": "design",
+          "type": "design"
+        },
+        {
+          "name": "setUp",
+          "type": "setting"
+        },
+        {
+          "name": "animation",
+          "type": "animation"
+        }
+      ]
+    },
+    "btns": {
+      "all": [
+        {
+          "name": "selectImage",
+          "type": "selectImage",
+          "className": "edit"
+        },
+        {
+          "name": "imageProperty",
+          "type": "basic"
+        },
+        {
+          "name": "design",
+          "type": "design"
+        },
+        {
+          "name": "setUp",
+          "type": "setting"
+        },
+        {
+          "name": "style",
+          "type": "custom"
+        },
+        {
+          "name": "animation",
+          "type": "animation"
+        },
+        {
+          "name": "quote",
+          "type": "quote",
+          "show": "Hoverbox 2"
+        }
+      ],
+      "image.commonImg.s402": [
+        {
+          "name": "imageProperty",
+          "type": "basic"
+        },
+        {
+          "name": "design",
+          "type": "design"
+        },
+        {
+          "name": "setUp",
+          "type": "setting"
+        },
+        {
+          "name": "animation",
+          "type": "animation"
+        }
+      ]
+    },
+    "group": {
+      "basic": {
+        "all": {
+          "include": "controlsName|selectionContentSet|selectImage|dataText|imageQuality|originalFormat|imageWebp|sizeRatioHeight|imgShowType|clickEvent|link|altText|titleText|anchorSet"
+        },
+        "image.commonImg.s402": {
+          "include": "controlsName|imageQuality|originalFormat|sizeRatioHeight|imgShowType|anchorSet"
+        }
+      },
+      "design": {
+        "all": {
+          "include": "border|radius|shadow|position"
+        },
+        "image.commonImg.s61": {
+          "include": "border|radius|position"
+        },
+        "image.commonImg.s63": {
+          "include": "border|radius|position"
+        },
+        "image.commonImg.s465": {
+          "include": "border|radius|position"
+        },
+        "image.commonImg.s473": {
+          "include": "border|radius|position"
+        },
+        "image.commonImg.s466": {
+          "include": "border|radius|position"
+        },
+        "image.commonImg.s471": {
+          "include": "border|radius|position"
+        },
+        "image.commonImg.s292": {
+          "include": "border|radius|position"
+        },
+        "image.commonImg.s62": {
+          "include": "border|radius|position"
+        }
+      },
+      "setting": {
+        "all": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "animation|border|radius|shadow"
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s61": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "border|radius"
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s62": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "border|radius"
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s63": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "hoveranimation|text|background|border|radius|shadow",
+              "group": {
+                "text": {
+                  "tabs": [
+                    {
+                      "name": "tipsText",
+                      "type": "title"
+                    },
+                    {
+                      "name": "altText",
+                      "type": "alt"
+                    }
+                  ],
+                  "include": "size|family|color|style|lineHeight|letterSpace"
+                }
+              }
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s465": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "hoveranimation|text|background|border|radius|shadow",
+              "group": {
+                "text": {
+                  "tabs": [
+                    {
+                      "name": "tipsText",
+                      "type": "title"
+                    },
+                    {
+                      "name": "altText",
+                      "type": "alt"
+                    }
+                  ],
+                  "include": "size|family|color|style|lineHeight|letterSpace"
+                }
+              }
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s466": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "hoveranimation|text|background|border|radius|shadow",
+              "group": {
+                "text": {
+                  "tabs": [
+                    {
+                      "name": "tipsText",
+                      "type": "title"
+                    },
+                    {
+                      "name": "altText",
+                      "type": "alt"
+                    }
+                  ],
+                  "include": "size|family|color|style|lineHeight|letterSpace"
+                }
+              }
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s473": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "hoveranimation|text|background|border|radius|shadow",
+              "group": {
+                "text": {
+                  "tabs": [
+                    {
+                      "name": "tipsText",
+                      "type": "title"
+                    },
+                    {
+                      "name": "altText",
+                      "type": "alt"
+                    }
+                  ],
+                  "include": "size|family|color|style|lineHeight|letterSpace"
+                }
+              }
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s471": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "hoveranimation|text|background|border|radius|shadow",
+              "group": {
+                "text": {
+                  "tabs": [
+                    {
+                      "name": "tipsText",
+                      "type": "title"
+                    },
+                    {
+                      "name": "altText",
+                      "type": "alt"
+                    }
+                  ],
+                  "include": "size|family|color|style|lineHeight|letterSpace"
+                }
+              }
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s292": {
+          "tabs": [
+            "hover",
+            "click",
+            "double"
+          ],
+          "group": {
+            "hover": {
+              "include": "hoveranimation|text|background|border|radius|shadow",
+              "group": {
+                "text": {
+                  "tabs": [
+                    {
+                      "name": "tipsText",
+                      "type": "title"
+                    },
+                    {
+                      "name": "altText",
+                      "type": "alt"
+                    }
+                  ],
+                  "include": "size|family|color|style|lineHeight|letterSpace"
+                }
+              }
+            },
+            "click": {
+              "include": "code"
+            },
+            "double": {
+              "include": "code"
+            }
+          }
+        },
+        "image.commonImg.s402": {
+          "tabs": [
+            "hover"
+          ],
+          "group": {
+            "hover": {
+              "include": "animation|border|radius|shadow"
+            }
+          }
+        }
+      }
+    }
+  },
+  "mo": {
+    "tabs": [
+      {
+        "name": "imageProperty",
+        "type": "basic"
+      },
+      {
+        "name": "design",
+        "type": "design"
+      }
+    ],
+    "btns": [
+      {
+        "name": "imageProperty",
+        "type": "basic"
+      },
+      {
+        "name": "design",
+        "type": "design"
+      }
+    ],
+    "group": {
+      "basic": {
+        "all": {
+          "include": "selectImage|imageQuality|originalFormat|link|sizeRatioHeight"
+        },
+        "image.commonImg.s402": {
+          "include": "imageQuality|originalFormat|sizeRatioHeight"
+        }
+      },
+      "design": {
+        "all": {
+          "include": "border|radius|shadow|position"
+        }
+      }
+    }
+  },
+  "group": {
+    "basic": {
+      "image.commonImg.s59": {
+        "include": "selectionContentSet|selectImage|dataText|imageQuality|sizeRatioHeight|originalFormat|clickEvent|link|altText|titleText"
+      }
+    },
+    "design": {
+      "image.commonImg.s59": {
+        "include": "border|radius|shadow|position"
+      }
+    }
+  }
+}
+//# sourceURL=webpack:///./components/image/attr/image_config.json?

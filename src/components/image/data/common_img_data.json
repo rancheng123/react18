@@ -1,0 +1,744 @@
+{
+  "items": {
+    "image.commonImg.s55.290": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s55.290",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s55.290"
+      },
+      "style": {
+        "skin": "image.commonImg.s55.290",
+        "style": {
+          "marginTop": "0",
+          "marginRight": "0",
+          "marginBottom": "0",
+          "marginLeft": "0",
+          "momarginTop": "0",
+          "momarginRight": "0",
+          "momarginBottom": "0",
+          "momarginLeft": "0",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s56.289": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s56.289",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s56.289"
+      },
+      "style": {
+        "skin": "image.commonImg.s56.289",
+        "style": {
+          "marginTop": "2",
+          "marginRight": "0",
+          "marginBottom": "2",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "borWidth": "4",
+          "borStyle": "solid",
+          "borColor": "#000",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s57.291": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s57.291",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s57.291"
+      },
+      "style": {
+        "skin": "image.commonImg.s57.291",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "paddingTop": "0",
+          "paddingRight": "0",
+          "paddingBottom": "0",
+          "paddingLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "mopaddingTop": "0",
+          "mopaddingRight": "0",
+          "mopaddingBottom": "0",
+          "mopaddingLeft": "0",
+          "borWidth": "4",
+          "borStyle": "solid",
+          "borColor": "#fff",
+          "shadow": "0 0 10px rgba(0,0,0,0.1)",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s58.288": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s58.288",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s58.288"
+      },
+      "style": {
+        "skin": "image.commonImg.s58.288",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "borRadius": "10px",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s59.287": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s59.287",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s59.287"
+      },
+      "style": {
+        "skin": "image.commonImg.s59.287",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "shadow": "6px 6px 0px 0px rgba(141,141,141,0.5)",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s60.286": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s60.286",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s60.286"
+      },
+      "style": {
+        "skin": "image.commonImg.s60.286",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "borWidth": "5",
+          "borStyle": "solid",
+          "borColor": "#fff",
+          "shadow": "0 0 6px rgba(0,0,0,0.5)",
+          "borRadius": "10px",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s61.285": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s61.285",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s61.285"
+      },
+      "style": {
+        "skin": "image.commonImg.s61.285",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "borWidth": "5",
+          "borStyle": "solid",
+          "borColor": "#fff",
+          "moborWidth": "5",
+          "moborStyle": "solid",
+          "moborColor": "#fff",
+          "shadow": "0px 0px 8px rgba(141,141,141,0.5)",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTop": "0",
+          "paddingRight": "2",
+          "paddingBottom": "5",
+          "paddingLeft": "2",
+          "mopaddingTop": "0",
+          "mopaddingRight": "2",
+          "mopaddingBottom": "5",
+          "mopaddingLeft": "2",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s62.284": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s62.284",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s62.284"
+      },
+      "style": {
+        "skin": "image.commonImg.s62.284",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "paddingTop": "1",
+          "paddingRight": "1",
+          "paddingBottom": "1",
+          "paddingLeft": "1",
+          "mopaddingTop": ".5",
+          "mopaddingRight": ".5",
+          "mopaddingBottom": ".5",
+          "mopaddingLeft": ".5",
+          "borWidth": "5",
+          "borStyle": "solid",
+          "borColor": "#ddd",
+          "moborWidth": "5",
+          "moborStyle": "solid",
+          "moborColor": "#ddd",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s63.283": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s63.283",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "hoverdurationHover": "0.5",
+        "hoverAnimationHoverClass": "bottomGradually",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s63.283"
+      },
+      "style": {
+        "skin": "image.commonImg.s63.283",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "hoverbgColor": "rgba(179,27,41,0.9)",
+          "hoverdurationHover": "0.5",
+          "hoveraltfontFamily": "Arial",
+          "hovertitlefontFamily": "Arial",
+          "hoveralttextColor": "#333",
+          "hovertitletextColor": "#333",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s292.421": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s292.421",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "hoverdurationHover": "0.5",
+        "hoverAnimationHoverClass": "bottomGradually",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s292.421"
+      },
+      "style": {
+        "skin": "image.commonImg.s292.421",
+        "style": {
+          "marginTop": "3",
+          "marginRight": "0",
+          "marginBottom": "3",
+          "marginLeft": "0",
+          "momarginTop": "1",
+          "momarginRight": "0",
+          "momarginBottom": "1",
+          "momarginLeft": "0",
+          "hoveraltfontFamily": "Arial",
+          "hovertitlefontFamily": "Arial",
+          "hoveralttextColor": "#333",
+          "hovertitletextColor": "#333",
+          "hoverdurationHover": "0.5",
+          "hoverbgColor": "rgba(179,27,41,0.9)",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s465.570": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s465.570",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "hoverdurationHover": "0.5",
+        "hoverAnimationHoverClass": "hoverImglarge",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s465.570"
+      },
+      "style": {
+        "skin": "image.commonImg.s465.570",
+        "style": {
+          "marginTop": "1",
+          "marginRight": "1",
+          "marginBottom": "1",
+          "marginLeft": "1",
+          "momarginTop": "1",
+          "momarginRight": "1",
+          "momarginBottom": "1",
+          "momarginLeft": "1",
+          "hoverbgColor": "rgba(179,27,41,0.9)",
+          "hoverdurationHover": "0.5",
+          "hoveraltfontFamily": "Arial",
+          "hovertitlefontFamily": "Arial",
+          "hoveralttextColor": "#333",
+          "hovertitletextColor": "#333",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s466.571": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s466.571",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "hoverdurationHover": "0.5",
+        "hoverAnimationHoverClass": "hoverImgresize",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s466.571"
+      },
+      "style": {
+        "skin": "image.commonImg.s466.571",
+        "style": {
+          "marginTop": "1",
+          "marginRight": "1",
+          "marginBottom": "1",
+          "marginLeft": "1",
+          "momarginTop": "1",
+          "momarginRight": "1",
+          "momarginBottom": "1",
+          "momarginLeft": "1",
+          "hoverbgColor": "rgba(179,27,41,0.9)",
+          "hoverdurationHover": "0.5",
+          "hoveraltfontFamily": "Arial",
+          "hovertitlefontFamily": "Arial",
+          "hoveralttextColor": "#333",
+          "hovertitletextColor": "#333",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s471.576": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s471.576",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "hoverdurationHover": "0.5",
+        "hoverAnimationHoverClass": "hoverImgBottomup",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s471.576"
+      },
+      "style": {
+        "skin": "image.commonImg.s471.576",
+        "style": {
+          "marginTop": "1",
+          "marginRight": "1",
+          "marginBottom": "1",
+          "marginLeft": "1",
+          "momarginTop": "1",
+          "momarginRight": "1",
+          "momarginBottom": "1",
+          "momarginLeft": "1",
+          "hoverbgColor": "rgba(179,27,41,0.9)",
+          "hoverdurationHover": "0.5",
+          "hoveraltfontFamily": "Arial",
+          "hovertitlefontFamily": "Arial",
+          "hoveralttextColor": "#333",
+          "hovertitletextColor": "#333",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    },
+    "image.commonImg.s473.578": {
+      "structure": {
+        "type": "Component",
+        "componentType": "em-Image",
+        "skin": "image.commonImg.s473.578",
+        "layout": {
+          "width": 100
+        }
+      },
+      "data": {
+        "componentType": "em-Image",
+        "uri": "http://img.bjyyb.net/system/pubimages/20161028112115879.jpg",
+        "modataRetain": "retain",
+        "dataRetain": "retain",
+        "skin": "image.commonImg.s473.578"
+      },
+      "style": {
+        "skin": "image.commonImg.s473.578",
+        "style": {
+          "marginTop": "1",
+          "marginRight": "1",
+          "marginBottom": "1",
+          "marginLeft": "1",
+          "momarginTop": "1",
+          "momarginRight": "1",
+          "momarginBottom": "1",
+          "momarginLeft": "1",
+          "hoverbgColor": "rgba(179,27,41,0.9)",
+          "hoveraltfontFamily": "Arial",
+          "hovertitlefontFamily": "Arial",
+          "hoveralttextColor": "#333",
+          "hovertitletextColor": "#333",
+          "marginTopUnit": "rem",
+          "marginRightUnit": "%",
+          "marginBottomUnit": "rem",
+          "marginLeftUnit": "%",
+          "momarginTopUnit": "rem",
+          "momarginRightUnit": "%",
+          "momarginBottomUnit": "rem",
+          "momarginLeftUnit": "%",
+          "paddingTopUnit": "%",
+          "paddingRightUnit": "%",
+          "paddingBottomUnit": "%",
+          "paddingLeftUnit": "%",
+          "mopaddingTopUnit": "%",
+          "mopaddingRightUnit": "%",
+          "mopaddingBottomUnit": "%",
+          "mopaddingLeftUnit": "%"
+        }
+      }
+    }
+  }
+}
