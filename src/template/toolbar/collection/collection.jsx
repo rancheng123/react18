@@ -46,8 +46,9 @@ export default class Collection extends React.Component {
 
     return (
       <>
-        <Toolbar root={this.props.root} id={this.props.id} title={ window.public.lang["collection"]}  />
-        {this.content()}
+        <Toolbar root={this.props.root} id={this.props.id} title={ window.public.lang["collection"]}>
+            {this.content()}
+        </Toolbar>
       </>
     )
   }
@@ -128,7 +129,9 @@ export default class Collection extends React.Component {
       );
     } else {
       return (
-        <div className="toolCollEmpty"></div>
+        <div id='toolText'>
+          <div className="toolCollEmpty"></div>
+        </div>
       );
     }
     

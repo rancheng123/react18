@@ -1,5 +1,4 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adsorptionv3", function() { return adsorptionv3; });
+
 const distance = 8; //吸附距离px
 
 const bufferDistance = 8; //缓冲距离px
@@ -365,5 +364,8 @@ const adsorptionv3 = {
   }
 
 };
+
+
+export default adsorptionv3
 
 //# sourceURL=webpack:///./components/page/attr/select_box/adsorptionv3.js?

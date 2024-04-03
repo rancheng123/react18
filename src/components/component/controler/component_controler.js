@@ -1,8 +1,5 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentControler", function() { return ComponentControler; });
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-
-class ComponentControler {
+import Dispatcher from '@/system/tools/dispatcher'
+export default  class ComponentControler {
   constructor(component) {
     this.component = component;
   }
@@ -26,7 +23,7 @@ class ComponentControler {
 
     if (width > 961) {
       //修改控件宽度
-      dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_set`, {
+      Dispatcher.dispatch(`${id}_set`, {
         args: ['component.layout.width', width]
       });
     } //返回控件宽度
@@ -81,7 +78,7 @@ class ComponentControler {
 
             if (cwidth > 961) {
               //修改控件边距
-              dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_set`, {
+              Dispatcher.dispatch(`${id}_set`, {
                 args: ['theme_data.style.', param]
               });
             }

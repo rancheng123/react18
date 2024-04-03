@@ -1,5 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentManager", function() { return ComponentManager; });
 
 /**
  * @instance {ComponentManager} 一行多列管理器实例
@@ -25,7 +23,8 @@ const ComponentManager = {
    * @return {Attribute} 控件属性类
    */
   getAttr() {
-    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(135)]).then(__webpack_require__.bind(null, /*! ./attr/component_attribute */ "./components/component/attr/component_attribute.js")).then(module => module.ComponentAttribute);
+    // return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(135)]).then(__webpack_require__.bind(null, /*! ./attr/component_attribute */ "./components/component/attr/component_attribute.js")).then(module => module.ComponentAttribute);
+    return  import(`./attr/component_attribute.js`).then(module => module.default);
   },
 
   /**
@@ -50,12 +49,10 @@ const ComponentManager = {
    * @return {JSON} 控件属性json数据 
    */
   getData(type) {
-    // return __webpack_require__("./components/component/data lazy recursive ^\\.\\/.*_data\\.json$")(`./${type}_data.json`).then(module => module.default);
-    return import(`./${type}_data.json`).then(module => module.default);
-    
+    return import(`./data/${type}_data.json`).then(module => module.default);
   }
 
 };
-export default ComponentManager
+export {ComponentManager}
 
 //# sourceURL=webpack:///./components/component/component_manager.js?

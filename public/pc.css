@@ -5561,8 +5561,8 @@ hr.hr-short {
   /* background: linear-gradient(to bottom, white 0%, #eeeeee 100%); */
   text-align: center;
   /* box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); */
-  background: #FFFFFF;
-  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.3);
+  background: #ffffff;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.3);
   position: absolute;
   right: 0px;
   top: calc(50% - 29px);
@@ -6506,7 +6506,7 @@ a.picTempButton:hover {
 }
 
 .toolCollEmpty {
-  background: url(../images/control/collEmpty.jpg) no-repeat top center;
+  background: url(./images/control/collEmpty.jpg) no-repeat top center;
   width: 100%;
   margin-top: 10px;
   background-size: 88%;
