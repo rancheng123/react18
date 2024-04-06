@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Dispatcher from '../../tools/dispatcher';
 // import ComponentEditTest from './component_edit_test'
-// import SingleComponentEditTest from './single/single_component_edit_test'
+import SingleComponentEditTest from './single/single_component_edit_test'
 import MoreComponentEdit from './more_component_edit'
 // import AttrProxy from '../../../page/attr_proxy'
-// import MoreRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
+import MoreRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
 import Positions from '../../function/component_edit/positions'
 import ConfigBtn from './single/ConfigBtn'
 
@@ -38,8 +38,6 @@ class ComponentEditControler extends React.Component {
 
     // this.proxy = new AttrProxy();
     /**@property {MouseRightClickMenuControler} menu 右键菜单组件 */
-
-    // this.menu = MoreRightClickMenuControler; //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {ComponentEdit} view 初始化 view 实例*/
@@ -649,12 +647,14 @@ class ComponentEditControler extends React.Component {
     try {
       //判断鼠标按下的是否是左键
       if (event.button == 0) {
-        this.selected = event.ctrlKey ? MoreComponentEdit : 'SingleComponentEditTest';
+        this.selected = event.ctrlKey ? MoreComponentEdit : SingleComponentEditTest;
         this.selected.controler = this; //如果id类型为function，把id值赋给变量fn，id赋为空
 
         if (typeof id == 'function') {
           fn = id, id = null;
         }
+
+        console.log(event, x, y, id, fn)
 
         return this.selected.mousedown(event, x, y, id, fn);
       }
@@ -796,7 +796,9 @@ class ComponentEditControler extends React.Component {
             <div id="property-buttons" className='editControl'></div>
             <div id="select-parent-box"></div>
             <div id="select-box"></div>
-            <div className="component-menu"></div>
+            <div className="component-menu">
+              <MoreRightClickMenuControler node={(this.selected || {}).node}  />
+            </div>
           </div>
         </div>
       </div>

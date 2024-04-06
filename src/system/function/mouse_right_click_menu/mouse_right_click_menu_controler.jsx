@@ -1,7 +1,7 @@
 import React from 'react';
 import Dispatcher from '../../tools/dispatcher';
 // import MouseRightClickMenu from './mouse_right_click_menu';
-import { ModuleGraph } from 'vite';
+// import { ModuleGraph } from 'vite';
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -88,6 +88,8 @@ export default class MouseRightClickMenuControler extends React.Component {
       }
     });
 
+    console.log(this)
+
     this.Property_panel_list = [// {"event":"copy","title":window.public.lang.copy,"name":"Ctrl+C"},
     // {"event":"paste","title":window.public.lang.paste,"name":"Ctrl+V"},
     // {"event":"shear","title":window.public.lang.shear,"name":"Ctrl+X"}, 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 lw 2021-4-22
@@ -104,11 +106,6 @@ export default class MouseRightClickMenuControler extends React.Component {
     }]; //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
-    /**@property {Border} view 初始化 view 实例*/
-
-    // this.view = new MouseRightClickMenu(this); //给view 入口方法绑定this
-
-    // this.view.render = this.view.render.bind(this.view);
   }
 
   /**
@@ -130,7 +127,8 @@ export default class MouseRightClickMenuControler extends React.Component {
     document.oncontextmenu = function (e) {
       e.stopPropagation();
       e.preventDefault();
-    }; //以前的方法不适用 组件销毁后再次调用会导致面板不展示 author  lw data 2021-1-5
+    }; 
+    //以前的方法不适用 组件销毁后再次调用会导致面板不展示 author  lw data 2021-1-5
     // $(window).load(function() {
     //     let mask = document.querySelector('#selected-mask')
     //     if (mask) {
@@ -187,7 +185,6 @@ export default class MouseRightClickMenuControler extends React.Component {
   }
   /**
      * @method handleContextMenu 绑定鼠标右击事件
-     * @data 2021-1-5
      * @param e 事件对象
      */
 
@@ -198,9 +195,9 @@ export default class MouseRightClickMenuControler extends React.Component {
   * @return 定位的属性值
   */
   calculationPosition(e) {
-    // let iframeDom = document.getElementById('iframe').contentWindow.document.documentElement
-    let iframeDom = window.public.dom.documentElement,
-        scrolltop = iframeDom.scrollTop //因为在内容页在iframe框架里 不能直接通过获取html的卷曲高度
+    let iframeDom = document.getElementById('iframe').contentWindow.document.documentElement;
+    // let iframeDom = window.public.dom.documentElement,
+    let scrolltop = iframeDom.scrollTop //因为在内容页在iframe框架里 不能直接通过获取html的卷曲高度
     ,
         x = e.pageX,
         y = e.pageY - 68,
