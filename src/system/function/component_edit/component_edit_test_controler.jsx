@@ -5,7 +5,7 @@ import Dispatcher from '../../tools/dispatcher';
 // import ComponentEditTest from './component_edit_test'
 import SingleComponentEditTest from './single/single_component_edit_test'
 import MoreComponentEdit from './more_component_edit'
-// import AttrProxy from '../../../page/attr_proxy'
+import AttrProxy from '../../../page/attr_proxy'
 import MoreRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
 import Positions from '../../function/component_edit/positions'
 import ConfigBtn from './single/ConfigBtn'
@@ -36,7 +36,7 @@ class ComponentEditControler extends React.Component {
     this.node = null;
     /**@property {AttrProxy} proxy 属性代理 */
 
-    // this.proxy = new AttrProxy();
+    this.proxy = new AttrProxy();
     /**@property {MouseRightClickMenuControler} menu 右键菜单组件 */
 
     this.init();

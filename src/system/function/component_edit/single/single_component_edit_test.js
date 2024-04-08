@@ -199,8 +199,6 @@ const SingleComponentEdit = {
 
   /**
    * @method unselect 取消选中
-   
-   * @date 2020-01-22
    * @param {string} boxid 容器id
    * @param {string} btnid 按钮容器id
    */
