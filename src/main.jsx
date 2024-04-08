@@ -12,12 +12,15 @@ import './language/system/zh.js'
 
     pub.win = event.target.contentWindow, //存储框架页document对象
       pub.dom = pub.win.document; //是否存在页面数据
-
-    if (pub.win.siteAsJson) {
-      //加载页面
-      Util.loadComponent(pub.type == 'pc' ? 'html' : 'mo', //pc 加载html结构，mo 加载mo html 结构
+      
+      if (pub.win.siteAsJson) {
+        //加载页面
+        Util.loadComponent(pub.type == 'pc' ? 'html' : 'mo', //pc 加载html结构，mo 加载mo html 结构
         JSON.parse(JSON.stringify(pub.win.siteAsJson))).then(Page => {
-          root.render(Page, pub.dom.querySelector("#root"), callback);
+          // console.log(pub.dom.querySelector("#root"), 'page')
+          ReactDOM.createRoot(pub.dom.querySelector("#root")).render(Page).then(() => {
+            callback && callback();
+          });
         });
     }
   }

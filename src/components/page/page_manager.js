@@ -12,8 +12,8 @@ const PageManager = {
    * @return 对应视图
    */
   getView(opts) {
-    console.log(opts,'GET view');
-    return import(`./${opts.type}/page`).then(module => module.Page);
+    console.log(opts,'GET view', `./${opts.type}/page`);
+    return import(`./view/${opts.type}/page`).then(module => module.default);
     // return __webpack_require__("./components/page/view lazy recursive ^\\.\\/.*\\/page$")(`./${opts.type}/page`).then(module => module.Page);
   },
 

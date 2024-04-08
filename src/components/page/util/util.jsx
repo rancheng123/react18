@@ -1,6 +1,6 @@
 
 // 导入 React 库
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // 导入自定义的 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher';
 // 导入自定义的 component 模块
@@ -37,10 +37,8 @@ async function getComponent(componentType, type, skin = '') {
 
   if (Components[keyName] == undefined) {
     const module = await componentsManager(componentType); //判断是否获取到了工厂对象
-
     if (module) {
       cate = window.humpJoin(cate, '_'); //获取视图类
-
       const View = await module.getView({
         type,
         name,
@@ -224,8 +222,10 @@ const Util = {
    * @return {string} 解析后的css 
    */
   async cssParser(component, themeData, type) {
-    const module = await __webpack_require__.e(/*! import() */ 1326).then(__webpack_require__.bind(null, /*! ./css */ "./components/page/util/css.js"));
-    return module.cssParser(component, themeData, type);
+    // const module = await __webpack_require__.e(/*! import() */ 1326).then(__webpack_require__.bind(null, /*! ./css */ "./components/page/util/css.js"));
+    
+    const module = await import('./css').then(res => res.default);
+    return module(component, themeData, type);
   },
 
   linkDecorator(prop) {
@@ -257,9 +257,9 @@ const Util = {
   }) {
     //判断是否存在控件数据
     if (component) {
-      const [childs, setChilds] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null); //结构加载完毕以后执行一次
+      const [childs, setChilds] = useState(null); //结构加载完毕以后执行一次
 
-      Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+      useEffect(() => {
         const {
           data
         } = Dispatcher.dispatch('getData', {
