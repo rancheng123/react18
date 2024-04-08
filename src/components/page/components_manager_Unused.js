@@ -3,11 +3,19 @@ import componentsMap from './components_map.json';
 
 
 // 假设 path 和 name 已经定义
-const dynamicImport = async (path, name) => {
+const dynamicImport = async (pathP, name) => {
   try {
+    const modules = import.meta.glob('../../components/*/*.js')
+    const Module = null
+    for (const path in modules) {
+      modules[path]().then((mod) => {
+        console.log(path, mod)
+      })
+    }
+    debugger
     // 构建动态路径
-    const Module = await import(`../../components/${path.split('/')[0]}/${path.split('/')[1]}.js`)
-    console.log(Module,name,path,'Module');
+    // const Module = await import(`../../components/${path.split('/')[0]}/${path.split('/')[1]}.js`)
+    // console.log(Module,name,path,'Module');
     // 调用 comProxy 函数并传入模块中指定的导出
     return comProxy(Module[name]);
   } catch (error) {

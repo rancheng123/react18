@@ -6,7 +6,7 @@ import Dispatcher from '@/system/tools/dispatcher';
 // 导入自定义的 component 模块
 import ComponentDecorator from '@/system/tools/component';
 // 导入自定义的 components_manager 模块
-import componentsManager from '../components_manager';
+import componentsManager from '../../components_manager';
 // 导入自定义的 link_decorator 模块
 import LinkDecorator from './link_decorator';
 // 导入自定义的 image_path 模块
@@ -183,6 +183,12 @@ const Util = {
     clone,
     props
   }) {
+
+    console.log(components,
+      page,
+      context,
+      clone,
+      props,'children');
     //判断是否存在子控件
     if (components && components.length) {
       //循环控件 

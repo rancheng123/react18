@@ -11,7 +11,7 @@ import WidgetLibrary from './widget_library.jsx';
 // 导入 drag_add 模块
 import DragAdd from '../drag_add';
 // 导入 components_manager 模块
-import ComponentsManager from '@/components/page/components_manager';
+import ComponentsManager from '@/components/components_manager';
 
 
 

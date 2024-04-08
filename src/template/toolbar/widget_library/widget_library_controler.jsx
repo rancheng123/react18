@@ -9,7 +9,7 @@ import componentLibraryConfig from '@/config/component_library_config.js';
 // 导入 drag_add 模块
 import DragAdd from '../drag_add';
 // 导入 components_manager函数
-import componentsManager from '@/components/page/components_manager';
+import componentsManager from '@/components/components_manager';
 // 导入 toolbar 模块
 import Toolbar from "../toolbar";
 

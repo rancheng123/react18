@@ -10,6 +10,7 @@ import WidgetLibraryControler from '../toolbar/widget_library/widget_library_con
 
 export default class ContentControler extends React.Component {
   constructor(props) {
+    console.log(props,'ContentControler props');
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     // this.init();
@@ -453,6 +454,7 @@ export default class ContentControler extends React.Component {
 
 
   render() {
+    console.log('content render');
     const {state: { type, height, rulerShow, edibtn }} = this;
     let _style = null;
 
@@ -473,8 +475,8 @@ export default class ContentControler extends React.Component {
           <iframe 
             id="iframe"
             scrolling="no"
-            // onLoad={this.props.load.bind(this.props)}
-            src={`/test.html`} 
+            onLoad={this.props.load}
+            src={`/framework.html`} 
             // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
           />
         </div>

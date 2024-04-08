@@ -51,7 +51,7 @@ function App(props) {
   return (
     <div className='editorCon'>
       <Header />
-      <Content />
+      <Content load={props.load} />
       {/* <main id="ediMain" className="pc-content">
         <div id="edit-container">
           <iframe src="/test" id='iframe' frameBorder="0" scrolling="no"></iframe>

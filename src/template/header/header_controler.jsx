@@ -84,7 +84,7 @@ export default class HeaderControler extends React.Component {
         'iconName': "&#xe772;"
       },
       {
-        "event": "switchPcEdit",
+        "event": "switchIpadEdit",
         'title': window.public.lang.ipadEditing,
         'iconName': "&#xe768;"
       },
@@ -129,7 +129,6 @@ export default class HeaderControler extends React.Component {
    */
 
   render() {
-    console.log(this.switchPcEdit, '’急啊急啊纠结啊')
     return (
       <header id="ediHeader">
         <div className="ediHeLeft">
@@ -267,7 +266,19 @@ export default class HeaderControler extends React.Component {
     }
 
     close && close.click();
+  }  
+
+  /**
+   * @method switchEdit 切换到平板编辑模式
+   */
+  switchIpadEdit() {
+    Dispatcher.dispatch("switchEdit", {
+      value: "ipad"
+    });
+    var showlist = document.querySelector('.edipage');
+    showlist.click();
   }
+
   /**
    * @method switchEdit 切换到MO编辑模式
    */

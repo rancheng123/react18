@@ -1,5 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageManager", function() { return PageManager; });
 /**
  * @instance {PageManager} 页面管理工厂对象
  * @author wyq
@@ -14,7 +12,9 @@ const PageManager = {
    * @return 对应视图
    */
   getView(opts) {
-    return __webpack_require__("./components/page/view lazy recursive ^\\.\\/.*\\/page$")(`./${opts.type}/page`).then(module => module.Page);
+    console.log(opts,'GET view');
+    return import(`./${opts.type}/page`).then(module => module.Page);
+    // return __webpack_require__("./components/page/view lazy recursive ^\\.\\/.*\\/page$")(`./${opts.type}/page`).then(module => module.Page);
   },
 
   /**
@@ -29,5 +29,5 @@ const PageManager = {
 
 };
 
-export default PageManager
+export { PageManager }
 //# sourceURL=webpack:///./components/page/page_manager.js?

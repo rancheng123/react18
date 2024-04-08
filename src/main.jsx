@@ -2,11 +2,12 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import "./index.css";
 import App from './App'
-import Util from './page/util/util.js'
+import Util from '@/components/page/util/util.jsx'
 import './public/public.js'
 import './language/system/zh.js'
 
   function load(event, callback) {
+    console.log(event, callback,'load');
     const pub = window.public; //存储框架页window对象
 
     pub.win = event.target.contentWindow, //存储框架页document对象

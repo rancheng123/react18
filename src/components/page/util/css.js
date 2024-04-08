@@ -2,7 +2,7 @@
 // /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cssParser", function() { return cssParser; });
 // /* harmony import */ var _components_manager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components_manager */ "./components/page/components_manager.js");
 
-import componentsManager from '../components_manager'
+import componentsManager from '@/components/components_manager'
 
 
 /**
