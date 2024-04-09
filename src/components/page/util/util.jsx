@@ -48,7 +48,6 @@ async function getComponent(componentType, type, skin = '') {
       Components[keyName] = ComponentDecorator(View, Controler);
     }
   }
-
   return Components[keyName] || null;
 }
 /**
@@ -148,21 +147,30 @@ const Util = {
 
     this.type = type, this.pid = structure.children[2].pageId; //上一次类型与当前类型不同，返回true，相同返回false
 
-    this.istype = type != this.ptype ? (this.ptype = type, true) : false; //获取页面结构
+    this.istype = type != this.ptype ? (this.ptype = type, true) : false; 
 
-    const Page = await getComponent("document", type); //获取控件样式
-
+    //获取页面结构
+    const Page = await getComponent("document", type); 
+    //获取控件样式
     const style = await Util.cssParser(structure, data.theme_data.document, type);
-    return React.createElement(React.Fragment, null, style ? React.createElement("style", {
-      id: "style_document",
-      dangerouslySetInnerHTML: {
-        __html: style
-      }
-    }) : null, React.createElement(Page, {
-      component: structure,
-      data: data,
-      pages: pages
-    }));
+
+    // return React.createElement(React.Fragment, null, style ? React.createElement("style", {
+    //   id: "style_document",
+    //   dangerouslySetInnerHTML: {
+    //     __html: style
+    //   }
+    // }) : null, React.createElement(Page, {
+    //   component: structure,
+    //   data: data,
+    //   pages: pages
+    // }));
+
+    return (
+      <>
+        {style ? <style id="style_document" dangerouslySetInnerHTML={{ __html: style }} /> : null}
+        <Page component={structure} data={data} pages={pages} />
+      </>
+    )
   },
 
   /**
@@ -182,11 +190,6 @@ const Util = {
     props
   }) {
 
-    console.log(components,
-      page,
-      context,
-      clone,
-      props,'children');
     //判断是否存在子控件
     if (components && components.length) {
       //循环控件 

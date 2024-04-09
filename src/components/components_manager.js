@@ -5,15 +5,14 @@ import componentsMap from './components_map.json';
 // 动态导入处理函数
 const dynamicImport = async (path, name) => {
   try {
+    console.log(path,name,'111111');
     const modules = import.meta.glob('../components/*/*.js')
+    // console.log(modules,'modules',path,name);
     let Module = null
     await modules[`./${path}.js`]().then((mod) => {
-      console.log(mod,'mod');
       Module = mod
     })
-    console.log(modules,'modules',path,name);
-    // 构建动态路径
-    // const Module = await import(`../../components/${path.split('/')[0]}/${path.split('/')[1]}.js`)
+
     // 调用 comProxy 函数并传入模块中指定的导出
     return comProxy(Module[name]);
   } catch (error) {
@@ -75,5 +74,3 @@ function comProxy(object) {
 
   return new Proxy(object, handler);
 }
-
-//# sourceURL=webpack:///./components/page/components_manager.js?

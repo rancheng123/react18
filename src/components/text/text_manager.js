@@ -1,7 +1,7 @@
 const TextManager = {
   getView(opts) {
     // return __webpack_require__("./components/text/view lazy recursive ^\\.\\/.*\\/.*_.*_view$")(`./${opts.type}/${opts.cate}_${opts.name}_view`).then(module => module[opts.name]);
-    return import(`./data/${opts.type}/${opts.cate}_${opts.name}_view`).then((module) => module.default);
+    return import(`./view/${opts.type}/${opts.cate}_${opts.name}_view`).then((module) => module.default);
   },
 
   getAttr() {
@@ -10,7 +10,7 @@ const TextManager = {
 
   getStyle(cate, type) {
     // return __webpack_require__("./components/text/style lazy recursive ^\\.\\/.*\\/.*_css\\.json$")(`./${type}/${cate}_css.json`).then(module => module.default);
-    return import(`./data/./${type}/${cate}_css.json`).then((module) => module.default);
+    return import(`./style/${type}/${cate}_css.json`).then((module) => module.default);
     
   },
 

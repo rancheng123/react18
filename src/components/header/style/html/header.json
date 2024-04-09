@@ -1,0 +1,9 @@
+{
+    "public": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];display:[pchidden];position:[position];background:[bgColor];width:[width]%;box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#%:hover": "background:[hoverbgColor];box-shadow:[hovershadow];border:[hoverborWidth]px [hoverborStyle] [hoverborColor];border-left:[hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor];border-right:[hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor];border-top:[hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor];border-bottom:[hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            "#%>.rowListBg": "background:url([uri][imgQuality]) [positionMode];background-position:[posVal];background-attachment:[attachment];opacity:[opacity]"
+        }
+    }
+}

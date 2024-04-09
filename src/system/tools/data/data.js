@@ -505,4 +505,4 @@ const Data = {
 
 Dispatcher.register("validate", Data.validate, Data);
 
-export default Dispatcher;
+export default Data;

@@ -1,0 +1,8 @@
+{
+    "public": {
+        "css": {
+            "#%": "display:[mohidden];margin:[momarginTop][momarginTopUnit] [momarginRight][momarginRightUnit]  [momarginBottom][momarginBottomUnit] [momarginLeft][momarginLeftUnit];padding:[mopaddingTop][mopaddingTopUnit] [mopaddingRight][mopaddingRightUnit] [mopaddingBottom][mopaddingBottomUnit] [mopaddingLeft][mopaddingLeftUnit];position:[moposition];background:[mobgColor];width:[mowidth]%;box-shadow:[moshadow];border:[moborWidth]px [moborStyle] [moborColor];border-left:[moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right:[moborRightWidth]px [moborRightStyle] [moborRightColor];border-top:[moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom:[moborBottomWidth]px [moborBottomStyle] [borBottomColor];",
+            "#%>.rowListBg": "background:url([mouri][moimgQuality]) [mopositionMode];background-position:[moposVal];background-attachment:[moattachment];opacity:[moopacity]"
+        }
+    }
+}

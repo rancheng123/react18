@@ -1,0 +1,20 @@
+{
+    "moFooter.moFooter.s275": {
+        "css": {
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "display:[pchidden];"
+                }
+            }
+        }
+    },
+    "moFooter.moFooter.s276": {
+        "css": {
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "display:[pchidden];"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "moFooter.moFooter.s275": {
+        "css": {
+            "#%": "margin:[momarginTop][momarginTopUnit] [momarginRight][momarginRightUnit]  [momarginBottom][momarginBottomUnit] [momarginLeft][momarginLeftUnit];display:[mohidden];",
+            "#% .footerNavBox": "padding:[mopaddingTop][mopaddingTopUnit] [mopaddingRight][mopaddingRightUnit] [mopaddingBottom][mopaddingBottomUnit] [mopaddingLeft][mopaddingLeftUnit];height:[height]px;background:[mobgColor];box-shadow:[moshadow];border:[moborWidth]px [moborStyle] [moborColor];border-left:[moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right:[moborRightWidth]px [moborRightStyle] [moborRightColor];border-top:[moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom:[moborBottomWidth]px [moborBottomStyle] [moborBottomColor];",
+            "#% .%set": "font:[mofontStyle] [mofontWeight] [motextSize][motextSizeUnit] [mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];",
+            ".%iIc": "max-width:[moiconSize][moiconSizeUnit];max-height:[moiconSize][moiconSizeUnit];line-height:[moiconSize][moiconSizeUnit];font-size:[moiconSize][moiconSizeUnit];color:[moiconColor];",
+            ".%iIc .btnImg": "width:[moiconSize][moiconSizeUnit];height:[moiconSize][moiconSizeUnit];"
+        }
+    },
+    "moFooter.moFooter.s276": {
+        "css": {
+            "#%": "margin:[momarginTop][momarginTopUnit] [momarginRight][momarginRightUnit]  [momarginBottom][momarginBottomUnit] [momarginLeft][momarginLeftUnit];display:[mohidden];",
+            "#% .footerNavBox": "padding:[mopaddingTop][mopaddingTopUnit] [mopaddingRight][mopaddingRightUnit] [mopaddingBottom][mopaddingBottomUnit] [mopaddingLeft][mopaddingLeftUnit];height:[height]px;background:[mobgColor];box-shadow:[moshadow];border:[moborWidth]px [moborStyle] [moborColor];border-left:[moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right:[moborRightWidth]px [moborRightStyle] [moborRightColor];border-top:[moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom:[moborBottomWidth]px [moborBottomStyle] [moborBottomColor];",
+            "#% .%set": "font:[mofontStyle] [mofontWeight] [motextSize][motextSizeUnit] [mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];padding-left:[mopadLeft][mopadLeftUnit];padding-right:[mopadRight][mopadRightUnit];",
+            ".%iIc": "max-width:[moiconSize][moiconSizeUnit];max-height:[moiconSize][moiconSizeUnit];line-height:[moiconSize][moiconSizeUnit];font-size:[moiconSize][moiconSizeUnit];color:[moiconColor];",
+            ".%iIc .btnImg": "width:[moiconSize][moiconSizeUnit];height:[moiconSize][moiconSizeUnit];"
+        }
+    }
+}
