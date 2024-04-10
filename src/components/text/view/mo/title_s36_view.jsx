@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Util from "@/components/page/util/util.js";
+import Util from "@/components/page/util/util.jsx";
 import Component from "../components/component";
 
 

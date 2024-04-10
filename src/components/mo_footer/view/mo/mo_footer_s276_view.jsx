@@ -3,7 +3,7 @@ import React from 'react';
 // 导入自定义的 util 模块
 import Util from '@/components/page/util/util';
 // 导入自定义的组件模块
-import Component from '../components/component.js';
+import Component from '../components/component.jsx';
 
 export const s276 = function () {
   const {

@@ -1,9 +1,7 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Component", function() { return Component; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-
+// 导入 React 库
+import React from 'react';
+// 导入自定义的 util 模块
+import Util from '@/components/page/util/util';
 
 /**
  * @instance {Component} 控件公用HTML视图实例
@@ -35,19 +33,19 @@ const Component = {
     } = props; //判断是否存在图标icon
 
     if (iconName) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      return React.createElement("i", {
         className: `${id}Ic  ${id}${type} btnIcon yiyingbaoicon`
       }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return React.createElement("div", {
         className: `${id}Ic btnIcon ${id}${type}`
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, React.createElement("img", {
         className: "btnImg lazyload",
         "data-src": iconSrc,
-        src: util__WEBPACK_IMPORTED_MODULE_1__["Util"].source ? 'https://img.bjyyb.net/grey.png' : iconSrc
+        src: Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc
       }));
     } //返回null
 
@@ -84,16 +82,16 @@ const Component = {
 
 
     if (iconName) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      return React.createElement("i", {
         className: `${id}Ic btnIcon yiyingbaoicon`
       }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return React.createElement("div", {
         className: `${id}Ic btnIcon`
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("amp-img", {
+      }, React.createElement("amp-img", {
         width: imgFixed,
         height: imgFixed,
         "data-amp-auto-lightbox-disable": "true",
@@ -136,16 +134,16 @@ const Component = {
 
 
     if (iconName) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      return React.createElement("i", {
         className: `${id}Ic btnIcon yiyingbaoicon`
       }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return React.createElement("div", {
         className: `${id}Ic btnIcon`
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("mip-img", {
+      }, React.createElement("mip-img", {
         width: imgFixed,
         height: imgFixed,
         layout: "fixed",
@@ -225,7 +223,7 @@ const Component = {
       } //在发布的时候拼接占位
 
 
-      if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+      if (Util.source) {
         _selected = `{$navs_${e.pid || e.id}}`;
       }
 
@@ -234,23 +232,23 @@ const Component = {
       let _liClass = e.child ? "mainLiChild" : ""; //子级存在时，添加class用于丽君修改样式 sxt 2021-6-22
 
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return React.createElement("li", {
         className: `${id}Li mainNavLi ${_liClass}`,
         key: e.id
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(util__WEBPACK_IMPORTED_MODULE_1__["Util"].linkDecorator, {
+      }, React.createElement(Util.linkDecorator, {
         className: `${id}A mainNavLiA panel${overflowPart} ${_selected}`,
         link: link,
         type: types
-      }, tabstype == "iconmo" && types == "html" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.icon, {
+      }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
         id: id,
         icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "amp" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.ampIcon, {
+      }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
         id: id,
         icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "mip" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.mipIcon, {
+      }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
         id: id,
         icon: e.icon ? e.icon : null
-      }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, e.name)), e.child ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }) : null, React.createElement("p", null, e.name)), e.child ? React.createElement("input", {
         className: "sideTrigger",
         type: "checkbox"
       }) : null, e.child && topLevel == undefined ? Component.forUlHtml({
@@ -262,9 +260,9 @@ const Component = {
         index: 1,
         id: id,
         overflowPart: overflowPart
-      }) : null, e.child ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }) : null, e.child ? React.createElement("span", {
         className: "nav-icon"
-      }, e.child && topLevel == undefined ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, e.child && topLevel == undefined ? React.createElement("i", {
         className: `${id}i yiyingbaoicon`
       }, iconName) : null, " ") : null);
     });
@@ -294,7 +292,7 @@ const Component = {
     //{/* {e.child?this.forUlHtml({list:e.child,target:target}):null} */}  panel，暂时只显示到二级 sxt 2020-3-4
 
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    return React.createElement("ul", {
       className: `panelSubMenu${_index} nav-submenu`
     }, list.map((e, i) => {
       let _selected = ""; //标注当前选中项
@@ -304,29 +302,29 @@ const Component = {
       } //在发布的时候拼接占位
 
 
-      if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+      if (Util.source) {
         _selected = `{$navs_${e.pid || e.id}}`;
       }
 
       let link = Component.getLinkHref(e, target);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return React.createElement("li", {
         key: e.id
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(util__WEBPACK_IMPORTED_MODULE_1__["Util"].linkDecorator, {
+      }, React.createElement(Util.linkDecorator, {
         className: `nav-submenuA theme_fc theme_hvfc panel${overflowPart} ${_selected}`,
         link: link,
         type: types
-      }, tabstype == "iconmo" && types == "html" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.icon, {
+      }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
         id: e.id,
         icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "amp" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.ampIcon, {
+      }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
         id: e.id,
         icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "mip" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.mipIcon, {
+      }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
         id: e.id,
         icon: e.icon ? e.icon : null
-      }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }) : null, React.createElement("p", {
         className: "subnavbtn"
-      }, e.name)), e.child && _index <= 3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, e.name)), e.child && _index <= 3 ? React.createElement("input", {
         className: "sideTrigger",
         type: "checkbox"
       }) : null, e.child && _index <= 3 ? Component.forUlHtml({
@@ -338,9 +336,9 @@ const Component = {
         iconName: iconName,
         index: _index,
         overflowPart: overflowPart
-      }) : null, e.child && _index <= 3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }) : null, e.child && _index <= 3 ? React.createElement("span", {
         className: "nav-icon"
-      }, e.child ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, e.child ? React.createElement("i", {
         className: `${id}i yiyingbaoicon`
       }, iconName) : null, " ") : null);
     }));
@@ -376,35 +374,34 @@ const Component = {
       } //在发布的时候拼接占位
 
 
-      if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+      if (Util.source) {
         _selected = `{$navs_${e.pid || e.id}}`;
       }
 
       let link = Component.getLinkHref(e, target);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return React.createElement("li", {
         className: "panelLi",
         key: e.id
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(util__WEBPACK_IMPORTED_MODULE_1__["Util"].linkDecorator, {
+      }, React.createElement(Util.linkDecorator, {
         className: `${id}A mainNavLiA panel${overflowPart} ${_selected}`,
         link: link,
         type: types
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, React.createElement("div", {
         className: "panelLiBox"
-      }, tabstype == "iconmo" && types == "html" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.icon, {
+      }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
         id: id,
         icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "amp" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.ampIcon, {
+      }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
         id: e.id,
         icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "mip" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.mipIcon, {
+      }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
         id: e.id,
         icon: e.icon ? e.icon : null
-      }) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }) : null), React.createElement("h3", {
         className: "pageName"
       }, e.name)));
     });
   }
 
 };
-
-//# sourceURL=webpack:///./components/panel/view/components/component.js?
+export default Component

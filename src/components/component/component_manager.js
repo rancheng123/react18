@@ -13,7 +13,8 @@ const ComponentManager = {
    * @return {Component} 控件视图类
    */
   getView(opts) {
-    return __webpack_require__("./components/component/view lazy recursive ^\\.\\/.*\\/.*$")(`./${opts.type}/${opts.cate}`).then(module => module.Component);
+    // return __webpack_require__("./components/component/view lazy recursive ^\\.\\/.*\\/.*$")(`./${opts.type}/${opts.cate}`).then(module => module.Component);
+    return import(`./view/${opts.type}/${opts.cate}.jsx`).then(module => module.default);
   },
 
   /**
@@ -34,11 +35,12 @@ const ComponentManager = {
    * @return {JSON} 控件样式json数据
    */
   getStyle(cate, type) {
-    return import(`./${type}/${cate}_css.json`).then(module => module.default);
+    return import(`./style/${type}/${cate}_css.json`).then(module => module.default);
   },
 
   getControler() {
-    return __webpack_require__.e(/*! import() */ 977).then(__webpack_require__.bind(null, /*! ./controler/component_controler */ "./components/component/controler/component_controler.js")).then(module => module.ComponentControler);
+    // return __webpack_require__.e(/*! import() */ 977).then(__webpack_require__.bind(null, /*! ./controler/component_controler */ "./components/component/controler/component_controler.js")).then(module => module.ComponentControler);
+    return import('./controler/component_controler.js').then(module => module.default);
   },
 
   /**

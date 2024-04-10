@@ -1,6 +1,6 @@
 import ReactDom from 'react-dom'
 import Dispatcher from '../../../tools/dispatcher';
-import AttrProxy from '../../../../page/attr_proxy';
+import AttrProxy from '@/components/page/attr_proxy';
 import Drag from '../../../tools/drag';
 
 /**

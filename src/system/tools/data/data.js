@@ -1,4 +1,4 @@
-import Util from '../../../page/util/util'
+import Util from '@/components/page/util/util'
 import Dispatcher from '../dispatcher';
 import Observer from './observer';
 

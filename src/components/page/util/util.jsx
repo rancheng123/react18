@@ -12,10 +12,7 @@ import LinkDecorator from './link_decorator';
 // 导入自定义的 image_path 模块
 import ImagePath from './image_path';
 
-
-
-
-
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 let Components = null;
 /**
@@ -226,8 +223,7 @@ const Util = {
    */
   async cssParser(component, themeData, type) {
     // const module = await __webpack_require__.e(/*! import() */ 1326).then(__webpack_require__.bind(null, /*! ./css */ "./components/page/util/css.js"));
-    
-    const module = await import('./css').then(res => res.default);
+    const module = await import('./css.js').then(module => module.default);
     return module(component, themeData, type);
   },
 
@@ -487,4 +483,3 @@ const Util = {
 };
 
 export default Util
-//# sourceURL=webpack:///./components/page/util/util.js?

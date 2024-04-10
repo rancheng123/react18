@@ -1,0 +1,45 @@
+{
+    "sidebar.sideBox.s91": {
+        "css": {
+            "#%": "[position_x]:[x]%;[position_y]:[y]%;position:fixed;z-index:3000;display:[pchidden];",
+            ".%sTe": "color:[hovertextColor];text-decoration:[hovertextDec];font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];",
+            ".%sLi .sBtn .%sIc": "font-size:[iconSize][iconSizeUnit];background-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%sLi .%sBt": "width:[maxWidth][maxWidthUnit];height:[customHeight][customHeightUnit];line-height:[customHeight][customHeightUnit];background-color:[bgColor];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            ".%sLi .sCoBtn .shBtn .%sIc": "font-size:[hovericonSize][iconSizeUnit];background-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];width:[maxWidth][maxWidthUnit];height:[customHeight][customHeightUnit];line-height:[customHeight][customHeightUnit];",
+            ".%sLi .sBtn .%sIc .sliderIconImg": "width:[iconSize][iconSizeUnit];height:[iconSize][iconSizeUnit];",
+            ".%sLi .sCoBtn .%sIc .sliderIconImg": "width:[hovericonSize][iconSizeUnit];height:[hovericonSize][iconSizeUnit];",
+            ".basSi .%sLi .sBtHover:hover,.%sLi .shBtn": "background-color:[hoverbgColor];border-radius:[hoverborRadius];box-shadow:[hovershadow];border:[hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left:[hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor];border-right:[hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor];border-top:[hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor];border-bottom:[hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];"
+        }
+    },
+    "sidebar.sideBox.s290": {
+        "css": {
+            "#%": "[position_x]:[x]%;[position_y]:[y]%;position:fixed;z-index:3000;",
+            "#% ul li .AnchorA": "background-color:[bgColor];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];width:[maxWidth][maxWidthUnit];height:[maxWidth][maxWidthUnit];",
+            "#% ul li:hover .AnchorA": "background-color:[hoverbgColor];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            "#% ul li .selected": "background-color:[clickbgColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "display:[pchidden];"
+                }
+            }
+        }
+    },
+    "sidebar.sideBox.s467": {
+        "css": {
+            "#%": "[position_x]:[x]%;[position_y]:[y]%;position:fixed;z-index:3000;display:[pchidden];background-color:[bgColor];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];border-radius:[borRadius];",
+            ".%sLi .%sBt": "width:[maxWidth][maxWidthUnit];height:[customHeight][customHeightUnit];background-color:[bgColor];",
+            ".%sLi:first-child .%sBt": "border-radius:[borRadius] [borRadius] 0 0;",
+            ".%sLi:last-child .%sBt": "border-radius:0 0 [borRadius] [borRadius];",
+            ".%sTe": "color:[hoverbgColor];text-decoration:[hovertextDec];font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:calc([hovertextSize][textSizeUnit] + 3px);font-family:[hoverfontFamily];",
+            ".%sLi .sBtn .%sIc": "font-size:[iconSize][iconSizeUnit];background-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%sLi:hover .sBtn .%sIc": "font-size:[hovericonSize][hovericonSizeUnit];background-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%sLi .%sBt .sideItemText": "font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];font-family:[fontFamily];color:[textColor];text-decoration:[textDec];",
+            ".%sLi:hover .%sBt .sideItemText": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][hovertextSizeUnit];font-family:[hoverfontFamily];color:[hovertextColor];text-decoration:[hovertextDec];",
+            ".%sLi .sCoBtn .shBtn .%sIc": "font-size:[hovericonSize][iconSizeUnit];background-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];width:[maxWidth][maxWidthUnit];height:[customHeight][customHeightUnit];line-height:[customHeight][customHeightUnit];",
+            ".%sLi .sBtn .%sIc .sliderIconImg": "width:[iconSize][iconSizeUnit];height:[iconSize][iconSizeUnit];",
+            ".%sLi .sCoBtn .%sIc .sliderIconImg": "width:[hovericonSize][iconSizeUnit];height:[hovericonSize][iconSizeUnit];",
+            "#% .basSi .%sLi:hover .sBtHover": "background-color:[hoverbgColor];",
+            "#%.newSidebar1 .basSi .sList .shBtn": "background-color:[bgColor];"
+        }
+    }
+}

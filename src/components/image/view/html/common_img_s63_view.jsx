@@ -1,19 +1,10 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s63", function() { return s63; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-// /* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/component */ "./components/image/view/components/component.js");
-
-
-
 // 导入 React 模块
 import React from "react";
 // 导入 Util 模块
-import Util from "@/components/page/util/util.js";
+import Util from "@/components/page/util/util.jsx";
 // 导入 "../components/component" 模块
 import Component from "../components/component";
-function s63() {
+export function s63() {
     var _this$props$context;
 
     const context = (_this$props$context = this.props.context) !== null && _this$props$context !== void 0 ? _this$props$context : {};
@@ -97,4 +88,4 @@ function s63() {
     }))))));
 }
 
-//# sourceURL=webpack:///./components/image/view/html/common_img_s63_view.js?
+   

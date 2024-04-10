@@ -1,0 +1,75 @@
+{
+    "panel.panel.s411": {
+        "css": {
+            "#%": "background:[mobgColor];width:[panelWidth]%;",
+            "#%:before": "background:url([mouri][imgQuality]) [mopositionMode];background-position:[moposVal];background-attachment:[moattachment];opacity:[moopacity];",
+            "#% .%Li": "margin-bottom:[marginBtm]px;border: [moborWidth]px [moborStyle] [moborColor];border-left: [moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right: [moborRightWidth]px [moborRightStyle] [moborRightColor];border-top: [moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom: [moborBottomWidth]px [moborBottomStyle] [moborBottomColor];",
+            "#% .%A,#% .nav-submenuA": "font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];letter-spacing:[moletterSpace][moletterSpaceUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];background-color:[mobgColor];border-radius:[moborRadius];box-shadow:[moshadow];text-align:[motextAlign];",
+            "#% .%A.paneltextShow p,#% .nav-submenuA p,#% .%A .btnIcon,#% .nav-submenuA .btnIcon,.sideTrigger~.nav-icon": "height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A.panellineFeed p": "min-height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A p": "padding-left:[mopadLeft][mopadLeftUnit];padding-right:[mopadRight][mopadRightUnit];",
+            "#% .%A.selected,#% .nav-submenuA.selected": "background-color:[moclickbgColor];font-style:[moclickfontStyle];font-weight:[moclickfontWeight];font-size:[moclicktextSize][moclicktextSizeUnit];font-family:[moclickfontFamily];line-height:[moclicklineHeight][molineHeightUnit];color:[moclicktextColor];text-decoration:[moclicktextDec]",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "display:none"
+                }
+            }
+        }
+    },
+    "panel.panel.s412": {
+        "css": {
+            "#%": "background:[mobgColor];width:[panelWidth]%;",
+            "#%:before": "background:url([mouri][imgQuality]) [mopositionMode];background-position:[moposVal];background-attachment:[moattachment];opacity:[moopacity];",
+            "#% .%Li": "margin-bottom:[marginBtm]px;border: [moborWidth]px [moborStyle] [moborColor];border-left: [moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right: [moborRightWidth]px [moborRightStyle] [moborRightColor];border-top: [moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom: [moborBottomWidth]px [moborBottomStyle] [moborBottomColor];",
+            "#% .%A,#% .nav-submenuA": "font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];letter-spacing:[moletterSpace][moletterSpaceUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];background-color:[mobgColor];border-radius:[moborRadius];box-shadow:[moshadow];text-align:[motextAlign];",
+            "#% .%A.paneltextShow p,#% .nav-submenuA p,#% .%A .btnIcon,#% .nav-submenuA .btnIcon,.sideTrigger~.nav-icon": "height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A.panellineFeed p": "min-height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A p": "padding-left:[mopadLeft][mopadLeftUnit];padding-right:[mopadRight][mopadRightUnit];",
+            "#% .%A.selected,#% .nav-submenuA.selected": "background-color:[moclickbgColor];font-style:[moclickfontStyle];font-weight:[moclickfontWeight];font-size:[moclicktextSize][moclicktextSizeUnit];font-family:[moclickfontFamily];line-height:[moclicklineHeight][molineHeightUnit];color:[moclicktextColor];text-decoration:[moclicktextDec]",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "display:none"
+                }
+            }
+        }
+    },
+    "panel.panel.s414": {
+        "css": {
+            "#%": "background:[mobgColor];width:[panelWidth]%;",
+            "#%:before": "background:url([mouri][imgQuality]) [mopositionMode];background-position:[moposVal];background-attachment:[moattachment];opacity:[moopacity];",
+            "#% .%Li": "margin-bottom:[marginBtm]px;border: [moborWidth]px [moborStyle] [moborColor];border-left: [moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right: [moborRightWidth]px [moborRightStyle] [moborRightColor];border-top: [moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom: [moborBottomWidth]px [moborBottomStyle] [moborBottomColor];",
+            "#% .%A,#% .nav-submenuA": "font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];letter-spacing:[moletterSpace][moletterSpaceUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];background-color:[mobgColor];border-radius:[moborRadius];box-shadow:[moshadow];text-align:[motextAlign];",
+            "#% .%A.paneltextShow p,#% .nav-submenuA p,#% .%A .btnIcon,#% .nav-submenuA .btnIcon,.sideTrigger~.nav-icon": "height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A.panellineFeed p": "min-height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A p": "padding-left:[mopadLeft][mopadLeftUnit];padding-right:[mopadRight][mopadRightUnit];",
+            "#% .%A.selected,#% .nav-submenuA.selected": "background-color:[moclickbgColor];font-style:[moclickfontStyle];font-weight:[moclickfontWeight];font-size:[moclicktextSize][moclicktextSizeUnit];font-family:[moclickfontFamily];line-height:[moclicklineHeight][molineHeightUnit];color:[moclicktextColor];text-decoration:[moclicktextDec]",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "display:none"
+                }
+            }
+        }
+    },
+    "panel.panel.s415": {
+        "css": {
+            "#%": "width:[panelWidth]%;",
+            "#%:before": "background:url([mouri][imgQuality]) [mopositionMode];background-position:[moposVal];background-attachment:[moattachment];opacity:[moopacity];",
+            "#% .%Li": "margin-bottom:[marginBtm]px;border: [moborWidth]px [moborStyle] [moborColor];border-left: [moborLeftWidth]px [moborLeftStyle] [moborLeftColor];border-right: [moborRightWidth]px [moborRightStyle] [moborRightColor];border-top: [moborTopWidth]px [moborTopStyle] [moborTopColor];border-bottom: [moborBottomWidth]px [moborBottomStyle] [moborBottomColor];",
+            "#% .%A,#% .nav-submenuA": "font-style:[mofontStyle];font-weight:[mofontWeight];font-size:[motextSize][motextSizeUnit];letter-spacing:[moletterSpace][moletterSpaceUnit];font-family:[mofontFamily];line-height:[molineHeight][molineHeightUnit];color:[motextColor];text-decoration:[motextDec];background-color:[mobgColor];border-radius:[moborRadius];box-shadow:[moshadow];text-align:[motextAlign];",
+            "#% .%A.paneltextShow p,#% .nav-submenuA p,#% .%A .btnIcon,#% .nav-submenuA .btnIcon,.sideTrigger~.nav-icon": "height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A.panellineFeed p": "min-height:[singleHeight]px;line-height:[singleHeight]px;",
+            "#% .%A p": "padding-left:[mopadLeft][mopadLeftUnit];padding-right:[mopadRight][mopadRightUnit];",
+            "#% .%A.selected,#% .nav-submenuA.selected": "background-color:[moclickbgColor];font-style:[moclickfontStyle];font-weight:[moclickfontWeight];font-size:[moclicktextSize][moclicktextSizeUnit];font-family:[moclickfontFamily];line-height:[moclicklineHeight][molineHeightUnit];color:[moclicktextColor];text-decoration:[moclicktextDec]",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "display:none"
+                }
+            }
+        }
+    },
+    "panel.panel.s446": {
+        "css": {
+            "#%": "background:[mobgColor];width:[panelWidth]%;"
+        }
+    }
+}

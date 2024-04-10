@@ -1,0 +1,20 @@
+{
+    "flipper.flipper.s288": {
+        "css": {
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];"
+                }
+            }
+        }
+    },
+    "flipper.flipper.s294": {
+        "css": {
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];"
+                }
+            }
+        }
+    }
+}

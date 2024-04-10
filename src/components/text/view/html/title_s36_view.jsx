@@ -1,5 +1,5 @@
 import React from 'react';
-import Util from "@/components/page/util/util.js";
+import Util from "@/components/page/util/util.jsx";
 import Component from "../components/component";
 
 
@@ -83,5 +83,5 @@ function s36() {
     }
   }));
 }
-
+export default s36
 //# sourceURL=webpack:///./components/text/view/html/title_s36_view.js?

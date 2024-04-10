@@ -1,10 +1,8 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageManager", function() { return ImageManager; });
 
 const ImageManager = {
   getView(opts) {
     // return __webpack_require__("./components/image/view lazy recursive ^\\.\\/.*\\/.*_.*_view$")(`./${opts.type}/${opts.cate}_${opts.name}_view`).then(module => module[opts.name]);
-    return import(`./data/${opts.type}/${opts.cate}_${opts.name}_view`).then(module => module[opts.name]);
+    return import(`./view/${opts.type}/${opts.cate}_${opts.name}_view.jsx`).then(module => module[opts.name]);
   },
 
   getAttr() {
@@ -12,7 +10,7 @@ const ImageManager = {
   },
 
   getStyle(cate, type) {
-    return import(`./data/${type}/${cate}_css.json`).then(module => module.default);
+    return import(`./style/${type}/${cate}_css.json`).then(module => module.default);
   },
 
   getData(type) {

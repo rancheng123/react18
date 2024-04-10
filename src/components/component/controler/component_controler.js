@@ -91,5 +91,3 @@ export default  class ComponentControler {
   }
 
 }
-
-//# sourceURL=webpack:///./components/component/controler/component_controler.js?

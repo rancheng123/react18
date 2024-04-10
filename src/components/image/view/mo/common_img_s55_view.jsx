@@ -1,18 +1,11 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s57", function() { return s57; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-// /* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/component */ "./components/image/view/components/component.js");
-
-
 // 导入 React 模块
 import React from "react";
 // 导入 Util 模块
-import Util from "@/components/page/util/util.js";
+import Util from "@/components/page/util/util.jsx";
 // 导入 "../components/component" 模块
 import Component from "../components/component";
-function s57() {
+
+export function s55() {
     var _this$props$context;
 
     let {
@@ -23,7 +16,12 @@ function s57() {
             data: {
                 document_data,
                 document_data: {
+                    uri,
                     link,
+                    alt = null,
+                    title = null,
+                    dataRetain,
+                    quality,
                     effect,
                     hoverAnimationClass = ""
                 }
@@ -56,5 +54,3 @@ function s57() {
         context: context
     })));
 }
-
-//# sourceURL=webpack:///./components/image/view/html/common_img_s57_view.js?

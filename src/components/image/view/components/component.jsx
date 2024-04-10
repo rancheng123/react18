@@ -1,9 +1,8 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Component", function() { return Component; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
 
+// 导入 React 模块
+import React from "react";
+// 导入 Util 模块
+import Util from "@/components/page/util/util.jsx";
 
 /**
  * @instance {Component} 控件公用HTML视图实例
@@ -23,7 +22,7 @@ const Component = {
    * @return {object} 控件外层包裹结构
    */
   box(props) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       id: props.id,
       className: `${props.id} ImghidCont`
     }, props.children);
@@ -75,19 +74,19 @@ const Component = {
       arr.title = context.title || "";
     }
 
-    const src = Component.getImgZoomSrc(util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    const src = Component.getImgZoomSrc(Util.imagePath({
       uri: arr.uri,
       dataRetain,
       quality
     }));
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       className: "clearfix baguetteBox"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    }, React.createElement("a", {
       href: src,
-      "data-enlarge-webp": util__WEBPACK_IMPORTED_MODULE_1__["Util"].webp(src),
+      "data-enlarge-webp": Util.webp(src),
       "data-caption": arr.title,
       className: `imgHoverAn ${hoverAnimationClass} Imgbox`
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component.image, {
+    }, React.createElement(Component.image, {
       className: `${id}Img img`,
       state: state,
       context: props.context
@@ -141,8 +140,8 @@ const Component = {
     } //PC读PC值，移动读移动值，没有默认走PC值
 
 
-    let quality = (_document_data$ = document_data[`${util__WEBPACK_IMPORTED_MODULE_1__["Util"].type}quality`]) !== null && _document_data$ !== void 0 ? _document_data$ : document_data.quality,
-        dataRetain = (_ref = (_document_data$2 = document_data[`${util__WEBPACK_IMPORTED_MODULE_1__["Util"].type}dataRetain`]) !== null && _document_data$2 !== void 0 ? _document_data$2 : document_data.dataRetain) !== null && _ref !== void 0 ? _ref : '';
+    let quality = (_document_data$ = document_data[`${Util.type}quality`]) !== null && _document_data$ !== void 0 ? _document_data$ : document_data.quality,
+        dataRetain = (_ref = (_document_data$2 = document_data[`${Util.type}dataRetain`]) !== null && _document_data$2 !== void 0 ? _document_data$2 : document_data.dataRetain) !== null && _ref !== void 0 ? _ref : '';
     let arr = Component.tags(id, imgArr, {
           uri,
           webp,
@@ -156,13 +155,13 @@ const Component = {
     let dataSpesc = null;
     let companyField = dataSource.companyField;
 
-    if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source && companyField == "thumb_img" && dataSource.selectContent == "autoBinding" && dataSource.type != "list") {
+    if (Util.source && companyField == "thumb_img" && dataSource.selectContent == "autoBinding" && dataSource.type != "list") {
       //数据源开启并且类型为缩略图，且是绑定的数据源 ，类型不为列表 赋值属性用于绑定规格参数替换图片属性 sxt 2020-9-17
       dataSpesc = "thumb_img";
     }
 
-    if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
-      thumb = util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    if (Util.source) {
+      thumb = Util.imagePath({
         uri: arr.uri,
         dataRetain,
         quality: 100
@@ -193,8 +192,8 @@ const Component = {
       arr.alt = context.description || "";
       arr.videoUrl = ""; //在预览时，拼接占位的图片路径
 
-      if (util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
-        thumb = util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+      if (Util.source) {
+        thumb = Util.imagePath({
           uri: arr.uri,
           dataRetain,
           quality: 100
@@ -206,35 +205,35 @@ const Component = {
       }
     }
 
-    arr.uri = util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    arr.uri = Util.imagePath({
       uri: arr.uri,
       dataRetain,
       quality
     });
-    arr.webp = util__WEBPACK_IMPORTED_MODULE_1__["Util"].webp(util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    arr.webp = Util.webp(Util.imagePath({
       uri: arr.webp,
       dataRetain,
       quality
     })); //{arr.videoUrl?<span className={`videoMantle ${Util.source?"hidden":""}`} data-videosrc={arr.videoUrl||null}></span>:null}
 
-    if (dataSource.type == "list" && isSwitch && util__WEBPACK_IMPORTED_MODULE_1__["Util"].source) {
+    if (dataSource.type == "list" && isSwitch && Util.source) {
       let coverSource = "img_path_arr";
 
       if (companyField == "banner") {
         coverSource = "img_path_arr_banner";
       }
 
-      let uriSwitch = util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+      let uriSwitch = Util.imagePath({
             uri: `{$vo.${coverSource}.1}`,
             dataRetain,
             quality
           }),
-          webpSwitch = util__WEBPACK_IMPORTED_MODULE_1__["Util"].webp(util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+          webpSwitch = Util.webp(Util.imagePath({
             uri: `{$vo.${coverSource}.1}`,
             dataRetain,
             quality
           }));
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      return React.createElement(React.Fragment, null, React.createElement("img", {
         className: `${props.className} lazyload <notempty name="vo.${coverSource}.1">firstImage</notempty>`,
         "data-specsimg": dataSpesc,
         "data-slidew": arr.width,
@@ -246,9 +245,9 @@ const Component = {
         "data-src": arr.uri,
         src: thumb || arr.uri,
         "data-webp": isWebp ? arr.webp : ""
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("notempty", {
+      }), React.createElement("notempty", {
         name: `vo.${coverSource}.1`
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, React.createElement("img", {
         className: props.className + ' lazyload activeImage',
         "data-specsimg": dataSpesc,
         "data-source": coverSource || null,
@@ -263,7 +262,7 @@ const Component = {
         height: arr.height || null
       })));
     } else {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      return React.createElement(React.Fragment, null, React.createElement("img", {
         className: props.className + ' lazyload',
         "data-specsimg": dataSpesc,
         "data-slidew": arr.width,
@@ -275,8 +274,8 @@ const Component = {
         "data-src": arr.uri || "https://img.bjyyb.net/notImage.jpg",
         src: thumb || arr.uri || "https://img.bjyyb.net/notImage.jpg",
         "data-webp": isWebp ? arr.webp : ""
-      }), arr.videoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: `videoMantle ${util__WEBPACK_IMPORTED_MODULE_1__["Util"].source ? "hidden" : ""}`,
+      }), arr.videoUrl ? React.createElement("span", {
+        className: `videoMantle ${Util.source ? "hidden" : ""}`,
         "data-videosrc": arr.videoUrl || null,
         "data-videoshow": videoShow || null
       }) : null);
@@ -361,12 +360,12 @@ const Component = {
       effect = "imgBig";
     }
 
-    arr.uri = util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    arr.uri = Util.imagePath({
       uri: arr.uri,
       dataRetain,
       quality
     });
-    arr.webp = util__WEBPACK_IMPORTED_MODULE_1__["Util"].webp(util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    arr.webp = Util.webp(Util.imagePath({
       uri: arr.webp,
       dataRetain,
       quality
@@ -387,7 +386,7 @@ const Component = {
       layoutType = "fixed";
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("amp-img", {
+    return React.createElement(React.Fragment, null, React.createElement("amp-img", {
       alt: arr.alt,
       "custom-bind": tap,
       role: role,
@@ -398,7 +397,7 @@ const Component = {
       height: arr.height || 100,
       src: arr.uri || "https://img.bjyyb.net/notImage.jpg",
       "aria-describedby": "imageDescription"
-    }, arr.webp && isWebp ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("amp-img", {
+    }, arr.webp && isWebp ? React.createElement("amp-img", {
       src: arr.webp || "https://img.bjyyb.net/notImage.jpg",
       "custom-bind": tap,
       alt: arr.title,
@@ -487,12 +486,12 @@ const Component = {
       effect = "imgBig";
     }
 
-    arr.uri = util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    arr.uri = Util.imagePath({
       uri: arr.uri,
       dataRetain,
       quality
     });
-    arr.webp = util__WEBPACK_IMPORTED_MODULE_1__["Util"].webp(util__WEBPACK_IMPORTED_MODULE_1__["Util"].imagePath({
+    arr.webp = Util.webp(Util.imagePath({
       uri: arr.webp,
       dataRetain,
       quality
@@ -507,7 +506,7 @@ const Component = {
       layoutType = "fixed";
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("mip-img", {
+    return React.createElement("mip-img", {
       alt: arr.alt,
       tabIndex: "0",
       layout: layoutType,
@@ -516,7 +515,7 @@ const Component = {
       popup: effect == "imgBig" ? "" : null,
       src: arr.uri || "https://img.bjyyb.net/notImage.jpg",
       "aria-describedby": "imageDescription"
-    }, arr.webp && isWebp ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("source", {
+    }, arr.webp && isWebp ? React.createElement("source", {
       srcSet: arr.webp,
       type: "image/webp"
     }) : null);
@@ -583,7 +582,7 @@ const Component = {
 
     if (clickcode || doublecode || submitcode) {
       const data = `{"clickcode":"${clickcode}","doublecode":"${doublecode}","submitcode":"${submitcode}"}`;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
+      return React.createElement("script", {
         className: "button-code",
         type: "text/json",
         dangerouslySetInnerHTML: {
@@ -598,4 +597,4 @@ const Component = {
 
 };
 
-//# sourceURL=webpack:///./components/image/view/components/component.js?
+export default Component

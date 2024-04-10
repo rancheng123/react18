@@ -1,19 +1,12 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s55", function() { return s55; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-// /* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/component */ "./components/image/view/components/component.js");
 
 // 导入 React 模块
 import React from "react";
 // 导入 Util 模块
-import Util from "@/components/page/util/util.js";
+import Util from "@/components/page/util/util.jsx";
 // 导入 "../components/component" 模块
 import Component from "../components/component";
 
-
-function s55() {
+export function s57() {
     var _this$props$context;
 
     let {
@@ -24,12 +17,7 @@ function s55() {
             data: {
                 document_data,
                 document_data: {
-                    uri,
                     link,
-                    alt = null,
-                    title = null,
-                    dataRetain,
-                    quality,
                     effect,
                     hoverAnimationClass = ""
                 }
@@ -56,11 +44,11 @@ function s55() {
         link: Util.setLinkUrl(context.link, link),
         type: "html",
         className: `imgHoverAn Imgbox clearfix ${hoverAnimationClass}`
-    }, React.createElement(_components_component__WEBPACK_IMPORTED_MODULE_2__["Component"].image, {
+    }, React.createElement(Component.image, {
         className: `${id}Img img`,
         state: this.state || {},
         context: context
     })));
 }
 
-//# sourceURL=webpack:///./components/image/view/html/common_img_s55_view.js?
+//# sourceURL=webpack:///./components/image/view/html/common_img_s57_view.js?

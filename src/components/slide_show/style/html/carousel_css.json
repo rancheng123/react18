@@ -1,0 +1,115 @@
+{
+    "slideShow.carousel.s81": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];background-color:[bgColor];background-image:[LinearGradient];",
+            "#%:hover": "background-color:[hoverbgColor];background-image:[LinearGradient];",
+            ".%cS": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            ".%cI": "opacity:[imgOpacity];",
+            "#% .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon .yiyingbaoicon, #% .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];"
+        }
+    },
+    "slideShow.carousel.s82": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];background-color:[bgColor];background-image:[LinearGradient];",
+            "#%:hover": "background-color:[hoverbgColor];background-image:[LinearGradient];",
+            ".%cS": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            ".%cI": "opacity:[imgOpacity];",
+            "#% .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon .yiyingbaoicon, #% .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];"
+        }
+    },
+    "slideShow.carousel.s231": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];background-color:[bgColor];background-image:[LinearGradient];box-shadow:[shadow];",
+            "#% .zoomSliderBox": "border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#% .ThumbnailList .carousel li": "border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#% .ThumbnailList .carousel li:hover": "border:[hoverborWidth]px [hoverborStyle] [hoverborColor];border-left:[hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor];border-right:[hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor];border-top:[hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor];border-bottom:[hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            "#% .zoomHelp": "width:[magnifierWidth]px;height:[magnifierHeight]px;left:[zoomLeft]px;"
+        }
+    },
+    "slideShow.carousel.s332": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#% .advanced-arrow .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .advanced-arrow .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .advanced-arrow .right-icon .yiyingbaoicon, #% .advanced-arrow .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];"
+        }
+    },
+    "slideShow.carousel.s340": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#% .advanced-arrow .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .advanced-arrow .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .advanced-arrow .right-icon .yiyingbaoicon, #% .advanced-arrow .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];"
+        }
+    },
+    "slideShow.carousel.s428": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];",
+            "#% .zoomHelp": "width:[magnifierWidth]px;height:[magnifierHeight]px;left:[zoomLeft]px;",
+            "#% .zoomSliderBox": "border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#% .ThumbnailList .prev,#% .ThumbnailList .next": "background-color:[bgColor];background-image:[LinearGradient];",
+            "#% .slidearrowBox .carousel li:hover": "border:3px solid [bgColor];",
+            "#% .slidearrowBox .carousel li:hover:before": "border-bottom:7px solid [bgColor];"
+        }
+    },
+    "slideShow.carousel.s431": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];background-color:[bgColor];background-image:[LinearGradient];box-shadow:[shadow];",
+            "#% .columnslider .zoomSliderBox": "border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#% .columnslider .ThumbnailList .carousel li": "border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            "#% .columnslider .ThumbnailList .carousel li:hover": "border:[hoverborWidth]px [hoverborStyle] [hoverborColor];border-left:[hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor];border-right:[hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor];border-top:[hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor];border-bottom:[hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            "#% .columnslider .ThumbnailList": "height:[parentHeight]px",
+            "#% .columnslider .carousel": "width:[thumbnailWidth]px;max-width:[thumbnailWidth]px;",
+            "#% .columnslider .custom-container .zoomSliderBox": "width: calc(100% - [thumbnailWidth]px);",
+            "#% .columnslider .carousel li": "width:[thumbnailWidth]px;height:[thumbnailHeight]px;",
+            "#% .sliderToggleBox .carousel": "max-height:100%",
+            "#% .columnslider .sliderToggleBox .prev,#% .columnslider .sliderToggleBox .next": "display:none",
+            "#% .zoomHelp": "width:[magnifierWidth]px;height:[magnifierHeight]px;left:[zoomLeft]px;"
+        }
+    },
+    "slideShow.carousel.s439": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];background-color:[bgColor];background-image:[LinearGradient];",
+            "#%:hover": "background-color:[hoverbgColor];background-image:[LinearGradient];",
+            ".%cS": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            ".%cI": "opacity:[imgOpacity];"
+        }
+    },
+    "slideShow.carousel.s461": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];background-color:[bgColor];background-image:[LinearGradient];",
+            "#%:hover": "background-color:[hoverbgColor];background-image:[LinearGradient];",
+            ".%cS": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            ".%cI": "opacity:[imgOpacity];",
+            "#% .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon .yiyingbaoicon, #% .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];"
+        }
+    },
+    "slideShow.carousel.s472": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];background-color:[bgColor];background-image:[LinearGradient];",
+            "#%:hover": "background-color:[hoverbgColor];background-image:[LinearGradient];",
+            ".%cS": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            ".%cI": "opacity:[imgOpacity];",
+            "#% .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon .yiyingbaoicon, #% .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];"
+        }
+    },
+    "slideShow.carousel.s474": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];background-color:[bgColor];background-image:[LinearGradient];",
+            "#%:hover": "background-color:[hoverbgColor];background-image:[LinearGradient];",
+            ".%cS": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];",
+            ".%cI": "opacity:[imgOpacity];",
+            "#% .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];background-image:[LinearGradient];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+            "#% .right-icon .yiyingbaoicon, #% .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];"
+        }
+    }
+}
