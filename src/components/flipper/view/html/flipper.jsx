@@ -12,7 +12,7 @@ import Util from '@/components/page/util/util';
  * @return {object} 翻屏组件结构
  */
 
-export function Flipper() {
+export default function Flipper() {
   const {
     state: {
       component: {

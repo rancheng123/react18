@@ -14,7 +14,10 @@ export const FlipperManager = {
    */
   getView(opts) {
     // return __webpack_require__("./components/flipper/view lazy recursive ^\\.\\/.*\\/flipper$")(`./${opts.type}/flipper`).then(module => module.Flipper);
-    return import(`./view/${opts.type}/flipper.jsx`).then(module => module.Flipper);
+    return import(`./view/${opts.type}/flipper.jsx`).then(module => {
+      console.log(module.default, 'heieheiehoa收到开发环境阿是')
+      return module.default
+    });
   },
 
   /**

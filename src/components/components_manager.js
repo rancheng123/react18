@@ -5,7 +5,7 @@ import componentsMap from './components_map.json';
 // 动态导入处理函数
 const dynamicImport = async (path, name) => {
   try {
-    console.log(path,name,'1111111');
+    // console.log(path,name,'1111111');
     const modules = import.meta.glob('../components/*/*.js')
     // console.log(modules,'modules',path,name);
     let Module = null
