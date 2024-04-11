@@ -5,7 +5,8 @@ const TextManager = {
   },
 
   getAttr() {
-    return Promise.all(/*! import() | text_attribute */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e("text_attribute")]).then(__webpack_require__.bind(null, /*! ./attr/text_attribute.js */ "./components/text/attr/text_attribute.js")).then(module => module.TextAttribute);
+    // return Promise.all(/*! import() | text_attribute */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e("text_attribute")]).then(__webpack_require__.bind(null, /*! ./attr/text_attribute.js */ "./components/text/attr/text_attribute.js")).then(module => module.TextAttribute);
+    return import("./attr/text_attribute.js").then((module) => module.TextAttribute);
   },
 
   getStyle(cate, type) {

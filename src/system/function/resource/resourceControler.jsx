@@ -11,7 +11,7 @@ import React from 'react';
 // 导入 ReactDOM 库
 import ReactDOM from 'react-dom';
 // 导入自定义的 resource.js 模块
-// import Resource from './resource.js';
+import Resource from './resource.js';
 
 
 /**
@@ -24,8 +24,9 @@ import ReactDOM from 'react-dom';
 export default class ResourceControler extends React.Component {
   constructor(props) {
     super(props);
-    this.init(); //this.view=new Resource(this);
-    //this.view.render=this.view.render.bind(this.view);
+    this.init(); 
+    this.view= new Resource(this);
+    this.view.render=this.view.render.bind(this.view);
   }
   /**
     * @static imageResource 创建链接面板

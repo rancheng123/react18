@@ -38,6 +38,9 @@ const SingleComponentEdit = {
     btnId,
     boxId
   }) {
+    
+
+    console.log(222222222);
     const {
       current: {
         layout: {
@@ -50,7 +53,7 @@ const SingleComponentEdit = {
         hidden
       }
     } = node,
-          config = this.proxy.config;
+    config = this.proxy.config;
 
     if (hidden != '1') {
       Buttons.x = this.x, Buttons.y = this.y;
@@ -77,9 +80,8 @@ const SingleComponentEdit = {
    
    */
   async init() {
-    const {
-      Buttons
-    } = await __webpack_require__.e(/*! import() */ 1854).then(__webpack_require__.bind(null, /*! ./buttons_test */ "./system/function/component_edit/single/buttons_test.js"));
+    const Buttons = await import('./buttons_test.jsx').then(module => module.default)
+    // __webpack_require__.e(/*! import() */ 1854).then(__webpack_require__.bind(null, /*! ./buttons_test */ "./system/function/component_edit/single/buttons_test.js"));
     const {
       node: {
         current: {

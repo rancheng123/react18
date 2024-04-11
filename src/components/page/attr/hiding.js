@@ -1,7 +1,8 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hiding", function() { return Hiding; });
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
- //let show = false; //列出隐藏
+
+// 导入模块
+import Dispatcher from "@/system/tools/dispatcher"; // 导入 dispatcher 模块
+
+//let show = false; //列出隐藏
 
 let lastSysType;
 const show = {
@@ -30,7 +31,7 @@ const Hiding = {
     // Dispatcher.dispatch(`${id}_set`,{
     //     args:[`document_data.${systype}hidden`,hidden?0:1]
     // });
-    dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_set`, {
+    Dispatcher.dispatch(`${id}_set`, {
       args: ['theme_data.style.', {
         [systype + 'hidden']: hidden ? '' : 'none'
       }]
@@ -63,7 +64,7 @@ const Hiding = {
       component: {
         id: pageId
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch("getPageData"); //当前页面数据
+    } = Dispatcher.dispatch("getPageData"); //当前页面数据
 
     const {
       node: {
@@ -81,7 +82,7 @@ const Hiding = {
           }
         }
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_get`);
+    } = Dispatcher.dispatch(`${id}_get`);
     const {
       data: {
         document_data: {
@@ -91,7 +92,7 @@ const Hiding = {
           pchiddenSwitch
         }
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${pageId}_get`);
+    } = Dispatcher.dispatch(`${pageId}_get`);
 
     if (systype == 'pc') {
       this.hidingHandle(pchidden, pchiddenList, systype, doc, id, pageId);
@@ -113,7 +114,7 @@ const Hiding = {
       data: {
         theme_data
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(type); //判断是否存在theme_data 数据
+    } = Dispatcher.dispatch(type); //判断是否存在theme_data 数据
 
     if (theme_data) {
       hlist = []; //循环theme_data数据
@@ -177,7 +178,7 @@ const Hiding = {
    * @Date: 2020-02-28 12:26:45
    */
   hiddenEle(ele, show) {
-    dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch('selectedHidden', {
+    Dispatcher.dispatch('selectedHidden', {
       value: true
     });
 
@@ -225,7 +226,7 @@ const Hiding = {
       ele.removeAttribute('style');
       ele.removeAttribute('data-mask'); //Dispatcher.dispatch('selectedHidden',{value:true});
 
-      if (document.querySelector('.hidDivBtn')) dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch('selectedHidden', {
+      if (document.querySelector('.hidDivBtn')) Dispatcher.dispatch('selectedHidden', {
         value: true
       });
 
@@ -287,4 +288,4 @@ const Hiding = {
 
 };
 
-//# sourceURL=webpack:///./components/page/attr/hiding.js?
+export default Hiding

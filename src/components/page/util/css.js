@@ -17,7 +17,6 @@ import componentsManager from '@/components/components_manager'
 
 export default async function cssParser(component, themeData, type) {
   var _component$componentT;
-
   const module = await componentsManager((_component$componentT = component.componentType) !== null && _component$componentT !== void 0 ? _component$componentT : 'document');
 
   if (module && themeData) {

@@ -1,0 +1,63 @@
+{
+    "dots": {
+        "bottom": true
+    },
+    "pc": {
+        "tabs": [
+            {
+                "name": "headerProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design"
+            },
+            {
+                "name": "style",
+                "type": "custom"
+            }
+        ]
+    },
+    "mo": {
+        "tabs": [
+            {
+                "name": "design",
+                "type": "design"
+            }
+        ]
+    },
+    "group": {
+        "basic": {
+            "all": {
+                "include": "openFloat"
+            }
+        },
+        "design": {
+            "all": {
+                "include": "background|border|shadow",
+                "group": {
+                    "background": {
+                        "include": "backgroundPanel"
+                    }
+                }
+            }
+        },
+        "setting": {
+            "all": {
+                "tabs": [
+                    "hover"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "background|border|shadow"
+                    },
+                    "group": {
+                        "background": {
+                            "include": "backgroundPanel"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

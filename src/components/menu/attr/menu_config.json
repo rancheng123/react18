@@ -1,0 +1,957 @@
+{
+    "dots": {
+        "btns": [
+            "top",
+            "top-left",
+            "left"
+        ],
+        "list": [
+            "right"
+        ]
+    },
+    "pc": {
+        "tabs": [
+            {
+                "name": "menuProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design"
+            },
+            {
+                "name": "setUp",
+                "type": "setting"
+            },
+            {
+                "name": "style",
+                "type": "custom"
+            },
+            {
+                "name": "animation",
+                "type": "animation"
+            },
+            {
+                "name": "itemManage",
+                "type": "manage"
+            }
+        ],
+        "btns": [
+            {
+                "name": "manageNav",
+                "type": "manageNav",
+                "className": "manage"
+            },
+            {
+                "name": "menuProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design"
+            },
+            {
+                "name": "style",
+                "type": "custom"
+            },
+            {
+                "name": "setUp",
+                "type": "setting"
+            },
+            {
+                "name": "animation",
+                "type": "animation"
+            }
+        ],
+        "group": {
+            "design": {
+                "all": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "all": {
+                                "include": "columnWidth|columnSpace|align|subNavSpacing|paddingBtm|paddingRit"
+                            }
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s86": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s162": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s418": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s419": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s226": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.horMenu.s458": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight",
+                            "tabs": [
+                                {
+                                    "name": "pageName",
+                                    "type": "label"
+                                },
+                                {
+                                    "name": "subTitle",
+                                    "type": "prompt"
+                                }
+                            ],
+                            "group": {
+                                "label": {
+                                    "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                                },
+                                "prompt": {
+                                    "exclude": "align|marginLeft|marginRight"
+                                }
+                            }
+                        },
+                        "space": {
+                            "all": {
+                                "include": "columnWidth|columnSpace|align|subNavSpacing|paddingBtm|paddingRit"
+                            }
+                        }
+                    }
+                }
+            },
+            "manage": {
+                "submenu": {
+                    "all": [
+                        "customSubmenu",
+                        "showCustomSubmenu",
+                        {
+                            "name": "button",
+                            "title": "containerDesign"
+                        }
+                    ]
+                }
+            },
+            "setting": {
+                "all": {
+                    "tabs": [
+                        "hover",
+                        "click"
+                    ],
+                    "group": {
+                        "hover": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "exclude": "align|letterSpace|marginLeft|marginRight"
+                                }
+                            }
+                        },
+                        "click": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "exclude": "align|letterSpace|marginLeft|marginRight"
+                                }
+                            }
+                        }
+                    }
+                },
+                "menu.horMenu.s458": {
+                    "tabs": [
+                        "hover",
+                        "click"
+                    ],
+                    "group": {
+                        "hover": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "tabs": [
+                                        {
+                                            "name": "pageName",
+                                            "type": "label"
+                                        },
+                                        {
+                                            "name": "subTitle",
+                                            "type": "prompt"
+                                        }
+                                    ],
+                                    "group": {
+                                        "label": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        },
+                                        "prompt": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "click": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "tabs": [
+                                        {
+                                            "name": "pageName",
+                                            "type": "label"
+                                        },
+                                        {
+                                            "name": "subTitle",
+                                            "type": "prompt"
+                                        }
+                                    ],
+                                    "group": {
+                                        "label": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        },
+                                        "prompt": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "mo": {
+        "tabs": [
+            {
+                "name": "design",
+                "type": "design"
+            },
+            {
+                "name": "setUp",
+                "type": "setting"
+            }
+        ],
+        "btns": [
+            {
+                "name": "design",
+                "type": "design"
+            }
+        ],
+        "group": {
+            "design": {
+                "all": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "all": {
+                                "include": "columnWidth|columnSpace|align|subNavSpacing|paddingBtm|paddingRit"
+                            }
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s86": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s162": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s418": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s419": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.verMenu.s226": {
+                    "include": "text|space|background|border|radius|shadow|position",
+                    "group": {
+                        "space": {
+                            "include": "rowSpace|paddingBtm|paddingRit"
+                        },
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                        }
+                    }
+                },
+                "menu.horMenu.s458": {
+                    "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight",
+                    "group": {
+                        "text": {
+                            "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight",
+                            "tabs": [
+                                {
+                                    "name": "pageName",
+                                    "type": "label"
+                                },
+                                {
+                                    "name": "subTitle",
+                                    "type": "prompt"
+                                }
+                            ]
+                        },
+                        "space": {
+                            "all": {
+                                "include": "columnWidth|columnSpace|align|subNavSpacing|paddingBtm|paddingRit"
+                            }
+                        }
+                    }
+                }
+            },
+            "manage": {
+                "submenu": {
+                    "all": [
+                        "customSubmenu",
+                        "showCustomSubmenu",
+                        {
+                            "name": "button",
+                            "title": "containerDesign"
+                        }
+                    ]
+                }
+            },
+            "setting": {
+                "all": {
+                    "tabs": [
+                        "hover",
+                        "click"
+                    ],
+                    "group": {
+                        "hover": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "exclude": "align|letterSpace|marginLeft|marginRight"
+                                }
+                            }
+                        },
+                        "click": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "exclude": "align|letterSpace|marginLeft|marginRight"
+                                }
+                            }
+                        }
+                    }
+                },
+                "menu.horMenu.s458": {
+                    "tabs": [
+                        "hover",
+                        "click"
+                    ],
+                    "group": {
+                        "hover": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "tabs": [
+                                        {
+                                            "name": "labelText",
+                                            "type": "label"
+                                        },
+                                        {
+                                            "name": "promptText",
+                                            "type": "prompt"
+                                        }
+                                    ],
+                                    "group": {
+                                        "label": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        },
+                                        "prompt": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "click": {
+                            "include": "text|background|border|radius|shadow",
+                            "group": {
+                                "text": {
+                                    "tabs": [
+                                        {
+                                            "name": "pageName",
+                                            "type": "label"
+                                        },
+                                        {
+                                            "name": "subTitle",
+                                            "type": "prompt"
+                                        }
+                                    ],
+                                    "group": {
+                                        "label": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        },
+                                        "prompt": {
+                                            "exclude": "align|letterSpace|marginLeft|marginRight"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "group": {
+        "basic": {
+            "all": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|displayModel|anAnimation|anDropDown|overflowPart|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|button"
+                    }
+                }
+            },
+            "menu.horMenu.s85": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s146": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s148": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s158": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s159": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s160": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s161": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s326": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.verMenu.s418": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|pageIcon|displayModel|overflowPart|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|button"
+                    }
+                }
+            },
+            "menu.horMenu.s427": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            },
+            "menu.horMenu.s458": {
+                "tabs": [
+                    "oneLevel",
+                    "secondary"
+                ],
+                "group": {
+                    "oneLevel": {
+                        "include": "controlsName|dataContent|linkTarget|sortColumns|dropdownIcon|anchorSet"
+                    },
+                    "secondary": {
+                        "include": "twoLevelNavigation|levelNavShow|align|button"
+                    }
+                }
+            }
+        },
+        "design": {
+            "all": {
+                "include": "text|space|background|border|radius|shadow|position",
+                "group": {
+                    "space": {
+                        "all": {
+                            "include": "columnWidth|columnSpace|align|subNavSpacing|paddingBtm|paddingRit"
+                        }
+                    },
+                    "text": {
+                        "include": "size|letterSpace|family|color|style|align|marginLeft|marginRight|lineHeight"
+                    }
+                }
+            }
+        },
+        "setting": {
+            "all": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s85": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s146": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s148": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s158": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s159": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s160": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s161": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s326": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "text|background|border|radius"
+                    }
+                }
+            },
+            "menu.horMenu.s427": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "letterSpace"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "letterSpace"
+                            }
+                        }
+                    }
+                }
+            },
+            "menu.horMenu.s458": {
+                "tabs": [
+                    "hover",
+                    "click"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "levelnav": {
+                                "include": "twoLevelNavOpen"
+                            },
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "text|background|border|radius|shadow|levelnav",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "manage": {
+            "submenu": {
+                "all": [
+                    "customSubmenu",
+                    "showCustomSubmenu",
+                    {
+                        "name": "button",
+                        "title": "containerDesign"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -156,7 +156,7 @@ const Drag = {
       if (i == len - 1 && (element == null || element.offsetWidth == 0)) {
         //标识元素为隐藏
         this.display = 'none'; //获取父级节点
-
+        console.log(window.public.dom,'window.public.dom');
         element = window.public.dom.querySelector(`#${this.id}`);
       }
 

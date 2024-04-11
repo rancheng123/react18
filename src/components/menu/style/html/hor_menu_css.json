@@ -1,0 +1,188 @@
+{
+    "menu.horMenu.s85": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    },
+    "menu.horMenu.s146": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    },
+    "menu.horMenu.s148": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    },
+    "menu.horMenu.s158": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    },
+    "menu.horMenu.s159": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    },
+    "menu.horMenu.s160": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    },
+    "menu.horMenu.s161": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    },
+    "menu.horMenu.s326": {
+        "css": {
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%Li:hover .%A:before": "border-bottom:6px [hoverborBottomStyle] [hoverborBottomColor]!important;",
+            ".%A.selected:before": "border-bottom: 6px [clickborBottomStyle] [clickborBottomColor]!important;",
+            ".%A.selected p": "text-decoration:[clicktextDec];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];"
+                }
+            }
+        }
+    },
+    "menu.horMenu.s427": {
+        "css": {
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li": "text-align:[textAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];letter-spacing:[letterSpace][letterSpaceUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background-color:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A p": "padding-left:[padLeft][padLeftUnit];padding-right:[padRight][padRightUnit];text-decoration:[textDec];",
+            ".%i": "font-size:[iconSize][iconSizeUnit];color:[iconColor];",
+            ".%Li:hover .%A .%i": "font-size:[hovericonSize][iconSizeUnit];color:[hovericonColor];",
+            ".%Li:hover .%A": "font-style:[hoverfontStyle];font-weight:[hoverfontWeight];font-size:[hovertextSize][textSizeUnit];font-family:[hoverfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hovertextColor];background-color:[hoverbgColor];background-image:[LinearGradient];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected": "background-color:[clickbgColor];background-image:[LinearGradient];font-style:[clickfontStyle];font-weight:[clickfontWeight];font-size:[clicktextSize][textSizeUnit];font-family:[clickfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicktextColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];",
+            "media": {
+                "@media screen and (min-width:961px)": {
+                    "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];"
+                }
+            }
+        }
+    },
+    "menu.horMenu.s458": {
+        "css": {
+            "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+            ".%Ul": "justify-content:[menuAlign];",
+            "#%  .%Li .twoLayerTitle ": "justify-content:[labeltextAlign];",
+            "#% .menuItemEqual .%Li": "width:calc(100%/[menuLilen] - [colspacing][colspacingUnit]);margin-right:[colspacing][colspacingUnit];",
+            "#% .menuItemUnequal .%Li": "margin-right:[colspacing][colspacingUnit];",
+            ".%A": "margin-bottom:[subSpacing]px;background-color:[bgColor];border-radius:[borRadius];box-shadow:[shadow];border: [borWidth]px [borStyle] [borColor];border-left: [borLeftWidth]px [borLeftStyle] [borLeftColor];border-right: [borRightWidth]px [borRightStyle] [borRightColor];border-top: [borTopWidth]px [borTopStyle] [borTopColor];border-bottom: [borBottomWidth]px [borBottomStyle] [borBottomColor];padding:[paddingBtm][paddingBtmUnit] [paddingRit][paddingRitUnit];",
+            ".%A .pageNameTilte": "font-style:[labelfontStyle];font-weight:[labelfontWeight];font-size:[labeltextSize][labeltextSizeUnit];letter-spacing:[labelletterSpace][labelletterSpaceUnit];font-family:[labelfontFamily];line-height:[labellineHeight][labellineHeightUnit];color:[labeltextColor];",
+            ".%A .subNameTilte": "font-style:[promptfontStyle];font-weight:[promptfontWeight];font-size:[prompttextSize][prompttextSizeUnit];letter-spacing:[promptletterSpace][promptletterSpaceUnit];font-family:[promptfontFamily];line-height:[promptlineHeight][promptlineHeightUnit];color:[prompttextColor];",
+            ".%A .twoLayerTitle": "padding-left:[labelpadLeft][labelpadLeftUnit];padding-right:[labelpadRight][labelpadRightUnit];text-decoration:[labeltextDec];",
+            ".%i": "font-size:[labeliconSize][labeliconSizeUnit];color:[labeltextColor];",
+            ".%Li:hover .%A .%i": "font-size:[hoverlabeliconSize][labeliconSizeUnit];color:[hoverlabeliconColor];",
+            ".%Li:hover .%A": "background-color:[hoverbgColor];border-radius:[hoverborRadius];box-shadow:[hovershadow];border: [hoverborWidth]px [hoverborStyle] [hoverborColor]; border-left: [hoverborLeftWidth]px [hoverborLeftStyle] [hoverborLeftColor]; border-right: [hoverborRightWidth]px [hoverborRightStyle] [hoverborRightColor]; border-top: [hoverborTopWidth]px [hoverborTopStyle] [hoverborTopColor]; border-bottom: [hoverborBottomWidth]px [hoverborBottomStyle] [hoverborBottomColor];",
+            ".%Li:hover .%A .pageNameTilte": "font-style:[hoverlabelfontStyle];font-weight:[hoverlabelfontWeight];font-size:[hoverlabeltextSize][labeltextSizeUnit];font-family:[hoverlabelfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hoverlabeltextColor];",
+            ".%Li:hover .%A .subNameTilte": "font-style:[hoverpromptfontStyle];font-weight:[hoverfontWeight];font-size:[hoverprompttextSize][prompttextSizeUnit];font-family:[hoverpromptfontFamily];line-height:[lineHeight][lineHeightUnit];color:[hoverprompttextColor];",
+            ".%Li:hover .%A p": "text-decoration:[hovertextDec];",
+            ".%A.selected  .pageNameTilte": "font-style:[clicklabelfontStyle];font-weight:[clicklabelfontWeight];font-size:[clicklabeltextSize][labeltextSizeUnit];font-family:[clicklabelfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clicklabeltextColor];",
+            ".%A.selected  .subNameTilte": "font-style:[clickpromptfontStyle];font-weight:[clickpromptfontWeight];font-size:[clickprompttextSize][prompttextSizeUnit];font-family:[clickpromptfontFamily];line-height:[lineHeight][lineHeightUnit];color:[clickprompttextColor];",
+            ".%A.selected ": "background-color:[clickbgColor];border-radius:[clickborRadius];box-shadow:[clickshadow];border: [clickborWidth]px [clickborStyle] [clickborColor]; border-left: [clickborLeftWidth]px [clickborLeftStyle] [clickborLeftColor]; border-right: [clickborRightWidth]px [clickborRightStyle] [clickborRightColor]; border-top: [clickborTopWidth]px [clickborTopStyle] [clickborTopColor]; border-bottom: [clickborBottomWidth]px [clickborBottomStyle] [clickborBottomColor];",
+            ".%A.selected p": "text-decoration:[clicktextDec];"
+        }
+    }
+}

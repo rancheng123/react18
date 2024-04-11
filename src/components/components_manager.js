@@ -1,12 +1,14 @@
 // 导入 components_map.json 文件
 import componentsMap from './components_map.json';
 
-
+let modules = null
 // 动态导入处理函数
 const dynamicImport = async (path, name) => {
   try {
-    // console.log(path,name,'1111111');
-    const modules = import.meta.glob('../components/*/*.js')
+    console.log(path,name,'1111111');
+    if(!modules){
+      modules = import.meta.glob('../components/*/*.js')
+    }
     // console.log(modules,'modules',path,name);
     let Module = null
     await modules[`./${path}.js`]().then((mod) => {

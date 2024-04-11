@@ -1,21 +1,12 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PublicAttribute", function() { return PublicAttribute; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
-// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-// /* harmony import */ var _unit_config_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./unit_config.json */ "./components/page/attr/unit_config.json");
-// var _unit_config_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./unit_config.json */ "./components/page/attr/unit_config.json", 1);
-
 
 // 导入 React 库
-import React from 'react';
+import React,{ useEffect }from 'react';
 // 导入自定义的 widget 模块
 import Widget from '@/system/widgets/widget';
 // 导入自定义的 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher.js';
 // 导入自定义的 unit_config.json 模块
-// import unitConfig from './unit_config.json';
+import unitConfig from './unit_config.json';
 
 
 
@@ -68,7 +59,7 @@ const PublicAttribute = {
     if (unit) {
       var _ref, _config$type, _unitList$props$uname, _ref2, _ref3, _ref4, _this$state$skey, _props$change;
 
-      const unitList = Object.assign({}, _unit_config_json__WEBPACK_IMPORTED_MODULE_3__.public.ranges, (_ref = (_config$type = _unit_config_json__WEBPACK_IMPORTED_MODULE_3__[type]) === null || _config$type === void 0 ? void 0 : _config$type.ranges) !== null && _ref !== void 0 ? _ref : {}),
+      const unitList = Object.assign({}, unitConfig.public.ranges, (_ref = (_config$type = unitConfig[type]) === null || _config$type === void 0 ? void 0 : _config$type.ranges) !== null && _ref !== void 0 ? _ref : {}),
             {
         min,
         max,
@@ -113,11 +104,11 @@ const PublicAttribute = {
     } //组件第一次加载完毕后执行
 
 
-    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    useEffect(() => {
       var _ref5, _config$type2, _ref6, _ref7, _this$state$puname, _classesList$props$un;
 
       //取配置列表
-      const classesList = Object.assign({}, _unit_config_json__WEBPACK_IMPORTED_MODULE_3__.public.classes, (_ref5 = (_config$type2 = _unit_config_json__WEBPACK_IMPORTED_MODULE_3__[type]) === null || _config$type2 === void 0 ? void 0 : _config$type2.classes) !== null && _ref5 !== void 0 ? _ref5 : {});
+      const classesList = Object.assign({}, unitConfig.public.classes, (_ref5 = (_config$type2 = unitConfig[type]) === null || _config$type2 === void 0 ? void 0 : _config$type2.classes) !== null && _ref5 !== void 0 ? _ref5 : {});
       let puname = uname,
           fix = ''; //前缀存在且有拼mo，对前缀进行处理。
 
@@ -156,7 +147,7 @@ const PublicAttribute = {
     var _ref8, _config$this$props$no, _, _classes$uname;
 
     const id = this.props.id;
-    const classes = (_ref8 = (_config$this$props$no = _unit_config_json__WEBPACK_IMPORTED_MODULE_3__[this.props.node.current.type]) === null || _config$this$props$no === void 0 ? void 0 : _config$this$props$no.classes) !== null && _ref8 !== void 0 ? _ref8 : {};
+    const classes = (_ref8 = (_config$this$props$no = unitConfig[this.props.node.current.type]) === null || _config$this$props$no === void 0 ? void 0 : _config$this$props$no.classes) !== null && _ref8 !== void 0 ? _ref8 : {};
     const hskey = skey.replace(/(mo)?/, '$1hover'),
           cskey = skey.replace(/(mo)?/, '$1click'); //拼选择器
 

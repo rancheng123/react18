@@ -1,11 +1,7 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextAttribute", function() { return TextAttribute; });
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _page_attr_attribute__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../page/attr/attribute */ "./components/page/attr/attribute.js");
-/* harmony import */ var _text_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./text_config.json */ "./components/text/attr/text_config.json");
-var _text_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./text_config.json */ "./components/text/attr/text_config.json", 1);
-
-
+// 导入模块
+import Dispatcher from "@/system/tools/dispatcher.js";
+import Attribute from "@/components/page/attr/attribute";
+import textConfig from "./text_config.json";
 
 /**
  * @class {Attribute} 内容面板属性控制器类
@@ -14,8 +10,8 @@ var _text_config_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__we
  * @date 2019-09-18
  */
 
-const TextAttribute = Object.create(_page_attr_attribute__WEBPACK_IMPORTED_MODULE_1__["Attribute"]);
-TextAttribute.config = _text_config_json__WEBPACK_IMPORTED_MODULE_2__; // 图片质量面板引入 date 2020-12-30 lw 
+const TextAttribute = Attribute;
+TextAttribute.config = textConfig; // 图片质量面板引入 date 2020-12-30 lw 
 
 TextAttribute.picture = async opts => {
   const {
@@ -81,7 +77,7 @@ function isDataSource(node) {
     data: {
       document_data = {}
     }
-  } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_get`);
+  } = Dispatcher.dispatch(`${id}_get`);
   return document_data.selectionContent != 'databaseData' ? false : true;
 }
 /**
@@ -100,7 +96,7 @@ TextAttribute.selectBefore = function (node, config) {
     //是否是数据源
     const value = isDataSource(node); //如果是数据源则隐藏修改文本属性项，不是则不隐藏
 
-    dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch('select_button', {
+    Dispatcher.dispatch('select_button', {
       args: [config, node.current.skin, 0, 'hidden', value]
     });
   }

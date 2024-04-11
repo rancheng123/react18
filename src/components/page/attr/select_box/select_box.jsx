@@ -1,5 +1,5 @@
 // 导入 React 库
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 // 导入 ReactDOM 库
 import ReactDOM from 'react-dom';
 // 导入自定义的 dispatcher 模块
@@ -68,7 +68,7 @@ export default class SelectBox {
     dots,
     def_layout
   }) {
-    const state = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(def_layout);
+    const state = useState(def_layout);
     const {
       current: {
         layout: {
@@ -79,7 +79,7 @@ export default class SelectBox {
       }
     } = select.node; //当控件发生变化时，更新选中框
 
-    Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(select.loaded.bind(select, state, dots), [id + parseInt(x) + parseInt(y)]);
+    useEffect(select.loaded.bind(select, state, dots), [id + parseInt(x) + parseInt(y)]);
     return React.createElement("div", {
       className: "ediBox",
       "data-id": select.id,
@@ -210,7 +210,8 @@ export default class SelectBox {
 
 
   show() {
-    const promise = __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ../hiding */ "./components/page/attr/hiding.js"));
+    // const promise = __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ../hiding */ "./components/page/attr/hiding.js"));
+    const promise = import('../hiding.js')
     promise.then(({
       Hiding
     }) => {

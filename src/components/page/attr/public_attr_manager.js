@@ -139,8 +139,10 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, ['[name]_select_box.js', moduleName]);
     }
-
-    return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    console.log(path);
+    // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`../../${path.split('.')[0]}`).then(module => module[moduleName]);
+    
   },
 
   /**
