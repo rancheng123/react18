@@ -50,6 +50,7 @@ const Design = {
     disableUnit = opts.disableUnit;
     prefix = (window.public.type == 'pc' ? '' : 'mo') + ((_opts$prefix = opts.prefix) !== null && _opts$prefix !== void 0 ? _opts$prefix : "");
     tabs = window.public.configure(tabs, this.group);
+    // ReactDOM.createRoot(opts.element).render(<DesignComponent />)
     ReactDOM.render(React.createElement(DesignComponent, null), opts.element);
   },
 

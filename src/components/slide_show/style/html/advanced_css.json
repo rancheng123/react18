@@ -1,0 +1,72 @@
+{
+  "slideShow.advanced.s333": {
+      "css": {
+          "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];",
+          "#%>.advanced-fixed": "height:[height]px",
+          "#% .advanced-btn button": "background:[btnbgColor];width:[btnWidth||8]px;height:[btnHeight||8]px;border-radius:8px;",
+          "#% .advanced-btn button.slideActive": "background:[clickbgColor]",
+          "#%  .advanced-content .advanced-item>.componentsBox": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+          "#%>.advanced-custom,#%>.advanced-custom .advanced-item>.componentsBox,#%>.advanced-custom .advanced-item>.componentsBox>.rowList": "min-height:[height]px",
+          "#% .advanced-arrow .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon .yiyingbaoicon, #% .advanced-arrow .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];",
+          "media": {
+              "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                  "#document>.auto-margin>#% .advanced-content .advanced-item>.componentsBox": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+              }
+          }
+      }
+  },
+  "slideShow.advanced.s339": {
+      "css": {
+          "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];",
+          "#%  .advanced-content .advanced-item>.componentsBox": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+          "#%>.advanced-fixed": "height:[height]px",
+          "#% .advanced-btn button": "background:[btnbgColor];width:[btnWidth||8]px;height:[btnHeight||8]px;border-radius:8px;",
+          "#% .advanced-btn button.slideActive": "background:[clickbgColor]",
+          "#%>.advanced-custom,#%>.advanced-custom .advanced-item>.componentsBox,#%>.advanced-custom .advanced-item>.componentsBox>.rowList": "min-height:[height]px",
+          "#% .advanced-arrow .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon .yiyingbaoicon, #% .advanced-arrow .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];",
+          "media": {
+              "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                  "#document>.auto-margin>#% .advanced-content .advanced-item>.componentsBox": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+              }
+          }
+      }
+  },
+  "slideShow.advanced.s346": {
+      "css": {
+          "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];",
+          "#%  .advanced-content .advanced-item>.componentsBox": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+          "#%>.advanced-fixed": "height:[height]px",
+          "#%>.advanced-custom,#%>.advanced-custom .advanced-item>.componentsBox,#%>.advanced-custom .advanced-item>.componentsBox>.rowList": "min-height:[height]px",
+          "#% .advanced-arrow .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon .yiyingbaoicon, #% .advanced-arrow .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];",
+          "media": {
+              "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                  "#document>.auto-margin>#% .advanced-content .advanced-item>.componentsBox": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+              }
+          }
+      }
+  },
+  "slideShow.advanced.s445": {
+      "css": {
+          "#%": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];",
+          "#%  .advanced-content .advanced-item>.componentsBox": "padding:[paddingTop][paddingTopUnit] [paddingRight][paddingRightUnit] [paddingBottom][paddingBottomUnit] [paddingLeft][paddingLeftUnit];",
+          "#%>.advanced-fixed": "height:[height]px",
+          "#% .advanced-btn button": "background:[btnbgColor];width:[btnWidth||8]px;height:[btnHeight||8]px;border-radius:8px;",
+          "#% .advanced-btn button.slideActive": "background:[clickbgColor]",
+          "#%>.advanced-custom,#%>.advanced-custom .advanced-item>.componentsBox,#%>.advanced-custom .advanced-item>.componentsBox>.rowList": "min-height:[height]px",
+          "#% .advanced-arrow .left-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon": "transform: scale([iconScale]);font-size:[arrowtextSize][arrowtextSizeUnit];color:[arrowtextColor];background:[arrowbgColor];border-radius:[arrowborRadius];box-shadow:[arrowshadow];border:[arrowborWidth]px [arrowborStyle] [arrowborColor];border-left:[arrowborLeftWidth]px [arrowborLeftStyle] [arrowborLeftColor];border-right:[arrowborRightWidth]px [arrowborRightStyle] [arrowborRightColor];border-top:[arrowborTopWidth]px [arrowborTopStyle] [arrowborTopColor];border-bottom:[arrowborBottomWidth]px [arrowborBottomStyle] [arrowborBottomColor];",
+          "#% .advanced-arrow .right-icon .yiyingbaoicon, #% .advanced-arrow .left-icon .yiyingbaoicon": "color:[arrowiconColor];font-size: [arrowiconSize][arrowiconSizeUnit];",
+          "media": {
+              "@media screen and (min-width:961px) and (max-width:[width]px)": {
+                  "#document>.auto-margin>#% .advanced-content .advanced-item>.componentsBox": "padding-right:[paddingRight][paddingRightUnit];padding-left:[paddingLeft][paddingLeftUnit];padding-left:[media_paddingLeft];padding-right:[media_paddingRight];"
+              }
+          }
+      }
+  }
+}

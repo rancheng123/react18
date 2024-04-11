@@ -4,8 +4,6 @@ import Util from "@/components/page/util/util";
 
 /**
  * @function getSubmenuData 获取次级导航数据
- * @date 2020-08-23
- * @author wyq
  * @param {object} state 状态对象 
  * @param {object} e 导航项数据
  * @param {number} i 项索引
@@ -24,11 +22,8 @@ function getSubmenuData(state, e, i) {
       }
     }
   } = state;
-  const {
-    menuList,
-    submenuList = {}
-  } = menu_data,
-        len = components.length; //是否存在二级且是否开启二级   并且有二级元素的时候，防止二级被误删除报错的bug sxt 2020-11-16
+  const { menuList, submenuList = {} } = menu_data,
+    len = components.length; //是否存在二级且是否开启二级   并且有二级元素的时候，防止二级被误删除报错的bug 
 
   if (twoNav && len >= 1) {
     //默认次级导航数据
@@ -62,8 +57,8 @@ function getSubmenuData(state, e, i) {
 
     if (e != undefined && (len > 1 || Util.source)) {
       let component = components.find(c => c.id == submenuList[e.pid]),
-          isClone = false,
-          child; //判断是否存在自定义导航数据
+        isClone = false,
+        child; //判断是否存在自定义导航数据
 
       if (component) {
         child = !Util.source && !e.child || component.skin.indexOf('submenuBox') != -1 ? data : e.child;
@@ -87,9 +82,6 @@ function getSubmenuData(state, e, i) {
 }
 /**
  * @instance {Component} 控件公用HTML视图实例
- * @author wyq
- * @version 1.0
- * @date 2019-10-18
  */
 
 
@@ -99,16 +91,15 @@ const Component = {
    * @param {*} props 
    */
   box(props) {
-    return React.createElement("div", {
-      id: props.id,
-      className: props.className || null
-    }, props.children);
+    return (
+      <div id={props.id} className={props.className || null}>
+        {props.children}
+      </div>
+    )
   },
 
   /**
   * @method getLinkHref 导航链接获取方法
-  * @date 2019-12-30  17：06
-   * @author sxt
   * @param {Object} prop  当前项数据
   * @param {String} target 页面打开方式
   * @return {Object} 拼接好的链接数据
@@ -116,7 +107,7 @@ const Component = {
   getLinkHref(prop, target) {
     //页面类型为链接页面时
     if (prop.pageType == "JumpLink") {
-      //prop.link.target=target; 链接要走自己的窗口打开方式，不用走导航的 sxt 2020-11-4
+      //prop.link.target=target; 链接要走自己的窗口打开方式，不用走导航的 
       return prop.link;
     } else {
       return {
@@ -131,13 +122,11 @@ const Component = {
    * 
    */
   icon() {
-    return React.createElement("i", null);
+    return <i></i>
   },
 
   /**
   * @method menuLi li基本结构
-  * @date 2019-12-30  17：06
-  * @author sxt
   * @return {object} li基本结构
   */
   menuLi(type, state, typeData) {
@@ -171,9 +160,9 @@ const Component = {
 
     const pubChild = getSubmenuData(state);
     return menuList.map((e, i) => {
-      let _selected = e.isCurrent || i == 0 ? "selected" : ""; //标注当前选中项
+      let _selected = e.isCurrent || i == 0 ? "selected" : "";
+      //标注当前选中项
       //在发布的时候拼接占位
-
 
       if (Util.source) {
         _selected = `{$navs_${e.pid || e.id}}`;
@@ -184,8 +173,8 @@ const Component = {
       if (type == "pc") {
         const child = getSubmenuData(state, e, i) || pubChild;
         let isIcon = false,
-            showIconClass = "",
-            alignClass = `subMenuAlign${align}`; //alignClass 是给次给显示位置添加的class sxt 2021-2-22
+          showIconClass = "",
+          alignClass = `subMenuAlign${align}`; //alignClass 是给次给显示位置添加的class sxt 2021-2-22
         //能显示icon时，单独给li加个class sxt 2020-6-15 
 
         if (child && e.child && dropdownIcon) {
@@ -193,34 +182,91 @@ const Component = {
           showIconClass = "showArrowstyle";
         }
 
-        return React.createElement("li", {
-          className: `${id}Li mainNavLi hoverMenuLi  ${showIconClass}  ${alignClass}`,
-          key: e.id
-        }, React.createElement(Util.linkDecorator, {
-          className: `${id}A mainNavLiA ${_selected}`,
-          link: link,
-          type: "html"
-        }, typeData ? React.createElement("div", {
-          className: 'twoLayerTitle'
-        }, React.createElement("div", null, React.createElement("div", {
-          className: 'pageNameTilte'
-        }, e.name), React.createElement("div", {
-          className: 'subNameTilte'
-        }, e.subTitle)), isIcon ? React.createElement("i", {
-          className: `${id}i yiyingbaoicon`
-        }, arrowIcon) : null) : React.createElement("p", null, e.name), isIcon && !typeData ? React.createElement("i", {
-          className: `${id}i yiyingbaoicon`
-        }, arrowIcon) : null), child && child.index == i ? React.createElement(Util.component, {
-          component: child.component,
-          clone: child.isClone,
-          context: `${child.component.id}.${child.component.skin}`,
-          props: {
-            showItem: child.isClone ? undefined : showItem,
-            type,
-            target,
-            "child": child.data
+        const getChildren = () => {
+          if (typeData) {
+            return (
+              <div className="twoLayerTitle">
+                <div>
+                  <div className="pageNameTilte">{e.name}</div>
+                  <div className="subNameTilte">{e.subTitle}</div>
+                </div>
+                {
+                  isIcon && <i className={`${id}i iconfont`}>{arrowIcon}</i>
+                }
+              </div>
+            )
           }
-        }) : null);
+          return (
+            <React.Fragment>
+              <p>{e.name}</p>
+              {
+                (isIcon && !typeData) && <i className={`${id}i iconfont`}>{arrowIcon}</i>
+              }
+            </React.Fragment>
+          )
+        }
+
+        const DOM = (
+          <li
+            key={e.id}
+            className={`${id}Li mainNavLi hoverMenuLi  ${showIconClass}  ${alignClass}`}
+          >
+            {
+              Util.linkDecorator({
+                className: `${id}A mainNavLiA ${_selected}`,
+                link: link,
+                type: "html",
+                children: getChildren()
+              })
+            }
+            {
+              (child && child.index == i) && (
+                Util.component({
+                  component: child.component,
+                  clone: child.isClone,
+                  context: `${child.component.id}.${child.component.skin}`,
+                  props: {
+                    showItem: child.isClone ? undefined : showItem,
+                    type,
+                    target,
+                    "child": child.data
+                  }
+                })
+              )
+            }
+          </li>
+        )
+
+        return DOM
+
+        // return React.createElement("li", {
+        //   className: `${id}Li mainNavLi hoverMenuLi  ${showIconClass}  ${alignClass}`,
+        //   key: e.id
+        // }, React.createElement(Util.linkDecorator, {
+        //   className: `${id}A mainNavLiA ${_selected}`,
+        //   link: link,
+        //   type: "html"
+        // }, typeData ? React.createElement("div", {
+        //   className: 'twoLayerTitle'
+        // }, React.createElement("div", null, React.createElement("div", {
+        //   className: 'pageNameTilte'
+        // }, e.name), React.createElement("div", {
+        //   className: 'subNameTilte'
+        // }, e.subTitle)), isIcon ? React.createElement("i", {
+        //   className: `${id}i yiyingbaoicon`
+        // }, arrowIcon) : null) : React.createElement("p", null, e.name), isIcon && !typeData ? React.createElement("i", {
+        //   className: `${id}i yiyingbaoicon`
+        // }, arrowIcon) : null), child && child.index == i ? React.createElement(Util.component, {
+        //   component: child.component,
+        //   clone: child.isClone,
+        //   context: `${child.component.id}.${child.component.skin}`,
+        //   props: {
+        //     showItem: child.isClone ? undefined : showItem,
+        //     type,
+        //     target,
+        //     "child": child.data
+        //   }
+        // }) : null);
       }
 
       if (type == "mo" || type == "amp" || type == "mip") {
@@ -229,23 +275,38 @@ const Component = {
         if (type == "amp" || type == "mip") {
           linkType = type;
         }
-
-        return React.createElement("li", {
-          className: `${id}Li mainNavLi`,
-          key: e.id
-        }, React.createElement(Util.linkDecorator, {
-          className: `${id}A mainNavLiA ${_selected}`,
-          link: link,
-          type: linkType
-        }, React.createElement("p", null, e.name)));
+        const DOM = (
+          <li
+            className={`${id}Li mainNavLi`}
+            key={e.id}
+          >
+            {
+              Util.linkDecorator(
+                {
+                  className: `${id}A mainNavLiA ${_selected}`,
+                  link: link,
+                  type: linkType,
+                  children: <p>{e.name}</p>
+                }
+              )
+            }
+          </li>
+        )
+        return DOM
+        // return React.createElement("li", {
+        //   className: `${id}Li mainNavLi`,
+        //   key: e.id
+        // }, React.createElement(Util.linkDecorator, {
+        //   className: `${id}A mainNavLiA ${_selected}`,
+        //   link: link,
+        //   type: linkType
+        // }, React.createElement("p", null, e.name)));
       }
     });
   },
 
   /**
    * @method menuLiVertical li竖导航基本结构
-   * @date 2019-12-30  17：06
-   * @author sxt
    * @return {object} li竖导航基本结构
    */
   menuLiVertical(type, state) {
@@ -298,7 +359,7 @@ const Component = {
       let link = Component.getLinkHref(e, target);
       var DisplayModel = displayModel == 'lineFeed' ? 'toggle' : '';
       let isIcon = false,
-          showIconClass = ""; //能显示icon时，单独给li加个class sxt 2020-7-3
+        showIconClass = ""; //能显示icon时，单独给li加个class sxt 2020-7-3
 
       if (child && e.child && dropdownIcon) {
         isIcon = true;
@@ -398,20 +459,29 @@ const Component = {
     } = props; //判断是否存在图标icon
 
     if (iconName) {
-      return React.createElement("span", {
-        className: `${id}Ic  ${id}${type} btnIcon yiyingbaoicon`
-      }, iconName);
+      return (<span className={`${id}Ic  ${id}${type} btnIcon iconfont`}>{iconName}</span>)
+      // return React.createElement("span", {
+      //   className: `${id}Ic  ${id}${type} btnIcon yiyingbaoicon`
+      // }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon ${id}${type}`
-      }, React.createElement("img", {
-        className: "btnImg lazyload",
-        "data-src": iconSrc,
-        src: Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc
-      }));
+      return (
+        <div className={`${id}Ic btnIcon ${id}${type}`}>
+          <img 
+            className="btnImg lazyload"
+            data-src={iconSrc} 
+          src={Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc} alt="" />
+        </div>
+      )
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon ${id}${type}`
+      // }, React.createElement("img", {
+      //   className: "btnImg lazyload",
+      //   "data-src": iconSrc,
+      //   src: Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc
+      // }));
     } //返回null
 
 
@@ -439,7 +509,7 @@ const Component = {
       moiconSizeUnit
     } = style;
     let imgFixed = moiconSize || iconSize,
-        imgUnit = moiconSizeUnit || iconSizeUnit;
+      imgUnit = moiconSizeUnit || iconSizeUnit;
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
@@ -491,7 +561,7 @@ const Component = {
       moiconSizeUnit
     } = style;
     let imgFixed = moiconSize || iconSize,
-        imgUnit = moiconSizeUnit || iconSizeUnit;
+      imgUnit = moiconSizeUnit || iconSizeUnit;
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
@@ -578,7 +648,7 @@ const Component = {
       let link = Component.getLinkHref(e, target);
       var DisplayModel = displayModel == 'lineFeed' ? 'toggle' : '';
       let isIcon = false,
-          showIconClass = ""; //能显示icon时，单独给li加个class sxt 2020-7-3
+        showIconClass = ""; //能显示icon时，单独给li加个class sxt 2020-7-3
 
       if (child && e.child && dropdownIcon) {
         isIcon = true;
@@ -682,7 +752,7 @@ const Component = {
       }
     } = prop.state;
     let columnClass = column ? "menuItemEqual" : "menuItemUnequal",
-        twoLevelNavOpen = document_data.clicktwoLevelNavOpen == "true" ? "mouseclick" : "mouseover";
+      twoLevelNavOpen = document_data.clicktwoLevelNavOpen == "true" ? "mouseclick" : "mouseover";
 
     if (prop.type == "mo") {
       let _list = Component.menuLi("mo", prop.state);
@@ -693,7 +763,7 @@ const Component = {
 
 
       let ulClass = "",
-          menuLength = "";
+        menuLength = "";
 
       if (_list.length <= 3) {
         ulClass = "menuIconHidden";

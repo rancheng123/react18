@@ -10,13 +10,15 @@ const dynamicImport = async (path, name) => {
       modules = import.meta.glob('../components/*/*.js')
     }
     // console.log(modules,'modules',path,name);
-    let Module = null
-    await modules[`./${path}.js`]().then((mod) => {
-      Module = mod
-    })
+    // let Module = null
+    const m = await modules[`./${path}.js`]
+    return m ? m().then(mod => mod[name]) : null
+    // await modules[`./${path}.js`]().then((mod) => {
+    //   Module = mod
+    // })
 
     // 调用 comProxy 函数并传入模块中指定的导出
-    return comProxy(Module[name]);
+    // return comProxy(Module[name]);
   } catch (error) {
     console.error('err', error);
   }

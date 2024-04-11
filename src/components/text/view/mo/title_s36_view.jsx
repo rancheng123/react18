@@ -34,14 +34,14 @@ function s36() {
     }
   } = this;
 
-  let _daSource = dataSource && dataSource.companyField || null; //数据源存在时，给控件data-source的自定义属性，用于查找数据源 sxt 2020-12-16
+  let _daSource = dataSource && dataSource.companyField || null; //数据源存在时，给控件data-source的自定义属性，用于查找数据源 
 
 
-  const context = (_this$props$context = this.props.context) !== null && _this$props$context !== void 0 ? _this$props$context : {}; //控件是列表数据源时，并且传过来了列表数据时 获取数据中的内容 sxt 2020-2-28
+  const context = (_this$props$context = this.props.context) !== null && _this$props$context !== void 0 ? _this$props$context : {}; //控件是列表数据源时，并且传过来了列表数据时 获取数据中的内容 
 
   if (Util.source == undefined && dataSource && dataSource.type == "list" && context) {
     text = `${dataSource.companyLabelText}${context[dataSource.companyField]}`;
-  } //类型为数据源并且列表数据是自定义时，读取传过来的值 sxt 2020-11-10
+  } //类型为数据源并且列表数据是自定义时，读取传过来的值
 
 
   if (dataSource && context && context.selectionContent == "custom") {
@@ -68,7 +68,8 @@ function s36() {
   if (fontLabel && fontLabel != "not") {
     textLineP = "";
 
-    let str = _text.replace(/<(h\d)/g, '<span').replace(/<\/(h\d)>/g, '</span>'); //获取并且替换标签为span lw 2021-3-29
+    let str = _text.replace(/<(h\d)/g, '<span').replace(/<\/(h\d)>/g, '</span>'); 
+    //获取并且替换标签为span
 
 
     _text = `<${fontLabel} class="textLineP">${str}</${fontLabel}>`;
@@ -102,4 +103,3 @@ function s36() {
 }
 
 export default s36
-//# sourceURL=webpack:///./components/text/view/mo/title_s36_view.js?

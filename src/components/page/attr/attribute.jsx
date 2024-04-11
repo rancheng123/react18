@@ -107,7 +107,7 @@ const Attribute = {
 
         if (this.editTabs) tabs = this.editTabs(tabs.map(e => ({ ...e
         })));
-        ReactDOM.render(React.createElement(Layer.tab, {
+        ReactDOM.createRoot(element).render(React.createElement(Layer.tab, {
           id: id,
           draggable: draggable.draggable === false ? false : true,
           tabs: tabs,
@@ -122,7 +122,23 @@ const Attribute = {
             this.closeAttributePanel();
             opts.close && opts.close();
           }
-        }), element);
+        }))
+        // ReactDOM.render(React.createElement(Layer.tab, {
+        //   id: id,
+        //   draggable: draggable.draggable === false ? false : true,
+        //   tabs: tabs,
+        //   tab: tabs[opts.index].type,
+        //   change: this.showTab.bind(this, id),
+        //   area: [width + "px", height + "px"] // offset = {[x + 'px',y + 'px']}
+        //   ,
+        //   offset: [this.layout.x + 'px', this.layout.y + 'px'],
+        //   skin: skin.substring(0, skin.indexOf('.')) + '-panel',
+        //   close: () => {
+        //     this.showState = 'close';
+        //     this.closeAttributePanel();
+        //     opts.close && opts.close();
+        //   }
+        // }), element);
       } else {
         element.querySelector(`.layer-tabs li:nth-child(${opts.index + 1})`).click();
       }

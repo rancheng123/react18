@@ -10,7 +10,10 @@ const MenuManager = {
   },
 
   getControler() {
-    return __webpack_require__.e(/*! import() */ 1254).then(__webpack_require__.bind(null, /*! ./controler/menu_controler */ "./components/menu/controler/menu_controler.js")).then(module => module.MenuControler);
+    return import('./controler/menu_controler').then(module => {
+      return module.MenuControler
+    })
+    // return __webpack_require__.e(/*! import() */ 1254).then(__webpack_require__.bind(null, /*! ./controler/menu_controler */ "./components/menu/controler/menu_controler.js")).then(module => module.MenuControler);
   },
 
   getStyle(cate, type) {
