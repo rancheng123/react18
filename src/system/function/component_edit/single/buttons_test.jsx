@@ -317,4 +317,5 @@ _defineProperty(Buttons, "controler", null);
 Dispatcher.register('select_loadButtons', Buttons.buttons, Buttons); //注册属性按钮处理方法
 
 Dispatcher.register('select_button', Buttons.button);
+
 export default Buttons

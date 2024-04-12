@@ -63,6 +63,7 @@ const ConfigButton = ({
   select,
   className
 }) => {
+  // console.log('ConfigButton',id);
   const evt = click ? {
     onClick: click
   } : {

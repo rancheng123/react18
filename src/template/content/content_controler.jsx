@@ -179,8 +179,6 @@ export default class ContentControler extends React.Component {
 
 
   load(event) {
-    console.log('333333333333',this);
-
     //绑定卸载事件
     event.target.contentWindow.onunload = this.unload.bind(this); //调用load方法 load在main.js中传过来的
 

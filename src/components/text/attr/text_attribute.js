@@ -21,6 +21,7 @@ TextAttribute.picture = async opts => {
 };
 
 TextAttribute.ckeditor = function () {
+  console.log('ckeditor文本编辑器');
   if (this.node && this.node.current) {
     let ediBox = document.querySelector("#select-box .ediBox"),
         div = document.createElement("div");
@@ -33,6 +34,8 @@ TextAttribute.ckeditor = function () {
     };
 
     __webpack_require__.e(/*! import() | editor */ "editor").then(__webpack_require__.bind(null, /*! ./editor */ "./components/text/attr/editor.js")).then(module => module.changeText(this.node.current.id));
+
+
   }
 };
 /**

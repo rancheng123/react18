@@ -1,6 +1,6 @@
 // 导入模块
 import Attribute from "@/components/page/attr/attribute";
-import PublicAttrManager from ".@/components/page/public_attr_manager.js";
+import PublicAttrManager from "@/components/page/attr/public_attr_manager";
 import headerConfig from "./header_config.json";
 
 /**
@@ -30,4 +30,5 @@ HeaderAttribute.custom = async function (opts) {
   custom.custom(opts);
 };
 
-//# sourceURL=webpack:///./components/header/attr/header_attribute.js?
+
+export default HeaderAttribute

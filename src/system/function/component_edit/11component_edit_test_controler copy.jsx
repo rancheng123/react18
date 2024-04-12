@@ -8,7 +8,6 @@ import MoreComponentEdit from './more_component_edit'
 // import AttrProxy from '@/components/page/attr_proxy'
 import MouseRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
 import positions from '../../function/component_edit/positions'
-import ConfigBtn from './single/ConfigBtn'
 
 
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
@@ -24,7 +23,7 @@ function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = p
  * @date 2019-11-13
  */
 
-export default class ComponentEditControler extends React.Component {
+class ComponentEditControler extends React.Component {
   /**@property {string} lookup 指向查找 */
   constructor(props) {
     super(props);
@@ -48,9 +47,14 @@ export default class ComponentEditControler extends React.Component {
     this.init();
     /**@property {ComponentEdit} view 初始化 view 实例*/
 
-    this.view = new ComponentEdit(this); //给view 入口方法绑定this
+    // this.view = new ComponentEdit(this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
+    this.state = {
+      hidden: false,
+      ismove: true,
+      hover:[]
+    };
     this._initX = 0;
     this.findBtn = false;
     this.virtualNode = false;
@@ -64,7 +68,11 @@ export default class ComponentEditControler extends React.Component {
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    console.log('render',66666666,this);
+    // return React.createElement(this.view.render, null);
+    return (
+      <ComponentEdit {...this} hover={(event)=> this.hover(event)} mousedown={(event)=>this.mousedown(event)} pop={'9999999999999999'} hoverDown={(type,event)=>this.hoverDown( type,event)} isShow={(node, show)=>this.isShow(node, show)}/>
+    )
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -74,10 +82,11 @@ export default class ComponentEditControler extends React.Component {
 
 
   init() {
-    this.state = {
+    this.setState({
       hidden: false,
-      ismove: true
-    };
+      ismove: true,
+      hover:[]
+    });
   }
   /**
    * @method componentDidMount 组件第一次挂载完毕执行方法
@@ -575,7 +584,8 @@ export default class ComponentEditControler extends React.Component {
             configList.push(cur);
           }
         }); //更新视图
-
+        // debugger
+        console.log(configList);
         this.setState({
           hidden: false,
           hover: configList
@@ -600,7 +610,6 @@ export default class ComponentEditControler extends React.Component {
   hoverDown(type, e) {
     this.mousedown(e, null, null, id => {
       setTimeout(() => {
-        console.log(id, type);
         document.getElementById(id + '-' + type).click();
       }, 200);
     });
@@ -695,4 +704,4 @@ export default class ComponentEditControler extends React.Component {
 
 var _lookup = new WeakMap();
 
-//# sourceURL=webpack:///./system/function/component_edit/component_edit_test_controler.js?
+export default ComponentEditControler

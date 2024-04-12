@@ -9,26 +9,27 @@ import ConfigBtn from './single/ConfigBtn'
  * @date 2019-10-30
  */
 
-export default class ComponentEdit {
-  constructor(controler) {
+export default class ComponentEdit extends React.Component {
+  constructor(props) {
+    super(props);
     /**@property controler 控件编辑控制器实例 */
-    this.controler = controler; //hover绑定this
-
+    
+    //hover绑定this
     this.hover = this.hover.bind(this);
     this.hoverBtn = this.hoverBtn.bind(this);
   }
   /**@property {object} state 获取最新的state属性 */
 
 
-  get state() {
-    return this.controler.state;
-  }
+  // get state() {
+  //   return this.controler.state;
+  // }
   /**@property {object} state 获取最新的props属性 */
 
 
-  get props() {
-    return this.controler.props;
-  }
+  // get props() {
+  //   return this.controler.props;
+  // }
   /**
    * @method render 挂载组件方法
    * @date 2019-10-30
@@ -39,14 +40,15 @@ export default class ComponentEdit {
 
 
   render() {
+    console.log(this.props,'子组件');
     return React.createElement("div", {
       id: "selected-mask",
       style: {
         height: this.props.height
       },
-      onMouseMove: this.state.ismove ? this.controler.hover.bind(this.controler) : null,
-      onMouseDown: this.controler.mousedown.bind(this.controler)
-    }, this.state.hidden == false ? React.createElement("div", null, React.createElement(this.hover, null), React.createElement("div", {
+      onMouseMove: this.props.state.ismove ? this.props.hover.bind(this.props) : null,
+      onMouseDown: this.props.mousedown.bind(this.props)
+    }, this.props.state.hidden == false ? React.createElement("div", null, React.createElement(this.hover, null), React.createElement("div", {
       className: "component-selected"
     }, React.createElement("div", {
       onMouseMove: e => e.stopPropagation(),
@@ -63,9 +65,9 @@ export default class ComponentEdit {
       id: "select-box"
     })), React.createElement("div", {
       className: "component-menu"
-    }, React.createElement(this.controler.menu, {
-      node: (this.controler.selected || {}).node,
-      removeBefore: node => this.controler.selected.proxy.removeBefore(node)
+    }, React.createElement(this.props.menu, {
+      node: (this.props.selected || {}).node,
+      removeBefore: node => this.props.selected.proxy.removeBefore(node)
     }))) : null);
   }
   /**
@@ -106,8 +108,6 @@ export default class ComponentEdit {
     data,
     index
   }) {
-    // console.log('render22222');
-
     if (data) {
       if (data.absolute) {
         const {
@@ -122,8 +122,7 @@ export default class ComponentEdit {
           current: {
             hidden
           }
-        } = data; 
-        // console.log(items,"结构中items");
+        } = data; //    console.log(items,"结构中items");
 
         return items.length && hidden != 1 ? React.createElement(ConfigBtn["ConfigBtnWaper"], {
           style: {
@@ -149,7 +148,7 @@ export default class ComponentEdit {
         }, i) => {
           if (hidden != true) {
             //判断控件是否在指定条件下显示
-            if (show && !this.controler.isShow(data, show)) {
+            if (show && !this.props.isShow(data, show)) {
               return null;
             }
 
@@ -160,7 +159,7 @@ export default class ComponentEdit {
               name: name,
               type: type,
               className: className,
-              mousedown: this.controler.hoverDown.bind(this.controler, type)
+              mousedown: this.props.hoverDown.bind(this.props, type)
             });
           }
 
@@ -182,17 +181,16 @@ export default class ComponentEdit {
 
 
   hover() {
-    console.log(this.state.hover,'this.state.hover');
-    if (this.state.hover) {
+    if (this.props.state.hover) {
       return React.createElement("div", {
         className: "component-hover"
-      }, this.state.hover.map((data, i) => {
+      }, this.props.state.hover.map((data, i) => {
         return React.createElement(this.hoverBox, {
           key: i,
           index: i,
           data: data
         });
-      }), this.state.hover.map((data, i) => {
+      }), this.props.state.hover.map((data, i) => {
         return React.createElement(this.hoverBtn, {
           key: i,
           index: i,
