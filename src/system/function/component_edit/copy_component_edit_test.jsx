@@ -1,15 +1,8 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentEdit", function() { return ComponentEdit; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _single_ConfigBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./single/ConfigBtn */ "./system/function/component_edit/single/ConfigBtn.js");
-
+import React from 'react';
+import ConfigBtn from './single/ConfigBtn'
 
 /**
  * @class {ComponentEdit} 控件编辑类
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
 
 class ComponentEdit {
@@ -35,46 +28,45 @@ class ComponentEdit {
   /**
    * @method render 挂载组件方法
    * @date 2019-10-30
-   * @author wyq
+   
    * @return {object} 待渲染的组件对象
    */
   //onMouseDown = {this.state.hover ?null:this.controler.mousedown.bind(this.controler)}
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       id: "selected-mask",
       style: {
         height: this.props.height
       },
       onMouseMove: this.state.ismove ? this.controler.hover.bind(this.controler) : null,
       onMouseDown: this.controler.mousedown.bind(this.controler)
-    }, this.state.hidden == false ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.hover, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, this.state.hidden == false ? React.createElement("div", null, React.createElement(this.hover, null), React.createElement("div", {
       className: "component-selected"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, React.createElement("div", {
       onMouseMove: e => e.stopPropagation(),
       onMouseDown: e => e.stopPropagation()
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, React.createElement("div", {
       id: "property-parent-buttons",
       className: "editControl"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }), React.createElement("div", {
       id: "property-buttons",
       className: "editControl"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    })), React.createElement("div", {
       id: "select-parent-box"
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }), React.createElement("div", {
       id: "select-box"
-    })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    })), React.createElement("div", {
       className: "component-menu"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.controler.menu, {
-      node: (this.controler.selected || {}).node,
-      removeBefore: node => this.controler.selected.proxy.removeBefore(node)
+    }, React.createElement(this.controler.menu, {
+      node: (this.controler.selected || {}).node
     }))) : null);
   }
   /**
    * @method hoverBox 鼠标滑过提示框结构
    * @date 2019-10-30
-   * @author wyq
+   
    * @param {object} props 参数对象 
    */
 
@@ -89,7 +81,7 @@ class ComponentEdit {
       } = data; //layout.top-=1;
 
       const cls = index === 0 ? 'contHovBox' : 'contHovBox cellHoverbox';
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return React.createElement("div", {
         className: cls,
         style: layout
       });
@@ -100,7 +92,7 @@ class ComponentEdit {
   /**
    * @method hoverBox 鼠标滑过提示框结构
    * @date 2019-10-30
-   * @author wyq
+   
    * @param {object} props 参数对象 
    */
 
@@ -125,7 +117,7 @@ class ComponentEdit {
           }
         } = data; //    console.log(items,"结构中items");
 
-        return items.length && hidden != 1 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_single_ConfigBtn__WEBPACK_IMPORTED_MODULE_1__["ConfigBtnWaper"], {
+        return items.length && hidden != 1 ? React.createElement(ConfigBtn["ConfigBtnWaper"], {
           style: {
             left,
             top
@@ -133,7 +125,7 @@ class ComponentEdit {
           name: name,
           index: index,
           fixedWidth: fixedWidth
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        }, React.createElement("ul", {
           className: "functionUL",
           style: {
             width: itemWidth
@@ -153,7 +145,7 @@ class ComponentEdit {
               return null;
             }
 
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_single_ConfigBtn__WEBPACK_IMPORTED_MODULE_1__["ConfigButton"], {
+            return React.createElement(ConfigBtn["ConfigButton"], {
               select: selected,
               key: i,
               current: current,
@@ -176,23 +168,23 @@ class ComponentEdit {
   /**
    * @method hover 鼠标滑过结构
    * @date 2019-10-30
-   * @author wyq
+   
    * @return {object} 滑过结构
    */
 
 
   hover() {
     if (this.state.hover) {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return React.createElement("div", {
         className: "component-hover"
       }, this.state.hover.map((data, i) => {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.hoverBox, {
+        return React.createElement(this.hoverBox, {
           key: i,
           index: i,
           data: data
         });
       }), this.state.hover.map((data, i) => {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.hoverBtn, {
+        return React.createElement(this.hoverBtn, {
           key: i,
           index: i,
           data: data
@@ -205,4 +197,4 @@ class ComponentEdit {
 
 }
 
-//# sourceURL=webpack:///./system/function/component_edit/component_edit_test.js?
+export default ComponentEdit;

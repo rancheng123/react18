@@ -1,0 +1,2430 @@
+{
+    "tabs": [
+        {
+            "id": "moFooter",
+            "name": "移动端底部"
+        },
+        {
+            "id": "text",
+            "name": "文本"
+        },
+        {
+            "id": "lightboxmodal",
+            "name": "弹出窗口器遮照层"
+        },
+        {
+            "id": "button",
+            "name": "按钮"
+        },
+        {
+            "id": "lightbox",
+            "name": "弹出窗口"
+        },
+        {
+            "id": "menu",
+            "name": "导航"
+        },
+        {
+            "id": "image",
+            "name": "图片"
+        },
+        {
+            "id": "slideShow",
+            "name": "幻灯片"
+        },
+        {
+            "id": "component",
+            "name": "组件"
+        },
+        {
+            "id": "column",
+            "name": "列"
+        },
+        {
+            "id": "map",
+            "name": "地图"
+        },
+        {
+            "id": "form",
+            "name": "询盘反馈"
+        },
+        {
+            "id": "search",
+            "name": "搜索"
+        },
+        {
+            "id": "list",
+            "name": "列表"
+        },
+        {
+            "id": "language",
+            "name": "多语言"
+        },
+        {
+            "id": "sidebar",
+            "name": "侧边栏"
+        },
+        {
+            "id": "crumbs",
+            "name": "面包屑"
+        },
+        {
+            "id": "submenu",
+            "name": "次级导航"
+        },
+        {
+            "id": "pagination",
+            "name": "分页"
+        },
+        {
+            "id": "socials",
+            "name": "社交"
+        },
+        {
+            "id": "specs",
+            "name": "规格参数"
+        },
+        {
+            "id": "backtop",
+            "name": "返回顶部"
+        },
+        {
+            "id": "tab",
+            "name": "选项卡"
+        },
+        {
+            "id": "member",
+            "name": "会员中心"
+        },
+        {
+            "id": "number",
+            "name": "数量"
+        },
+        {
+            "id": "shopcart",
+            "name": "购物车"
+        },
+        {
+            "id": "input",
+            "name": "输入框"
+        },
+        {
+            "id": "header",
+            "name": "头部"
+        },
+        {
+            "id": "footer",
+            "name": "底部"
+        },
+        {
+            "id": "pagecontent",
+            "name": "内容"
+        },
+        {
+            "id": "hoverbox",
+            "name": "鼠标经过容器"
+        },
+        {
+            "id": "taglist",
+            "name": "标签列表"
+        },
+        {
+            "id": "collapsible",
+            "name": "可折叠"
+        },
+        {
+            "id": "timeline",
+            "name": "时间轴"
+        },
+        {
+            "id": "iframe",
+            "name": "iframe框架"
+        },
+        {
+            "id": "moHeader",
+            "name": "移动端头部"
+        },
+        {
+            "id": "box",
+            "name": "容器"
+        },
+        {
+            "id": "video",
+            "name": "视频"
+        },
+        {
+            "id": "timer",
+            "name": "计数器"
+        },
+        {
+            "id": "accordion",
+            "name": "手风琴"
+        },
+        {
+            "id": "flipper",
+            "name": "翻屏组件"
+        },
+        {
+            "id": "line",
+            "name": "分割线"
+        }
+    ],
+    "group": {
+        "text": {
+            "tabs": [
+                {
+                    "id": "title",
+                    "name": "标题"
+                },
+                {
+                    "id": "tex",
+                    "name": "内容"
+                }
+            ],
+            "group": {
+                "title": [
+                    {
+                        "skin": "text.title.s36.211",
+                        "skinStyle": "text-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "tex": [
+                    {
+                        "skin": "text.tex.s35.210",
+                        "skinStyle": "text-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "button": {
+            "tabs": [
+                {
+                    "id": "button",
+                    "name": "按钮"
+                },
+                {
+                    "id": "textBtn",
+                    "name": "文本按钮"
+                },
+                {
+                    "id": "iconBtn",
+                    "name": "图标按钮"
+                }
+            ],
+            "group": {
+                "button": [
+                    {
+                        "skin": "button.button.s37.262",
+                        "skinStyle": "basBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.button.s38.263",
+                        "skinStyle": "basBtn-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.button.s39.261",
+                        "skinStyle": "basoutlineBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.button.s40.260",
+                        "skinStyle": "basbgBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.button.s41.259",
+                        "skinStyle": "basAngleBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.button.s42.258",
+                        "skinStyle": "basBtn-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.button.s43.257",
+                        "skinStyle": "basRiconBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "textBtn": [
+                    {
+                        "skin": "button.textBtn.s44.91",
+                        "skinStyle": "basisBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.textBtn.s45.99",
+                        "skinStyle": "basisBtn-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.textBtn.s46.100",
+                        "skinStyle": "basisBtn-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.textBtn.s47.101",
+                        "skinStyle": "basisBtn-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "iconBtn": [
+                    {
+                        "skin": "button.iconBtn.s48.58",
+                        "skinStyle": "basIcoBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.iconBtn.s49.57",
+                        "skinStyle": "basIcoBtn-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.iconBtn.s50.56",
+                        "skinStyle": "basIcoBtn-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.iconBtn.s51.256",
+                        "skinStyle": "basIcoBtn-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.iconBtn.s52.255",
+                        "skinStyle": "basIcoBtn-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.iconBtn.s53.254",
+                        "skinStyle": "basIcoBtn-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "button.iconBtn.s54.253",
+                        "skinStyle": "basIcoOutlineBtn-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "menu": {
+            "tabs": [
+                {
+                    "id": "horMenu",
+                    "name": "水平导航"
+                },
+                {
+                    "id": "verMenu",
+                    "name": "竖导航"
+                }
+            ],
+            "group": {
+                "horMenu": [
+                    {
+                        "skin": "menu.horMenu.s85.326",
+                        "skinStyle": "hBasMenu-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.horMenu.s146.363",
+                        "skinStyle": "hBasMenu-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.horMenu.s148.365",
+                        "skinStyle": "hBasMenu-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.horMenu.s158.375",
+                        "skinStyle": "hBasMenu-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.horMenu.s159.376",
+                        "skinStyle": "hBasMenu-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.horMenu.s160.377",
+                        "skinStyle": "hBasMenu-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.horMenu.s161.378",
+                        "skinStyle": "hBasMenu-7",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.horMenu.s326.439",
+                        "skinStyle": "hBasMenu-8",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "verMenu": [
+                    {
+                        "skin": "menu.verMenu.s86.294",
+                        "skinStyle": "VerticalMenu-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.verMenu.s162.379",
+                        "skinStyle": "VerticalMenu-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.verMenu.s226.394",
+                        "skinStyle": "VerticalMenu-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.verMenu.s418.523",
+                        "skinStyle": "VerticalMenuOpen-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "menu.verMenu.s419.524",
+                        "skinStyle": "VerticalarrMenu-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "image": {
+            "tabs": [
+                {
+                    "id": "commonImg",
+                    "name": "基础图片"
+                }
+            ],
+            "group": {
+                "commonImg": [
+                    {
+                        "skin": "image.commonImg.s55.290",
+                        "skinStyle": "basicImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s56.289",
+                        "skinStyle": "basicImg-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s57.291",
+                        "skinStyle": "basicImg-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s58.288",
+                        "skinStyle": "basicImg-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s59.287",
+                        "skinStyle": "basicImg-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s60.286",
+                        "skinStyle": "basicImg-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s61.285",
+                        "skinStyle": "basicshadowImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s62.284",
+                        "skinStyle": "basicLRshadowImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s63.283",
+                        "skinStyle": "hoverImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s292.421",
+                        "skinStyle": "hoverImg-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s465.570",
+                        "skinStyle": "hoverImglarge-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s466.571",
+                        "skinStyle": "hoverImgresize-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s471.576",
+                        "skinStyle": "hoverImgBottomUp-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "image.commonImg.s473.578",
+                        "skinStyle": "hoverImgTxtUp-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "slideShow": {
+            "tabs": [
+                {
+                    "id": "carousel",
+                    "name": "基础幻灯片"
+                },
+                {
+                    "id": "advanced",
+                    "name": "高级幻灯片"
+                }
+            ],
+            "group": {
+                "carousel": [
+                    {
+                        "skin": "slideShow.carousel.s81.328",
+                        "skinStyle": "btnCar-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "slideShow.carousel.s82.329",
+                        "skinStyle": "jssorSlider-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "slideShow.carousel.s231.398",
+                        "skinStyle": "slideCar-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "slideShow.carousel.s332.444",
+                        "skinStyle": "sliderbtnCar-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "slideShow.carousel.s340.452",
+                        "skinStyle": "btnCar-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "slideShow.carousel.s428.533",
+                        "skinStyle": "slideCar-9",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "advanced": [
+                    {
+                        "skin": "slideShow.advanced.s333.445",
+                        "skinStyle": "advanced",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "slideShow.advanced.s339.450",
+                        "skinStyle": "advanced-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "slideShow.advanced.s346.460",
+                        "skinStyle": "advanced-2",
+                        "goods_id": 110,
+                        "need_pay": true,
+                        "goods_status": 1
+                    }
+                ]
+            }
+        },
+        "box": {
+            "tabs": [
+                {
+                    "id": "box",
+                    "name": "基础容器"
+                }
+            ],
+            "group": {
+                "box": [
+                    {
+                        "skin": "box.box.s64.305",
+                        "skinStyle": "basBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s65.306",
+                        "skinStyle": "basBox-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s66.307",
+                        "skinStyle": "basLBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s67.308",
+                        "skinStyle": "basRBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s68.309",
+                        "skinStyle": "basTBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s69.310",
+                        "skinStyle": "basTLBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s70.311",
+                        "skinStyle": "basBBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s71.312",
+                        "skinStyle": "basLangleBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "box.box.s111.337",
+                        "skinStyle": "",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "component": {
+            "tabs": [
+                {
+                    "id": "rowColumn",
+                    "name": "一行多列"
+                },
+                {
+                    "id": "usualLayout",
+                    "name": "预设样式"
+                },
+                {
+                    "id": "advanced",
+                    "name": "幻灯片组件"
+                },
+                {
+                    "id": "row",
+                    "name": "行"
+                },
+                {
+                    "id": "hoverBox1",
+                    "name": "鼠标经过容器"
+                },
+                {
+                    "id": "flipper",
+                    "name": "翻屏组件"
+                }
+            ],
+            "group": {
+                "rowColumn": [
+                    {
+                        "skin": "component.rowColumn.s94.209",
+                        "skinStyle": "rowOne-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.rowColumn.s100.203",
+                        "skinStyle": "rowOne-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.rowColumn.s101.202",
+                        "skinStyle": "rowOne-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.rowColumn.s102.201",
+                        "skinStyle": "rowOne-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.rowColumn.s103.200",
+                        "skinStyle": "rowOne-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.rowColumn.s104.327",
+                        "skinStyle": "rowOne-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "usualLayout": [
+                    {
+                        "skin": "component.usualLayout.s105.198",
+                        "skinStyle": "commonstyle-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s106.171",
+                        "skinStyle": "commonstyle-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s107.197",
+                        "skinStyle": "commonstyle-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s108.196",
+                        "skinStyle": "commonstyle-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s109.195",
+                        "skinStyle": "commonstyle-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s114.340",
+                        "skinStyle": "commonstyle-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s116.343",
+                        "skinStyle": "commonstyle-7",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s119.346",
+                        "skinStyle": "commonstyle-8",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s120.350",
+                        "skinStyle": "commonstyle-9",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s123.349",
+                        "skinStyle": "commonstyle-10",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s124.353",
+                        "skinStyle": "commonstyle-11",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s125.351",
+                        "skinStyle": "commonstyle-12",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s126.352",
+                        "skinStyle": "commonstyle-13",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s127.354",
+                        "skinStyle": "commonstyle-14",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s128.355",
+                        "skinStyle": "commonstyle-16",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s129.356",
+                        "skinStyle": "commonstyle-15",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s130.357",
+                        "skinStyle": "formstyle-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s133.359",
+                        "skinStyle": "pricelist_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s149.366",
+                        "skinStyle": "pricelist_2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s151.368",
+                        "skinStyle": "custom_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s152.369",
+                        "skinStyle": "custom_2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s153.370",
+                        "skinStyle": "custom_3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s154.371",
+                        "skinStyle": "custom_4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s155.372",
+                        "skinStyle": "custom_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s156.373",
+                        "skinStyle": "commonstyle-19",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s229.396",
+                        "skinStyle": "ImgText-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s279.410",
+                        "skinStyle": "commstyle_6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s282.412",
+                        "skinStyle": "",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s283.413",
+                        "skinStyle": "commonTimer-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s284.414",
+                        "skinStyle": "headstyle_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s285.415",
+                        "skinStyle": "headstyle_2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s286.416",
+                        "skinStyle": "headstyle_3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s287.417",
+                        "skinStyle": "pricelist_3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s295.424",
+                        "skinStyle": "FooterStyle-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s349.461",
+                        "skinStyle": "contact_4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s350.462",
+                        "skinStyle": "contact_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s351.463",
+                        "skinStyle": "Timer_3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s352.464",
+                        "skinStyle": "Timer_4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s353.465",
+                        "skinStyle": "Timer_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s354.466",
+                        "skinStyle": "Price_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s356.468",
+                        "skinStyle": "bottom_4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s357.469",
+                        "skinStyle": "bottom_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s358.470",
+                        "skinStyle": "formstyle-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s359.471",
+                        "skinStyle": "formstyle-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s360.472",
+                        "skinStyle": "formstyle-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s361.473",
+                        "skinStyle": "formstyle-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s362.474",
+                        "skinStyle": "contact_2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.usualLayout.s363.475",
+                        "skinStyle": "contact_3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "advanced": [],
+                "row": [
+                    {
+                        "skin": "component.row.s369.477",
+                        "skinStyle": "colrow-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s372.480",
+                        "skinStyle": "rowsimpleOne-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s374.481",
+                        "skinStyle": "colrow-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s375.482",
+                        "skinStyle": "colrow-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s376.483",
+                        "skinStyle": "colrow-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s377.484",
+                        "skinStyle": "colrow-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s378.485",
+                        "skinStyle": "colrow-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s379.486",
+                        "skinStyle": "colrow-7",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s380.487",
+                        "skinStyle": "colrow-8",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s381.488",
+                        "skinStyle": "colrow-9",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s382.489",
+                        "skinStyle": "colrow-10",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s383.490",
+                        "skinStyle": "colrow-11",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s386.492",
+                        "skinStyle": "rowsimpleOne-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s387.493",
+                        "skinStyle": "rowsimpleOne-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s388.494",
+                        "skinStyle": "rowsimpleOne-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s389.495",
+                        "skinStyle": "rowsimpleOne-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s390.496",
+                        "skinStyle": "rowsimpleOne-6",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s391.497",
+                        "skinStyle": "singleImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s392.498",
+                        "skinStyle": "twoImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s393.499",
+                        "skinStyle": "threeImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s395.501",
+                        "skinStyle": "fourImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s396.502",
+                        "skinStyle": "w_text_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s398.503",
+                        "skinStyle": "w_video_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s399.504",
+                        "skinStyle": "w_video_2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s407.512",
+                        "skinStyle": "headstyle_4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "component.row.s408.513",
+                        "skinStyle": "headstyle_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "hoverBox1": [],
+                "flipper": []
+            }
+        },
+        "column": {
+            "tabs": [
+                {
+                    "id": "basicColumn",
+                    "name": "基础列"
+                },
+                {
+                    "id": "simplecolumn",
+                    "name": "行列"
+                }
+            ],
+            "group": {
+                "basicColumn": [
+                    {
+                        "skin": "column.basicColumn.s95.208",
+                        "skinStyle": "column",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "simplecolumn": [
+                    {
+                        "skin": "column.simplecolumn.s371.479",
+                        "skinStyle": "simplecolumn",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "map": {
+            "tabs": [
+                {
+                    "id": "map",
+                    "name": "基础地图"
+                }
+            ],
+            "group": {
+                "map": [
+                    {
+                        "skin": "map.map.s72.233",
+                        "skinStyle": "basMap-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "map.map.s73.232",
+                        "skinStyle": "basMap-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "form": {
+            "tabs": [
+                {
+                    "id": "form",
+                    "name": "基础询盘反馈"
+                }
+            ],
+            "group": {
+                "form": [
+                    {
+                        "skin": "form.form.s87.314",
+                        "skinStyle": "basicForm-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "form.form.s88.304",
+                        "skinStyle": "basicForm-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "form.form.s422.527",
+                        "skinStyle": "form-horizantal",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "form.form.s429.534",
+                        "skinStyle": "basicForm-upload",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "form.form.s438.543",
+                        "skinStyle": "basicHoriForm-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "video": {
+            "tabs": [
+                {
+                    "id": "video",
+                    "name": "基础视频"
+                }
+            ],
+            "group": {
+                "video": [
+                    {
+                        "skin": "video.video.s74.231",
+                        "skinStyle": "basVideo-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "search": {
+            "tabs": [
+                {
+                    "id": "search",
+                    "name": "基础搜索"
+                }
+            ],
+            "group": {
+                "search": [
+                    {
+                        "skin": "search.search.s75.316",
+                        "skinStyle": "squareSearch-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "search.search.s76.317",
+                        "skinStyle": "roundSearch-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "search.search.s325.438",
+                        "skinStyle": "search-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "list": {
+            "tabs": [
+                {
+                    "id": "product",
+                    "name": "产品"
+                },
+                {
+                    "id": "news",
+                    "name": "新闻"
+                },
+                {
+                    "id": "gallery",
+                    "name": "图片集"
+                },
+                {
+                    "id": "goodsList",
+                    "name": "商品列表"
+                },
+                {
+                    "id": "friendlink",
+                    "name": "友情链接"
+                },
+                {
+                    "id": "download",
+                    "name": "下载列表"
+                }
+            ],
+            "group": {
+                "product": [
+                    {
+                        "skin": "list.product.s89.335",
+                        "skinStyle": "basicList-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.product.s143.360",
+                        "skinStyle": "basicList-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.product.s145.362",
+                        "skinStyle": "basicList-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.product.s147.364",
+                        "skinStyle": "basicList-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.product.s150.367",
+                        "skinStyle": "basicList-5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.product.s345.459",
+                        "skinStyle": "cartproList-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "news": [
+                    {
+                        "skin": "list.news.s90.334",
+                        "skinStyle": "basicnewsList-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.news.s144.361",
+                        "skinStyle": "basicnewsList-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.news.s157.374",
+                        "skinStyle": "basicnewsList-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.news.s435.540",
+                        "skinStyle": "midImg_list_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.news.s450.555",
+                        "skinStyle": "datatimeList-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.news.s452.557",
+                        "skinStyle": "videoPopupList-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "gallery": [
+                    {
+                        "skin": "list.gallery.s334.446",
+                        "skinStyle": "basicGallery-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.gallery.s336.448",
+                        "skinStyle": "basicGallery-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "friendlink": [
+                    {
+                        "skin": "list.friendlink.s355.467",
+                        "skinStyle": "friendlinkImg-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "list.friendlink.s364.476",
+                        "skinStyle": "friendlinkTxt-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "download": [
+                    {
+                        "skin": "list.download.s309.431",
+                        "skinStyle": "download-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "language": {
+            "tabs": [
+                {
+                    "id": "langBox",
+                    "name": "基础多语言"
+                }
+            ],
+            "group": {
+                "langBox": [
+                    {
+                        "skin": "language.langBox.s77.228",
+                        "skinStyle": "rowLanguage-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "language.langBox.s79.226",
+                        "skinStyle": "rowLanguage-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "language.langBox.s80.225",
+                        "skinStyle": "selectLanguage-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "sidebar": {
+            "tabs": [
+                {
+                    "id": "sideBox",
+                    "name": "基础侧边栏"
+                }
+            ],
+            "group": {
+                "sideBox": [
+                    {
+                        "skin": "sidebar.sideBox.s91.295",
+                        "skinStyle": "basSi-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "sidebar.sideBox.s290.420",
+                        "skinStyle": "AnchorMenu-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "crumbs": {
+            "tabs": [
+                {
+                    "id": "crumbs",
+                    "name": "基础面包屑"
+                }
+            ],
+            "group": {
+                "crumbs": [
+                    {
+                        "skin": "crumbs.crumbs.s83.221",
+                        "skinStyle": "basCrumbs-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "submenu": {
+            "tabs": [
+                {
+                    "id": "basicSubmenu",
+                    "name": "基础次级导航"
+                },
+                {
+                    "id": "submenuBox",
+                    "name": "容器次级导航"
+                }
+            ],
+            "group": {
+                "basicSubmenu": [
+                    {
+                        "skin": "submenu.basicSubmenu.s92.301",
+                        "skinStyle": "nav-submenu-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "submenu.basicSubmenu.s211.392",
+                        "skinStyle": "nav-submenu-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "submenu.basicSubmenu.s308.430",
+                        "skinStyle": "nav-submenu-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "submenuBox": [
+                    {
+                        "skin": "submenu.submenuBox.s315.432",
+                        "skinStyle": "submenuBoxstyle-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "submenu.submenuBox.s413.518",
+                        "skinStyle": "submenuBoxstyle-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "pagination": {
+            "tabs": [
+                {
+                    "id": "pagination",
+                    "name": "基础分页"
+                }
+            ],
+            "group": {
+                "pagination": [
+                    {
+                        "skin": "pagination.pagination.s93.220",
+                        "skinStyle": "pagination-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "socials": {
+            "tabs": [
+                {
+                    "id": "socialsBox",
+                    "name": "分享"
+                },
+                {
+                    "id": "followBox",
+                    "name": "关注"
+                }
+            ],
+            "group": {
+                "socialsBox": [
+                    {
+                        "skin": "socials.socialsBox.s96.333",
+                        "skinStyle": "rowSocials-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "socials.socialsBox.s97.332",
+                        "skinStyle": "rowSocials-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ],
+                "followBox": [
+                    {
+                        "skin": "socials.followBox.s98.331",
+                        "skinStyle": "rowFollow-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "socials.followBox.s99.330",
+                        "skinStyle": "rowFollow-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "tab": {
+            "tabs": [
+                {
+                    "id": "tab",
+                    "name": "基础选项卡"
+                }
+            ],
+            "group": {
+                "tab": [
+                    {
+                        "skin": "tab.tab.s110.336",
+                        "skinStyle": "",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "tab.tab.s163.380",
+                        "skinStyle": "tabsStyle_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "tab.tab.s184.383",
+                        "skinStyle": "tabsStyle_2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "tab.tab.s185.384",
+                        "skinStyle": "tabsStyle_3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "tab.tab.s322.435",
+                        "skinStyle": "tabsStyle_4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "tab.tab.s324.437",
+                        "skinStyle": "tabsStyle_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "tab.tab.s456.561",
+                        "skinStyle": "arrImgTab-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "header": {
+            "tabs": [
+                {
+                    "id": "header",
+                    "name": "头部"
+                }
+            ],
+            "group": {
+                "header": [
+                    {
+                        "skin": "header.header.s407.512",
+                        "skinStyle": "headstyle_4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "header.header.s408.513",
+                        "skinStyle": "headstyle_5",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "footer": {
+            "tabs": [
+                {
+                    "id": "footer",
+                    "name": "底部"
+                }
+            ],
+            "group": {
+                "footer": []
+            }
+        },
+        "pagecontent": {
+            "tabs": [
+                {
+                    "id": "pagecontent",
+                    "name": "内容"
+                }
+            ],
+            "group": {
+                "pagecontent": []
+            }
+        },
+        "hoverbox": {
+            "tabs": [
+                {
+                    "id": "hoverbox",
+                    "name": "鼠标经过容器"
+                }
+            ],
+            "group": {
+                "hoverbox": [
+                    {
+                        "skin": "hoverbox.hoverbox.s118.345",
+                        "skinStyle": "",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "collapsible": {
+            "tabs": [
+                {
+                    "id": "collapsible",
+                    "name": "可折叠"
+                }
+            ],
+            "group": {
+                "collapsible": [
+                    {
+                        "skin": "collapsible.collapsible.s182.382",
+                        "skinStyle": "basicCollapsible-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "line": {
+            "tabs": [
+                {
+                    "id": "line",
+                    "name": "分割线"
+                }
+            ],
+            "group": {
+                "line": [
+                    {
+                        "skin": "line.line.s206.387",
+                        "skinStyle": "basicLine",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "line.line.s209.390",
+                        "skinStyle": "basicLine-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "line.line.s210.391",
+                        "skinStyle": "basicLine-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "iframe": {
+            "tabs": [
+                {
+                    "id": "iframe",
+                    "name": "iframe框架"
+                }
+            ],
+            "group": {
+                "iframe": [
+                    {
+                        "skin": "iframe.iframe.s212.393",
+                        "skinStyle": "basicIframe",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "moHeader": {
+            "tabs": [
+                {
+                    "id": "moHeader",
+                    "name": "移动端头部"
+                }
+            ],
+            "group": {
+                "moHeader": [
+                    {
+                        "skin": "moHeader.moHeader.s237.400",
+                        "skinStyle": "moHeadstyle-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "moHeader.moHeader.s270.403",
+                        "skinStyle": "moHeadstyle-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "moHeader.moHeader.s271.404",
+                        "skinStyle": "moHeadstyle-3",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "moHeader.moHeader.s272.405",
+                        "skinStyle": "moHeadstyle-4",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "moHeader.moHeader.s421.526",
+                        "skinStyle": "moHeadSearch-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "timer": {
+            "tabs": [
+                {
+                    "id": "timer",
+                    "name": "计数器"
+                }
+            ],
+            "group": {
+                "timer": [
+                    {
+                        "skin": "timer.timer.s242.402",
+                        "skinStyle": "basicTimer",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "moFooter": {
+            "tabs": [
+                {
+                    "id": "moFooter",
+                    "name": "移动端底部"
+                }
+            ],
+            "group": {
+                "moFooter": [
+                    {
+                        "skin": "moFooter.moFooter.s275.406",
+                        "skinStyle": "moFooterstyle-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "moFooter.moFooter.s276.407",
+                        "skinStyle": "moFooterstyle-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "lightboxmodal": {
+            "tabs": [
+                {
+                    "id": "lightboxmodal",
+                    "name": "弹出窗口遮照层"
+                }
+            ],
+            "group": {
+                "lightboxmodal": [
+                    {
+                        "skin": "lightboxmodal.lightboxmodal.s278.409",
+                        "skinStyle": "lightboxmodal-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "lightboxmodal.lightboxmodal.s293.422",
+                        "skinStyle": "lightboxmodal-2",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "lightbox": {
+            "tabs": [
+                {
+                    "id": "lightbox",
+                    "name": "弹出窗口"
+                }
+            ],
+            "group": {
+                "lightbox": [
+                    {
+                        "skin": "lightbox.lightbox.s281.411",
+                        "skinStyle": "lightbox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "flipper": {
+            "tabs": [
+                {
+                    "id": "flipper",
+                    "name": "翻屏组件"
+                }
+            ],
+            "group": {
+                "flipper": [
+                    {
+                        "skin": "flipper.flipper.s288.418",
+                        "skinStyle": "flipper-0",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "flipper.flipper.s294.423",
+                        "skinStyle": "flipper-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "specs": {
+            "tabs": [
+                {
+                    "id": "specs",
+                    "name": "规格参数"
+                }
+            ],
+            "group": {
+                "specs": [
+                    {
+                        "skin": "specs.specs.s318.434",
+                        "skinStyle": "specsBox-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "backtop": {
+            "tabs": [
+                {
+                    "id": "backtop",
+                    "name": "返回项部"
+                }
+            ],
+            "group": {
+                "backtop": [
+                    {
+                        "skin": "backtop.backtop.s323.436",
+                        "skinStyle": "back-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "member": {
+            "tabs": [
+                {
+                    "id": "login",
+                    "name": "登录注册"
+                }
+            ],
+            "group": {
+                "login": [
+                    {
+                        "skin": "member.login.s341.453",
+                        "skinStyle": "login",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "number": {
+            "tabs": [
+                {
+                    "id": "number",
+                    "name": "数量"
+                }
+            ],
+            "group": {
+                "number": [
+                    {
+                        "skin": "number.number.s342.454",
+                        "skinStyle": "number",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "shopcart": {
+            "tabs": [
+                {
+                    "id": "shopcart",
+                    "name": "购物车按钮"
+                }
+            ],
+            "group": {
+                "shopcart": [
+                    {
+                        "skin": "shopcart.shopcart.s344.458",
+                        "skinStyle": "shopcart",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "price": {
+            "tabs": [
+                {
+                    "id": "price",
+                    "name": "价格"
+                },
+                {
+                    "id": "price",
+                    "name": "价格"
+                }
+            ],
+            "group": {
+                "price": []
+            }
+        },
+        "panel": {
+            "tabs": [
+                {
+                    "id": "panel",
+                    "name": "侧导航"
+                }
+            ],
+            "group": {
+                "panel": [
+                    {
+                        "skin": "panel.panel.s411.516",
+                        "skinStyle": "mo_panelleftshow",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "panel.panel.s412.517",
+                        "skinStyle": "mo_panelrightshow",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "panel.panel.s414.519",
+                        "skinStyle": "mo_paneldownshow",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    },
+                    {
+                        "skin": "panel.panel.s446.551",
+                        "skinStyle": "mo_panelleftopen",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "custom": {
+            "tabs": [
+                {
+                    "id": "custom",
+                    "name": "自定义控件"
+                }
+            ],
+            "group": {
+                "custom": [
+                    {
+                        "skin": "custom.custom.s430.535",
+                        "skinStyle": "",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "accordion": {
+            "tabs": [
+                {
+                    "id": "accordion",
+                    "name": "手风琴"
+                }
+            ],
+            "group": {
+                "accordion": [
+                    {
+                        "skin": "accordion.accordion.s476.581",
+                        "skinStyle": "yyb-accordion",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "datetime": {
+            "tabs": [
+                {
+                    "id": "datetime",
+                    "name": "日期时间"
+                }
+            ],
+            "group": {
+                "datetime": [
+                    {
+                        "skin": "datetime.datetime.s449.554",
+                        "skinStyle": "datetime_1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
+        "taglist": {
+            "tabs": [
+                {
+                    "id": "taglist",
+                    "name": "标签列表"
+                }
+            ],
+            "group": {
+                "taglist": [
+                    {
+                        "skin": "taglist.taglist.s437.542",
+                        "skinStyle": "taglist1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,11 +1,11 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AnimationControler", function() { return AnimationControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animation */ "./components/page/attr/animation/animation.js");
+// 导入 React 库
+import React from "react";
+import ReactDOM from 'react-dom';
+// 导入 animation 模块
+import Animation from "./animation.js";
+// 导入 dispatcher 模块
+import Dispatcher from "@/system/tools/dispatcher";
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -20,7 +20,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * @LastEditTime: 
  */
 
-class AnimationControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export default class AnimationControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
@@ -233,7 +233,7 @@ class AnimationControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
     this.init();
     /**@property {Link} view 初始化 view 实例*/
 
-    this.view = new _animation__WEBPACK_IMPORTED_MODULE_3__["Animation"](this); //给view 入口方法绑定this
+    this.view = new Animation(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
     const frame_document = document.getElementById("iframe").contentWindow.document;
@@ -251,12 +251,12 @@ class AnimationControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
     };
     const {
       data
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_get`);
+    } = Dispatcher.dispatch(`${this.props.id}_get`);
     let animation_data = data.animation_data || false;
 
     if (!animation_data) {
       animation_data = defaultData;
-      dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch('addData', {
+      Dispatcher.dispatch('addData', {
         args: [this.props.id, `animation_data.${this.props.id}`, defaultData]
       });
     }
@@ -295,7 +295,7 @@ class AnimationControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
       node,
       element
     } = opts;
-    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this, {
+    ReactDOM.render(React.createElement(this, {
       id: node.current.id,
       node: node
     }), element);
@@ -311,7 +311,7 @@ class AnimationControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @Description: 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -350,13 +350,13 @@ class AnimationControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
     this.setState({ ...data,
       on: key
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`animation_data.className`, c.className]
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`animation_data.name`, v.name]
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`animation_data.value`, v.value]
     });
     dom.setAttribute('data-name', c.className);
@@ -402,7 +402,7 @@ class AnimationControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Co
     this.setState({
       [key]: e.target.value
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`animation_data.${key}`, e.target.value]
     });
   }

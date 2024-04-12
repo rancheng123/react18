@@ -1,17 +1,12 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BasicControler", function() { return BasicControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Dispatcher from './system/tools/dispatcher';
 
-
-class BasicControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export  default class BasicControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
-
+    
     this.init();
   }
   /**
@@ -34,7 +29,7 @@ class BasicControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
     } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
 
     if (node && element) {
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this, {
+      ReactDOM.render(React.createElement(this, {
         id: node.current.id,
         node: node,
         config: config,
@@ -47,7 +42,7 @@ class BasicControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
   }
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
 
   init() {
@@ -61,7 +56,7 @@ class BasicControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
         document_data,
         theme_data = {}
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(fnName);
+    } = Dispatcher.dispatch(fnName);
     let groupList = this.props.groupList;
 
     if (this.props.group) {
@@ -111,7 +106,7 @@ class BasicControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
           this.setState({
             link: data
           });
-          dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+          Dispatcher.dispatch(`${this.props.id}_set`, {
             args: [`document_data.link`, data]
           });
         }
@@ -175,7 +170,7 @@ class BasicControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
     this.setState({
       [key]: _value
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`document_data.${key}`, _value]
     });
   }
@@ -187,7 +182,7 @@ class BasicControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
     this.setState({
       [field]: value
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`document_data.${field}`, value]
     });
   }

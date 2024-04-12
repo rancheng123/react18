@@ -1,21 +1,8 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentEditControler", function() { return ComponentEditControler; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-// /* harmony import */ var _component_edit_test__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component_edit_test */ "./system/function/component_edit/component_edit_test.js");
-// /* harmony import */ var _single_single_component_edit_test__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./single/single_component_edit_test */ "./system/function/component_edit/single/single_component_edit_test.js");
-// /* harmony import */ var _more_component_edit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./more_component_edit */ "./system/function/component_edit/more_component_edit.js");
-// /* harmony import */ var _mouse_right_click_menu_mouse_right_click_menu_controler__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../mouse_right_click_menu/mouse_right_click_menu_controler */ "./system/function/mouse_right_click_menu/mouse_right_click_menu_controler.js");
-// /* harmony import */ var _positions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./positions */ "./system/function/component_edit/positions.js");
-
-
+/*eslint-disable*/
 import React from 'react';
 import ReactDom from 'react-dom';
 import Dispatcher from '../../tools/dispatcher';
-import ComponentEditTest from './component_edit_test'
+// import ComponentEditTest from './component_edit_test'
 import SingleComponentEditTest from './single/single_component_edit_test'
 import MoreComponentEdit from './more_component_edit'
 import AttrProxy from '@/components/page/attr_proxy'
@@ -23,25 +10,13 @@ import MoreRightClickMenuControler from '../mouse_right_click_menu/mouse_right_c
 import Positions from '../../function/component_edit/positions'
 import ConfigBtn from './single/ConfigBtn'
 
-
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
 
 function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to set private field on non-instance"); } if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } return value; }
 
 
-
-
-
-
- // import {AttrProxy} from "../../../components/page/attr_proxy";
-
-
-
 /**
  * @class {ComponentEditControler} 控件编辑控制器类
- * @author wyq
- * @version 1.0
- * @date 2019-11-13
  */
 
 class ComponentEditControler extends React.Component {
@@ -58,40 +33,26 @@ class ComponentEditControler extends React.Component {
     this.selected = null;
     /**@property {Node} node 当前鼠标指针下的控件节点对象*/
 
-    this.node = null; // /**@property {AttrProxy} proxy 属性代理 */
-    // this.proxy = new AttrProxy();
+    this.node = null;
+    /**@property {AttrProxy} proxy 属性代理 */
 
+    this.proxy = new AttrProxy();
     /**@property {MouseRightClickMenuControler} menu 右键菜单组件 */
-
-    this.menu = _mouse_right_click_menu_mouse_right_click_menu_controler__WEBPACK_IMPORTED_MODULE_6__["MouseRightClickMenuControler"]; //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {ComponentEdit} view 初始化 view 实例*/
 
-    this.view = new _component_edit_test__WEBPACK_IMPORTED_MODULE_3__["ComponentEdit"](this); //给view 入口方法绑定this
+    // this.view = new ComponentEditTest["ComponentEdit"](this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
     this._initX = 0;
     this.findBtn = false;
     this.virtualNode = false;
   }
+ 
   /**
-   * @method render 挂载组件方法
-   * @date 2019-11-13
-   * @author wyq
-   * @return {object} 待渲染的组件对象
+   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次   
    */
-
-
-  render() {
-    return React.createElement(this.view.render, null);
-  }
-  /**
-   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-11-13
-   * @author wyq
-   */
-
 
   init() {
     this.state = {
@@ -101,27 +62,21 @@ class ComponentEditControler extends React.Component {
   }
   /**
    * @method componentDidMount 组件第一次挂载完毕执行方法
-   * @date 2020-01-07
-   * @author wyq
    */
 
-
   componentDidMount() {
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].register('selectedHidden', this.hidden, this);
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].register("selectedComponent", this.mousedown, this);
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].register('setLookup', this.setLookup, this);
+    Dispatcher.register('selectedHidden', this.hidden, this);
+    Dispatcher.register("selectedComponent", this.mousedown, this);
+    Dispatcher.register('setLookup', this.setLookup, this);
   }
   /**
    * @method componentWillUnmount 卸载组件时执行方法
-   * @date 2020-01-07
-   * @author wyq
    */
 
-
   componentWillUnmount() {
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].unregister('selectedHidden');
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].unregister("selectedComponent");
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].unregister('setLookup');
+    Dispatcher.unregister('selectedHidden');
+    Dispatcher.unregister("selectedComponent");
+    Dispatcher.unregister('setLookup');
   }
 
   hidden(value) {
@@ -133,13 +88,13 @@ class ComponentEditControler extends React.Component {
         children: [parentBtn, btn]
       } = children[0]; //卸载父级属性按钮
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(parentBtn); //卸载属性按钮
+      ReactDom.unmountComponentAtNode(parentBtn); //卸载属性按钮
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(btn); //卸载父级选中框
+      ReactDom.unmountComponentAtNode(btn); //卸载父级选中框
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(children[1]); //卸载选中框
+      ReactDom.unmountComponentAtNode(children[1]); //卸载选中框
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(children[2]);
+      ReactDom.unmountComponentAtNode(children[2]);
     } //如果选中对象存在则调用选中框卸载方法
 
 
@@ -151,7 +106,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method setLookup 设置指向查找 
    * @date 2020-09-09
-   * @author wyq
+   
    * @param {string} lookup 一个数组，用于存储容器类型 
    */
 
@@ -188,7 +143,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method find 根据坐标值查找控件
    * @date 2019-10-14
-   * @author wyq
+   
    * @param {number} initX x轴坐标
    * @param {number} initY y轴坐标
    * @param {number} stop 滚动条滚动的阈值
@@ -286,7 +241,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method findComponent 根据坐标值或id查找控件
    * @date 2020-02-06
-   * @author wyq
+   
    * @param {number} initX x轴坐标 
    * @param {number} initY y轴坐标
    * @param {number} stop 滚动条滚动的阈值
@@ -298,7 +253,7 @@ class ComponentEditControler extends React.Component {
   findComponent(initX, initY, stop, cid) {
     this.findPropertyBtn(); //获取总数据
 
-    const data = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch("getIframeData"); //判断data中是否存有数据
+    const data = Dispatcher.dispatch("getIframeData"); //判断data中是否存有数据
 
     if (data) {
       //判断当前是否是移动端浏览
@@ -328,7 +283,7 @@ class ComponentEditControler extends React.Component {
         componentData.component = componentData.components[componentData.i]; //类型如果是em-Content，则把数据变成当前页面的数据
 
         if (componentData.component.componentType == "em-Content") {
-          const page = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch("getPageData", {
+          const page = Dispatcher.dispatch("getPageData", {
             value: componentData.component.pageId
           });
           componentData.component = page.component;
@@ -357,7 +312,7 @@ class ComponentEditControler extends React.Component {
         componentData.i++;
       }
 
-      _positions__WEBPACK_IMPORTED_MODULE_7__["positions"].virtual = false;
+      Positions.virtual = false;
       return componentData.current ? {
         parent: componentData.current.parent,
         current: componentData.current
@@ -370,7 +325,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method lookForParent 查找父级
    * @date 2020-02-06
-   * @author wyq
+   
    * @param {object} current 当前控件数据 
    * @param {array} parents 存储父级的数组 
    */
@@ -392,7 +347,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method lookForCurrent 查找当前控件
    * @date 2020-02-06
-   * @author wyq
+   
    * @param {number} x x轴坐标 
    * @param {number} y y轴坐标
    * @param {number} stop 滚动挑滚动的阈值 
@@ -455,7 +410,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method saveParent 存储父级数据
    * @date 2020-02-06
-   * @author wyq
+   
    * @param {object} componentData 存放共享数据
    * @param {array} parents 存储父级数据的数组 
    */
@@ -495,11 +450,11 @@ class ComponentEditControler extends React.Component {
 
   findPropertyBtn() {
     if (Array.isArray(this.state.hover)) {
-      const node = this.state.hover.find(btn => _positions__WEBPACK_IMPORTED_MODULE_7__["positions"].findBox(this._initX, this._initY, btn.absolute, btn.id, btn.current.type));
+      const node = this.state.hover.find(btn => Positions.findBox(this._initX, this._initY, btn.absolute, btn.id, btn.current.type));
 
       if (typeof node != 'undefined') {
         this.findBtn = true;
-        _positions__WEBPACK_IMPORTED_MODULE_7__["positions"].virtual = false;
+        Positions.virtual = false;
         return this.getNewNode(node);
       }
     }
@@ -509,7 +464,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method hoverState 获取hover的状态数据
    * @date 2019-10-12
-   * @author wyq
+   
    * @param {object} state 控件数据 
    * @return {object} 拼接完成后的hover状态数据
    */
@@ -554,8 +509,6 @@ class ComponentEditControler extends React.Component {
   }
   /**
    * @method hover 
-   * @date 2019-10-12
-   * @author wyq
    * @param {event} event 事件对象 
    */
 
@@ -567,7 +520,7 @@ class ComponentEditControler extends React.Component {
     const initY = event.pageY - top + stop;
     this._initX = initX - (document.body.clientWidth - document.querySelector('#ediMain').getBoundingClientRect().width) / 2;
     this._initY = initY;
-    this.virtualNode = _positions__WEBPACK_IMPORTED_MODULE_7__["positions"].findVirtual(this._initX, this._initY); //找到虚拟区域，保留当前位置导航按钮
+    this.virtualNode = Positions.findVirtual(this._initX, this._initY); //找到虚拟区域，保留当前位置导航按钮
 
     if (this.virtualNode !== false && this.state.hover) {
       this.node = this.virtualNode;
@@ -586,7 +539,7 @@ class ComponentEditControler extends React.Component {
       const configList = []; //判断当前查找到的控件是否是已经选中的控件，不是则if，是则else
 
       if (!(this.selected && this.selected.isNode(current))) {
-        const nodes = _positions__WEBPACK_IMPORTED_MODULE_7__["positions"].getParentNodes(this.node, this._initX);
+        const nodes = Positions.getParentNodes(this.node, this._initX);
         if (nodes === false) return;
         nodes.forEach((node, i) => {
           const cur = this.hoverState(node, stop);
@@ -628,7 +581,7 @@ class ComponentEditControler extends React.Component {
   /**
   * @method isShow 根据条件判断是否显示属性按钮
   * @date 2020-03-19
-  * @author wyq
+  
   * @param {object} node 节点对象
   * @param {string} show 显示条件
   * @return {boolean} 一个布尔值，用来表示是显示还是隐藏
@@ -670,7 +623,7 @@ class ComponentEditControler extends React.Component {
   /**
    * @method mousedown 鼠标按下选中控件
    * @date 2019-10-12
-   * @author wyq
+   
    * @param {event} event 事件对象
    * @param {number} [x] x轴坐标
    * @param {number} [y] y轴坐标
@@ -694,12 +647,14 @@ class ComponentEditControler extends React.Component {
     try {
       //判断鼠标按下的是否是左键
       if (event.button == 0) {
-        this.selected = event.ctrlKey ? _more_component_edit__WEBPACK_IMPORTED_MODULE_5__["MoreComponentEdit"] : _single_single_component_edit_test__WEBPACK_IMPORTED_MODULE_4__["SingleComponentEdit"];
+        this.selected = event.ctrlKey ? MoreComponentEdit : SingleComponentEditTest;
         this.selected.controler = this; //如果id类型为function，把id值赋给变量fn，id赋为空
 
         if (typeof id == 'function') {
           fn = id, id = null;
         }
+
+        console.log(event, x, y, id, fn)
 
         return this.selected.mousedown(event, x, y, id, fn);
       }
@@ -710,8 +665,149 @@ class ComponentEditControler extends React.Component {
     }
   }
 
+  
+  /**
+   * @method hoverBox 鼠标滑过提示框结构
+   * @date 2019-10-30
+   
+   * @param {object} props 参数对象 
+   */
+
+
+  hoverBox({ data, index }) {
+    if (data) {
+      const { layout } = data; //layout.top-=1;
+      const cls = index === 0 ? 'contHovBox' : 'contHovBox cellHoverbox';
+      return <div className={cls} style={layout}></div>
+      //  React.createElement("div", {
+      //   className: cls,
+      //   style: layout
+      // });
+    }
+    return null;
+  }
+
+  /**
+   * @method hoverBox 鼠标滑过提示框结构
+   * @param {object} props 参数对象 
+   */
+  hoverBtn({ data, index }) {
+    if (data) {
+      if (data.absolute) {
+        const { absolute: { left, top, name, fixedWidth, itemWidth, items }, current: { hidden } } = data; 
+        // console.log(items,"结构中items");
+        return items.length && hidden != 1 ? React.createElement(ConfigBtn["ConfigBtnWaper"], {
+          style: { left, top },
+          name: name,
+          index: index,
+          fixedWidth: fixedWidth
+        }, React.createElement("ul", {
+          className: "functionUL",
+          style: {
+            width: itemWidth
+          }
+        }, items.map(({ name, type, hidden, current, selected, show, className = type }, i) => {
+          if (hidden != true) {
+            //判断控件是否在指定条件下显示
+            if (show && !this.isShow(data, show)) {
+              return null;
+            }
+
+            return React.createElement(ConfigBtn["ConfigButton"], {
+              select: selected,
+              key: i,
+              current: current,
+              name: name,
+              type: type,
+              className: className,
+              mousedown: this.hoverDown.bind(this, type)
+            });
+          }
+
+          return null;
+        }))) : null;
+      }
+
+      return null;
+    }
+
+    return null;
+  }
+
+  hoverDom() {
+    if (this.state.hover) {
+      const d = (
+        <div className='component-hover'>
+          {
+            this.state.hover.map((data, index) => {
+              if (data) {
+                const { layout } = data;
+                const cls = index === 0 ? 'contHovBox' : 'contHovBox cellHoverbox';
+                return <div key={index} className={cls} style={layout}></div>
+              }
+              return null;
+            })
+          }
+        </div>
+      )
+      return React.createElement("div", {
+        className: "component-hover"
+      }, this.state.hover.map((data, i) => {
+        return React.createElement(this.hoverBox, {
+          key: i,
+          index: i,
+          data: data
+        });
+      }), this.state.hover.map((data, i) => {
+        return React.createElement(this.hoverBtn, {
+          key: i,
+          index: i,
+          data: data
+        });
+      }));
+    }
+
+    return null;
+  }
+
+   /**
+   * @method render 挂载组件方法
+   * @return {object} 待渲染的组件对象
+   */
+
+   render() {
+    const dom = (
+      <div 
+        id="selected-mask" 
+        style={{height: this.props.height}}
+        onMouseMove={this.state.ismove ? this.hover.bind(this) : null}
+        onMouseDown={this.mousedown.bind(this)}
+      >
+        {
+          this.state.hidden == false && (
+            <div>
+              {this.hoverDom()}
+            </div>
+          )
+        }
+        <div className='component-selected'>
+          <div onMouseMove={e => e.stopPropagation()} onMouseLeave={e => e.stopPropagation()}>
+            <div id='property-parent-buttons' className="editControl"></div>
+            <div id="property-buttons" className='editControl'></div>
+            <div id="select-parent-box"></div>
+            <div id="select-box"></div>
+            <div className="component-menu">
+              <MoreRightClickMenuControler node={(this.selected || {}).node}  />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+    return dom // React.createElement(this.view.render, null);
+  }
+
 }
 
 var _lookup = new WeakMap();
 
-//# sourceURL=webpack:///./system/function/component_edit/component_edit_test_controler.js?
+export default ComponentEditControler;

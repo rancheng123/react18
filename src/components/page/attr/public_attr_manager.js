@@ -166,5 +166,3 @@ const PublicAttrManager = {
 };
 
 export default PublicAttrManager
-
-//# sourceURL=webpack:///./components/page/attr/public_attr_manager.js?

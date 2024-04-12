@@ -10,8 +10,8 @@ import WidgetLibraryControler from '../toolbar/widget_library/widget_library_con
 
 export default class ContentControler extends React.Component {
   constructor(props) {
-    console.log(props,'ContentControler props');
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
+    console.log(props,'ContentControler props',this);
 
     // this.init();
     /**@property {RulerControler} 标尺组件控制器 */
@@ -64,7 +64,7 @@ export default class ContentControler extends React.Component {
     const location = window.public.location;
     const pageid = location.getHash('pageid');
     const type = window.public.type = location.getHash('type') || 'pc'; //
-
+    console.log('init',);
     this.setState({
       display: false,
       edibtn: true,
@@ -179,6 +179,8 @@ export default class ContentControler extends React.Component {
 
 
   load(event) {
+    console.log('333333333333',this);
+
     //绑定卸载事件
     event.target.contentWindow.onunload = this.unload.bind(this); //调用load方法 load在main.js中传过来的
 
@@ -454,14 +456,15 @@ export default class ContentControler extends React.Component {
 
 
   render() {
-    console.log('content render');
     const {state: { type, height, rulerShow, edibtn }} = this;
     let _style = null;
+    console.log('content render',this);
 
     if (type == 'pc' && rulerShow) {
       _style = {top: "60px", height: "calc(100% - 60px)"};
-    } //页面为pc，并且头部工具栏隐藏时，top变化 sxt 2022-12-12
+    } 
 
+    //页面为pc，并且头部工具栏隐藏时，top变化 sxt 2022-12-12
     if (type == 'pc' && !edibtn) {
       _style = {
         top: "20px",
@@ -475,7 +478,7 @@ export default class ContentControler extends React.Component {
           <iframe 
             id="iframe"
             scrolling="no"
-            onLoad={this.props.load}
+            onLoad={(event)=>this.load(event)}
             src={`/framework.html`} 
             // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
           />
