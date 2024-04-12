@@ -1,0 +1,70 @@
+{
+  "dots": {
+    "btns": [
+      "top"
+    ]
+  },
+  "pc": {
+    "btns": [
+      {
+        "name": "flipperProperty",
+        "type": "basic"
+      },
+      {
+        "name": "design",
+        "type": "design"
+      },
+      {
+        "name": "itemManage",
+        "type": "manage"
+      }
+    ],
+    "tabs": [
+      {
+        "name": "flipperProperty",
+        "type": "basic"
+      },
+      {
+        "name": "design",
+        "type": "design"
+      },
+      {
+        "name": "itemManage",
+        "type": "manage"
+      }
+    ]
+  },
+  "mo": {
+    "btns": [
+      {
+        "name": "design",
+        "type": "design"
+      }
+    ],
+    "tabs": [
+      {
+        "name": "design",
+        "type": "design"
+      }
+    ]
+  },
+  "group": {
+    "design": {
+      "all": {
+        "include": "position"
+      }
+    },
+    "manage": {
+      "component": {
+        "all": [
+          {
+            "name": "button",
+            "title": "flipperDesign"
+          },
+          "anchor",
+          "itemName"
+        ]
+      }
+    }
+  }
+}

@@ -27,7 +27,9 @@ export const FlipperManager = {
    * @return {FlipperManager} 控件属性类
    */
   getAttr() {
-    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(138)]).then(__webpack_require__.bind(null, /*! ./attr/flipper_attribute */ "./components/flipper/attr/flipper_attribute.js")).then(module => module.FlipperAttribute);
+    // return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(138)]).then(__webpack_require__.bind(null, /*! ./attr/flipper_attribute */ "./components/flipper/attr/flipper_attribute.js")).then(module => module.FlipperAttribute);
+    return import(`./attr/flipper_attribute.js`).then(module => module.FlipperAttribute);
+
   },
 
   /**
