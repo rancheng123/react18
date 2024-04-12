@@ -258,6 +258,7 @@ const SingleComponentEdit = {
    * @return {object} 当前选中控件的数据。 没有返回null
    */
   mousedown(event, x, y, id, fn) {
+    // debugger
     var _event$isdrag;
 
     //pc端允许拖拽，mo端不允许拖拽
@@ -293,8 +294,8 @@ const SingleComponentEdit = {
       this.init().then(() => (fn && fn(id), isdrag && !dragable && this.start(x, y))); //返回控件
 
       return this.node;
-    } //阻止默认事件
-
+    } 
+    //阻止默认事件
 
     event.preventDefault();
     return null;

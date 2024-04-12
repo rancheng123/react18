@@ -6,10 +6,8 @@
 
 
 
-import _page_attr_attribute__WEBPACK_IMPORTED_MODULE_0__ from '../../page/attr/attribute.jsx' ;
-import _flipper_config_json__WEBPACK_IMPORTED_MODULE_1__ from '../../flipper/attr/flipper_config.json' ;
-// import _flipper_config_json__WEBPACK_IMPORTED_MODULE_1___namespace from "../../flipper/attr/flipper_config.json";
-
+import Attribute from '@/components/page/attr/attribute' ;
+import flipper_config_json from './flipper/attr/flipper_config.json' ;
 
 
 /**
@@ -18,11 +16,9 @@ import _flipper_config_json__WEBPACK_IMPORTED_MODULE_1__ from '../../flipper/att
  * @author wyq
  * @version 1.0
  */
-console.log("_page_attr_attribute__WEBPACK_IMPORTED_MODULE_0__[\"Attribute\"]",_page_attr_attribute__WEBPACK_IMPORTED_MODULE_0__)
-const FlipperAttribute = Object.create(_page_attr_attribute__WEBPACK_IMPORTED_MODULE_0__);
+const FlipperAttribute = Attribute
 /**@propery {object} config 组件属性配置 */
 
- FlipperAttribute.config = _flipper_config_json__WEBPACK_IMPORTED_MODULE_1__;
+ FlipperAttribute.config = flipper_config_json;
 
-//# sourceURL=webpack:///./components/flipper/attr/flipper_attribute.js?
 export default FlipperAttribute

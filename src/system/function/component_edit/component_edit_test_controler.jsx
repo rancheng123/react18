@@ -676,7 +676,8 @@ export default class ComponentEditControler extends React.Component {
       //判断鼠标按下的是否是左键
       if (event.button == 0) {
         this.selected = event.ctrlKey ? MoreComponentEdit : SingleComponentEdit;
-        this.selected.controler = this; //如果id类型为function，把id值赋给变量fn，id赋为空
+        this.selected.controler = this; 
+        //如果id类型为function，把id值赋给变量fn，id赋为空
 
         if (typeof id == 'function') {
           fn = id, id = null;
