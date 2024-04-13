@@ -33,8 +33,8 @@ TextAttribute.ckeditor = function () {
       event.stopPropagation();
     };
 
-    __webpack_require__.e(/*! import() | editor */ "editor").then(__webpack_require__.bind(null, /*! ./editor */ "./components/text/attr/editor.js")).then(module => module.changeText(this.node.current.id));
-
+    // __webpack_require__.e(/*! import() | editor */ "editor").then(__webpack_require__.bind(null, /*! ./editor */ "./components/text/attr/editor.js")).then(module => module.changeText(this.node.current.id));
+    import('./editor.js').then(module => module.changeText(this.node.current.id));
 
   }
 };
@@ -119,4 +119,5 @@ TextAttribute.editTabs = function (tabs) {
   return tabs;
 };
 
-//# sourceURL=webpack:///./components/text/attr/text_attribute.js?
+
+export { TextAttribute }

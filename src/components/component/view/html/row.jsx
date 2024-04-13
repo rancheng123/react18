@@ -31,7 +31,6 @@ function Component() {
     background
   } = theme_data !== null && theme_data !== void 0 ? theme_data : {};
   let navigationSlide = null;
-  console.log(navigationSlide);
   navigationSlide = this.state.component['navigation-slide'];
   const name = document_data.name; //对class进行处理，解决class优化后的兼容问题  2020-08-03 wyq
 

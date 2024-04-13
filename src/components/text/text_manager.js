@@ -20,5 +20,4 @@ const TextManager = {
   }
 
 };
-export  {TextManager}
-//# sourceURL=webpack:///./components/text/text_manager.js?
+export  { TextManager }

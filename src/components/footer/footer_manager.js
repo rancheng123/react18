@@ -6,13 +6,13 @@ const FooterManager = {
   },
 
   getAttr() {
-    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(139)]).then(__webpack_require__.bind(null, /*! ./attr/footer_attribute */ "./components/footer/attr/footer_attribute.js")).then(module => module.FooterAttribute);
+    // return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(139)]).then(__webpack_require__.bind(null, /*! ./attr/footer_attribute */ "./components/footer/attr/footer_attribute.js")).then(module => module.FooterAttribute);
+    return import(`./attr/footer_attribute.js`).then(module => module.FooterAttribute);
   },
 
   getStyle(cate, type) {
     // return __webpack_require__("./components/footer/style lazy recursive ^\\.\\/.*\\/footer\\.json$")(`./${type}/footer.json`).then(module => module.default);
-    return import(`./style/${type}/footer.json`).then(module => module.default);
-    
+    return import(`./style/${type}/footer.json`).then(module => module.default)
   } 
 
 };

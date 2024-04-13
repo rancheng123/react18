@@ -84,4 +84,3 @@ function s36() {
   }));
 }
 export default s36
-//# sourceURL=webpack:///./components/text/view/html/title_s36_view.js?

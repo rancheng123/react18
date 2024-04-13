@@ -31,4 +31,4 @@ HeaderAttribute.custom = async function (opts) {
 };
 
 
-export default HeaderAttribute
+export  {HeaderAttribute}

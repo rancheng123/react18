@@ -7,7 +7,7 @@ const HeaderManager = {
 
   getAttr() {
     // return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(141)]).then(__webpack_require__.bind(null, /*! ./attr/header_attribute */ "./components/header/attr/header_attribute.js")).then(module => module.HeaderAttribute);
-    return import('./attr/header_attribute.js').then(module => module.default);
+    return import('./attr/header_attribute.js').then(module => module.Attribute);
   },
 
   // getStyle(){

@@ -38,9 +38,7 @@ const SingleComponentEdit = {
     btnId,
     boxId
   }) {
-    
-
-    console.log(222222222);
+    // debugger
     const {
       current: {
         layout: {
@@ -55,12 +53,16 @@ const SingleComponentEdit = {
     } = node,
     config = this.proxy.config;
 
+    
+    // 生成按钮组菜单方法
     if (hidden != '1') {
       Buttons.x = this.x, Buttons.y = this.y;
       Buttons.controler = this.controler;
       Buttons.buttons(btnId, node, this.proxy, Buttons.button(config, skin));
     }
 
+
+    // 生成选中框方法
     this.proxy.selectBox({
       id: boxId,
       dots: config.dots,
@@ -80,6 +82,7 @@ const SingleComponentEdit = {
    
    */
   async init() {
+    // debugger
     const Buttons = await import('./buttons_test.jsx').then(module => module.default)
     // __webpack_require__.e(/*! import() */ 1854).then(__webpack_require__.bind(null, /*! ./buttons_test */ "./system/function/component_edit/single/buttons_test.js"));
     const {
@@ -89,8 +92,9 @@ const SingleComponentEdit = {
           feature
         }
       }
-    } = this; //判断是不是容器只有非容器，才继续执行
+    } = this; 
 
+    //判断是不是容器只有非容器，才继续执行
     if (feature != 'Container') {
       var _this$parent;
 
@@ -124,8 +128,9 @@ const SingleComponentEdit = {
       Buttons,
       boxId: 'select-box',
       btnId: 'property-buttons'
-    }); //清除hover
+    });
 
+     //清除hover
     this.controler.setState({
       hover: null
     });
@@ -183,6 +188,8 @@ const SingleComponentEdit = {
     boxId,
     btnId
   }) {
+    // debugger
+    console.log(this.proxy.config,'this.proxy.config');
     //判断是否存在配置对象
     if (this.proxy.config) {
       //选中控件之前调用
@@ -193,8 +200,9 @@ const SingleComponentEdit = {
         node,
         boxId,
         btnId
-      }); //控件选中之后调用
-
+      }); 
+      
+      //控件选中之后调用
       this.proxy.selected(node);
     }
   },
@@ -258,7 +266,7 @@ const SingleComponentEdit = {
    * @return {object} 当前选中控件的数据。 没有返回null
    */
   mousedown(event, x, y, id, fn) {
-    // debugger
+    console.log('鼠标左键点击拉');
     var _event$isdrag;
 
     //pc端允许拖拽，mo端不允许拖拽

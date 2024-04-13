@@ -5,7 +5,6 @@ import App from './App'
 import Util from '@/components/page/util/util.jsx'
 import './public/public.js'
 import './language/system/zh.js'
-
   async function load(event, callback) {
       const pub = window.public;
       //存储框架页window对象
@@ -26,7 +25,6 @@ import './language/system/zh.js'
 
         try {
             const res = await Util.loadComponent(pub.type == 'pc' ? 'html' : 'mo',JSON.parse(JSON.stringify(pub.win.siteAsJson)))
-            console.log(res,'res');
             ReactDOM.createRoot(pub.dom.querySelector("#root")).render(res)
             callback && callback()
         } catch (error) {

@@ -47,5 +47,3 @@ const Component = {
 
 
 export default Component
-
-//# sourceURL=webpack:///./components/text/view/components/component.js?

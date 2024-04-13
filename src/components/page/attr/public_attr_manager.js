@@ -55,7 +55,8 @@ const PublicAttrManager = {
    * @return {Design} 设计模块
    */
   design() {
-    return __webpack_require__.e(/*! import() */ 45).then(__webpack_require__.bind(null, /*! ./design/design */ "./components/page/attr/design/design.js")).then(module => module.Design);
+    // return __webpack_require__.e(/*! import() */ 45).then(__webpack_require__.bind(null, /*! ./design/design */ "./components/page/attr/design/design.js")).then(module => module.Design);
+    return import("./design/design").then(module => module.Design);
   },
 
   /**
@@ -133,16 +134,16 @@ const PublicAttrManager = {
    * @param {string} name 控件名称
    */
   selectBox(name) {
+    // console.log(33333333333);
     let path = "page/attr/select_box/select_box.js",
         moduleName = "SelectBox";
 
     if (name) {
       [path, moduleName] = connect(name, ['[name]_select_box.js', moduleName]);
     }
-    console.log(path);
+    console.log(path.split('.')[0]);
     // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
-    return import(`../../${path.split('.')[0]}`).then(module => module[moduleName]);
-    
+    return import(`./select_box/select_box`).then(module => module[moduleName]);
   },
 
   /**

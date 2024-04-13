@@ -26,7 +26,7 @@ const marginType = (type, attr) => type == 'pc' ? attr : type + attr;
  */
 
 
-export default class SelectBox {
+class SelectBox {
   constructor(node, container) {
     /**@property node 控件数据对象*/
     this.node = node;
@@ -43,8 +43,10 @@ export default class SelectBox {
 
 
   static selectBox(opts) {
-    const element = document.querySelector(`#${opts.id}`); //节点对象存在，在插入选中框
+    // console.log(44444444);
+    const element = document.querySelector(`#${opts.id}`);
 
+    //节点对象存在，在插入选中框
     if (element) {
       const select = new this(opts.node, element);
       ReactDOM.render(React.createElement(select.render, {
@@ -68,6 +70,7 @@ export default class SelectBox {
     dots,
     def_layout
   }) {
+    console.log('render');
     const state = useState(def_layout);
     const {
       current: {
@@ -1426,5 +1429,4 @@ export default class SelectBox {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/select_box/select_box.js?
+export {SelectBox}

@@ -80,6 +80,7 @@ class Buttons {
 
 
   static btnsHandle(btns, type) {
+    console.log(btns, type,'btns, type');
     //头部等顶级容器不允许收藏和隐藏 sxt 2020-5-27  分页和搜索组件不允许收藏和隐藏 lw 2020-12-10
     if (/PageContent|Panel|Footer|Header|Lightboxmodal|Lightbox|Pagination|Input/.test(type)) {
       return window.public.type == "mo" && /Header|Footer|Pagination|Input/.test(type) ? btns.concat(Buttons.btns.mo) : btns;
@@ -100,6 +101,7 @@ class Buttons {
 
 
   static button(config, skin = '', index, key, value) {
+    console.log(config, skin, index, key, value,'属性按钮处理方法');
     var _config$window$public, _ref2, _conf$tabs, _ref3, _conf$btns;
 
     const conf = (_config$window$public = config[window.public.type]) !== null && _config$window$public !== void 0 ? _config$window$public : config; //取属性项配置
@@ -141,6 +143,7 @@ class Buttons {
     btns,
     componentName
   }) {
+    console.log('按钮结构渲染',btns,componentName);
     const id = button.node.current.id,
           componentType = button.node.current.type; //获取state状态
 

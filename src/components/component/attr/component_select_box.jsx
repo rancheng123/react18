@@ -1,7 +1,7 @@
 // 导入 React 库
 import React from 'react';
 // 导入自定义的 select_box 模块
-import SelectBox from '../../page/attr/select_box/select_box';
+import { SelectBox } from '../../page/attr/select_box/select_box';
 // 导入自定义的 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher.js';
 

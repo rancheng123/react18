@@ -11,7 +11,7 @@ import WidgetLibraryControler from '../toolbar/widget_library/widget_library_con
 export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
-    console.log(props,'ContentControler props',this);
+    // console.log(props,'ContentControler props',this);
 
     // this.init();
     /**@property {RulerControler} 标尺组件控制器 */
@@ -64,7 +64,6 @@ export default class ContentControler extends React.Component {
     const location = window.public.location;
     const pageid = location.getHash('pageid');
     const type = window.public.type = location.getHash('type') || 'pc'; //
-    console.log('init',);
     this.setState({
       display: false,
       edibtn: true,
@@ -456,7 +455,6 @@ export default class ContentControler extends React.Component {
   render() {
     const {state: { type, height, rulerShow, edibtn }} = this;
     let _style = null;
-    console.log('content render',this);
 
     if (type == 'pc' && rulerShow) {
       _style = {top: "60px", height: "calc(100% - 60px)"};

@@ -106,7 +106,6 @@ export default class ComponentEdit {
     data,
     index
   }) {
-    console.log('render22222');
 
     if (data) {
       if (data.absolute) {
@@ -123,7 +122,6 @@ export default class ComponentEdit {
             hidden
           }
         } = data; 
-        console.log(items,"结构中items");
 
         return items.length && hidden != 1 ? React.createElement(ConfigBtn["ConfigBtnWaper"], {
           style: {
@@ -182,7 +180,7 @@ export default class ComponentEdit {
 
 
   hover() {
-    console.log(this.state.hover,'this.state.hover');
+    // console.log(this.state.hover,'this.state.hover');
     if (this.state.hover) {
       return React.createElement("div", {
         className: "component-hover"

@@ -8,7 +8,6 @@ import MoreComponentEdit from './more_component_edit'
 // import AttrProxy from '@/components/page/attr_proxy'
 import MouseRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
 import positions from '../../function/component_edit/positions'
-import ConfigBtn from './single/ConfigBtn'
 
 
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
@@ -600,10 +599,11 @@ export default class ComponentEditControler extends React.Component {
   hoverDown(type, e) {
     this.mousedown(e, null, null, id => {
       setTimeout(() => {
-        console.log(id, type);
+        // console.log(id, type);
         document.getElementById(id + '-' + type).click();
       }, 200);
     });
+    
     e.stopPropagation();
   }
   /**
@@ -662,11 +662,13 @@ export default class ComponentEditControler extends React.Component {
 
 
   mousedown(event, x, y, id, fn) {
-    const closes = document.querySelectorAll('.layer-close,#panel-close'); //获取导航项管理的父级id 以及关闭的类 author lw date 2021-1-27
+    const closes = document.querySelectorAll('.layer-close,#panel-close');
 
+     //获取导航项管理的父级id 以及关闭的类 author lw date 2021-1-27
     let el = document.querySelector('#page-management .layer-close');
     closes.length && [...closes].forEach(e => {
-      if (window.public.type == 'mo' && el == e) {//如果是mo的时候且导航项管理存在且数组内存在则不关闭
+      if (window.public.type == 'mo' && el == e) {
+        //如果是mo的时候且导航项管理存在且数组内存在则不关闭
       } else {
         e.click();
       }

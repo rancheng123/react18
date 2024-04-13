@@ -88,5 +88,3 @@ function s35() {
 }
 
 export default s35
-
-//# sourceURL=webpack:///./components/text/view/html/tex_s35_view.js?

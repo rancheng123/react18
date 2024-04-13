@@ -41,8 +41,6 @@ export default class AttrProxy {
       //深拷贝原始配置数据
       _classPrivateFieldSet(this, _config, JSON.parse(JSON.stringify(_classPrivateFieldGet(this, _module).config)));
     } //返回属性配置
-
-
     return _classPrivateFieldGet(this, _config);
   }
   /** @property {object} iconList 控件属性icon列表 */
@@ -83,11 +81,11 @@ export default class AttrProxy {
 
 
   async init(type, param) {
+    console.log(type, param,'AttrProxy_Init');
     //判断是否为null或者控件代理类型是否相同，为null或类型不相等，执行if，不为null或相等，不执行if
     if (_classPrivateFieldGet(this, _module) == null || _classPrivateFieldGet(this, _type) != type) {
       //获取控件模块
       const component = await components_manager(type);
-
       if (component) {
         _classPrivateFieldSet(this, _module, (await component.getAttr()));
 
@@ -125,6 +123,8 @@ export default class AttrProxy {
 
 
   selectBox(opts) {
+    // console.log(opts,'selectBox',_classPrivateFieldGet(this, _module));
+    // console.log(11111111111111);
     _classPrivateFieldGet(this, _module) && _classPrivateFieldGet(this, _module).selectBox && _classPrivateFieldGet(this, _module).selectBox(opts);
   }
   /**

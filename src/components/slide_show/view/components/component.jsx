@@ -97,7 +97,8 @@ const Component = {
       }, components.map((e, i) => {
         return React.createElement("button", {
           className: i != index ? "" : "slideActive",
-          "data-index": i
+          "data-index": i,
+          key:i,
         }, numberbtn == true ? i + 1 : '');
       }));
     }

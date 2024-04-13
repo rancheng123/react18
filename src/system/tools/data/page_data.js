@@ -11,7 +11,6 @@ const PageData = {
    * @param {object} component  组件状态对象
    */
   install(component) {
-    console.log(component,PageData);
     Dispatcher.register('document_set', this.set, component);
     Dispatcher.register('document_get', this.getIframeData, component);
     Dispatcher.register('document_remove', PageData.remove, component);

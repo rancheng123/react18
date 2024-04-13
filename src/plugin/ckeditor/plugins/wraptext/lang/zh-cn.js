@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang( 'wraptext', 'zh-cn', {labelName: '文本换行'});

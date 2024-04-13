@@ -13,7 +13,7 @@ const dynamicImport = async (path, name) => {
     // let Module = null
     const m = await modules[`./${path}.js`]
     return m ? m().then(mod => mod[name]) : null
-    // await modules[`./${path}.js`]().then((mod) => {
+    // modules[`./${path}.js`] && await modules[`./${path}.js`]().then((mod) => {
     //   Module = mod
     // })
 

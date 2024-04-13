@@ -35,5 +35,3 @@ export default function Flipper() {
     components: components
   }));
 }
-
-//# sourceURL=webpack:///./components/flipper/view/html/flipper.js?

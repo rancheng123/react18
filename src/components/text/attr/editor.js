@@ -1,15 +1,16 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "changeText", function() { return changeText; });
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
+
+import Dispatcher from '@/system/tools/dispatcher'
 
 /**
 * @method changeText 修改控件文本
 * @author wyq
 */
 
-function changeText(id, e) {
-  window.CKEDITOR_BASEPATH = `${window.location.origin}/desktop/Public/Script/plugin/ckeditor/`; //调用ckeditor
+export function changeText(id, e) {
+  // window.CKEDITOR_BASEPATH = `${window.location.origin}/desktop/Public/Script/plugin/ckeditor/`; 
+  window.CKEDITOR_BASEPATH = `${window.location.origin}/src/plugin/ckeditor/`; 
 
+  //调用ckeditor
   window.public.ckeditor.then(() => {
     let _editor = window.CKEDITOR.instances;
 
@@ -19,7 +20,7 @@ function changeText(id, e) {
         data: {
           document_data
         }
-      } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(fnName);
+      } = Dispatcher.dispatch(fnName);
       _editor = window.CKEDITOR.inline('editor');
       window.public.dom.querySelector(`#${id}`).style.visibility = "hidden";
 
@@ -53,7 +54,7 @@ function blur(id, e) {
   //     prev.selectedCss.minHeight = this.height;
   // });
   document.querySelector(".editorShow").remove();
-  dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_set`, {
+  Dispatcher.dispatch(`${id}_set`, {
     args: [`document_data.text`, e.editor.getData()]
   });
   e.editor.setData(""), e.editor.destroy();
@@ -71,7 +72,7 @@ function blur(id, e) {
 
 function change(id, e) {
   if (e.editor.getData()) {
-    dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_set`, {
+    Dispatcher.dispatch(`${id}_set`, {
       args: [`document_data.text`, e.editor.getData()]
     });
   } // let offsetHeight= window.public.dom.querySelector(`#${id}`).offsetHeight||10;

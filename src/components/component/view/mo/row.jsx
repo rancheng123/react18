@@ -30,7 +30,6 @@ function Component() {
   } = this;
   let Background = null;
   let navigationSlide = null;
-  console.log(navigationSlide);
   navigationSlide = this.state.component['navigation-slide'];
   const {
     background
