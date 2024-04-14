@@ -1,7 +1,7 @@
 
 // 导入模块
-import React,{useState, useEffect} from "react"; // 导入 React 模块
-import DesignManager from "./design-manager"; // 导入 DesignManager 变量
+import React, { useState, useEffect } from "react"; // 导入 React 模块
+import DesignManager from "./design_manager"; // 导入 DesignManager 变量
 import ReactDOM from "react-dom"; // 导入 ReactDOM 模块
 
 
@@ -9,11 +9,12 @@ import ReactDOM from "react-dom"; // 导入 ReactDOM 模块
 
 let prefix = "",
 
-/**@private disableUnit 禁止单位选择*/
-disableUnit = "",
+  /**@private disableUnit 禁止单位选择*/
+  disableUnit = "",
 
-/**@property tabs 属性项集合 */
-tabs = ["background", "border", "radius", "shadow", "text", "icon", "space", "animation", "hoveranimation", "position", "divider", "levelnav"];
+  /**@property tabs 属性项集合 */
+  tabs = ["background", "border", "radius", "shadow", "text", "icon", "space", "animation", "hoveranimation", "position", "divider", "levelnav"];
+  const iconsList = ['&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784'];
 /**
  * @instance {Design} 设计实例
  * @author wyq
@@ -33,8 +34,7 @@ const Design = {
 
   /**
    * @method design 插入设计属性模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象
    * @param {object} opts.list 配置对象
    * @param {object} opts.node 控件数据
@@ -56,8 +56,7 @@ const Design = {
 
   /**
    * @method render 设计项结构
-   * @date 2019-11-14
-   * @author wyq
+
    * @return {object} 设计项结构
    */
   render() {
@@ -69,13 +68,14 @@ const Design = {
       className: "pcDesignLeft"
     }, React.createElement("ul", {
       className: "pcPatternUl"
-    }, tabs.map(e => {
+    }, tabs.map((e, i) => {
       return React.createElement("li", {
         key: e,
         className: tab != e ? null : "on",
         onClick: () => selectedTab(e)
       }, React.createElement("i", {
-        className: `pc-${e}-icon`
+        className: `pc-${e}-icon iconfont`,
+        dangerouslySetInnerHTML: {__html: iconsList[i]}
       }));
     }))), React.createElement("div", {
       className: "pcDesignRight",
@@ -85,8 +85,7 @@ const Design = {
 
   /**
    * @method showTab 选中当前点击项并显示对应内容
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} tab 当前选中项 
    */
   showTab(tab) {
@@ -116,8 +115,7 @@ const Design = {
 
   /**
    * @method background 载入背景模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async background(opts) {
@@ -127,8 +125,7 @@ const Design = {
 
   /**
    * @method border 载入边框模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async border(opts) {
@@ -138,8 +135,7 @@ const Design = {
 
   /**
    * @method radius 载入圆角模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async radius(opts) {
@@ -149,8 +145,7 @@ const Design = {
 
   /**
    * @method shadow 载入阴影模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async shadow(opts) {
@@ -160,8 +155,7 @@ const Design = {
 
   /**
    * @method text 载入文本模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async text(opts) {
@@ -182,8 +176,7 @@ const Design = {
 
   /**
    * @method hoveranimation 蒙层载入动画模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async hoveranimation(opts) {
@@ -193,8 +186,7 @@ const Design = {
 
   /**
    * @method icon 载入图标模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async icon(opts) {
@@ -204,8 +196,7 @@ const Design = {
 
   /**
    * @method position 载入定位模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async position(opts) {
@@ -226,8 +217,7 @@ const Design = {
 
   /**
    * @method levelnav 载入事件方法模块
-   * @date 2019-11-14
-   * @author wyq
+
    * @param {object} opts 参数对象 
    */
   async levelnav(opts) {

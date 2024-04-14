@@ -83,12 +83,12 @@ function Header(props) {
       onMouseDown={props.draggable ? mousedown : null}
     >
       {props.children}
-      <span class="layer-right">
+      <span className="layer-right">
         {props.help ? 
-          <i class="layer-help">?</i> : null
+          <i className="layer-help">?</i> : null
         }
         {props.close ? 
-          <i class="layer-close iconfont" onClick={unlayer(props.close)}>&#xE697;</i> : null
+          <i className="layer-close iconfont" onClick={unlayer(props.close)}>&#xE697;</i> : null
         }
       </span>
     </header>
@@ -119,14 +119,14 @@ function Footer(props) {
   if (props.buttons) {
     const [cancelName, ensureName] = props.buttons;
     return (
-      <footer class="em-layer-footer">
+      <footer className="em-layer-footer">
         {props.cancel && 
-          <button class="em-button-cancel" onClick={unlayer(props.cancel)}>
+          <button className="em-button-cancel" onClick={unlayer(props.cancel)}>
             {window.public.lang[cancelName]}
           </button>
         }
         {props.ensure && 
-          <button class="em-button-ensure" onClick={unlayer(props.ensure)}>
+          <button className="em-button-ensure" onClick={unlayer(props.ensure)}>
             {window.public.lang[ensureName]}
           </button>
         }

@@ -550,4 +550,4 @@ class BackgroundControler extends React.Component {
 
 _defineProperty(BackgroundControler, "LIST", ["backgroundColor"]);
 
-export default BackgroundControler; 
+export { BackgroundControler }; 

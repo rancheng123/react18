@@ -1,7 +1,7 @@
 // 导入 React 库
 import React from 'react';
 // 导入 ReactDOM 库
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 // 导入自定义的 layer 模块
 import Layer from '@/system/widgets/layer';
 import PublicAttrManager from './public_attr_manager.js';
@@ -156,8 +156,6 @@ const Attribute = {
 
   /**
    * @method showTab 选中指定项，显示对应内容
-   * @date 2019-11-15
-   * @author wyq
    * @param {string} type 选项类型 
    */
   showTab(id, type) {

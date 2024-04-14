@@ -28,8 +28,6 @@ const SingleComponentEdit = {
 
   /**
    * @method render 加载选中框和选中按钮
-   * @date 2020-03-11
-   
    * @param {object} config 配置对象
    */
   render({
@@ -108,6 +106,10 @@ const SingleComponentEdit = {
 
         this.proxy = await new AttrProxy().init(this.parent.current.type); //删除操作点配置
 
+        console.log(this.proxy, 'this.proxy哈哈哈哈哈')
+
+        
+
         delete ((_this$proxy$config = this.proxy.config) !== null && _this$proxy$config !== void 0 ? _this$proxy$config : {}).dots; //执行选中
 
         this.select({
@@ -123,6 +125,8 @@ const SingleComponentEdit = {
       }
 
     this.proxy = await new AttrProxy().init(type);
+
+    console.log(this.proxy, type, '嘿嘿嘿嘿')
     await this.select({
       node: this.node,
       Buttons,
@@ -215,6 +219,7 @@ const SingleComponentEdit = {
   unselect(boxid, btnid) {
     const box = document.querySelector(`#${boxid}`),
           btn = document.querySelector(`#${btnid}`);
+          console.log(box, '哈哈哈哈=========哈哈哈哈')
     box.children.length && ReactDom.unmountComponentAtNode(box);
     btn && btn.children.length && ReactDom.unmountComponentAtNode(btn);
   },

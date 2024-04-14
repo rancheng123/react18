@@ -36,31 +36,40 @@ class Buttons {
   }
   /** 
     * @method buttons 属性按钮列表结构
-    * @date 2019-10-14
-    * @author wyq
     * @return {object} 属性按钮列表结构
     */
 
 
   static buttons(id, node, proxy, btns) {
+    console.log(btns, 'hahahhbtns')
     const container = document.querySelector(`#${id}`);
 
     if (container) {
       var _ref, _data$data$document_d, _node$current$skin;
 
       const button = new Buttons(proxy, node),
-            {
-        current: {
-          id: cid,
-          layout: {
-            x,
-            y
+        {
+          current: {
+            id: cid,
+            layout: {
+              x,
+              y
+            }
           }
-        }
-      } = node,
-            data = Dispatcher.dispatch(`${cid}_get`),
-            componentName = (_ref = (_data$data$document_d = data.data.document_data.categoryName) !== null && _data$data$document_d !== void 0 ? _data$data$document_d : window.public.lang[((_node$current$skin = node.current.skin) !== null && _node$current$skin !== void 0 ? _node$current$skin : '').split('.')[1]]) !== null && _ref !== void 0 ? _ref : window.public.getName(node.current.type);
+        } = node,
+        data = Dispatcher.dispatch(`${cid}_get`),
+        componentName = (_ref = (_data$data$document_d = data.data.document_data.categoryName) !== null && _data$data$document_d !== void 0 ? _data$data$document_d : window.public.lang[((_node$current$skin = node.current.skin) !== null && _node$current$skin !== void 0 ? _node$current$skin : '').split('.')[1]]) !== null && _ref !== void 0 ? _ref : window.public.getName(node.current.type);
       btns = Buttons.btnsHandle(btns, node.current.type);
+      // ReactDOM.createRoot(container).render(
+      //   <Buttons
+      //     button={button}
+      //     componentName={componentName}
+      //     key={cid + x + y}
+      //     btnId={id}
+      //     btns={btns}
+      //   />
+      // )
+      console.log(btns, 'btns')
       ReactDOM.render(React.createElement(button.render, {
         button: button,
         componentName: componentName,
@@ -80,7 +89,7 @@ class Buttons {
 
 
   static btnsHandle(btns, type) {
-    console.log(btns, type,'btns, type');
+    console.log(btns, type, 'btns, type');
     //头部等顶级容器不允许收藏和隐藏 sxt 2020-5-27  分页和搜索组件不允许收藏和隐藏 lw 2020-12-10
     if (/PageContent|Panel|Footer|Header|Lightboxmodal|Lightbox|Pagination|Input/.test(type)) {
       return window.public.type == "mo" && /Header|Footer|Pagination|Input/.test(type) ? btns.concat(Buttons.btns.mo) : btns;
@@ -101,7 +110,7 @@ class Buttons {
 
 
   static button(config, skin = '', index, key, value) {
-    console.log(config, skin, index, key, value,'属性按钮处理方法');
+    console.log(config, skin, index, key, value, '属性按钮处理方法');
     var _config$window$public, _ref2, _conf$tabs, _ref3, _conf$btns;
 
     const conf = (_config$window$public = config[window.public.type]) !== null && _config$window$public !== void 0 ? _config$window$public : config; //取属性项配置
@@ -143,9 +152,9 @@ class Buttons {
     btns,
     componentName
   }) {
-    console.log('按钮结构渲染',btns,componentName);
+    console.log('按钮结构渲染', btns, componentName);
     const id = button.node.current.id,
-          componentType = button.node.current.type; //获取state状态
+      componentType = button.node.current.type; //获取state状态
 
     const [layout, setLayout] = React.useState({
       opacity: 0
@@ -154,7 +163,7 @@ class Buttons {
     React.useEffect(button.btnListLayout(btnId, setLayout), []); //属性按钮选中
 
     const [selectState, setSelectState] = React.useState(null),
-          [buttonList, setButtonList] = React.useState(btns); //注册选中加载按钮方法
+      [buttonList, setButtonList] = React.useState(btns); //注册选中加载按钮方法
 
     React.useEffect(() => {
       Dispatcher.register(`${id}_set_property_btns`, setButtonList, Buttons);
@@ -186,35 +195,35 @@ class Buttons {
     }, React.createElement("ul", {
       className: "functionUL"
     }, //2020-03-12 by wyq change 循环控件属性按钮
-    btns.map(({
-      name,
-      type,
-      hidden,
-      select,
-      selected,
-      show,
-      className = type
-    }, i) => {
-      //判断属性按钮是隐藏还是显示
-      if (hidden != true) {
-        //判断控件是否在指定条件下显示
-        if (show && !Buttons.controler.isShow(button.node, show)) {
-          return null;
+      btns.map(({
+        name,
+        type,
+        hidden,
+        select,
+        selected,
+        show,
+        className = type
+      }, i) => {
+        //判断属性按钮是隐藏还是显示
+        if (hidden != true) {
+          //判断控件是否在指定条件下显示
+          if (show && !Buttons.controler.isShow(button.node, show)) {
+            return null;
+          }
+
+          return React.createElement(ConfigBtn['ConfigButton'], {
+            key: i,
+            id: button.node.current.id,
+            name: name,
+            type: type,
+            className: className,
+            select: selectState != null ? type == selectState : selected,
+            click: button.selectedBtn.bind(button, type, select, setSelectState)
+          });
         }
 
-        return React.createElement(ConfigBtn['ConfigButton'], {
-          key: i,
-          id: button.node.current.id,
-          name: name,
-          type: type,
-          className: className,
-          select: selectState != null ? type == selectState : selected,
-          click: button.selectedBtn.bind(button, type, select, setSelectState)
-        });
-      }
-
-      return null;
-    })));
+        return null;
+      })));
   }
   /**
    * @method btnListLayout 设置属性按钮布局
@@ -231,23 +240,23 @@ class Buttons {
 
       if (btn) {
         const modal = document.querySelector(".property-modal"),
-              {
-          current: {
-            layout
-          }
-        } = this.node,
-              cy = layout.y - modal.scrollTop;
+          {
+            current: {
+              layout
+            }
+          } = this.node,
+          cy = layout.y - modal.scrollTop;
         let {
           offsetWidth: width,
           offsetHeight: height
         } = btn,
-            {
-          innerWidth,
-          innerHeight
-        } = window.public.win,
-            position,
-            left,
-            top;
+          {
+            innerWidth,
+            innerHeight
+          } = window.public.win,
+          position,
+          left,
+          top;
         height = height + 10; //如果头部或底部可以显示全按钮，则在头部或底部显示，否则点哪里在哪里显示
 
         if (cy > height || innerHeight - (cy + layout.height) > height) {
@@ -309,7 +318,7 @@ class Buttons {
 
 } //注册选中加载按钮方法
 
-_defineProperty(Buttons, "btns",ConfigBtn['defaultBtns']);
+_defineProperty(Buttons, "btns", ConfigBtn['defaultBtns']);
 
 _defineProperty(Buttons, "x", 0);
 

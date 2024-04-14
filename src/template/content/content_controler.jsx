@@ -28,8 +28,8 @@ export default class ContentControler extends React.Component {
       pageid: '',
       height: 0,
       search: '',
-      rulerShow:null,
-    }; 
+      rulerShow: null,
+    };
 
     // 右侧操作栏
     this.toolbars = [{
@@ -46,7 +46,7 @@ export default class ContentControler extends React.Component {
     //   iconName: "",
     //   type: "setUp"
     // },
-     {
+    {
       iconClass: "yiyingbaoicon",
       iconName: "&#xe774;",
       type: "template"
@@ -71,7 +71,7 @@ export default class ContentControler extends React.Component {
       pageid: pageid,
       height: 0,
       search: `?pageid=${pageid}&type=${type}`,
-      rulerShow:false,
+      rulerShow: false,
     }); //注册切换编辑事件
 
     Dispatcher.register("switchEdit", this.switchEdit, this); //注册隐藏工具栏事件
@@ -156,7 +156,7 @@ export default class ContentControler extends React.Component {
     } = this.state || {};
     this.setState({
       rulerShow: !rulerShow
-    },()=>{
+    }, () => {
       console.log('更新');
     });
   }
@@ -279,7 +279,7 @@ export default class ContentControler extends React.Component {
 
   widgetLibrary() {
     var box = document.getElementById("edit-toolbar-content"),
-        close = box.querySelector("#panel-close");
+      close = box.querySelector("#panel-close");
     close && close.click();
     // Promise.all(/*! import() | widget_library_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("widget_library_controler")]).then(__webpack_require__.bind(null, /*! ../toolbar/widget_library/widget_library_controler */ "./ui/toolbar/widget_library/widget_library_controler.js")).then(module => {
     //   module.WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
@@ -295,12 +295,12 @@ export default class ContentControler extends React.Component {
 
   componentLibrary() {
     var box = document.getElementById("edit-toolbar-content"),
-        close = box.querySelector("#panel-close");
+      close = box.querySelector("#panel-close");
     close && close.click();
     // Promise.all(/*! import() | widget_library_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("widget_library_controler")]).then(__webpack_require__.bind(null, /*! ../toolbar/widget_library/widget_library_controler */ "./ui/toolbar/widget_library/widget_library_controler.js")).then(module => {
     //   module.WidgetLibraryControler.widgetLibrary("edit-toolbar-content", "component");
     // });
-    WidgetLibraryControler.widgetLibrary("edit-toolbar-content",'component');
+    WidgetLibraryControler.widgetLibrary("edit-toolbar-content", 'component');
   }
   /**
    * @method template 弹出模版更换面板
@@ -400,52 +400,52 @@ export default class ContentControler extends React.Component {
 
 
   // 组件渲染执行的方法
-  componentDidMount(){
-      this.init()
+  componentDidMount() {
+    this.init()
   }
 
   // 渲染右侧工具栏
-  renderEdiTool(){
-    const {state: { type, edibtn }} = this;
-      if(type == 'pc') {
-        return (
-          <div id="ediTool">
-              {
-                edibtn ?
-                <div id="ediToolbtn">
-                  <ul className="edibtn">
-                    { 
-                      this.toolbars.map((item,index)=>{
-                        return (
-                          <li 
-                            key={index}
-                            data-type={item.type} 
-                            className={`${item.type}`} 
-                            onClick={()=>this.showToolbars(item.type)}
-                          >
-                            <a>
-                              <i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i>
-                              <p>{ window.public.lang.toolbars[index]}</p>
-                            </a>
-                          </li>
-                        )
-                      })
-                    }
-                  </ul>
-                </div>
-                : null
-              }
-            
-            <div id="edit-toolbar-content" data-add="c9IoTZL_1"></div>
-          </div>
-        )
-      } else {
-        return (null)
-      }
-          
+  renderEdiTool() {
+    const { state: { type, edibtn } } = this;
+    if (type == 'pc') {
+      return (
+        <div id="ediTool">
+          {
+            edibtn ?
+              <div id="ediToolbtn">
+                <ul className="edibtn">
+                  {
+                    this.toolbars.map((item, index) => {
+                      return (
+                        <li
+                          key={index}
+                          data-type={item.type}
+                          className={`${item.type}`}
+                          onClick={() => this.showToolbars(item.type)}
+                        >
+                          <a>
+                            <i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i>
+                            <p>{window.public.lang.toolbars[index]}</p>
+                          </a>
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </div>
+              : null
+          }
+
+          <div id="edit-toolbar-content" data-add="c9IoTZL_1"></div>
+        </div>
+      )
+    } else {
+      return (null)
+    }
+
   }
 
-  
+
   /**
    * @method render 挂载组件方法
    * @return {object} 待渲染的组件对象
@@ -453,12 +453,12 @@ export default class ContentControler extends React.Component {
 
 
   render() {
-    const {state: { type, height, rulerShow, edibtn }} = this;
+    const { state: { type, height, rulerShow, edibtn } } = this;
     let _style = null;
 
     if (type == 'pc' && rulerShow) {
-      _style = {top: "60px", height: "calc(100% - 60px)"};
-    } 
+      _style = { top: "60px", height: "calc(100% - 60px)" };
+    }
 
     //页面为pc，并且头部工具栏隐藏时，top变化 sxt 2022-12-12
     if (type == 'pc' && !edibtn) {
@@ -471,12 +471,12 @@ export default class ContentControler extends React.Component {
     return (
       <div id='ediMain' className={`${type}-content`} style={_style}>
         <div id='edit-container'>
-          <iframe 
+          <iframe
             id="iframe"
             scrolling="no"
-            onLoad={(event)=>this.load(event)}
-            src={`/framework.html`} 
-            // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
+            onLoad={(event) => this.load(event)}
+            src={`/framework.html`}
+          // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
           />
         </div>
         <div className='property-modal'>
@@ -485,8 +485,17 @@ export default class ContentControler extends React.Component {
           }
           <ComponentEditTestControler height={height} />
         </div>
-        
+
         {this.renderEdiTool()}
+        <div id="component-property"></div>
+        <div id="component-modal"></div>
+        <div id="gallery-modal"></div>
+        <div id="function-modal"></div>
+        <div id="source-modal"></div>
+        <div id="page-management"></div>
+        <div id="info-prompt"></div>
+        <div id="collection-modal"></div>
+        <div id="publish-modal"></div>
       </div>
     )
   }

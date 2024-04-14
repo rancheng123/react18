@@ -56,7 +56,10 @@ const PublicAttrManager = {
    */
   design() {
     // return __webpack_require__.e(/*! import() */ 45).then(__webpack_require__.bind(null, /*! ./design/design */ "./components/page/attr/design/design.js")).then(module => module.Design);
-    return import("./design/design").then(module => module.Design);
+    import('./design/design').then(module => {
+      console.log(module, '00000000000000000000000000000000000')
+    })
+    return import("./design/design").then(module => module.default);
   },
 
   /**
@@ -114,6 +117,7 @@ const PublicAttrManager = {
    * @return {CustomControler} 自定义样式模块
    */
   collection() {
+    return import('../../../template/toolbar/collection/collection_controler').then(res => res.default)
     return Promise.all(/*! import() | add_collection_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("add_collection_controler")]).then(__webpack_require__.bind(null, /*! ../../../ui/toolbar/collection/add_collection_controler.js */ "./ui/toolbar/collection/add_collection_controler.js")).then(module => module.AddCollectionControler);
   },
 
@@ -152,7 +156,8 @@ const PublicAttrManager = {
    * @author wyq
    */
   hiding() {
-    return __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ./hiding */ "./components/page/attr/hiding.js")).then(module => module.Hiding);
+    return import('./hiding').then(module => module.default)
+    // return __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ./hiding */ "./components/page/attr/hiding.js")).then(module => module.Hiding);
   },
 
   /**

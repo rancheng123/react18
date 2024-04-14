@@ -12,7 +12,7 @@ const dynamicImport = async (path, name) => {
     // console.log(modules,'modules',path,name);
     // let Module = null
     const m = await modules[`./${path}.js`]
-    return m ? m().then(mod => mod[name]) : null
+    return m ? m().then(mod => comProxy(mod[name])) : null
     // modules[`./${path}.js`] && await modules[`./${path}.js`]().then((mod) => {
     //   Module = mod
     // })
@@ -29,8 +29,6 @@ const dynamicImport = async (path, name) => {
 
 /**
  * @function componentsManager 控件结构管理器
- * @author wyq
- * @date 2019-09-17
  * @param {strng} type 控件类型
  * @return {object} 指定对象 
  */

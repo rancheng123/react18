@@ -1,15 +1,10 @@
 
 /**
  * @instance {DesignManager} 设计管理器实例
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
 const DesignManager = {
   /**
    * @method background 获取背景类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
@@ -22,14 +17,12 @@ const DesignManager = {
       moduleName = "BackgroundControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method border 获取边框类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
@@ -42,14 +35,12 @@ const DesignManager = {
       moduleName = "BorderControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method background 获取圆角类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
@@ -62,14 +53,12 @@ const DesignManager = {
       moduleName = "RadiusControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method background 获取阴影类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
@@ -82,14 +71,12 @@ const DesignManager = {
       moduleName = "ShadowControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method background 获取文本类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
@@ -102,14 +89,12 @@ const DesignManager = {
       moduleName = "TextControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method background 获取文本类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
@@ -122,34 +107,29 @@ const DesignManager = {
       moduleName = "AnimationControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method hoveranimation 获取蒙动画类
-   * @dat2024-1-29
-   * @author sxt
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
   hoveranimation(type) {
     let path = "hoveranimation/hoveranimation",
         moduleName = "Hoveranimation"; //判断类型是否为控制器
-
     if (type == "controler") {
       path = "hoveranimation/hoveranimation_controler";
       moduleName = "HoveranimationControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method background 获取图标类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Backgroun} 返回对应的控制器或视图类
    */
@@ -162,14 +142,12 @@ const DesignManager = {
       moduleName = "IconControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method background 获取定位类
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} type 类型
    * @return {Position} 返回对应的控制器或视图类
    */
@@ -182,14 +160,12 @@ const DesignManager = {
       moduleName = "PositionControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
    * @method space 获取间距类
-   * @date 2020-05-18
-   * @author wyq
    * @param {string} type 类型
    * @return {Space} 返回对应的控制器或视图类
    */
@@ -202,14 +178,12 @@ const DesignManager = {
       moduleName = "SpaceControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
   /**
   * @method levelnav 获取水平导航类
-  * @date 2019-11-14
-  * @author wyq
   * @param {string} type 类型
   * @return {Backgroun} 返回对应的控制器或视图类
   */
@@ -222,8 +196,8 @@ const DesignManager = {
       moduleName = "LevelnavControler";
     } //返回对应模块类
 
-
-    return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName])
+    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   }
 
 };
