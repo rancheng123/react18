@@ -107,7 +107,8 @@ const Attribute = {
 
         if (this.editTabs) tabs = this.editTabs(tabs.map(e => ({ ...e
         })));
-        ReactDOM.createRoot(element).render(React.createElement(Layer.tab, {
+        const modalDom = ReactDOM.createRoot(element)
+        modalDom.render(React.createElement(Layer.tab, {
           id: id,
           draggable: draggable.draggable === false ? false : true,
           tabs: tabs,
@@ -121,6 +122,7 @@ const Attribute = {
             this.showState = 'close';
             this.closeAttributePanel();
             opts.close && opts.close();
+            modalDom.unmount();
           }
         }))
         // ReactDOM.render(React.createElement(Layer.tab, {

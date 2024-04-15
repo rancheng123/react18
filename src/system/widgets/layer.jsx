@@ -162,6 +162,7 @@ function unlayer(callback) {
       isclose = callback();
     } //如果值不为false 则执行卸载面板方法 为false 不执行卸载
 
+    // 这里是有问题的 react18 卸载不同于16版本 通过callback 逻辑处理卸载程序 或者 通过props 传进来实例调用unmount方法
     if( isclose != false){
       if(componentPropertRoot){
         componentPropertRoot.unmount();
