@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 
 /**
  * @method Container 容器组件，存放属性组件的外层结构
@@ -17,7 +17,7 @@ function Container(prop) {
 
   return React.createElement("div", {
     className: prop.skin || null
-  }, prop.title ? React.a.createElement("h5", {
+  }, prop.title ? React.createElement("h5", {
     className: "pcConAttTitle "
   }, window.public.lang[prop.help] && prop.help ? React.createElement(Help, {
     help: prop.help
@@ -709,9 +709,9 @@ function OriginalFormat(prop) {
 
 
 function ColorPicker(prop) {
-  const [color] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(prop.color); //渲染调用方法，
+  const [color] =useState(prop.color); //渲染调用方法，
 
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+  useEffect(() => {
     const typeList = ['em-Button', 'em-Text', 'em-Box', 'em-Component']; //控制控件显示渐变色
 
     const colorTypeOption = typeList.indexOf(prop.componentType) > -1 ? true : false;

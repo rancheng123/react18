@@ -4,7 +4,7 @@ import React from "react";
 // 导入 react-dom 库
 import ReactDOM from "react-dom";
 // 导入 Background 组件
-import Background from "./background.js";
+import Background from "./background";
 // 导入 dispatcher 模块
 import Dispatcher from "@/system/tools/dispatcher";
 

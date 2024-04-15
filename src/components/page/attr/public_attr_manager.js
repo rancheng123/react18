@@ -117,8 +117,8 @@ const PublicAttrManager = {
    * @return {CustomControler} 自定义样式模块
    */
   collection() {
-    return import('../../../template/toolbar/collection/collection_controler').then(res => res.default)
-    return Promise.all(/*! import() | add_collection_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("add_collection_controler")]).then(__webpack_require__.bind(null, /*! ../../../ui/toolbar/collection/add_collection_controler.js */ "./ui/toolbar/collection/add_collection_controler.js")).then(module => module.AddCollectionControler);
+    return import('../../../template/toolbar/collection/add_collection_controler').then(res => res.default)
+    // return Promise.all(/*! import() | add_collection_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("add_collection_controler")]).then(__webpack_require__.bind(null, /*! ../../../ui/toolbar/collection/add_collection_controler.js */ "./ui/toolbar/collection/add_collection_controler.js")).then(module => module.AddCollectionControler);
   },
 
   //单项

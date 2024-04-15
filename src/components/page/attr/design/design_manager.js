@@ -17,7 +17,7 @@ const DesignManager = {
       moduleName = "BackgroundControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -35,7 +35,7 @@ const DesignManager = {
       moduleName = "BorderControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -53,7 +53,7 @@ const DesignManager = {
       moduleName = "RadiusControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -71,7 +71,7 @@ const DesignManager = {
       moduleName = "ShadowControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -89,7 +89,7 @@ const DesignManager = {
       moduleName = "TextControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -107,7 +107,7 @@ const DesignManager = {
       moduleName = "AnimationControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -124,7 +124,7 @@ const DesignManager = {
       moduleName = "HoveranimationControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -142,7 +142,7 @@ const DesignManager = {
       moduleName = "IconControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -160,7 +160,7 @@ const DesignManager = {
       moduleName = "PositionControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -178,7 +178,7 @@ const DesignManager = {
       moduleName = "SpaceControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
 
@@ -196,7 +196,7 @@ const DesignManager = {
       moduleName = "LevelnavControler";
     } //返回对应模块类
 
-    return import(`./${path}`).then(module => module[moduleName])
+    return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   }
 

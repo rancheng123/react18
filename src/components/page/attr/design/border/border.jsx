@@ -1,9 +1,6 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Border", function() { return Border; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
 
+import React from 'react';
+import Widget from '@/system/widgets/widget';
 
 /**
  * @class {Border} 边框视图类
@@ -12,7 +9,7 @@ __webpack_require__.r(__webpack_exports__);
  * @date 2019-10-30
  */
 
-class Border {
+export default class Border {
   constructor(controler) {
     /**@property controler 边框控制器实例 */
     this.controler = controler;
@@ -41,20 +38,20 @@ class Border {
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       className: "pcBorderBox"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.clear, null), this.props.list.map(e => {
+    }, React.createElement(this.clear, null), this.props.list.map(e => {
       const className = e.replace("der", "");
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      return React.createElement("ul", {
         className: "borderStyleUl",
         key: e
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, React.createElement("li", null, React.createElement("div", {
         className: `borderDiv ${className}div`
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.style, {
+      })), React.createElement("li", null, React.createElement(this.style, {
         name: className
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.color, {
+      })), React.createElement("li", null, React.createElement(this.color, {
         name: className
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.width, {
+      })), React.createElement("li", null, React.createElement(this.width, {
         name: className
       })));
     }));
@@ -62,12 +59,12 @@ class Border {
 
   clear() {
     const clear = this.controler.clear.bind(this.controler);
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    return React.createElement("ul", {
       className: "borderStyleUl"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    }, React.createElement("li", {
       className: "borderDiv",
       onClick: clear
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, window.public.lang["resetBorder"]));
+    }), React.createElement("li", null, window.public.lang["resetBorder"]));
   }
   /**
    * @method borderColor 边框颜色结构
@@ -81,7 +78,7 @@ class Border {
 
   color(prop) {
     const key = this.props.prefix + prop.name;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(widget__WEBPACK_IMPORTED_MODULE_1__["Widget"].ColorPicker, {
+    return React.createElement(Widget.ColorPicker, {
       id: key,
       basic: true,
       color: this.state[`${key}Color`] || this.state[`${prop.name}Color`] || 'rgba(0,0,0)',
@@ -107,7 +104,7 @@ class Border {
       borderWidth = 0;
     }
 
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(widget__WEBPACK_IMPORTED_MODULE_1__["Widget"].Range, {
+    return React.createElement(Widget.Range, {
       id: key,
       max: 50,
       basic: true,
@@ -129,7 +126,7 @@ class Border {
   style(prop) {
     const lang = window.public.lang;
     const key = this.props.prefix + prop.name;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(widget__WEBPACK_IMPORTED_MODULE_1__["Widget"].Select, {
+    return React.createElement(Widget.Select, {
       id: key,
       basic: true,
       value: this.state[`${key}Style`] || this.state[`${prop.name}Style`],
@@ -148,5 +145,3 @@ class Border {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/design/border/border.js?

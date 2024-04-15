@@ -1,14 +1,10 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BorderControler", function() { return BorderControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _border__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./border */ "./components/page/attr/design/border/border.js");
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Dispatcher from '@/system/tools/dispatcher';
+import Border from './border'; 
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
 
 
@@ -19,14 +15,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * @date 2019-10-30
  */
 
-class BorderControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+class BorderControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {Border} view 初始化 view 实例*/
 
-    this.view = new _border__WEBPACK_IMPORTED_MODULE_3__["Border"](this); //给view 入口方法绑定this
+    this.view = new Border(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
@@ -53,7 +49,7 @@ class BorderControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
         list = window.public.configure(this.LIST, group);
       }
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(BorderControler, {
+      ReactDOM.render(React.createElement(BorderControler, {
         id: opts.id || node.current.id,
         node: node,
         prefix: prefix,
@@ -70,7 +66,7 @@ class BorderControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -84,7 +80,7 @@ class BorderControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
       data: {
         theme_data
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(key);
+    } = Dispatcher.dispatch(key);
     this.state = {}; //theme_data数据存在并且存在style数据，则与state合并
 
     if (theme_data && theme_data.style) {
@@ -119,7 +115,7 @@ class BorderControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
 
     this.setState({ ...border
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`theme_data.style.`, border]
     });
   }
@@ -143,13 +139,13 @@ class BorderControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
               style = `${name}Style`,
               color = `${name}Color`;
         delete state[width], delete state[style], delete state[color];
-        dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_remove`, {
+        Dispatcher.dispatch(`${this.props.id}_remove`, {
           value: `theme_data.style.${width}`
         });
-        dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_remove`, {
+        Dispatcher.dispatch(`${this.props.id}_remove`, {
           value: `theme_data.style.${style}`
         });
-        dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_remove`, {
+        Dispatcher.dispatch(`${this.props.id}_remove`, {
           value: `theme_data.style.${color}`
         });
       }
@@ -162,4 +158,4 @@ class BorderControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
 
 _defineProperty(BorderControler, "LIST", ["border", "borderTop", "borderRight", "borderBottom", "borderLeft"]);
 
-//# sourceURL=webpack:///./components/page/attr/design/border/border_controler.js?
+export {BorderControler}

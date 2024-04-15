@@ -1,8 +1,6 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Position", function() { return Position; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
+
+// 导入React库
+import React from 'react';
 
 
 /**
@@ -12,7 +10,7 @@ __webpack_require__.r(__webpack_exports__);
  * @date 2019-11-14
  */
 
-class Position {
+export default class Position {
   constructor(controler) {
     /**@property controler header控制器实例 */
     this.controler = controler;
@@ -47,17 +45,17 @@ class Position {
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    return React.createElement("div", {
       className: "em-position-propertyNew"
-    }, this.props.group.margin ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    }, this.props.group.margin ? React.createElement("ul", {
       className: "em-position-marginNew"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    }, React.createElement("li", {
       className: "em-marginNew"
-    }, `${window.public.lang.margin}-margin`), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.margin, null)) : null, this.props.group.padding ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    }, `${window.public.lang.margin}-margin`), React.createElement(this.margin, null)) : null, this.props.group.padding ? React.createElement("ul", {
       className: "em-position-paddingNew"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    }, React.createElement("li", {
       className: "em-paddingNew"
-    }, `${window.public.lang.padding}-padding`), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.padding, null)) : null);
+    }, `${window.public.lang.padding}-padding`), React.createElement(this.padding, null)) : null);
   }
   /**
    * @method margin 外边距结构
@@ -76,10 +74,10 @@ class Position {
         return null;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return React.createElement("li", {
         className: `em-margin${i}New`,
         key: i
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.unit, {
+      }, React.createElement(this.unit, {
         title: `position-${e}`,
         id: `margin-${e}`,
         sname: key,
@@ -108,10 +106,10 @@ class Position {
         return null;
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      return React.createElement("li", {
         className: `em-padding${i}New`,
         key: i
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.unit, {
+      }, React.createElement(this.unit, {
         title: `position-${e}`,
         id: `padding-${e}`,
         sname: key,
@@ -124,5 +122,3 @@ class Position {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/design/position/position.js?

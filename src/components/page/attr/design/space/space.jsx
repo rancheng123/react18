@@ -1,9 +1,9 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Space", function() { return Space; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
 
+// 导入React库
+import React from 'react';
+
+// 导入widget模块
+import Widget from '@/system/widgets/widget.js';
 
 /**
  * @class {Space} 间距视图类
@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
  * @date 2020-05-18
  */
 
-class Space {
+export default class Space {
   constructor(controler) {
     /**@property controler 间距控制器实例 */
     this.controler = controler; //unit 绑定this，实现伪继承
@@ -40,9 +40,9 @@ class Space {
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    return React.createElement("ul", {
       className: "design-space"
-    }, this.props.list.map((e, i) => react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    }, this.props.list.map((e, i) => React.createElement("li", {
       className: "pcAttList",
       key: i
     }, this[e] && this[e]())));
@@ -56,7 +56,7 @@ class Space {
 
 
   columnSpace() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.unit, {
+    return React.createElement(this.unit, {
       id: "columnSpace",
       title: "columnSpace",
       sname: "colspacing",
@@ -73,7 +73,7 @@ class Space {
 
 
   rowSpace() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.unit, {
+    return React.createElement(this.unit, {
       id: "rowSpace",
       title: "rowSpace",
       sname: "rowspacing",
@@ -94,7 +94,7 @@ class Space {
 
     const name = "innerSpace";
     const key = this.props.prefix + name;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(widget__WEBPACK_IMPORTED_MODULE_1__["Widget"].Range, {
+    return React.createElement(Widget.Range, {
       id: "innerspacing",
       title: "innerspacing",
       unit: "px",
@@ -113,7 +113,7 @@ class Space {
 
 
   paddingBtm() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.unit, {
+    return React.createElement(this.unit, {
       id: "paddingBtm",
       title: "paddingBtm",
       sname: "paddingBtm",
@@ -130,7 +130,7 @@ class Space {
 
 
   paddingRit() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.unit, {
+    return React.createElement(this.unit, {
       id: "paddingRit",
       title: "paddingRit",
       sname: "paddingRit",
@@ -140,5 +140,3 @@ class Space {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/design/space/space.js?

@@ -1,25 +1,27 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconControler", function() { return IconControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icon */ "./components/page/attr/design/icon/icon.js");
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// 导入dispatcher模块
+import Dispatcher from '@/system/tools/dispatcher.js';
+
+// 导入Icon模块
+import Icon from './icon';
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
 
-class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+class IconControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {Link} view 初始化 view 实例*/
 
-    this.view = new _icon__WEBPACK_IMPORTED_MODULE_3__["Icon"](this); //给view 入口方法绑定this
+    this.view = new Icon(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
@@ -54,7 +56,7 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
         list = window.public.configure(this.LIST, group);
       }
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IconControler, {
+      ReactDOM.render(React.createElement(IconControler, {
         id: node.current.id,
         node: node,
         prefix: prefix,
@@ -73,7 +75,7 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -88,7 +90,7 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
         theme_data,
         document_data
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(fnName);
+    } = Dispatcher.dispatch(fnName);
     this.state = {}; //theme_data数据存在并且存在style数据，则与state合并
 
     if (theme_data && theme_data.style) {
@@ -136,7 +138,7 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
     this.setState({
       [key]: value
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`theme_data.style.${key}`, value]
     });
   }
@@ -165,7 +167,7 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
     //     _prefix=_prefix.replace("mo","");
     // }
 
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_remove`, {
+    Dispatcher.dispatch(`${this.props.id}_remove`, {
       value: `document_data.${prefixIcon}`
     });
   }
@@ -196,7 +198,7 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
     //     _prefix=_prefix.replace("mo","");
     // }
 
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`document_data.${prefixIcon}`, datas]
     });
   }
@@ -246,7 +248,7 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
           this.setState({
             [linkType]: data
           });
-          dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+          Dispatcher.dispatch(`${this.props.id}_set`, {
             args: [`document_data.${linkType}`, data]
           });
         }
@@ -258,4 +260,4 @@ class IconControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 
 _defineProperty(IconControler, "LIST", ["size", "color"]);
 
-//# sourceURL=webpack:///./components/page/attr/design/icon/icon_controler.js?
+export {IconControler};

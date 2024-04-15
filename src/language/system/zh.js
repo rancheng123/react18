@@ -1,4 +1,4 @@
-import "../../public/public.js";
+import "../../utils/public.js";
 
 window.public.lang = {
     /** 公用部分 start*/

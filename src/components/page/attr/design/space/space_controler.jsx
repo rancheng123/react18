@@ -1,11 +1,13 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SpaceControler", function() { return SpaceControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _space__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./space */ "./components/page/attr/design/space/space.js");
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// 导入dispatcher模块
+import Dispatcher from '@/system/tools/dispatcher.js';
+
+// 导入Space模块
+import Space from './space';
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -19,14 +21,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * @date 2020-05-18
  */
 
-class SpaceControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+class SpaceControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {Space} view 初始化 view 实例*/
 
-    this.view = new _space__WEBPACK_IMPORTED_MODULE_3__["Space"](this); //给view 入口方法绑定this
+    this.view = new Space(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
@@ -63,7 +65,7 @@ class SpaceControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
         list = window.public.configure(this.LIST, group);
       }
 
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(SpaceControler, {
+      ReactDOM.render(React.createElement(SpaceControler, {
         id: node.current.id,
         prefix: prefix,
         node: node,
@@ -82,7 +84,7 @@ class SpaceControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -98,7 +100,7 @@ class SpaceControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
         theme_data,
         document_data = {}
       }
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(key); //赋空状态对象
+    } = Dispatcher.dispatch(key); //赋空状态对象
 
     this.state = document_data; //theme_data数据存在并且存在style数据，则与state合并
 
@@ -124,7 +126,7 @@ class SpaceControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
     this.setState({
       [key]: value
     });
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+    Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`theme_data.style.${key}`, value]
     });
   }
@@ -133,4 +135,4 @@ class SpaceControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compon
 
 _defineProperty(SpaceControler, "LIST", ['columnSpace', 'rowSpace', 'innerspacing']);
 
-//# sourceURL=webpack:///./components/page/attr/design/space/space_controler.js?
+export { SpaceControler }

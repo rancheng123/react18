@@ -112,20 +112,21 @@ class TextControler extends React.Component {
   }
 
   componentDidMount() {
-    let src = `${pageData.apiServiceUrl}index.php/fonts?list_rows=120`;
-    fetch(src, {
-      method: 'GET',
-      headers: {
-        "webToken": pageData.webToken,
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
-    }).then(response => response.json()).then(data => {
-      if (data.data) {
-        this.setState({
-          customList: data.data.data || []
-        });
-      }
-    }).catch(err => console.log("Oh, error", err));
+    // 暂时注掉
+    // let src = `${pageData.apiServiceUrl}index.php/fonts?list_rows=120`;
+    // fetch(src, {
+    //   method: 'GET',
+    //   headers: {
+    //     "webToken": pageData.webToken,
+    //     "Content-Type": "application/x-www-form-urlencoded"
+    //   }
+    // }).then(response => response.json()).then(data => {
+    //   if (data.data) {
+    //     this.setState({
+    //       customList: data.data.data || []
+    //     });
+    //   }
+    // }).catch(err => console.log("Oh, error", err));
   }
   /**
    * @method selectTab 起换选项
@@ -337,4 +338,4 @@ class TextControler extends React.Component {
 }
 
 _defineProperty(TextControler, "LIST", ["size", "letterSpace", "family", "color", "style", "align", "marginLeft", "marginRight"]);
-export default TextControler
+export {TextControler}

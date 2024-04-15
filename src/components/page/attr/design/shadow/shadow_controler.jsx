@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import Dispatcher from '@/system/tools/dispatcher';
 import Widget from '@/system/widgets/widget';
 // /* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shadow */ "./components/page/attr/design/shadow/shadow.js");

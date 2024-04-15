@@ -30,9 +30,9 @@ class Radius extends React.Component {
                 <Widget.Range
                   id={`borderRadius${e}`}
                   max={100}
-                  value={this.state.values[i]}
+                  value={values[i]}
                   unit='px'
-                  change={() => this.props.value(i)} // 这里可能有bug 需要执行看一下
+                  change={(event) => this.props.value(i,event)} // 这里可能有bug 需要执行看一下
                 />
               </div>
             )
@@ -70,5 +70,3 @@ class Radius extends React.Component {
 }
 
 export { Radius }
-
-//# sourceURL=webpack:///./components/page/attr/design/radius/radius.js?

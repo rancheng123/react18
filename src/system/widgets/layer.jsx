@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import ReactDom from 'react-dom'
+// import ReactDom from 'react-dom'
+import { createRoot } from 'react-dom/client';
 import Widgets from './modal/index.jsx'
 
+// 组件属性根节点
+let componentPropertRoot = null
 
 /**
  * @function layout 布局处理
@@ -88,7 +91,7 @@ function Header(props) {
           <i className="layer-help">?</i> : null
         }
         {props.close ? 
-          <i className="layer-close iconfont" onClick={unlayer(props.close)}>&#xE697;</i> : null
+          <i className="layer-close yiyingbaoicon" onClick={unlayer(props.close)}>&#xE697;</i> : null
         }
       </span>
     </header>
@@ -159,8 +162,15 @@ function unlayer(callback) {
       isclose = callback();
     } //如果值不为false 则执行卸载面板方法 为false 不执行卸载
 
-
-    isclose != false && ReactDom.unmountComponentAtNode(box.parentNode);
+    if( isclose != false){
+      if(componentPropertRoot){
+        componentPropertRoot.unmount();
+      }else{
+        // const componentPropertRoot = createRoot(document.querySelector('#component-property'))
+        componentPropertRoot.unmount()
+      }
+    }
+    // isclose != false && root.unmount();
   };
 }
 /**
@@ -248,8 +258,8 @@ const Layer = {
       //   ensure: ensure
       // }));
     }
-
-    ReactDom.render(React.createElement(Alert, null), document.querySelector('#info-prompt'));
+    componentPropertRoot = createRoot(document.querySelector('#component-property'))
+    componentPropertRoot.render(React.createElement(Alert, null));
   },
 
   /**
@@ -311,7 +321,7 @@ const Layer = {
       // }));
     }
 
-    ReactDom.render(React.createElement(Confirm, null), document.querySelector('#info-prompt'));
+    componentPropertRoot.render(React.createElement(Confirm, null));
   },
 
   /**

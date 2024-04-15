@@ -23,17 +23,17 @@ export default class CollectionControler extends React.Component{
     // this.view.render = this.view.render.bind(this.view);
   }
 
-  static collection(opts) {
-    const element = document.querySelector(`#collection-modal`);
+  static collection(id) {
+    // const element = document.querySelector(`#collection-modal`);
+    const element = document.querySelector(`#${id}`);
     
     // React 17 写法
     // ReactDom.render(React.createElement(CollectionControler, {
     //   id: id
     // }), element);
     // React 18 写法
-    const { node } = opts
     const root = createRoot(element)
-    root.render(<CollectionControler id={node.current.id}  nood={node}/>)
+    root.render(<CollectionControler id={id}  root={root}/>)
   }
   /**
    * @method render 挂载组件方法

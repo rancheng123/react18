@@ -1,14 +1,21 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PositionControler", function() { return PositionControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _position__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./position */ "./components/page/attr/design/position/position.js");
+// __webpack_require__.r(__webpack_exports__);
+// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PositionControler", function() { return PositionControler; });
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
+// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
+// /* harmony import */ var _position__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./position */ "./components/page/attr/design/position/position.js");
 
 
+import React from 'react';
+import ReactDOM from 'react-dom';
 
+// 导入dispatcher模块
+import Dispatcher from '@/system/tools/dispatcher.js';
+
+// 导入Icon模块
+import Position  from './position';
 
 /**
  * @class {PositionControler} 定位控制器类
@@ -17,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
  * @date 2019-11-14
  */
 
-class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export class PositionControler extends React.Component {
   constructor(props) {
     super(props);
     /**@property {number} parentWidth 控件父级宽度数据 */
@@ -33,7 +40,7 @@ class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Com
     this.init();
     /**@property {Position} view 初始化 view 实例*/
 
-    this.view = new _position__WEBPACK_IMPORTED_MODULE_3__["Position"](this); //给view 入口方法绑定this
+    this.view = new Position(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
@@ -64,7 +71,7 @@ class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Com
 
     if (node && element) {
       const PositionControler = this;
-      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PositionControler, {
+      ReactDOM.render(React.createElement(PositionControler, {
         id: node.current.id,
         node: node,
         group: group !== null && group !== void 0 ? group : {
@@ -86,7 +93,7 @@ class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Com
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -98,7 +105,7 @@ class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Com
   init() {
     const {
       data
-    } = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_get`),
+    } = Dispatcher.dispatch(`${this.props.id}_get`),
           {
       theme_data: {
         style = {}
@@ -181,7 +188,7 @@ class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Com
     } //更新选中框
 
 
-    dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${id}_select_setLayout`, {
+    Dispatcher.dispatch(`${id}_select_setLayout`, {
       value: prevState => ({ ...prevState,
         [type]: layout[type] + parseFloat(value)
       })
@@ -310,7 +317,7 @@ class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Com
     }); //修改控件数据
 
     if (value === 0 || value) {
-      dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch(`${this.props.id}_set`, {
+      Dispatcher.dispatch(`${this.props.id}_set`, {
         args: [`theme_data.style.${key}`, value]
       });
     }
@@ -335,5 +342,3 @@ class PositionControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Com
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/design/position/position_controler.js?

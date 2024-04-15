@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import Dispatcher from '@/system/tools/dispatcher';
 import { Radius } from './radius'
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -18,9 +18,9 @@ class RadiusControler extends React.Component {
     this.init();
     /**@property {Radius} view 初始化 view 实例*/
 
-    this.view = new _radius__WEBPACK_IMPORTED_MODULE_3__["Radius"](this); //给view 入口方法绑定this
+    // this.view = new Radius(this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
     this.LIST = ["TopLeft", "TopRight", "BottomRight", "BottomLeft"]
   }
   /**@static LIST 属性列表 */
@@ -62,8 +62,10 @@ class RadiusControler extends React.Component {
    */
 
   render() {
-    return <Radius state={this.state} props={...this.props} value={this.value.bind(this)} locking={this.locking.bind(this)} />
+    return <Radius state={this.state} {...this.props} value={this.value.bind(this)} locking={this.locking.bind(this)} />
   }
+
+  
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
    * @date 2019-11-7
