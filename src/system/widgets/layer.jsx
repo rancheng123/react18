@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import Widgets from './modal/index.jsx'
 
 // 组件属性根节点
-let componentPropertRoot = null
+// let componentPropertRoot = null
 
 /**
  * @function layout 布局处理
@@ -155,23 +155,25 @@ function Footer(props) {
 
 function unlayer(callback) {
   return function _unlayer(event) {
+    
     const box = event.currentTarget.closest(".yq-layer");
     let isclose;
 
     if (typeof callback === "function") {
       isclose = callback();
-    } //如果值不为false 则执行卸载面板方法 为false 不执行卸载
+    } 
+    //如果值不为false 则执行卸载面板方法 为false 不执行卸载
+    // isclose != false && root.unmount();
 
     // 这里是有问题的 react18 卸载不同于16版本 通过callback 逻辑处理卸载程序 或者 通过props 传进来实例调用unmount方法
-    if( isclose != false){
-      if(componentPropertRoot){
-        componentPropertRoot.unmount();
-      }else{
-        // const componentPropertRoot = createRoot(document.querySelector('#component-property'))
-        componentPropertRoot.unmount()
-      }
-    }
-    // isclose != false && root.unmount();
+    // if( isclose != false){
+    //   if(componentPropertRoot){
+    //     componentPropertRoot.unmount();
+    //   }else{
+    //     // const componentPropertRoot = createRoot(document.querySelector('#component-property'))
+    //     componentPropertRoot.unmount()
+    //   }
+    // }
   };
 }
 /**
@@ -259,8 +261,8 @@ const Layer = {
       //   ensure: ensure
       // }));
     }
-    componentPropertRoot = createRoot(document.querySelector('#component-property'))
-    componentPropertRoot.render(React.createElement(Alert, null));
+    // componentPropertRoot = createRoot(document.querySelector('#component-property'))
+    // componentPropertRoot.render(React.createElement(Alert, null));
   },
 
   /**
@@ -322,7 +324,7 @@ const Layer = {
       // }));
     }
 
-    componentPropertRoot.render(React.createElement(Confirm, null));
+    // componentPropertRoot.render(React.createElement(Confirm, null));
   },
 
   /**

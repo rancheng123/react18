@@ -36,7 +36,6 @@ const SingleComponentEdit = {
     btnId,
     boxId
   }) {
-    // debugger
     const {
       current: {
         layout: {
@@ -80,7 +79,6 @@ const SingleComponentEdit = {
    
    */
   async init() {
-    // debugger
     const Buttons = await import('./buttons_test.jsx').then(module => module.default)
     // __webpack_require__.e(/*! import() */ 1854).then(__webpack_require__.bind(null, /*! ./buttons_test */ "./system/function/component_edit/single/buttons_test.js"));
     const {
@@ -192,7 +190,6 @@ const SingleComponentEdit = {
     boxId,
     btnId
   }) {
-    // debugger
     console.log(this.proxy.config,'this.proxy.config');
     //判断是否存在配置对象
     if (this.proxy.config) {

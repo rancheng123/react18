@@ -2,7 +2,7 @@
 // 导入模块
 import React, { useState, useEffect } from "react"; // 导入 React 模块
 import DesignManager from "./design_manager"; // 导入 DesignManager 变量
-import ReactDOM from "react-dom"; // 导入 ReactDOM 模块
+import ReactDOM from "react-dom/client"; // 导入 ReactDOM 模块
 
 
 /**@private prefix 属性前缀*/
@@ -43,6 +43,8 @@ const Design = {
   design(opts) {
     var _opts$prefix;
 
+    const { root }= opts
+
     const DesignComponent = this.render.bind(this);
     this.config = opts.config, this.group = opts.list;
     this.publicAttr = opts.publicAttr, this.node = opts.node; //设置项禁用所有单位选择属性
@@ -50,8 +52,8 @@ const Design = {
     disableUnit = opts.disableUnit;
     prefix = (window.public.type == 'pc' ? '' : 'mo') + ((_opts$prefix = opts.prefix) !== null && _opts$prefix !== void 0 ? _opts$prefix : "");
     tabs = window.public.configure(tabs, this.group);
-    const ele = ReactDOM.createRoot(opts.element)
-    ele.render(<DesignComponent root={ele} />)
+    // const ele = ReactDOM.createRoot(opts.element)
+    root.render(<DesignComponent root={root} />)
     // ReactDOM.render(React.createElement(DesignComponent, null), opts.element);
   },
 

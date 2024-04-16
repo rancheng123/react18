@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 // 导入 animation 模块
-import Animation from "./animation.js";
+import Animation from "./animation";
 // 导入 dispatcher 模块
 import Dispatcher from "@/system/tools/dispatcher";
 
@@ -20,7 +20,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * @LastEditTime: 
  */
 
-export default class AnimationControler extends React.Component {
+class AnimationControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
@@ -293,9 +293,10 @@ export default class AnimationControler extends React.Component {
   static animation(opts) {
     const {
       node,
-      element
+      element,
+      root
     } = opts;
-    ReactDOM.render(React.createElement(this, {
+    root.render(React.createElement(this, {
       id: node.current.id,
       node: node
     }), element);
@@ -517,5 +518,4 @@ export default class AnimationControler extends React.Component {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/animation/animation_controler.js?
+export{AnimationControler}

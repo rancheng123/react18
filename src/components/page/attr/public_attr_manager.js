@@ -40,9 +40,11 @@ const PublicAttrManager = {
    * @return {Basic} 基本属性模块
    */
   basic(name) {
+
     if (name) {
-      const [path, moduleName] = connect(name, ["basic/[name]_basic_controler.js", "BasicControler"]);
-      return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+      const [path, moduleName] = connect(name, ["basic/[name]_basic_controler", "BasicControler"]);
+      // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+      return import(`../../${path}`).then(module => module[moduleName]);
     }
 
     return null;
@@ -56,9 +58,9 @@ const PublicAttrManager = {
    */
   design() {
     // return __webpack_require__.e(/*! import() */ 45).then(__webpack_require__.bind(null, /*! ./design/design */ "./components/page/attr/design/design.js")).then(module => module.Design);
-    import('./design/design').then(module => {
-      console.log(module, '00000000000000000000000000000000000')
-    })
+    // import('./design/design').then(module => {
+    //   console.log(module, '00000000000000000000000000000000000')
+    // })
     return import("./design/design").then(module => module.default);
   },
 
@@ -88,9 +90,10 @@ const PublicAttrManager = {
    * @return {Basic} 设置模块
    */
   animation(name) {
-    let path = "animation/animation_controler.js",
+    let path = "animation/animation_controler.jsx",
         moduleName = "AnimationControler";
-    return __webpack_require__("./components/page/attr lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return __webpack_require__("./components/page/attr lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName]);
   },
 
   /**

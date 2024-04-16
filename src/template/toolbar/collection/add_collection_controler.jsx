@@ -1,17 +1,16 @@
 
 // 导入 React 库
 import React from 'react';
-import ReactDOM from 'react-dom';
-// 导入 add_collection 模块
-import AddCollection from './add_collection';
-
+// 导入 ReactDOM 库
+import {createRoot} from 'react-dom/client';
 // 导入 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher';
 
 // 导入 layer 模块
 import Layer from '@/system/widgets/layer';
 
-
+// 导入 widget 模块
+import Widget from '@/system/widgets/widget';
 
 
 export default class AddCollectionControler extends React.Component {
@@ -19,11 +18,11 @@ export default class AddCollectionControler extends React.Component {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
-    /**@property {AddCollection} view 初始化 view 实例*/
+    // /**@property {AddCollection} view 初始化 view 实例*/
 
-    this.view = new AddCollection(this); //给view 入口方法绑定this
+    // this.view = new AddCollection(this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
   }
 
   static collection(opts) {
@@ -31,10 +30,12 @@ export default class AddCollectionControler extends React.Component {
     const {
       node
     } = opts;
-    ReactDOM.render(React.createElement(AddCollectionControler, {
+    const collectionRoot = createRoot(element)
+    collectionRoot.render(React.createElement(AddCollectionControler, {
       id: node.current.id,
-      node: node
-    }), element);
+      node: node,
+      collectionRoot,
+    }));
   }
   /**
    * @method render 挂载组件方法
@@ -45,7 +46,33 @@ export default class AddCollectionControler extends React.Component {
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return (
+      <Layer.open
+        titles={[window.public.lang["collection"]]}
+        area={["360px", "200px"]}
+        shade={[0.8, "#000000"]}
+        skin="em-collection-add"
+        draggable={true}
+        cancel={()=> this.props.collectionRoot.unmount()}
+        ensure={()=>this.ensure()}
+        close={() => this.props.collectionRoot.unmount()}
+      >
+        <ul className="pcConAttDesign">
+          <li className="pcAttList">
+            <Widget.Input
+              title="collectionName"
+              id="collectionName"
+              readonly={false}
+              placeholder={this.state.placeholder}
+              value={this.state.collectionText || ""}
+              change={(event)=> this.changText("collectionText",event)}
+            />
+          </li>
+        </ul>
+      </Layer.open>
+
+    )
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次

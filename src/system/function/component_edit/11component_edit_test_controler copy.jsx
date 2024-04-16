@@ -584,7 +584,6 @@ class ComponentEditControler extends React.Component {
             configList.push(cur);
           }
         }); //更新视图
-        // debugger
         console.log(configList);
         this.setState({
           hidden: false,

@@ -182,8 +182,8 @@ const Attribute = {
 
     if (id) {
       param.element = document.querySelector(`#${id}`);
+      param.root = ReactDOM.createRoot( document.querySelector(`#${id}`)) 
     }
-
     this[type](param);
   },
 

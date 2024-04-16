@@ -1,7 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Dispatcher from './system/tools/dispatcher';
+import Dispatcher from '@/system/tools/dispatcher';
 
 export  default class BasicControler extends React.Component {
   constructor(props) {
@@ -25,11 +24,12 @@ export  default class BasicControler extends React.Component {
       node,
       element,
       config,
-      publicAttr
+      publicAttr,
+      root
     } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
 
     if (node && element) {
-      ReactDOM.render(React.createElement(this, {
+      root.render(React.createElement(this, {
         id: node.current.id,
         node: node,
         config: config,
@@ -37,7 +37,7 @@ export  default class BasicControler extends React.Component {
         groupList: this.LIST,
         publicAttr: publicAttr,
         prefix: window.public.type == 'pc' ? '' : 'mo'
-      }), element);
+      }));
     }
   }
 
@@ -188,5 +188,3 @@ export  default class BasicControler extends React.Component {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/basic/basic_controler.js?
