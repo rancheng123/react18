@@ -1,0 +1,30 @@
+{
+    "pc": {
+        "tabs": [
+            {
+                "name": "design",
+                "type": "design"
+            }
+        ]
+    },
+    "mo": {
+        "tabs": [
+            {
+                "name": "design",
+                "type": "design"
+            }
+        ]
+    },
+    "group": {
+        "design": {
+            "all": {
+                "include": "background|border|radius|shadow|position",
+                "group": {
+                    "background": {
+                        "include": "backgroundColor"
+                    }
+                }
+            }
+        }
+    }
+}

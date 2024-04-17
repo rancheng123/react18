@@ -1,7 +1,6 @@
 
 // 导入 React 库
 import React from 'react';
-import { createRoot } from 'react-dom/client';
 // 导入 widget_library_config.json 文件
 import WidgetLibraryConfig from '@/config/widget_library_config.js';
 // 导入 component_library_config.json 文件
@@ -44,20 +43,16 @@ export default class WidgetLibraryControler extends React.Component {
     this.skin = ''; //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
-    /**@property {WidgetLibrary} view 初始化 view 实例*/
-
-    // this.view = new WidgetLibrary(this); //给view 入口方法绑定this
-
-    // this.view.render = this.view.render.bind(this.view);
   }
 
-  static widgetLibrary(id, configType) {
-    const element = document.querySelector(`#${id}`);
+  static widgetLibrary(toolBarsRoot, configType) {
+    // const element = document.querySelector(`#${id}`);
     // ReactDom.render(React.createElement(WidgetLibraryControler, {
     //   id: id,
     //   configType: configType
     // }), element);
-    createRoot(element).render(<WidgetLibraryControler configType={configType} id={id}/>)
+   
+    toolBarsRoot.render(<WidgetLibraryControler configType={configType}  toolBarsclose={()=> toolBarsRoot.unmount()}/>)
   }
   /**
    * @method render 挂载组件方法
@@ -68,15 +63,14 @@ export default class WidgetLibraryControler extends React.Component {
 
 
   render() {
-    // return React.createElement(this.view.render, null);
     const {
       public: { lang },
     } = window;
 
     return (
       <Toolbar
-          id={this.props.id}
           title={lang.add + this.state.current.name}
+          close={()=> this.props.toolBarsclose()}
           // help={this.controler.help.bind(this.controler)}
         >
           {this.menus()}
@@ -132,10 +126,10 @@ export default class WidgetLibraryControler extends React.Component {
     }
   }
 
-  close(close) {
+  // close(close) {
     // this.__proto__.close = close;
-    Toolbar.close();
-  }
+    // Toolbar.close();
+  // }
 
   help() {}
   /**

@@ -11,7 +11,7 @@ import MenuConfig from "./menu_config.json";
  * @date 2019-09-18 HeaderAttribute.config = data;
  */
 
-const MenuAttribute = Attribute;
+const MenuAttribute = Object.create(Attribute);
 MenuAttribute.config = MenuConfig;
 
 MenuAttribute.manageNav = function () {

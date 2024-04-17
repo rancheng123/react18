@@ -20,26 +20,33 @@ const Decorator = {
    */
   set(key, value) {
     //设置编辑状态
-    window.public.editState = 'edit';
+    window.public.editState = "edit";
     Decorator.component.set.call(this, key, value);
   },
 
   /**
    * @method addComponent 新增控件装饰方法
-   * @param {object} componentData 控件数据 
+   * @param {object} componentData 控件数据
    * @param {number} index 插入位置
    * @param {function} fn 组件渲染完毕执行
    * @param {boolean} isrecord 是否把操作记录到历史记录中。 false 不记录，true 记录
    */
   addComponent(componentData, index, fn, isrecord) {
     //设置编辑状态
-    window.public.editState = 'edit';
-    const newid = Decorator.component.addComponent.call(this, componentData, index, fn); //不等于false则把此操作记录到历史条目中 新增一条历史记录
+    window.public.editState = "edit";
+    const newid = Decorator.component.addComponent.call(
+      this,
+      componentData,
+      index,
+      fn
+    );
 
-    isrecord != false && History.add({
-      action: `${this.state.component.id}_removeComponent`,
-      param: [newid]
-    }); //返回控件id
+    //不等于false则把此操作记录到历史条目中 新增一条历史记录
+    isrecord != false &&
+      History.add({
+        action: `${this.state.component.id}_removeComponent`,
+        param: [newid],
+      }); //返回控件id
 
     return newid;
   },
@@ -54,7 +61,12 @@ const Decorator = {
    */
   addComponents(componentDatas, index, fn) {
     //调用循环新增方法
-    return Decorator.component.addComponents.call(this, componentDatas, index, fn);
+    return Decorator.component.addComponents.call(
+      this,
+      componentDatas,
+      index,
+      fn
+    );
   },
 
   /**
@@ -66,14 +78,14 @@ const Decorator = {
    */
   removeComponent(id, fn, isrecord) {
     //设置编辑状态
-    window.public.editState = 'edit'; //不等于false则把此操作记录到历史条目中
+    window.public.editState = "edit"; //不等于false则把此操作记录到历史条目中
 
     if (isrecord != false) {
       const data = Decorator.component.getComponentData(id);
       const index = Decorator.component.removeComponent.call(this, id, fn);
       History.add({
         action: `${this.state.component.id}_addComponent`,
-        param: [data, index]
+        param: [data, index],
       });
       return index;
     }
@@ -91,8 +103,7 @@ const Decorator = {
   removeComponents(components, fn) {
     //调用循环删除方法
     return Decorator.component.removeComponents.call(this, components, fn);
-  }
-
+  },
 };
 
 export default Decorator;

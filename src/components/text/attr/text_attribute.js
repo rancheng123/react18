@@ -10,9 +10,8 @@ import textConfig from "./text_config.json";
  * @date 2019-09-18
  */
 
-const TextAttribute = Attribute;
+const TextAttribute = Object.create(Attribute);
 TextAttribute.config = textConfig; // 图片质量面板引入 date 2020-12-30 lw 
-
 TextAttribute.picture = async opts => {
   const {
     TextPictureControler

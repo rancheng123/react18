@@ -10,7 +10,7 @@ import headerConfig from "./header_config.json";
  * @date 2019-10-30
  */
 
-const HeaderAttribute = Attribute;
+const HeaderAttribute = Object.create(Attribute);
 HeaderAttribute.config = headerConfig;
 /**
  * @method 样式类读取方法

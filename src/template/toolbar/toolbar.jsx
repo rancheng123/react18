@@ -20,36 +20,13 @@ import Dispatcher from "../../system/tools/dispatcher";
  */
 
 export default function Toolbar(props) {
-  const { children, title, isbtn, click, btnTitle, help ,root} = props;
+  const { children, title, isbtn, click, btnTitle, help ,close} = props;
   let Tabs = null,
     Content = null,
     Anchor = null;
   Array.isArray(children)
     ? ([Tabs, Content, Anchor] = children)
     : (Content = children);
-  // return React.createElement("div", {
-  //   id: "toolCon",
-  //   className: Tabs ? '' : 'tool-no-nav'
-  // }, Tabs ? React.createElement("div", {
-  //   className: "toolFont"
-  // }, Tabs) : null, React.createElement("div", {
-  //   className: "toolAdd"
-  // }, React.createElement("div", {
-  //   className: "toolAddTit"
-  // }, title ? React.createElement("h4", null, title) : null, React.createElement("span", null, React.createElement("i", {
-  //   onClick: help
-  // }, "?"), React.createElement("i", {
-  //   onClick: Toolbar.close,
-  //   id: "panel-close"
-  // }, "\xD7"))), React.createElement("div", {
-  //   id: "toolText"
-  // }, Content), isbtn ? React.createElement("div", {
-  //   className: "panlBottom"
-  // }, React.createElement("button", {
-  //   className: "contorlBtn",
-  //   onClick: click
-  // }, React.createElement("font", null, btnTitle))) : null), Anchor);
-
   return (
     <div id="toolCon" className={Tabs ? "" : "tool-no-nav"}>
       {Tabs ? <div className="toolFont">{Tabs}</div> : null}
@@ -58,7 +35,7 @@ export default function Toolbar(props) {
           {title ? <h4>{title}</h4> : null}
           <span>
             <i onClick={help}>?</i>
-            <i onClick={()=>Toolbar.close(root)} id="panel-close">
+            <i onClick={()=> Toolbar.close(close)} id="panel-close">
               ×
             </i>
           </span>
@@ -81,14 +58,14 @@ export default function Toolbar(props) {
  * @author wyq
  */
 
-Toolbar.close = function (root) {
-  const content = document.querySelector("#edit-toolbar-content");
+Toolbar.close = function (close) {
+  // const content = document.querySelector("#edit-toolbar-content");
   Dispatcher.dispatch("hideToolbars");
 
   // 原有卸载组件方法
   // ReactDom.unmountComponentAtNode(content);
   // 新卸载组件方法
-  root ? root.unmount() : createRoot(content).unmount()
+  // root ? root.unmount() : createRoot(content).unmount()
+  close()
 };
 
-//# sourceURL=webpack:///./ui/toolbar/toolbar.js?

@@ -90,10 +90,8 @@ Object.defineProperty(Dispatcher, "_events", {
   enumerable: false,
   configurable: false,
   value: new Map()
-}); //提供一个修改数据的接口，方便数据出问题时，修改控件数据 2022-1-17 by wyq
-
+});
+ //提供一个修改数据的接口，方便数据出问题时，修改控件数据 2022-1-17 by wyq
 console.change = (action, params) => Dispatcher.dispatch(action, params);
 
 export default Dispatcher;
-
-//# sourceURL=webpack:///./system/tools/dispatcher.js?

@@ -108,11 +108,10 @@ export default class DragAdd {
     } = opts;
     let left = event.clientX - x,
         top = event.clientY - y - main.offsetTop;
-    console.log(this.component,'this.component');
     if (!opts.component) {
       //关闭面板
       // this.component.view.close(); 
-      this.component.view ?  this.component.view.close() :  this.component.close(); 
+      this.component.view ?  this.component.view.close() :  this.component.props.toolBarsclose(); 
 
       //获取控件数据  
       this.component.getData().then(component => opts.component = component);
@@ -126,9 +125,10 @@ export default class DragAdd {
           }
         } = opts;
         let type = component.combinationType || component.componentType; //先获取combinationType的属性，此属性存在证明是组件库中的控件，是不允许嵌套的，sxt 2021-2-2
-        //控件遮罩层
-
+        
+        //生成控件遮罩层
         this.componentMask(main, left, top, width, height, bounding);
+
         Drag.drag(left, top, {
           width,
           height,
@@ -157,8 +157,9 @@ export default class DragAdd {
         currentTarget: target
       } = event; //清除move与up事件
 
-      target.onmousemove = target.onmouseup = null; //如果不允许拖入，直接返回，不再执行后续逻辑
+      target.onmousemove = target.onmouseup = null; 
 
+      //如果不允许拖入，直接返回，不再执行后续逻辑
       if (opts.isdrag != true) {
         this.noDragPrompt('close');
         return void 0;
@@ -174,18 +175,23 @@ export default class DragAdd {
             component = structure
           }
         } = opts;
-        const proxy = await new AttrProxy().init(component.componentType); //生成时间
+        const proxy = await new AttrProxy().init(component.componentType); 
 
+        //生成时间
         const time = new Date().toLocaleString('zh-cn', {
           hour12: false
-        }); //记录拖入时间 wyq change 2020-10-26
+        });
 
-        opts.component.structure.drag_in_time = time; //控件新增之前执行
+        //记录拖入时间 wyq change 2020-10-26
+        opts.component.structure.drag_in_time = time; 
 
-        proxy.addComponentBefore(opts.component); //如果新增成功，执行回调
-
-        const promise = Drag.end(event, opts.component); //如果promise为true，表示新增成功，执行新增成功回调方法
-
+        //控件新增之前执行
+        proxy.addComponentBefore(opts.component); 
+        
+        //如果新增成功，执行回调
+        const promise = Drag.end(event, opts.component); 
+        
+        //如果promise为true，表示新增成功，执行新增成功回调方法
         if (promise) {
           promise.then(id => proxy.addedComponent(id));
         }

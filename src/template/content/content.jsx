@@ -3,7 +3,6 @@ import React from 'react'
 export default class Content extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.init, '哈哈哈哈')
     /**@property controler header控制器实例 */
     this.controler = props;
     /**@property toolbars 工具栏配置 */
@@ -79,36 +78,6 @@ export default class Content extends React.Component {
     )
 
     return dom
-
-    return React.createElement("main", {
-      id: "ediMain",
-      className: `${type}-content`,
-      style: _style
-    }, React.createElement(this.iframe, null), React.createElement("div", {
-      className: "property-modal"
-    }, type == 'pc' && !rulerShow ? React.createElement(this.controler.ruler, {
-      height: height
-    }) : null, React.createElement(this.controler.componentEdit, {
-      height: height
-    })), this.toolbar(), " ", this.prompt(), this.button(), this.DesignPagebtns(), React.createElement("div", {
-      id: "component-property"
-    }), React.createElement("div", {
-      id: "component-modal"
-    }), React.createElement("div", {
-      id: "gallery-modal"
-    }), React.createElement("div", {
-      id: "function-modal"
-    }), React.createElement("div", {
-      id: "source-modal"
-    }), React.createElement("div", {
-      id: "page-management"
-    }), React.createElement("div", {
-      id: "info-prompt"
-    }), React.createElement("div", {
-      id: "collection-modal"
-    }), React.createElement("div", {
-      id: "publish-modal"
-    }));
   }
 
   iframe() {

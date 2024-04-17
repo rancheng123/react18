@@ -23,17 +23,17 @@ export default class CollectionControler extends React.Component{
     // this.view.render = this.view.render.bind(this.view);
   }
 
-  static collection(id) {
+  static collection(toolBarsRoot) {
     // const element = document.querySelector(`#collection-modal`);
-    const element = document.querySelector(`#${id}`);
+    // const element = document.querySelector(`#${id}`);
     
     // React 17 写法
     // ReactDom.render(React.createElement(CollectionControler, {
     //   id: id
     // }), element);
     // React 18 写法
-    const root = createRoot(element)
-    root.render(<CollectionControler id={id}  root={root}/>)
+    // const root = createRoot(element)
+    toolBarsRoot.render(<CollectionControler toolBarsclose={()=>toolBarsRoot.unmount()}/>)
   }
   /**
    * @method render 挂载组件方法
@@ -46,7 +46,7 @@ export default class CollectionControler extends React.Component{
   render() {
     // return React.createElement(this.view.render, null);
     return (
-      <Collection  root={this.props.root}/>
+      <Collection toolBarsclose={this.props.toolBarsclose}/>
     )
   }
   /**
@@ -78,9 +78,9 @@ export default class CollectionControler extends React.Component{
     }
   }
 
-  close(close) {
-    this.__proto__.close = close;
-  }
+  // close(close) {
+  //   this.__proto__.close = close;
+  // }
 
   help() {} //获取收藏列表
 

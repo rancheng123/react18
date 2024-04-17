@@ -8,7 +8,7 @@ import Dispatcher from '@/system/tools/dispatcher'
 
 export function changeText(id, e) {
   // window.CKEDITOR_BASEPATH = `${window.location.origin}/desktop/Public/Script/plugin/ckeditor/`; 
-  window.CKEDITOR_BASEPATH = `${window.location.origin}/src/plugin/ckeditor/`; 
+  window.CKEDITOR_BASEPATH = `${window.location.origin}/plugin/ckeditor/`;
 
   //调用ckeditor
   window.public.ckeditor.then(() => {

@@ -46,7 +46,7 @@ export default class Collection extends React.Component {
 
     return (
       <>
-        <Toolbar root={this.props.root} id={this.props.id} title={ window.public.lang["collection"]}>
+        <Toolbar title={ window.public.lang["collection"]}  close={()=> this.props.toolBarsclose()}>
             {this.content()}
         </Toolbar>
       </>

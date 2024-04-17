@@ -14,7 +14,6 @@ const ComponentData = {
    */
   install(component) {
     const id = component.state.component.id; //如果未注册行为则调用注册方法
-
     if (Dispatcher.has(id + '_set') == false) {
       Dispatcher.register(id + "_set", this.set, component);
       Dispatcher.register(id + "_get", this.get, component);
@@ -127,7 +126,8 @@ const ComponentData = {
     let newComponent = JSON.parse(JSON.stringify(component)); //递归控件数据
 
     this.eachComponentData(newComponent, (component, i, parent) => {
-      component.structure = { ...component
+      component.structure = {
+        ...component
       }; //删除id
 
       delete component.structure.id; //数据验证

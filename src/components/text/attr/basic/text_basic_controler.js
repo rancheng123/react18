@@ -42,7 +42,7 @@ class TextBasicControler extends BasicControler {
         }
       }
     } = this,
-        hidden = true;
+      hidden = true;
     Dispatcher.dispatch(`${id}_set`, {
       args: [`document_data.selectionContent`, _value]
     });
@@ -183,8 +183,8 @@ class TextBasicControler extends BasicControler {
           data.sourceName = "text";
 
           let _showText = (data.companyLabelText || "") + (data.companyValue || data.companyDefaultValue || ""),
-              _linkData = this.state.link || {},
-              _companyField = data.companyField;
+            _linkData = this.state.link || {},
+            _companyField = data.companyField;
 
           newData.data_source_type = "Link"; //类型为电话时设置链接数据
 
@@ -322,4 +322,4 @@ class TextBasicControler extends BasicControler {
 _defineProperty(TextBasicControler, "LIST", ["selectionContentSet", "dataText", "links", "minHeight", "accordingNumber", "overflowPart"]);
 
 
-export {TextBasicControler}
+export { TextBasicControler }

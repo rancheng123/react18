@@ -116,5 +116,3 @@ function ComponentDecorator(View, Controler) {
 }
 
 export default ComponentDecorator;
-
-//# sourceURL=webpack:///./system/tools/component.js?

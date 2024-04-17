@@ -53,7 +53,6 @@ export default class AttrProxy {
    */
 
   async init(type, param) {
-    console.log(type, param,'AttrProxy_Init');
     //判断是否为null或者控件代理类型是否相同，为null或类型不相等，执行if，不为null或相等，不执行if
     if (this._module == null || this._type != type) {
       //获取控件模块
@@ -75,7 +74,6 @@ export default class AttrProxy {
         await this.config; //预访问 
       }
     }
-    console.log(this,'=====================')
     return this;
   }
   /**
@@ -91,8 +89,6 @@ export default class AttrProxy {
    */
 
   selectBox(opts) {
-    // console.log(opts,'selectBox',_classPrivateFieldGet(this, _module));
-    // console.log(11111111111111);
     this._module && this._module.selectBox && this._module.selectBox(opts)
   }
   /**

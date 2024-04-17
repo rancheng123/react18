@@ -1,26 +1,22 @@
 import React from 'react'
 import Dispatcher from "../../system/tools/dispatcher";
-// import Content from './content'
 import RulerControler from '../../system/function/ruler/ruler_controler'
 import ComponentEditTestControler from '../../system/function/component_edit/component_edit_test_controler'
 
 import CollectionControler from '../toolbar/collection/collection_controler'
 import WidgetLibraryControler from '../toolbar/widget_library/widget_library_controler'
+import { createRoot } from 'react-dom/client';
 
 
 export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
-    // console.log(props,'ContentControler props',this);
 
     // this.init();
     /**@property {RulerControler} 标尺组件控制器 */
 
     /**@property {ComponentEditControler} 控件编辑组件控制器 */
 
-    // this.view = new Content(this); //给view pc编辑入口方法绑定this
-
-    // this.view.render = this.view.render.bind(this.view);
     this.state = {
       display: null,
       edibtn: null,
@@ -57,7 +53,8 @@ export default class ContentControler extends React.Component {
     }]; //绑定this
   }
   /**
-   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次 
+   * @method init 
+   * 组件挂载前初始化方法,整个生命周期内只执行一次 
    */
 
   init() {
@@ -72,16 +69,17 @@ export default class ContentControler extends React.Component {
       height: 0,
       search: `?pageid=${pageid}&type=${type}`,
       rulerShow: false,
-    }); //注册切换编辑事件
-
-    Dispatcher.register("switchEdit", this.switchEdit, this); //注册隐藏工具栏事件
-
-    Dispatcher.register("hideToolbars", this.hideToolbars, this); //注册设置页面id事件
-
-    Dispatcher.register("setPageId", this.setPageId, this); //注册设置辅助线显隐功能
-
-    Dispatcher.register("setRuler", this.setRuler, this); //注册左侧工具栏显隐功能
-
+    }); 
+    
+    //注册切换编辑事件
+    Dispatcher.register("switchEdit", this.switchEdit, this); 
+    //注册隐藏工具栏事件
+    Dispatcher.register("hideToolbars", this.hideToolbars, this);
+    //注册设置页面id事件
+    Dispatcher.register("setPageId", this.setPageId, this); 
+    //注册设置辅助线显隐功能
+    Dispatcher.register("setRuler", this.setRuler, this); 
+    //注册左侧工具栏显隐功能
     Dispatcher.register("setEdibtn", this.setEdibtn, this);
   }
 
@@ -108,10 +106,11 @@ export default class ContentControler extends React.Component {
       //清空hover框、选中框、属性按钮
       Dispatcher.dispatch("selectedHidden", {
         value: true
-      }); //调用保存
-
-      const save = Dispatcher.dispatch('savePage'); //保存成功后执行切换
-
+      });
+      
+      //调用保存
+      const save = Dispatcher.dispatch('savePage'); 
+      //保存成功后执行切换
       save.then(() => {
         const search = this.search('type', type); //存储页面类型
 
@@ -250,9 +249,12 @@ export default class ContentControler extends React.Component {
 
 
   showToolbars(type, event) {
+    // 获取toolBar根节点对象
+    const toolBarsRoot  = createRoot(document.getElementById("edit-toolbar-content"));
+
     //判断是否存在弹出此工具栏的面板
     if (this[type]) {
-      this[type]();
+      this[type](toolBarsRoot);
       this.setState({
         toolbar: type
       });
@@ -277,14 +279,12 @@ export default class ContentControler extends React.Component {
    */
 
 
-  widgetLibrary() {
+  widgetLibrary(toolBarsRoot) {
     var box = document.getElementById("edit-toolbar-content"),
       close = box.querySelector("#panel-close");
     close && close.click();
-    // Promise.all(/*! import() | widget_library_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("widget_library_controler")]).then(__webpack_require__.bind(null, /*! ../toolbar/widget_library/widget_library_controler */ "./ui/toolbar/widget_library/widget_library_controler.js")).then(module => {
-    //   module.WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
-    // });
-    WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
+    // WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
+    WidgetLibraryControler.widgetLibrary(toolBarsRoot);
   }
   /**
    * @method componentLibrary 组件工具栏弹出面板
@@ -293,14 +293,11 @@ export default class ContentControler extends React.Component {
    */
 
 
-  componentLibrary() {
+  componentLibrary(toolBarsRoot) {
     var box = document.getElementById("edit-toolbar-content"),
       close = box.querySelector("#panel-close");
     close && close.click();
-    // Promise.all(/*! import() | widget_library_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("widget_library_controler")]).then(__webpack_require__.bind(null, /*! ../toolbar/widget_library/widget_library_controler */ "./ui/toolbar/widget_library/widget_library_controler.js")).then(module => {
-    //   module.WidgetLibraryControler.widgetLibrary("edit-toolbar-content", "component");
-    // });
-    WidgetLibraryControler.widgetLibrary("edit-toolbar-content", 'component');
+    WidgetLibraryControler.widgetLibrary(toolBarsRoot, 'component');
   }
   /**
    * @method template 弹出模版更换面板
@@ -317,13 +314,6 @@ export default class ContentControler extends React.Component {
         });
       });
     });
-    // __webpack_require__.e(/*! import() | resource_manager */ "resource_manager").then(__webpack_require__.bind(null, /*! ../../system/function/resource/resource_manager */ "./system/function/resource/resource_manager.js")).then(module => {
-    //   module.resourceManager("template").then(module => {
-    //     module.resource({
-    //       selected: null
-    //     });
-    //   });
-    // });
   }
   /**
   * @method collection 弹出收藏面板
@@ -332,8 +322,9 @@ export default class ContentControler extends React.Component {
   */
 
 
-  collection() {
-    CollectionControler.collection("edit-toolbar-content");
+  collection(toolBarsRoot) {
+    // CollectionControler.collection("edit-toolbar-content");
+    CollectionControler.collection(toolBarsRoot);
   }
   /**
    * @method setUp 弹出设置面板

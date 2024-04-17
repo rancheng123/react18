@@ -1,12 +1,12 @@
 /* eslint-disable */
 import React from 'react';
 import Dispatcher from '../../tools/dispatcher';
-// import Rule from './ruler';
 
 export default class RulerControler extends React.Component {
   constructor(props) {
     super(props);
-    this.space = 100; //组件挂载前的初始化方法，整个生命周期内只执行一次
+    this.space = 100;
+    //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
   }
   /**

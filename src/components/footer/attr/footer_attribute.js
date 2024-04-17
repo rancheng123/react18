@@ -8,7 +8,7 @@ import _footer_config_json__ from "./footer_config.json";
  * @date 2019-09-18
  */
 
-const FooterAttribute = Attribute;
+const FooterAttribute = Object.create(Attribute);
 FooterAttribute.config = _footer_config_json__;
 
 export { FooterAttribute}

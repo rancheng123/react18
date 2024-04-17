@@ -117,11 +117,6 @@ export default class HeaderControler extends React.Component {
     ]
 
     this.init();
-    /**@property {Header} view 初始化 view 实例*/
-
-    // this.view = new Header(this); //给view 入口方法绑定this
-
-    // this.view.render = this.view.render.bind(this.view);
   }
   /**
    * @method render 挂载组件方法

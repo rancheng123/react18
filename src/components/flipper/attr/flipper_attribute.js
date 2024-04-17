@@ -9,7 +9,7 @@ import flipper_config_json from './flipper_config.json' ;
  * @author wyq
  * @version 1.0
  */
-const FlipperAttribute = Attribute
+const FlipperAttribute = Object.create(Attribute)
 /**@propery {object} config 组件属性配置 */
 
  FlipperAttribute.config = flipper_config_json;

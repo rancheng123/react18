@@ -10,7 +10,7 @@ import componentConfig from './component_config.json';
  * @version 1.0
  */
 
-const ComponentAttribute = Attribute;
+const ComponentAttribute = {...Attribute};
 /**@propery {object} config 组件属性配置 */
 
 ComponentAttribute.config = componentConfig;

@@ -50,7 +50,7 @@ window.public = {
     /**@property {Resources} Resources 存储Resources的实例,用于管理资源 */
     get resources() { return import('https://img.bjyyb.net/antd/dev_resource_library.js') },
     /**@property {Ckeditor}  Ckeditor 存储Ckeditor的实例，富文本编辑器*/
-    get ckeditor() { return import('../plugin/ckeditor/ckeditor.js') },
+    get ckeditor() { return import('../../public/plugin/ckeditor/ckeditor.js') },
     /**
      * @method configure 处理配置
      * @date 2019-08-24

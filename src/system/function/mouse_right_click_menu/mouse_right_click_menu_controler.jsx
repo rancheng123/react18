@@ -88,7 +88,6 @@ export default class MouseRightClickMenuControler extends React.Component {
       }
     });
 
-    console.log(this)
 
     this.Property_panel_list = [// {"event":"copy","title":window.public.lang.copy,"name":"Ctrl+C"},
     // {"event":"paste","title":window.public.lang.paste,"name":"Ctrl+V"},

@@ -1,15 +1,13 @@
-import Util from '@/components/page/util/util'
-import Dispatcher from '../dispatcher';
-import Observer from './observer';
-
-
+import Util from "@/components/page/util/util";
+import Dispatcher from "../dispatcher";
+import Observer from "./observer";
 
 /**
  * @function query 根据键值循环数据查找到对应数据
- * @param {string} key 键值 
- * @param {object} component 控件结构数据 
+ * @param {string} key 键值
+ * @param {object} component 控件结构数据
  * @param {object} data 控件属性数据
- * @param {function} fn 回调函数，在数据查找到后调用 
+ * @param {function} fn 回调函数，在数据查找到后调用
  */
 
 function query(key, component, data, fn) {
@@ -19,18 +17,21 @@ function query(key, component, data, fn) {
     if (i < list.length - 1) {
       //索引不为零且数据存在
       if (i != 0 && newData) {
-        newData[e] ? newData = newData[e] : newData = newData[e] = {};
-      } else if (i == 0 && component && data) //i等于零并且component 和 data数据都存在
-        {
-          //判断是否存在控件数据
-          newData = e == "component" ? component : (data[e] ? data[e] : data[e] = {}, data[e]);
-        } else {
+        newData[e] ? (newData = newData[e]) : (newData = newData[e] = {});
+      } else if (i == 0 && component && data) {
+        //i等于零并且component 和 data数据都存在
+        //判断是否存在控件数据
+        newData =
+          e == "component"
+            ? component
+            : (data[e] ? data[e] : (data[e] = {}), data[e]);
+      } else {
         console.error("控件数据为undefined");
       }
     } //执行数据处理回调
     else {
-        newData && fn && fn(newData, e);
-      }
+      newData && fn && fn(newData, e);
+    }
   });
 }
 /**
@@ -41,27 +42,37 @@ function query(key, component, data, fn) {
 * @param {object} theme_data 控件属性数据 
 */
 
-
 function render(component, theme_data) {
   var _theme_data$document;
 
-  const { id = 'document' } = component, { public: { dom, type } } = window;
-  theme_data = (_theme_data$document = theme_data.document) !== null && _theme_data$document !== void 0 ? _theme_data$document : theme_data; //解析样式
+  const { id = "document" } = component,
+    {
+      public: { dom, type },
+    } = window;
+  theme_data =
+    (_theme_data$document = theme_data.document) !== null &&
+      _theme_data$document !== void 0
+      ? _theme_data$document
+      : theme_data; //解析样式
 
-  const promise = Util.cssParser(component, theme_data, type == 'pc' ? "html" : 'mo'); //获取控件样式节点
+  const promise = Util.cssParser(
+    component,
+    theme_data,
+    type == "pc" ? "html" : "mo"
+  ); //获取控件样式节点
 
-  promise.then(cssstr => {
+  promise.then((cssstr) => {
     let style = dom.querySelector(`#style_${id}`); //判断节点是否存在，存在直接赋值
 
-    if (style) //样式存在修改样式内容，样式不存在则删除style标签
-      {
-        cssstr ? style.innerText = cssstr : style.remove();
-      } else {
+    if (style) {
+      //样式存在修改样式内容，样式不存在则删除style标签
+      cssstr ? (style.innerText = cssstr) : style.remove();
+    } else {
       //样式存在，往页内插入样式，否则不插入。
       if (cssstr) {
         //创建style节点
         style = dom.createElement("style");
-        style.id = `style_${id}`, style.innerText = cssstr; //把样式插入到控件之前
+        (style.id = `style_${id}`), (style.innerText = cssstr); //把样式插入到控件之前
 
         dom.querySelector(`#${id}`).before(style);
       }
@@ -71,10 +82,22 @@ function render(component, theme_data) {
 
 const Data = {
   /**@property {array} dataTypes 数据类型 */
-  dataTypes: ["document_data", "theme_data", "source_data", "menu_data", "animation_data"],
+  dataTypes: [
+    "document_data",
+    "theme_data",
+    "source_data",
+    "menu_data",
+    "animation_data",
+  ],
 
   /**@property {array} dataNames 数据名称 */
-  dataNames: ["dataQuery", "styleId", "sourceQuery", "menuQuery", "animationQuery"],
+  dataNames: [
+    "dataQuery",
+    "styleId",
+    "sourceQuery",
+    "menuQuery",
+    "animationQuery",
+  ],
 
   /**@property {array} dataCategories 数据分类*/
   dataCategories: ["data", "style", "source", "menu", "animation"],
@@ -92,10 +115,7 @@ const Data = {
 
     if (/theme_data|layout/.test(key)) {
       const {
-        state: {
-          component,
-          data
-        }
+        state: { component, data },
       } = this; //循环数据
 
       isDot ? query(key, component, data, fn) : fn(data, key); //更新样式
@@ -103,9 +123,17 @@ const Data = {
       render(component, data.theme_data);
     } else {
       isDot //更新ui
-      ? this.setState(state => (query(key, state.component, state.data, fn), state)) : this.setState(state => (fn(state.data, key), {
-        data: state.data
-      }));
+        ? this.setState(
+          (state) => (query(key, state.component, state.data, fn), state)
+        )
+        : this.setState(
+          (state) => (
+            fn(state.data, key),
+            {
+              data: state.data,
+            }
+          )
+        );
     }
   },
 
@@ -121,17 +149,19 @@ const Data = {
 
     if (typeof key == "string") {
       //调用数据处理方法
-      value != undefined && Data.dataHandler.call(this, key, (data, key) => {
-        key != "" ? (oldValue = data[key], data[key] = value) : (oldValue = { ...data
-        }, Object.assign(data, value));
-      });
+      value != undefined &&
+        Data.dataHandler.call(this, key, (data, key) => {
+          key != ""
+            ? ((oldValue = data[key]), (data[key] = value))
+            : ((oldValue = { ...data }), Object.assign(data, value));
+        });
     } //如果key类型为object，则执行setState
     else if (/Object/.test(key.toString())) {
-        this.setState(key);
-      } //值无效则提示异常
-      else {
-          console.error("你输入的键值无效");
-        }
+      this.setState(key);
+    } //值无效则提示异常
+    else {
+      console.error("你输入的键值无效");
+    }
 
     return oldValue;
   },
@@ -150,7 +180,7 @@ const Data = {
       //调用数据处理方法
       Data.dataHandler.call(this, key, (data, key) => {
         if (Array.isArray(data) == false) {
-          value = data[key], delete data[key];
+          (value = data[key]), delete data[key];
         } else {
           value = data.splice(key, 1);
         }
@@ -175,8 +205,7 @@ const Data = {
       return id;
     } //生成新id
 
-
-    return window.public.createId('f', 7);
+    return window.public.createId("f", 7);
   },
 
   /**
@@ -202,26 +231,27 @@ const Data = {
           data[this.dataTypes[i]] = {};
         } //赋数据
 
-
         data[this.dataTypes[i]][id] = component[e]; //删除对应的初始数据
 
         delete component[e]; //判断是否存在items数据。
 
         if (this.dataTypes[i] == "document_data" && component.structure.items) {
           //循环items数据
-          data[this.dataTypes[i]][id].items = component.structure.items.map(m => {
-            const id = window.public.createId("d"); //数据赋值并返回id
+          data[this.dataTypes[i]][id].items = component.structure.items.map(
+            (m) => {
+              const id = window.public.createId("d"); //数据赋值并返回id
 
-            data.document_data[id] = m || {};
-            return id;
-          });
+              data.document_data[id] = m || {};
+              return id;
+            }
+          );
           delete component.structure.items;
         }
       }
     }); //合并数据
 
     Object.assign(component, component.structure, {
-      id: id
+      id: id,
     });
     delete component.structure;
   },
@@ -255,7 +285,7 @@ const Data = {
 
         if (e == "document_data" && initData[e][oid].items) {
           //循环items数据
-          data[e][id].items = initData[e][oid].items.map(m => {
+          data[e][id].items = initData[e][oid].items.map((m) => {
             //unuseNewId 不为true会创建新id 为true不会创建新id
             const id = unuseNewId != true ? window.public.createId("d") : m; //赋值并返回新id
 
@@ -281,7 +311,11 @@ const Data = {
     newData.data = {}; //深拷贝数据
 
     newData.component = componentData.structure ? data : data.component;
-    this.eachComponentData(newData.component, component => component.structure ? this.serialize(component, newData.data, unuseNewId) : this.copy(component, newData.data, data.data, unuseNewId));
+    this.eachComponentData(newData.component, (component) =>
+      component.structure
+        ? this.serialize(component, newData.data, unuseNewId)
+        : this.copy(component, newData.data, data.data, unuseNewId)
+    );
     return newData;
   },
 
@@ -306,36 +340,47 @@ const Data = {
     const {
       state: {
         component,
-        component: {
-          children,
-          components = children
-        }
-      }
+        component: { children, components = children },
+      },
     } = this,
-          newData = Data.resolve(componentData, unuseNewId),
-          data = Dispatcher.dispatch("getData", {
-      value: component
-    }); //判断是否存在新数据并且能否获取到对应控件数据
+      newData = Data.resolve(componentData, unuseNewId),
+      data = Dispatcher.dispatch("getData", {
+        value: component,
+      }); //判断是否存在新数据并且能否获取到对应控件数据
 
     if (newData && data) {
       //指定插入位置，则插入到指定位置，否则插入到最后
-      components ? index != undefined && index >= 0 ? components.splice(index, 0, newData.component) : components.push(newData.component) : component.components = [newData.component]; //合并数据到站点数据中
+      components
+        ? index != undefined && index >= 0
+          ? components.splice(index, 0, newData.component)
+          : components.push(newData.component)
+        : (component.components = [newData.component]); //合并数据到站点数据中
 
-      Data.dataTypes.forEach(e => {
+      Data.dataTypes.forEach((e) => {
         //数据是否存在
         if (newData.data[e]) {
           //判断数据类型是否是object，不是重新赋值
-          data.data[e] && /Object/.test(data.data[e].toString()) ? Object.assign(data.data[e], newData.data[e]) : data.data[e] = newData.data[e];
+          data.data[e] && /Object/.test(data.data[e].toString())
+            ? Object.assign(data.data[e], newData.data[e])
+            : (data.data[e] = newData.data[e]);
         }
       }); //unrender不为true，表示要渲染ui，为true则不渲染ui
 
       if (unrender != true) {
-        //更新控件UI 
+        //更新控件UI
         this.setState({
-          component: component
-        }); //监听控件节点是否加载完毕
+          component: component,
+        });
 
-        fn && Object(Observer)('add', component.id, newData.component.id, fn, newData.component);
+        //监听控件节点是否加载完毕
+        fn &&
+          Object(Observer)(
+            "add",
+            component.id,
+            newData.component.id,
+            fn,
+            newData.component
+          );
       }
 
       return newData.component.id;
@@ -355,7 +400,15 @@ const Data = {
   addComponents(componentDatas, index, fn) {
     //循环新增
     if (Array.isArray(componentDatas)) {
-      return componentDatas.map((componentData, i, coms) => Data.addComponent.call(this, componentData, index != undefined ? index + i : undefined, fn, i != coms.length - 1 ? true : undefined));
+      return componentDatas.map((componentData, i, coms) =>
+        Data.addComponent.call(
+          this,
+          componentData,
+          index != undefined ? index + i : undefined,
+          fn,
+          i != coms.length - 1 ? true : undefined
+        )
+      );
     } else {
       console.error("请输入一个合法的数组");
     }
@@ -372,30 +425,37 @@ const Data = {
     const {
       state: {
         component,
-        component: {
-          children,
-          components = children
-        }
-      }
+        component: { children, components = children },
+      },
     } = this,
-          data = Dispatcher.dispatch("getData", {
-      value: component
-    }); //判断控件是否是容器
+      data = Dispatcher.dispatch("getData", {
+        value: component,
+      }); //判断控件是否是容器
 
     if (components) {
       //容器内查找控件
-      const index = components.findIndex(e => e.id == id); //容器内是否存在要删除的控件
+      const index = components.findIndex((e) => e.id == id); //容器内是否存在要删除的控件
 
       if (index != -1) {
         //删除控件结构数据
         const recomponent = components.splice(index, 1); //递归删除数据
 
-        Data.eachComponentData(recomponent[0], component => Data.validate(component, data.data, (data, id) => delete data[id])); //监听控件节点是否加载完毕
+        Data.eachComponentData(recomponent[0], (component) =>
+          Data.validate(component, data.data, (data, id) => delete data[id])
+        ); //监听控件节点是否加载完毕
 
-        fn && Object(Observer)('remove', component.id, recomponent[0].id, fn, index);
-        !unrender && this.setState({
-          component: component
-        });
+        fn &&
+          Object(Observer)(
+            "remove",
+            component.id,
+            recomponent[0].id,
+            fn,
+            index
+          );
+        !unrender &&
+          this.setState({
+            component: component,
+          });
         return index;
       } else {
         console.error("控件中无此控件数据");
@@ -417,9 +477,14 @@ const Data = {
   removeComponents(components, fn) {
     //循环删除
     if (Array.isArray(components)) {
-      return components.map(({
-        id
-      }, i, ids) => Data.removeComponent.call(this, id, fn, i != ids.length - 1 ? true : undefined));
+      return components.map(({ id }, i, ids) =>
+        Data.removeComponent.call(
+          this,
+          id,
+          fn,
+          i != ids.length - 1 ? true : undefined
+        )
+      );
     } else {
       console.error("请输入一个合法的数组");
     }
@@ -456,7 +521,6 @@ const Data = {
         }
       }; //调用重写方法
 
-
       _eachComponentData(components, component);
     }
 
@@ -486,21 +550,20 @@ const Data = {
       if (e == "document_data" && isComplete && data[e][id].items) {
         //检测控件items数据是否合法
         isComplete = data[e][id].items.every((m, i) => {
-          //如果存在回调函数并且bool为true，执行回调函数，否则返回bool; 
-          return fn && data[e] ? fn(data[e], m, "items", i) : data[e][m] != undefined;
+          //如果存在回调函数并且bool为true，执行回调函数，否则返回bool;
+          return fn && data[e]
+            ? fn(data[e], m, "items", i)
+            : data[e][m] != undefined;
         });
       } //判断回调函数是否存在且data中是否存在对应数据
-
 
       if (fn && isComplete) {
         isComplete = fn(data[e], id, e, i);
       } //判断是否有对应id
 
-
       return isComplete;
     });
-  }
-
+  },
 }; //注册数据验证事件
 
 Dispatcher.register("validate", Data.validate, Data);
