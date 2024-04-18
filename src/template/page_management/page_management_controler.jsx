@@ -1472,5 +1472,3 @@ export default class PageManagementControler extends React.Component {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/page_management/page_management_controler.js?

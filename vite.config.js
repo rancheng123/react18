@@ -1,15 +1,16 @@
 import { defineConfig } from 'vite'
-import {resolve} from 'path'
+import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
   publicDir: 'public',
+  assetsInlineLimit: 8 * 1024,
   plugins: [react()],
   resolve: {
     alias: {
-      '@': resolve(__dirname,'src')
+      '@': resolve(__dirname, 'src')
     }
   },
   build: {

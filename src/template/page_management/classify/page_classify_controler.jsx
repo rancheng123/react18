@@ -1,30 +1,28 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageAddClassify", function() { return PageAddClassify; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-/* harmony import */ var _page_classify__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./page_classify */ "./ui/page_management/classify/page_classify.js");
+
+// 导入React和ReactDOM库
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// 导入其他模块
+import Dispatcher from '@/system/tools/dispatcher';
+import Classify from './page_classify';
 
 
-
-
-class PageAddClassify extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+class PageAddClassify extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
     /**@property {space} view 初始化 view 实例*/
 
-    this.view = new _page_classify__WEBPACK_IMPORTED_MODULE_3__["Classify"](this); //给view 入口方法绑定this
+    this.view = new Classify(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
   }
 
   static pageManagement() {
     const element = document.querySelector('#page-management');
-    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PageAddClassify, null), element);
+    ReactDOM.render(React.createElement(PageAddClassify, null), element);
   }
   /**
       * @method  render 挂载组件方法
@@ -33,7 +31,7 @@ class PageAddClassify extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
 
 
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.view.render, null);
+    return React.createElement(this.view.render, null);
   }
   /**
       * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -176,7 +174,7 @@ class PageAddClassify extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
 
 
   getLink(items, arr = []) {
-    let data = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch("getIframeData"),
+    let data = Dispatcher.dispatch("getIframeData"),
         dataItems = data.data.document_data.MAIN_MENU.items || [];
     items = items || dataItems;
 
@@ -197,7 +195,7 @@ class PageAddClassify extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
 
   getPageLink() {
     this.state = {};
-    const data = dispatcher__WEBPACK_IMPORTED_MODULE_2__["Dispatcher"].dispatch("getIframeData"),
+    const data = Dispatcher.dispatch("getIframeData"),
           items = data.data.document_data.MAIN_MENU.items || [];
     return this.getLink(items, []);
   } //下拉切换页面
@@ -231,4 +229,4 @@ class PageAddClassify extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compo
 
 }
 
-//# sourceURL=webpack:///./ui/page_management/classify/page_classify_controler.js?
+export default PageAddClassify;

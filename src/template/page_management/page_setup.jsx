@@ -1,13 +1,9 @@
-// /* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
 import React from 'react'
 import ReactDom from 'react-dom'
 import Dispatcher from '../../system/tools/dispatcher';
 import Layer from '../../system/widgets/layer'
 
-
-
- //读取文件方法
-
+//读取文件方法
 async function setTypeModule(type) {
   let map = {
     pageInFo: {
@@ -195,5 +191,3 @@ export default class PageSetUp extends React.Component {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/page_management/page_setup.js?

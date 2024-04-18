@@ -50,5 +50,3 @@ function comProxy(object) {
 }
 
 export default componentsManager
-
-//# sourceURL=webpack:///./components/page/components_manager.js?

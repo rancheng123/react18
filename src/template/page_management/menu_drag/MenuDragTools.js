@@ -89,7 +89,7 @@ export default class MenuDragTools {
 
   static getPoint(obj) {
     let t = 0,
-        l = 0;
+      l = 0;
 
     do {
       t += obj.offsetTop; //获取该元素对应父容器的上边距  
@@ -135,7 +135,7 @@ export default class MenuDragTools {
 
   static findLevel(current, data) {
     let _data = current,
-        i = 1;
+      i = 1;
 
     while (typeof _data == 'object' && _data.parent_id != '0') {
       i++;
@@ -242,5 +242,3 @@ export default class MenuDragTools {
 }
 
 // _defineProperty(MenuDragTools, "catList", []);
-
-//# sourceURL=webpack:///./ui/page_management/menu_drag/MenuDragTools.js?

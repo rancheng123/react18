@@ -192,5 +192,3 @@ var _type = new WeakMap();
 var _config = new WeakMap();
 
 export default AttrProxy;
-
-//# sourceURL=webpack:///./components/page/attr_proxy.js?
