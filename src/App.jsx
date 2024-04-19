@@ -10,7 +10,6 @@ function App(props) {
     showHidden: true,
   }
   const reducers = (state, action) => {
-    console.log(state, action)
     switch (action.type) {
       case 'showHidden':
         return {
@@ -24,7 +23,6 @@ function App(props) {
   const [state, dispatch] = useReducer(reducers, initState);
 
   const setData = (data) => {
-    console.log(data)
     dispatch({
       ...state,
       ...data,
@@ -32,7 +30,6 @@ function App(props) {
   }
 
   const hanlderIcon = (type) => {
-    console.log(type)
     switch (type) {
       case "showHidden":
         setData({

@@ -26,7 +26,6 @@ const Component = {
     mohidden,
     editHidden
   }) {
-    //console.log(source,mohidden,editHidden,'source,mohidden,editHidden');
     const _className = ' mask-waper';
     return React.createElement("div", {
       id: id,

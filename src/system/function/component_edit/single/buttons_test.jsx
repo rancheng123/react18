@@ -1,11 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Buttons", function() { return Buttons; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-// /* harmony import */ var Dispatcher = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-// /* harmony import */ var _ConfigBtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ConfigBtn */ "./system/function/component_edit/single/ConfigBtn.js");
 
 // 导入 react、react-dom、dispatcher 和 ConfigBtn 模块
 import React from "react";
@@ -41,7 +33,6 @@ class Buttons {
 
 
   static buttons(id, node, proxy, btns) {
-    console.log(btns, 'hahahhbtns')
     const container = document.querySelector(`#${id}`);
 
     if (container) {
@@ -69,7 +60,6 @@ class Buttons {
       //     btns={btns}
       //   />
       // )
-      console.log(btns, 'btns')
       ReactDOM.render(React.createElement(button.render, {
         button: button,
         componentName: componentName,
@@ -89,7 +79,6 @@ class Buttons {
 
 
   static btnsHandle(btns, type) {
-    console.log(btns, type, 'btns, type');
     //头部等顶级容器不允许收藏和隐藏 sxt 2020-5-27  分页和搜索组件不允许收藏和隐藏 lw 2020-12-10
     if (/PageContent|Panel|Footer|Header|Lightboxmodal|Lightbox|Pagination|Input/.test(type)) {
       return window.public.type == "mo" && /Header|Footer|Pagination|Input/.test(type) ? btns.concat(Buttons.btns.mo) : btns;
@@ -110,7 +99,6 @@ class Buttons {
 
 
   static button(config, skin = '', index, key, value) {
-    console.log(config, skin, index, key, value, '属性按钮处理方法');
     var _config$window$public, _ref2, _conf$tabs, _ref3, _conf$btns;
 
     const conf = (_config$window$public = config[window.public.type]) !== null && _config$window$public !== void 0 ? _config$window$public : config; //取属性项配置
@@ -152,7 +140,6 @@ class Buttons {
     btns,
     componentName
   }) {
-    console.log('按钮结构渲染', btns, componentName);
     const id = button.node.current.id,
       componentType = button.node.current.type; //获取state状态
 

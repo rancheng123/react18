@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageBasicControler", function() { return ImageBasicControler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageBasicControler", function () { return ImageBasicControler; });
 /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
 /* harmony import */ var _image_basic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./image_basic */ "./components/image/attr/basic/image_basic.js");
 /* harmony import */ var basic_controler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! basic-controler */ "./components/page/attr/basic/basic_controler.js");
@@ -43,16 +43,16 @@ class ImageBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["
     setContent(e) {
         const _value = e.target.value;
         let {
-                props: {
-                    id,
-                    config,
-                    node: {
-                        current: {
-                            skin
-                        }
+            props: {
+                id,
+                config,
+                node: {
+                    current: {
+                        skin
                     }
                 }
-            } = this,
+            }
+        } = this,
             hidden = true;
         dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(`${id}_set`, {
             args: [`document_data.selectionContent`, _value]
@@ -170,8 +170,8 @@ class ImageBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["
         let parentData = this.getParentType(this.props.node, "em-List"); //查找当前控件是否在列表中
 
         promise.then(({
-                          DataSourceControler
-                      }) => {
+            DataSourceControler
+        }) => {
             DataSourceControler && DataSourceControler.dataSource({
                 initialData: this.state.dataSource,
                 data_source_type: "Image",
@@ -266,16 +266,17 @@ class ImageBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["
 
     setDataSize(prop) {
         let {
-                uri,
-                dataRetain,
-                quality
-            } = this.state || {},
+            uri,
+            dataRetain,
+            quality
+        } = this.state || {},
             _data = {
                 uri: uri,
                 dataRetain: dataRetain,
                 quality: quality
             },
-            _newData = { ..._data,
+            _newData = {
+                ..._data,
                 ...prop
             };
 
@@ -370,10 +371,10 @@ class ImageBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["
 
     setSizeRatioHeight(event) {
         const {
-                target: {
-                    value
-                }
-            } = event,
+            target: {
+                value
+            }
+        } = event,
             {
                 props: {
                     id,
@@ -391,7 +392,8 @@ class ImageBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["
             args: [`component.layout.${prefix}height`, value]
         });
         this.setState({
-            layout: { ...this.state.layout,
+            layout: {
+                ...this.state.layout,
                 [`${prefix}height`]: value
             }
         });
@@ -568,5 +570,3 @@ class ImageBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["
 // }
 
 _defineProperty(ImageBasicControler, "LIST", ["selectionContentSet", "selectImage", "dataText", "imageQuality", "originalFormat", "imageWebp", "clickEvent", "link", "altText", "titleText", "sizeRatioHeight"]);
-
-//# sourceURL=webpack:///./components/image/attr/basic/image_basic_controler.js?

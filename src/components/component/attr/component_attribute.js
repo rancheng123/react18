@@ -1,7 +1,7 @@
 // 导入所需模块或文件
 import PublicAttrManager from '../../page/attr/public_attr_manager'; // 假设 './attr-manager' 是 attr_manager__WEBPACK_IMPORTED_MODULE_0__ 对应的路径
 import Attribute from '../../page/attr/attribute'; // 假设 '../../page/attr/attribute' 是 _page_attr_attribute__WEBPACK_IMPORTED_MODULE_1__ 对应的路径
-import componentConfig from './component_config.json'; 
+import componentConfig from './component_config.json';
 
 /**
  * @instance {Attribute} 组件属性面板公用实例
@@ -10,7 +10,7 @@ import componentConfig from './component_config.json';
  * @version 1.0
  */
 
-const ComponentAttribute = {...Attribute};
+const ComponentAttribute = { ...Attribute };
 /**@propery {object} config 组件属性配置 */
 
 ComponentAttribute.config = componentConfig;
@@ -64,5 +64,3 @@ ComponentAttribute.selectBox = async function (opts) {
 };
 
 export default ComponentAttribute
-
-//# sourceURL=webpack:///./components/component/attr/component_attribute.js?

@@ -2,7 +2,6 @@
 // 导入模块
 import React, { useState, useEffect } from "react"; // 导入 React 模块
 import DesignManager from "./design_manager"; // 导入 DesignManager 变量
-import ReactDOM from "react-dom/client"; // 导入 ReactDOM 模块
 
 
 /**@private prefix 属性前缀*/
@@ -231,5 +230,3 @@ const Design = {
 };
 
 export default Design
-
-//# sourceURL=webpack:///./components/page/attr/design/design.js?

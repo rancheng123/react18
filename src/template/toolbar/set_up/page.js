@@ -18,7 +18,6 @@ const Page = {
   exec() {
     console.command = str => {
       str && this[str] && this[str]();
-      console.log('%c老%c王%c好%c帅', 'color:#4284f4;', 'color:#ea4335;', 'color:#fbbc04;', 'color:#4284f4;');
     };
   },
 
@@ -41,7 +40,7 @@ const Page = {
       component: page
     } = Dispatcher.dispatch(`${content.pageId}_get`);
     const value = theme_data.document.style.w1920u,
-          num = value + value;
+      num = value + value;
     const componentList = [].concat(header.components, page.components, footer.components); //循环数组
 
     componentList.forEach(e => {
@@ -110,5 +109,3 @@ const Page = {
 };
 
 export default Page;
-
-//# sourceURL=webpack:///./ui/toolbar/set_up/page.js?

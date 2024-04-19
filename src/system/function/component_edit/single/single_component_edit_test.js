@@ -48,9 +48,9 @@ const SingleComponentEdit = {
         hidden
       }
     } = node,
-    config = this.proxy.config;
+      config = this.proxy.config;
 
-    
+
     // 生成按钮组菜单方法
     if (hidden != '1') {
       Buttons.x = this.x, Buttons.y = this.y;
@@ -88,7 +88,7 @@ const SingleComponentEdit = {
           feature
         }
       }
-    } = this; 
+    } = this;
 
     //判断是不是容器只有非容器，才继续执行
     if (feature != 'Container') {
@@ -104,9 +104,8 @@ const SingleComponentEdit = {
 
         this.proxy = await new AttrProxy().init(this.parent.current.type); //删除操作点配置
 
-        console.log(this.proxy, 'this.proxy哈哈哈哈哈')
 
-        
+
 
         delete ((_this$proxy$config = this.proxy.config) !== null && _this$proxy$config !== void 0 ? _this$proxy$config : {}).dots; //执行选中
 
@@ -119,12 +118,11 @@ const SingleComponentEdit = {
       }
     } //取消选中
     else {
-        this.unselect('select-parent-box', 'property-parent-buttons');
-      }
+      this.unselect('select-parent-box', 'property-parent-buttons');
+    }
 
     this.proxy = await new AttrProxy().init(type);
 
-    console.log(this.proxy, type, '嘿嘿嘿嘿')
     await this.select({
       node: this.node,
       Buttons,
@@ -132,7 +130,7 @@ const SingleComponentEdit = {
       btnId: 'property-buttons'
     });
 
-     //清除hover
+    //清除hover
     this.controler.setState({
       hover: null
     });
@@ -146,7 +144,7 @@ const SingleComponentEdit = {
    */
   findParents() {
     let superior = this.node.parent,
-        def_superior = null; //循环父级
+      def_superior = null; //循环父级
 
     while (superior) {
       const {
@@ -190,7 +188,6 @@ const SingleComponentEdit = {
     boxId,
     btnId
   }) {
-    console.log(this.proxy.config,'this.proxy.config');
     //判断是否存在配置对象
     if (this.proxy.config) {
       //选中控件之前调用
@@ -201,8 +198,8 @@ const SingleComponentEdit = {
         node,
         boxId,
         btnId
-      }); 
-      
+      });
+
       //控件选中之后调用
       this.proxy.selected(node);
     }
@@ -215,8 +212,7 @@ const SingleComponentEdit = {
    */
   unselect(boxid, btnid) {
     const box = document.querySelector(`#${boxid}`),
-          btn = document.querySelector(`#${btnid}`);
-          console.log(box, '哈哈哈哈=========哈哈哈哈')
+      btn = document.querySelector(`#${btnid}`);
     box.children.length && ReactDom.unmountComponentAtNode(box);
     btn && btn.children.length && ReactDom.unmountComponentAtNode(btn);
   },
@@ -268,7 +264,6 @@ const SingleComponentEdit = {
    * @return {object} 当前选中控件的数据。 没有返回null
    */
   mousedown(event, x, y, id, fn) {
-    console.log('鼠标左键点击拉');
     var _event$isdrag;
 
     //pc端允许拖拽，mo端不允许拖拽
@@ -294,17 +289,17 @@ const SingleComponentEdit = {
           id
         }
       } = this.node,
-            {
-        pageX: x,
-        pageY: y
-      } = event; //如果是pc端直接赋x坐标，移动端需要减去移动端的左边距离屏幕边距的距离
+        {
+          pageX: x,
+          pageY: y
+        } = event; //如果是pc端直接赋x坐标，移动端需要减去移动端的左边距离屏幕边距的距离
 
       this.x = window.public.type == 'pc' ? x : x - (window.innerWidth - 375) / 2, this.y = y; //初始化选中框。 如果控件允许拖拽且isdrag属性为true，则执行拖拽开始方法
 
       this.init().then(() => (fn && fn(id), isdrag && !dragable && this.start(x, y))); //返回控件
 
       return this.node;
-    } 
+    }
     //阻止默认事件
 
     event.preventDefault();
@@ -320,8 +315,8 @@ const SingleComponentEdit = {
    */
   start(x, y) {
     const main = document.querySelector('#ediMain'),
-          left = main.offsetLeft,
-          boundaryX = left + main.querySelector('#iframe').offsetWidth;
+      left = main.offsetLeft,
+      boundaryX = left + main.querySelector('#iframe').offsetWidth;
     let opts = {
       isdrag: false,
       initX: x,
@@ -363,14 +358,14 @@ const SingleComponentEdit = {
       component.appendChild(div);
     } //行为为remove的话，执行删除
     else if (action == 'remove') {
-        component.style.position = ''; //选中框存在，展示选中框
+      component.style.position = ''; //选中框存在，展示选中框
 
-        if (select) {
-          select.style.display = '';
-        }
-
-        component.lastChild.remove();
+      if (select) {
+        select.style.display = '';
       }
+
+      component.lastChild.remove();
+    }
   },
 
   /**
@@ -385,7 +380,7 @@ const SingleComponentEdit = {
       pageX: x,
       pageY: y
     } = event,
-          left = Math.abs(x - opts.initX); //当拖拽距离大于20时判定为拖拽。
+      left = Math.abs(x - opts.initX); //当拖拽距离大于20时判定为拖拽。
 
     if ((left > 15 || Math.abs(y - opts.initY) > 15) && x < opts.boundaryX) {
       opts.isdrag = true;
@@ -462,15 +457,15 @@ const SingleComponentEdit = {
             opts.isremove = false; // false 是 unadd， true 是 isSwitch 第三个true表示新增控件时不使用新id
             Drag.end(event, opts.component, false, true, true);
           }, false, // 表示要渲染ui，为true则不渲染ui
-          true // 是位置更换的删除组件种类
+            true // 是位置更换的删除组件种类
           ]
         });
       } else //取消禁止循环控件本身
-        {
-          Dispatcher.dispatch(`${id}_set`, {
-            args: ['component.eachable', true, true]
-          });
-        }
+      {
+        Dispatcher.dispatch(`${id}_set`, {
+          args: ['component.eachable', true, true]
+        });
+      }
     }
   }
 

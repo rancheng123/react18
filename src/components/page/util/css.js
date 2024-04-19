@@ -1,6 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cssParser", function() { return cssParser; });
-// /* harmony import */ var _components_manager__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components_manager */ "./components/page/components_manager.js");
 
 import componentsManager from '@/components/components_manager'
 
@@ -86,7 +83,7 @@ function cssMediaProduce(id, media, style) {
 
 function cssReplace(id, css, item, style) {
   const csses = css.split(";"),
-        cssName = item.indexOf("%") != -1 ? item.replace(/%{1}/g, id) : item;
+    cssName = item.indexOf("%") != -1 ? item.replace(/%{1}/g, id) : item;
   let cssList = [];
 
   for (let i = 0, len = csses.length; i < len; i++) {
@@ -115,7 +112,7 @@ function getCssValue(css, style) {
     var _style$key;
 
     let key = u,
-        defaultValue;
+      defaultValue;
 
     if (/\?|\|/.test(u)) {
       [key, defaultValue] = u.split(/\s?[?|]+\s?/);
@@ -161,13 +158,11 @@ function cssProduce(id, css, style) {
       cssStr = cssStr + cssProduce(id, css[item], style);
     } //键值是否媒体查询
     else if (item == 'media') {
-        cssStr = cssStr + cssMediaProduce(id, css[item], style);
-      } else {
-        cssStr = cssStr + cssReplace(id, css[item], item, style);
-      }
+      cssStr = cssStr + cssMediaProduce(id, css[item], style);
+    } else {
+      cssStr = cssStr + cssReplace(id, css[item], item, style);
+    }
   }
 
   return cssStr;
 }
-
-//# sourceURL=webpack:///./components/page/util/css.js?

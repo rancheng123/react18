@@ -1029,5 +1029,3 @@ const Widget = {
 };
 
 export default Widget
-
-//# sourceURL=webpack:///./system/widgets/widget.js?

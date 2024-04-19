@@ -83,7 +83,7 @@ export default class MenuManageControler extends manage_controler__WEBPACK_IMPOR
 
     this.items = menuList.map(e => {
       const pid = e.pid,
-            id = submenuList[pid]; //id是否存在
+        id = submenuList[pid]; //id是否存在
 
       if (id) {
         const {
@@ -197,7 +197,7 @@ export default class MenuManageControler extends manage_controler__WEBPACK_IMPOR
       if (componentData) {
         componentData.data.isSubmenu = true;
         const pid = this.props.id,
-              name = document_data.name;
+          name = document_data.name;
         const {
           structure: {
             skin,
@@ -258,7 +258,7 @@ export default class MenuManageControler extends manage_controler__WEBPACK_IMPOR
       }
     } = dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch(`${pid}_get`);
     const skin = component.components[0].skin,
-          pageid = menu_data.menuList[index].pid;
+      pageid = menu_data.menuList[index].pid;
     const type = item.componentType.split("-")[1].toLowerCase();
     const name = document_data.name; //清空指定插入位置 2021-02-19
 
@@ -311,7 +311,7 @@ export default class MenuManageControler extends manage_controler__WEBPACK_IMPOR
 
   async showPanel() {
     const id = this.state.current.component.id,
-          parent = this.props.node.current; //保证获取到最新的皮肤 2020-09-09
+      parent = this.props.node.current; //保证获取到最新的皮肤 2020-09-09
 
     const {
       component: {
@@ -465,7 +465,7 @@ export default class MenuManageControler extends manage_controler__WEBPACK_IMPOR
 
   joinId() {
     let current = this.props.node.current,
-        idList = [];
+      idList = [];
 
     while (current.parent) {
       idList.unshift(current.id);
@@ -476,5 +476,3 @@ export default class MenuManageControler extends manage_controler__WEBPACK_IMPOR
   }
 
 }
-
-//# sourceURL=webpack:///./components/menu/attr/manage/menu_manage_controler.js?

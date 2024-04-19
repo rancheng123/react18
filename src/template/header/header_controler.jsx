@@ -185,7 +185,6 @@ export default class HeaderControler extends React.Component {
           <ul className="e_ulBox">
             {
               this.btn_list.map((item, index) => {
-                // console.log(item.event, this[item.event])
                 if (!item) return null
                 return (
                   <li
@@ -489,5 +488,3 @@ export default class HeaderControler extends React.Component {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/header/header_controler.js?

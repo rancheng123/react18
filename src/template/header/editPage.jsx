@@ -10,7 +10,6 @@ export default function EditPage({pageList}){
     const [formValues, setFormValues] = useState();
     const [open, setOpen] = useState(false);
     const onCreate = (values) => {
-      console.log('Received values of form: ', values);
       setFormValues(values);
       setOpen(false);
     };

@@ -50,5 +50,3 @@ export function s57() {
         context: context
     })));
 }
-
-//# sourceURL=webpack:///./components/image/view/html/common_img_s57_view.js?

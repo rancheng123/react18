@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuBasicControler", function() { return MenuBasicControler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuBasicControler", function () { return MenuBasicControler; });
 /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
 /* harmony import */ var _menu_basic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu_basic */ "./components/menu/attr/basic/menu_basic.js");
 /* harmony import */ var basic_controler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! basic-controler */ "./components/page/attr/basic/basic_controler.js");
@@ -10,7 +10,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- ///attr_proxy
+///attr_proxy
 
 
 /** 
@@ -49,9 +49,10 @@ class MenuBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["B
       }
     } = dispatcher__WEBPACK_IMPORTED_MODULE_0__["Dispatcher"].dispatch(fnName);
     let props = this.props || {},
-        _groupList = props.groupList,
-        group = props.group;
-    this.state = { ...document_data,
+      _groupList = props.groupList,
+      group = props.group;
+    this.state = {
+      ...document_data,
       ...menu_data
     };
     this.state.align = this.state.align || "left";
@@ -249,7 +250,8 @@ class MenuBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["B
 
   getSourceData(datas) {
     let state = this.state || {};
-    let ajaxData = { ...{
+    let ajaxData = {
+      ...{
         sid: pageData.siteId,
         level: state.level || "0"
       },
@@ -432,8 +434,8 @@ class MenuBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["B
 
   clickTabs(value) {
     let props = this.props || {},
-        _groupList = props.groupList,
-        group = props.group;
+      _groupList = props.groupList,
+      group = props.group;
     let newList = window.public.configure(_groupList, group.group[value]);
     this.setState({
       currentTab: value,
@@ -444,5 +446,3 @@ class MenuBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["B
 }
 
 _defineProperty(MenuBasicControler, "LIST", ["dataContent", "openScreen", "linkTarget", "sortColumns", "twoLevelNavigation", "dropdownIcon", "levelNavShow", "button", "anchorSet", "displayModel", "overflowPart"]);
-
-//# sourceURL=webpack:///./components/menu/attr/basic/menu_basic_controler.js?

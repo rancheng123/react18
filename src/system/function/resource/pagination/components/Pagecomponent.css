@@ -15,5 +15,3 @@ if (content.locals) {
   module.exports = content.locals;
 }
 
-
-//# sourceURL=webpack:///./system/function/resource/pagination/components/Pagecomponent.css?

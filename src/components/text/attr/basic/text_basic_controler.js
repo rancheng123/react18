@@ -107,7 +107,6 @@ class TextBasicControler extends BasicControler {
 
 
   minHeight(e) {
-    // console.log(1111)
     let layout = this.state.layout || [];
 
     const _value = Number(e.target.value);

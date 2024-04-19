@@ -132,5 +132,3 @@ export default class Page {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/view/mo/page.js?

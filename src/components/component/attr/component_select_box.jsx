@@ -101,5 +101,3 @@ export default class ComponentSelectBox extends SelectBox{
   }
 
 }
-
-//# sourceURL=webpack:///./components/component/attr/component_select_box.js?

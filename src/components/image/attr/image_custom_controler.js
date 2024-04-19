@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageCustomControler", function() { return ImageCustomControler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageCustomControler", function () { return ImageCustomControler; });
 /* harmony import */ var _page_attr_custom_custom_controler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../page/attr/custom/custom_controler */ "./components/page/attr/custom/custom_controler.js");
 
 /**
@@ -56,7 +56,8 @@ class ImageCustomControler extends _page_attr_custom_custom_controler__WEBPACK_I
         } = state || {};
         let data = compontData.data,
             defData = defCompont.data;
-        compontData.data = { ...defData,
+        compontData.data = {
+            ...defData,
             ...data
         }; //style数据中存在paddingHeight是要保留下来(列表内图片才有这个属性) sxt 2020-6-10
 
@@ -73,5 +74,3 @@ class ImageCustomControler extends _page_attr_custom_custom_controler__WEBPACK_I
     }
 
 }
-
-//# sourceURL=webpack:///./components/image/attr/image_custom_controler.js?

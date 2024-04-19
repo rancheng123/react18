@@ -503,5 +503,3 @@ const Layer = {
 };
 
 export default Layer;
-
-//# sourceURL=webpack:///./system/widgets/layer.js?

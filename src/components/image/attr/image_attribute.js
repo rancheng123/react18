@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageAttribute", function() { return ImageAttribute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageAttribute", function () { return ImageAttribute; });
 /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
 /* harmony import */ var _page_attr_attribute__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../page/attr/attribute */ "./components/page/attr/attribute.js");
 /* harmony import */ var _image_config_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./image_config.json */ "./components/image/attr/image_config.json");
@@ -123,5 +123,3 @@ ImageAttribute.selectImage = function () {
 // 	const imageSetting = await PublicAttrManager.setting(type);
 // 	 imageSetting.setting(opts);
 // }
-
-//# sourceURL=webpack:///./components/image/attr/image_attribute.js?

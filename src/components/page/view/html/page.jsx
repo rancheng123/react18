@@ -173,5 +173,3 @@ export default class Page {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/view/html/page.js?

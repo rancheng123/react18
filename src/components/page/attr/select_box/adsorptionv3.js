@@ -367,5 +367,3 @@ const adsorptionv3 = {
 
 
 export default adsorptionv3
-
-//# sourceURL=webpack:///./components/page/attr/select_box/adsorptionv3.js?

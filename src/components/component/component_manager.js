@@ -25,7 +25,7 @@ const ComponentManager = {
    */
   getAttr() {
     // return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(135)]).then(__webpack_require__.bind(null, /*! ./attr/component_attribute */ "./components/component/attr/component_attribute.js")).then(module => module.ComponentAttribute);
-    return  import(`./attr/component_attribute.js`).then(module => module.default);
+    return import(`./attr/component_attribute.js`).then(module => module.default);
   },
 
   /**
@@ -55,6 +55,4 @@ const ComponentManager = {
   }
 
 };
-export {ComponentManager}
-
-//# sourceURL=webpack:///./components/component/component_manager.js?
+export { ComponentManager }

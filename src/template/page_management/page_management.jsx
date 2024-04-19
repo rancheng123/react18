@@ -475,5 +475,3 @@ export default class PageManagement {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/page_management/page_management.js?

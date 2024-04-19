@@ -177,5 +177,3 @@ export default class Background {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/toolbar/set_up/background/background.js?

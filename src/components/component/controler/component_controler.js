@@ -1,5 +1,5 @@
 import Dispatcher from '@/system/tools/dispatcher'
-export default  class ComponentControler {
+export default class ComponentControler {
   constructor(component) {
     this.component = component;
   }
@@ -18,7 +18,6 @@ export default  class ComponentControler {
     const component = window.public.dom.querySelector(`#${id}`); //获取控件宽度
 
     const width = component.offsetWidth;
-    console.log(width, "计算宽度");
     const cwidth = width - (width * (value1 / 100) + width * (value2 / 100));
 
     if (width > 961) {
@@ -50,9 +49,9 @@ export default  class ComponentControler {
         var _window, _window$pageData;
 
         let paddingRight = style["paddingRight"] || 0,
-            paddingLeft = style["paddingLeft"] || 0;
+          paddingLeft = style["paddingLeft"] || 0;
         let siteId = (_window = window) === null || _window === void 0 ? void 0 : (_window$pageData = _window.pageData) === null || _window$pageData === void 0 ? void 0 : _window$pageData.siteId,
-            isShow = true; //这个用户先不用计算宽度
+          isShow = true; //这个用户先不用计算宽度
 
         if (siteId == "11d0df1f4fd25c5c81578c9c100e3825") {
           isShow = false;
@@ -62,7 +61,7 @@ export default  class ComponentControler {
         if (isShow && paddingLeft > 0 && paddingRight > 0 && style['paddingRightUnit'] == '%' && style['paddingLeftUnit'] == '%') {
           var element = window.public.dom.querySelector(`#${id}`);
           var parent = element.parentNode,
-              isTrue = false; // 获取父元素  
+            isTrue = false; // 获取父元素  
 
           if (parent && parent.classList && parent.classList.contains('auto-margin')) {
             isTrue = true;

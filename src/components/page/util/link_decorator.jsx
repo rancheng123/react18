@@ -717,5 +717,3 @@ const LinkDecorator = {
 };
 
 export default LinkDecorator;
-
-//# sourceURL=webpack:///./components/page/util/link_decorator.js?

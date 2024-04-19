@@ -100,5 +100,3 @@ const PageDecorator = {
 PageDecorator.__proto__ = Decorator;
 
 export default PageDecorator
-
-//# sourceURL=webpack:///./system/tools/data/decorator/page_decorator.js?

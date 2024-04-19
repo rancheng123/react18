@@ -16,23 +16,10 @@ export default class CollectionControler extends React.Component{
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.props = props
     this.init();
-    /**@property {Collection} view 初始化 view 实例*/
 
-    // this.view = new Collection; //给view 入口方法绑定this
-
-    // this.view.render = this.view.render.bind(this.view);
   }
 
   static collection(toolBarsRoot) {
-    // const element = document.querySelector(`#collection-modal`);
-    // const element = document.querySelector(`#${id}`);
-    
-    // React 17 写法
-    // ReactDom.render(React.createElement(CollectionControler, {
-    //   id: id
-    // }), element);
-    // React 18 写法
-    // const root = createRoot(element)
     toolBarsRoot.render(<CollectionControler toolBarsclose={()=>toolBarsRoot.unmount()}/>)
   }
   /**
@@ -44,7 +31,6 @@ export default class CollectionControler extends React.Component{
 
 
   render() {
-    // return React.createElement(this.view.render, null);
     return (
       <Collection toolBarsclose={this.props.toolBarsclose}/>
     )
@@ -246,5 +232,3 @@ export default class CollectionControler extends React.Component{
   }
 
 }
-
-//# sourceURL=webpack:///./ui/toolbar/collection/collection_controler.js?

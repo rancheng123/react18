@@ -15,5 +15,3 @@ if (content.locals) {
   module.exports = content.locals;
 }
 
-
-//# sourceURL=webpack:///./ui/toolbar/set_up/fontFamily/style.css?

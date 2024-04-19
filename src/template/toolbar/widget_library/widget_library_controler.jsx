@@ -46,12 +46,6 @@ export default class WidgetLibraryControler extends React.Component {
   }
 
   static widgetLibrary(toolBarsRoot, configType) {
-    // const element = document.querySelector(`#${id}`);
-    // ReactDom.render(React.createElement(WidgetLibraryControler, {
-    //   id: id,
-    //   configType: configType
-    // }), element);
-   
     toolBarsRoot.render(<WidgetLibraryControler configType={configType}  toolBarsclose={()=> toolBarsRoot.unmount()}/>)
   }
   /**
@@ -484,5 +478,3 @@ export default class WidgetLibraryControler extends React.Component {
     );
   }
 }
-
-//# sourceURL=webpack:///./ui/toolbar/widget_library/widget_library_controler.js?

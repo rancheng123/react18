@@ -169,5 +169,3 @@ class Shadow {
   }
 
 }
-
-//# sourceURL=webpack:///./components/page/attr/design/shadow/shadow.js?

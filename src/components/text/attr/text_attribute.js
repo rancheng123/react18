@@ -20,10 +20,9 @@ TextAttribute.picture = async opts => {
 };
 
 TextAttribute.ckeditor = function () {
-  console.log('ckeditor文本编辑器');
   if (this.node && this.node.current) {
     let ediBox = document.querySelector("#select-box .ediBox"),
-        div = document.createElement("div");
+      div = document.createElement("div");
     div.setAttribute("id", "editor");
     div.setAttribute("contentEditable", true);
     ediBox.appendChild(div); //阻止冒泡事件，防止走拖拽控件方法，sxt 2020-1-13 17:27
@@ -54,7 +53,7 @@ TextAttribute.selected = function (node) {
 
     ediBox.ondblclick = function () {
       let id = node.current.id + "-ckeditor",
-          ckeditorDom = document.querySelector("#" + id); //存在文本编辑的属性按钮时，模拟点击属性按钮
+        ckeditorDom = document.querySelector("#" + id); //存在文本编辑的属性按钮时，模拟点击属性按钮
 
       ckeditorDom && ckeditorDom.click();
     };

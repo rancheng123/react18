@@ -89,5 +89,3 @@ export function s63() {
         src: "//img.bjyyb.net/images/icon_09.png"
     }))))));
 }
-
-//# sourceURL=webpack:///./components/image/view/html/common_img_s63_view.js?

@@ -99,7 +99,6 @@ export default class Basic {
   controlsName() {
     let value = this.state.componentName;
     let componentName = this.state.componentType; //slice(3)
-    // console.log(componentName.slice(3))
 
     let componentId = this.props.id;
     return React.createElement(Widget.Input, {

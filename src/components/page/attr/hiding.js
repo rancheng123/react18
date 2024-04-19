@@ -18,7 +18,6 @@ const Hiding = {
    * @Date: 2020-03-03 13:31:13
    */
   hidingHandle(hidden, hiddenList, systype, doc, id, pageId) {
-    // console.log('hidingHandle')
     // let hlist = (typeof hiddenList == 'undefined')?[]:hiddenList;
     // if(hidden){
     //     hlist = hlist.filter(x=>x!=id); //显示,移除数组
@@ -133,9 +132,9 @@ const Hiding = {
             hlist.push(key);
           } //是pc端并且控件是隐藏，存储控件id
           else if (systype == 'pc' && style.pchidden == 'none') {
-              //过滤移动端头部和底部
-              /moHeader|moFooter/.test(skin) == false && hlist.push(key);
-            }
+            //过滤移动端头部和底部
+            /moHeader|moFooter/.test(skin) == false && hlist.push(key);
+          }
         }
       }
     }
@@ -200,7 +199,7 @@ const Hiding = {
     if (ele) {
       //  只有 position不存在时才赋值relative, 已经存在时赋值会对固定定位的控件会影响(侧边栏) sxt 2020-9-16
       var style = window.getComputedStyle(ele, null),
-          _position = style.position; //_position 为static时，证明没有定位，要赋值定位，防止遮档的bug sxt 2020-9-16
+        _position = style.position; //_position 为static时，证明没有定位，要赋值定位，防止遮档的bug sxt 2020-9-16
 
       if (_position == "static") {
         ele.style.position = 'relative';

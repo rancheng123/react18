@@ -256,5 +256,3 @@ export default class BackgroundControler extends React.Component {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/toolbar/set_up/background/background_controler.js?

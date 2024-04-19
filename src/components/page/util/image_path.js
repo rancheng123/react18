@@ -9,8 +9,8 @@ const ImagePath = {
   imageUri(prop) {
     if (prop) {
       let uri = prop.uri,
-          dataRetain = prop.dataRetain || "noRetain",
-          quality = prop[`quality`];
+        dataRetain = prop.dataRetain || "noRetain",
+        quality = prop[`quality`];
 
       if (uri && quality) {
         const index = uri.indexOf("@!");
@@ -33,5 +33,3 @@ const ImagePath = {
 };
 
 export default ImagePath;
-
-//# sourceURL=webpack:///./components/page/util/image_path.js?

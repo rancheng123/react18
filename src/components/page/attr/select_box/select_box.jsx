@@ -43,7 +43,6 @@ class SelectBox {
 
 
   static selectBox(opts) {
-    // console.log(44444444);
     const element = document.querySelector(`#${opts.id}`);
 
     //节点对象存在，在插入选中框
@@ -70,7 +69,6 @@ class SelectBox {
     dots,
     def_layout
   }) {
-    console.log('render');
     const state = useState(def_layout);
     const {
       current: {

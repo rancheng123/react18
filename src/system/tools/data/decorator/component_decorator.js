@@ -1,6 +1,4 @@
 
-// /* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../history */ "./system/tools/history.js");
-
 import Decorator from "./decorator";
 
 /**

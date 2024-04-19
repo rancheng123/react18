@@ -67,7 +67,6 @@ class BackgroundControler extends React.Component {
       },
       component
     } = Dispatcher.dispatch(`${this.props.id}_get`);
-    console.log(Dispatcher.dispatch(`${this.props.id}_get`), '2222222222222');
     this.state = {}; //theme_data数据存在并且存在style数据，则与state合并
 
     if (theme_data) {

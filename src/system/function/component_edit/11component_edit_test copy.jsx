@@ -40,7 +40,6 @@ export default class ComponentEdit extends React.Component {
 
 
   render() {
-    console.log(this.props,'子组件');
     return React.createElement("div", {
       id: "selected-mask",
       style: {
@@ -122,7 +121,9 @@ export default class ComponentEdit extends React.Component {
           current: {
             hidden
           }
-        } = data; //    console.log(items,"结构中items");
+        } = data; 
+        
+        //    console.log(items,"结构中items");
 
         return items.length && hidden != 1 ? React.createElement(ConfigBtn["ConfigBtnWaper"], {
           style: {

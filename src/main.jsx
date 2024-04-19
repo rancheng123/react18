@@ -17,7 +17,6 @@ import './language/system/zh.js'
         //加载页面
         // Util.loadComponent(pub.type == 'pc' ? 'html' : 'mo', //pc 加载html结构，mo 加载mo html 结构
         // JSON.parse(JSON.stringify(pub.win.siteAsJson))).then(Page => {
-        //   console.log(Page, 'page')
         //   ReactDOM.createRoot(pub.dom.querySelector("#root")).render(Page).then(() => {
         //     callback && callback();
         //   });

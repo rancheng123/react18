@@ -14,5 +14,3 @@ function dataManager(type) {
 }
 
 export default dataManager
-
-//# sourceURL=webpack:///./system/tools/data/data_manager.js?

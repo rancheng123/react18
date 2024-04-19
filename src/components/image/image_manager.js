@@ -18,5 +18,4 @@ const ImageManager = {
   }
 
 };
-export {ImageManager}
-//# sourceURL=webpack:///./components/image/image_manager.js?
+export { ImageManager }

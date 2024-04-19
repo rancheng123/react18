@@ -104,7 +104,5 @@ function change(id, e) {
 // function focus(id){
 //     Dispatcher.dispatch(`${id}_set`,{
 //         args:[`document_data.text`,""]
-//     }) 
+//     })
 // }
-
-//# sourceURL=webpack:///./components/text/attr/editor.js?

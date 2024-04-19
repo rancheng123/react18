@@ -207,5 +207,3 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Pagecomponent);
-
-//# sourceURL=webpack:///./system/function/resource/pagination/components/Pagecomponent.js?

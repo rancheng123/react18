@@ -26,13 +26,13 @@ class Save {
     });
     const pageUpdateTime = pageData.data.document_data[pageId].page_update_time;
     return `sid=${siteId}&page_update_time=${pageUpdateTime != undefined ? pageUpdateTime : 0 //页面更新时间为undefined，则默认为零	
-    }&masterPage=${encodeURIComponent(JSON.stringify({
-      structure: iframeData.component,
-      data: iframeData.data
-    }))}&${pageId}=${encodeURIComponent(JSON.stringify({
-      structure: pageData.component,
-      data: pageData.data
-    }))}${this.status == 1050 ? '&lock=1' : ''}`;
+      }&masterPage=${encodeURIComponent(JSON.stringify({
+        structure: iframeData.component,
+        data: iframeData.data
+      }))}&${pageId}=${encodeURIComponent(JSON.stringify({
+        structure: pageData.component,
+        data: pageData.data
+      }))}${this.status == 1050 ? '&lock=1' : ''}`;
   }
 
   save() {
@@ -121,5 +121,3 @@ class Save {
 }
 
 export default Save;
-
-//# sourceURL=webpack:///./system/function/save.js?

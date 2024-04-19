@@ -1,11 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SetUp", function() { return SetUp; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-// /* harmony import */ var _toolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../toolbar */ "./ui/toolbar/toolbar.js");
-// /* harmony import */ var _fontFamily_fontFamily__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./fontFamily/fontFamily */ "./ui/toolbar/set_up/fontFamily/fontFamily.js");
 
 // 导入 React 库
 import React,{useState,useEffect} from 'react';
@@ -112,4 +104,3 @@ const SetUp = {
 };
 
 export default SetUp;
-//# sourceURL=webpack:///./ui/toolbar/set_up/set_up.js?

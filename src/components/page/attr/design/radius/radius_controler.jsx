@@ -168,5 +168,3 @@ class RadiusControler extends React.Component {
 _defineProperty(RadiusControler, "LIST", ["TopLeft", "TopRight", "BottomRight", "BottomLeft"]);
 
 export { RadiusControler }
-
-//# sourceURL=webpack:///./components/page/attr/design/radius/radius_controler.js?

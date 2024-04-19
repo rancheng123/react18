@@ -1,17 +1,23 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplateResourceControler", function() { return TemplateResourceControler; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _template_resource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./template_resource */ "./system/function/resource/template/template_resource.js");
-/* harmony import */ var _resourceControler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resourceControler */ "./system/function/resource/resourceControler.js");
-/* harmony import */ var layer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! layer */ "./system/widgets/layer.js");
-/* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
+// __webpack_require__.r(__webpack_exports__);
+// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplateResourceControler", function() { return TemplateResourceControler; });
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
+// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
+// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+// /* harmony import */ var _template_resource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./template_resource */ "./system/function/resource/template/template_resource.js");
+// /* harmony import */ var _resourceControler__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../resourceControler */ "./system/function/resource/resourceControler.js");
+// /* harmony import */ var layer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! layer */ "./system/widgets/layer.js");
+// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
 
+// 导入React和ReactDOM库
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-
-
+// 导入其他模块
+import templateResource from './template_resource';
+import resourceControler from '../resourceControler'; // 注意路径根据实际文件结构调整
+import layer from '@/system/widgets/layer.js';
+import dispatcher from '@/system/tools/dispatcher';
 
 
 /**
@@ -46,7 +52,7 @@ class TemplateResourceControler extends _resourceControler__WEBPACK_IMPORTED_MOD
     let innerHeight = window.innerHeight; //页面高度  用页面高度去计算,图片显示几列 sxt 2020-2-4
 
     let _height = innerHeight - 50 * 2,
-        size = parseInt((_height - (54 + 85 + 65 + 32 + 26)) / 148);
+      size = parseInt((_height - (54 + 85 + 65 + 32 + 26)) / 148);
 
     this.state = Object.assign({
       type: "wholeClassify",
@@ -238,5 +244,3 @@ class TemplateResourceControler extends _resourceControler__WEBPACK_IMPORTED_MOD
   }
 
 }
-
-//# sourceURL=webpack:///./system/function/resource/template/template_resource_controler.js?

@@ -1,3 +1,4 @@
+
 /**
  * @function connect 连接处理模块路径与模块名 
  * @date 2019-11-7
@@ -39,12 +40,14 @@ const PublicAttrManager = {
    * @param {string} name 控件名称
    * @return {Basic} 基本属性模块
    */
-  basic(name) {
+  async basic(name) {
 
     if (name) {
       const [path, moduleName] = connect(name, ["basic/[name]_basic_controler", "BasicControler"]);
+      const module = await this.basicDynamicImport(path, moduleName)
+      return module;
       // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
-      return import(`../../${path}`).then(module => module[moduleName]);
+      // return import(`../../${path}`).then(module => module[moduleName]);
     }
 
     return null;
@@ -57,10 +60,6 @@ const PublicAttrManager = {
    * @return {Design} 设计模块
    */
   design() {
-    // return __webpack_require__.e(/*! import() */ 45).then(__webpack_require__.bind(null, /*! ./design/design */ "./components/page/attr/design/design.js")).then(module => module.Design);
-    // import('./design/design').then(module => {
-    //   console.log(module, '00000000000000000000000000000000000')
-    // })
     return import("./design/design").then(module => module.default);
   },
 
@@ -73,7 +72,7 @@ const PublicAttrManager = {
    */
   setting(name) {
     let path = "page/attr/setting.js",
-        moduleName = "Setting";
+      moduleName = "Setting";
 
     if (name) {
       [path, moduleName] = connect(name, ['[name]_setting.js', moduleName]);
@@ -91,7 +90,7 @@ const PublicAttrManager = {
    */
   animation(name) {
     let path = "animation/animation_controler.jsx",
-        moduleName = "AnimationControler";
+      moduleName = "AnimationControler";
     // return __webpack_require__("./components/page/attr lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
     return import(`./${path}`).then(module => module[moduleName]);
   },
@@ -104,7 +103,7 @@ const PublicAttrManager = {
    */
   custom(name) {
     let path = "page/attr/custom/custom_controler.js",
-        moduleName = "CustomControler";
+      moduleName = "CustomControler";
 
     if (name) {
       [path, moduleName] = connect(name, ['[name]_custom_controler.js', moduleName]);
@@ -141,14 +140,12 @@ const PublicAttrManager = {
    * @param {string} name 控件名称
    */
   selectBox(name) {
-    // console.log(33333333333);
     let path = "page/attr/select_box/select_box.js",
-        moduleName = "SelectBox";
+      moduleName = "SelectBox";
 
     if (name) {
       [path, moduleName] = connect(name, ['[name]_select_box.js', moduleName]);
     }
-    console.log(path.split('.')[0]);
     // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
     return import(`./select_box/select_box`).then(module => module[moduleName]);
   },
@@ -170,6 +167,17 @@ const PublicAttrManager = {
    */
   quote() {
     return __webpack_require__.e(/*! import() */ 1024).then(__webpack_require__.bind(null, /*! ../../hoverbox/attr/quote.js */ "./components/hoverbox/attr/quote.js")).then(module => module.Quote);
+  },
+
+  // 动态导入处理函数
+  async basicDynamicImport(path, name) {
+    try {
+      const modules = import.meta.glob('../../../components/*/attr/basic/*.js')
+      const m = await modules[`../../${path}.js`]
+      return m ? m().then(mod => mod[name]) : null
+    } catch (error) {
+      console.error('err', error);
+    }
   }
 
 };

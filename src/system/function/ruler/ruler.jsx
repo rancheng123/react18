@@ -133,5 +133,3 @@ export default class Ruler {
   }
 
 }
-
-//# sourceURL=webpack:///./system/function/ruler/ruler.js?

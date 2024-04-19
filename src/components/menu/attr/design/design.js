@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Design", function() { return Design; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Design", function () { return Design; });
 /**
  * @method: Design 设计类
  * @author: sxt
@@ -26,5 +26,3 @@ const Design = {
   }
 
 };
-
-//# sourceURL=webpack:///./components/menu/attr/design/design.js?

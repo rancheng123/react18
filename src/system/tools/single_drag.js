@@ -44,5 +44,3 @@ _defineProperty(SingleDrag, "angle", void 0);
 _defineProperty(SingleDrag, "tempX", void 0);
 
 _defineProperty(SingleDrag, "tempY", void 0);
-
-//# sourceURL=webpack:///./system/tools/single_drag.js?

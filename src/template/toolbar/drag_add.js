@@ -45,10 +45,10 @@ export default class DragAdd {
       }
     } //如果存在此元素，则执行删除操作
     else {
-        //还原蒙层
-        document.querySelector('#selected-mask').style.opacity = '';
-        last.id == "component-mask" && last.remove();
-      }
+      //还原蒙层
+      document.querySelector('#selected-mask').style.opacity = '';
+      last.id == "component-mask" && last.remove();
+    }
   }
   /**
    * @method start 拖拽开始执行方法
@@ -65,12 +65,12 @@ export default class DragAdd {
         clientX,
         clientY
       } = event,
-            {
-        left,
-        top,
-        width,
-        height
-      } = target.getBoundingClientRect();
+        {
+          left,
+          top,
+          width,
+          height
+        } = target.getBoundingClientRect();
       let opts = {
         main: target.closest("#ediMain"),
         left: clientX - left,
@@ -107,11 +107,11 @@ export default class DragAdd {
       main
     } = opts;
     let left = event.clientX - x,
-        top = event.clientY - y - main.offsetTop;
+      top = event.clientY - y - main.offsetTop;
     if (!opts.component) {
       //关闭面板
       // this.component.view.close(); 
-      this.component.view ?  this.component.view.close() :  this.component.props.toolBarsclose(); 
+      this.component.view ? this.component.view.close() : this.component.props.toolBarsclose();
 
       //获取控件数据  
       this.component.getData().then(component => opts.component = component);
@@ -125,7 +125,7 @@ export default class DragAdd {
           }
         } = opts;
         let type = component.combinationType || component.componentType; //先获取combinationType的属性，此属性存在证明是组件库中的控件，是不允许嵌套的，sxt 2021-2-2
-        
+
         //生成控件遮罩层
         this.componentMask(main, left, top, width, height, bounding);
 
@@ -157,7 +157,7 @@ export default class DragAdd {
         currentTarget: target
       } = event; //清除move与up事件
 
-      target.onmousemove = target.onmouseup = null; 
+      target.onmousemove = target.onmouseup = null;
 
       //如果不允许拖入，直接返回，不再执行后续逻辑
       if (opts.isdrag != true) {
@@ -175,7 +175,7 @@ export default class DragAdd {
             component = structure
           }
         } = opts;
-        const proxy = await new AttrProxy().init(component.componentType); 
+        const proxy = await new AttrProxy().init(component.componentType);
 
         //生成时间
         const time = new Date().toLocaleString('zh-cn', {
@@ -183,14 +183,14 @@ export default class DragAdd {
         });
 
         //记录拖入时间 wyq change 2020-10-26
-        opts.component.structure.drag_in_time = time; 
+        opts.component.structure.drag_in_time = time;
 
         //控件新增之前执行
-        proxy.addComponentBefore(opts.component); 
-        
+        proxy.addComponentBefore(opts.component);
+
         //如果新增成功，执行回调
-        const promise = Drag.end(event, opts.component); 
-        
+        const promise = Drag.end(event, opts.component);
+
         //如果promise为true，表示新增成功，执行新增成功回调方法
         if (promise) {
           promise.then(id => proxy.addedComponent(id));
@@ -251,5 +251,3 @@ export default class DragAdd {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/toolbar/drag_add.js?

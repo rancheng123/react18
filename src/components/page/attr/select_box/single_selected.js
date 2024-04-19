@@ -28,5 +28,3 @@ export default class SingleSelected {
 _defineProperty(SingleSelected, "width", void 0);
 
 _defineProperty(SingleSelected, "x", void 0);
-
-//# sourceURL=webpack:///./components/page/attr/select_box/single_selected.js?

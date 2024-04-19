@@ -599,7 +599,6 @@ export default class ComponentEditControler extends React.Component {
   hoverDown(type, e) {
     this.mousedown(e, null, null, id => {
       setTimeout(() => {
-        // console.log(id, type);
         document.getElementById(id + '-' + type).click();
       }, 200);
     });
@@ -697,5 +696,3 @@ export default class ComponentEditControler extends React.Component {
 }
 
 var _lookup = new WeakMap();
-
-//# sourceURL=webpack:///./system/function/component_edit/component_edit_test_controler.js?

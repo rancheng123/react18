@@ -177,5 +177,3 @@ const PublicAttribute = {
 };
 
 export default PublicAttribute
-
-//# sourceURL=webpack:///./components/page/attr/public_attribute.js?

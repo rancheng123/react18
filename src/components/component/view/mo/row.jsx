@@ -76,5 +76,3 @@ function Component() {
 }
 
 export default Component
-
-//# sourceURL=webpack:///./components/component/view/mo/row.js?

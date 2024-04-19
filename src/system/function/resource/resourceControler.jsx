@@ -1,10 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResourceControler", function() { return ResourceControler; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-// /* harmony import */ var _resource_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resource.js */ "./system/function/resource/resource.js");
 
 // 导入 React 库
 import React from 'react';
@@ -207,5 +200,3 @@ export default class ResourceControler extends React.Component {
   search() {}
 
 }
-
-//# sourceURL=webpack:///./system/function/resource/resourceControler.js?

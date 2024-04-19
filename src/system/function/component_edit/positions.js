@@ -11,9 +11,9 @@ import Dispatcher from "../../tools/dispatcher";
  */
 
 const wh = 29,
-      base = 2 * wh,
-      cwidth = wh,
-      waperPadding = 10;
+  base = 2 * wh,
+  cwidth = wh,
+  waperPadding = 10;
 const positions = {
   virtual: false,
 
@@ -25,7 +25,6 @@ const positions = {
    * @return: void
    */
   findVirtual(x, y) {
-    //console.log(this.virtual,'this.virtual')
     if (this.virtual !== false) {
       if (this.findBox(x, y, this.virtual, 1, 'virtual')) {
         const currentNode = this.virtual.node.find(_node => {
@@ -136,7 +135,7 @@ const positions = {
    */
   proofreadingPosition(parentNav, currentNav) {
     let d1 = 0,
-        l = this.getRuleWidth();
+      l = this.getRuleWidth();
 
     if (parentNav.left < 0) {
       d1 = Math.abs(parentNav.left) + l;
@@ -230,8 +229,8 @@ const positions = {
           }, current.nav, current.comp);
         } else if (current.nav.direction == 'leftBottom') {
           const diffLeft = Math.abs(current.nav.left - parent.nav.left),
-                diffRight = Math.abs(current.nav.right - parent.nav.right),
-                distance = Math.abs(parent.nav.right - current.nav.left);
+            diffRight = Math.abs(current.nav.right - parent.nav.right),
+            distance = Math.abs(parent.nav.right - current.nav.left);
 
           if (current.nav.name == '图片' && parent.nav.name == '组件') {
             //const diffRight = Math.abs(current.nav.right - parent.nav.right);
@@ -394,11 +393,13 @@ const positions = {
       switch (item.type) {
         case 'default':
           if (current == '0') {
-            return { ...item,
+            return {
+              ...item,
               selected: true
             };
           } else {
-            return { ...item,
+            return {
+              ...item,
               selected: false
             };
           }
@@ -407,11 +408,13 @@ const positions = {
 
         case 'currentHover':
           if (current == '1') {
-            return { ...item,
+            return {
+              ...item,
               selected: true
             };
           } else {
-            return { ...item,
+            return {
+              ...item,
               selected: false
             };
           }
@@ -449,7 +452,8 @@ const positions = {
       items = items.map(item => {
         if (item.type == 'selectImage' || item.type == 'ckeditor') {
           len--;
-          return { ...item,
+          return {
+            ...item,
             hidden: true
           };
         } else {
@@ -482,7 +486,7 @@ const positions = {
     }
   },
 
-  filterButton(type, id, items) {},
+  filterButton(type, id, items) { },
 
   /**
    * @description: 初始化button个数
@@ -513,7 +517,8 @@ const positions = {
             // console.log(item.type);
             if (item.type == 'selectImage' || item.type == 'ckeditor') {
               len--;
-              return { ...item,
+              return {
+                ...item,
                 hidden: true
               };
             } else if (item.type == 'quote' && _item.parent.type == 'em-Hoverbox') {
@@ -550,7 +555,8 @@ const positions = {
         items = items.map(item => {
           if (item.type == 'quote' && _item.parent.type == 'em-Hoverbox') {
             len--;
-            return { ...item,
+            return {
+              ...item,
               hidden: true
             };
           } else {
@@ -577,22 +583,26 @@ const positions = {
           switch (item.type) {
             case 'default':
               if (current == '0') {
-                return { ...item,
+                return {
+                  ...item,
                   selected: true
                 };
               } else {
-                return { ...item,
+                return {
+                  ...item,
                   selected: false
                 };
               }
 
             case 'currentHover':
               if (current == '1') {
-                return { ...item,
+                return {
+                  ...item,
                   selected: true
                 };
               } else {
-                return { ...item,
+                return {
+                  ...item,
                   selected: false
                 };
               }
@@ -955,7 +965,7 @@ const positions = {
   getParentNodes(node) {
     node.current.parent = node.parent;
     let nodes = [node.current],
-        ns;
+      ns;
 
     while (typeof node.parent != 'undefined') {
       if (node.parent.selectable != false) {

@@ -180,7 +180,6 @@ export default class ComponentEdit {
 
 
   hover() {
-    // console.log(this.state.hover,'this.state.hover');
     if (this.state.hover) {
       return React.createElement("div", {
         className: "component-hover"

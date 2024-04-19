@@ -5,13 +5,13 @@ let modules = null
 // 动态导入处理函数
 const dynamicImport = async (path, name) => {
   try {
-    if(!modules){
+    if (!modules) {
       modules = import.meta.glob('../components/*/*.js')
     }
     const m = await modules[`./${path}.js`]
     return m ? m().then(mod => comProxy(mod[name])) : null
 
-    
+
     // let Module = null
     // modules[`./${path}.js`] && await modules[`./${path}.js`]().then((mod) => {
     //   Module = mod
@@ -23,8 +23,6 @@ const dynamicImport = async (path, name) => {
 };
 
 
-
-
 /**
  * @function componentsManager 控件结构管理器
  * @param {strng} type 控件类型
@@ -32,7 +30,7 @@ const dynamicImport = async (path, name) => {
  */
 
 export default function componentsManager(type) {
-  
+
   //检测类型是否是字符串
   if (typeof type == "string") {
     //检测类型中是否存在中划线

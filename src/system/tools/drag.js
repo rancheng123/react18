@@ -89,12 +89,11 @@ const Drag = {
         skin: "text.title.s36.36",
       },
       data: {
-        text: `添加到${
-          (_window$public$getNam = window.public.getName(this.insertName)) !==
+        text: `添加到${(_window$public$getNam = window.public.getName(this.insertName)) !==
             null && _window$public$getNam !== void 0
             ? _window$public$getNam
             : "这里"
-        }`,
+          }`,
       },
       style: {
         skin: "text.title.s36.36",
@@ -161,7 +160,6 @@ const Drag = {
       if (i == len - 1 && (element == null || element.offsetWidth == 0)) {
         //标识元素为隐藏
         this.display = "none"; //获取父级节点
-        console.log(window.public.dom, "window.public.dom");
         element = window.public.dom.querySelector(`#${this.id}`);
       }
 
@@ -288,16 +286,16 @@ const Drag = {
 
     this.scrollingPage(
       y +
-        ((_opts$height = opts.height) !== null && _opts$height !== void 0
-          ? _opts$height
-          : 0)
+      ((_opts$height = opts.height) !== null && _opts$height !== void 0
+        ? _opts$height
+        : 0)
     ); //判断是否存在站点数据并且应用到所有页面
 
     if (data && opts.isApply != true) {
       const regxp = /Header|PageContent|Footer/;
       let {
-          component: { children: components, type: pid },
-        } = data,
+        component: { children: components, type: pid },
+      } = data,
         i = 0,
         len = components.length,
         isinsert = true,
@@ -313,7 +311,7 @@ const Drag = {
 
         if (component && element) {
           let { left, top, right, bottom, height } =
-              element.getBoundingClientRect(),
+            element.getBoundingClientRect(),
             style = getComputedStyle(element, null),
             mleft = parseInt(style.marginLeft || 0),
             mright = parseInt(style.marginRight || 0),
@@ -363,7 +361,7 @@ const Drag = {
 
                 inserts =
                   (_this$inserts$this$na = this.inserts[this.name]) !== null &&
-                  _this$inserts$this$na !== void 0
+                    _this$inserts$this$na !== void 0
                     ? _this$inserts$this$na
                     : inserts;
               } //判断容器内是否存在其它控件，如果有，则循环内部控件，没有则表示是新增操作

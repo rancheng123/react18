@@ -156,7 +156,6 @@ export default class ContentControler extends React.Component {
     this.setState({
       rulerShow: !rulerShow
     }, () => {
-      console.log('更新');
     });
   }
 
@@ -393,6 +392,47 @@ export default class ContentControler extends React.Component {
   // 组件渲染执行的方法
   componentDidMount() {
     this.init()
+  }
+
+
+  /**
+   * @method DesignPagebtns 弹出设计面板结构
+   * @date 2021-1-23
+   * @author lw
+   */
+
+
+  DesignPagebtns() {
+    if (this.state.type == 'mo' && this.state.display == false) {
+      return React.createElement("div", {
+        className: "pageStyle",
+        onClick: this.controler.showDesignpage.bind(this.controler)
+      }, React.createElement("i", null), React.createElement("span", null, "\u8BBE\u8BA1\u9875\u9762"));
+    }
+
+    return null;
+  }
+
+  prompt() {
+    if (this.state.type == 'mo') {
+      return React.createElement("span", {
+        className: "remo_help"
+      }, window.public.lang.moEditPrompt, React.createElement("br", null), window.public.lang.moEditPrompta, React.createElement("i", null, "\xD7"));
+    }
+
+    return null;
+  }
+
+
+  button() {
+    if (this.state.type == 'mo') {
+      return React.createElement("div", {
+        className: "showPanel",
+        onClick: this.controler.showPanel.bind(this.controler)
+      }, React.createElement("i", null), React.createElement("span", null, this.state.display == true ? '隐藏导航' : '显示侧导航'));
+    }
+
+    return null;
   }
 
   // 渲染右侧工具栏

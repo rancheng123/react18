@@ -31,11 +31,7 @@ export default class AddCollectionControler extends React.Component {
       node
     } = opts;
     const collectionRoot = createRoot(element)
-    collectionRoot.render(React.createElement(AddCollectionControler, {
-      id: node.current.id,
-      node: node,
-      collectionRoot,
-    }));
+    collectionRoot.render(<AddCollectionControler  id={node.current.id} node={node} collectionRoot={collectionRoot} />);
   }
   /**
    * @method render 挂载组件方法
@@ -46,7 +42,6 @@ export default class AddCollectionControler extends React.Component {
 
 
   render() {
-    // return React.createElement(this.view.render, null);
     return (
       <Layer.open
         titles={[window.public.lang["collection"]]}

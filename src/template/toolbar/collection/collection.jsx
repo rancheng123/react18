@@ -13,9 +13,7 @@ export default class Collection extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
-    /**@property controler WidgetLibrary控制器实例 */
-    // this.controler = controler;
-    // this.content = this.content.bind(this);
+
   }
   /**@property {object} state 获取最新的state属性 */
 
@@ -38,12 +36,6 @@ export default class Collection extends React.Component {
 
 
   render() {
-    // return React.createElement(Toolbar, {
-    //   id: this.props.id,
-    //   title: window.public.lang["collection"],
-    //   help: this.controler.help.bind(this.controler)
-    // }, React.createElement(this.content, null));
-
     return (
       <>
         <Toolbar title={ window.public.lang["collection"]}  close={()=> this.props.toolBarsclose()}>
@@ -60,7 +52,6 @@ export default class Collection extends React.Component {
 
 
   close() {
-    console.log(this.props,'this.props');
     Toolbar.close(this.props);
   }
   /**
@@ -75,31 +66,6 @@ export default class Collection extends React.Component {
     //let {controlType} = this.state,{tabs,group} = data.group[controlType];
     let state = this.state || {},
         colists = state.colists;
-
-    // if (colists && colists.length) {
-    //   return React.createElement("div", null, React.createElement("div", {
-    //     className: "toolCollect"
-    //   }, React.createElement("ul", null, colists.map((e, i) => {
-    //     return React.createElement("li", {
-    //       key: e.id,
-    //       "data-id": e.id
-    //     }, React.createElement("p", {
-    //       onMouseDown: this.controler.start.bind(this.controler, e.id)
-    //     }, e.title), React.createElement("a", {
-    //       onClick: this.controler.deleteList.bind(this.controler, e.id),
-    //       className: "yscIcon yiyingbaoicon"
-    //     }, "\uE808"));
-    //   }))), React.createElement("div", {
-    //     className: "panlBottom"
-    //   }, React.createElement("button", {
-    //     className: "contorlBtn",
-    //     onClick: this.controler.emptyList.bind(this.controler)
-    //   }, React.createElement("font", null, window.public.lang["emptyAll"]))));
-    // } else {
-    //   return React.createElement("div", {
-    //     className: "toolCollEmpty"
-    //   });
-    // }
 
     if (colists && colists.length) {
       return (
@@ -138,5 +104,3 @@ export default class Collection extends React.Component {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/toolbar/collection/collection.js?

@@ -237,7 +237,6 @@ const Attribute = {
    * @param {object} opts 参数对象
    */
   async selectBox(opts) {
-    // console.log(22222222222);
     const SelectBox = await PublicAttrManager.selectBox();
     SelectBox && SelectBox.selectBox(opts);
   },

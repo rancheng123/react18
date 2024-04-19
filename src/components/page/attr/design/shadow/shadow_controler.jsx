@@ -349,4 +349,3 @@ class ShadowControler extends React.Component {
 _defineProperty(ShadowControler, "LIST", ["isShadow", "direction", "distance", "size", "vague", "color"]);
 
 export { ShadowControler }
-//# sourceURL=webpack:///./components/page/attr/design/shadow/shadow_controler.js?
