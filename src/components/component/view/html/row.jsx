@@ -5,8 +5,6 @@ import Util from '@/components/page/util/util.jsx';
 
 /**
  * @function Component 一行多列结构类
- * @date 2019-11-13
- * @author wyq
  * @return 一行多列结构
  */
 
@@ -32,35 +30,62 @@ function Component() {
   } = theme_data !== null && theme_data !== void 0 ? theme_data : {};
   let navigationSlide = null;
   navigationSlide = this.state.component['navigation-slide'];
-  const name = document_data.name; //对class进行处理，解决class优化后的兼容问题  2020-08-03 wyq
+  const name = document_data.name; //对class进行处理，解决class优化后的兼容问题
 
   if (typeof name == 'string') {
     document_data.name = name.replace(/(_[0-9a-z]{1})[a-z]+/g, "$1");
-  } //组件开启浮动属性 sxt 2020-2-22
+  } //组件开启浮动属性
 
+  const Dom = (
+    <div
+      id={id}
+      navigationSlide={navigationSlide == 'true' ? 'true' : ""}
+      data-fixed={document_data.isFloat || null}
+      data-ismask={document_data.ismask || null}
+      className={`${id} row_line ${Util.source ? '' : 'editColumn'}`}
+    >
+      {
+        background && (background.type || 'BackgroundColor') != 'BackgroundColor' && (
+          <div
+            data-src={background.type == 'Image' ? Util.imagePath(background) : null}
+            data-webp={theme_data.isWebp === false ? "" : Util.webp(Util.imagePath(background))}
+          >
+            {
+              background.type == 'video' && (
+                <video src={background.uri} width="100%" autoPlay="autoplay" playsInline="playsinline" muted="muted" loop={true}></video>
+              )
+            }
+          </div>
+        )
+      }
+      <Util.children components={components} context={context} clone={clone} />
+    </div>
+  )
 
-  return React.createElement("div", {
-    id: id,
-    navigationSlide: navigationSlide == 'true' ? 'true' : "",
-    "data-fixed": document_data.isFloat || null,
-    "data-ismask": document_data.ismask || null,
-    className: `${id} row_line ${Util.source ? '' : 'editColumn'}`
-  }, background && (background.type || 'BackgroundColor') != 'BackgroundColor' ? React.createElement("div", {
-    className: "rowListBg" + (background.type == 'Image' ? ' lazyload' : ''),
-    "data-src": background.type == 'Image' ? Util.imagePath(background) : null,
-    "data-webp": theme_data.isWebp === false ? "" : Util.webp(Util.imagePath(background))
-  }, background.type == 'video' ? React.createElement("video", {
-    src: background.uri,
-    width: "100%",
-    playsInline: "playsinline",
-    autoPlay: "autoplay",
-    muted: "muted",
-    loop: true
-  }) : null) : null, React.createElement(Util.children, {
-    components: components,
-    context: context,
-    clone: clone
-  }));
+  return Dom;
+
+  // return React.createElement("div", {
+  //   id: id,
+  //   navigationSlide: navigationSlide == 'true' ? 'true' : "",
+  //   "data-fixed": document_data.isFloat || null,
+  //   "data-ismask": document_data.ismask || null,
+  //   className: `${id} row_line ${Util.source ? '' : 'editColumn'}`
+  // }, background && (background.type || 'BackgroundColor') != 'BackgroundColor' ? React.createElement("div", {
+  //   className: "rowListBg" + (background.type == 'Image' ? ' lazyload' : ''),
+  //   "data-src": background.type == 'Image' ? Util.imagePath(background) : null,
+  //   "data-webp": theme_data.isWebp === false ? "" : Util.webp(Util.imagePath(background))
+  // }, background.type == 'video' ? React.createElement("video", {
+  //   src: background.uri,
+  //   width: "100%",
+  //   playsInline: "playsinline",
+  //   autoPlay: "autoplay",
+  //   muted: "muted",
+  //   loop: true
+  // }) : null) : null, React.createElement(Util.children, {
+  //   components: components,
+  //   context: context,
+  //   clone: clone
+  // }));
 }
 
 export default Component

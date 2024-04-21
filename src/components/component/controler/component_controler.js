@@ -5,8 +5,6 @@ export default class ComponentControler {
   }
   /**
    * @method calcWidth 计算控件宽度
-   * @date 2020-05-15
-   * @author wyq
    * @param {numbe} value1 边距值
    * @param {number} value2 边距值
    * @return {number} 计算后的宽度
@@ -32,8 +30,6 @@ export default class ComponentControler {
   }
   /**
    * @method componentDidMount 加载之前执行方法
-   * @date 2019-12-09
-   * @author sxt 
    */
 
 

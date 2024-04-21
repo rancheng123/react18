@@ -5,8 +5,6 @@ import Util from '@/components/page/util/util.jsx';
 
 /**
  * @function Component 一行多列结构类
- * @date 2019-11-13
- * @author wyq
  * @return 一行多列结构
  */
 
@@ -34,32 +32,60 @@ function Component() {
 
   if (typeof name == 'string') {
     document_data.name = name.replace(/(_[0-9a-z]{1})[a-z]+/g, "$1");
-  } //组件开启浮动属性 sxt 2020-2-22
+  } //组件开启浮动属性
 
+  const Dom = (
+    <div
+      id={id}
+      data-fixed={document_data.isFloat || null}
+      data-ismask={document_data.ismask || null}
+      className={`${id} relative componentsBox ${Util.source ? '' : 'editColumn'}`}
+    >
+      {
+        background && (background.type || 'BackgroundColor') != 'BackgroundColor' && (
+          <div 
+            className={"rowListBg" + (background.type == 'Image' ? ' lazyload' : '')}
+            data-src={background.type == 'Image' ? Util.imagePath(background) : null}
+            data-webp={theme_data.isWebp === false ? null : background.type == 'Image' ? Util.webp(Util.imagePath(background)) : null}
+          >
+            {
+              background.type == 'video' && (
+                <video src={background.uri} width="100%" autoPlay="autoplay" playsInline="playsinline" muted="muted" loop={true}></video>
+              )
+            }
+          </div>
+        )
+      }
+      <div className={`rowList ${id}rL ${document_data.name}`}>
+        <Util.children components={components} context={context} clone={clone} />
+      </div>
+    </div>
+  )
 
-  return React.createElement("div", {
-    id: id,
-    "data-fixed": document_data.isFloat || null,
-    "data-ismask": document_data.ismask || null,
-    className: `${id} relative componentsBox ${Util.source ? '' : 'editColumn'}`
-  }, background && (background.type || 'BackgroundColor') != 'BackgroundColor' ? React.createElement("div", {
-    className: "rowListBg" + (background.type == 'Image' ? ' lazyload' : ''),
-    "data-src": background.type == 'Image' ? Util.imagePath(background) : null,
-    "data-webp": theme_data.isWebp === false ? null : background.type == 'Image' ? Util.webp(Util.imagePath(background)) : null
-  }, background.type == 'video' ? React.createElement("video", {
-    src: background.uri,
-    width: "100%",
-    autoPlay: "autoplay",
-    playsInline: "playsinline",
-    muted: "muted",
-    loop: true
-  }) : null) : null, React.createElement("div", {
-    className: `rowList ${id}rL ${document_data.name}`
-  }, React.createElement(Util.children, {
-    components: components,
-    context: context,
-    clone: clone
-  })));
+  return Dom;
+  // return React.createElement("div", {
+  //   id: id,
+  //   "data-fixed": document_data.isFloat || null,
+  //   "data-ismask": document_data.ismask || null,
+  //   className: `${id} relative componentsBox ${Util.source ? '' : 'editColumn'}`
+  // }, background && (background.type || 'BackgroundColor') != 'BackgroundColor' ? React.createElement("div", {
+  //   className: "rowListBg" + (background.type == 'Image' ? ' lazyload' : ''),
+  //   "data-src": background.type == 'Image' ? Util.imagePath(background) : null,
+  //   "data-webp": theme_data.isWebp === false ? null : background.type == 'Image' ? Util.webp(Util.imagePath(background)) : null
+  // }, background.type == 'video' ? React.createElement("video", {
+  //   src: background.uri,
+  //   width: "100%",
+  //   autoPlay: "autoplay",
+  //   playsInline: "playsinline",
+  //   muted: "muted",
+  //   loop: true
+  // }) : null) : null, React.createElement("div", {
+  //   className: `rowList ${id}rL ${document_data.name}`
+  // }, React.createElement(Util.children, {
+  //   components: components,
+  //   context: context,
+  //   clone: clone
+  // })));
 }
 
 export default Component

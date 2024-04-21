@@ -1,15 +1,11 @@
 
 /**
  * @instance {ComponentManager} 一行多列管理器实例
- * @date 2019-11-13
- * @author wyq
  * @version 1.0
  */
 const ComponentManager = {
   /**
    * @method getView 获取控件结构
-   * @date 2019-11-13
-   * @author wyq
    * @return {Component} 控件视图类
    */
   getView(opts) {
@@ -19,8 +15,6 @@ const ComponentManager = {
 
   /**
    * @method getAttr 获取控件属性
-   * @date 2019-11-13
-   * @author wyq
    * @return {Attribute} 控件属性类
    */
   getAttr() {
@@ -30,8 +24,6 @@ const ComponentManager = {
 
   /**
    * @method getStyle 获取控件样式
-   * @date 2019-11-13
-   * @author wyq
    * @return {JSON} 控件样式json数据
    */
   getStyle(cate, type) {
@@ -45,8 +37,6 @@ const ComponentManager = {
 
   /**
    * @method getData 获取控件数据
-   * @date 2019-11-13
-   * @author wyq
    * @param {string} type 分类名称
    * @return {JSON} 控件属性json数据 
    */

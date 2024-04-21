@@ -6,8 +6,6 @@ import Util from '@/components/page/util/util.jsx';
 
 /**
  * @function Component 一行多列结构类
- * @date 2019-11-13
- * @author wyq
  * @return 一行多列结构
  */
 
@@ -44,23 +42,60 @@ function Component() {
     var _background$mouri, _background$mouri2, _background$mouri3;
 
     const isVideo = background.type == 'video' || background.motype == 'video';
-    Background = React.createElement("div", {
-      className: "rowListBg" + (isVideo ? '' : ' lazyload'),
-      "data-src": isVideo ? null : Util.imagePath({ ...background,
-        uri: (_background$mouri = background.mouri) !== null && _background$mouri !== void 0 ? _background$mouri : background.uri
-      }),
-      "data-webp": isVideo ? null : theme_data.isWebp === false ? null : Util.webp(Util.imagePath({ ...background,
-        uri: (_background$mouri2 = background.mouri) !== null && _background$mouri2 !== void 0 ? _background$mouri2 : background.uri
-      }))
-    }, isVideo ? React.createElement("video", {
-      src: (_background$mouri3 = background.mouri) !== null && _background$mouri3 !== void 0 ? _background$mouri3 : background.uri,
-      width: "100%",
-      playsInline: "playsinline",
-      autoPlay: "autoplay",
-      loop: true,
-      muted: "muted"
-    }) : null);
-  } //组件开启浮动属性 sxt 2020-2-22
+    Background = (
+      <div
+        className={"rowListBg" + (isVideo ? '' : ' lazyload')}
+        data-src={isVideo ? null : Util.imagePath({ ...background,
+          uri: (_background$mouri = background.mouri) !== null && _background$mouri !== void 0 ? _background$mouri : background.uri
+        })}  
+        data-webp={isVideo ? null : theme_data.isWebp === false ? null : Util.webp(Util.imagePath({ ...background,
+          uri: (_background$mouri2 = background.mouri) !== null && _background$mouri2 !== void 0 ? _background$mouri2 : background.uri
+        }))}
+      >
+        {
+          isVideo && (
+            <video 
+              src={(_background$mouri3 = background.mouri) !== null && _background$mouri3 !== void 0 ? _background$mouri3 : background.uri}
+              width="100%"
+              playsInline='playsinline'
+              autoPlay="autoplay"
+              loop={true}
+              muted="muted"
+            ></video>
+          )
+        }
+      </div>
+    )
+    
+    // React.createElement("div", {
+    //   className: "rowListBg" + (isVideo ? '' : ' lazyload'),
+    //   "data-src": isVideo ? null : Util.imagePath({ ...background,
+    //     uri: (_background$mouri = background.mouri) !== null && _background$mouri !== void 0 ? _background$mouri : background.uri
+    //   }),
+    //   "data-webp": isVideo ? null : theme_data.isWebp === false ? null : Util.webp(Util.imagePath({ ...background,
+    //     uri: (_background$mouri2 = background.mouri) !== null && _background$mouri2 !== void 0 ? _background$mouri2 : background.uri
+    //   }))
+    // }, isVideo ? React.createElement("video", {
+    //   src: (_background$mouri3 = background.mouri) !== null && _background$mouri3 !== void 0 ? _background$mouri3 : background.uri,
+    //   width: "100%",
+    //   playsInline: "playsinline",
+    //   autoPlay: "autoplay",
+    //   loop: true,
+    //   muted: "muted"
+    // }) : null);
+  } //组件开启浮动属性
+
+  const Dom = (
+    <div 
+      id={id}
+      data-fixed={document_data.isFloat || null}
+      navigationSlide={navigationSlide == 'true' ? 'true' : ""}
+      className={`${id} row_line ${Util.source ? '' : 'editColumn'} ${document_data.name}`}
+    >
+        <Background />
+        <Util.children components={components} context={context} clone={clone} />
+      </div>
+  )
 
 
   return React.createElement("div", {
