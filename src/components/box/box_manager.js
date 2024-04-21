@@ -3,7 +3,7 @@
  */
 const BoxManager = {
   getView(opts) {
-    return import(`./${opts.type}/${opts.cate}_${opts.name}_view`).then(module => module.default)
+    return import(`./${opts.type}/${opts.cate}_${opts.name}_view.jsx`).then(module => module.default)
     // return __webpack_require__("./components/box/view lazy recursive ^\\.\\/.*\\/.*_.*_view$")(`./${opts.type}/${opts.cate}_${opts.name}_view`).then(module => module[opts.name]);
   },
 

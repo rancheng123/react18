@@ -34,7 +34,6 @@ const Component = {
           key: i,
           link: data[e].link,
           type: props.type || "html",
-          key: e
         }, React.createElement(Component.icon, {
           id: id,
           icon: data[e].icon || {}

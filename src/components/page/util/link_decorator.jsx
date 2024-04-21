@@ -348,7 +348,6 @@ const LinkDecorator = {
             method: "GET",
             target: "_top",
             "action": action,
-            "pageType": "amp",
             pageType: "amp",
             type: functionalLinkType,
             shopid: shopid
