@@ -1,7 +1,7 @@
 // 导入 React 库
 import React,{useEffect,useState} from 'react';
 // 导入 ReactDOM 库
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 // 导入自定义的 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher.js';
 // 导入自定义的 single_selected 模块
@@ -33,6 +33,9 @@ class SelectBox {
     /**@property container 容器节点对象 */
 
     this.container = container;
+
+    // 渲染选中框的react根节点
+    this.selectRoot = null
   }
   /**
    * @method selectedBox 选中框结构
@@ -44,15 +47,18 @@ class SelectBox {
 
   static selectBox(opts) {
     const element = document.querySelector(`#${opts.id}`);
-
     //节点对象存在，在插入选中框
     if (element) {
       const select = new this(opts.node, element);
-      ReactDOM.render(React.createElement(select.render, {
+
+      
+      this.selectRoot ? null : this.selectRoot = createRoot(element)
+
+      this.selectRoot.render(React.createElement(select.render, {
         select: select,
         dots: opts.dots,
         def_layout: opts.layout
-      }), element);
+      }));
     }
   }
   /**
@@ -175,29 +181,48 @@ class SelectBox {
       btns,
       list
     } = dots;
-    return React.createElement("div", {
-      className: "adjustingButton"
-    }, btns ? btns.map((e, i) => {
-      const icon = e != 'top-left' ? {
-        name: 'iconfont',
-        icon: ''
-      } : {
-        name: 'cross',
-        icon: ''
-      };
-      return React.createElement("em", {
-        key: i,
-        className: `occupa-${e}`,
-        "data-position": e
-      }, React.createElement("i", {
-        className: icon.name,
-        "data-position": e
-      }, icon.icon));
-    }) : null, list ? list.map((e, i) => React.createElement("span", {
-      key: i,
-      "data-position": e,
-      className: `cursor-${e}`
-    })) : null);
+
+    // return React.createElement("div", {
+    //   className: "adjustingButton"
+    // }, btns ? btns.map((e, i) => {
+    //   const icon = e != 'top-left' ? {
+    //     name: 'iconfont',
+    //     icon: ''
+    //   } : {
+    //     name: 'cross',
+    //     icon: ''
+    //   };
+    // return React.createElement("em", {
+    //     key: i,
+    //     className: `occupa-${e}`,
+    //     "data-position": e
+    //   }, React.createElement("i", {
+    //     className: icon.name,
+    //     "data-position": e
+    //   }, icon.icon));
+    // }) : null, list ? list.map((e, i) => React.createElement("span", {
+    //   key: i,
+    //   "data-position": e,
+    //   className: `cursor-${e}`
+    // })) : null);
+    return (
+      <div className="adjustingButton">
+        {btns ? btns.map((e, i) => {
+          const icon = e !== 'top-left' ? { name: 'iconfont', icon: '&#xe790;' } : { name: 'cross', icon: '' };
+          console.log(icon,'icon');
+          return (
+            <em key={i} className={`occupa-${e}`} data-position={e}>
+              <i className={icon.name} data-position={e}>{icon.icon}</i>
+              {/* <i className={icon.name} data-position={e} dangerouslySetInnerHTML={{ __html: icon.icon}}></i> */}
+            </em>
+          );
+        }) : null}
+        {list ? list.map((e, i) => (
+          <span key={i} data-position={e} className={`cursor-${e}`} />
+        )) : null}
+      </div>
+    )
+
   }
 
   prev() {

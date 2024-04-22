@@ -1,7 +1,7 @@
 
 // 导入 react、react-dom、dispatcher 和 ConfigBtn 模块
 import React from "react";
-import ReactDOM from "react-dom";
+import {createRoot} from "react-dom/client";
 import Dispatcher from "@/system/tools/dispatcher";
 import ConfigBtn from "./ConfigBtn";
 
@@ -25,6 +25,9 @@ class Buttons {
     /**@property node 控件对象 */
 
     this.node = node;
+
+    // 渲染按钮的react根节点
+    this.buttonRoot = null
   }
   /** 
     * @method buttons 属性按钮列表结构
@@ -39,34 +42,39 @@ class Buttons {
       var _ref, _data$data$document_d, _node$current$skin;
 
       const button = new Buttons(proxy, node),
-        {
-          current: {
-            id: cid,
-            layout: {
-              x,
-              y
-            }
+      {
+        current: {
+          id: cid,
+          layout: {
+            x,
+            y
           }
-        } = node,
-        data = Dispatcher.dispatch(`${cid}_get`),
-        componentName = (_ref = (_data$data$document_d = data.data.document_data.categoryName) !== null && _data$data$document_d !== void 0 ? _data$data$document_d : window.public.lang[((_node$current$skin = node.current.skin) !== null && _node$current$skin !== void 0 ? _node$current$skin : '').split('.')[1]]) !== null && _ref !== void 0 ? _ref : window.public.getName(node.current.type);
+        }
+      } = node
+      
+      const data = Dispatcher.dispatch(`${cid}_get`)
+      const componentName = (_ref = (_data$data$document_d = data.data.document_data.categoryName) !== null && _data$data$document_d !== void 0 ? _data$data$document_d : window.public.lang[((_node$current$skin = node.current.skin) !== null && _node$current$skin !== void 0 ? _node$current$skin : '').split('.')[1]]) !== null && _ref !== void 0 ? _ref : window.public.getName(node.current.type);
+      
       btns = Buttons.btnsHandle(btns, node.current.type);
-      // ReactDOM.createRoot(container).render(
-      //   <Buttons
-      //     button={button}
-      //     componentName={componentName}
-      //     key={cid + x + y}
-      //     btnId={id}
-      //     btns={btns}
-      //   />
-      // )
-      ReactDOM.render(React.createElement(button.render, {
-        button: button,
-        componentName: componentName,
-        key: cid + x + y,
-        btnId: id,
-        btns: btns
-      }), container);
+      if(!this.buttonRoot){
+        this.buttonRoot = createRoot(container)
+      }
+      this.buttonRoot.render(
+        <button.render
+          button={button}
+          componentName={componentName}
+          key={cid + x + y}
+          btnId={id}
+          btns={btns}
+        />
+      )
+      // ReactDOM.render(React.createElement(button.render, {
+      //   button: button,
+      //   componentName: componentName,
+      //   key: cid + x + y,
+      //   btnId: id,
+      //   btns: btns
+      // }), container);
     }
   }
   /**
@@ -175,42 +183,72 @@ class Buttons {
       }
     }
 
-    return React.createElement(ConfigBtn['ConfigBtnWaper'], {
-      style: layout,
-      name: componentName,
-      id: id
-    }, React.createElement("ul", {
-      className: "functionUL"
-    }, //2020-03-12 by wyq change 循环控件属性按钮
-      btns.map(({
-        name,
-        type,
-        hidden,
-        select,
-        selected,
-        show,
-        className = type
-      }, i) => {
-        //判断属性按钮是隐藏还是显示
-        if (hidden != true) {
-          //判断控件是否在指定条件下显示
-          if (show && !Buttons.controler.isShow(button.node, show)) {
+    // return React.createElement(ConfigBtn['ConfigBtnWaper'], {
+    //   style: layout,
+    //   name: componentName,
+    //   id: id
+    // }, React.createElement("ul", {
+    //   className: "functionUL"
+    // }, 
+    // //2020-03-12 by wyq change 循环控件属性按钮
+    //   btns.map(({
+    //     name,
+    //     type,
+    //     hidden,
+    //     select,
+    //     selected,
+    //     show,
+    //     className = type
+    //   }, i) => {
+    //     //判断属性按钮是隐藏还是显示
+    //     if (hidden != true) {
+    //       //判断控件是否在指定条件下显示
+    //       if (show && !Buttons.controler.isShow(button.node, show)) {
+    //         return null;
+    //       }
+
+    //       return React.createElement(ConfigBtn['ConfigButton'], {
+    //         key: i,
+    //         id: button.node.current.id,
+    //         name: name,
+    //         type: type,
+    //         className: className,
+    //         select: selectState != null ? type == selectState : selected,
+    //         click: button.selectedBtn.bind(button, type, select, setSelectState)
+    //       });
+    //     }
+
+    //     return null;
+    //   })));
+    return (
+      <ConfigBtn.ConfigBtnWaper style={layout} name={componentName} id={id}>
+        <ul className="functionUL">
+          {/* 循环控件属性按钮 */}
+          {btns.map(({ name, type, hidden, select, selected, show, className = type,iconName }, i) => {
+            //判断属性按钮是隐藏还是显示
+            if (hidden !== true) {
+              if (show && !Buttons.controler.isShow(button.node, show)) {
+                return null;
+              }
+              return (
+                <ConfigBtn.ConfigButton
+                  key={i}
+                  id={button.node.current.id}
+                  name={name}
+                  type={type}
+                  className={className}
+                  iconName={iconName}
+                  select={selectState != null ? type === selectState : selected}
+                  click={button.selectedBtn.bind(button, type, select, setSelectState)}
+                />
+              );
+            }
             return null;
-          }
+          })}
+        </ul>
+      </ConfigBtn.ConfigBtnWaper>
 
-          return React.createElement(ConfigBtn['ConfigButton'], {
-            key: i,
-            id: button.node.current.id,
-            name: name,
-            type: type,
-            className: className,
-            select: selectState != null ? type == selectState : selected,
-            click: button.selectedBtn.bind(button, type, select, setSelectState)
-          });
-        }
-
-        return null;
-      })));
+    )
   }
   /**
    * @method btnListLayout 设置属性按钮布局

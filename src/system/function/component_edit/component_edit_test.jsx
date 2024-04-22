@@ -106,7 +106,6 @@ export default class ComponentEdit {
     data,
     index
   }) {
-
     if (data) {
       if (data.absolute) {
         const {
@@ -123,47 +122,86 @@ export default class ComponentEdit {
           }
         } = data; 
 
-        return items.length && hidden != 1 ? React.createElement(ConfigBtn["ConfigBtnWaper"], {
-          style: {
-            left,
-            top
-          },
-          name: name,
-          index: index,
-          fixedWidth: fixedWidth
-        }, React.createElement("ul", {
-          className: "functionUL",
-          style: {
-            width: itemWidth
-          }
-        }, items.map(({
-          name,
-          type,
-          hidden,
-          current,
-          selected,
-          show,
-          className = type
-        }, i) => {
-          if (hidden != true) {
-            //判断控件是否在指定条件下显示
-            if (show && !this.controler.isShow(data, show)) {
-              return null;
+        return items.length && hidden != 1 ?
+        //  React.createElement(ConfigBtn["ConfigBtnWaper"], {
+        //   style: {
+        //     left,
+        //     top
+        //   },
+        //   name: name,
+        //   index: index,
+        //   fixedWidth: fixedWidth
+        // }, React.createElement("ul", {
+        //   className: "functionUL",
+        //   style: {
+        //     width: itemWidth
+        //   }
+        // }, items.map(({
+        //   name,
+        //   type,
+        //   hidden,
+        //   current,
+        //   selected,
+        //   show,
+        //   className = type
+        // }, i) => {
+        //   if (hidden != true) {
+        //     //判断控件是否在指定条件下显示
+        //     if (show && !this.controler.isShow(data, show)) {
+        //       return null;
+        //     }
+
+        //     return React.createElement(ConfigBtn["ConfigButton"], {
+        //       select: selected,
+        //       key: i,
+        //       current: current,
+        //       name: name,
+        //       type: type,
+        //       className: className,
+        //       mousedown: this.controler.hoverDown.bind(this.controler, type)
+        //     });
+        //   }
+
+        //   return null;
+        // }))) 
+        
+      <ConfigBtn.ConfigBtnWaper
+        style={{ left, top }}
+        name={name}
+        index={index}
+        fixedWidth={fixedWidth}
+      >
+        {/* style={{ width: itemWidth }} */}
+        <ul className="functionUL" >
+          {items.map(({ name, type, hidden, current, selected, show, className = type,iconName }, i) => {
+            if (hidden !== true) {
+              //判断控件是否在指定条件下显示
+              if (show && !this.controler.isShow(data, show)) {
+                return null;
+              }
+
+              return (
+                <ConfigBtn.ConfigButton
+                  select={selected}
+                  key={i}
+                  current={current}
+                  name={name}
+                  type={type}
+                  className={className}
+                  iconName={iconName}
+                  mousedown={this.controler.hoverDown.bind(this.controler, type)}
+                />
+              );
             }
 
-            return React.createElement(ConfigBtn["ConfigButton"], {
-              select: selected,
-              key: i,
-              current: current,
-              name: name,
-              type: type,
-              className: className,
-              mousedown: this.controler.hoverDown.bind(this.controler, type)
-            });
-          }
+            return null;
+          })}
+        </ul>
+      </ConfigBtn.ConfigBtnWaper>
 
-          return null;
-        }))) : null;
+
+        
+        : null;
       }
 
       return null;
@@ -190,6 +228,8 @@ export default class ComponentEdit {
           data: data
         });
       }), this.state.hover.map((data, i) => {
+
+        // 鼠标移入的结构
         return React.createElement(this.hoverBtn, {
           key: i,
           index: i,

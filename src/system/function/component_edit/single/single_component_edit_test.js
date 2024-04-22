@@ -50,7 +50,6 @@ const SingleComponentEdit = {
     } = node,
       config = this.proxy.config;
 
-
     // 生成按钮组菜单方法
     if (hidden != '1') {
       Buttons.x = this.x, Buttons.y = this.y;

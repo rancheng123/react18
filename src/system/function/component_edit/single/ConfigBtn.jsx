@@ -6,14 +6,17 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 const defaultBtns = {
   'pc': [{
     "name": "collection",
-    "type": "collection"
+    "type": "collection",
+    "iconName":"&#xe79c;"
   }, {
     "name": "hide",
-    "type": "hiding"
+    "type": "hiding",
+    "iconName":"&#xe798;"
   }],
   'mo': [{
     "name": "hide",
-    "type": "hiding"
+    "type": "hiding",
+    "iconName":"&#xe798;"
   }]
 };
 /**
@@ -40,18 +43,29 @@ const ConfigBtnWaper = ({
   index
 }) => {
   const cls = index === 0 || typeof index == 'undefined' ? 'functionBox' : 'functionBox cellfunction';
-  const scss = fixedWidth ? {
-    width: fixedWidth
-  } : {
-    padding: "0 15px"
-  };
-  return React.createElement("div", {
-    className: cls,
-    style: style
-  }, React.createElement("span", {
-    className: "controlName",
-    style: scss
-  }, name), children);
+  // const scss = fixedWidth ? {
+  //   width: fixedWidth
+  // } : {
+  //   // padding: "0 15px"
+  //   padding:"8px 16px"
+  // };
+  // return React.createElement("div", {
+  //   className: cls,
+  //   style: style
+  // }, React.createElement("span", {
+  //   className: "controlName",
+  //   style: scss
+  // }, name), children);
+
+  return (
+    <div className={cls} style={style}>
+      {/*  style={scss} */}
+      <span className="controlName">
+        {name}
+      </span>
+      {children}
+    </div>
+  )
 };
 
 const ConfigButton = ({
@@ -61,7 +75,8 @@ const ConfigButton = ({
   click,
   mousedown,
   select,
-  className
+  className,
+  iconName
 }) => {
   const evt = click ? {
     onClick: click
@@ -72,33 +87,75 @@ const ConfigButton = ({
   switch (type) {
     case 'default':
     case 'currentHover':
-      return React.createElement("li", _extends({
-        className: `text${select ? ' on' : ''}`,
-        id: id + '-' + type
-      }, evt), window.public.lang[name]);
+      // return React.createElement("li", _extends({
+      //   className: `text${select ? ' on' : ''}`,
+      //   id: id + '-' + type
+      // }, evt), window.public.lang[name]);
+
+      return (
+        <li
+        {..._extends({
+          className: `text${select ? ' on' : ''}`,
+          id: id + '-' + type
+        }, evt)}
+        >
+          {window.public.lang[name]}
+        </li>
+      )
 
     case 'switchs':
-      return React.createElement("li", _extends({
-        id: id + '-' + type
-      }, evt, {
-        className: 'switchs',
-        "data-title": window.public.lang[name]
-      }), React.createElement("div", {
-        className: "arrow"
-      }, "<"), React.createElement("div", {
-        className: "tips"
-      }, "1"), React.createElement("div", {
-        className: "arrow"
-      }, ">"));
+      // return React.createElement("li", _extends({
+      //   id: id + '-' + type
+      // }, evt, {
+      //   className: 'switchs',
+      //   "data-title": window.public.lang[name]
+      // }), React.createElement("div", {
+      //   className: "arrow"
+      // }, "<"), React.createElement("div", {
+      //   className: "tips"
+      // }, "1"), React.createElement("div", {
+      //   className: "arrow"
+      // }, ">"));
+
+      return (
+        <li
+          {..._extends({
+            id: id + '-' + type
+          }, evt, {
+            className: 'switchs',
+            "data-title": window.public.lang[name]
+          })}
+        >
+          <div className="arrow">{"<"}</div>
+          <div className="tips">1</div>
+          <div className="arrow">{">"}</div>
+        </li>
+      )
 
     default:
-      return React.createElement("li", _extends({
-        className: `icon${select ? ' on' : ''}`,
-        id: id + '-' + type
-      }, evt, {
-        className: `${className !== null && className !== void 0 ? className : 'edit'}Ico tipbpx`,
-        "data-title": window.public.lang[name]
-      }), React.createElement("i", null), React.createElement("em", null));
+      // return React.createElement("li", _extends({
+      //   className: `icon${select ? ' on' : ''}`,
+      //   id: id + '-' + type
+      // }, evt, {
+      //   className: `${className !== null && className !== void 0 ? className : 'edit'}Ico tipbpx`,
+      //   "data-title": window.public.lang[name]
+      // }), React.createElement("i", null), React.createElement("em", null));
+
+
+      return (
+          <li
+            {..._extends({
+              className: `icon${select ? ' on' : ''}`,
+              id: id + '-' + type
+            }, evt, {
+              className: `${className !== null && className !== void 0 ? className : 'edit'}Ico tipbpx`,
+              "data-title": window.public.lang[name]
+            })}
+          >
+          <i className="iconfont" dangerouslySetInnerHTML={{ __html: iconName }}></i>
+          <em></em>
+        </li>
+      )
   }
 };
 

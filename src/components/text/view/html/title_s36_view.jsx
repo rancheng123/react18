@@ -69,18 +69,34 @@ function s36() {
     }
   }
 
-  return React.createElement(Util.linkDecorator, {
-    link: Util.setLinkUrl(context.link, link),
-    type: "html",
-    id: id,
-    className: `listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`
-  }, React.createElement("div", {
-    className: textLineP ? textLineP : null,
-    "data-source": _daSource,
-    "data-companyLabelText": dataSource ? dataSource.companyLabelText : null,
-    dangerouslySetInnerHTML: {
-      __html: _text
-    }
-  }));
+  // return React.createElement(Util.linkDecorator, {
+  //   link: Util.setLinkUrl(context.link, link),
+  //   type: "html",
+  //   id: id,
+  //   className: `listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`
+  // }, React.createElement("div", {
+  //   className: textLineP ? textLineP : null,
+  //   "data-source": _daSource,
+  //   "data-companyLabelText": dataSource ? dataSource.companyLabelText : null,
+  //   dangerouslySetInnerHTML: {
+  //     __html: _text
+  //   }
+  // }));
+
+  return (
+    <Util.linkDecorator
+      link={Util.setLinkUrl(context.link, link)}
+      type="html"
+      id={id}
+      className={`listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`}
+    >
+      <div
+        className={textLineP ? textLineP : null}
+        data-source={_daSource}
+        data-companyLabelText={dataSource ? dataSource.companyLabelText : null}
+        dangerouslySetInnerHTML={{ __html: _text }}
+      />
+    </Util.linkDecorator>
+  )
 }
 export default s36

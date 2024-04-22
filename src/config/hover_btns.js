@@ -1030,21 +1030,26 @@ const Hoverbtns = ({
     "btns": [{
       "name": "changeText",
       "type": "ckeditor",
-      "className": "edit"
+      "className": "edit",
+      "iconName": "&#xe7a6;"
     }, {
       "name": "textProperty",
-      "type": "basic"
+      "type": "basic",
+      "iconName": "&#xe7a0;"
     }, {
       "name": "design",
       "type": "design",
-      "hidden": false
+      "hidden": false,
+      "iconName": "&#xe79d;"
     }, {
       "name": "animation",
-      "type": "animation"
+      "type": "animation",
+      "iconName": "&#xe796;"
     }, {
       "name": "quote",
       "type": "quote",
-      "show": "Hoverbox 2"
+      "show": "Hoverbox 2",
+      "iconName": "&#xe7a6;"
     }],
     "dots": [],
     "mo": {

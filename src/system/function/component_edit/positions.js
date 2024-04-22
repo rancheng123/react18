@@ -236,7 +236,6 @@ const positions = {
             //const diffRight = Math.abs(current.nav.right - parent.nav.right);
             console.log(diffLeft, diffRight, distance);
           }
-
           if (diffLeft < diffRight || diffLeft == diffRight) {
             //父级往左偏
             parent.nav.left -= distance + waperPadding;
@@ -822,6 +821,7 @@ const positions = {
     width,
     height
   }) {
+
     nav.inout = 'inside';
     nav.direction = direction;
 
@@ -963,6 +963,7 @@ const positions = {
    * @Date: 2020-03-13 11:42:49
    */
   getParentNodes(node) {
+
     node.current.parent = node.parent;
     let nodes = [node.current],
       ns;

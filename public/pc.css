@@ -5138,7 +5138,7 @@ hr.hr-short {
   display: block;
   width: 100%;
   height: 100%;
-  background: url(/desktop/Public/responsive_system/images/cross.svg) no-repeat
+  background: url(/public/images/cross.svg) no-repeat
     center;
   background-size: 16px;
 }
@@ -6665,7 +6665,8 @@ a.picTempButton:hover {
 /*--右侧按钮导航之站点设置展开面板 end */
 /*---选中控件时的属性功能按钮-wp begin*/
 .functionBox {
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* border: 1px solid rgba(255, 255, 255, 0.5); */
+  /* border: 1px solid red; */
   position: absolute;
   display: -webkit-flex;
   display: flex;
@@ -6674,22 +6675,31 @@ a.picTempButton:hover {
   user-select: none;
   z-index: 50;
   position: absolute;
-  background: #595f65;
-  padding: 2px 6px 2px 3px;
-  height: 26px;
-  border-radius: 2px;
+  background: #ffffff;
+  /* padding: 2px 6px 2px 3px; */
+  height: 32px;
+  /* border-radius: 2px; */
   font-size: 14px;
-  color: #f5f5f5;
+  /* color: #f5f5f5; */
+  color: #666;
+  height: 32px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.24);
+  border-radius: 16px;
+  align-items: center;
 }
 
 .controlName {
-  margin-top: 6px;
+  /* margin-top: 6px; */
+  color: #fff;
   border-right: 1px solid rgba(240, 240, 240, 0.6);
   align-items: center;
-  height: 15px;
-  line-height: 15px;
+  /* height: 15px; */
+  /* line-height: 15px; */
   text-align: center;
   display: inline-block;
+  background: #116dff;
+  padding: 8px 16px;
+  border-radius: 16px 0px 0px 16px;
 }
 
 .cellfunction {
@@ -6705,16 +6715,20 @@ a.picTempButton:hover {
 
 .functionUL {
   display: inline-flex;
+  padding: 0 10px;
 }
 
 .functionUL li.tipbpx {
   display: inline-block;
   width: 26px;
   height: 26px;
-  background: url(../images/functionIco.png?v=1) no-repeat left center;
-  margin: 0 0 0 3px;
+  /* background: url(../images/functionIco.png?v=1) no-repeat left center; */
+  /* margin: 0 0 0 3px; */
+  margin: 0 5px;
   position: relative;
   cursor: pointer;
+  text-align: center;
+  line-height: 26px;
 }
 
 .functionUL li.text,
@@ -6737,10 +6751,10 @@ a.picTempButton:hover {
   display: inline-block;
   width: 26px;
   height: 26px;
-  margin: 0 0 0 3px;
+  margin: 0 0 0 6px;
   position: relative;
   cursor: pointer;
-  background: url(../images/functionIco-b.png?v=1) no-repeat left center;
+  /* background: url(../images/functionIco-b.png?v=1) no-repeat left center; */
 }
 
 .functionUL .switchs {
@@ -6765,7 +6779,7 @@ a.picTempButton:hover {
   color: #fff;
 }
 
-.functionUL li.tipbpx:hover:after {
+/* .functionUL li.tipbpx:hover:after {
   position: absolute;
   content: "";
   left: 0;
@@ -6773,18 +6787,23 @@ a.picTempButton:hover {
   width: 100%;
   height: 100%;
   background: #2f343b;
+  color: #116dff;
   z-index: -1;
+} */
+.functionUL li.tipbpx:hover {
+  color: #116dff;
+  background: #dae8ff;
+  border-radius: 13px;
 }
-
-.cellfunction .functionUL li:hover:after {
-  background: #f0f0f0;
-}
+/* .cellfunction .functionUL li:hover:after { */
+/* background: #f0f0f0; */
+/* } */
 
 .functionUL .switchs > .arrow:hover {
   background: #2f343b;
 }
 
-.functionUL li.editIco,
+/* .functionUL li.editIco,
 .cellfunction .functionUL li.editIco {
   background-position: -260px 1px;
 }
@@ -6872,7 +6891,7 @@ a.picTempButton:hover {
 .functionUL li.cssIco,
 .cellfunction .functionUL li.cssIco {
   background-position: -555px 1px;
-}
+} */
 
 .giimal-modal-close-x i.pageiconfont {
   cursor: pointer;

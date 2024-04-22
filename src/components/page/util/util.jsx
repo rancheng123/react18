@@ -134,6 +134,7 @@ const Util = {
    * @return {object} 控件结构 
    */
   async loadComponent(type, sitedata) {
+    console.log('loadComponent');
     let {
       masterPage: {
         structure,

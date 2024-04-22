@@ -32,27 +32,43 @@ export function Column() {
     if (unedit) return null;
   }
 
-  const Dom = (
-    <div className={`${id}row_col rowcol${hidName} ${className}`}>
-      {
-        theme_data.background && (
-          <div
-            className='rowListBg lazyload'
-            data-src={Util.imagePath(theme_data.background)}
-            data-webp={theme_data.isWebp === false ? null : Util.webp(Util.imagePath(theme_data.background))}
-          ></div>
-        )
-      }
-      {
-        child ? (<Util.children components={components} context={context} clone={clone} />) : (
-          unedit && <button>可拖入控件到此位置</button>
-        )
-      }
+  // const Dom = (
+  //   <div className={`${id}row_col rowcol${hidName} ${className}`}>
+  //     {
+  //       theme_data.background && (
+  //         <div
+  //           className='rowListBg lazyload'
+  //           data-src={Util.imagePath(theme_data.background)}
+  //           data-webp={theme_data.isWebp === false ? null : Util.webp(Util.imagePath(theme_data.background))}
+  //         ></div>
+  //       )
+  //     }
+  //     {
+  //       child ? (<Util.children components={components} context={context} clone={clone} />) : (
+  //         unedit && <button>可拖入控件到此位置</button>
+  //       )
+  //     }
+  //   </div>
+  // )
+
+  // return Dom;
+
+
+  const dom = (
+    <div id={id} className={`${id}row_col rowcol${hidName} ${className}`}>
+      {theme_data.background && (
+        <div className="rowListBg lazyload" data-src={Util.imagePath(theme_data.background)} data-webp={theme_data.isWebp === false ? null : Util.webp(Util.imagePath(theme_data.background))}></div>
+      )}
+      {child ? (
+        <Util.children components={components} context={context} clone={clone} />
+      ) : (
+        !unedit && <button>可拖入控件到此位置</button>
+      )}
     </div>
   )
 
-  return Dom;
-
+  return dom
+  
   // return React.createElement("div", {
   //   id: id,
   //   className: `${id}row_col rowcol${hidName} ${className}`
