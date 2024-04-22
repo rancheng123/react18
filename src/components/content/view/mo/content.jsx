@@ -12,10 +12,15 @@ export const Content = function () {
       }
     }
   } = this;
-  return React.createElement("div", {
-    id: id,
-    className: "container"
-  }, React.createElement(Util.children, {
-    components: components
-  }));
+  return (
+    <div id={id} className='container'>
+      <Util.children  components={components} />
+    </div>
+  )
+  // return React.createElement("div", {
+  //   id: id,
+  //   className: "container"
+  // }, React.createElement(Util.children, {
+  //   components: components
+  // }));
 }

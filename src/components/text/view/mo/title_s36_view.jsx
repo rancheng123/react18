@@ -95,7 +95,7 @@ function s36() {
   }, React.createElement("div", {
     className: textLineP ? textLineP : null,
     "data-source": _daSource,
-    "data-companyLabelText": dataSource ? dataSource.companyLabelText : null,
+    "data-companylabeltext": dataSource ? dataSource.companyLabelText : null,
     dangerouslySetInnerHTML: {
       __html: _text
     }

@@ -1,15 +1,11 @@
 
 /**
  * @instance {FlipperManager} 翻屏组件管理器实例
- * @date 2020-07-29
- * @author wyq
  * @version 1.0
  */
 export const FlipperManager = {
   /**
    * @method getView 获取控件结构
-   * @date 2020-07-29
-   * @author wyq
    * @return {Flipper} 控件视图类
    */
   getView(opts) {
@@ -21,8 +17,6 @@ export const FlipperManager = {
 
   /**
    * @method getAttr 获取控件属性
-   * @date 2020-07-29
-   * @author wyq
    * @return {FlipperManager} 控件属性类
    */
   getAttr() {
@@ -32,8 +26,6 @@ export const FlipperManager = {
 
   /**
    * @method getStyle 获取控件样式
-   * @date 2020-07-29
-   * @author wyq
    * @return {JSON} 控件样式json数据
    */
   getStyle(cate, type) {
@@ -43,8 +35,6 @@ export const FlipperManager = {
 
   /**
    * @method getData 获取控件数据
-   * @date 2020-07-29
-   * @author wyq
    * @param {string} type 分类名称
    * @return {JSON} 控件属性json数据 
    */

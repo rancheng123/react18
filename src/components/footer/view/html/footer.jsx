@@ -29,24 +29,55 @@ export const Footer = function () {
     }
   }
 
-  return React.createElement("footer", {
-    id: id,
-    className: `auto-margin${footerClass}`,
-    "data-float": document_data.isFloat || null
-  }, background ? React.createElement("div", {
-    className: "rowListBg lazyload",
-    "data-src": Util.imagePath(background),
-    "data-webp":Util.webp(Util.imagePath(background))
-  }, background.type == 'video' ? React.createElement("video", {
-    src: background.uri,
-    width: "100%",
-    autoPlay: "autoplay",
-    playsinline: "playsinline",
-    muted: "muted",
-    loop: true
-  }) : null) : null, React.createElement(Util.children, {
-    components: components
-  }));
+  return (
+    <footer
+      id={id}
+      className={`auto-margin${footerClass}`}
+      data-float={document_data.isFloat || null}
+    >
+      {
+        background && (
+          <div
+            className='rowListBg lazyload'
+            data-src={Util.imagePath(background)}
+            data-webp={Util.webp(Util.imagePath(background))}
+          >
+            {
+              background.type == 'video' && (
+                <video
+                  src={background.uri}
+                  width={'100%'}
+                  autoPlay='autoplay'
+                  playsinline='playsinline'
+                  muted='muted'
+                  loop={true}
+                />
+              )
+            }
+          </div>
+        )
+      }
+      <Util.children components={components} />
+    </footer>
+  )
+  // return React.createElement("footer", {
+  //   id: id,
+  //   className: `auto-margin${footerClass}`,
+  //   "data-float": document_data.isFloat || null
+  // }, background ? React.createElement("div", {
+  //   className: "rowListBg lazyload",
+  //   "data-src": Util.imagePath(background),
+  //   "data-webp":Util.webp(Util.imagePath(background))
+  // }, background.type == 'video' ? React.createElement("video", {
+  //   src: background.uri,
+  //   width: "100%",
+  //   autoPlay: "autoplay",
+  //   playsinline: "playsinline",
+  //   muted: "muted",
+  //   loop: true
+  // }) : null) : null, React.createElement(Util.children, {
+  //   components: components
+  // }));
 }
 
   

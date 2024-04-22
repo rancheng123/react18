@@ -89,7 +89,7 @@ function Component() {
     <div 
       id={id}
       data-fixed={document_data.isFloat || null}
-      navigationSlide={navigationSlide == 'true' ? 'true' : ""}
+      navigationslide={navigationSlide == 'true' ? 'true' : ""}
       className={`${id} row_line ${Util.source ? '' : 'editColumn'} ${document_data.name}`}
     >
         <Background />
@@ -99,7 +99,7 @@ function Component() {
 
 
   return React.createElement("div", {
-    navigationSlide: navigationSlide == 'true' ? 'true' : "",
+    navigationslide: navigationSlide == 'true' ? 'true' : "",
     id: id,
     "data-fixed": document_data.isFloat || null,
     className: `${id} row_line ${Util.source ? '' : 'editColumn'} ${document_data.name}`

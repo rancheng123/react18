@@ -115,8 +115,17 @@ export default class HeaderControler extends React.Component {
       '单页',
       '空白页',
     ]
+    this.state = {
+      page: "",
+      hidden: false,
+      plann: false,
+      showIcon: '&#xe9cd;'
+    }
 
-    this.init();
+    // this.init();
+  }
+  componentDidMount() {
+    this.init()
   }
   /**
    * @method render 挂载组件方法
@@ -233,12 +242,6 @@ export default class HeaderControler extends React.Component {
    */
 
   init() {
-    this.state = {
-      page: "",
-      hidden: false,
-      plann: false,
-      showIcon: '&#xe9cd;'
-    };
     Dispatcher.register('setPageName', this.setPageName, this);
     Dispatcher.register('savePage', this.save, this);
   }

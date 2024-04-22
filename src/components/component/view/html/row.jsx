@@ -39,7 +39,7 @@ function Component() {
   const Dom = (
     <div
       id={id}
-      navigationSlide={navigationSlide == 'true' ? 'true' : ""}
+      navigationslide={navigationSlide == 'true' ? 'true' : ""}
       data-fixed={document_data.isFloat || null}
       data-ismask={document_data.ismask || null}
       className={`${id} row_line ${Util.source ? '' : 'editColumn'}`}

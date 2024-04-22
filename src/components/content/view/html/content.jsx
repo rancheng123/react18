@@ -12,11 +12,16 @@ export const Content = function () {
       }
     }
   } = this;
-  return React.createElement("div", {
-    id: id,
-    className: "container auto-margin"
-  }, React.createElement(Util.children, {
-    components: components
-  }));
+  return (
+    <div id={id} className='container auto-margin'>
+      <Util.children  components={components} />
+    </div>
+  )
+  // return React.createElement("div", {
+  //   id: id,
+  //   className: "container auto-margin"
+  // }, React.createElement(Util.children, {
+  //   components: components
+  // }));
 }
 

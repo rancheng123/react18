@@ -96,7 +96,7 @@ function s35() {
       <div
         className={textLineP ? textLineP : null}
         data-source={_daSource}
-        data-companyLabelText={dataSource ? dataSource.companyLabelText : null}
+        data-companylabeltext={dataSource ? dataSource.companyLabelText : null}
         dangerouslySetInnerHTML={{ __html: _text }}
       />
     </Util.linkDecorator>
