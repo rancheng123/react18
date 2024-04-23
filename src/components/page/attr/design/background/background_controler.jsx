@@ -1,8 +1,7 @@
 
 // 导入 React 库
 import React from "react";
-// 导入 react-dom 库
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 // 导入 Background 组件
 import Background from "./background";
 // 导入 dispatcher 模块
@@ -47,12 +46,23 @@ class BackgroundControler extends React.Component {
         list = window.public.configure(this.LIST, group);
       }
 
-      ReactDOM.render(React.createElement(BackgroundControler, {
-        id: opts.id || node.current.id,
-        node: node,
-        prefix: prefix,
-        list: list
-      }), element);
+      const backgroundRoot = createRoot(element);
+
+      // ReactDOM.render(React.createElement(BackgroundControler, {
+      //   id: opts.id || node.current.id,
+      //   node: node,
+      //   prefix: prefix,
+      //   list: list
+      // }), element);
+
+      backgroundRoot.render(
+        <BackgroundControler
+          id={opts.id || node.current.id}
+          node={node}
+          prefix={prefix}
+          list={list}
+        />
+      );
     }
   }
 

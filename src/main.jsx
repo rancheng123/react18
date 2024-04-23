@@ -5,7 +5,7 @@ import App from './App'
 import Util from '@/components/page/util/util.jsx'
 import './utils/public.js'
 import './language/system/zh.js'
-import {geta} from  './config/async_import_components_config'
+// import {geta} from  './config/async_import_components_config'
   async function load(event, callback) {
       const pub = window.public;
       //存储框架页window对象
@@ -42,7 +42,7 @@ import {geta} from  './config/async_import_components_config'
     const dom = event.currentTarget.document;
     root.unmountComponentAtNode(dom.querySelector("#root"));
   }
-  geta();
+  // geta();
 
 
 export const root = ReactDOM.createRoot(document.getElementById("root")).render(

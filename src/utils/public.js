@@ -61,7 +61,8 @@ window.public = {
      */
     configure(items, config = {}) {
 
-        if (Array.isArray(items)) {   //只导入某个属性
+        if (Array.isArray(items)) {
+            //只导入某个属性
             if (config.include) { items = config.include.split("|"); }
             //排除属性
             if (config.exclude) {

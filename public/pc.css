@@ -212,7 +212,8 @@ input {
 .slider-number-input,
 .pcInputTextStyle,
 .em-color-picker {
-  width: 100%;
+  /* width: 100%; */
+  width: 50px;
   height: 30px;
   border: 1px solid #e3e2e8;
   box-sizing: border-box;
@@ -2734,6 +2735,10 @@ input {
   border-radius: 6px;
   position: fixed;
   z-index: 201;
+  background: #ffffff;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  border: 1px solid #e3e2e8;
 }
 
 .layer-header {
@@ -5138,8 +5143,7 @@ hr.hr-short {
   display: block;
   width: 100%;
   height: 100%;
-  background: url(/public/images/cross.svg) no-repeat
-    center;
+  background: url(./images/cross.svg) no-repeat center;
   background-size: 16px;
 }
 
@@ -8189,12 +8193,20 @@ textarea.fail {
 
 /*----注：调整宽度检查出场动画面板，会换行*/
 .pcAttList .pcConAttTitle {
-  width: 90px;
-  padding-right: 8px;
+  /* width: 90px; */
+  /* padding-right: 8px; */
   box-sizing: border-box;
   text-align: right;
-  font-size: 13px;
-  color: #676767;
+  /* font-size: 13px; */
+  /* color: #676767; */
+  width: 70px;
+  height: 14px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  font-size: 14px;
+  color: #666666;
+  line-height: 14px;
+  margin-right: 10px;
 }
 
 .pcAttList .pcConAttTitle .helpcon {
@@ -8836,11 +8848,11 @@ textarea.fail {
   display: block;
 }
 
-.imgteCon .em-radio-component .pcConAttCon .em-radio-label {
+/* .imgteCon .em-radio-component .pcConAttCon .em-radio-label {
   width: calc(50% - 34px);
   display: inline-block;
   margin-bottom: 6px;
-}
+} */
 
 .pageLinkbox > div {
   width: 100%;
@@ -9426,33 +9438,33 @@ textarea.fail {
 }
 
 /* ---单选框-wp begin*/
-.em-radio-label {
+/* .em-radio-label {
   position: relative;
   cursor: pointer;
-}
+} */
 
-.em-radio-component .em-radio-label {
+/* .em-radio-component .em-radio-label {
   margin-right: 14px;
   line-height: 24px;
   padding-left: 20px;
-}
+} */
 
 .formOptionBox .pcConAttTitle {
   vertical-align: top;
   margin-top: 2px;
 }
 
-.formOptionBox .pcConAttCon .em-radio-label {
+/* .formOptionBox .pcConAttCon .em-radio-label {
   width: 30%;
   display: inline-block;
-}
+} */
 
-.em-radio-label input {
+/* .em-radio-label input {
   position: absolute;
   visibility: hidden;
-}
+} */
 
-.em-radio-component .em-radio-label::before {
+/* .em-radio-component .em-radio-label::before {
   position: absolute;
   display: block;
   width: 14px;
@@ -9462,7 +9474,8 @@ textarea.fail {
   left: 0px;
   top: 2px;
   content: "";
-}
+  color: red;
+} */
 
 .em-radio-component input:checked + .radio-Select,
 .em-radio-component input:checked + i {
@@ -9543,9 +9556,9 @@ textarea.fail {
   margin-right: 0px;
 }
 
-.em-align-select .em-radio-label::before {
+/* .em-align-select .em-radio-label::before {
   display: none;
-}
+} */
 
 /* ---文本对齐方式 -wp begin*/
 .pcTitleInputValue {

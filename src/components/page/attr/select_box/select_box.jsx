@@ -212,8 +212,8 @@ class SelectBox {
           console.log(icon,'icon');
           return (
             <em key={i} className={`occupa-${e}`} data-position={e}>
-              <i className={icon.name} data-position={e}>{icon.icon}</i>
-              {/* <i className={icon.name} data-position={e} dangerouslySetInnerHTML={{ __html: icon.icon}}></i> */}
+              {/* <i className={icon.name} data-position={e}>{icon.icon}</i> */}
+              <i className={icon.name} data-position={e} dangerouslySetInnerHTML={{ __html: icon.icon}}></i>
             </em>
           );
         }) : null}

@@ -337,7 +337,6 @@ class Buttons {
     if (select) {
       setSelectState(type), param.close = () => setSelectState('');
     }
-
     this.proxy.showAttributePanel(param);
   }
 

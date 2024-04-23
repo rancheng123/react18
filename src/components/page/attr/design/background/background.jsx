@@ -1,6 +1,6 @@
 
 import React from "react"; // 导入 React 库
-import Widget from "@/system/widgets/widget"; // 导入 Background 变量
+import Widget from "@/system/widgets/widget";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -33,6 +33,7 @@ class Background {
   }
 
   render() {
+    console.log('background');
     var _this$state$;
 
     let prefix = this.props.prefix;
@@ -40,8 +41,9 @@ class Background {
     let preix = window.public.type;
     let skin = this.props.node.current.skin || "",
         typeList = this.props.list;
-    let btnShow = true; //如果是mo端和是高级幻灯片并且类型是backgroundPanel，则只展示一项，并隐藏切换选项
-
+    let btnShow = true; 
+    
+    //如果是mo端和是高级幻灯片并且类型是backgroundPanel，则只展示一项，并隐藏切换选项
     if (preix == 'mo' && skin.indexOf("advanced") != -1 && typeList.indexOf("backgroundPanel") != -1) {
       Background.LIST['Image'] = ['size'];
       btnShow = false;
@@ -53,26 +55,50 @@ class Background {
       }
 
       btnShow = true;
-    } //类型为图片，并且是hover设置时，只显示透明度和颜色设置 sxt 2022-11-14
-
-
+    } 
+    
+    //类型为图片，并且是hover设置时，只显示透明度和颜色设置 sxt 2022-11-14
     if (type == "Image" && prefix && prefix.indexOf("hover") != -1) {
       Background.LIST['Image'] = ['opacity', 'backgroundColor'];
     }
 
-    return React.createElement("div", {
-      className: "pcbgColorBox"
-    }, "\u3000         ", React.createElement("ul", {
-      className: "pcConAttDesign"
-    }, btnShow ? this.props.list.map((e, i) => React.createElement("li", {
-      className: "pcAttList",
-      key: i
-    }, this[e] && this[e]())) : null, this.props.list.indexOf('backgroundPanel') != -1 ? React.createElement("li", {
-      className: "pcAttList"
-    }, this.example()) : null, type == 'Image' || type == 'video' ? React.createElement("li", {
-      className: "pcAttList",
-      key: type
-    }, Background.LIST[type].map(e => this[e]())) : null));
+    // return React.createElement("div", {
+    //   className: "pcbgColorBox"
+    // }, "\u3000         ", React.createElement("ul", {
+    //   className: "pcConAttDesign"
+    // }, btnShow ? this.props.list.map((e, i) => React.createElement("li", {
+    //   className: "pcAttList",
+    //   key: i
+    // }, this[e] && this[e]())) : null, this.props.list.indexOf('backgroundPanel') != -1 ? React.createElement("li", {
+    //   className: "pcAttList"
+    // }, this.example()) : null, type == 'Image' || type == 'video' ? React.createElement("li", {
+    //   className: "pcAttList",
+    //   key: type
+    // }, Background.LIST[type].map(e => this[e]())) : null));
+
+    return (
+      <div className="pcbgColorBox">
+        {"\u3000         "}
+        <ul className="pcConAttDesign">
+          {btnShow
+            ? this.props.list.map((e, i) => (
+                <li className="pcAttList" key={i}>
+                  {this[e] && this[e]()}
+                </li>
+              ))
+            : null}
+          {this.props.list.indexOf('backgroundPanel') !== -1 ? (
+            <li className="pcAttList">{this.example()}</li>
+          ) : null}
+          
+          {(type === 'Image' || type === 'video') ? (
+            <li className="pcAttList" key={type}>
+              {Background.LIST[type].map(e => this[e]())}
+            </li>
+          ) : null}
+        </ul>
+      </div>
+    )
   }
   /**
    * @method backgroundColor 背景颜色属性
@@ -82,8 +108,6 @@ class Background {
    * @param {string} prop.key 属性键名
    * @return {object} 属性结构 {Public.lang[prop.title]}
    */
-
-
   backgroundColor() {
     var _this$state;
 
@@ -100,13 +124,24 @@ class Background {
       LinearGradient = this.state.LinearGradient;
     }
 
-    return React.createElement(Widget.ColorPicker, {
-      id: "bgColor",
-      title: "bgColor",
-      componentType: componentType,
-      color: this.state[key] || this.state.bgColor || LinearGradient || 'rgba(255,255,255,1)',
-      change: type ? this.controler.setImageColor.bind(this.controler) : this.controler.set.bind(this.controler, key)
-    });
+    // return React.createElement(Widget.ColorPicker, {
+    //   id: "bgColor",
+    //   title: "bgColor",
+    //   componentType: componentType,
+    //   color: this.state[key] || this.state.bgColor || LinearGradient || 'rgba(255,255,255,1)',
+    //   change: type ? this.controler.setImageColor.bind(this.controler) : this.controler.set.bind(this.controler, key)
+    // });
+
+    return (
+      <Widget.ColorPicker
+        id="bgColor"
+        title="bgColor"
+        componentType={componentType}
+        color={this.state[key] || this.state.bgColor || LinearGradient || 'rgba(255,255,255,1)'}
+        change={type ? this.controler.setImageColor.bind(this.controler) : this.controler.set.bind(this.controler, key)}
+      />
+
+    )
   }
   /**
    * @method backgroundColor 背景颜色属性

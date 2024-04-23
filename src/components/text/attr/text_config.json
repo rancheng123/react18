@@ -53,9 +53,24 @@
                 "iconName": "&#xe79d;"
             },
             {
+                "name": "streak",
+                "type": "streak",
+                "iconName": "&#xe7a2;"
+            },
+            {
                 "name": "animation",
                 "type": "animation",
                 "iconName": "&#xe796;"
+            },
+            {
+                "name": "link",
+                "type": "link",
+                "iconName": "&#xe79a;"
+            },
+            {
+                "name": "translate",
+                "type": "translate",
+                "iconName": "&#xe7a4;"
             },
             {
                 "name": "quote",
@@ -99,7 +114,7 @@
                 "include": "text|background|border|radius|shadow|position",
                 "group": {
                     "text": {
-                        "include": "size|family|color|style|align|lineHeight|headLine|letterSpace"
+                        "include": "size|family|color|style|align|lineHeight|headLine|letterSpace|background"
                     }
                 }
             }

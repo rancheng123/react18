@@ -1,6 +1,6 @@
 
 import React from "react"; // 导入 React 库
-import ReactDOM from "react-dom"; // 导入 ReactDOM 库
+import {createRoot} from "react-dom/client"; // 导入 ReactDOM 库
 import Dispatcher from "@/system/tools/dispatcher"; // 导入 TextControler 变量
 import Text from "./text"; // 导入 Text 变量
 
@@ -46,14 +46,28 @@ class TextControler extends React.Component {
     } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
 
     if (node && element) {
-      ReactDOM.render(React.createElement(TextControler, {
-        id: node.current.id,
-        node: node,
-        prefix: prefix,
-        group: group,
-        publicAttr: publicAttr,
-        disableUnit: disableUnit
-      }), element);
+      const textRoot = createRoot(element)
+
+
+      textRoot.render(
+        <TextControler
+          id={node.current.id}
+          node={node}
+          prefix={prefix}
+          group={group}
+          publicAttr={publicAttr}
+          disableUnit={disableUnit}
+        />
+      );
+      
+      // ReactDOM.render(React.createElement(TextControler, {
+      //   id: node.current.id,
+      //   node: node,
+      //   prefix: prefix,
+      //   group: group,
+      //   publicAttr: publicAttr,
+      //   disableUnit: disableUnit
+      // }), element);
     }
   }
   /**
@@ -65,7 +79,8 @@ class TextControler extends React.Component {
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -91,7 +106,6 @@ class TextControler extends React.Component {
     if (theme_data && theme_data.style) {
       Object.assign(this.state, theme_data.style);
     }
-
     let group = this.props.group;
     this.state.list = TextControler.LIST;
 
@@ -257,6 +271,8 @@ class TextControler extends React.Component {
 
 
   change(key, event) {
+
+    console.log(key, event);
     let _value = event.target.value;
     let padLeft = this.state.tab + "padLeft",
         padLeftkey = this.props.prefix + padLeft;
@@ -337,5 +353,5 @@ class TextControler extends React.Component {
 
 }
 
-_defineProperty(TextControler, "LIST", ["size", "letterSpace", "family", "color", "style", "align", "marginLeft", "marginRight"]);
+_defineProperty(TextControler, "LIST", ["ceshi","size", "letterSpace", "family", "color", "style", "align", "marginLeft", "marginRight"]);
 export {TextControler}

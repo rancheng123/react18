@@ -10,13 +10,14 @@ const DesignManager = {
    */
   background(type) {
     let path = "background/background",
-        moduleName = "Background"; //判断类型是否为控制器
+      moduleName = "Background"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "background/background_controler";
       moduleName = "BackgroundControler";
-    } //返回对应模块类
+    }
 
+    //返回对应模块类
     return import(`./${path}.jsx`).then(module => module[moduleName])
     // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
   },
@@ -28,7 +29,7 @@ const DesignManager = {
    */
   border(type) {
     let path = "border/border",
-        moduleName = "Border"; //判断类型是否为控制器
+      moduleName = "Border"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "border/border_controler";
@@ -46,7 +47,7 @@ const DesignManager = {
    */
   radius(type) {
     let path = "radius/radius",
-        moduleName = "Radius"; //判断类型是否为控制器
+      moduleName = "Radius"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "radius/radius_controler";
@@ -64,7 +65,7 @@ const DesignManager = {
    */
   shadow(type) {
     let path = "shadow/shadow",
-        moduleName = "Shadow"; //判断类型是否为控制器
+      moduleName = "Shadow"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "shadow/shadow_controler";
@@ -82,7 +83,7 @@ const DesignManager = {
    */
   text(type) {
     let path = "text/text",
-        moduleName = "Text"; //判断类型是否为控制器
+      moduleName = "Text"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "text/text_controler";
@@ -100,7 +101,7 @@ const DesignManager = {
    */
   animation(type) {
     let path = "animation/animation",
-        moduleName = "Animation"; //判断类型是否为控制器
+      moduleName = "Animation"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "animation/animation_controler";
@@ -118,7 +119,7 @@ const DesignManager = {
    */
   hoveranimation(type) {
     let path = "hoveranimation/hoveranimation",
-        moduleName = "Hoveranimation"; //判断类型是否为控制器
+      moduleName = "Hoveranimation"; //判断类型是否为控制器
     if (type == "controler") {
       path = "hoveranimation/hoveranimation_controler";
       moduleName = "HoveranimationControler";
@@ -135,7 +136,7 @@ const DesignManager = {
    */
   icon(type) {
     let path = "icon/icon",
-        moduleName = "Icon"; //判断类型是否为控制器
+      moduleName = "Icon"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "icon/icon_controler";
@@ -153,7 +154,7 @@ const DesignManager = {
    */
   position(type) {
     let path = "position/position",
-        moduleName = "Position"; //判断类型是否为控制器
+      moduleName = "Position"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "position/position_controler";
@@ -171,7 +172,7 @@ const DesignManager = {
    */
   space(type) {
     let path = "space/space",
-        moduleName = "Space"; //判断类型是否为控制器
+      moduleName = "Space"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "space/space_controler";
@@ -189,7 +190,7 @@ const DesignManager = {
   */
   levelnav(type) {
     let path = "levelnav/levelnav",
-        moduleName = "Levelnav"; //判断类型是否为控制器
+      moduleName = "Levelnav"; //判断类型是否为控制器
 
     if (type == "controler") {
       path = "levelnav/levelnav_controler";

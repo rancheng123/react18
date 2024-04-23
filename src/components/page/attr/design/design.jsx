@@ -40,14 +40,20 @@ const Design = {
    * @param {object} opts.element 插入到的父级节点
    */
   design(opts) {
+
     var _opts$prefix;
 
     const { root }= opts
 
     const DesignComponent = this.render.bind(this);
-    this.config = opts.config, this.group = opts.list;
-    this.publicAttr = opts.publicAttr, this.node = opts.node; //设置项禁用所有单位选择属性
+    this.config = opts.config
 
+
+    // 
+    this.group = opts.list;
+
+    this.publicAttr = opts.publicAttr, this.node = opts.node; //设置项禁用所有单位选择属性
+    console.log(tabs);
     disableUnit = opts.disableUnit;
     prefix = (window.public.type == 'pc' ? '' : 'mo') + ((_opts$prefix = opts.prefix) !== null && _opts$prefix !== void 0 ? _opts$prefix : "");
     tabs = window.public.configure(tabs, this.group);
@@ -64,25 +70,42 @@ const Design = {
   render() {
     const [tab, selectedTab] = useState(tabs[0]);
     useEffect(() => this.showTab(tab), [tab]);
-    return React.createElement("div", {
-      className: "pcPagePropertiesCon"
-    }, React.createElement("div", {
-      className: "pcDesignLeft"
-    }, React.createElement("ul", {
-      className: "pcPatternUl"
-    }, tabs.map((e, i) => {
-      return React.createElement("li", {
-        key: e,
-        className: tab != e ? null : "on",
-        onClick: () => selectedTab(e)
-      }, React.createElement("i", {
-        className: `pc-${e}-icon iconfont`,
-        dangerouslySetInnerHTML: {__html: iconsList[i]}
-      }));
-    }))), React.createElement("div", {
-      className: "pcDesignRight",
-      id: "pro-design"
-    }));
+
+
+    // return React.createElement("div", {
+    //   className: "pcPagePropertiesCon"
+    // }, React.createElement("div", {
+    //   className: "pcDesignLeft"
+    // }, React.createElement("ul", {
+    //   className: "pcPatternUl"
+    // }, tabs.map((e, i) => {
+    //   return React.createElement("li", {
+    //     key: e,
+    //     className: tab != e ? null : "on",
+    //     onClick: () => selectedTab(e)
+    //   }, React.createElement("i", {
+    //     className: `pc-${e}-icon iconfont`,
+    //     dangerouslySetInnerHTML: {__html: iconsList[i]}
+    //   }));
+    // }))), React.createElement("div", {
+    //   className: "pcDesignRight",
+    //   id: "pro-design"
+    // }));
+
+    return (
+      <div className="pcPagePropertiesCon">
+        <div className="pcDesignLeft">
+          <ul className="pcPatternUl">
+            {tabs.map((e, i) => (
+              <li key={e} className={tab !== e ? null : "on"} onClick={() => selectedTab(e)}>
+                <i className={`pc-${e}-icon iconfont`} dangerouslySetInnerHTML={{__html: iconsList[i]}} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="pcDesignRight" id="pro-design" />
+      </div>
+    )
   },
 
   /**
@@ -99,8 +122,9 @@ const Design = {
       node: this.node,
       config: this.config,
       publicAttr: this.publicAttr
-    }; //判断是否有属性项的配置      
-
+    }; 
+    
+    //判断是否有属性项的配置      
     if (this.group.group) {
       param.group = this.group.group[tab];
 
@@ -161,6 +185,7 @@ const Design = {
    * @param {object} opts 参数对象 
    */
   async text(opts) {
+    console.log(opts,'opts');
     const text = await DesignManager.text("controler");
     text.text(opts);
   },

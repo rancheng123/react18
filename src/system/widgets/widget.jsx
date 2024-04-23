@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-
+import * as antd from 'antd';
 /**
  * @method Container 容器组件，存放属性组件的外层结构
  * @param {object} prop 属性对象
@@ -15,15 +15,30 @@ function Container(prop) {
   var _window$public$lang$p;
   <div className=""></div>
 
-  return React.createElement("div", {
-    className: prop.skin || null
-  }, prop.title ? React.createElement("h5", {
-    className: "pcConAttTitle "
-  }, window.public.lang[prop.help] && prop.help ? React.createElement(Help, {
-    help: prop.help
-  }) : null, (_window$public$lang$p = window.public.lang[prop.title]) !== null && _window$public$lang$p !== void 0 ? _window$public$lang$p : prop.title, React.createElement("span", null, prop.unit ? ` (${prop.unit})` : "")) : null, React.createElement("div", {
-    className: "pcConAttCon"
-  }, prop.children));
+  // return React.createElement("div", {
+  //   className: prop.skin || null
+  // }, prop.title ? React.createElement("h5", {
+  //   className: "pcConAttTitle "
+  // }, window.public.lang[prop.help] && prop.help ? React.createElement(Help, {
+  //   help: prop.help
+  // }) : null, (_window$public$lang$p = window.public.lang[prop.title]) !== null && _window$public$lang$p !== void 0 ? _window$public$lang$p : prop.title, React.createElement("span", null, prop.unit ? ` (${prop.unit})` : "")) : null, React.createElement("div", {
+  //   className: "pcConAttCon"
+  // }, prop.children));
+
+  return (
+    <div className={prop.skin || null}>
+      {prop.title ? (
+        <h5 className="pcConAttTitle">
+          {window.public.lang[prop.help] && prop.help ? (
+            <Help help={prop.help} />
+          ) : null}
+          {window.public.lang[prop.title] || prop.title}
+          <span>{prop.unit ? ` (${prop.unit})` : ""}</span>
+        </h5>
+      ) : null}
+      <div className="pcConAttCon">{prop.children}</div>
+    </div>
+  )
 }
 /**
  * @method Help 帮助信息
@@ -167,6 +182,7 @@ function Textarea(prop) {
 
 
 function Radio(prop) {
+  
   const radio = prop.list.map((e, i) => {
     let propValue = prop.value;
 
@@ -188,32 +204,72 @@ function Radio(prop) {
       propValue = propValue.toString();
     }
 
-    return React.createElement("label", {
-      key: i,
-      className: "em-radio-label"
-    }, React.createElement("input", {
-      type: "radio",
-      name: prop.id,
-      id: `${prop.id}-${value}`,
-      checked: value != propValue ? "" : "checked",
-      value: value,
-      onChange: prop.change || null
-    }), React.createElement("i", {
-      className: "radio-Select"
-    }, prop.showName ? name : null), name ? prop.isLang ? name : window.public.lang[name] : null);
+    // return React.createElement("label", {
+    //   key: i,
+    //   className: "em-radio-label"
+    // }, React.createElement("input", {
+    //   type: "radio",
+    //   name: prop.id,
+    //   id: `${prop.id}-${value}`,
+    //   checked: value != propValue ? "" : "checked",
+    //   value: value,
+    //   onChange: prop.change || null
+    // }), React.createElement("i", {
+    //   className: "radio-Select"
+    // }, prop.showName ? name : null), name ? prop.isLang ? name : window.public.lang[name] : null);
+
+
+    return (
+      <label key={i} className="em-radio-label">
+       {/* <antd.Radio 
+          type="radio"
+          name={prop.id}
+          id={`${prop.id}-${value}`}
+          checked={value != propValue ? "" : "checked"}
+          value={value}
+          onChange={prop.change || null}
+       /> */}
+        <input
+          type="radio"
+          name={prop.id}
+          id={`${prop.id}-${value}`}
+          checked={value != propValue ? "" : "checked"}
+          value={value}
+          onChange={prop.change || null}
+        />
+        {/* <i className="radio-Select">{prop.showName ? name : null}</i> */}
+        {name ? (prop.isLang ? name : window.public.lang[name]) : null}
+      </label>
+    )
   });
 
   if (prop.basic) {
-    return React.createElement("div", {
-      className: prop.skin || `em-radio-component`
-    }, radio);
+    // return React.createElement("div", {
+    //   className: prop.skin || `em-radio-component`
+    // }, radio);
+    return (
+      <div className={prop.skin || `em-radio-component`}>
+        {radio}
+      </div>
+    )
   }
 
-  return React.createElement(Container, {
-    skin: prop.skin || `em-radio-component`,
-    title: prop.title,
-    help: prop.help
-  }, radio);
+  // return React.createElement(Container, {
+  //   skin: prop.skin || `em-radio-component`,
+  //   title: prop.title,
+  //   help: prop.help
+  // }, radio);
+
+  return (
+    <Container
+      skin={prop.skin || `em-radio-component`}
+      title={prop.title}
+      help={prop.help}
+    >
+      {radio}
+    </Container>
+
+  )
 }
 /**
  * @method function Button 按钮组件
@@ -512,33 +568,71 @@ function Align(prop) {
   if (componentType == "em-Text") {
     //只有类型为文本时才会存在两端对齐 lw 2021-4-6
     list = [{
-      value: "left"
+      value: "left",
+      icon:"&#xe639;"
     }, {
-      value: "center"
+      value: "center",
+      icon:"&#xe639;"
     }, {
-      value: "right"
+      value: "right",
+      icon:"&#xe639;"
     }, {
-      value: "justify"
+      value: "justify",
+      icon:"&#xe639;"
     }];
   }
 
-  return React.createElement(Container, {
-    skin: `em-align-select ${skin}`,
-    title: title
-  }, React.createElement(Input, {
-    readonly: "readonly",
-    basic: true,
-    value: window.public.lang[value]
-  }), React.createElement("ul", {
-    className: "pcBoxAlign"
-  }, React.createElement(Radio, {
-    list: list,
-    basic: true,
-    value: prop.value,
-    id: id,
-    skin: "em-align-radio",
-    change: prop.change
-  })));
+  // return React.createElement(Container, {
+  //   skin: `em-align-select ${skin}`,
+  //   title: title
+  // }, React.createElement(Input, {
+  //   readonly: "readonly",
+  //   basic: true,
+  //   value: window.public.lang[value]
+  // }), React.createElement("ul", {
+  //   className: "pcBoxAlign"
+  // }, React.createElement(Radio, {
+  //   list: list,
+  //   basic: true,
+  //   value: prop.value,
+  //   id: id,
+  //   skin: "em-align-radio",
+  //   change: prop.change
+  // })));
+
+  return (
+    <Container
+      skin={`em-align-select ${skin}`}
+      title={title}
+    >
+      <Input
+        readonly="readonly"
+        basic={true}
+        value={window.public.lang[value]}
+      />
+      <ul className="pcBoxAlign" onClick={(event) => prop.change(event)}>
+        {/* <Radio
+          list={list}
+          basic={true}
+          value={prop.value}
+          id={id}
+          skin="em-align-radio"
+          change={prop.change}
+        /> */}
+      { list.map(item => {
+        return (
+            <li 
+              key={item.value}
+              value={prop.value}
+              id={id}
+              >
+               { item.value}
+            </li>
+        )
+      })}
+      </ul>
+    </Container>
+  )
 }
 /** 
 * @method SelectImage 选择图片组件

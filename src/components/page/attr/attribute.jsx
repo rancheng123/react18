@@ -108,23 +108,44 @@ const Attribute = {
         if (this.editTabs) tabs = this.editTabs(tabs.map(e => ({ ...e
         })));
         const modalDom = ReactDOM.createRoot(element)
-        modalDom.render(React.createElement(Layer.tab, {
-          id: id,
-          draggable: draggable.draggable === false ? false : true,
-          tabs: tabs,
-          tab: tabs[opts.index].type,
-          change: this.showTab.bind(this, id),
-          area: [width + "px", height + "px"] // offset = {[x + 'px',y + 'px']}
-          ,
-          offset: [this.layout.x + 'px', this.layout.y + 'px'],
-          skin: skin.substring(0, skin.indexOf('.')) + '-panel',
-          close: () => {
-            this.showState = 'close';
-            this.closeAttributePanel();
-            opts.close && opts.close();
-            modalDom.unmount();
-          }
-        }))
+        // modalDom.render(React.createElement(Layer.tab, {
+        //   id: id,
+        //   draggable: draggable.draggable === false ? false : true,
+        //   tabs: tabs,
+        //   tab: tabs[opts.index].type,
+        //   change: this.showTab.bind(this, id),
+        //   area: [width + "px", height + "px"] // offset = {[x + 'px',y + 'px']}
+        //   ,
+        //   offset: [this.layout.x + 'px', this.layout.y + 'px'],
+        //   skin: skin.substring(0, skin.indexOf('.')) + '-panel',
+        //   close: () => {
+        //     this.showState = 'close';
+        //     this.closeAttributePanel();
+        //     opts.close && opts.close();
+        //     modalDom.unmount();
+        //   }
+        // }))
+
+        // 渲染结构
+        modalDom.render(
+          <Layer.tab
+            id={id}
+            draggable={draggable.draggable === false ? false : true}
+            tabs={tabs}
+            tab={tabs[opts.index].type}
+            change={this.showTab.bind(this, id)}
+            area={[`${width}px`, `${height}px`]}
+            offset={[`${this.layout.x}px`, `${this.layout.y}px`]}
+            skin={`${skin.substring(0, skin.indexOf('.'))}-panel`}
+            close={() => {
+              this.showState = 'close';
+              this.closeAttributePanel();
+              opts.close && opts.close();
+              modalDom.unmount();
+            }}
+          />
+        )
+
         // ReactDOM.render(React.createElement(Layer.tab, {
         //   id: id,
         //   draggable: draggable.draggable === false ? false : true,
@@ -161,13 +182,16 @@ const Attribute = {
    * @param {string} type 选项类型 
    */
   showTab(id, type) {
+    
     var _this$config$window$p, _type, _conf$group;
 
     const skin = this.node.current.skin || '';
     const key = skin.slice(0, skin.lastIndexOf('.'));
     const conf = (_this$config$window$p = this.config[window.public.type]) !== null && _this$config$window$p !== void 0 ? _this$config$window$p : this.config;
-    const group = (_type = ((_conf$group = conf.group) !== null && _conf$group !== void 0 ? _conf$group : {})[type]) !== null && _type !== void 0 ? _type : this.config.group[type]; //参数赋值
-
+    const group = (_type = ((_conf$group = conf.group) !== null && _conf$group !== void 0 ? _conf$group : {})[type]) !== null && _type !== void 0 ? _type : this.config.group[type]; 
+    
+    
+    //参数赋值
     let param = {
       node: this.node,
       config: this.config,
