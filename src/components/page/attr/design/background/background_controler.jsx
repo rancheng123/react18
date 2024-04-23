@@ -45,9 +45,7 @@ class BackgroundControler extends React.Component {
       if (group) {
         list = window.public.configure(this.LIST, group);
       }
-
-      const backgroundRoot = createRoot(element);
-
+      
       // ReactDOM.render(React.createElement(BackgroundControler, {
       //   id: opts.id || node.current.id,
       //   node: node,
@@ -55,7 +53,7 @@ class BackgroundControler extends React.Component {
       //   list: list
       // }), element);
 
-      backgroundRoot.render(
+      opts.root.render(
         <BackgroundControler
           id={opts.id || node.current.id}
           node={node}

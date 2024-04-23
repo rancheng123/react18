@@ -328,46 +328,104 @@ function Button(prop) {
 function Range(prop) {
   var _prop$children;
 
-  const range = React.createElement("div", {
-    className: `em-drag-slider${prop.units ? ' em-drag-select-slider' : ''}`
-  }, React.createElement("input", {
-    type: "range",
-    className: "slider-range-input",
-    step: prop.step || 1,
-    min: prop.min || 0,
-    max: prop.max,
-    value: prop.value,
-    onChange: prop.change,
-    onBlur: prop.blur
-  }), React.createElement("input", {
-    type: "number",
-    className: "slider-number-input",
-    step: prop.step || 1,
-    min: prop.min || 0,
-    max: prop.max,
-    value: prop.value,
-    onChange: prop.change,
-    onBlur: prop.blur || null
-  }), prop.units ? React.createElement(Select, {
-    basic: true,
-    isChoose: true,
-    list: prop.units,
-    value: prop.unit,
-    disabled: prop.disabled,
-    change: prop.selectChange
-  }) : null, prop.units == undefined && prop.unit ? React.createElement("span", {
-    className: "unitNumber"
-  }, prop.unit) : null); //如果basic为true只返回基本结构
+  // const range = React.createElement("div", {
+  //   className: `em-drag-slider${prop.units ? ' em-drag-select-slider' : ''}`
+  // }, React.createElement("input", {
+  //   type: "range",
+  //   className: "slider-range-input",
+  //   step: prop.step || 1,
+  //   min: prop.min || 0,
+  //   max: prop.max,
+  //   value: prop.value,
+  //   onChange: prop.change,
+  //   onBlur: prop.blur
+  // }), React.createElement("input", {
+  //   type: "number",
+  //   className: "slider-number-input",
+  //   step: prop.step || 1,
+  //   min: prop.min || 0,
+  //   max: prop.max,
+  //   value: prop.value,
+  //   onChange: prop.change,
+  //   onBlur: prop.blur || null
+  // }), prop.units ? React.createElement(Select, {
+  //   basic: true,
+  //   isChoose: true,
+  //   list: prop.units,
+  //   value: prop.unit,
+  //   disabled: prop.disabled,
+  //   change: prop.selectChange
+  // }) : null, prop.units == undefined && prop.unit ? React.createElement("span", {
+  //   className: "unitNumber"
+  // }, prop.unit) : null); 
+  const range = <div className={`em-drag-slider${prop.units ? ' em-drag-select-slider' : ''}`}>
+        <input
+          type="range"
+          className="slider-range-input"
+          step={prop.step || 1}
+          min={prop.min || 0}
+          max={prop.max}
+          value={prop.value}
+          onChange={prop.change}
+          onBlur={prop.blur}
+        />
 
+        {/* <antd.Slider 
+          step={prop.step || 1}
+          min={prop.min || 0}
+          max={prop.max}
+          value={prop.value}
+          onChange={prop.change}
+          onBlur={prop.blur}
+        /> */}
+        <input
+          type="number"
+          className="slider-number-input"
+          step={prop.step || 1}
+          min={prop.min || 0}
+          max={prop.max}
+          value={prop.value}
+          onChange={prop.change}
+          onBlur={prop.blur || null}
+        />
+        {prop.units ? (
+          <Select
+            basic={true}
+            isChoose={true}
+            list={prop.units}
+            value={prop.unit}
+            disabled={prop.disabled}
+            change={prop.selectChange}
+          />
+        ) : null}
+        {prop.units == undefined && prop.unit ? (
+          <span className="unitNumber">{prop.unit}</span>
+        ) : null}
+      </div>
+ 
+
+  
+  //如果basic为true只返回基本结构
   if (prop.basic) {
     return range;
   }
 
-  return React.createElement(Container, {
-    skin: prop.skin,
-    title: prop.title,
-    help: prop.help
-  }, range, (_prop$children = prop.children) !== null && _prop$children !== void 0 ? _prop$children : null);
+  // return React.createElement(Container, {
+  //   skin: prop.skin,
+  //   title: prop.title,
+  //   help: prop.help
+  // }, range, (_prop$children = prop.children) !== null && _prop$children !== void 0 ? _prop$children : null);
+
+  return (
+    <Container
+      skin={prop.skin}
+      title={prop.title}
+      help={prop.help}
+    >
+      {range}
+      {prop.children !== null && prop.children !== undefined ? prop.children : null}
+    </Container>
+  )
 }
 /**
  * @method function Select 下拉选择组件
@@ -388,29 +446,56 @@ function Range(prop) {
 
 
 function Select(prop) {
-  const select = React.createElement("select", {
-    className: "em-select-box",
-    id: prop.id,
-    value: prop.value || "",
-    disabled: prop.disabled,
-    onChange: prop.change
-  }, prop.isChoose ? null : React.createElement("option", {
-    value: ""
-  }, window.public.lang["pleaseChoose"]), prop.list.map((e, i) => e.hidden != true ? React.createElement("option", {
-    key: i,
-    label: e.name,
-    value: e.value
-  }, e.name) : null)); //如果basic为true只返回基本结构
+  // const select = React.createElement("select", {
+  //   className: "em-select-box",
+  //   id: prop.id,
+  //   value: prop.value || "",
+  //   disabled: prop.disabled,
+  //   onChange: prop.change
+  // }, prop.isChoose ? null : React.createElement("option", {
+  //   value: ""
+  // }, window.public.lang["pleaseChoose"]), prop.list.map((e, i) => e.hidden != true ? React.createElement("option", {
+  //   key: i,
+  //   label: e.name,
+  //   value: e.value
+  // }, e.name) : null)); 
+  
+  const select = (<select
+      className="em-select-box"
+      id={prop.id}
+      value={prop.value || ""}
+      disabled={prop.disabled}
+      onChange={prop.change}
+    >
+      {prop.isChoose ? null : <option value="">{window.public.lang["pleaseChoose"]}</option>}
+      {prop.list.map((e, i) => 
+        e.hidden !== true ? (
+          <option key={i} label={e.name} value={e.value}>{e.name}</option>
+        ) : null
+      )}
+    </select>)
 
+  
+  //如果basic为true只返回基本结构
   if (prop.basic) {
     return select;
   }
 
-  return React.createElement(Container, {
-    skin: prop.skin,
-    help: prop.help,
-    title: prop.title
-  }, select);
+  // return React.createElement(Container, {
+  //   skin: prop.skin,
+  //   help: prop.help,
+  //   title: prop.title
+  // }, select);
+
+  return (
+    <Container
+      skin={prop.skin}
+      help={prop.help}
+      title={prop.title}
+    >
+      {select}
+    </Container>
+  )
 }
 /**
  * @method function  OnOff 开关组件
@@ -610,7 +695,7 @@ function Align(prop) {
         basic={true}
         value={window.public.lang[value]}
       />
-      <ul className="pcBoxAlign" onClick={(event) => prop.change(event)}>
+      <ul className="textalign_ul">
         {/* <Radio
           list={list}
           basic={true}
@@ -619,17 +704,21 @@ function Align(prop) {
           skin="em-align-radio"
           change={prop.change}
         /> */}
-      { list.map(item => {
-        return (
-            <li 
-              key={item.value}
-              value={prop.value}
-              id={id}
-              >
-               { item.value}
-            </li>
-        )
-      })}
+        { 
+          list.map(item => {
+            return (
+              <li
+                className={`textalign_li ${prop.value == item.value ? 'textalign_li_active' : ''}`}
+                key={item.value}
+                value={prop.value}
+                id={id}
+                onClick={prop.change}
+                >
+                  { item.value}
+              </li>
+            )
+          })
+        }
       </ul>
     </Container>
   )

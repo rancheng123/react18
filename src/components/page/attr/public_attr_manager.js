@@ -78,7 +78,8 @@ const PublicAttrManager = {
       [path, moduleName] = connect(name, ['[name]_setting.js', moduleName]);
     }
 
-    return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`./${path}`).then(module => module[moduleName]);
   },
 
   /**

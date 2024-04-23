@@ -14,7 +14,8 @@
         "tabs": [
             {
                 "name": "textProperty",
-                "type": "basic"
+                "type": "basic",
+                "hidden": false
             },
             {
                 "name": "design",
@@ -44,12 +45,12 @@
             {
                 "name": "textProperty",
                 "type": "basic",
-                "iconName": "&#xe7a0;"
+                "iconName": "&#xe7a0;",
+                "hidden": true
             },
             {
                 "name": "design",
                 "type": "design",
-                "hidden": false,
                 "iconName": "&#xe79d;"
             },
             {

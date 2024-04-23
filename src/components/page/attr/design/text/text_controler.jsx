@@ -46,10 +46,8 @@ class TextControler extends React.Component {
     } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
 
     if (node && element) {
-      const textRoot = createRoot(element)
 
-
-      textRoot.render(
+      opts.root.render(
         <TextControler
           id={node.current.id}
           node={node}
@@ -271,9 +269,9 @@ class TextControler extends React.Component {
 
 
   change(key, event) {
+    // let _value = event.target.value; 
+    let _value = event.target.value || event.target.textContent; 
 
-    console.log(key, event);
-    let _value = event.target.value;
     let padLeft = this.state.tab + "padLeft",
         padLeftkey = this.props.prefix + padLeft;
     let padRight = this.state.tab + "padRight",
@@ -315,8 +313,12 @@ class TextControler extends React.Component {
       });
     }
 
-    this.set(key, event.target.value);
-  } // changeAlign(key, e) {
+    // this.set(key, event.target.value);
+    this.set(key, _value);
+    
+  } 
+  
+  // changeAlign(key, e) {
   //     this.set(key, event.target.value);
   // }
 

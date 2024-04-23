@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import Dispatcher from '@/system/tools/dispatcher';
 import Border from './border'; 
 
@@ -48,13 +48,15 @@ class BorderControler extends React.Component {
       if (group) {
         list = window.public.configure(this.LIST, group);
       }
-
-      ReactDOM.render(React.createElement(BorderControler, {
-        id: opts.id || node.current.id,
-        node: node,
-        prefix: prefix,
-        list: list
-      }), element);
+      
+      opts.root.render(
+        <BorderControler
+          id={opts.id || node.current.id}
+          node={node}
+          prefix={prefix}
+          list={list}
+        />
+      );
     }
   }
   /**

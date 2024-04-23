@@ -1,7 +1,11 @@
 
 // 导入模块
-import React, { useState, useEffect } from "react"; // 导入 React 模块
+import { useState, useEffect } from "react"; // 导入 React 模块
+import { createRoot } from 'react-dom/client';
 import DesignManager from "./design_manager"; // 导入 DesignManager 变量
+
+// 初始化渲染根节点
+let root = null
 
 
 /**@private prefix 属性前缀*/
@@ -121,9 +125,16 @@ const Design = {
       disableUnit,
       node: this.node,
       config: this.config,
-      publicAttr: this.publicAttr
+      publicAttr: this.publicAttr,
     }; 
-    
+
+    // 统一获取渲染根节点
+    if(!root){
+      root =  createRoot(content) 
+    }
+    param.root  = root
+
+
     //判断是否有属性项的配置      
     if (this.group.group) {
       param.group = this.group.group[tab];

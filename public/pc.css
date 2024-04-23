@@ -9392,15 +9392,15 @@ textarea.fail {
 }
 
 .fontStyle li {
-  width: 35px;
-  height: 35px;
-  background: #f4f4f4;
-  font-size: 18px;
+  width: 26px;
+  height: 26px;
+  background: #edeff3;
+  font-size: 16px;
   color: #999;
   float: left;
   margin-right: 15px;
   text-align: center;
-  line-height: 35px;
+  line-height: 26px;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -9443,11 +9443,14 @@ textarea.fail {
   cursor: pointer;
 } */
 
-/* .em-radio-component .em-radio-label {
+.em-radio-component .em-radio-label {
   margin-right: 14px;
   line-height: 24px;
-  padding-left: 20px;
-} */
+  /* padding-left: 20px; */
+}
+.em-radio-component .em-radio-label input {
+  margin-right: 7px;
+}
 
 .formOptionBox .pcConAttTitle {
   vertical-align: top;
@@ -12631,3 +12634,25 @@ textarea.fail {
 }
 
 /* SEO 新增图片 end*/
+
+.textalign_ul {
+  display: inline-block;
+}
+
+.textalign_li {
+  width: 26px;
+  height: 26px;
+  background: #edeff3;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+.textalign_li:hover {
+  background: #eaf7fe;
+  color: #2196f3;
+}
+.textalign_li_active {
+  background: #eaf7fe;
+}
