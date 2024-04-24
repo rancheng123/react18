@@ -30,21 +30,27 @@ const Component = {
     } = props; //判断是否存在图标icon
 
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic  ${id}${type} btnIcon yiyingbaoicon`
-      }, iconName);
+      return <i className={`${id}Ic  ${id}${type} btnIcon iconfont`}>{iconName}</i>
+      // return React.createElement("i", {
+      //   className: `${id}Ic  ${id}${type} btnIcon yiyingbaoicon`
+      // }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon ${id}${type}`
-      }, React.createElement("img", {
-        className: "btnImg lazyload",
-        "data-src": iconSrc,
-        "data-webp": Util.webp(iconSrc),
-        src: Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc
-      }));
+      return (
+        <div className={`${id}Ic btnIcon ${id}${type}`}>
+          <img src={Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc} alt="" className='btnImg lazyload' data-src={iconSrc} data-webp={Util.webp(iconSrc)} />
+        </div>
+      )
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon ${id}${type}`
+      // }, React.createElement("img", {
+      //   className: "btnImg lazyload",
+      //   "data-src": iconSrc,
+      //   "data-webp": Util.webp(iconSrc),
+      //   src: Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc
+      // }));
     } //返回null
 
 
@@ -68,7 +74,7 @@ const Component = {
       moiconSizeUnit
     } = style;
     let imgFixed = moiconSize || iconSize,
-        imgUnit = moiconSizeUnit || iconSizeUnit;
+      imgUnit = moiconSizeUnit || iconSizeUnit;
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
@@ -76,33 +82,61 @@ const Component = {
 
 
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic btnIcon yiyingbaoicon`
-      }, iconName);
+      return (<i className={`${id}Ic btnIcon iconfont`}>{iconName}</i>)
+      // return React.createElement("i", {
+      //   className: `${id}Ic btnIcon yiyingbaoicon`
+      // }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
       const webp = Util.webp(iconSrc);
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon`
-      }, React.createElement("amp-img", {
-        width: imgFixed,
-        height: imgFixed,
-        "data-amp-auto-lightbox-disable": "true",
-        layout: "fixed",
-        class: "btnImg",
-        src: iconSrc
-      }, webp ? React.createElement("amp-img", {
-        src: webp,
-        "data-amp-auto-lightbox-disable": "true",
-        class: "btnImg",
-        tabIndex: "0",
-        layout: "fixed",
-        "custom-fallback": "fallback",
-        width: imgFixed,
-        height: imgFixed
-      }) : null));
+      return (
+        <div className={`${id}Ic btnIcon`}>
+          <amp-img
+            width={imgFixed}
+            height={imgFixed}
+            data-amp-auto-lightbox-disable='true'
+            layout='fixed'
+            class='btnImg'
+            src={iconSrc}
+          >
+            {
+              webp && (
+                <amp-img
+                  width={imgFixed}
+                  height={imgFixed}
+                  data-amp-auto-lightbox-disable='true'
+                  layout='fixed'
+                  class='btnImg'
+                  src={webp}
+                  tabIndex='0'
+                  custom-fallback='fallback'
+                />
+              )
+            }
+          </amp-img>
+        </div>
+      )
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon`
+      // }, React.createElement("amp-img", {
+      //   width: imgFixed,
+      //   height: imgFixed,
+      //   "data-amp-auto-lightbox-disable": "true",
+      //   layout: "fixed",
+      //   class: "btnImg",
+      //   src: iconSrc
+      // }, webp ? React.createElement("amp-img", {
+      //   src: webp,
+      //   "data-amp-auto-lightbox-disable": "true",
+      //   class: "btnImg",
+      //   tabIndex: "0",
+      //   layout: "fixed",
+      //   "custom-fallback": "fallback",
+      //   width: imgFixed,
+      //   height: imgFixed
+      // }) : null));
     } //返回null
 
 
@@ -126,7 +160,7 @@ const Component = {
       moiconSizeUnit
     } = style;
     let imgFixed = moiconSize || iconSize,
-        imgUnit = moiconSizeUnit || iconSizeUnit;
+      imgUnit = moiconSizeUnit || iconSizeUnit;
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
@@ -134,26 +168,42 @@ const Component = {
 
 
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic btnIcon yiyingbaoicon`
-      }, iconName);
+      return (
+        <i className={`${id}Ic btnIcon iconfont`}>{iconName}</i>
+      )
+      // return React.createElement("i", {
+      //   className: `${id}Ic btnIcon yiyingbaoicon`
+      // }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
       const webp = Util.webp(iconSrc);
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon`
-      }, React.createElement("mip-img", {
-        width: imgFixed,
-        height: imgFixed,
-        layout: "fixed",
-        class: "btnImg",
-        src: iconSrc
-      }, webp ? React.createElement("source", {
-        srcSet: webp,
-        type: "image/webp"
-      }) : null));
+      return (
+        <div className={`${id}Ic btnIcon`}>
+          <mip-img
+            width={imgFixed}
+            height={imgFixed}
+            layout="fixed"
+            class="btnImg"
+            src={iconSrc}
+          >
+            {webp && <source srcSet={webp} type="image/webp"></source>}
+          </mip-img>
+        </div>
+      )
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon`
+      // }, React.createElement("mip-img", {
+      //   width: imgFixed,
+      //   height: imgFixed,
+      //   layout: "fixed",
+      //   class: "btnImg",
+      //   src: iconSrc
+      // }, webp ? React.createElement("source", {
+      //   srcSet: webp,
+      //   type: "image/webp"
+      // }) : null));
     } //返回null
 
 

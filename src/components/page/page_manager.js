@@ -1,8 +1,5 @@
 /**
  * @instance {PageManager} 页面管理工厂对象
- * @author wyq
- * @version 1.0
- * @date 2019-09-21
  */
 const PageManager = {
   /**
@@ -18,8 +15,6 @@ const PageManager = {
 
   /**
    * @method createView 获取对应视图
-   * @date 2019-09-21
-   * @author wyq
    * @return 对应视图
    */
   getStyle() {

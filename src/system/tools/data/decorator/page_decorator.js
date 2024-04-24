@@ -9,8 +9,6 @@ import History from '../../history'
 const PageDecorator = {
   /**
    * @method init 初始化方法
-   
-   * @date 2020-03-06
    * @param {PageData} component 页面数据处理对象
    */
   init(component) {

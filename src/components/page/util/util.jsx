@@ -17,8 +17,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 let Components = null;
 /**
  * @function getComponent 获取对应组件
- * @date 2019-09-21
- * @author wyq
  * @param {string} componentType 控件类型 
  * @param {string} type 结构类型 html amp mip 
  * @return {class} 对应控件类 
@@ -49,8 +47,6 @@ async function getComponent(componentType, type, skin = '') {
 }
 /**
  * @function getChild 获取子组件
- * @date 2019-10-09
- * @author wyq
  * @param {object} component 控件结构数据 
  * @param {object} data 控件属性数据 
  * @param {object} page 当前页面数据
@@ -109,9 +105,6 @@ async function getChild(component, data, page, type, context, clone, props) {
 }
 /**
  * @instance {Util} 核心工具实例
- * @author wyq
- * @version 1.0
- * @date 2019-09-21
  */
 
 
@@ -127,8 +120,6 @@ const Util = {
 
   /**
    * @method loadComponent 加载控件
-   * @date 2019-09-21
-   * @author wyq
    * @param {string} type 结构类型 html amp mip 
    * @param {object} sitedata 站点数据
    * @return {object} 控件结构 
@@ -173,8 +164,6 @@ const Util = {
 
   /**
    * @method children 获取子控件
-   * @date 2019-10-09
-   * @author wyq
    * @param {object} props 参数对象
    * @param {object} props.components 存放控件数据的集合
    * @param {object} [props.page] 页面当前数据
@@ -215,8 +204,6 @@ const Util = {
 
   /**
    * @method cssParser css解析器
-   * @date 2019-09-21
-   * @author wyq
    * @param {object} component 控件结构数据
    * @param {object} themeData 控件样式数据
    * @param {string} type 结构类型 html amp mip 
@@ -238,8 +225,6 @@ const Util = {
 
   /**
    * @method component 获取单个控件结构
-   * @date 2019-12-30
-   * @author wyq
    * @param {object} param0  参数对象
    * @param {object} param0.component 控件数据
    * @param {object} param0.context 控件上下文对象 用于控件之间的数据传递
@@ -279,8 +264,6 @@ const Util = {
 
   /**
    * @method setLinkUrl 设置下载链接的数据
-   * @date 2020-9-8
-   * @author sxt
    * @param {Objeict}  contink  列表返回的链接数据
    * @param {Objeict}  link     控件本身设置的链接数据
    * @return {String} 设置链接的数据 
@@ -291,8 +274,6 @@ const Util = {
 
   /**
    * @method webp 图片后缀更换为webp格式
-   * @date 2020-03-09
-   * @author wyq
    * @param {string} uri 图片路径
    * @return {string} 开启webp 返回替换后的路径。 未开启webp，返回原始路径
    */
@@ -302,8 +283,6 @@ const Util = {
 
   /**
   * @method getComponentText 文本按钮，公用处理方法
-  * @date 2020-06-10
-  * @author sxt
   * @param {string} id 控件id
   * @param {Object} data 控件document_data的数据
   * @param {string} key 键值，修改的属性
@@ -343,7 +322,6 @@ const Util = {
   /**
       * @method getComponentText 时间戳转化
       * @date 2024-01-23
-      * @author ts
       */
   dateFormat(pattern = 'y-M-d', time, lang, opts) {
     let _date = new Date(Number(time) * 1000 || new Date().getTime()),

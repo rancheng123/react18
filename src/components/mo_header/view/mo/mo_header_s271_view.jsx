@@ -43,23 +43,45 @@ export function s271() {
     return null;
   }
 
-  return React.createElement("header", {
-    id: id,
-    className: `${hidden == true ? Util.source ? null : "mask" : null}`,
-    "data-float": fixedPosition || null
-  }, React.createElement("div", {
-    id: "right_iconBg_header",
-    className: "header_content"
-  }, React.createElement(Util.component, {
-    component: child
-  }), React.createElement(Util.linkDecorator, {
-    className: `${id}A right_Menu`,
-    link: link,
-    type: "html"
-  }, React.createElement(Component.icon, {
-    id: id,
-    icon: icon,
-    style: style,
-    type: "right"
-  }))));
+  const Dom = (
+    <header 
+      id={id}
+      className={`${hidden == true ? Util.source ? null : "mask" : null}`}
+      data-float={fixedPosition || null}
+    >
+      <div
+        id='right_iconBg_header'
+        className='header_content'
+      >
+        <Util.component component={child} />
+        <Util.linkDecorator 
+          className={`${id}A right_Menu`} 
+          link={link} 
+          type='html' 
+        >
+          <Component.icon id={id} icon={icon} style={style} type='right' />
+        </Util.linkDecorator>
+      </div>
+    </header>
+  )
+  return Dom
+  // return React.createElement("header", {
+  //   id: id,
+  //   className: `${hidden == true ? Util.source ? null : "mask" : null}`,
+  //   "data-float": fixedPosition || null
+  // }, React.createElement("div", {
+  //   id: "right_iconBg_header",
+  //   className: "header_content"
+  // }, React.createElement(Util.component, {
+  //   component: child
+  // }), React.createElement(Util.linkDecorator, {
+  //   className: `${id}A right_Menu`,
+  //   link: link,
+  //   type: "html"
+  // }, React.createElement(Component.icon, {
+  //   id: id,
+  //   icon: icon,
+  //   style: style,
+  //   type: "right"
+  // }))));
 }

@@ -95,8 +95,6 @@ const ComponentData = {
 
   /**
    * @method getComponentData 获取控件数据
-   * @date 2019-09-16
-   
    * @param {string} id 控件id
    * @param {boolean} issource 是否返回原始数据 true 返回原始数据 false 返回递归处理后的数据
    * @return {object} 控件全部数据

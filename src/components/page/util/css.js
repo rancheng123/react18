@@ -4,8 +4,6 @@ import componentsManager from '@/components/components_manager'
 
 /**
  * @function cssParser css解析器
- * @date 2019-09-21
- * @author wyq
  * @param {object} component 控件结构数据
  * @param {object} themeData 控件样式数据
  * @param {string} type 结构类型 html amp mip 

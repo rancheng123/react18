@@ -16,12 +16,9 @@ function ComponentDecorator(View, Controler) {
   }
 
   const str = View.toString(),
-        type = str.slice(0, str.indexOf(" "));
+    type = str.slice(0, str.indexOf(" "));
   /**
    * @class {Component} 组件类
-   
-   * @version 1.0
-   * @date 2019-09-18
    */
 
   return class Component extends React.Component {
@@ -49,7 +46,6 @@ function ComponentDecorator(View, Controler) {
       }
       /**@property {Component} view 初始化 view 实例*/
 
-
       this.view = type == "class" ? new View() : {
         render: View
       }; //设置getter属性 state、props 
@@ -62,8 +58,6 @@ function ComponentDecorator(View, Controler) {
     }
     /**
      * @method render 挂载组件方法
-     * @date 2019-09-18
-     
      * @return {object} 待渲染的组件对象
      */
 
@@ -73,8 +67,6 @@ function ComponentDecorator(View, Controler) {
     }
     /**
      * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-     * @date 2019-09-18
-     
      */
 
 
@@ -87,8 +79,6 @@ function ComponentDecorator(View, Controler) {
     }
     /**
      * @method componentDidMount 组件渲染后执行，整个声明周期内只执行一次
-     * @date 2019-09-18
-     
      */
 
 

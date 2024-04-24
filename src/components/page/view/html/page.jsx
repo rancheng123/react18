@@ -7,9 +7,6 @@ import Util from '../../util/util';
 
 /**
  * @class {Page} 页面视图类
- * @author wyq
- * @version 1.0
- * @date 2019-09-18
  */
 
 export default class Page {
@@ -19,8 +16,6 @@ export default class Page {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-21
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
 
