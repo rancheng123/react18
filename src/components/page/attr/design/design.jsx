@@ -57,7 +57,6 @@ const Design = {
     this.group = opts.list;
 
     this.publicAttr = opts.publicAttr, this.node = opts.node; //设置项禁用所有单位选择属性
-    console.log(tabs);
     disableUnit = opts.disableUnit;
     prefix = (window.public.type == 'pc' ? '' : 'mo') + ((_opts$prefix = opts.prefix) !== null && _opts$prefix !== void 0 ? _opts$prefix : "");
     tabs = window.public.configure(tabs, this.group);
@@ -98,7 +97,9 @@ const Design = {
 
     return (
       <div className="pcPagePropertiesCon">
-        <div className="pcDesignLeft">
+
+        {/* 去掉参考站的侧边栏 */}
+        {/* <div className="pcDesignLeft">
           <ul className="pcPatternUl">
             {tabs.map((e, i) => (
               <li key={e} className={tab !== e ? null : "on"} onClick={() => selectedTab(e)}>
@@ -106,7 +107,7 @@ const Design = {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
         <div className="pcDesignRight" id="pro-design" />
       </div>
     )
@@ -129,10 +130,10 @@ const Design = {
     }; 
 
     // 统一获取渲染根节点
-    if(!root){
-      root =  createRoot(content) 
-    }
-    param.root  = root
+    // if(!root){
+    //   root =  createRoot(content) 
+    // }
+    // param.root  = root
 
 
     //判断是否有属性项的配置      
@@ -196,7 +197,6 @@ const Design = {
    * @param {object} opts 参数对象 
    */
   async text(opts) {
-    console.log(opts,'opts');
     const text = await DesignManager.text("controler");
     text.text(opts);
   },

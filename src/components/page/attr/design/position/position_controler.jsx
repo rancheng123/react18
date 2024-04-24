@@ -62,17 +62,29 @@ export class PositionControler extends React.Component {
 
     if (node && element) {
       const PositionControler = this;
-      ReactDOM.render(React.createElement(PositionControler, {
-        id: node.current.id,
-        node: node,
-        group: group !== null && group !== void 0 ? group : {
-          padding: true,
-          margin: true
-        },
-        publicAttr: publicAttr,
-        prefix: prefix,
-        disableUnit: disableUnit
-      }), element);
+
+      // ReactDOM.render(React.createElement(PositionControler, {
+      //   id: node.current.id,
+      //   node: node,
+      //   group: group !== null && group !== void 0 ? group : {
+      //     padding: true,
+      //     margin: true
+      //   },
+      //   publicAttr: publicAttr,
+      //   prefix: prefix,
+      //   disableUnit: disableUnit
+      // }), element);
+
+      return (
+        <PositionControler
+          id={node.current.id}
+          node={node}
+          group={group !== null && group !== undefined ? group : { padding: true, margin: true }}
+          publicAttr={publicAttr}
+          prefix={prefix}
+          disableUnit={disableUnit}
+        />
+      )
     }
   }
   /**
@@ -84,7 +96,8 @@ export class PositionControler extends React.Component {
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />;
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次

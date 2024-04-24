@@ -3,13 +3,16 @@
 import React from "react"; // 导入 React 库
 import Widget from "@/system/widgets/widget"; // 导入 Widget
 import fonts from "./fonts.json"; // 导入 fonts 
-import {BackgroundControler  } from "./../background/background_controler";
+
+
+import { BackgroundControler  } from "../background/background_controler";
+import { PositionControler  } from "../position/position_controler";
 export default class Text {
   constructor(controler) {
     /**@property controler 边框控制器实例 */
     this.controler = controler;
     this.tabs = this.tabs.bind(this); 
-    console.log(this.controler);
+    
     //unit 绑定this，实现伪继承
     this.unit = this.props.publicAttr.unit.bind(this);
   }
@@ -140,15 +143,18 @@ export default class Text {
     //   unem: true
     // });
 
-    <this.unit
-      id="lineHeight"
-      title="lineHeight"
-      sname="lineHeight"
-      uname="lineHeightUnit"
-      disabled={this.props.disableUnit}
-      unrem={true}
-      unem={true}
-    />
+    return (
+      <this.unit
+          id="lineHeight"
+          title="lineHeight"
+          sname="lineHeight"
+          uname="lineHeightUnit"
+          disabled={this.props.disableUnit}
+          unrem={true}
+          unem={true}
+        />
+    )
+    
 
   }
   /**
@@ -678,13 +684,13 @@ export default class Text {
         title="Headline"
         value={this.state.fontLabel || "not"}
         list={[
+          { name: window.public.lang["not"], value: "not" },
           { name: "H1", value: "h1" },
           { name: "H2", value: "h2" },
           { name: "H3", value: "h3" },
           { name: "H4", value: "h4" },
           { name: "H5", value: "h5" },
           { name: "H6", value: "h6" },
-          { name: window.public.lang["not"], value: "not" }
         ]}
         change={this.controler.setThemeData.bind(this.controler, "fontLabel")}
       />
@@ -714,11 +720,40 @@ export default class Text {
   }
 
   // 背景颜色
-  // background(){
-  //   const dom = BackgroundControler.background(this.props.opts) 
-  //   return (
-  //     dom
-  //   )
-  // }
+  background(){
+
+    // 整理参数
+    const content = document.querySelector("#pro-design");
+    const obj = {
+      element:content,
+      ...this.props,
+    }
+    obj.group= undefined
+
+    // 获取修改背景颜色结构
+    const dom = BackgroundControler.background(obj) 
+    return (
+      dom
+    )
+  }
+
+  // margin和padding
+  position(){
+
+    // 整理参数
+    const content = document.querySelector("#pro-design");
+    const obj = {
+      element:content,
+      ...this.props,
+    }
+    obj.group= undefined
+
+    // 获取修改背景颜色结构
+    const dom = PositionControler.position(obj)
+    return (
+      dom
+    ) 
+    
+  }
 
 }

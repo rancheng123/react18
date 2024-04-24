@@ -33,7 +33,7 @@ class Background {
   }
 
   render() {
-    console.log('background');
+    console.log('background',this.props);
     var _this$state$;
 
     let prefix = this.props.prefix;

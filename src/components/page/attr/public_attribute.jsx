@@ -66,44 +66,74 @@ const PublicAttribute = {
         step
       } = (_unitList$props$uname = unitList[props.uname][unit]) !== null && _unitList$props$uname !== void 0 ? _unitList$props$uname : {};
       const value = (_ref2 = (_ref3 = (_ref4 = (_this$state$skey = this.state[skey]) !== null && _this$state$skey !== void 0 ? _this$state$skey : this.state[sname]) !== null && _ref4 !== void 0 ? _ref4 : props.defaultValue) !== null && _ref3 !== void 0 ? _ref3 : min) !== null && _ref2 !== void 0 ? _ref2 : 0;
-      return React.createElement(Widget.Range, {
-        id: props.id,
-        title: props.title,
-        value: value,
-        min: min,
-        max: max,
-        step: step,
-        unit: unit,
-        disabled: props.disabled,
-        blur: props.blur,
-        units: [{
-          name: 'px',
-          value: 'px',
-          hidden: props.unpx
-        }, {
-          name: 'rem',
-          value: 'rem',
-          hidden: props.unrem
-        }, {
-          name: 'em',
-          value: 'em',
-          hidden: props.unem
-        }, {
-          name: '%',
-          value: '%',
-          hidden: props.unpercent
-        }],
-        change: (_props$change = props.change) !== null && _props$change !== void 0 ? _props$change : this.controler.range.bind(this.controler, skey),
-        selectChange: PublicAttribute.selectUnit.bind(this.controler, {
-          skey,
-          ukey,
-          uname,
-          selected: props.selected
-        })
-      });
-    } //组件第一次加载完毕后执行
+      // return React.createElement(Widget.Range, {
+      //   id: props.id,
+      //   title: props.title,
+      //   value: value,
+      //   min: min,
+      //   max: max,
+      //   step: step,
+      //   unit: unit,
+      //   disabled: props.disabled,
+      //   blur: props.blur,
+      //   units: [{
+      //     name: 'px',
+      //     value: 'px',
+      //     hidden: props.unpx
+      //   }, {
+      //     name: 'rem',
+      //     value: 'rem',
+      //     hidden: props.unrem
+      //   }, {
+      //     name: 'em',
+      //     value: 'em',
+      //     hidden: props.unem
+      //   }, {
+      //     name: '%',
+      //     value: '%',
+      //     hidden: props.unpercent
+      //   }],
+      //   change: (_props$change = props.change) !== null && _props$change !== void 0 ? _props$change : this.controler.range.bind(this.controler, skey),
+      //   selectChange: PublicAttribute.selectUnit.bind(this.controler, {
+      //     skey,
+      //     ukey,
+      //     uname,
+      //     selected: props.selected
+      //   })
+      // });
+
+      return (
+        <Widget.Range
+          id={props.id}
+          title={props.title}
+          value={value}
+          min={min}
+          max={max}
+          step={step}
+          unit={unit}
+          disabled={props.disabled}
+          blur={props.blur}
+          units={[
+            { name: 'px', value: 'px', hidden: props.unpx },
+            { name: 'rem', value: 'rem', hidden: props.unrem },
+            { name: 'em', value: 'em', hidden: props.unem },
+            { name: '%', value: '%', hidden: props.unpercent }
+          ]}
+          change={props.change !== undefined ? props.change : this.controler.range.bind(this.controler, skey)}
+          selectChange={PublicAttribute.selectUnit.bind(this.controler, {
+            skey,
+            ukey,
+            uname,
+            selected: props.selected
+          })}
+        />
+      )
 
 
+    } 
+    
+    
+    //组件第一次加载完毕后执行
     useEffect(() => {
       var _ref5, _config$type2, _ref6, _ref7, _this$state$puname, _classesList$props$un;
 
@@ -152,8 +182,10 @@ const PublicAttribute = {
           cskey = skey.replace(/(mo)?/, '$1click'); //拼选择器
 
     window.public.unit.selector = `#${id} ${(_ = ((_classes$uname = classes[uname]) !== null && _classes$uname !== void 0 ? _classes$uname : [])[1]) !== null && _ !== void 0 ? _ : ''}`;
-    const value = event.target.value; //取转后的值
-
+    
+    
+    const value = event?.target?.value || event; 
+    //取转后的值
     const size = window.public.unit[value](this.state[skey], this.state[ukey], uname);
     let data = {
       [ukey]: value,
@@ -166,8 +198,9 @@ const PublicAttribute = {
     this.setState({
       [ukey]: value,
       [skey]: size
-    }); //单位更换之后触发回调
-
+    });
+    
+    //单位更换之后触发回调
     selected && selected(data);
     Dispatcher.dispatch(`${id}_set`, {
       args: [`theme_data.style.`, data]

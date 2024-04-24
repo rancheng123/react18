@@ -46,8 +46,8 @@ class TextControler extends React.Component {
     } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
 
     if (node && element) {
-
-      opts.root.render(
+      const root = createRoot(element)
+      root.render(
         <TextControler
           id={node.current.id}
           node={node}
@@ -93,17 +93,20 @@ class TextControler extends React.Component {
         theme_data,
         document_data
       }
-    } = Dispatcher.dispatch(fnName); //将存在的fontLabel的值赋给state中 lw 2021-3-29；
-
+    } = Dispatcher.dispatch(fnName);
+    
+    //将存在的fontLabel的值赋给state中 lw 2021-3-29；
     this.state = {
       sign: document_data.sign,
       fontLabel: document_data.fontLabel,
       tab: ''
-    }; //theme_data数据存在并且存在style数据，则与state合并
-
+    }; 
+    
+    //theme_data数据存在并且存在style数据，则与state合并
     if (theme_data && theme_data.style) {
       Object.assign(this.state, theme_data.style);
     }
+    
     let group = this.props.group;
     this.state.list = TextControler.LIST;
 
@@ -124,7 +127,7 @@ class TextControler extends React.Component {
   }
 
   componentDidMount() {
-    // 暂时注掉
+    // 请求接口暂时注掉
     // let src = `${pageData.apiServiceUrl}index.php/fonts?list_rows=120`;
     // fetch(src, {
     //   method: 'GET',
@@ -270,7 +273,8 @@ class TextControler extends React.Component {
 
   change(key, event) {
     // let _value = event.target.value; 
-    let _value = event.target.value || event.target.textContent; 
+    // 增加获取文本位置代码event.target.alignValue
+    let _value = event.target.value || event.target.alignValue; 
 
     let padLeft = this.state.tab + "padLeft",
         padLeftkey = this.props.prefix + padLeft;
@@ -280,8 +284,9 @@ class TextControler extends React.Component {
     if (_value == 'left') {
       Dispatcher.dispatch(`${this.props.id}_set`, {
         args: [`theme_data.style.${padLeftkey}`, 10]
-      }); //切换居左时，补上padLeft的单位，没有单位会导致设置项不显示 sxt 2021-2-19
-
+      }); 
+      
+      //切换居左时，补上padLeft的单位，没有单位会导致设置项不显示 sxt 2021-2-19
       Dispatcher.dispatch(`${this.props.id}_set`, {
         args: [`theme_data.style.padLeftUnit`, "px"]
       });
@@ -344,7 +349,7 @@ class TextControler extends React.Component {
 
 
   setThemeData(key, e) {
-    let _value = e.target.value;
+    let _value = e?.target?.value || e;
     this.setState({
       [key]: _value
     });

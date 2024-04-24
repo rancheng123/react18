@@ -45,10 +45,14 @@ const Setting = {
   setting(opts) {
     if (opts.list && opts.node) {
       const SettingComponent = this.render.bind(this);
-      this.config = opts.config, this.tabs = opts.list.tabs;
-      this.group = opts.list.group, this.publicAttr = opts.publicAttr;
-      this.node = opts.node, this.ele = opts.element;
-      ReactDOM.render(React.createElement(SettingComponent, null), this.ele);
+      this.config = opts.config
+      this.tabs = opts.list.tabs;
+      this.group = opts.list.group
+      this.publicAttr = opts.publicAttr;
+      this.node = opts.node
+      this.ele = opts.element;
+      // ReactDOM.render(<SettingComponent />, this.ele);
+      opts.root.render(<SettingComponent  root={opts.root}/>);
     }
   },
 
@@ -58,24 +62,43 @@ const Setting = {
    * @author wyq
    * @return {object} 设置项结构
    */
-  render() {
+  render({root}) {
     const [tab, selectTab] = useState(this.tabs[0]);
     useEffect(() => {
-      this.showTabContent(tab);
+      this.showTabContent(tab,root);
     }, [tab]);
-    return React.createElement("div", {
-      className: "pcInteractContent"
-    }, React.createElement("ul", {
-      className: "pcSetUpActive"
-    }, this.tabs.map((e, i) => {
-      return React.createElement("li", {
-        key: i,
-        className: e != tab ? '' : 'on',
-        onClick: () => selectTab(e)
-      }, window.public.lang[e]);
-    })), React.createElement("div", {
-      id: "em-set-content"
-    }));
+    // return React.createElement("div", {
+    //   className: "pcInteractContent"
+    // }, React.createElement("ul", {
+    //   className: "pcSetUpActive"
+    // }, this.tabs.map((e, i) => {
+    //   return React.createElement("li", {
+    //     key: i,
+    //     className: e != tab ? '' : 'on',
+    //     onClick: () => selectTab(e)
+    //   }, window.public.lang[e]);
+    // })), React.createElement("div", {
+    //   id: "em-set-content"
+    // }));
+
+    return (
+      <div className="pcInteractContent">
+        <ul className="pcSetUpActive">
+          {this.tabs.map((e, i) => {
+            return (
+              <li
+                key={i}
+                className={e !== tab ? '' : 'on'}
+                onClick={() => selectTab(e)}
+              >
+                {window.public.lang[e]}
+              </li>
+            );
+          })}
+        </ul>
+        <div id="em-set-content"></div>
+      </div>
+    )
   },
 
   /**
@@ -84,23 +107,25 @@ const Setting = {
    * @author wyq
    * @param {object} tab 当前选中项 
    */
-  async showTabContent(tab) {
+  async showTabContent(tab,root) {
     const list = this.group[tab];
     const element = this.ele.querySelector("#em-set-content");
 
     if (list && list.include.indexOf('code') != -1) {
       return ReactDOM.render(Setting.code(tab), element);
     }
-
-    const design = await PublicAttrManager.design(); //插入设计属性
-
+    
+    const design = await PublicAttrManager.design();
+    
+    //插入设计属性
     design.design({
       list: list,
       disableUnit: true,
       node: this.node,
       prefix: tab,
       publicAttr: this.publicAttr,
-      element: element
+      element: element,
+      root
     });
   },
 
@@ -150,4 +175,4 @@ const Setting = {
 
 };
 
-export default Setting
+export { Setting }

@@ -8077,7 +8077,7 @@ textarea.fail {
   padding-left: 15px;
 }
 
-.layer-tabs > li:after {
+/* .layer-tabs > li:after {
   content: "";
   width: 0;
   height: 0;
@@ -8090,9 +8090,10 @@ textarea.fail {
   opacity: 0;
   transition-property: opacity;
   transition-duration: 0.2s;
-}
+} */
 
 .layer-tabs > li.on {
+  color: #2196f3;
   border-bottom: 2px solid #2196f3;
 }
 
@@ -8169,8 +8170,8 @@ textarea.fail {
 
 .pcConAttDesign {
   width: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
   box-sizing: border-box;
 }
 
@@ -8181,6 +8182,7 @@ textarea.fail {
 
 .pcConAttDesign > li {
   display: block;
+  line-height: 0;
   margin: 8px auto 8px;
 }
 
@@ -8300,7 +8302,8 @@ textarea.fail {
 }
 
 .pcDesignRight {
-  width: calc(100% - 40px);
+  /* width: calc(100% - 40px); */
+  width: 100%;
 }
 
 .pcPatternUl li i {
@@ -9131,7 +9134,8 @@ textarea.fail {
 
 .em-drag-slider input[type="range"] {
   -webkit-appearance: none;
-  width: 100%;
+  /* width: 100%; */
+  width: 140px;
   height: 20px;
   outline: none;
   background: rgba(0, 0, 0, 0);
@@ -9204,7 +9208,8 @@ textarea.fail {
 
 /* 新增单位换算样式 200512 mlj */
 .em-drag-select-slider .slider-number-input {
-  width: 30%;
+  /* width: 30%; */
+  width: 60px;
   margin-right: 5px;
   padding: 5px;
 }
@@ -10326,8 +10331,8 @@ textarea.fail {
 }
 
 .pcbgColorBox .pcConAttDesign .pcAttList .pcConAttTitle {
-  width: 34%;
-  padding-right: 10px;
+  /* width: 34%; */
+  /* padding-right: 10px; */
 }
 
 .pcbgColorBox .pcConAttDesign .pcAttList > div {
@@ -12647,6 +12652,8 @@ textarea.fail {
   display: inline-block;
   margin: 0 10px;
   vertical-align: middle;
+  text-align: center;
+  line-height: 26px;
 }
 
 .textalign_li:hover {
@@ -12655,4 +12662,19 @@ textarea.fail {
 }
 .textalign_li_active {
   background: #eaf7fe;
+  color: #2196f3;
 }
+
+/*
+ * 定义范围类型输入框的滑块样式
+ * 适用于Webkit内核浏览器（如Chrome、Safari）
+ */
+/* input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background: #116dff !important;
+  border: 4px solid #fff !important;
+  height: 16px !important;
+  width: 16px !important;
+  border-radius: 50% !important;
+  margin-top: -5px !important;
+} */

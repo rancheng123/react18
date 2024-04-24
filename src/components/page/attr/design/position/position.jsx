@@ -45,17 +45,34 @@ export default class Position {
 
 
   render() {
-    return React.createElement("div", {
-      className: "em-position-propertyNew"
-    }, this.props.group.margin ? React.createElement("ul", {
-      className: "em-position-marginNew"
-    }, React.createElement("li", {
-      className: "em-marginNew"
-    }, `${window.public.lang.margin}-margin`), React.createElement(this.margin, null)) : null, this.props.group.padding ? React.createElement("ul", {
-      className: "em-position-paddingNew"
-    }, React.createElement("li", {
-      className: "em-paddingNew"
-    }, `${window.public.lang.padding}-padding`), React.createElement(this.padding, null)) : null);
+    // return React.createElement("div", {
+    //   className: "em-position-propertyNew"
+    // }, this.props.group.margin ? React.createElement("ul", {
+    //   className: "em-position-marginNew"
+    // }, React.createElement("li", {
+    //   className: "em-marginNew"
+    // }, `${window.public.lang.margin}-margin`), React.createElement(this.margin, null)) : null, this.props.group.padding ? React.createElement("ul", {
+    //   className: "em-position-paddingNew"
+    // }, React.createElement("li", {
+    //   className: "em-paddingNew"
+    // }, `${window.public.lang.padding}-padding`), React.createElement(this.padding, null)) : null);
+
+    return (
+      <div className="em-position-propertyNew">
+        {this.props.group.margin ? (
+          <ul className="em-position-marginNew">
+            <li className="em-marginNew">{`${window.public.lang.margin}`}</li>
+            <this.margin />
+          </ul>
+        ) : null}
+        {this.props.group.padding ? (
+          <ul className="em-position-paddingNew">
+            <li className="em-paddingNew">{`${window.public.lang.padding}`}</li>
+            <this.padding />
+          </ul>
+        ) : null}
+      </div>
+    )
   }
   /**
    * @method margin 外边距结构

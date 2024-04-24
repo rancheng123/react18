@@ -71,13 +71,12 @@ const PublicAttrManager = {
    * @return {Basic} 设置模块
    */
   setting(name) {
-    let path = "page/attr/setting.js",
+    let path = "setting.jsx",
       moduleName = "Setting";
 
     if (name) {
-      [path, moduleName] = connect(name, ['[name]_setting.js', moduleName]);
+      [path, moduleName] = connect(name, ['[name]_setting.jsx', moduleName]);
     }
-
     // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
     return import(`./${path}`).then(module => module[moduleName]);
   },

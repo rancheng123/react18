@@ -389,14 +389,32 @@ function Range(prop) {
           onBlur={prop.blur || null}
         />
         {prop.units ? (
-          <Select
-            basic={true}
-            isChoose={true}
-            list={prop.units}
-            value={prop.unit}
-            disabled={prop.disabled}
-            change={prop.selectChange}
-          />
+          <div style={{width:'68px'}}>
+            <Select
+              basic={true}
+              isChoose={true}
+              list={prop.units}
+              value={prop.unit}
+              disabled={prop.disabled}
+              change={prop.selectChange}
+            />
+          </div>
+          
+          // <antd.Select
+          //   id={prop.id}
+          //   value={prop.value || ""}
+          //   disabled={prop.disabled}
+          //   onChange={prop.change}
+          // >
+          //   {/* <option value="">{window.public.lang["pleaseChoose"]}</option> */}
+          //   {prop.isChoose ? null :<antd.Select.Option  value="">{window.public.lang["pleaseChoose"]}</antd.Select.Option> } 
+          //   {prop.units.map((e, i) => 
+          //     e.hidden !== true ? (
+          //       <antd.Select.Option  key={i} label={e.name} value={e.value}>{e.name}</antd.Select.Option>
+          //     ) : null
+          //   )}
+          // </antd.Select>
+
         ) : null}
         {prop.units == undefined && prop.unit ? (
           <span className="unitNumber">{prop.unit}</span>
@@ -460,20 +478,37 @@ function Select(prop) {
   //   value: e.value
   // }, e.name) : null)); 
   
-  const select = (<select
-      className="em-select-box"
+  const select = (
+    // <select
+    //   className="em-select-box"
+    //   id={prop.id}
+    //   value={prop.value || ""}
+    //   disabled={prop.disabled}
+    //   onChange={prop.change}
+    // >
+    //   {prop.isChoose ? null : <option value="">{window.public.lang["pleaseChoose"]}</option>}
+    //   {prop.list.map((e, i) => 
+    //     e.hidden !== true ? (
+    //       <option key={i} label={e.name} value={e.value}>{e.name}</option>
+    //     ) : null
+    //   )}
+    // </select>
+    <antd.Select
       id={prop.id}
       value={prop.value || ""}
       disabled={prop.disabled}
       onChange={prop.change}
+      style={{width:'100%'}}
     >
-      {prop.isChoose ? null : <option value="">{window.public.lang["pleaseChoose"]}</option>}
+      {/* <option value="">{window.public.lang["pleaseChoose"]}</option> */}
+      {/* {prop.isChoose ? null :<antd.Select.Option  value="">{window.public.lang["pleaseChoose"]}</antd.Select.Option> }  */}
       {prop.list.map((e, i) => 
         e.hidden !== true ? (
-          <option key={i} label={e.name} value={e.value}>{e.name}</option>
+          <antd.Select.Option  key={i} label={e.name} value={e.value}>{e.name}</antd.Select.Option>
         ) : null
       )}
-    </select>)
+    </antd.Select>
+  )
 
   
   //如果basic为true只返回基本结构
@@ -654,16 +689,16 @@ function Align(prop) {
     //只有类型为文本时才会存在两端对齐 lw 2021-4-6
     list = [{
       value: "left",
-      icon:"&#xe639;"
+      icon:"&#xe782;"
     }, {
       value: "center",
-      icon:"&#xe639;"
+      icon:"&#xe791;"
     }, {
       value: "right",
-      icon:"&#xe639;"
+      icon:"&#xe785;"
     }, {
       value: "justify",
-      icon:"&#xe639;"
+      icon:"&#xe794;"
     }];
   }
 
@@ -684,6 +719,11 @@ function Align(prop) {
   //   skin: "em-align-radio",
   //   change: prop.change
   // })));
+
+  const changeAlign= (value,event)=>{
+      event.target.alignValue  =  value
+      prop.change(event)
+  }
 
   return (
     <Container
@@ -710,11 +750,10 @@ function Align(prop) {
               <li
                 className={`textalign_li ${prop.value == item.value ? 'textalign_li_active' : ''}`}
                 key={item.value}
-                value={prop.value}
                 id={id}
-                onClick={prop.change}
+                onClick={(event)=>changeAlign(item.value,event)}
                 >
-                  { item.value}
+                  <i className="iconfont" dangerouslySetInnerHTML={{ __html: item.icon }}></i>
               </li>
             )
           })
@@ -892,7 +931,7 @@ function OriginalFormat(prop) {
 
 
 function ColorPicker(prop) {
-  const [color] =useState(prop.color); //渲染调用方法，
+  const [color] = useState(prop.color); //渲染调用方法，
 
   useEffect(() => {
     const typeList = ['em-Button', 'em-Text', 'em-Box', 'em-Component']; //控制控件显示渐变色
@@ -935,24 +974,40 @@ function ColorPicker(prop) {
       }
     }); //清除方法
   }, [color]);
-  const picker = React.createElement("div", {
-    id: prop.id,
-    className: "em-color-picker"
-  }, React.createElement("div", {
-    className: prop.id,
-    style: {
-      padding: '5px'
-    }
-  }));
+  // const picker = React.createElement("div", {
+  //   id: prop.id,
+  //   className: "em-color-picker"
+  // }, React.createElement("div", {
+  //   className: prop.id,
+  //   style: {
+  //     padding: '5px'
+  //   }
+  // }));
+
+  const picker = (
+    <div id={prop.id} className="em-color-picker">
+      <span></span>
+      <div className={prop.id} style={{ padding: '5px' }}>
+        
+      </div>
+    </div>
+  )
+  
+
 
   if (prop.basic) {
     return picker;
   }
 
-  return React.createElement(Container, {
-    skin: prop.skin,
-    title: prop.title
-  }, picker);
+  // return React.createElement(Container, {
+  //   skin: prop.skin,
+  //   title: prop.title
+  // }, picker);
+  return (
+    <Container skin={prop.skin} title={prop.title}>
+      {picker}
+    </Container>
+  )
 }
 /**
  * @method function Search 搜索组件

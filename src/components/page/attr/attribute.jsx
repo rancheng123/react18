@@ -73,18 +73,19 @@ const Attribute = {
 
       const key = skin.slice(0, skin.lastIndexOf('.'));
       tabs = (_ref2 = (_tabs$key = tabs[key]) !== null && _tabs$key !== void 0 ? _tabs$key : tabs.all) !== null && _ref2 !== void 0 ? _ref2 : tabs;
-    } //index 不存在则通过opts.type查找。 opts.type 也不存在，默认为零
-
-
+    } 
+    
+    //index 不存在则通过opts.type查找。 opts.type 也不存在，默认为零
     if (opts.index == undefined) {
       opts.index = opts.type ? tabs.findIndex(e => e.type == opts.type) : 0;
-    } //查找tabs数组中是否包含type类型
-
-
+    }
+    
+    //查找tabs数组中是否包含type类型
     if (opts.index != -1) {
       const element = document.querySelector(`#${opts.id}`),
-            cid = this.node.current.id; //父级元素内为插入面板结构或reload为true或要展示的控件id与当前展示面板的控件id不同，则重新载入面板结构
-
+            cid = this.node.current.id; 
+            
+      //父级元素内为插入面板结构或reload为true或要展示的控件id与当前展示面板的控件id不同，则重新载入面板结构
       if (element.children.length == 0 || opts.reload || cid != Attribute.currentId) {
         //如果面板为打开状态且reload不为true，则不在加载面板，通过模拟点击来选中对应项
         // if(this.showState == 'open' && opts.reload != true)
@@ -182,7 +183,6 @@ const Attribute = {
    * @param {string} type 选项类型 
    */
   showTab(id, type) {
-    
     var _this$config$window$p, _type, _conf$group;
 
     const skin = this.node.current.skin || '';
@@ -206,7 +206,7 @@ const Attribute = {
 
     if (id) {
       param.element = document.querySelector(`#${id}`);
-      param.root = ReactDOM.createRoot( document.querySelector(`#${id}`)) 
+      param.root = ReactDOM.createRoot(document.querySelector(`#${id}`)) 
     }
     this[type](param);
   },

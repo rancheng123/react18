@@ -48,8 +48,8 @@ class BorderControler extends React.Component {
       if (group) {
         list = window.public.configure(this.LIST, group);
       }
-      
-      opts.root.render(
+      const root = createRoot(element)
+      root.render(
         <BorderControler
           id={opts.id || node.current.id}
           node={node}

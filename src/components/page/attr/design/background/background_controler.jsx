@@ -31,13 +31,15 @@ class BackgroundControler extends React.Component {
   }
 
   static background(opts) {
+    console.log(opts,'opts');
     const {
       group,
       node,
       element,
       prefix
-    } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
-
+    } = opts; 
+    
+    //控件数据与要插入的父级元素是否存在，存在继续执行
     if (node && element) {
       const BackgroundControler = this;
       let list = this.LIST;
@@ -45,7 +47,6 @@ class BackgroundControler extends React.Component {
       if (group) {
         list = window.public.configure(this.LIST, group);
       }
-      
       // ReactDOM.render(React.createElement(BackgroundControler, {
       //   id: opts.id || node.current.id,
       //   node: node,
@@ -53,14 +54,24 @@ class BackgroundControler extends React.Component {
       //   list: list
       // }), element);
 
-      opts.root.render(
+      return (
         <BackgroundControler
           id={opts.id || node.current.id}
           node={node}
           prefix={prefix}
           list={list}
         />
-      );
+      )
+
+      // const root =createRoot(element)
+      // root.render(
+      //   <BackgroundControler
+      //     id={opts.id || node.current.id}
+      //     node={node}
+      //     prefix={prefix}
+      //     list={list}
+      //   />
+      // );
     }
   }
 
@@ -186,8 +197,6 @@ class BackgroundControler extends React.Component {
    * @method changeBackgroundColor 
    * @date 2019-12-16
    */
-
-
   setImageColor(color) {
     const prefix = this.props.prefix;
     this.setState({
