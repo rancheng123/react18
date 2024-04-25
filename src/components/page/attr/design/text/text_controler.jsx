@@ -6,10 +6,6 @@ import Text from "./text"; // 导入 Text 变量
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
-
-
-
 class TextControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -24,8 +20,6 @@ class TextControler extends React.Component {
 
   /**
   * @static text 创建文本属性
-  * @author sxt 
-  * @date 2019-09-30
   * @param {object} opts 参数列表
   * @param {object} opts 参数列表
   * @param {object} opts.element 节点对象
@@ -70,22 +64,15 @@ class TextControler extends React.Component {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-30
-   * @author sxt
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     // return React.createElement(this.view.render, null);
     return <this.view.render />
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @author 
    */
-
-
   init() {
     const fnName = `${this.props.id}_get`;
     const {
@@ -145,12 +132,8 @@ class TextControler extends React.Component {
   }
   /**
    * @method selectTab 起换选项
-   * @date 2019-12-31
-   * @author wyq
    * @param {string} tab 切换的项 
    */
-
-
   selectTab(tab) {
     let state = {
       tab
@@ -170,12 +153,8 @@ class TextControler extends React.Component {
   }
   /**
    * @method  setDate 设置日期格式
-   * @date 2019-11-7
-   * @author wyq
    * @param {event} e 事件对象
    */
-
-
   setDate(event) {
     const value = event.target.value;
     this.setState({
@@ -187,13 +166,9 @@ class TextControler extends React.Component {
   }
   /**
   * @method  setFamilyType 设置字体类型
-  * @date 2020-8-13
-  * @author sxt
   * @param {string} key 属性名
   * @param {event} e 事件对象
   */
-
-
   setFamilyType(key, value, e) {
     if (!value) {
       value = e.target.value;
@@ -207,41 +182,40 @@ class TextControler extends React.Component {
         "fontFamily": ''
       });
       this.set("fontFamily", '');
-    } // Dispatcher.dispatch(`${this.props.id}_set`, {
+    } 
+    // Dispatcher.dispatch(`${this.props.id}_set`, {
     //     args: [`document_data.${key}`, _value]
     // })
 
-  } //设置字体
-
-
+  } 
+  
+  
+  //设置字体
   selectFamily(key, value) {
     this.set(key, value);
     this.setState({
       familyShow: false
     });
-  } //显示字体选择结构
-
-
+  } 
+  
+  //显示字体选择结构
   showFamily(key) {
     let isShow = this.state.familyShow ? false : true;
     this.setState({
       [key]: isShow
     });
-  } //弹出上传字体
-
-
+  } 
+  
+  //弹出上传字体
   uploadFamily() {
     alert("大师上传");
   }
+
   /**
    * @method set 设置样式数据
-   * @date 2019-11-7
-   * @author wyq 
    * @param {string} key 键值
    * @param {string} value 属性值
    */
-
-
   set(key, value) {
     this.setState({
       [key]: value
@@ -250,27 +224,23 @@ class TextControler extends React.Component {
       args: [`theme_data.style.${key}`, value]
     });
   }
+
+
   /**
    * @method range 滑块拖拽方法
-   * @date 2019-11-7
-   * @author wyq 
    * @param {string} key 键值
    * @param {event} event 事件对象
    */
-
-
   range(key, event) {
     this.set(key, Number(event.target.value || 0));
   }
+
+
   /**
    * @method change 单选、下拉值修改时执行方法
-   * @date 2019-11-7
-   * @author wyq
    * @param {string} key 键值
    * @param {event} event 事件对象
    */
-
-
   change(key, event) {
     // let _value = event.target.value; 
     // 增加获取文本位置代码event.target.alignValue
@@ -329,25 +299,17 @@ class TextControler extends React.Component {
 
   /**
   * @method click 点击设置属性方法
-  * @date 2019-11-7
-  * @author wyq
   * @param {string} key 键值
   * @param {event} event 事件对象
   */
-
-
   click(key, event) {
     this.set(key, event.currentTarget.dataset.value);
   }
   /**
    * @method setThemeData 选择H1~H6标签
-   * @date 2021-3-29
-   * @author lw
    * @param {string} key 键值
    * @param {event} event 事件对象
   */
-
-
   setThemeData(key, e) {
     let _value = e?.target?.value || e;
     this.setState({

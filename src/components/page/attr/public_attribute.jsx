@@ -8,19 +8,12 @@ import Dispatcher from '@/system/tools/dispatcher.js';
 // 导入自定义的 unit_config.json 模块
 import unitConfig from './unit_config.json';
 
-
-
 /**
  * @instance PublicAttribute 公用属性实例
- * @date 2020-05-20
- * @author wyq
  */
-
 const PublicAttribute = {
   /**
    * @method unit 带单位选择滑块组件
-   * @date 2020-05-13
-   * @author wyq
    * @param {object} props 参数组件
    * @param {string} props.id 组件id
    * @param {string} props.title 组件名称
@@ -161,8 +154,6 @@ const PublicAttribute = {
 
   /**
    * @method selectUnit 切换单位
-   * @date 2020-05-13
-   * @author wyq
    * @param {string} skey 值属性键
    * @param {string} ukey 单位属性键
    * @param {string} uname 单位键名

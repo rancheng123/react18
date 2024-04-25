@@ -1,7 +1,6 @@
 
 // 导入 React 库
 import React from "react";
-import { createRoot } from "react-dom/client";
 // 导入 Background 组件
 import Background from "./background";
 // 导入 dispatcher 模块
@@ -13,11 +12,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * @class {BackgroundControler} 背景控制器类
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
 class BackgroundControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -76,7 +71,8 @@ class BackgroundControler extends React.Component {
   }
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />;
   }
 
   init() {
@@ -108,12 +104,9 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method set 设置颜色
-   * @author sxt 
    * @param {string} key 键值
    * @param {string} value 属性值
    */
-
-
   set(key, value) {
     //更新面板ui 
     if (typeof value == 'string' && value.indexOf('linear-gradient') > -1) {
@@ -177,10 +170,7 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method setOpacity
-   * @date 2019-12-16
    */
-
-
   setOpacity(event) {
     const {
       value
@@ -195,7 +185,6 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method changeBackgroundColor 
-   * @date 2019-12-16
    */
   setImageColor(color) {
     const prefix = this.props.prefix;
@@ -208,10 +197,7 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method selectShowMode
-   * @date 2019-12-16
    */
-
-
   selectShowMode(event) {
     const {
       value
@@ -226,10 +212,7 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method selectPositionMode
-   * @date 2019-12-16
    */
-
-
   selectPositionMode(event) {
     const {
       value
@@ -244,10 +227,7 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method positionSet
-   * @date 2019-12-16
    */
-
-
   positionSet(position) {
     const prefix = this.props.prefix;
     this.setState({
@@ -259,13 +239,9 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method setOriginal 设置质量方法
-   * @date 2019-11-7
-   * @author sxt
    * @param {string} key 键值
    * @param {event} event 事件对象
    */
-
-
   setQuality(key, event) {
     let value = event.target.value; // let preix = window.public.type
 
@@ -301,10 +277,7 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method getDataSize ajax返回图片size
-   * @author sxt
    */
-
-
   getDataSize(uri) {
     return fetch(`/index.php/webdesign/getImgSize?imgsrc=${uri}&u_siteID=${window.pageData.siteId}`, {
       method: 'GET' // credentials: 'same-origin',
@@ -314,12 +287,8 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method showSource 展示资源库
-   * @author wyq
-   * @date 2022-02-23
    * @param {string} type 资源类型
    */
-
-
   showSource(type) {
     __webpack_require__.e(/*! import() */ "resource_manager").then(__webpack_require__.bind(null, /*! ../../../../../system/function/resource/resource_manager */ "./system/function/resource/resource_manager.js")).then(({
       resourceManager
@@ -329,12 +298,8 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method image 更换图片方法
-   * @author wyq
-   * @date 2022-02-23
    * @param {object} param0 存放图片路径资源的对象 
    */
-
-
   image({
     ima_path
   }) {
@@ -362,12 +327,8 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method video 更换视频方法
-   * @author wyq
-   * @date 2022-02-23
    * @param {object} param0 存放视频路径资源的对象 
    */
-
-
   video({
     videoUrl
   }) {
@@ -395,12 +356,8 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method color 更换背景色方法
-   * @author wyq
-   * @date 2022-02-22
    * @param {string} bgColor 背景色 
    */
-
-
   color(bgColor, colorTypeOption) {
     const prefix = this.props.prefix;
 
@@ -483,11 +440,7 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method clear 清除背景数据
-   * @author wyq
-   * @date 2022-02-23
    */
-
-
   clear() {
     const prefix = this.props.prefix;
     let data = {
@@ -514,12 +467,8 @@ class BackgroundControler extends React.Component {
   }
   /**
    * @method setBackgroundData 设置背景数据
-   * @author wyq
-   * @date 2022-02-23
    * @param {object} data 背景数据 
    */
-
-
   setBackgroundData(data) {
     let stateData = {}; //循环数据
 
@@ -542,13 +491,9 @@ class BackgroundControler extends React.Component {
   }
   /**
   * @method setImgWebp 设置图片webp开关
-  * @date 2022-4-19
-  * @author sxt
   * @param {string} key 键值
   * @param {event} event 事件对象
   */
-
-
   setImgWebp(key, event) {
     let value = event.target.value == "true" ? true : false;
     this.setState({

@@ -50,12 +50,8 @@ export default class WidgetLibraryControler extends React.Component {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-25
-   * @author sxt 
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     const {
       public: { lang },
@@ -77,11 +73,7 @@ export default class WidgetLibraryControler extends React.Component {
   
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-09-25
-   * @author sxt
    */
-
-
   init() {
     var tabs = this.tabs || [],
         tabsinx = '';
@@ -96,12 +88,8 @@ export default class WidgetLibraryControler extends React.Component {
   }
   /**
    * @method selectTab 切换控件项方法
-   * @date 2019-09-24
-   * @author sxt
    * @param {string} tab 切换的值
    */
-
-
   selectTab(tab) {
     nmbTermid = tab.id;
     var tabsArray = this.tabs; //获取控件库数组 lw 2021-2-3
@@ -128,11 +116,7 @@ export default class WidgetLibraryControler extends React.Component {
   help() {}
   /**
    * @method scrollTo 滚动条变化时，锚点定位方法
-   * @date 2019-09-24
-   * @author sxt
    */
-
-
   scrollTo() {
     const _anchor = document.querySelector(".anchorsMain .selected"),
           _parent = document.querySelector(".content_2"),
@@ -183,52 +167,44 @@ export default class WidgetLibraryControler extends React.Component {
       });
     }
   }
+
+
   /**
    * @method anchorMouseEnter 锚点移入方法
-   * @date 2019-09-24
-   * @author sxt
    * @param {string} value 切换的值
    */
-
-
   anchorMouseEnter(value) {
     this.setState({
       prompt: value
     });
   }
+
+
   /**
   * @method anchorMouseLeave 锚点移出方法
-  * @date 2019-09-24
-  * @author sxt
   */
-
-
   anchorMouseLeave() {
     this.setState({
       prompt: ""
     });
   }
+
+
   /**
   * @method jumpAnchor 点击锚点方法
-  * @date 2019-09-24
-  * @author sxt
   * @param {string} value 切换的值
   */
-
-
   jumpAnchor(value) {
     this.setState({
       jump: value
     });
   }
+
+
   /**
    * @method getData 获取控件数据
-   * @date 2019-10-22
-   * @author wyq
    * @return {object} 控件数据 
    */
-
-
   async getData() {
     if (this.skin) {
       const [type, classname] = this.skin.split(".");
@@ -242,10 +218,10 @@ export default class WidgetLibraryControler extends React.Component {
 
     return null;
   }
+
+
   /**
    * @method start 拖拽开始执行方法
-   * @date 2019-10-22
-   * @author wyq
    * @param {string} skin 皮肤
    * @param {event} event 事件对象
    */
@@ -256,15 +232,10 @@ export default class WidgetLibraryControler extends React.Component {
     new DragAdd(this).start(event);
   }
 
-
-
   /**
    * @method menus 工具库右侧导航项
-   * @date 2019-09-25
-   * @author sxt
    * @return {object} 工具库右侧导航项结构
    */
-
   menus() {
     return (
       <ul className="toolFontit">
@@ -288,11 +259,8 @@ export default class WidgetLibraryControler extends React.Component {
 
   /**
    * @method componentHtml 组件库内容项
-   * @date 2021-1-20
-   * @author sxt
    * @return {object} 组件库内容项结构
    */
-
   componentHtml() {
     let components = this.group[this.state.current.id];
     return (
@@ -326,11 +294,8 @@ export default class WidgetLibraryControler extends React.Component {
 
   /**
    * @method toolLibraryHtml 工具库内容项
-   * @date 2021-1-20
-   * @author sxt
    * @return {object} 工具库内容项结构
    */
-
   toolLibraryHtml() {
     let { tabs, group } = this.group[this.state.current.id];
     return (
@@ -382,11 +347,8 @@ export default class WidgetLibraryControler extends React.Component {
 
   /**
    * @method menus 工具库内容项
-   * @date 2019-09-25
-   * @author sxt
    * @return {object} 工具库内容项结构
    */
-
   content() {
     let configType = this.configType; //类型为组件库时，走组件库的结构 sxt 2021-1-20
 
@@ -404,7 +366,6 @@ export default class WidgetLibraryControler extends React.Component {
    * @param {string} props.path 视频路径
    * @return {object} 视频结构
    */
-
   video(props) {
     if (props.path) {
       return (
@@ -432,11 +393,8 @@ export default class WidgetLibraryControler extends React.Component {
 
   /**
    * @method menus 工具库锚点项
-   * @date 2019-09-25
-   * @author sxt
    * @return {object} 工具库锚点项结构
    */
-
   anchor() {
     let { current, jump, prompt } = this.state,
       { tabs } = this.group[current.id];

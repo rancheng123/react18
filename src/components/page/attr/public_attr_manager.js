@@ -1,42 +1,35 @@
 
 /**
  * @function connect 连接处理模块路径与模块名 
- * @date 2019-11-7
- * @author wyq
  * @param {string} name 控件名称
  * @param {array} moduleInfo 存储模块信息的数组
  * @return {array} 连接处理以后的模块路径和模块名
  */
 function connect(name, moduleInfo) {
-  let [path, moduleName] = moduleInfo; //判断name中是否含有em-，如果有截取掉
+  let [path, moduleName] = moduleInfo;
 
+  //判断name中是否含有em-，如果有截取掉
   if (name.indexOf("em-") != -1) {
     name = name.substring(3);
-  } //对名称进行拼接
+  }
 
+  //对名称进行拼接
+  const pathName = window.humpJoin(name, "_");
 
-  const pathName = window.humpJoin(name, "_"); //判断路径中是否存在占位，存在则进行相应替换
-
+  //判断路径中是否存在占位，存在则进行相应替换
   if (path.includes("[name]")) {
     path = path.replace("[name]", pathName);
-  } //返回模块路径与模块名称
+  }
 
-
+  //返回模块路径与模块名称
   return [`${pathName}/attr/${path}`, name + moduleName];
 }
 /**
  * @instance {PublicAttrManager} 属性管理实例
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
-
 const PublicAttrManager = {
   /**
    * @method basic 获取基本模块
-   * @date 2019-11-7
-   * @author wyq
    * @param {string} name 控件名称
    * @return {Basic} 基本属性模块
    */
@@ -55,8 +48,6 @@ const PublicAttrManager = {
 
   /**
    * @method design 设计模块
-   * @date 2019-11-7
-   * @author wyq
    * @return {Design} 设计模块
    */
   design() {
@@ -65,8 +56,6 @@ const PublicAttrManager = {
 
   /**
    * @method basic 获取设置模块
-   * @date 2019-11-7
-   * @author wyq
    * @param {string} name 控件名称
    * @return {Basic} 设置模块
    */
@@ -83,8 +72,6 @@ const PublicAttrManager = {
 
   /**
    * @method basic 获取动画设置模块
-   * @date 2020-01-01
-   * @author mlj
    * @param {string} name 控件名称
    * @return {Basic} 设置模块
    */
@@ -97,8 +84,6 @@ const PublicAttrManager = {
 
   /**
    * @method custom 获取自定义样式模块
-   * @date 2019-11-7
-   * @author wyq
    * @return {CustomControler} 自定义样式模块
    */
   custom(name) {
@@ -114,8 +99,6 @@ const PublicAttrManager = {
 
   /**
    * @method collection 获取收藏模块
-   * @date 2020-2-13
-   * @author sxt
    * @return {CustomControler} 自定义样式模块
    */
   collection() {
@@ -135,8 +118,6 @@ const PublicAttrManager = {
 
   /**
    * @method selectBox 获取选中框模块
-   * @date 2020-02-20
-   * @author wyq
    * @param {string} name 控件名称
    */
   selectBox(name) {
@@ -152,8 +133,6 @@ const PublicAttrManager = {
 
   /**
    * @method hiding 获取隐藏模块
-   * @date 2020-02-27
-   * @author wyq
    */
   hiding() {
     return import('./hiding').then(module => module.default)
@@ -162,8 +141,6 @@ const PublicAttrManager = {
 
   /**
    * @method hiding 获取应用模块
-   * @date 2020-03-20
-   * @author wyq
    */
   quote() {
     return __webpack_require__.e(/*! import() */ 1024).then(__webpack_require__.bind(null, /*! ../../hoverbox/attr/quote.js */ "./components/hoverbox/attr/quote.js")).then(module => module.Quote);

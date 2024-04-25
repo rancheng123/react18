@@ -11,11 +11,7 @@ import PublicAttribute from './public_attribute';
 
 /**
  * @instance {Attribute} 控件属性实例
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
 const Attribute = {
   /**@property width 属性面板宽度 */
   width: 435,
@@ -42,8 +38,6 @@ const Attribute = {
 
   /**
    * @method showAttributePanel 点击属性按钮触发方法
-   * @date 2019-11-15
-   * @author wyq
    * @param {object} opts 参数对象
    * @param {object} opts.node 控件结构数据对象 
    * @param {boolean} opts.reload 是否重新加载面板 true 重新加载 false 不重新加载。注：此属性仅在面板已经处于开启状态时有效
@@ -173,8 +167,6 @@ const Attribute = {
 
   /**
    * @virtual closeAttributePanel 关闭面板时触发
-   * @date 2020-01-08
-   * @author wyq 
    */
   closeAttributePanel() {},
 
@@ -256,8 +248,6 @@ const Attribute = {
 
   /**
    * @method selectBox 显示选中框
-   * @date 2020-02-20
-   * @author wyq
    * @param {object} opts 参数对象
    */
   async selectBox(opts) {
@@ -267,8 +257,6 @@ const Attribute = {
 
   /**
    * @method basic 基本选项属性
-   * @date 2019-11-15
-   * @author wyq
    * @param {object} opts 参数对象 
    */
   async basic(opts) {
@@ -285,8 +273,6 @@ const Attribute = {
 
   /**
    * @method design 设计选项属性
-   * @date 2019-11-15
-   * @author wyq
    * @param {object} opts 参数对象 
    */
   async design(opts) {
@@ -296,8 +282,6 @@ const Attribute = {
 
   /**
    * @method setup 设置选项属性
-   * @date 2019-11-15
-   * @author wyq
    * @param {object} opts 参数对象 
    */
   async setting(opts) {
@@ -307,8 +291,6 @@ const Attribute = {
 
   /**
    * @method setup 设置动画选项属性
-   * @date 2020-01-01
-   * @author mlj
    * @param {object} opts 参数对象 
    */
   async animation(opts) {
@@ -318,8 +300,6 @@ const Attribute = {
 
   /**
    * @method custom 自定义选项属性
-   * @date 2019-11-15
-   * @author wyq
    * @param {object} opts 参数对象 
    */
   async custom(opts) {
@@ -329,8 +309,6 @@ const Attribute = {
 
   /**
   * @method collection 收藏选项属性
-  * @date 2020-2-3
-  * @author sxt
   * @param {object} opts 参数对象 
   */
   async collection(opts) {
@@ -340,8 +318,6 @@ const Attribute = {
 
   /**
    * @method manage 项管里选项属性
-   * @date 2019-11-15
-   * @author wyq
    * @param {object} opts 参数对象 
    */
   async manage(opts) {
@@ -358,8 +334,6 @@ const Attribute = {
 
   /**
    * @method hiding 隐藏控件属性
-   * @date 2020-02-27
-   * @author wyq
    * @param {object} opts 参数对象 
    */
   async hiding(opts) {
@@ -369,8 +343,6 @@ const Attribute = {
 
   /***
    * @method quote 应用属性
-   * @date 2020-03-20
-   * @author wyq
    * @param {object} opts 参数对象
    */
   async quote(opts) {

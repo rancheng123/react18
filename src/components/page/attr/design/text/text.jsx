@@ -28,13 +28,11 @@ export default class Text {
   get props() {
     return this.controler.props;
   }
+
   /**
    * @method render 组件渲染方法
-   * @author sxt
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     // return React.createElement("div", {
     //   className: "pcTextBox"
@@ -59,14 +57,11 @@ export default class Text {
       </div>
     )
   }
+
   /**
    * @method tabs 文本选项结构
-   * @date 2019-12-31
-   * @author wyq
    * @return {object} 文本选项结构
    */
-
-
   tabs() {
     const tabs = this.controler.tabs;
     
@@ -97,13 +92,12 @@ export default class Text {
 
     return null;
   }
+
+
   /**
    * @method size 文本大小结构
-   * @author sxt
    * @return {object} 文本大小结构
    */
-
-
   size() {
     // return React.createElement(this.unit, {
     //   id: "textSize",
@@ -124,14 +118,11 @@ export default class Text {
       />
     )
   }
+
   /**
    * @method lineHeight 文本行高结构
-   * @author sxt
-   * @date 2020-2-6
    * @return {object} 文本行高结构
    */
-
-
   lineHeight() {
     // return React.createElement(this.unit, {
     //   id: "lineHeight",
@@ -154,18 +145,15 @@ export default class Text {
           unem={true}
         />
     )
-    
-
   }
+
+
   /**
    * @method font 文本字体结构
-   * @author sxt
    * @param {object} prop 参数对象
    * @param {number} index 索引
    * @return {object} 文本字体结构
    */
-
-
   family() {
     let state = this.state || {};
     let tab = state.tab,
@@ -177,8 +165,9 @@ export default class Text {
         familyType = state[familyTypeKey] || state[familyTypeName] || "default";
     let familyShow = state.familyShow;
     let fontValue = state[key] || state[name] || window.public.lang["font"];
-    let customList = state.customList || []; //自定义字体存在，并且字体类型为id时，找数组中的title sxt 2020-8-14
-
+    let customList = state.customList || [];
+    
+    //自定义字体存在，并且字体类型为id时，找数组中的title 
     if (customList.length >= 1 && fontValue.indexOf("font_") != -1) {
       for (let i = 0; i < customList.length; i++) {
         let keyFont = `font_${customList[i].id}`;
@@ -382,9 +371,10 @@ export default class Text {
         </div>
     )
   }
+
+
   /**
   * @method color 文本字体颜色结构
-  * @author sxt
   * @return {object} 文本字体颜色结构
   */
   color() {
@@ -411,9 +401,10 @@ export default class Text {
       />
     )
   }
+
+
   /**
    * @method style 文本样式结构
-   * @author sxt
    * @return {object} 文本样式结构 
    */
   style() {
@@ -499,13 +490,11 @@ export default class Text {
       </div>
     )
   }
+
   /**
    * @method align 文本对齐结构
-   * @author sxt
    * @return {object} align 文本对齐结构
    */
-
-
   align() {
     const name = this.state.tab + "textAlign",
           componentType = this.props.node.current.componentType || null; //用来判断什么时候展示两端对齐 lw 2021-4-9
@@ -530,13 +519,12 @@ export default class Text {
       />
     )
   }
+
+
   /**
    * @method marginLeft 文本左边距结构
-   * @author sxt
    * @return {object} 文本左边距
    */
-
-
   marginLeft() {
     const name = this.state.tab + "textAlign";
     const key = this.props.prefix + name;
@@ -562,13 +550,12 @@ export default class Text {
       )
     }
   }
+
+
   /**
    * @method marginRight 文本右边距结构
-   * @author sxt
    * @return {object} 文本左边距
    */
-
-
   marginRight() {
     const name = this.state.tab + "textAlign";
     const key = this.props.prefix + name;
@@ -594,13 +581,12 @@ export default class Text {
       )
     }
   }
+
+
   /**
    * @method date 日期结构
-   * @author sxt
    * @return {object} 日期
    */
-
-
   date() {
     const pub = window.public;
     return React.createElement(Widget.Select, {
@@ -641,9 +627,10 @@ export default class Text {
       change: this.controler.setDate.bind(this.controler)
     });
   }
+
+
   /**
     * @method headLine 选择H1 - H6标签
-    * @author lw
     * @param {object} prop 参数对象 
     * @return {object} 选择H1 - H6标签结构
     */
@@ -721,7 +708,6 @@ export default class Text {
 
   // 背景颜色
   background(){
-
     // 整理参数
     const content = document.querySelector("#pro-design");
     const obj = {

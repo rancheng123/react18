@@ -3,8 +3,6 @@ import { Unit } from './unit.js'
 import { Console } from './console.js';
 /**
  * @method join 把驼峰命名的字符串中的单词按照指定标识拼接起来,且首字母变为小写
- * @date 2019-11-1
- * @author wyq
  * @param {string} str 
  * @param {string} sign 
  * @return {string} 拼接后的字符串
@@ -25,9 +23,6 @@ window.humpJoin = function (str, sign) {
 }
 /**
  * @module {public} 公用模块
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
 window.public = {
     /**@property {Window} win 框架页window对象，在 main.js 中进行赋值*/
@@ -53,8 +48,6 @@ window.public = {
     get ckeditor() { return import('../../public/plugin/ckeditor/ckeditor.js') },
     /**
      * @method configure 处理配置
-     * @date 2019-08-24
-     * @author wyq
      * @param {array} items 要操作的属性列表 
      * @param {object} config 配置项 
      * @returns {array} 处理成功后的配置
@@ -74,8 +67,6 @@ window.public = {
     },
     /**
    * @method createId 创建唯一id
-   * @date 2019-09-17
-   * @author wyq
    * @param {string} prefix 用于区分控件类型的前缀
    * @param {number} len 生成id的长度
    * @return 一个唯一的id字符串
@@ -97,8 +88,6 @@ window.public = {
     },
     /**
      * @method getName 获取控件名称
-     * @date 2019-10-29
-     * @author wyq
      * @param {string} type 控件类型
      * @return {string} 控件的名称 
      */
@@ -134,8 +123,6 @@ window.public = {
     },
     /**
      * @method extends 让一个子模块继承一个父级模块
-     * @date 2019-11-26
-     * @author wyq
      * @param {object} child 子级对象
      * @param {object} parent 父级对像 
      */
@@ -151,8 +138,6 @@ window.public = {
     },
     /**
  * @method fetch 装饰原生fetch请求方法，增加更新token行为
- * @date 2021-03-23
- * @author wyq
  * @param {string} url 请求路径
  * @param {object} opts 参数对象
  * @param {string} opts.method 请求方式
@@ -196,8 +181,6 @@ window.public = {
     },
     /**
     * @method reload 框架页面刷新方法
-    * @date 2020-1-8  16：41
-    * @author  sxt
     */
     reload() {
         let iframe = document.getElementById("iframe");

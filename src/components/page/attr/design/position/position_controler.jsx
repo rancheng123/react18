@@ -1,6 +1,5 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 // 导入dispatcher模块
 import Dispatcher from '@/system/tools/dispatcher.js';
@@ -10,11 +9,7 @@ import Position  from './position';
 
 /**
  * @class {PositionControler} 定位控制器类
- * @author wyq
- * @version 1.0
- * @date 2019-11-14
  */
-
 export class PositionControler extends React.Component {
   constructor(props) {
     super(props);
@@ -37,8 +32,6 @@ export class PositionControler extends React.Component {
   }
   /**
    * @static position 创建定位属性
-   * @author wyq 
-   * @date 2019-11-14
    * @param {object} opts 参数列表
    * @param {object} opts 参数列表
    * @param {object} opts.element 节点对象
@@ -48,8 +41,6 @@ export class PositionControler extends React.Component {
    * @param {PublicAttribute} opts.publicAttr 共用属性实例
    * @param {boolean} opts.disableUnit 禁止选择单位
    */
-
-
   static position(opts) {
     const {
       node,
@@ -87,25 +78,21 @@ export class PositionControler extends React.Component {
       )
     }
   }
+
+
   /**
    * @method render 挂载组件方法
-   * @date 2019-11-14
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     // return React.createElement(this.view.render, null);
     return <this.view.render />;
   }
+
+
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-11-14
-   * @author wyq
    */
-
-
   init() {
     const {
       data
@@ -120,14 +107,12 @@ export class PositionControler extends React.Component {
 
     this.height = this.layout.height;
   }
+
+
   /**
    * @method getLayout 获取控件选中框布局数据
-   * @date 2020-02-03
-   * @author wyq
    * @return {object} 控件选中框布局数据：x和y坐标     
    */
-
-
   getLayout() {
     const {
       props: {
@@ -164,16 +149,14 @@ export class PositionControler extends React.Component {
       top: parseFloat(top) - mtop
     };
   }
+
+
   /**
    * @method setLayout 设置控件选中框布局数据
-   * @date 2020-02-03
-   * @author wyq
    * @param {string} type 类型
    * @param {string} setType 设置的类型类型
    * @param {number} value 值  
    */
-
-
   setLayout(type, value, setType) {
     const {
       props: {
@@ -198,106 +181,86 @@ export class PositionControler extends React.Component {
       })
     });
   }
+
+
   /**
    * @method marginTop 设置上边距
-   * @date 2020-02-03
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   marginTop(event) {
     this.setLayout('top', Number(event.target.value || 0), 'marginTop');
     this.set('marginTop', event, "margin");
   }
+
+
   /**
    * @method marginLeft 设置左边距
-   * @date 2020-02-03
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   marginLeft(event) {
     this.set('marginLeft', event, "margin");
   }
+
+
   /**
    * @method marginLeft 设置右边距
-   * @date 2020-02-03
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   marginRight(event) {
     this.set('marginRight', event, "margin");
   }
+
+
   /**
    * @method marginBottom 设置下边距
-   * @date 2020-02-03
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   marginBottom(event) {
     this.set('marginBottom', event, "margin");
   }
+
+
   /**
    * @method paddingTop 设置上补白
-   * @date 2020-02-04
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   paddingTop(event) {
     this.set('paddingTop', event);
   }
+
+
   /**
    * @method paddingBottom 设置下补白
-   * @date 2020-02-04
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   paddingBottom(event) {
     this.set('paddingBottom', event);
   }
+
+
   /**
    * @method paddingLeft 设置左补白
-   * @date 2020-02-04
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   paddingLeft(event) {
     this.set('paddingLeft', event);
   }
+
   /**
    * @method paddingRight 设置右补白
-   * @date 2020-02-04
-   * @author wyq
    * @param {object} event 事件对象
    */
-
-
   paddingRight(event) {
     this.set('paddingRight', event);
   }
+
   /**
    * @method set 设置属性值
-   * @date 2019-11-14
-   * @author wyq
    * @param {string} key 键值 
    * @param {event} event 事件对象 
    * @param {string} type key类型 lw 2021-4-22
    * @param {string} keyName 区分是否为失去焦点事件 lw 2021-4-22
    */
-
-
   set(key, event, type, keyName) {
     let value;
 
@@ -326,21 +289,16 @@ export class PositionControler extends React.Component {
       });
     }
   }
+
+
   /**
    * @virtual selected 单位更换后触发回调
-   * @date 2020-06-30
-   * @author wyq
    */
-
-
   selected() {}
+  
   /**
    * @virtual blur 失去焦点执行方法
-   * @date 201-4-22
-   * @author lw
    */
-
-
   blur(key, event) {
     this.set(key, event, "margin", key);
   }

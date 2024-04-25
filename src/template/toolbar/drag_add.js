@@ -7,29 +7,22 @@ import AttrProxy from '@/components/page/attr_proxy';
 
 /**
  * @class DragAdd 拖拽新增实例 封装拖拽新增算法
- * @date 2020-02-18
- * @author wyq
  */
-
 export default class DragAdd {
   constructor(component) {
     this.component = component;
   }
+
   /**
   * @method componentMask 控件遮罩层
-  * @date 2019-10-22
-  * @author wyq
   * @param {Element} element 要追加节点元素的父级节点对象
   * @param {number} left 遮罩层距离视图左侧的距离
   * @param {number} top 遮罩层距离视图顶部的距离
   * @param {number} width 遮罩层的宽度
   * @param {number} height 遮罩层的高度
   */
-
-
   componentMask(element, left, top, width, height) {
     const last = element.lastChild; //判断参数长度，决定是追加操作还是删除操作
-
     if (arguments.length > 1) {
       const css = `width:${width}px;height:${height}px;top:${top}px;left:${left}px;`; //判断是否存在此元素，存在此元素则直接更新坐标
 
@@ -50,14 +43,12 @@ export default class DragAdd {
       last.id == "component-mask" && last.remove();
     }
   }
+
+
   /**
    * @method start 拖拽开始执行方法
-   * @date 2019-10-22
-   * @author wyq
    * @param {event} event 事件对象
    */
-
-
   start(event) {
     try {
       const {
@@ -88,15 +79,13 @@ export default class DragAdd {
 
     event.stopPropagation();
   }
+
+
   /**
    * @method drag 拖拽进行中
-   * @date 2019-10-22
-   * @author wyq
    * @param {object} opts 参数列表 
    * @param {event} event 事件对象 
    */
-
-
   drag(opts, event) {
     const {
       left: x,
@@ -141,15 +130,12 @@ export default class DragAdd {
       }
     }
   }
+
   /**
    * @method end 拖拽结束
-   * @date 2019-10-22
-   * @author wyq
    * @param {object} opts 参数对象 
    * @param {event} event 事件对象
    */
-
-
   async end(opts, event) {
     //try 
     try {
@@ -201,15 +187,13 @@ export default class DragAdd {
       console.info(e.stack);
     }
   }
+
+
   /**
    * @method isDragIn 是否允许拖入提示
-   * @author wyq
-   * @date 2021-10-8
    * @param {object} component 控件数据
    * @returns {boolean} 是否允许拖入。true 允许 false 不允许
    */
-
-
   isDragIn(component) {
     const componentType = component.structure.componentType; //判断是否是翻屏控件
 
@@ -219,18 +203,16 @@ export default class DragAdd {
       if (element != null) {
         return false;
       }
-    } //默认返回true
+    }
 
-
+    //默认返回true
     return true;
   }
+
+
   /**
    * @method noDragPrompt 禁拖提示
-   * @author wyq
-   * @date 2021-10-8
    */
-
-
   noDragPrompt(action) {
     //是否存在action，存在值为close，执行关闭操作，只不存在，执行弹出提示操作。
     if (action != 'close') {

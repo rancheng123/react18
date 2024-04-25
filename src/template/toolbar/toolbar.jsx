@@ -1,5 +1,4 @@
-// 导入 React 库
-// import React from "react";
+
 // 导入 ReactDom 库
 import {createRoot} from "react-dom/client";
 // 导入 dispatcher 模块
@@ -7,8 +6,6 @@ import Dispatcher from "../../system/tools/dispatcher";
 
 /**
  * @function Toolbar 工具栏面板组件
- * @date 2019-08-23
- * @author wyq
  * @param {object} props 参数列表
  * @param {string} props.title 名称
  * @param {array} props.children 子元素  包含tabs content anchor，tabs anchor为可选项
@@ -18,7 +15,6 @@ import Dispatcher from "../../system/tools/dispatcher";
  * @param {function} props.click 点击按钮触发
  * @return {object} 工具栏面板组件
  */
-
 export default function Toolbar(props) {
   const { children, title, isbtn, click, btnTitle, help ,close} = props;
   let Tabs = null,
@@ -52,12 +48,10 @@ export default function Toolbar(props) {
     </div>
   );
 }
+
 /**
  * @function close 关闭面板
- * @date 2010-10-16
- * @author wyq
  */
-
 Toolbar.close = function (close) {
   // const content = document.querySelector("#edit-toolbar-content");
   Dispatcher.dispatch("hideToolbars");

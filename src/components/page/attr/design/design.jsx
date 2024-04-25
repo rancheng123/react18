@@ -4,27 +4,21 @@ import { useState, useEffect } from "react"; // 导入 React 模块
 import { createRoot } from 'react-dom/client';
 import DesignManager from "./design_manager"; // 导入 DesignManager 变量
 
-// 初始化渲染根节点
-let root = null
-
 
 /**@private prefix 属性前缀*/
 
 let prefix = "",
 
-  /**@private disableUnit 禁止单位选择*/
-  disableUnit = "",
+/**@private disableUnit 禁止单位选择*/
+disableUnit = "",
 
-  /**@property tabs 属性项集合 */
-  tabs = ["background", "border", "radius", "shadow", "text", "icon", "space", "animation", "hoveranimation", "position", "divider", "levelnav"];
-  const iconsList = ['&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784'];
+/**@property tabs 属性项集合 */
+tabs = ["background", "border", "radius", "shadow", "text", "icon", "space", "animation", "hoveranimation", "position", "divider", "levelnav"];
+const iconsList = ['&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784'];
+
 /**
  * @instance {Design} 设计实例
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
 const Design = {
   /**@property config 属性配置对象 */
   config: null,
@@ -37,7 +31,6 @@ const Design = {
 
   /**
    * @method design 插入设计属性模块
-
    * @param {object} opts 参数对象
    * @param {object} opts.list 配置对象
    * @param {object} opts.node 控件数据
@@ -67,7 +60,6 @@ const Design = {
 
   /**
    * @method render 设计项结构
-
    * @return {object} 设计项结构
    */
   render() {
@@ -115,7 +107,6 @@ const Design = {
 
   /**
    * @method showTab 选中当前点击项并显示对应内容
-
    * @param {object} tab 当前选中项 
    */
   showTab(tab) {
@@ -153,7 +144,6 @@ const Design = {
 
   /**
    * @method background 载入背景模块
-
    * @param {object} opts 参数对象 
    */
   async background(opts) {
@@ -163,7 +153,6 @@ const Design = {
 
   /**
    * @method border 载入边框模块
-
    * @param {object} opts 参数对象 
    */
   async border(opts) {
@@ -173,7 +162,6 @@ const Design = {
 
   /**
    * @method radius 载入圆角模块
-
    * @param {object} opts 参数对象 
    */
   async radius(opts) {
@@ -183,7 +171,6 @@ const Design = {
 
   /**
    * @method shadow 载入阴影模块
-
    * @param {object} opts 参数对象 
    */
   async shadow(opts) {
@@ -193,7 +180,6 @@ const Design = {
 
   /**
    * @method text 载入文本模块
-
    * @param {object} opts 参数对象 
    */
   async text(opts) {
@@ -203,8 +189,6 @@ const Design = {
 
   /**
   * @method animation 载入动画模块
-  * @date 2019-11-14
-  * @author wyq
   * @param {object} opts 参数对象 
   */
   async animation(opts) {
@@ -214,7 +198,6 @@ const Design = {
 
   /**
    * @method hoveranimation 蒙层载入动画模块
-
    * @param {object} opts 参数对象 
    */
   async hoveranimation(opts) {
@@ -224,7 +207,6 @@ const Design = {
 
   /**
    * @method icon 载入图标模块
-
    * @param {object} opts 参数对象 
    */
   async icon(opts) {
@@ -234,7 +216,6 @@ const Design = {
 
   /**
    * @method position 载入定位模块
-
    * @param {object} opts 参数对象 
    */
   async position(opts) {
@@ -244,8 +225,6 @@ const Design = {
 
   /**
    * @method space 载入间距模块
-   * @date 2020-05-18
-   * @author wyq
    * @param {object} opts 参数列表 
    */
   async space(opts) {
@@ -255,7 +234,6 @@ const Design = {
 
   /**
    * @method levelnav 载入事件方法模块
-
    * @param {object} opts 参数对象 
    */
   async levelnav(opts) {

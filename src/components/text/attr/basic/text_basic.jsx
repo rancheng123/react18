@@ -14,13 +14,13 @@ class TextBasic extends Basic {
 
     this.controler = controler;
   }
+
+
   /**
    * @method  selectionContentSet 内容来源
    * @author sxt
    * @return {object} 内容来源属性结构
    */
-
-
   selectionContentSet() {
     return React.createElement(Widget.Radio, {
       title: "selectionContent",
@@ -38,11 +38,8 @@ class TextBasic extends Basic {
   }
   /**
   * @method dataText 数据源文本   
-  * @author sxt
   * @param {object} 更改数据源内容
   */
-
-
   dataText() {
     const {
       dataSource = {},
@@ -67,11 +64,8 @@ class TextBasic extends Basic {
   }
   /**
   * @method links 设置链接
-  * @author sxt
   * @param {object} 设置链接结构。
   */
-
-
   links() {
     let _link = this.state.link;
 
@@ -86,12 +80,8 @@ class TextBasic extends Basic {
   }
   /**
      * @method  minimumHeight 文本最小的高度
-     * @author Lby
      * @return {object} 文本的最小高度
-     * @date    2020-04-20 09:16:52  minimumheight
      */
-
-
   minHeight() {
     let content = this.controler.getParentType(this.props.node, "em-List");
     let overflowPart = this.state.overflowPart || "automatic";
@@ -111,12 +101,8 @@ class TextBasic extends Basic {
   }
   /**
     * @method  accordingNumber 文本显示行数
-    * @author Lby
     * @return {object} 文本的最小高度
-    * @date    2020-04-20 09:16:52  accordingNumber
     */
-
-
   accordingNumber() {
     let content = this.controler.getParentType(this.props.node, "em-List");
     const {
@@ -139,8 +125,6 @@ class TextBasic extends Basic {
   }
   /**
    * @method  overflowPart 文本显示方式  
-   * @author sxt
-   * @date 2021-3-2
    * @return {object}
    */
 

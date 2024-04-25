@@ -9,12 +9,8 @@ import Widget from "@/system/widgets/widget";
 // 导入 dispatcher 模块
 import Dispatcher from "@/system/tools/dispatcher.js";
 
-
 /**
  * @instance {Setting} 设置实例
- * @author wyq
- * @version 1.0
- * @date 2019-11-26
  */
 
 const Setting = {
@@ -35,8 +31,6 @@ const Setting = {
 
   /**
    * @method setting 插入设计属性模块
-   * @date 2019-11-26
-   * @author wyq
    * @param {object} opts 参数对象
    * @param {object} opts.list 设置项配置对象
    * @param {object} opts.node 控件数据
@@ -58,8 +52,6 @@ const Setting = {
 
   /**
    * @method render 设置项结构
-   * @date 2019-11-26
-   * @author wyq
    * @return {object} 设置项结构
    */
   render({root}) {
@@ -103,8 +95,6 @@ const Setting = {
 
   /**
    * @method showTabContent 选中当前点击项并显示对应内容
-   * @date 2019-11-26
-   * @author wyq
    * @param {object} tab 当前选中项 
    */
   async showTabContent(tab,root) {

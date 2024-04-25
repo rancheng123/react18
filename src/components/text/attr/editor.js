@@ -3,9 +3,7 @@ import Dispatcher from '@/system/tools/dispatcher'
 
 /**
 * @method changeText 修改控件文本
-* @author wyq
 */
-
 export function changeText(id, e) {
   // window.CKEDITOR_BASEPATH = `${window.location.origin}/desktop/Public/Script/plugin/ckeditor/`; 
   window.CKEDITOR_BASEPATH = `${window.location.origin}/plugin/ckeditor/`;
@@ -43,9 +41,7 @@ export function changeText(id, e) {
 }
 /**
  * @function blur 失去焦点时执行方法
- * @author wyq
  */
-
 function blur(id, e) {
   // property.setState((prev,prop)=>{
   //     prev.selected.editorShow = "none",
@@ -65,17 +61,15 @@ function blur(id, e) {
 }
 /**
  * @function change 修改文本时触发方法
- * @author wyq
  * @param {object} e 事件对象 
  */
-
-
 function change(id, e) {
   if (e.editor.getData()) {
     Dispatcher.dispatch(`${id}_set`, {
       args: [`document_data.text`, e.editor.getData()]
     });
-  } // let offsetHeight= window.public.dom.querySelector(`#${id}`).offsetHeight||10;
+  }
+  // let offsetHeight= window.public.dom.querySelector(`#${id}`).offsetHeight||10;
   // if(document.querySelector(".ediBox")){
   //     document.querySelector(".ediBox").style.minHeight = offsetHeight + "px";
   // }
@@ -89,7 +83,9 @@ function change(id, e) {
   //     document.querySelector(".ediBox").style.minHeight = _height + "px";
   // }
 
-} // function init(editor){
+}
+
+// function init(editor){
 //     editor.ui.getEditableElement().parentElement.insertBefore(
 //         editor.ui.view.toolbar.element,
 //         editor.ui.getEditableElement()

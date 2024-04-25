@@ -6,7 +6,8 @@ const bufferDistance = 8; //缓冲距离px
 const lightColor = {
   high: '#cd7cff',
   default: '#91f7fd'
-}; //辅助线吸附高亮与低亮颜色值
+};
+//辅助线吸附高亮与低亮颜色值
 
 /*
  * @Author:eric
@@ -15,7 +16,6 @@ const lightColor = {
  * @LastEditors: Please set LastEditors
  * @Description: 吸附功能v3版
  */
-
 const adsorptionv3 = {
   init(current, container, ruler) {
     const containerBox = this.getBox(container);

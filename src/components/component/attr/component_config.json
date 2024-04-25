@@ -212,19 +212,23 @@
         "btns": [
             {
                 "name": "componentProperty",
-                "type": "basic"
+                "type": "basic",
+                "iconName": "&#xe7a0;"
             },
             {
                 "name": "design",
-                "type": "design"
+                "type": "design",
+                "iconName": "&#xe79d;"
             },
             {
                 "name": "itemManage",
-                "type": "manage"
+                "type": "manage",
+                "iconName": "&#xe78a;"
             },
             {
                 "name": "animation",
-                "type": "animation"
+                "type": "animation",
+                "iconName": "&#xe796;"
             }
         ],
         "group": {

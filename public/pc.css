@@ -12669,7 +12669,7 @@ textarea.fail {
  * 定义范围类型输入框的滑块样式
  * 适用于Webkit内核浏览器（如Chrome、Safari）
  */
-/* input[type="range"]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
   background: #116dff !important;
   border: 4px solid #fff !important;
@@ -12677,4 +12677,4 @@ textarea.fail {
   width: 16px !important;
   border-radius: 50% !important;
   margin-top: -5px !important;
-} */
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import Pagecontainer from "../components/Pagecomponent.js";
+import Pagecomponent from "../components/Pagecomponent.js";
 
 /**
  * Created By brand On 2018/2/2
@@ -50,7 +50,7 @@ export default class Pagecontainer extends React.Component {
   }
 
   render() {
-    return React.createElement("div", null, React.createElement("div", null, this.state.dataList), React.createElement(_components_Pagecomponent__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    return React.createElement("div", null, React.createElement("div", null, this.state.dataList), React.createElement(Pagecomponent, {
       pageConfig: this.state.pageConfig,
       pageCallbackFn: this.getCurrentPage
     }));

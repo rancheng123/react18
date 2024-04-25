@@ -37,19 +37,23 @@ export default class ComponentEditControler extends React.Component {
     this.selected = null;
     /**@property {Node} node 当前鼠标指针下的控件节点对象*/
 
-    this.node = null; // /**@property {AttrProxy} proxy 属性代理 */
+    this.node = null; 
+    
+    // /**@property {AttrProxy} proxy 属性代理 */
     // this.proxy = new AttrProxy();
 
     /**@property {MouseRightClickMenuControler} menu 右键菜单组件 */
-
-    this.menu = MouseRightClickMenuControler; //组件挂载前的初始化方法，整个生命周期内只执行一次
-
+    this.menu = MouseRightClickMenuControler; 
+    
+    //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
+
     /**@property {ComponentEdit} view 初始化 view 实例*/
-
-    this.view = new ComponentEdit(this); //给view 入口方法绑定this
-
+    this.view = new ComponentEdit(this); 
+    
+    //给view 入口方法绑定this
     this.view.render = this.view.render.bind(this.view);
+
     this._initX = 0;
     this.findBtn = false;
     this.virtualNode = false;
@@ -63,7 +67,8 @@ export default class ComponentEditControler extends React.Component {
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -533,37 +538,37 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method hover 
-   * @date 2019-10-12
-   * @author wyq
    * @param {event} event 事件对象 
    */
-
-
   hover(event) {
+    console.log(event);
     const top = document.querySelector("#ediMain").offsetTop,
           stop = event.currentTarget.parentNode.scrollTop;
     const initX = event.pageX;
     const initY = event.pageY - top + stop;
     this._initX = initX - (document.body.clientWidth - document.querySelector('#ediMain').getBoundingClientRect().width) / 2;
     this._initY = initY;
-    this.virtualNode = positions.findVirtual(this._initX, this._initY); //找到虚拟区域，保留当前位置导航按钮
-
+    this.virtualNode = positions.findVirtual(this._initX, this._initY);
+    
+    //找到虚拟区域，保留当前位置导航按钮
     if (this.virtualNode !== false && this.state.hover) {
       this.node = this.virtualNode;
       return;
-    } //查找指定坐标范围内的控件  
-
-
-    this.node = this.findComponent(initX, initY, stop); //是否查找到了控件
-
+    } 
+    
+    //查找指定坐标范围内的控件  
+    this.node = this.findComponent(initX, initY, stop); 
+    
+    //是否查找到了控件
     if (this.node) {
       const {
         node: {
           current
         }
       } = this;
-      const configList = []; //判断当前查找到的控件是否是已经选中的控件，不是则if，是则else
-
+      const configList = []; 
+      
+      //判断当前查找到的控件是否是已经选中的控件，不是则if，是则else
       if (!(this.selected && this.selected.isNode(current))) {
         const nodes = positions.getParentNodes(this.node, this._initX);
         if (nodes === false) return;
@@ -573,14 +578,15 @@ export default class ComponentEditControler extends React.Component {
           if (cur != null) {
             configList.push(cur);
           }
-        }); //更新视图
-
+        });
+        
+        //更新视图
         this.setState({
           hidden: false,
           hover: configList
         });
-      } else //如果鼠标在当前选中控件内，则不出现滑入框并且清空this.node
-        {
+      } else {
+          //如果鼠标在当前选中控件内，则不出现滑入框并且清空this.node
           this.node = null, this.setState({
             hover: null
           });
@@ -591,11 +597,7 @@ export default class ComponentEditControler extends React.Component {
    * @description: 鼠标经过按钮点击事件
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-09 17:25:41
    */
-
-
   hoverDown(type, e) {
     this.mousedown(e, null, null, id => {
       setTimeout(() => {

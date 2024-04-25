@@ -5,11 +5,7 @@ import React from 'react';
 
 /**
  * @class {Position} 定位视图类
- * @author wyq
- * @version 1.0
- * @date 2019-11-14
  */
-
 export default class Position {
   constructor(controler) {
     /**@property controler header控制器实例 */
@@ -38,12 +34,8 @@ export default class Position {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-11-14
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     // return React.createElement("div", {
     //   className: "em-position-propertyNew"
@@ -76,12 +68,8 @@ export default class Position {
   }
   /**
    * @method margin 外边距结构
-   * @date 2019-11-14
-   * @author wyq
    * @return {object} 外边距结构
    */
-
-
   margin() {
     return this.positions.map((e, i) => {
       const one = e.charAt(0);
@@ -91,29 +79,40 @@ export default class Position {
         return null;
       }
 
-      return React.createElement("li", {
-        className: `em-margin${i}New`,
-        key: i
-      }, React.createElement(this.unit, {
-        title: `position-${e}`,
-        id: `margin-${e}`,
-        sname: key,
-        uname: key + 'Unit',
-        disabled: this.props.disableUnit,
-        change: this.controler[key].bind(this.controler),
-        blur: this.controler.blur.bind(this.controler, key) // 新增失去焦点事件 lw 2021-4-22 
+      // return React.createElement("li", {
+      //   className: `em-margin${i}New`,
+      //   key: i
+      // }, React.createElement(this.unit, {
+      //   title: `position-${e}`,
+      //   id: `margin-${e}`,
+      //   sname: key,
+      //   uname: key + 'Unit',
+      //   disabled: this.props.disableUnit,
+      //   change: this.controler[key].bind(this.controler),
+      //   blur: this.controler.blur.bind(this.controler, key) // 新增失去焦点事件 lw 2021-4-22 
+      // }));
 
-      }));
+      return (
+         <li className={`em-margin${i}New`} key={i}>
+            <this.unit
+              title={`position-${e}`}
+              id={`margin-${e}`}
+              sname={key}
+              uname={`${key}Unit`}
+              disabled={this.props.disableUnit}
+              change={this.controler[key].bind(this.controler)}
+              blur={this.controler.blur.bind(this.controler, key)} // 新增失去焦点事件 lw 2021-4-22 
+            />
+          </li>
+      )
+
     });
   }
+
   /**
    * @method padding 内边距结构
-   * @date 2019-11-14
-   * @author wyq
    * @return {object} 内边距结构
    */
-
-
   padding() {
     return this.positions.map((e, i) => {
       const one = e.charAt(0);
@@ -123,18 +122,32 @@ export default class Position {
         return null;
       }
 
-      return React.createElement("li", {
-        className: `em-padding${i}New`,
-        key: i
-      }, React.createElement(this.unit, {
-        title: `position-${e}`,
-        id: `padding-${e}`,
-        sname: key,
-        uname: key + 'Unit',
-        disabled: this.props.disableUnit,
-        selected: this.controler.selected.bind(this.controler, key),
-        change: this.controler[key].bind(this.controler)
-      }));
+      // return React.createElement("li", {
+      //   className: `em-padding${i}New`,
+      //   key: i
+      // }, React.createElement(this.unit, {
+      //   title: `position-${e}`,
+      //   id: `padding-${e}`,
+      //   sname: key,
+      //   uname: key + 'Unit',
+      //   disabled: this.props.disableUnit,
+      //   selected: this.controler.selected.bind(this.controler, key),
+      //   change: this.controler[key].bind(this.controler)
+      // }));
+      return (
+        <li className={`em-padding${i}New`} key={i}>
+          <this.unit
+            title={`position-${e}`}
+            id={`padding-${e}`}
+            sname={key}
+            uname={`${key}Unit`}
+            disabled={this.props.disableUnit}
+            selected={this.controler.selected.bind(this.controler, key)}
+            change={this.controler[key].bind(this.controler)}
+          />
+        </li>
+      )
+
     });
   }
 

@@ -5,14 +5,9 @@ import Widget from "@/system/widgets/widget";
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-
 /**
  * @class {Background} 背景视图类
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
 class Background {
   constructor(controler) {
     this.controler = controler;
@@ -33,14 +28,13 @@ class Background {
   }
 
   render() {
-    console.log('background',this.props);
     var _this$state$;
 
     let prefix = this.props.prefix;
     const type = (_this$state$ = this.state[`${prefix}type`]) !== null && _this$state$ !== void 0 ? _this$state$ : this.state.type;
     let preix = window.public.type;
-    let skin = this.props.node.current.skin || "",
-        typeList = this.props.list;
+    let skin = this.props.node.current.skin || ""
+    let typeList = this.props.list;
     let btnShow = true; 
     
     //如果是mo端和是高级幻灯片并且类型是backgroundPanel，则只展示一项，并隐藏切换选项
@@ -102,7 +96,6 @@ class Background {
   }
   /**
    * @method backgroundColor 背景颜色属性
-   * @author wyq
    * @param {object} prop 参数对象
    * @param {string} prop.title 属性名称
    * @param {string} prop.key 属性键名
@@ -376,11 +369,8 @@ class Background {
   }
   /**
    * @method imageWebp   设置图片webp是否开启 
-   * @author sxt
    * @param {object} 更改按钮文本内容
    */
-
-
   imageWebp() {
     let isWebp = this.state.isWebp;
 

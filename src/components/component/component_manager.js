@@ -43,6 +43,6 @@ const ComponentManager = {
   getData(type) {
     return import(`./data/${type}_data.json`).then(module => module.default);
   }
-
 };
+
 export { ComponentManager }

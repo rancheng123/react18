@@ -39,34 +39,65 @@ export default class ComponentEdit {
 
 
   render() {
-    return React.createElement("div", {
-      id: "selected-mask",
-      style: {
-        height: this.props.height
-      },
-      onMouseMove: this.state.ismove ? this.controler.hover.bind(this.controler) : null,
-      onMouseDown: this.controler.mousedown.bind(this.controler)
-    }, this.state.hidden == false ? React.createElement("div", null, React.createElement(this.hover, null), React.createElement("div", {
-      className: "component-selected"
-    }, React.createElement("div", {
-      onMouseMove: e => e.stopPropagation(),
-      onMouseDown: e => e.stopPropagation()
-    }, React.createElement("div", {
-      id: "property-parent-buttons",
-      className: "editControl"
-    }), React.createElement("div", {
-      id: "property-buttons",
-      className: "editControl"
-    })), React.createElement("div", {
-      id: "select-parent-box"
-    }), React.createElement("div", {
-      id: "select-box"
-    })), React.createElement("div", {
-      className: "component-menu"
-    }, React.createElement(this.controler.menu, {
-      node: (this.controler.selected || {}).node,
-      removeBefore: node => this.controler.selected.proxy.removeBefore(node)
-    }))) : null);
+    // return React.createElement("div", {
+    //   id: "selected-mask",
+    //   style: {
+    //     height: this.props.height
+    //   },
+    //   onMouseMove: this.state.ismove ? this.controler.hover.bind(this.controler) : null,
+    //   onMouseDown: this.controler.mousedown.bind(this.controler)
+    // }, this.state.hidden == false ? React.createElement("div", null, React.createElement(this.hover, null), React.createElement("div", {
+    //   className: "component-selected"
+    // }, React.createElement("div", {
+    //   onMouseMove: e => e.stopPropagation(),
+    //   onMouseDown: e => e.stopPropagation()
+    // }, React.createElement("div", {
+    //   id: "property-parent-buttons",
+    //   className: "editControl"
+    // }), React.createElement("div", {
+    //   id: "property-buttons",
+    //   className: "editControl"
+    // })), React.createElement("div", {
+    //   id: "select-parent-box"
+    // }), React.createElement("div", {
+    //   id: "select-box"
+    // })), React.createElement("div", {
+    //   className: "component-menu"
+    // }, React.createElement(this.controler.menu, {
+    //   node: (this.controler.selected || {}).node,
+    //   removeBefore: node => this.controler.selected.proxy.removeBefore(node)
+    // }))) : null);
+
+    return (
+      <div
+        id="selected-mask"
+        style={{ height: this.props.height }}
+        onMouseMove={this.state.ismove ? this.controler.hover.bind(this.controler) : null}
+        onMouseDown={this.controler.mousedown.bind(this.controler)}
+      >
+        {this.state.hidden == false ? (
+          <div>
+            <div>
+              <this.hover />
+              <div className="component-selected">
+                <div onMouseMove={(e) => e.stopPropagation()} onMouseDown={(e) => e.stopPropagation()}>
+                  <div id="property-parent-buttons" className="editControl" />
+                  <div id="property-buttons" className="editControl" />
+                </div>
+                <div id="select-parent-box" />
+                <div id="select-box" />
+              </div>
+            </div>
+            <div className="component-menu">
+              <this.controler.menu
+                node={(this.controler.selected || {}).node}
+                removeBefore={(node) => this.controler.selected.proxy.removeBefore(node)}
+              />
+            </div>
+          </div>
+        ) : null}
+      </div>
+    )
   }
   /**
    * @method hoverBox 鼠标滑过提示框结构
@@ -74,8 +105,6 @@ export default class ComponentEdit {
    * @author wyq
    * @param {object} props 参数对象 
    */
-
-
   hoverBox({
     data,
     index
@@ -86,22 +115,22 @@ export default class ComponentEdit {
       } = data; //layout.top-=1;
 
       const cls = index === 0 ? 'contHovBox' : 'contHovBox cellHoverbox';
-      return React.createElement("div", {
-        className: cls,
-        style: layout
-      });
+      // return React.createElement("div", {
+      //   className: cls,
+      //   style: layout
+      // });
+      return (
+        <div className={cls} style={layout}></div>
+      )
     }
+
 
     return null;
   }
   /**
-   * @method hoverBox 鼠标滑过提示框结构
-   * @date 2019-10-30
-   * @author wyq
+   * @method hoverBtn 鼠标滑过菜单结构
    * @param {object} props 参数对象 
    */
-
-
   hoverBtn({
     data,
     index
@@ -121,7 +150,6 @@ export default class ComponentEdit {
             hidden
           }
         } = data; 
-
         return items.length && hidden != 1 ?
         //  React.createElement(ConfigBtn["ConfigBtnWaper"], {
         //   style: {
@@ -209,33 +237,43 @@ export default class ComponentEdit {
 
     return null;
   }
+
   /**
    * @method hover 鼠标滑过结构
-   * @date 2019-10-30
-   * @author wyq
    * @return {object} 滑过结构
    */
-
-
   hover() {
     if (this.state.hover) {
-      return React.createElement("div", {
-        className: "component-hover"
-      }, this.state.hover.map((data, i) => {
-        return React.createElement(this.hoverBox, {
-          key: i,
-          index: i,
-          data: data
-        });
-      }), this.state.hover.map((data, i) => {
+      // return React.createElement("div", {
+      //   className: "component-hover"
+      // }, this.state.hover.map((data, i) => {
+      //   return React.createElement(this.hoverBox, {
+      //     key: i,
+      //     index: i,
+      //     data: data
+      //   });
+      // }), this.state.hover.map((data, i) => {
 
-        // 鼠标移入的结构
-        return React.createElement(this.hoverBtn, {
-          key: i,
-          index: i,
-          data: data
-        });
-      }));
+      //   // 鼠标移入的结构
+      //   return React.createElement(this.hoverBtn, {
+      //     key: i,
+      //     index: i,
+      //     data: data
+      //   });
+      // }));
+
+      return (
+        <div className="component-hover">
+          {this.state.hover.map((data, i) => {
+            return <this.hoverBox key={i} index={i} data={data} />;
+          })}
+          {this.state.hover.map((data, i) => {
+            // 鼠标移入的结构
+            return <this.hoverBtn key={i} index={i} data={data} />;
+          })}
+        </div>
+      );
+      
     }
 
     return null;

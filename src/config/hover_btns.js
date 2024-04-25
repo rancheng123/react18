@@ -710,19 +710,41 @@ const Hoverbtns = ({
     }
   },
   "em-component": {
-    "btns": [{
-      "name": "componentProperty",
-      "type": "basic"
-    }, {
-      "name": "design",
-      "type": "design"
-    }, {
-      "name": "itemManage",
-      "type": "manage"
-    }, {
-      "name": "animation",
-      "type": "animation"
-    }],
+    "btns": [
+      //   {
+      //   "name": "componentProperty",
+      //   "type": "basic"
+      // }, {
+      //   "name": "design",
+      //   "type": "design"
+      // }, {
+      //   "name": "itemManage",
+      //   "type": "manage"
+      // }, {
+      //   "name": "animation",
+      //   "type": "animation"
+      // }
+      {
+        "name": "componentProperty",
+        "type": "basic",
+        "iconName": "&#xe7a0;"
+      },
+      {
+        "name": "design",
+        "type": "design",
+        "iconName": "&#xe79d;"
+      },
+      {
+        "name": "itemManage",
+        "type": "manage",
+        "iconName": "&#xe78a;"
+      },
+      {
+        "name": "animation",
+        "type": "animation",
+        "iconName": "&#xe796;"
+      }
+    ],
     "dots": [],
     "mo": {
       "btns": [{
@@ -1027,30 +1049,75 @@ const Hoverbtns = ({
     }
   },
   "em-text": {
-    "btns": [{
-      "name": "changeText",
-      "type": "ckeditor",
-      "className": "edit",
-      "iconName": "&#xe7a6;"
-    }, {
-      "name": "textProperty",
-      "type": "basic",
-      "iconName": "&#xe7a0;"
-    }, {
-      "name": "design",
-      "type": "design",
-      "hidden": false,
-      "iconName": "&#xe79d;"
-    }, {
-      "name": "animation",
-      "type": "animation",
-      "iconName": "&#xe796;"
-    }, {
-      "name": "quote",
-      "type": "quote",
-      "show": "Hoverbox 2",
-      "iconName": "&#xe7a6;"
-    }],
+    "btns": [
+      // {
+      //   "name": "changeText",
+      //   "type": "ckeditor",
+      //   "className": "edit",
+      //   "iconName": "&#xe7a6;"
+      // }, {
+      //   "name": "textProperty",
+      //   "type": "basic",
+      //   "iconName": "&#xe7a0;"
+      // }, {
+      //   "name": "design",
+      //   "type": "design",
+      //   "hidden": false,
+      //   "iconName": "&#xe79d;"
+      // }, {
+      //   "name": "animation",
+      //   "type": "animation",
+      //   "iconName": "&#xe796;"
+      // }, {
+      //   "name": "quote",
+      //   "type": "quote",
+      //   "show": "Hoverbox 2",
+      //   "iconName": "&#xe7a6;"
+      // }
+      {
+        "name": "changeText",
+        "type": "ckeditor",
+        "className": "edit",
+        "iconName": "&#xe7a6;"
+      },
+      {
+        "name": "textProperty",
+        "type": "basic",
+        "iconName": "&#xe7a0;",
+        "hidden": true
+      },
+      {
+        "name": "design",
+        "type": "design",
+        "iconName": "&#xe79d;"
+      },
+      {
+        "name": "setUp",
+        "type": "setting",
+        "iconName": "&#xe7a2;"
+      },
+      {
+        "name": "animation",
+        "type": "animation",
+        "iconName": "&#xe796;"
+      },
+      {
+        "name": "link",
+        "type": "link",
+        "iconName": "&#xe79a;"
+      },
+      {
+        "name": "translate",
+        "type": "translate",
+        "iconName": "&#xe7a4;"
+      },
+      {
+        "name": "quote",
+        "type": "quote",
+        "show": "Hoverbox 2",
+        "iconName": "&#xe7a6;"
+      }
+    ],
     "dots": [],
     "mo": {
       "btns": [{

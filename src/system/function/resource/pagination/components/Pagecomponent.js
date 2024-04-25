@@ -1,15 +1,9 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Pagecomponent_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pagecomponent.css */ "./system/function/resource/pagination/components/Pagecomponent.css");
-/* harmony import */ var _Pagecomponent_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Pagecomponent_css__WEBPACK_IMPORTED_MODULE_1__);
-/**
- * Created By brand On 2018/2/2
- */
+
+import React from 'react';
+import './Pagecomponent.css';
 
 
-
-class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+export default class Pagecomponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,7 +56,7 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
     } = this.state;
     let pages = []; //上一页
 
-    pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    pages.push(React.createElement("li", {
       className: currentPage === 1 ? "nomore" : null,
       onClick: this.prePageHandeler.bind(this),
       key: 0
@@ -71,7 +65,7 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
     if (totalPage <= 10) {
       /*总页码小于等于10时，全部显示出来*/
       for (let i = 1; i <= totalPage; i++) {
-        pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        pages.push(React.createElement("li", {
           key: i,
           onClick: this.pageClick.bind(this, i),
           className: currentPage === i ? "activePage" : null
@@ -80,7 +74,7 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
     } else {
       /*总页码大于10时，部分显示*/
       //第一页
-      pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      pages.push(React.createElement("li", {
         className: currentPage === 1 ? "activePage" : null,
         key: 1,
         onClick: this.pageClick.bind(this, 1)
@@ -95,7 +89,7 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 
 
       if (currentPage >= groupCount) {
-        pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        pages.push(React.createElement("li", {
           className: "",
           key: -1
         }, "\xB7\xB7\xB7"));
@@ -104,7 +98,7 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 
       for (let i = startPage; i < pageLength; i++) {
         if (i <= totalPage - 1 && i > 1) {
-          pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          pages.push(React.createElement("li", {
             className: currentPage === i ? "activePage" : null,
             key: i,
             onClick: this.pageClick.bind(this, i)
@@ -114,14 +108,14 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 
 
       if (totalPage - startPage >= groupCount + 1) {
-        pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        pages.push(React.createElement("li", {
           className: "",
           key: -2
         }, "\xB7\xB7\xB7"));
       } //最后一页
 
 
-      pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      pages.push(React.createElement("li", {
         className: currentPage === totalPage ? "activePage" : null,
         key: totalPage,
         onClick: this.pageClick.bind(this, totalPage)
@@ -129,7 +123,7 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
     } //下一页
 
 
-    pages.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    pages.push(React.createElement("li", {
       className: currentPage === totalPage ? "nomore" : null,
       onClick: this.nextPageHandeler.bind(this),
       key: totalPage + 1
@@ -199,11 +193,10 @@ class Pagecomponent extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Compone
 
   render() {
     const pageList = this.createPage();
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    return React.createElement("ul", {
       className: "page-container"
     }, pageList);
   }
 
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Pagecomponent);

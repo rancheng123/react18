@@ -7,11 +7,6 @@ import LinkControler from "@/system/function/link/link_controler";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
-
-
-
-
 class TextBasicControler extends BasicControler {
   constructor(props) {
     super(props);
@@ -24,8 +19,6 @@ class TextBasicControler extends BasicControler {
 
   /**
    * @method  setContent 设置数据源类型
-   * @date 2019-11-9
-   * @author sxt
    * @param {event} e 事件对象
    */
   setContent(e) {
@@ -83,12 +76,11 @@ class TextBasicControler extends BasicControler {
       args: [`document_data.link`, datas.data]
     });
   }
+
+
   /**
    * @method setLink 设置链接
-   * @author sxt
    */
-
-
   showLink() {
     let _link = this.state.link || {};
 
@@ -97,15 +89,13 @@ class TextBasicControler extends BasicControler {
       ensure: this.setLink.bind(this)
     }); // alert("设置链接")
   }
+
+
   /**
   * @method minHeight 滑块拖拽触发改变文本高度的方法
-  * @date 2020-04-17
-  * @author LBY
   * @param {string} key 键值 
   * @param {event} event 事件对象 
   */
-
-
   minHeight(e) {
     let layout = this.state.layout || [];
 
@@ -129,15 +119,13 @@ class TextBasicControler extends BasicControler {
       });
     }
   }
+
+
   /**
   * @method minHeight 滑块拖拽触发改变文本高度的方法
-  * @date 2020-04-17
-  * @author LBY
   * @param {string} key 键值 
   * @param {event} event 事件对象 
   */
-
-
   setAccordingNumber(e) {
     var _e$target$value, _this$state$layout;
 
@@ -160,10 +148,7 @@ class TextBasicControler extends BasicControler {
   }
   /**
     * @method showDataSource 显示数据源面板-文本-按钮
-    * @author sxt
     */
-
-
   showDataSource() {
     const promise = Promise.all(/*! import() | data_source_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("data_source_controler")]).then(__webpack_require__.bind(null, /*! ../../../../system/function/data_source/data_source_controler */ "./system/function/data_source/data_source_controler.js"));
 
@@ -254,15 +239,11 @@ class TextBasicControler extends BasicControler {
   }
   /**
    * @method setPictureTab 设置图片面板选项显示隐藏
-   * @author wyq
-   * @date 2020-12-30
    * @param {string} id 控件id 
    * @param {string} type 控件类型 
    * @param {string} skin 控件皮肤 
    * @param {boolean} hidden 显示或隐藏  
    */
-
-
   setPictureTab(id, type, skin, hidden) {
     new AttrProxy().init(type).then(module => {
       //弹出属性面板        
@@ -280,15 +261,13 @@ class TextBasicControler extends BasicControler {
       });
     });
   }
+
+
   /**
    * @method  setOverFlowPart 给文本设置显示方式
-   * @date 2021-3-2
-   * @author sxt
    * @param {string} key 属性名
    * @param {event} e 事件对象
    */
-
-
   setOverFlowPart(key, e) {
     let _value = e.target.value;
     this.setState({
