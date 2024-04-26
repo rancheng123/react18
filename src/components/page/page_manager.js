@@ -4,8 +4,6 @@
 const PageManager = {
   /**
    * @method createView 获取对应视图
-   * @date 2019-09-21
-   * @author wyq
    * @return 对应视图
    */
   getView(opts) {

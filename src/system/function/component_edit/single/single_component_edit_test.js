@@ -1,7 +1,9 @@
 import ReactDom from 'react-dom'
+import { createRoot } from "react-dom/client";
 import Dispatcher from '../../../tools/dispatcher';
 import AttrProxy from '@/components/page/attr_proxy';
 import Drag from '../../../tools/drag';
+
 
 /**
  * @instance {SingleComponentEdit} 单个选中编辑实例
@@ -173,7 +175,6 @@ const SingleComponentEdit = {
 
   /**
    * @method select 选中方法
-   
    * @date 2020-01-22
    * @param {object} param0 参数对象
    * @param {object} param0.Buttons 属性按钮对象
@@ -187,6 +188,7 @@ const SingleComponentEdit = {
     boxId,
     btnId
   }) {
+
     //判断是否存在配置对象
     if (this.proxy.config) {
       //选中控件之前调用
@@ -212,8 +214,13 @@ const SingleComponentEdit = {
   unselect(boxid, btnid) {
     const box = document.querySelector(`#${boxid}`),
       btn = document.querySelector(`#${btnid}`);
-    box.children.length && ReactDom.unmountComponentAtNode(box);
-    btn && btn.children.length && ReactDom.unmountComponentAtNode(btn);
+    // box.children.length && ReactDom.unmountComponentAtNode(box);
+    // btn && btn.children.length && ReactDom.unmountComponentAtNode(btn);
+
+    const boxRoot = createRoot(box)
+    const btnRoot = createRoot(btn)
+    box.children.length && boxRoot.unmount();
+    btn && btn.children.length && btnRoot.unmount();
   },
 
   /**

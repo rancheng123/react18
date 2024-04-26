@@ -1,10 +1,7 @@
-// 导入 React 库
-import React from "react";
 // 导入 widget 模块
 import Widget from "@/system/widgets/widget";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 export default class Animation {
@@ -12,49 +9,50 @@ export default class Animation {
     _defineProperty(this, "list", () => {
       return [{
         name: "noAnimation",
-        value: "无动画"
+        value: "无动画",
       }, {
         name: "rebound",
-        value: "左侧滑入"
+        value: "左侧滑入",
       }, {
         name: "slide",
-        value: "右侧滑入"
+        value: "右侧滑入",
       }, {
         name: "fadeIn",
-        value: "淡入"
+        value: "淡入",
       }, {
         name: "open",
-        value: "中心放大"
+        value: "中心放大",
       }, {
         name: "screwing",
-        value: "旋转进入"
+        value: "旋转进入",
       }, {
         name: "flyInto",
-        value: "右侧飞入"
+        value: "右侧飞入",
       }, {
         name: "toChangeInto",
-        value: "转入"
+        value: "转入",
       }, {
         name: "arcSpinIn",
-        value: "电弧旋入"
+        value: "电弧旋入",
+        iconName:"&#xe658;"
       }, {
         name: "inhalation",
-        value: "吸入"
+        value: "吸入",
       }, {
         name: "foldBack",
-        value: "折叠打开"
+        value: "折叠打开",
       }, {
         name: "flip",
-        value: "翻转"
+        value: "翻转",
       }, {
         name: "reveal",
-        value: "揭示 "
+        value: "揭示 ",
       }, {
         name: "topslide",
-        value: "上部滑入"
+        value: "上部滑入",
       }, {
         name: "bottomslide",
-        value: "底部滑入"
+        value: "底部滑入",
       }];
     });
 
@@ -76,7 +74,6 @@ export default class Animation {
 
   /**
    * @method render 组件渲染方法
-   * @author sxt
    * @return {object} 待渲染的组件对象
    */
   render() {
@@ -91,61 +88,61 @@ export default class Animation {
       name,
       value
     } = this.state;
-    return setting ? React.createElement("div", null, React.createElement("button", {
-      className: "contorlBtn returnBtn",
-      onClick: () => this.controler.setting(false)
-    }, React.createElement("i", null, "<"), React.createElement("font", {
-      id: "animationClose"
-    }, "\u8FD4\u56DE")), React.createElement("hr", {
-      className: "hr-short"
-    }), React.createElement("div", {
-      className: "aniSty"
-    }, React.createElement("span", null, React.createElement("i", {
-      "data-name": name
-    })), React.createElement("span", null, value), React.createElement("label", {
-      className: "stopBtn",
-      onClick: this.controler.animationPlay
-    }, React.createElement("p", {
-      className: "aa"
-    }))), React.createElement("hr", {
-      className: "hr-short"
-    }), React.createElement("ul", {
-      className: "pcConAttDesign"
-    }, React.createElement("li", {
-      className: "pcAttList"
-    }, React.createElement(Widget.Range, {
-      title: "duration",
-      max: 10,
-      value: duration,
-      change: e => this.controler.setRange("duration", e)
-    })), React.createElement("li", {
-      className: "pcAttList"
-    }, React.createElement(Widget.Range, {
-      title: "delay",
-      max: 10,
-      value: delay,
-      change: e => this.controler.setRange("delay", e)
-    })))) : React.createElement("div", {
-      className: "aniStyles conMain aniCon"
-    }, React.createElement("div", {
-      className: " scrollContent"
-    }, React.createElement("div", null, React.createElement("ul", null, this.list().map((v, i) => React.createElement("li", {
-      className: on == i ? 'on' : '',
-      key: `ani_${i}`,
-      onClick: () => this.controler.toggleClass(v, i)
-    }, React.createElement("p", null, React.createElement("i", {
-      "data-name": v.name,
-      "data-value": v.value
-    })), React.createElement("h5", null, v.value)))))), React.createElement("div", {
-      id: "scrollbar"
-    }, React.createElement("div", {
-      "data-scrolltop": "0"
-    })), React.createElement("div", {
-      className: "panlBottom"
-    }, React.createElement("button", {
-      className: `contorlBtn  ${on > 0 ? '' : 'noSelection'}`,
-      onClick: () => this.controler.setting(true)
-    }, React.createElement("font", null, "\u8BBE\u7F6E"))));
+    return (
+        setting ? (
+          <div>
+            <button className="contorlBtn returnBtn" onClick={() => this.controler.setting(false)}>
+              <i>{'<'}</i>
+              <font id="animationClose">返回</font>
+            </button>
+            <hr className="hr-short" />
+            <div className="aniSty">
+              <span>
+                <i data-name={name}></i>
+              </span>
+              <span>{value}</span>
+              <label className="stopBtn" onClick={this.controler.animationPlay}>
+                <p className="aa"></p>
+              </label>
+            </div>
+            <hr className="hr-short" />
+            <ul className="pcConAttDesign">
+              <li className="pcAttList">
+                <Widget.Range title="持续时间" max={10} value={duration} change={e => this.controler.setRange("duration", e)} />
+              </li>
+              <li className="pcAttList">
+                <Widget.Range title="延迟" max={10} value={delay} change={e => this.controler.setRange("delay", e)} />
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="aniStyles conMain aniCon">
+            <div className="scrollContent">
+              <div>
+                <ul>
+                  {this.list().map((v, i) => (
+                    <li className={on == i ? 'on' : ''} key={`ani_${i}`} onClick={() => this.controler.toggleClass(v, i)}>
+                      <p>
+                        <i data-name={v.name} data-value={v.value}></i>
+                        {/* <i className="iconfont" dangerouslySetInnerHTML={{ __html: v.iconName }}></i> */}
+                      </p>
+                      <h5>{v.value}</h5>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div id="scrollbar">
+              <div data-scrolltop="0"></div>
+            </div>
+            <div className="panlBottom">
+              <button className={`contorlBtn ${on > 0 ? '' : 'noSelection'}`} onClick={() => this.controler.setting(true)}>
+                <font>设置</font>
+              </button>
+            </div>
+          </div>
+        )
+    )
   }
 
 }

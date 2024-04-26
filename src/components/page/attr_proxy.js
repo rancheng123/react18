@@ -12,7 +12,7 @@ export default class AttrProxy {
     /** @property {object} _config 控件属性配置 */
     this._config = null;
   }
-  
+
   get config() {
     if (this._module && this._config === null) {
       // 深拷贝原始配置数据
@@ -62,15 +62,15 @@ export default class AttrProxy {
 
         if (param == true) {
           //临时构造函数，用于创建新实例
-          const Temporary = function () {};
+          const Temporary = function () { };
 
           Temporary.prototype = this._module;
-          
+
           this._module = new Temporary();
         }
 
         this._type = type;
-        
+
         await this.config; //预访问 
       }
     }

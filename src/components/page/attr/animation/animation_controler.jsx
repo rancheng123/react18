@@ -1,6 +1,5 @@
 // 导入 React 库
 import React from "react";
-import ReactDOM from 'react-dom';
 // 导入 animation 模块
 import Animation from "./animation";
 // 导入 dispatcher 模块
@@ -8,18 +7,9 @@ import Dispatcher from "@/system/tools/dispatcher";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
-
-
-
 /**
  * @Description: 动画控制器
- * @Author: ningfei
- * @Date: 2020-01-03 09:39:04
- * @LastEditors: ningfei
- * @LastEditTime: 
  */
-
 class AnimationControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -273,22 +263,13 @@ class AnimationControler extends React.Component {
   }
   /**
    * @Description: 动画样式项
-   * @Author: ningfei
-   * @Return: object
-   * @Date: 2020-01-03 18:37:15
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
 
 
   /**
    * @Description: 渲染视图
    * @Param: {opts} 组件参数
-   * @Author: ningfei
    * @Return: 
-   * @Date: 2020-01-03 18:38:04
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
   static animation(opts) {
     const {
@@ -296,49 +277,34 @@ class AnimationControler extends React.Component {
       element,
       root
     } = opts;
-    root.render(React.createElement(this, {
-      id: node.current.id,
-      node: node
-    }), element);
+    // root.render(React.createElement(this, {
+    //   id: node.current.id,
+    //   node: node
+    // }), element);
+
+    root.render(<AnimationControler id={node.current.id} node={node} />)
   }
   /**
    * @Description: 挂载组件方法
-   * @Author: ningfei
    * @Return: Animation
-   * @Date: 2020-01-03 09:39:36
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />
   }
   /**
    * @Description: 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @Author: ningfei
    * @Return: void
-   * @Date: 2020-01-03 09:40:14
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
-  init() {} // const fnName = `${this.props.id}_get`
+  init() {} 
+  // const fnName = `${this.props.id}_get`
   // const {data:{document_data}} = Dispatcher.dispatch(fnName);
-
   /**
    * @Description: 切换动画样式
    * @Param: {v} 选择动画项
    * @Param: {key} 选择动画项索引
-   * @Author: ningfei
    * @Return: void
-   * @Date: 2020-01-03 18:39:53
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
   toggleClass(v, key) {
     const data = this.state;
     const {
@@ -363,34 +329,25 @@ class AnimationControler extends React.Component {
     dom.setAttribute('data-name', c.className);
     dom.onanimationend = this.animationEnd;
   }
+  
   /**
    * @Description: 弹出设置框
    * @Param: bool {val}
-   * @Author: ningfei
    * @Return: void
-   * @Date: 2020-01-03 18:40:58
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
   setting(val) {
     this.setState({
       setting: val
     });
   }
+
+
   /**
    * @Description: 滑块组件
    * @Param: key 设置项键
    * @Param: e 事件对象
-   * @Author: ningfei
    * @Return: void
-   * @Date: 2020-01-03 18:41:32
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
   setRange(key, e) {
     // const animation = this.state;
     // if(key === 'offsetDistance') {
@@ -409,20 +366,10 @@ class AnimationControler extends React.Component {
   }
   /**
    * @Description: 动画开始
-   * @Author: ningfei
-   * @Date: 2020-01-03 18:44:54
-   * @LastEditors: ningfei
-   * @LastEditTime: 
-   */
-
-
+   *
   /**
    * @Description: 旋转开始
    * @Param: event 事件对象
-   * @Author: ningfei
-   * @Date: 2020-01-04 11:13:40
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
   start(event) {
     const {
@@ -448,13 +395,7 @@ class AnimationControler extends React.Component {
    * @Description: 旋转进行中
    * @Param: opts 初始角度
    * @Param: event 事件对象
-   * @Author: ningfei
-   * @Date: 2020-01-04 11:14:23
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
   drag(opts, event) {
     const {
       pageX,
@@ -479,33 +420,23 @@ class AnimationControler extends React.Component {
     this.setState({ ...animation
     });
   }
+
   /**
    * @Description: 拖拽结束
    * @Param: opts 初始角度
    * @Param: event 事件对象
-   * @Author: ningfei
-   * @Date: 2020-01-04 11:15:22
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
   end(opts, event) {
     const target = event.currentTarget; //取消绑定事件
 
     target.onmousemove = target.onmouseup = null;
     const animation = this.state;
   }
+
   /**
    * @Description: 计算角度
    * @Param: 
-   * @Author: ningfei
-   * @Date: 2020-01-04 11:15:42
-   * @LastEditors: ningfei
-   * @LastEditTime: 
    */
-
-
   deg(x, y) {
     let deg = 0; //只有x坐标或y坐标不等于零，才计算角度
 
@@ -518,4 +449,5 @@ class AnimationControler extends React.Component {
   }
 
 }
-export{AnimationControler}
+
+export{ AnimationControler }

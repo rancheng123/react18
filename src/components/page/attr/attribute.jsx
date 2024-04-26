@@ -8,7 +8,6 @@ import PublicAttrManager from './public_attr_manager.js';
 import PublicAttribute from './public_attribute';
 
 
-
 /**
  * @instance {Attribute} 控件属性实例
  */
@@ -348,6 +347,19 @@ const Attribute = {
   async quote(opts) {
     const quote = await PublicAttrManager.quote();
     quote.quote(opts);
+  },
+
+  /***
+   * @method link 链接属性
+   * @param {object} opts 参数对象
+   */
+  async link(opts) {
+    // const link =  await PublicAttrManager.link();
+    // link.link(opts)
+
+    // 渲染函数式组件
+    const Link = await PublicAttrManager.link();
+    opts.root.render(<Link {...opts}/>)
   }
 
 };

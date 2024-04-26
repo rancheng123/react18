@@ -25,6 +25,10 @@
                 "type": "animation"
             },
             {
+                "name": "link",
+                "type": "link"
+            },
+            {
                 "name": "picture",
                 "type": "picture",
                 "hidden": false

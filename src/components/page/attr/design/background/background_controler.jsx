@@ -26,7 +26,6 @@ class BackgroundControler extends React.Component {
   }
 
   static background(opts) {
-    console.log(opts,'opts');
     const {
       group,
       node,

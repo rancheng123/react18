@@ -45,7 +45,7 @@ iframe {
   text-decoration: none;
   font-style: normal;
   font-weight: normal;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 body {

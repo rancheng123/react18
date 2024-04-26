@@ -12,20 +12,13 @@ import SingleDrag from '@/system/tools/single_drag.js';
 import adsorptionv3 from './adsorptionv3';
 
 
-
-
-
 const marginMap = new Map();
 let keydown;
 
 const marginType = (type, attr) => type == 'pc' ? attr : type + attr;
 /**
  * @class SelectBox 选中框组件实例
- * @date 2020-01-22
- * @author wyq
  */
-
-
 class SelectBox {
   constructor(node, container) {
     /**@property node 控件数据对象*/
@@ -39,12 +32,8 @@ class SelectBox {
   }
   /**
    * @method selectedBox 选中框结构
-   * @date 2019-10-14
-   * @author wyq
    * @return {object} 选中框结构
    */
-
-
   static selectBox(opts) {
     const element = document.querySelector(`#${opts.id}`);
     //节点对象存在，在插入选中框
@@ -54,22 +43,26 @@ class SelectBox {
       
       this.selectRoot ? null : this.selectRoot = createRoot(element)
 
-      this.selectRoot.render(React.createElement(select.render, {
-        select: select,
-        dots: opts.dots,
-        def_layout: opts.layout
-      }));
+      // this.selectRoot.render(React.createElement(select.render, {
+      //   select: select,
+      //   dots: opts.dots,
+      //   def_layout: opts.layout
+      // }));
+
+      this.selectRoot.render(
+        <select.render
+          select={select}
+          dots={opts.dots}
+          def_layout={opts.layout}
+        />
+      );
     }
   }
   /**
    * 渲染结构
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2019-12-28 16:11:32
    */
-
-
   render({
     select,
     dots,
@@ -87,14 +80,33 @@ class SelectBox {
     } = select.node; //当控件发生变化时，更新选中框
 
     useEffect(select.loaded.bind(select, state, dots), [id + parseInt(x) + parseInt(y)]);
-    return React.createElement("div", {
-      className: "ediBox",
-      "data-id": select.id,
-      style: state[0]
-    }, select.node.current.hidden != '1' ? select.prev() : null, select.node.current.hidden != '1' ? select.selection(dots) : React.createElement("button", {
-      className: "hidDivBtn",
-      onClick: select.show.bind(select)
-    }, window.public.lang.clicShow));
+    // return React.createElement("div", {
+    //   className: "ediBox",
+    //   "data-id": select.id,
+    //   style: state[0]
+    // }, select.node.current.hidden != '1' ? select.prev() : null, select.node.current.hidden != '1' ? select.selection(dots) : React.createElement("button", {
+    //   className: "hidDivBtn",
+    //   onClick: select.show.bind(select)
+    // }, window.public.lang.clicShow));
+
+    return (
+      <div
+        className="ediBox"
+        data-id={select.id}
+        style={state[0]}
+      >
+        {select.node.current.hidden !== '1' ? (
+          select.prev()
+        ) : null}
+        {select.node.current.hidden !== '1' ? (
+          select.selection(dots)
+        ) : (
+          <button className="hidDivBtn" onClick={select.show.bind(select)}>
+            {window.public.lang.clicShow}
+          </button>
+        )}
+      </div>
+    )
   }
   /**
    * @method bindEvent 绑定事件
@@ -209,7 +221,6 @@ class SelectBox {
       <div className="adjustingButton">
         {btns ? btns.map((e, i) => {
           const icon = e !== 'top-left' ? { name: 'iconfont', icon: '&#xe790;' } : { name: 'cross', icon: '' };
-          console.log(icon,'icon');
           return (
             <em key={i} className={`occupa-${e}`} data-position={e}>
               {/* <i className={icon.name} data-position={e}>{icon.icon}</i> */}

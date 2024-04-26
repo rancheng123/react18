@@ -1109,6 +1109,8 @@ window.public.lang = {
     /**tab选项卡选项宽均分 end*/
     "Headline": "H标签",//H标签
     "not": '无',
+    inside: "站内页面",
+    outside: "站外链接",
     "noDragPrompt": "一个页面中只允许拖入一个翻屏控件",
     "uploadType": "上传类型",
     "uploadFormat": "上传格式",

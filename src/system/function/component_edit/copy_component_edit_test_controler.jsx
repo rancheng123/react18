@@ -653,9 +653,6 @@ class ComponentEditControler extends React.Component {
         if (typeof id == 'function') {
           fn = id, id = null;
         }
-
-        console.log(event, x, y, id, fn)
-
         return this.selected.mousedown(event, x, y, id, fn);
       }
 

@@ -26,8 +26,6 @@ class Buttons {
 
     this.node = node;
 
-    // 渲染按钮的react根节点
-    this.buttonRoot = null
   }
   /** 
     * @method buttons 属性按钮列表结构
@@ -35,7 +33,8 @@ class Buttons {
     */
 
 
-  static buttons(id, node, proxy, btns) {
+  static buttons(id, node, proxy, btns,) {
+
     const container = document.querySelector(`#${id}`);
 
     if (container) {
@@ -56,10 +55,9 @@ class Buttons {
       const componentName = (_ref = (_data$data$document_d = data.data.document_data.categoryName) !== null && _data$data$document_d !== void 0 ? _data$data$document_d : window.public.lang[((_node$current$skin = node.current.skin) !== null && _node$current$skin !== void 0 ? _node$current$skin : '').split('.')[1]]) !== null && _ref !== void 0 ? _ref : window.public.getName(node.current.type);
       
       btns = Buttons.btnsHandle(btns, node.current.type);
-      if(!this.buttonRoot){
-        this.buttonRoot = createRoot(container)
-      }
-      this.buttonRoot.render(
+
+      const buttonRoot = createRoot(container)
+      buttonRoot.render(
         <button.render
           button={button}
           componentName={componentName}
@@ -68,6 +66,7 @@ class Buttons {
           btns={btns}
         />
       )
+      
       // ReactDOM.render(React.createElement(button.render, {
       //   button: button,
       //   componentName: componentName,
@@ -153,13 +152,17 @@ class Buttons {
 
     const [layout, setLayout] = React.useState({
       opacity: 0
-    }); //每次选中控件时，计算属性按钮位置。
-
-    React.useEffect(button.btnListLayout(btnId, setLayout), []); //属性按钮选中
-
+    }); 
+    
+    //每次选中控件时，计算属性按钮位置。
+    React.useEffect(button.btnListLayout(btnId, setLayout), []); 
+    
+    //属性按钮选中
     const [selectState, setSelectState] = React.useState(null),
-      [buttonList, setButtonList] = React.useState(btns); //注册选中加载按钮方法
-
+      [buttonList, setButtonList] = React.useState(btns); 
+      
+      
+    //注册选中加载按钮方法
     React.useEffect(() => {
       Dispatcher.register(`${id}_set_property_btns`, setButtonList, Buttons);
       return () => Dispatcher.unregister(`${id}_set_property_btns`);
@@ -282,17 +285,19 @@ class Buttons {
           position,
           left,
           top;
-        height = height + 10; //如果头部或底部可以显示全按钮，则在头部或底部显示，否则点哪里在哪里显示
-
+        height = height + 10;
+        
+        //如果头部或底部可以显示全按钮，则在头部或底部显示，否则点哪里在哪里显示
         if (cy > height || innerHeight - (cy + layout.height) > height) {
-          top = layout.y - height, left = layout.x > 20 ? layout.x : 0; //如果以控件坐标为基准放不下属性按钮，则以属性按钮宽度来计算属性按钮的x坐标
-          //80为右侧工具库按钮宽度
+          top = layout.y - height, left = layout.x > 20 ? layout.x : 0; 
 
+          //如果以控件坐标为基准放不下属性按钮，则以属性按钮宽度来计算属性按钮的x坐标
+          //80为右侧工具库按钮宽度
           if (innerWidth - layout.x < width + 95) {
             left = innerWidth - (width + 85);
-          } //如果属性按钮y坐标小于自身高度，则属性按钮y坐标等于控件y坐标加上其高度的值
-
-
+          } 
+          
+          //如果属性按钮y坐标小于自身高度，则属性按钮y坐标等于控件y坐标加上其高度的值
           if (cy <= height) {
             top = layout.height + layout.y + 10;
           }

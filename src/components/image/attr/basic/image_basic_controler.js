@@ -468,10 +468,7 @@ class ImageBasicControler extends basic_controler__WEBPACK_IMPORTED_MODULE_2__["
      * @author LBY
      * @date 2020-05-19
      */
-
-
     showSecondDataSource(type, defDataSource) {
-        console.log(type);
         const promise = Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("data_source_controler")]).then(__webpack_require__.bind(null, /*! ../../../../system/function/data_source/data_source_controler */ "./system/function/data_source/data_source_controler.js"));
         let parentData = this.getParentType(this.props.node, "em-List"); //查找当前控件是否在列表中
 

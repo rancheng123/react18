@@ -146,6 +146,13 @@ const PublicAttrManager = {
     return __webpack_require__.e(/*! import() */ 1024).then(__webpack_require__.bind(null, /*! ../../hoverbox/attr/quote.js */ "./components/hoverbox/attr/quote.js")).then(module => module.Quote);
   },
 
+  /**
+   * @method hiding 获取链接模块
+   */
+  link() {
+    return import('./link/link_controler.jsx').then(module => module.LinkContainer);
+  },
+
   // 动态导入处理函数
   async basicDynamicImport(path, name) {
     try {
