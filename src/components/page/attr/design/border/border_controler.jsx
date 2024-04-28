@@ -10,11 +10,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * @class {BorderControler} 边框控制器类
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
 class BorderControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -29,8 +25,6 @@ class BorderControler extends React.Component {
 
   /**
    * @static border 边框渲染
-   * @author sxt 
-   * @date 2019-09-30
    * @param {object} opts 参数列表
    * @param {object} opts.element 节点对象
    */
@@ -61,21 +55,17 @@ class BorderControler extends React.Component {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-30
-   * @author sxt
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     return React.createElement(this.view.render, null);
   }
+
+
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
    * @author 
    */
-
-
   init() {
     const key = `${this.props.id}_get`;
     const {
@@ -91,13 +81,9 @@ class BorderControler extends React.Component {
   }
   /**
    * @method set 设置样式数据
-   * @date 2019-11-7
-   * @author wyq 
    * @param {string} key 键值
    * @param {string} value 属性值
    */
-
-
   set(type, key, value, event) {
     //判断值是否存在，不存在则进行赋值    
     if (!value) {
@@ -121,13 +107,11 @@ class BorderControler extends React.Component {
       args: [`theme_data.style.`, border]
     });
   }
+
+
   /**
    * @method clear 清空边框
-   * @date 2019-10-30
-   * @author wyq
    */
-
-
   clear() {
     this.setState((state, props) => {
       const {

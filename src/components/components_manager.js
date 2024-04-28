@@ -28,9 +28,7 @@ const dynamicImport = async (path, name) => {
  * @param {strng} type 控件类型
  * @return {object} 指定对象 
  */
-
 export default function componentsManager(type) {
-
   //检测类型是否是字符串
   if (typeof type == "string") {
     //检测类型中是否存在中划线
@@ -51,11 +49,8 @@ export default function componentsManager(type) {
 }
 /**
  * @method comProxy 控件代理
- * @date 2019-10-09
- * @author wyq
  * @param {object} object 控件模块对象 
  */
-
 function comProxy(object) {
   //处理对象
   const handler = {

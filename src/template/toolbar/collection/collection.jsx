@@ -5,10 +5,7 @@ import Toolbar from '../toolbar';
 
 /**
  * @class {Collection} 收藏视图类
- * @author sxt 
- * @date  2020-2-12
  */
-
 export default class Collection extends React.Component {
   constructor(props) {
     super(props);
@@ -28,13 +25,9 @@ export default class Collection extends React.Component {
   //   return this.controler.props;
   // }
   /**
-      * @method render 挂载组件方法
-      * @date 2019-09-25
-      * @author sxt
-      * @return {object} 待渲染的组件对象
-      */
-
-
+  * @method render 挂载组件方法
+  * @return {object} 待渲染的组件对象
+  */
   render() {
     return (
       <>
@@ -44,24 +37,19 @@ export default class Collection extends React.Component {
       </>
     )
   }
+
+
   /**
    * @method close 关闭方法
-   * @date 2019-12-05
-   * @author wyq
    */
-
-
   close() {
     Toolbar.close(this.props);
   }
+
   /**
-      * @method menus 工具库内容项
-      * @date 2019-09-25
-      * @author sxt
-      * @return {object} 工具库内容项结构
-      */
-
-
+    * @method menus 工具库内容项
+    * @return {object} 工具库内容项结构
+  */
   content() {
     //let {controlType} = this.state,{tabs,group} = data.group[controlType];
     let state = this.state || {},

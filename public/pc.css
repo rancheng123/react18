@@ -11609,14 +11609,20 @@ textarea.fail {
 .aniStyles ul {
   width: 98%;
   margin: 0 auto;
-  padding: 15px 0px 64px;
+  /* padding: 19px  64px; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  padding: 19px 18px 0px 24px;
 }
 
 .aniStyles ul li {
   display: inline-block;
   vertical-align: top;
-  margin: 9px 5px;
-  width: 72px;
+  /* margin: 9px 5px; */
+  /* width: 72px; */
+  width: 82px;
 }
 
 .aniStyles ul li p {
@@ -11627,7 +11633,7 @@ textarea.fail {
   position: relative;
   font-size: 12px;
   color: #4eb7f5;
-  height: 72px;
+  height: 82px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -11636,7 +11642,8 @@ textarea.fail {
   display: block;
   width: 100%;
   height: 100%;
-  background: url(./images/animationstyle.png) no-repeat;
+  background: url(./images/animateionspirit.png) no-repeat;
+  background-position: -24px -20px;
 }
 
 .aniStyles ul li h5 {
@@ -11657,11 +11664,12 @@ textarea.fail {
 }
 
 .aniStyles ul li.on p {
-  background-color: #2196f3;
+  background-color: #116dff;
 }
 
 .aniStyles ul li.on p i {
-  background: url(./images/animationstylehover.png) no-repeat;
+  background: url(./images/animateionspirithover.png) no-repeat;
+  background-position: -24px -20px;
 }
 
 /*---动画 -*/
@@ -11679,7 +11687,7 @@ textarea.fail {
   width: 65px;
   height: 65px;
   display: inline-block;
-  background: url(./images/animationstyle.png) no-repeat;
+  background: url(./images/animateionspirit.png) no-repeat;
   margin-top: -3px;
 }
 
@@ -11711,14 +11719,14 @@ textarea.fail {
   position: absolute;
 }
 
-.aniStyles ul li:first-child.on:hover p i {
-  background-position: 0px 0px !important;
-}
+/* .aniStyles ul li:first-child.on:hover p i {
+  background-position: -20px -20px !important;
+} */
 
-.aniStyles ul li:hover p i,
+/* .aniStyles ul li:hover p i,
 .aniStyles ul li.on:hover p i {
   background-position: -270px -1px !important;
-}
+} */
 
 .aniStyles ul li:nth-child(6) p i,
 .aniStyles ul li:nth-child(6).on p i,
@@ -11729,70 +11737,70 @@ textarea.fail {
 .aniStyles ul li:nth-child(3) p i,
 .aniStyles ul li:nth-child(3).on p i,
 [data-name="aGlide-In"] {
-  background-position: -183px 0px !important;
+  background-position: -220px -20px !important;
 }
 
 .aniStyles ul li:nth-child(4) p i,
 .aniStyles ul li:nth-child(4).on p i,
 [data-name="aFade-In"] {
-  background-position: 0px -117px !important;
+  background-position: -327px -20px !important;
 }
 
 .aniStyles ul li:nth-child(2) p i,
 .aniStyles ul li:nth-child(2).on p i,
 [data-name="aFloat-In"] {
-  background-position: -90px -117px !important;
+  background-position: -121px -20px !important;
 }
 
 .aniStyles ul li:nth-child(5) p i,
 .aniStyles ul li:nth-child(5).on p i,
 [data-name="aExpand-In"] {
-  background-position: -183px -117px !important;
+  background-position: -26px -143px !important;
 }
 
 .aniStyles ul li:nth-child(6) p i,
 .aniStyles ul li:nth-child(6).on p i,
 [data-name="aSpin-In"] {
-  background-position: 0px -230px !important;
+  background-position: -124px -143px !important;
 }
 
 .aniStyles ul li:nth-child(7) p i,
 .aniStyles ul li:nth-child(7).on p i,
 [data-name="aFly-In"] {
-  background-position: -90px -230px !important;
+  background-position: -230px -143px !important;
 }
 
 .aniStyles ul li:nth-child(8) p i,
 .aniStyles ul li:nth-child(8).on p i,
 [data-name="aTurn-In"] {
-  background-position: -183px -230px !important;
+  background-position: -328px -143px !important;
 }
 
 .aniStyles ul li:nth-child(9) p i,
 .aniStyles ul li:nth-child(9).on p i,
 [data-name="aArc-In"] {
-  background-position: 0px -348px !important;
+  background-position: -20px -269px !important;
 }
 
 .aniStyles ul li:nth-child(10) p i,
 .aniStyles ul li:nth-child(10).on p i,
 [data-name="aPuff-In"] {
-  background-position: -90px -348px !important;
+  background-position: -122px -269px !important;
 }
 
 .aniStyles ul li:nth-child(11) p i,
 .aniStyles ul li:nth-child(11).on p i,
 [data-name="aFold-In"] {
-  background-position: -183px -348px !important;
+  background-position: -225px -269px !important;
 }
 
 .aniStyles ul li:nth-child(12) p i,
 .aniStyles ul li:nth-child(12).on p i,
 [data-name="aFlip-In"] {
-  background-position: 0px -462px !important;
+  background-position: -326px -269px !important;
 }
 
-.aniStyles ul li:nth-child(13) p i,
+/* .aniStyles ul li:nth-child(13) p i,
 .aniStyles ul li:nth-child(13).on p i,
 [data-name="aReveal"] {
   background-position: -90px -462px !important;
@@ -11808,7 +11816,7 @@ textarea.fail {
 .aniStyles ul li:nth-child(15).on p i,
 [data-name="bottomslide"] {
   background-position: -90px -532px !important;
-}
+} */
 
 .aniStyles ul li:first-child.on p,
 .aniStyles ul li:first-child.on:hover p {

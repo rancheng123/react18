@@ -31,12 +31,12 @@ import './language/system/zh.js'
         }
       }
   }
+
+  
   /**
    * @function unload 卸载页面
    * @param {object} event 事件对象 
    */
-
-
   function unload(event) {
     const dom = event.currentTarget.document;
     root.unmountComponentAtNode(dom.querySelector("#root"));

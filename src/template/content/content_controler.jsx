@@ -6,8 +6,6 @@ import ComponentEditTestControler from '../../system/function/component_edit/com
 import CollectionControler from '../toolbar/collection/collection_controler'
 import WidgetLibraryControler from '../toolbar/widget_library/widget_library_controler'
 import { createRoot } from 'react-dom/client';
-
-
 export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -226,27 +224,23 @@ export default class ContentControler extends React.Component {
       }).observe(dom.querySelector("body"));
     });
   }
+
+
   /**
    * @method unload 卸载iframe时执行方法
-   * @date 2020-1-7
-   * @author wyq
    */
-
-
   unload(event) {
     this.props.unload && this.props.unload(event); //取消事件
 
     event.currentTarget.onunload = null;
   }
+
+
   /**
    * @method showToolbars 显示对应类型面板
-   * @date 2019-09-24
-   * @author wyq
    * @param {string} type 面板类型 
    * @param {event} event 事件类型 
    */
-
-
   showToolbars(type, event) {
     // 获取toolBar根节点对象
     const toolBarsRoot  = createRoot(document.getElementById("edit-toolbar-content"));
@@ -259,25 +253,21 @@ export default class ContentControler extends React.Component {
       });
     }
   }
+
+
   /**
    * @method hideToolbars 清空导航栏选中状态
-   * @date 2019-10-16
-   * @author wyq
    */
-
-
   hideToolbars() {
     this.setState({
       toolbar: ""
     });
   }
+
+
   /**
    * @method widgetLibrary 弹出工具栏面板
-   * @date 2019-09-24
-   * @author wyq
    */
-
-
   widgetLibrary(toolBarsRoot) {
     var box = document.getElementById("edit-toolbar-content"),
       close = box.querySelector("#panel-close");
@@ -285,53 +275,43 @@ export default class ContentControler extends React.Component {
     // WidgetLibraryControler.widgetLibrary("edit-toolbar-content");
     WidgetLibraryControler.widgetLibrary(toolBarsRoot);
   }
+
   /**
    * @method componentLibrary 组件工具栏弹出面板
-   * @date 2021-1-18
-   * @author sxt
    */
-
-
   componentLibrary(toolBarsRoot) {
     var box = document.getElementById("edit-toolbar-content"),
       close = box.querySelector("#panel-close");
     close && close.click();
     WidgetLibraryControler.widgetLibrary(toolBarsRoot, 'component');
   }
+
   /**
    * @method template 弹出模版更换面板
-   * @date 2020-1-9 14:17
-   * @author sxt
    */
-
-
   template() {
     import('../../system/function/resource/resource_manager.js').then(module => {
+
       module.resourceManager("template").then(module => {
+
         module.resource({
           selected: null
         });
       });
     });
   }
+
   /**
   * @method collection 弹出收藏面板
-  * @date 2020-2-12
-  * @author sxt
   */
-
-
   collection(toolBarsRoot) {
     // CollectionControler.collection("edit-toolbar-content");
     CollectionControler.collection(toolBarsRoot);
   }
+
   /**
    * @method setUp 弹出设置面板
-   * @date 2020-04-09
-   * @author wyq
    */
-
-
   setUp() {
     Promise.all(/*! import() | set_up */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("set_up")]).then(__webpack_require__.bind(null, /*! ../toolbar/set_up/set_up.js */ "./ui/toolbar/set_up/set_up.js")).then(({
       SetUp
@@ -348,13 +328,10 @@ export default class ContentControler extends React.Component {
       display: value
     });
   }
+
   /**
   * @method showDesignpage 弹出设计面板
-  * @date 2021-1-23
-  * @author lw
   */
-
-
   showDesignpage(e) {
     //获取每一个页面中的页面内容id
     const iframeData = Dispatcher.dispatch("document_get");
@@ -375,11 +352,10 @@ export default class ContentControler extends React.Component {
     });
     e.stopPropagation(); //阻止冒泡       
   }
+
   /**
    * @method Designpageclick 模拟点击属性面板
    */
-
-
   Designpageclick() {
     var designIcoclick = document.querySelector('.designIco');
 
@@ -397,11 +373,7 @@ export default class ContentControler extends React.Component {
 
   /**
    * @method DesignPagebtns 弹出设计面板结构
-   * @date 2021-1-23
-   * @author lw
    */
-
-
   DesignPagebtns() {
     if (this.state.type == 'mo' && this.state.display == false) {
       return React.createElement("div", {

@@ -21,10 +21,15 @@ const Component = {
     editHidden
   }) {
     const _className = ' mask-waper';
-    return React.createElement("div", {
-      id: id,
-      className: className
-    }, children);
+    // return React.createElement("div", {
+    //   id: id,
+    //   className: className
+    // }, children);
+    return (
+      <div id={id} className={className}>
+        {children}
+      </div>
+    )
   },
 
   //详情的结构增加class，用于图片放大使用 

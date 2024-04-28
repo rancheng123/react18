@@ -59,6 +59,39 @@ class AnimationControler extends React.Component {
             translateY: ""
           }
         },
+        reFlipIn: {
+          className: "aReFlip-In",
+          newClassName: "new-aReFlip-In",
+          setting: {
+            delay: "",
+            angle: "",
+            offsetDistance: "",
+            translateX: "",
+            translateY: ""
+          }
+        },
+        reAppearIn: {
+          className: "aReAppear-In",
+          newClassName: "new-aReAppear-In",
+          setting: {
+            delay: "",
+            angle: "",
+            offsetDistance: "",
+            translateX: "",
+            translateY: ""
+          }
+        },
+        bounceIn: {
+          className: "aReBounce-In",
+          newClassName: "new-aReBounce-In",
+          setting: {
+            delay: "",
+            angle: "",
+            offsetDistance: "",
+            translateX: "",
+            translateY: ""
+          }
+        },
         // float:{
         //     className:"aFloat-In",
         //     newClassName:"new-aFloat-In",

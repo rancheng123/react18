@@ -33,14 +33,12 @@ export default class AddCollectionControler extends React.Component {
     const collectionRoot = createRoot(element)
     collectionRoot.render(<AddCollectionControler  id={node.current.id} node={node} collectionRoot={collectionRoot} />);
   }
+
+
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-25
-   * @author sxt 
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     return (
       <Layer.open
@@ -69,13 +67,11 @@ export default class AddCollectionControler extends React.Component {
 
     )
   }
+
+
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-09-25
-   * @author sxt
    */
-
-
   init() {
     let getPageData = Dispatcher.dispatch("getPageData"),
         //当前页面数据
@@ -115,11 +111,7 @@ export default class AddCollectionControler extends React.Component {
   }
   /**
    * @method ensure 点击确定方法
-   * @date 2020-2-13
-   * @author sxt
    */
-
-
   ensure() {
     let state = this.state || {};
 
@@ -187,15 +179,13 @@ export default class AddCollectionControler extends React.Component {
       }
     }).catch(error => console.log("Error", error));
   }
+
+
   /**
    * @method changText 修改收藏名称
-   * @date 2020-2-13
-   * @author sxt
    * @param {string} key 属性名
    * @param {event} event 事件对象
    */
-
-
   changText(key, event) {
     let value = event.target.value;
     this.setState({

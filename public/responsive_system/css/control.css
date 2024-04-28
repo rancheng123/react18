@@ -1061,8 +1061,6 @@ mip-form.search,
     opacity: 0;
     -webkit-transform: translate(200px, 0);
     -ms-transform: translate(200px, 0);
-    /* transform: perspective(400px) rotateY(-90deg) scaleY(1.1); */
-
     visibility: visible;
   }
 
@@ -1070,11 +1068,323 @@ mip-form.search,
     opacity: 1;
     -webkit-transform: translate(0);
     -ms-transform: translate(0);
-    /* transform: perspective(400px) rotateY(0) scaleY(1); */
-
     visibility: visible;
   }
 }
+
+/* 翻转进入动画 */
+[data-name="aReFlip-In"] {
+  -ms-animation: dReFlip-In 1s linear;
+  -webkit-animation: dReFlip-In 1s linear;
+  -o-animation: dReFlip-In 1s linear;
+  animation: dReFlip-In 1s linear;
+  -ms-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes dReFlip-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    -ms-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(0) scaleY(1);
+    -ms-transform: perspective(400px) rotateY(0) scaleY(1);
+    transform: perspective(400px) rotateY(0) scaleY(1);
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes dReFlip-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    -ms-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(0) scaleY(1);
+    -ms-transform: perspective(400px) rotateY(0) scaleY(1);
+    transform: perspective(400px) rotateY(0) scaleY(1);
+    visibility: visible;
+  }
+}
+
+@-ms-keyframes dReFlip-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    -ms-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(0) scaleY(1);
+    -ms-transform: perspective(400px) rotateY(0) scaleY(1);
+    transform: perspective(400px) rotateY(0) scaleY(1);
+    visibility: visible;
+  }
+}
+
+@-o-keyframes dReFlip-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    -ms-transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    transform: perspective(400px) rotateY(-90deg) scaleY(1.1);
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: perspective(400px) rotateY(0) scaleY(1);
+    -ms-transform: perspective(400px) rotateY(0) scaleY(1);
+    transform: perspective(400px) rotateY(0) scaleY(1);
+    visibility: visible;
+  }
+}
+
+/* 弹跳进入 */
+[data-name="aReBounce-In"] {
+  -ms-animation: dReBounce-In 1s linear;
+  -webkit-animation: dReBounce-In 1s linear;
+  -o-animation: dReBounce-In 1s linear;
+  animation: dReBounce-In 1s linear;
+  -ms-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dReBounce-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, -100%, 0);
+    -ms-transform: translate3d(-100%, -100%, 0);
+    transform: translate3d(-100%, -100%, 0);
+    visibility: visible;
+  }
+
+  60% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    -ms-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  70% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    -ms-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    -ms-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  90% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    -ms-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes dReBounce-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, -100%, 0);
+    -ms-transform: translate3d(-100%, -100%, 0);
+    transform: translate3d(-100%, -100%, 0);
+    visibility: visible;
+  }
+
+  60% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    -ms-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  70% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    -ms-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    -ms-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  90% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    -ms-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    visibility: visible;
+  }
+}
+
+@-ms-keyframes dReBounce-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, -100%, 0);
+    -ms-transform: translate3d(-100%, -100%, 0);
+    transform: translate3d(-100%, -100%, 0);
+    visibility: visible;
+  }
+
+  60% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    -ms-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  70% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    -ms-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    -ms-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  90% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    -ms-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    visibility: visible;
+  }
+}
+
+@-o-keyframes dReBounce-In {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, -100%, 0);
+    -ms-transform: translate3d(-100%, -100%, 0);
+    transform: translate3d(-100%, -100%, 0);
+    visibility: visible;
+  }
+
+  60% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    -ms-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  70% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    -ms-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  80% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    -ms-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  90% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    -ms-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    visibility: visible;
+  }
+}
+
+/* 显现 */
+[data-name="aReAppear-In"] > * {
+  -ms-animation: aReAppear-In 1s linear;
+  -webkit-animation: aReAppear-In 1s linear;
+  -o-animation: aReAppear-In 1s linear;
+  animation: aReAppear-In 1s linear;
+  -ms-animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes aReAppear-In {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes dReBounce-In {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+@-o-keyframes dReBounce-In {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+@-ms-keyframes dReBounce-In {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 [data-name="aFade-In"] {
   -ms-animation: dhFade-In 1s linear;
   -webkit-animation: dhFade-In 1s linear;

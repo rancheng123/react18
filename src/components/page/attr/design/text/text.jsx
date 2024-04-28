@@ -456,10 +456,10 @@ export default class Text {
         <div className="pcConAttCon">
           <ul className="fontStyle">
             {[
-              { name: "B", value: "bold", key: "fontWeight" },
-              { name: "I", value: "italic", key: "fontStyle" },
-              { name: "U", value: "underline", key: "textDec" },
-              { name: "S", value: "line-through", key: "textDec" }
+              { name: "B", value: "bold", key: "fontWeight" ,iconName:"&#xe795;"},
+              { name: "I", value: "italic", key: "fontStyle" ,iconName:"&#xe78b;"},
+              { name: "U", value: "underline", key: "textDec",iconName:"&#xe78e;" },
+              { name: "S", value: "line-through", key: "textDec" ,iconName:"&#xe793;"}
             ].map((e, i) => {
               //添加删除线 lw date 2021-2-3 
               const name = this.state.tab + e.key;
@@ -481,7 +481,8 @@ export default class Text {
                   data-value={value}
                   onClick={this.controler.click.bind(this.controler, key)}
                 >
-                  {e.name}
+                  {/* {e.name} */}
+                  <i className="iconfont" style={{ fontSize: '12px' }} dangerouslySetInnerHTML={{ __html: e.iconName }}></i>
                 </li>
               );
             })}

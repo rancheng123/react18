@@ -8,9 +8,6 @@ import Layer from '../../../system/widgets/layer';
 // 导入 drag_add 模块
 import DragAdd from '../drag_add';
 
-
-
-
 export default class CollectionControler extends React.Component{
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -22,26 +19,20 @@ export default class CollectionControler extends React.Component{
   static collection(toolBarsRoot) {
     toolBarsRoot.render(<CollectionControler toolBarsclose={()=>toolBarsRoot.unmount()}/>)
   }
+  
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-25
-   * @author sxt 
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     return (
       <Collection toolBarsclose={this.props.toolBarsclose}/>
     )
   }
+
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-09-25
-   * @author sxt
    */
-
-
   init() {
     let colists = "";
     this.state = {
@@ -108,11 +99,7 @@ export default class CollectionControler extends React.Component{
   }
   /**
    * @method emptyList 全部清除方法
-   * @date 2020-2-15
-   * @author sxt
    */
-
-
   emptyList(e) {
     let _times = new Date().getTime();
 
@@ -143,15 +130,13 @@ export default class CollectionControler extends React.Component{
     }).catch(error => console.log("Error", error));
     e.stopPropagation();
   }
+
+
   /**
    * @method deleteList 单个清除方法
-   * @date 2020-2-15
-   * @author sxt
    * @param {string} id 删除的项id
    * @return {object} 控件数据 
    */
-
-
   deleteList(id, e) {
     let _times = new Date().getTime();
 
@@ -193,27 +178,23 @@ export default class CollectionControler extends React.Component{
     }).catch(error => console.log("Error", error));
     e.stopPropagation();
   }
+
+
   /**
    * @method start 拖拽开始执行方法
-   * @date 2020-2-19
-   * @author sxt
    * @param {string} skin 皮肤
    * @param {event} event 事件对象
    */
-
-
   start(id, event) {
     this.id = id;
     new DragAdd.start(event);
   }
+
+  
   /**
    * @method getData 获取控件数据
-   * @date 2020-2-18
-   * @author sxt
    * @return {object} 控件数据 
    */
-
-
   async getData() {
     if (this.id) {
       let data = await JSON.parse(localStorage.dataResp)[this.id];

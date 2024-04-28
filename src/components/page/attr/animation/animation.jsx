@@ -10,50 +10,76 @@ export default class Animation {
       return [{
         name: "noAnimation",
         value: "无动画",
-      }, {
+      },
+      {
+        name: "bounceIn",
+        value: "弹跳进入",
+      },
+      {
         name: "rebound",
         value: "左侧滑入",
-      }, {
-        name: "slide",
-        value: "右侧滑入",
-      }, {
+      },
+      {
         name: "fadeIn",
         value: "淡入",
-      }, {
+      },
+      {
+        name: "slide",
+        value: "右侧淡入",
+      },
+      {
         name: "open",
-        value: "中心放大",
-      }, {
-        name: "screwing",
-        value: "旋转进入",
-      }, {
+        value: "放大进入",
+      },
+      {
         name: "flyInto",
-        value: "右侧飞入",
-      }, {
-        name: "toChangeInto",
-        value: "转入",
-      }, {
-        name: "arcSpinIn",
-        value: "电弧旋入",
-        iconName:"&#xe658;"
-      }, {
+        value: "飞入",
+      },
+      {
         name: "inhalation",
-        value: "吸入",
-      }, {
+        value: "吹入",
+      },
+      {
         name: "foldBack",
-        value: "折叠打开",
-      }, {
-        name: "flip",
-        value: "翻转",
-      }, {
+        value: "折叠进入",
+      },
+      {
+        name: "reFlipIn",
+        value: "翻转进入",
+      },
+      {
+        name: "reAppearIn",
+        value: "显现",
+      }, 
+      {
         name: "reveal",
-        value: "揭示 ",
-      }, {
-        name: "topslide",
-        value: "上部滑入",
-      }, {
-        name: "bottomslide",
-        value: "底部滑入",
-      }];
+        value: "滑入 ",
+      }, 
+      // {
+      //   name: "arcSpinIn",
+      //   value: "电弧旋入",
+      // }, 
+      // {
+      //   name: "screwing",
+      //   value: "旋转进入",
+      // }, 
+      // {
+      //   name: "toChangeInto",
+      //   value: "转入",
+      // },
+      // {
+      //   name: "flip",
+      //   value: "翻转",
+      // },
+      // {
+      //   name: "topslide",
+      //   value: "上部滑入",
+      // }, 
+      // {
+      //   name: "bottomslide",
+      //   value: "底部滑入",
+      // }
+    ];
     });
 
     /**@property controler 动画控制器实例 */
