@@ -5,9 +5,6 @@ import Util from '@/components/page/util/util';
 
 /**
  * @instance {Component} 控件公用HTML视图实例
- * @author wyq
- * @version 1.0
- * @date 2019-10-18
  */
 
 const Component = {
@@ -33,13 +30,24 @@ const Component = {
     } = props; //判断是否存在图标icon
 
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic  ${id}${type} btnIcon yiyingbaoicon`
-      }, iconName);
+      return (
+        <i className={`${id}Ic  ${id}${type} btnIcon iconfont`}>{iconName}</i>
+      )
+      // return React.createElement("i", {
+      //   className: `${id}Ic  ${id}${type} btnIcon yiyingbaoicon`
+      // }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
+      return (
+        <div className={`${id}Ic btnIcon ${id}${type}`}>
+          <img
+            className='btnImg lazyload'
+            data-src={iconSrc}
+            src={Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc} alt="" />
+        </div>
+      )
       return React.createElement("div", {
         className: `${id}Ic btnIcon ${id}${type}`
       }, React.createElement("img", {
@@ -74,7 +82,7 @@ const Component = {
       moiconSizeUnit
     } = style;
     let imgFixed = moiconSize || iconSize,
-        imgUnit = moiconSizeUnit || iconSizeUnit;
+      imgUnit = moiconSizeUnit || iconSizeUnit;
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
@@ -82,9 +90,12 @@ const Component = {
 
 
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic btnIcon yiyingbaoicon`
-      }, iconName);
+      return (
+        <i className={`${id}Ic btnIcon iconfont`}>{iconName}</i>
+      )
+      // return React.createElement("i", {
+      //   className: `${id}Ic btnIcon yiyingbaoicon`
+      // }, iconName);
     } //判断是否存在图片路径
 
 
@@ -126,7 +137,7 @@ const Component = {
       moiconSizeUnit
     } = style;
     let imgFixed = moiconSize || iconSize,
-        imgUnit = moiconSizeUnit || iconSizeUnit;
+      imgUnit = moiconSizeUnit || iconSizeUnit;
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
@@ -134,22 +145,36 @@ const Component = {
 
 
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic btnIcon yiyingbaoicon`
-      }, iconName);
+      return (
+        <i className={`${id}Ic btnIcon iconfont`}>{iconName}</i>
+      )
+      // return React.createElement("i", {
+      //   className: `${id}Ic btnIcon yiyingbaoicon`
+      // }, iconName);
     } //判断是否存在图片路径
 
 
     if (iconSrc) {
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon`
-      }, React.createElement("mip-img", {
-        width: imgFixed,
-        height: imgFixed,
-        layout: "fixed",
-        class: "btnImg",
-        src: iconSrc
-      }));
+      return (
+        <div className={`${id}Ic btnIcon`}>
+          <mip-img
+            width={imgFixed}
+            height={imgFixed}
+            layout='fixed'
+            class='btnImg'
+            src={iconSrc}
+          ></mip-img>
+        </div>
+      )
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon`
+      // }, React.createElement("mip-img", {
+      //   width: imgFixed,
+      //   height: imgFixed,
+      //   layout: "fixed",
+      //   class: "btnImg",
+      //   src: iconSrc
+      // }));
     } //返回null
 
 
@@ -158,8 +183,6 @@ const Component = {
 
   /**
   * @method getLinkHref 导航链接获取方法
-  * @date 2019-12-30  17：06
-  * @author sxt
   * @param {Object} prop  当前项数据
   * @param {String} target 页面打开方式
   * @return {Object} 拼接好的链接数据
@@ -181,8 +204,6 @@ const Component = {
 
   /**
   * @method menuLi li基本结构
-  * @date 2019-12-30  17：06
-  * @author sxt
   * @return {object} li基本结构
   */
   menuLi(prop) {
@@ -203,8 +224,8 @@ const Component = {
       }
     } = prop.state;
     var tabstype = prop.tabtype,
-        types = prop.type,
-        topLevel = prop.topLevel;
+      types = prop.type,
+      topLevel = prop.topLevel;
     let {
       iconName = "",
       iconSrc
@@ -229,49 +250,93 @@ const Component = {
 
       let link = Component.getLinkHref(e, target);
 
-      let _liClass = e.child ? "mainLiChild" : ""; //子级存在时，添加class用于丽君修改样式 sxt 2021-6-22
+      let _liClass = e.child ? "mainLiChild" : ""; //子级存在时，添加class用于丽君修改样式
 
-
-      return React.createElement("li", {
-        className: `${id}Li mainNavLi ${_liClass}`,
-        key: e.id
-      }, React.createElement(Util.linkDecorator, {
-        className: `${id}A mainNavLiA panel${overflowPart} ${_selected}`,
-        link: link,
-        type: types
-      }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
-        id: id,
-        icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
-        id: id,
-        icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
-        id: id,
-        icon: e.icon ? e.icon : null
-      }) : null, React.createElement("p", null, e.name)), e.child ? React.createElement("input", {
-        className: "sideTrigger",
-        type: "checkbox"
-      }) : null, e.child && topLevel == undefined ? Component.forUlHtml({
-        list: e.child,
-        target: target,
-        tabstype: tabstype,
-        types: types,
-        iconName: iconName,
-        index: 1,
-        id: id,
-        overflowPart: overflowPart
-      }) : null, e.child ? React.createElement("span", {
-        className: "nav-icon"
-      }, e.child && topLevel == undefined ? React.createElement("i", {
-        className: `${id}i yiyingbaoicon`
-      }, iconName) : null, " ") : null);
+      return (
+        <li className={`${id}Li mainNavLi ${_liClass}`} key={e.id}>
+          <Util.linkDecorator
+            className={`${id}A mainNavLiA panel${overflowPart} ${_selected}`}
+            link={link}
+            type={type}
+          >
+            {
+              (tabstype == "iconmo" && types == "html") && (
+                <Component.icon id={id} icon={e.icon ? e.icon : null} />
+              )
+            }
+            {
+              (tabstype == "iconmo" && types == "amp") && (
+                <Component.ampIcon id={id} icon={e.icon ? e.icon : null} />
+              )
+            }
+            {
+              (tabstype == "iconmo" && types == "mip") && (
+                <Component.mipIcon id={id} icon={e.icon ? e.icon : null} />
+              )
+            }
+            <p>{e.name}</p>
+          </Util.linkDecorator>
+          {e.child && <input className='sideTrigger' type='checkbox' />}
+          {
+            e.child && topLevel == undefined && Component.forUlHtml({
+              list: e.child,
+              target: target,
+              tabstype: tabstype,
+              types: types,
+              iconName: iconName,
+              index: 1,
+              id: id,
+              overflowPart: overflowPart
+            })
+          }
+          {
+            e.child && <span className='nav-icon'></span>
+          }
+          {
+            (e.child && topLevel == undefined) && (
+              <i className={`${id}i iconfont`}>{iconName}</i>
+            )
+          }
+        </li>
+      )
+      // return React.createElement("li", {
+      //   className: `${id}Li mainNavLi ${_liClass}`,
+      //   key: e.id
+      // }, React.createElement(Util.linkDecorator, {
+      //   className: `${id}A mainNavLiA panel${overflowPart} ${_selected}`,
+      //   link: link,
+      //   type: types
+      // }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
+      //   id: id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
+      //   id: id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
+      //   id: id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, React.createElement("p", null, e.name)), e.child ? React.createElement("input", {
+      //   className: "sideTrigger",
+      //   type: "checkbox"
+      // }) : null, e.child && topLevel == undefined ? Component.forUlHtml({
+      //   list: e.child,
+      //   target: target,
+      //   tabstype: tabstype,
+      //   types: types,
+      //   iconName: iconName,
+      //   index: 1,
+      //   id: id,
+      //   overflowPart: overflowPart
+      // }) : null, e.child ? React.createElement("span", {
+      //   className: "nav-icon"
+      // }, e.child && topLevel == undefined ? React.createElement("i", {
+      //   className: `${id}i yiyingbaoicon`
+      // }, iconName) : null, " ") : null);
     });
   },
 
   /** 
   * @method forUlHtml 递归循环ul结构
-  * @date 2019-12-30  17：06
-  * @author sxt
   * @param {List} prop.list 子级列表
   * @param {String} prop.target 跳转页面类型
   * @return {object} 导航父级结构
@@ -289,65 +354,130 @@ const Component = {
     } = prop;
 
     let _index = parseInt(index) + 1; //{e.child?<i className=" yiyingbaoicon  FS8 pL1"></i>:null}
-    //{/* {e.child?this.forUlHtml({list:e.child,target:target}):null} */}  panel，暂时只显示到二级 sxt 2020-3-4
+    //{/* {e.child?this.forUlHtml({list:e.child,target:target}):null} */}  panel，暂时只显示到二级 
+
+    return (
+      <ul className={`panelSubMenu${_index} nav-submenu`}>
+        {
+          list.map((e, i) => {
+            let _selected = ''
+            if (e.isCurrent || i == 0) {
+              _selected = "selected";
+            }
+            if (Util.source) {
+              _selected = `{$navs_${e.pid || e.id}}`;
+            }
+            let link = Component.getLinkHref(e, target);
+            return (
+              <li key={e.id}>
+                <Util.linkDecorator
+                  className={`nav-submenuA theme_fc theme_hvfc panel${overflowPart} ${_selected}`}
+                  link={link}
+                  type={types}
+                >
+                  {
+                    (tabstype == "iconmo" && types == "html") && (
+                      <Component.icon id={e.id} icon={e.icon ? e.icon : null} />
+                    )
+                  }
+                  {
+                    (tabstype == "iconmo" && types == "amp") && (
+                      <Component.ampIcon id={e.id} icon={e.icon ? e.icon : null} />
+                    )
+                  }
+                  {
+                    tabstype == "iconmo" && types == "mip" && (
+                      <Component.mipIcon id={e.id} icon={e.icon ? e.icon : null} />
+                    )
+                  }
+                  <p className="subnavbtn"></p>
+                </Util.linkDecorator>
+                {
+                  (e.child && _index <= 3) && (
+                    <input className='sideTrigger' type='checkbox' />
+                  )
+                }
+                {
+                  (e.child && _index <= 3) && (
+                    Component.forUlHtml({
+                      list: e.child,
+                      target: target,
+                      tabstype: tabstype,
+                      types: types,
+                      id: id,
+                      iconName: iconName,
+                      index: _index,
+                      overflowPart: overflowPart
+                    })
+                  )
+                }
+                {
+                  (e.child && _index <= 3) && (
+                    <span className='nav-icon'>
+                      <i className={`${id}i iconfont`}>{iconName}</i>
+                    </span>
+                  )
+                }
+              </li>
+            )
+          })
+        }
+      </ul>
+    )
+    // return React.createElement("ul", {
+    //   className: `panelSubMenu${_index} nav-submenu`
+    // }, list.map((e, i) => {
+    //   let _selected = ""; //标注当前选中项
+
+    //   if (e.isCurrent || i == 0) {
+    //     _selected = "selected";
+    //   } //在发布的时候拼接占位
 
 
-    return React.createElement("ul", {
-      className: `panelSubMenu${_index} nav-submenu`
-    }, list.map((e, i) => {
-      let _selected = ""; //标注当前选中项
+    //   if (Util.source) {
+    //     _selected = `{$navs_${e.pid || e.id}}`;
+    //   }
 
-      if (e.isCurrent || i == 0) {
-        _selected = "selected";
-      } //在发布的时候拼接占位
-
-
-      if (Util.source) {
-        _selected = `{$navs_${e.pid || e.id}}`;
-      }
-
-      let link = Component.getLinkHref(e, target);
-      return React.createElement("li", {
-        key: e.id
-      }, React.createElement(Util.linkDecorator, {
-        className: `nav-submenuA theme_fc theme_hvfc panel${overflowPart} ${_selected}`,
-        link: link,
-        type: types
-      }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
-        id: e.id,
-        icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
-        id: e.id,
-        icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
-        id: e.id,
-        icon: e.icon ? e.icon : null
-      }) : null, React.createElement("p", {
-        className: "subnavbtn"
-      }, e.name)), e.child && _index <= 3 ? React.createElement("input", {
-        className: "sideTrigger",
-        type: "checkbox"
-      }) : null, e.child && _index <= 3 ? Component.forUlHtml({
-        list: e.child,
-        target: target,
-        tabstype: tabstype,
-        types: types,
-        id: id,
-        iconName: iconName,
-        index: _index,
-        overflowPart: overflowPart
-      }) : null, e.child && _index <= 3 ? React.createElement("span", {
-        className: "nav-icon"
-      }, e.child ? React.createElement("i", {
-        className: `${id}i yiyingbaoicon`
-      }, iconName) : null, " ") : null);
-    }));
+      // let link = Component.getLinkHref(e, target);
+      // return React.createElement("li", {
+      //   key: e.id
+      // }, React.createElement(Util.linkDecorator, {
+      //   className: `nav-submenuA theme_fc theme_hvfc panel${overflowPart} ${_selected}`,
+      //   link: link,
+      //   type: types
+      // }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
+      //   id: e.id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
+      //   id: e.id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
+      //   id: e.id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, React.createElement("p", {
+      //   className: "subnavbtn"
+      // }, e.name)), e.child && _index <= 3 ? React.createElement("input", {
+      //   className: "sideTrigger",
+      //   type: "checkbox"
+      // }) : null, e.child && _index <= 3 ? Component.forUlHtml({
+      //   list: e.child,
+      //   target: target,
+      //   tabstype: tabstype,
+      //   types: types,
+      //   id: id,
+      //   iconName: iconName,
+      //   index: _index,
+      //   overflowPart: overflowPart
+      // }) : null, e.child && _index <= 3 ? React.createElement("span", {
+      //   className: "nav-icon"
+      // }, e.child ? React.createElement("i", {
+      //   className: `${id}i yiyingbaoicon`
+      // }, iconName) : null, " ") : null);
+    // }));
   },
 
   /**
    * @method 
-   * @date 2021-2-25
-   * @author lw
   */
   slidingNav(prop) {
     let {
@@ -365,7 +495,7 @@ const Component = {
       }
     } = prop.state;
     var tabstype = prop.tabtype,
-        types = prop.type;
+      types = prop.type;
     return menuList.map((e, i) => {
       let _selected = ""; //标注当前选中项
 
@@ -379,27 +509,55 @@ const Component = {
       }
 
       let link = Component.getLinkHref(e, target);
-      return React.createElement("li", {
-        className: "panelLi",
-        key: e.id
-      }, React.createElement(Util.linkDecorator, {
-        className: `${id}A mainNavLiA panel${overflowPart} ${_selected}`,
-        link: link,
-        type: types
-      }, React.createElement("div", {
-        className: "panelLiBox"
-      }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
-        id: id,
-        icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
-        id: e.id,
-        icon: e.icon ? e.icon : null
-      }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
-        id: e.id,
-        icon: e.icon ? e.icon : null
-      }) : null), React.createElement("h3", {
-        className: "pageName"
-      }, e.name)));
+      return (
+        <li className="panelLi" key={e.id}>
+          <Util.linkDecorator
+            className={`${id}A mainNavLiA panel${overflowPart} ${_selected}`}
+            link={link}
+            type={types}
+          >
+            <div className='panelLiBox'>
+              {
+                (tabstype == "iconmo" && types == "html") && (
+                  <Component.icon id={e.id} icon={e.icon ? e.icon : null} />
+                )
+              }
+              {
+                (tabstype == "iconmo" && types == "amp") && (
+                  <Component.ampIcon id={e.id} icon={e.icon ? e.icon : null} />
+                )
+              }
+              {
+                (tabstype == "iconmo" && types == "mip") && (
+                  <Component.mipIcon id={e.id} icon={e.icon ? e.icon : null} />
+                )
+              }
+            </div>
+            <h3 className="pageName">{e.name}</h3>
+          </Util.linkDecorator>
+        </li>
+      )
+      // return React.createElement("li", {
+      //   className: "panelLi",
+      //   key: e.id
+      // }, React.createElement(Util.linkDecorator, {
+      //   className: `${id}A mainNavLiA panel${overflowPart} ${_selected}`,
+      //   link: link,
+      //   type: types
+      // }, React.createElement("div", {
+      //   className: "panelLiBox"
+      // }, tabstype == "iconmo" && types == "html" ? React.createElement(Component.icon, {
+      //   id: id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, tabstype == "iconmo" && types == "amp" ? React.createElement(Component.ampIcon, {
+      //   id: e.id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null, tabstype == "iconmo" && types == "mip" ? React.createElement(Component.mipIcon, {
+      //   id: e.id,
+      //   icon: e.icon ? e.icon : null
+      // }) : null), React.createElement("h3", {
+      //   className: "pageName"
+      // }, e.name)));
     });
   }
 

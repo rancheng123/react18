@@ -26,23 +26,33 @@ function items(newThis) {
       selectd = "selected";
     }
 
-    return React.createElement("li", {
-      key: e,
-      id: e
-    }, React.createElement(Util.linkDecorator, {
-      link: items[e].link,
-      type: "html",
-      className: `${selectd} AnchorA`
-    }, React.createElement("span", {
-      className: "AnchorSpan",
-      title: items[e].label
-    })));
+    return (
+      <li id={e} key={e}>
+        <Util.linkDecorator
+          link={items[e].link}
+          type='html'
+          className={`${selectd} AnchorA`}
+        >
+          <span className='AnchorSpan' title={items[e].label}></span>
+        </Util.linkDecorator>
+      </li>
+    )
+
+    // return React.createElement("li", {
+    //   key: e,
+    //   id: e
+    // }, React.createElement(Util.linkDecorator, {
+    //   link: items[e].link,
+    //   type: "html",
+    //   className: `${selectd} AnchorA`
+    // }, React.createElement("span", {
+    //   className: "AnchorSpan",
+    //   title: items[e].label
+    // })));
   });
 }
 /**
  * @method AnchorMenu 基本侧边栏 使用皮肤名称
- * @date 2019-11-27
- * @author wp
  * @return {object} 基本侧边栏HTML结构
  */
 
@@ -55,7 +65,7 @@ export function s290() {
         layout = {}
       },
       data: {
-        document_data: {}
+        document_data: { }
       }
     }
   } = this;
@@ -65,11 +75,21 @@ export function s290() {
     className = "sidebarHoverPar";
   }
 
-  return React.createElement("div", {
-    id: id,
-    "data-position": Util.source ? null : 'highest',
-    className: "sidebarBox"
-  }, React.createElement("ul", {
-    className: `${className} AnchorUl scrollAnchorAuto`
-  }, items(this)));
+  return (
+    <div
+      id={id}
+      className='sidebarBox'
+      data-position={Util.source ? null : 'highest'}>
+      <ul className={`${className} AnchorUl scrollAnchorAuto`}>
+        {items(this)}
+      </ul>
+    </div>
+  )
+  // return React.createElement("div", {
+  //   id: id,
+  //   "data-position": Util.source ? null : 'highest',
+  //   className: "sidebarBox"
+  // }, React.createElement("ul", {
+  //   className: `${className} AnchorUl scrollAnchorAuto`
+  // }, items(this)));
 }
