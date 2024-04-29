@@ -3,8 +3,6 @@ import dataManager from './data/data_manager'
 
 /**
  * @function 组件包装器
- * @date 2019-09-21
- 
  * @param {object} View 视图对象 
  * @param {object} Controler 控制器对象 
  * @return {class} 包装后的类

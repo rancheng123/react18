@@ -10,7 +10,6 @@ import * as antd from 'antd';
  * @param {object} prop.children 子元素结构
  * @return 属性组件外层结构
  */
-
 function Container(prop) {
   var _window$public$lang$p;
   <div className=""></div>
@@ -40,17 +39,15 @@ function Container(prop) {
     </div>
   )
 }
+
+
 /**
  * @method Help 帮助信息
- * @author sxt
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} prop.skin 通过皮肤定义组件样式 
  * @param {string} prop.help 提示文本
  * @return {object} 帮助信息组件结构
  */
-
-
 function Help(prop) {
   const title = window.public.lang[prop.help]; // onMouseEnter = {e=>$(e.currentTarget).tooltip()} 不引jq无法调取事件（存在的问题）
 
@@ -64,10 +61,10 @@ function Help(prop) {
     className: "helpImg"
   }));
 }
+
+
 /**
  * @method function Input 输入组件
- * @author sxt 
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.help 提示文本
@@ -85,8 +82,6 @@ function Help(prop) {
  * @param {boolean} prop.maxlength  -限制的最大输入字符
  * @return {object} 输入框结构
  */
-
-
 function Input(prop) {
   var _prop$type, _prop$min, _prop$max, _prop$maxlength;
 
@@ -117,10 +112,10 @@ function Input(prop) {
     className: "maxlengthInput"
   }, prop.value.length, "/", prop.maxlength) : null, prop.children);
 }
+
+
 /**
  * @method function Textarea 文本域组件
- * @author sxt 
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.help 提示文本
@@ -133,8 +128,6 @@ function Input(prop) {
  * @param {function} prop.blur   -失去焦点事件处理函数
  * @return {object} 输入框结构
  */
-
-
 function Textarea(prop) {
   var _prop$maxlength2;
 
@@ -162,10 +155,10 @@ function Textarea(prop) {
     className: "maxlengthTextarea"
   }, prop.value.length, "/", prop.maxlength) : null);
 }
+
+
 /**
  * @method function Radio 单选组件
- * @author sxt
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.help 提示文本
@@ -179,8 +172,6 @@ function Textarea(prop) {
  * @param {function} prop.change -单项选择值发生变化时触发的事件处理函数
  * @return {object} 单项选择组件结构
  */
-
-
 function Radio(prop) {
   
   const radio = prop.list.map((e, i) => {
@@ -271,10 +262,10 @@ function Radio(prop) {
 
   )
 }
+
+
 /**
  * @method function Button 按钮组件
- * @author sxt
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.help 提示文本
@@ -302,10 +293,10 @@ function Button(prop) {
     help: prop.help
   }, button);
 }
+
+
 /**
  * @method function Range 划块组件
- * @author sxt 
- * @date   2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.title -属性名称
@@ -323,8 +314,6 @@ function Button(prop) {
  * @param {function} prop.onBlur -失去焦点时触发的事件处理函数 lw 2021-4-22
  * @return {object} 拖拽范围结构
  */
-
-
 function Range(prop) {
   var _prop$children;
 
@@ -445,10 +434,10 @@ function Range(prop) {
     </Container>
   )
 }
+
+
 /**
  * @method function Select 下拉选择组件
- * @author sxt 
- * @date   2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.title -属性名称
@@ -461,8 +450,6 @@ function Range(prop) {
  * @param {function} prop.change -拖拽范围值发生变化时触发的事件处理函数
  * @return {object} 下拉选择组件结构
  */
-
-
 function Select(prop) {
   // const select = React.createElement("select", {
   //   className: "em-select-box",
@@ -532,10 +519,10 @@ function Select(prop) {
     </Container>
   )
 }
+
+
 /**
  * @method function  OnOff 开关组件
- * @author sxt 
- * @date   2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.title -属性名称
@@ -565,10 +552,10 @@ function OnOff(prop) {
     className: "openBtn"
   }, React.createElement("i", null, "✔")))));
 }
+
+
 /**
  * @method ShowInfo 显示信息组件
- * @author sxt 
- * @date   2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.title -属性名称
@@ -583,8 +570,6 @@ function OnOff(prop) {
  * @param {function} prop.btnClick -点击按钮触发的事件处理函数，只有isButton为true时，需要传此参数
  * @return {object} 显示信息结构
  */
-
-
 function ShowInfo(prop) {
   const show = React.createElement("div", null, React.createElement("div", {
     className: "setDataP",
@@ -609,10 +594,10 @@ function ShowInfo(prop) {
     children: show
   });
 }
+
+
 /**
  * @method function SelectIcon 选择Icon组件
- * @author sxt
- * @date   2019-8-24
  * @param {object} prop 参数对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.title 属性名称
@@ -621,8 +606,6 @@ function ShowInfo(prop) {
  * @param {function} prop.click -事件处理函数
  * @return {object} 对齐方式结构
  */
-
-
 function SelectIcon(prop) {
   let icon = prop.icon || {};
   return React.createElement(Container, {
@@ -655,10 +638,10 @@ function SelectIcon(prop) {
     }, window.public.lang["choice"]))
   });
 }
+
+
 /**
  * @method function Align 对齐方式组件
- * @author sxt
- * @date   2019-8-24
  * @param {object} prop 参数对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.id 唯一标识
@@ -667,8 +650,6 @@ function SelectIcon(prop) {
  * @param {function} prop.change -事件处理函数
  * @return {object} 对齐方式结构 
  */
-
-
 function Align(prop) {
   const {
     skin = '',
@@ -762,10 +743,10 @@ function Align(prop) {
     </Container>
   )
 }
+
+
 /** 
 * @method SelectImage 选择图片组件
-* @author sxt
-* @date   2019-8-24
 * @param {object} prop -属性对象
 * @param {string} pro.skin 通过皮肤定义组件样式 
 * @param {string} prop.src -图片路径
@@ -774,8 +755,6 @@ function Align(prop) {
 * @param {boolean} prop.click -点击的事件
 * @return {object} -选择图片属性结构 
 */
-
-
 function SelectImage(prop) {
   let {
     src,
@@ -809,18 +788,16 @@ function SelectImage(prop) {
     }, window.public.lang["clickChangeImage"])))
   });
 }
+
+
 /**
  * @method ImageQuality 图片质量组件
- * @author sxt
- * @date   2019-8-24
  * @param {object} prop -属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {data} prop.data -图片数据
  * @param {function} prop.change -修改触发的事件处理函数
  * @return {object} -图片质量属性结构
  */
-
-
 function ImageQuality(prop) {
   var _ref, _data$, _prop$prefix;
 
@@ -879,16 +856,15 @@ function ImageQuality(prop) {
     title: "imageQuality"
   }, quality);
 }
+
+
 /**
  * @method OriginalFormat 图片原格式属性
- * @author sxt
  * @param {object} prop 属性对象
  * @param {data} prop.data -图片数据
  * @param {string} prop.change -修改触发的事件处理函数 
  * @return {object} 属性结构
  */
-
-
 function OriginalFormat(prop) {
   var _ref2, _data$2;
 
@@ -915,10 +891,10 @@ function OriginalFormat(prop) {
     change: prop.change
   });
 }
+
+
 /**
 * @method ColorPicker 调色板组件
-* @author sxt 
-* @date  2019-8-24
 * @param {object} prop 参数对象
 * @param {string} prop.skin 通过皮肤定义组件样式
 * @param {boolean} prop.basic -是否返回基本组件，true 不对组件进行包装，只返回基本组件 false 对组件进行包装，返回包装后的组件
@@ -928,8 +904,6 @@ function OriginalFormat(prop) {
 * @param {function} prop.change 修改颜色方法
 * @return {object} 调色板组件结构
 */
-
-
 function ColorPicker(prop) {
   const [color] = useState(prop.color); //渲染调用方法，
 
@@ -1009,10 +983,10 @@ function ColorPicker(prop) {
     </Container>
   )
 }
+
+
 /**
  * @method function Search 搜索组件
- * @author sxt 
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} prop.skin 通过皮肤定义组件样式 
  * @param {string} prop.title -属性名称
@@ -1023,8 +997,6 @@ function ColorPicker(prop) {
  * @param {function} prop.change -输入值时触发的事件处理函数
  * @return {object} 输入框结构
  */
-
-
 function Search(prop) {
   const search = React.createElement("input", {
     className: "pcInputTextStyle",
@@ -1048,10 +1020,10 @@ function Search(prop) {
     }, search)
   });
 }
+
+
 /**
  * @method function CheckBox 复选组件
- * @author sxt
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} pro.skin 通过皮肤定义组件样式 
  * @param {string} prop.help 提示文本
@@ -1063,8 +1035,6 @@ function Search(prop) {
  * @param {function} prop.change -单项选择值发生变化时触发的事件处理函数
  * @return {object} 复选组件结构
  */
-
-
 function CheckBox(prop) {
   const checkbox = prop.list.map((e, i) => {
     let propValue = prop.value || [];
@@ -1107,10 +1077,10 @@ function CheckBox(prop) {
     help: prop.help
   }, checkbox);
 }
+
+
 /**
  * @method function ComboBoxData 弹出下拉框
- * @author sxt 
- * @date  2019-8-24
  * @param {object} prop 属性对象
  * @param {string} prop.skin 通过皮肤定义组件样式 
  * @param {string} prop.title -属性名称
@@ -1126,8 +1096,6 @@ function CheckBox(prop) {
  * @param {function} prop.select -下拉切换事件
  * @return {object} 输入框结构
  */
-
-
 function ComboBoxData(prop) {
   let setList = prop.setList || [];
 
@@ -1206,14 +1174,9 @@ function ComboBoxData(prop) {
   }))) : null));
 }
 
-;
 /**
  * @instance Widget 属性元件对象
- * @date 2019-11-13
- 
- * @version 1.0
  */
-
 const Widget = {
   Help: Help,
   //帮助信息
@@ -1254,8 +1217,6 @@ const Widget = {
 
   /**
    * @method PageSelector 页面选择
-   * @date 2020-07-21
-   
    * @param {object} opts 参数对象 
    */
   PageSelector: function (opts) {

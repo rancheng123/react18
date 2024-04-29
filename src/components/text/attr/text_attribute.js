@@ -26,7 +26,7 @@ TextAttribute.ckeditor = function () {
     div.setAttribute("contentEditable", true);
     ediBox.appendChild(div);
 
-    //阻止冒泡事件，防止走拖拽控件方法，sxt 2020-1-13 17:27
+    //阻止冒泡事件，防止走拖拽控件方法，
     div.onmousedown = function (event) {
       event.stopPropagation();
     };

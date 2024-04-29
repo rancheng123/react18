@@ -11,13 +11,15 @@ import Dispatcher from '@/system/tools/dispatcher';
  */
 class TemplateResourceControler extends ResourceControler {
   constructor(props) {
-    super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
+    super(props);
 
+    //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
+
     /**@property {TemplateResource} view 初始化 view 实例*/
+    this.view = new TemplateResource(this);
 
-    this.view = new TemplateResource(this); //给view 入口方法绑定this
-
+    //给view 入口方法绑定this
     this.view.render = this.view.render.bind(this.view);
     this.ajaxUrl = "/desktop/index.php/Edit/Temp/responseTempList";
   }
@@ -26,10 +28,11 @@ class TemplateResourceControler extends ResourceControler {
   * @method init 初始化方法
   */
   init() {
-    this.tabs = ["wholeClassify", "languageClassify", "hot"]; //新增语言分类选项和热门选项 lw 2021-3-8
+    this.tabs = ["wholeClassify", "languageClassify", "hot"];
+    //新增语言分类选项和热门选项 
+    let innerHeight = window.innerHeight;
 
-    let innerHeight = window.innerHeight; //页面高度  用页面高度去计算,图片显示几列 sxt 2020-2-4
-
+    //页面高度  用页面高度去计算,图片显示几列
     let _height = innerHeight - 50 * 2,
       size = parseInt((_height - (54 + 85 + 65 + 32 + 26)) / 148);
 

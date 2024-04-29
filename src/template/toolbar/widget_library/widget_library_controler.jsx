@@ -92,7 +92,7 @@ export default class WidgetLibraryControler extends React.Component {
    */
   selectTab(tab) {
     nmbTermid = tab.id;
-    var tabsArray = this.tabs; //获取控件库数组 lw 2021-2-3
+    var tabsArray = this.tabs; //获取控件库数组 
 
     this.setState({
       current: tab,
@@ -102,7 +102,7 @@ export default class WidgetLibraryControler extends React.Component {
 
     for (var i = 0; i < tabsArray.length; i++) {
       if (tab == tabsArray[i]) {
-        //遍历对比进行存值 lw 2021-2-3
+        //遍历对比进行存值 
         nmbTerm = i;
       }
     }
@@ -225,8 +225,6 @@ export default class WidgetLibraryControler extends React.Component {
    * @param {string} skin 皮肤
    * @param {event} event 事件对象
    */
-
-
   start(skin, event) {
     this.skin = skin;
     new DragAdd(this).start(event);

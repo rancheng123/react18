@@ -1,16 +1,11 @@
 
-import React from "react";
 import Layer from "@/system/widgets/layer";
 import Pagecontainer from "./pagination/containers/Pagecontainer";
 
 
 /**
  * @class {Resource} 资源库面板视图类
- * @author sxt 
- * @version 1.0
- * @data 2019-9-4
  */
-
 export default class Resource {
   /**@property controler 资源库控制器实例 */
   constructor(controler) {
@@ -35,34 +30,53 @@ export default class Resource {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-9-4
-   * @author sxt 
    * @return {object} 待渲染的组件对象
    */
   //click={this.controler.getResourceList}
-
-
   render(child) {
     let _state = this.state || {};
 
-    return React.createElement(Layer.open, {
-      titles: [this.title],
-      area: this.area,
-      close: true,
-      draggable: this.draggable,
-      skin: "em-function-resource",
-      cancel: this.cancel,
-      ensure: this.ensure
-    }, child, React.createElement("div", {
-      id: "message_page_box"
-    }, React.createElement("div", {
-      className: "message_page"
-    }, _state.totalPages ? React.createElement(Pagecontainer, {
-      controler: this.controler,
-      data: _state
-    }) : null), React.createElement("div", {
-      className: "sysBot"
-    }, React.createElement("p", null, window.public.lang["instructionsForUse"]))));
+    // return React.createElement(Layer.open, {
+    //   titles: [this.title],
+    //   area: this.area,
+    //   close: true,
+    //   draggable: this.draggable,
+    //   skin: "em-function-resource",
+    //   cancel: this.cancel,
+    //   ensure: this.ensure
+    // }, child, React.createElement("div", {
+    //   id: "message_page_box"
+    // }, React.createElement("div", {
+    //   className: "message_page"
+    // }, _state.totalPages ? React.createElement(Pagecontainer, {
+    //   controler: this.controler,
+    //   data: _state
+    // }) : null), React.createElement("div", {
+    //   className: "sysBot"
+    // }, React.createElement("p", null, window.public.lang["instructionsForUse"]))));
+
+    return (
+      <Layer.open
+        titles={[this.title]}
+        area={this.area}
+        // close={true}
+        close={this.controler.close}
+        draggable={this.draggable}
+        skin="em-function-resource"
+        cancel={this.cancel}
+        ensure={this.ensure}
+      >
+        {child}
+        <div id="message_page_box">
+          <div className="message_page">
+            {_state.totalPages ? <Pagecontainer controler={this.controler} data={_state} /> : null}
+          </div>
+          <div className="sysBot">
+            <p>{window.public.lang["instructionsForUse"]}</p>
+          </div>
+        </div>
+      </Layer.open>
+    )
   }
 
 }

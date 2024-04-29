@@ -9,7 +9,6 @@ import componentsManager from '@/components/components_manager'
  * @param {string} type 结构类型 html amp mip 
  * @return {string} 解析后的css 
  */
-
 export default async function cssParser(component, themeData, type) {
   var _component$componentT;
   const module = await componentsManager((_component$componentT = component.componentType) !== null && _component$componentT !== void 0 ? _component$componentT : 'document');
@@ -42,16 +41,15 @@ export default async function cssParser(component, themeData, type) {
 
   return '';
 }
+
+
 /**
  * @function cssMediaProduce  css媒体查询生成器
- * @date 2019-10-08
- * @author wyq
  * @param {string} id  控件id
  * @param {object} media  存放媒体查询样式的对象
  * @param {object} style  存放样式值得对象
  * @return {string} 生成后的媒体查询css
  */
-
 function cssMediaProduce(id, media, style) {
   let mediaStr = ""; //循环媒体查询对象
 
@@ -67,18 +65,16 @@ function cssMediaProduce(id, media, style) {
 
   return mediaStr;
 }
+
+
 /**
  * @function cssReplace 替换css
- * @date 2019-10-08
- * @author wyq
  * @param {string} id 控件id 
  * @param {object} css 存放css样式得的对象
  * @param {string} item 对象中的键值
  * @param {object} style 存放样式值得对象
  * @return {string} 替换后的css
  */
-
-
 function cssReplace(id, css, item, style) {
   const csses = css.split(";"),
     cssName = item.indexOf("%") != -1 ? item.replace(/%{1}/g, id) : item;
@@ -94,16 +90,14 @@ function cssReplace(id, css, item, style) {
   const cssValue = cssList.length ? cssList.join(";") + ';' : '';
   return !/^\s*$/.test(cssValue) ? `${cssName}{${cssValue}}` : "";
 }
+
+
 /**
  * @function getCssValue 获取样式值
- * @date 2019-12-17
- * @author wyq
  * @param {string} css 样式数据
  * @param {object} style 存放样式值得数据
  * @return {string} 样式值 
  */
-
-
 function getCssValue(css, style) {
   //样式值处理函数
   const valueHanlder = (t, u) => {
@@ -135,18 +129,16 @@ function getCssValue(css, style) {
 
   return css.replace(/\[([^\[\]]+)\]/g, valueHanlder);
 }
+
+
 /**
  * @function cssProduce css生成器
- * @date 2019-10-08
- * @author wyq
  * @param {string} id 控件id
  * @param {object} css 存放css样式得的对象
  * @param {object} style 存放样式值得对象
  * @param {string} type 结构类型 html amp mip 
  * @retrun {string} 生成后的css
  */
-
-
 function cssProduce(id, css, style) {
   let cssStr = "";
 

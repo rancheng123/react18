@@ -52,7 +52,8 @@ const positions = {
       top,
       right,
       bottom
-    } = box; // if( x >= 914 && x<=1208 && y>=54 && y<=83  && name == 'virtual'){
+    } = box;
+    // if( x >= 914 && x<=1208 && y>=54 && y<=83  && name == 'virtual'){
     //     const a = x >= left && x <= right && y >= top  && y <= bottom;
     //     console.log(a,x,y,left,right,top,bottom,name);
     // }
@@ -123,7 +124,8 @@ const positions = {
       bottom: currentNav.bottom,
       left: left,
       right: left + width
-    }; //currentNav.top = parentNav.bottom-10;
+    };
+    //currentNav.top = parentNav.bottom-10;
     //currentNav.bottom = currentNav.top+currentNav.height;
     //return box;
   },

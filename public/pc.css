@@ -5337,18 +5337,22 @@ hr.hr-short {
 
 /*---工具库添加大标题*/
 .toolAddTit {
-  background: #1a76c1;
+  background: #dfe2eb;
   height: 54px;
   line-height: 54px;
   width: 100%;
-  color: #fff;
+  color: #333;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
 
 .toolAddTit h4 {
   display: inline-block;
-  font-size: 16px;
   padding-left: 10px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  font-size: 14px;
+  color: #333333;
+  line-height: 32px;
 }
 
 .toolAddTit span {
@@ -5362,29 +5366,29 @@ hr.hr-short {
   cursor: pointer;
   transition: color 0.5s;
   vertical-align: top;
-  background: rgba(33, 150, 243, 0.5);
-  color: #fff;
+  /* background: rgba(33, 150, 243, 0.5); */
+  color: #6b6b6b;
   position: relative;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: inline-block;
+  /* width: 24px;
+  height: 24px; */
+  /* border-radius: 50%; */
+  /* display: inline-block; */
   text-align: center;
-  line-height: 24px;
+  /* line-height: 24px; */
 }
 
-.toolAddTit span i:hover {
+/* .toolAddTit span i:hover {
   background: rgba(33, 150, 243, 1);
-}
+} */
 
-.toolAddTit i:first-child {
+/* .toolAddTit i:first-child {
   font-size: 1.2rem;
   margin-right: 5px;
-}
+} */
 
 .toolAddTit i:last-child {
-  font-size: 1.4rem;
-  line-height: 20px;
+  font-size: 24px;
+  /* line-height: 20px; */
 }
 
 /*---工具库-样式面板*/
@@ -5408,7 +5412,8 @@ hr.hr-short {
 #toolText::-webkit-scrollbar-thumb,
 .pageMenu::-webkit-scrollbar-thumb,
 .toolFontit::-webkit-scrollbar-thumb {
-  background-color: rgba(33, 150, 243, 0.3);
+  /* background-color: rgba(33, 150, 243, 0.3); */
+  background-color: #c4c4c4;
   -webkit-border-radius: 2em;
   -moz-border-radius: 2em;
   border-radius: 2em;
@@ -5417,7 +5422,8 @@ hr.hr-short {
 #toolText:hover::-webkit-scrollbar-thumb,
 .pageMenu:hover::-webkit-scrollbar-thumb,
 .toolFontit:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(33, 150, 243, 0.6);
+  /* background-color: rgba(33, 150, 243, 0.6); */
+  background-color: #c4c4c4;
   -webkit-border-radius: 2em;
   -moz-border-radius: 2em;
   border-radius: 2em;
@@ -5589,27 +5595,29 @@ hr.hr-short {
   font-size: 21px;
 }
 
-.edibtn li.on {
+/* .edibtn li.on {
   z-index: 1250;
   background: url(../images/btnbg.png) no-repeat left center;
-}
+} */
 
-.edibtn li.on a {
+/* .edibtn li.on a {
   box-shadow: none;
   background: none;
-}
+} */
 
-.edibtn li.on a,
+/* .edibtn li.on a,
 .edibtn li:hover a {
   color: #f2f2f2;
-}
+} */
 
 .edibtn li:hover a {
   background: #116dff;
+  color: #f2f2f2;
 }
 
 .edibtn li.on a {
-  background: #116dff url(../images/btnbg.png) no-repeat left center;
+  background: #116dff;
+  color: #f2f2f2;
 }
 
 .edibtn li:nth-child(3).on {
@@ -5650,7 +5658,7 @@ hr.hr-short {
   width: 442px;
   min-height: 200px;
   height: calc(100vh - 200px);
-  background: #2196f3;
+  /* background: #2196f3; */
   border-radius: 8px;
   border-top-left-radius: 0px;
 }
@@ -5681,7 +5689,8 @@ hr.hr-short {
   padding-top: 5px;
   padding-bottom: 5px;
   height: 100%;
-  background: #2196f3;
+  /* background: #2196f3; */
+  background-color: #303247;
   float: right;
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
@@ -5710,11 +5719,12 @@ hr.hr-short {
   cursor: pointer;
   font-size: 14px;
   margin: 4px 0px;
-  max-height: 30px;
-  min-height: 23px;
+  /* max-height: 30px;
+  min-height: 23px; */
   padding: 0 5px;
   text-align: center;
-  height: calc(5.5556% - 2px);
+  /* height: calc(5.5556% - 2px); */
+  height: 32px;
 }
 
 .toolFontit li a {
@@ -5726,15 +5736,17 @@ hr.hr-short {
 }
 
 .toolFontit li a:hover {
-  background: #328cd8;
+  background: #116dff;
+  /* background: #328cd8;
   box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.11),
-    inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+    inset 1px 1px 2px rgba(0, 0, 0, 0.15); */
 }
 
 .toolFontit li.on a {
-  background: #1a76c1;
+  /* background: #1a76c1;
   box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.11),
-    inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+    inset 1px 1px 2px rgba(0, 0, 0, 0.15); */
+  background: #116dff;
 }
 
 .style-mask-layer {
@@ -6510,11 +6522,11 @@ a.picTempButton:hover {
 }
 
 .toolCollEmpty {
-  background: url(./images/control/collEmpty.jpg) no-repeat top center;
-  width: 100%;
+  /* background: url(./images/control/collEmpty.jpg) no-repeat top center; */
+  /* width: 100%;
   margin-top: 10px;
   background-size: 88%;
-  height: 100%;
+  height: 100%; */
 }
 
 /*--右侧按钮导航之收藏展开面板 end */

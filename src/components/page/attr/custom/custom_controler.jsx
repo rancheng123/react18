@@ -55,9 +55,8 @@ export default class CustomControler extends React.Component {
    * @date 2020-2-6
    * @return {object} 结构
   */
-
-
   render() {
+    debugger
     return React.createElement(this.view.render, null);
   }
   /**

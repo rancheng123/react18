@@ -10,14 +10,10 @@ export  default class BasicControler extends React.Component {
   }
   /**
    * @static button 创建文本属性
-   * @author wyq 
-   * @date 2019-11-11
    * @param {object} opts 参数列表
    * @param {string} opts.selector css选择器
    * @param {object} opts.element 节点对象
    */
-
-
   static basic(opts = {}) {
     const {
       list: group,

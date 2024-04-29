@@ -1,15 +1,11 @@
 
 /**
  * @instance {ColumnManager} 列管理器实例
- * @date 2019-11-14
- * @author wyq
  * @version 1.0
  */
 const ColumnManager = {
   /**
    * @method getView 获取控件结构
-   * @date 2019-11-14
-   * @author wyq
    * @return {Component} 控件视图类
    */
   getView(opts) {
@@ -19,8 +15,6 @@ const ColumnManager = {
 
   /**
    * @method getAttr 获取控件属性
-   * @date 2019-11-14
-   * @author wyq
    * @return {Attribute} 控件属性类
    */
   getAttr() {
@@ -29,8 +23,6 @@ const ColumnManager = {
 
   /**
    * @method getStyle 获取控件样式
-   * @date 2019-11-14
-   * @author wyq
    * @return {JSON} 控件样式json数据
    */
   getStyle(cate, type) {
@@ -40,8 +32,6 @@ const ColumnManager = {
 
   /**
    * @method getData 获取控件数据
-   * @date 2019-11-22
-   * @author wyq
    * @return {JSON} 控件json数据
    */
   getData(type) {

@@ -8,9 +8,6 @@ import ConfigBtn from "./ConfigBtn";
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-
-
-
 class Buttons {
   /**@property btns 默认按钮配置 */
 
@@ -27,12 +24,11 @@ class Buttons {
     this.node = node;
 
   }
+
   /** 
     * @method buttons 属性按钮列表结构
     * @return {object} 属性按钮列表结构
     */
-
-
   static buttons(id, node, proxy, btns,) {
 
     const container = document.querySelector(`#${id}`);
@@ -76,15 +72,13 @@ class Buttons {
       // }), container);
     }
   }
+
+
   /**
    * @method btnsHandle 按钮配置处理
-   * @date 2020-01-22
-   * @author wyq
    * @param {object} btns 按钮配置对象 
    * @param {string} type 控件类型
    */
-
-
   static btnsHandle(btns, type) {
     //头部等顶级容器不允许收藏和隐藏 sxt 2020-5-27  分页和搜索组件不允许收藏和隐藏 lw 2020-12-10
     if (/PageContent|Panel|Footer|Header|Lightboxmodal|Lightbox|Pagination|Input/.test(type)) {
@@ -93,18 +87,16 @@ class Buttons {
 
     return btns.concat(Buttons.btns.pc);
   }
+
+
   /**
    * @method button 属性按钮处理方法
-   * @date 2020-03-11
-   * @author wyq
    * @param {object} config 配置对象
    * @param {string} skin 皮肤
    * @param {number} [index] 索引
    * @param {string} [key] 键名
    * @param {string} [value] 键值
    */
-
-
   static button(config, skin = '', index, key, value) {
     var _config$window$public, _ref2, _conf$tabs, _ref3, _conf$btns;
 
@@ -130,17 +122,15 @@ class Buttons {
 
     return btns;
   }
+
+
   /**
    * @method render 按钮结构渲染
-   * @date 2020-01-22
-   * @author wyq
    * @param {object} param0 参数对象
    * @param {object} param0.button 按钮类的实例
    * @param {string} param0.btnsId 按钮容器id
    * @param {object} param0.bnts 按钮配置
    */
-
-
   render({
     button,
     btnId,
@@ -253,15 +243,13 @@ class Buttons {
 
     )
   }
+
+
   /**
    * @method btnListLayout 设置属性按钮布局
-   * @date 2019-10-15
-   * @author wyq
    * @param {function} setLayout 执行更新函数 
    * @return {function} 一个函数，再选中框加载完毕后调用
    */
-
-
   btnListLayout(btnId, setLayout) {
     return () => {
       const btn = document.querySelector(`#${btnId} ul`);
@@ -322,16 +310,14 @@ class Buttons {
       }
     };
   }
+
+
   /**
    * @method selectedBtn 点击选中按钮，并弹出属性面板 
-   * @date 2019-10-25
-   * @author wyq
    * @param {string} type 当前要选中的按钮类型 
    * @param {boolean} select 当前按钮是否拥有选中状态 true 有 false 没有
    * @param {function} setBtnType 更新函数
    */
-
-
   selectedBtn(type, select, setSelectState) {
     let param = {
       type,

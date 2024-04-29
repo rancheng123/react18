@@ -8,7 +8,6 @@ import React from "react";
  * @version 1.0
  * @date 2020-2-6
  */
-
 export default class Custom {
   constructor(controler) {
     /**@property controler 样式控制器实例 */

@@ -1,4 +1,3 @@
-import ReactDom from 'react-dom'
 import { createRoot } from "react-dom/client";
 import Dispatcher from '../../../tools/dispatcher';
 import AttrProxy from '@/components/page/attr_proxy';
@@ -8,7 +7,6 @@ import Drag from '../../../tools/drag';
 /**
  * @instance {SingleComponentEdit} 单个选中编辑实例
  */
-
 const SingleComponentEdit = {
   /**@property {ComponentEditControler} controler 控件编辑控制器实例*/
   controler: null,
@@ -76,8 +74,6 @@ const SingleComponentEdit = {
 
   /**
    * @method init 初始化方法
-   * @date 2020-03-11
-   
    */
   async init() {
     const Buttons = await import('./buttons_test.jsx').then(module => module.default)
@@ -139,8 +135,6 @@ const SingleComponentEdit = {
 
   /**
    * @method findParents 查找符合条件的父级控件
-   * @date 2021-01-15
-   
    * @return {object} 符合条件的父级控件
    */
   findParents() {
@@ -175,7 +169,6 @@ const SingleComponentEdit = {
 
   /**
    * @method select 选中方法
-   * @date 2020-01-22
    * @param {object} param0 参数对象
    * @param {object} param0.Buttons 属性按钮对象
    * @param {object} param0.node 控件数据对象
@@ -225,8 +218,6 @@ const SingleComponentEdit = {
 
   /**
    * @method componentWillUnmount 选中框、属性按钮卸载时执行
-   * @date 2020-02-28
-   
    */
   componentWillUnmount() {
     this.controler = this.node = null;
@@ -234,8 +225,6 @@ const SingleComponentEdit = {
 
   /**
    * @method isRangeNode 鼠标指针是否在当前控件节点范围内
-   * @date 2019-10-14
-   
    * @param {object} current 当前鼠标滑过的控件
    * @return {boolean} 范围内返回true，范围外返回false
    */
@@ -260,8 +249,6 @@ const SingleComponentEdit = {
 
   /**
    * @method mousedown 鼠标按下选中控件方法
-   * @date 2019-10-12
-   
    * @param {object} event 事件对象
    * @param {number} x x轴坐标
    * @param {number} y y轴坐标
@@ -314,8 +301,6 @@ const SingleComponentEdit = {
 
   /**
    * @method start 拖拽开始
-   * @date 2019-10-31
-   
    * @param {number} x x轴坐标
    * @param {number} y y轴坐标
    */
@@ -342,8 +327,6 @@ const SingleComponentEdit = {
 
   /**
    * @method insertMask 遮罩层的插入与删除
-   * @date 2019-12-26
-   
    * @param {string} id 控件id
    * @param {string} action 执行行为 默认为新增，值为remove 执行删除
    */
@@ -376,8 +359,6 @@ const SingleComponentEdit = {
 
   /**
    * @method drag 拖拽进行中
-   * @date 2019-10-31
-   
    * @param {object} opts 参数对象 
    * @param {event} event 事件对象
    */
@@ -430,8 +411,6 @@ const SingleComponentEdit = {
 
   /**
    * @method end 拖拽结束
-   * @date 2019-10-31
-   
    * @param {object} opts 参数对象 
    * @param {event} event 事件对象 
    */

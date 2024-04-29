@@ -43,20 +43,31 @@ export default class ResourceControler extends React.Component {
     }
 
     const ResourceControler = this;
-    opts.root.render(React.createElement(ResourceControler, {
-      exclude: opts.exclude,
-      include: opts.include,
-      group: opts.group,
-      initialData: opts.initialData || {},
-      selected: opts.selected ? opts.selected : null
-    }), opts.element);
+    // opts.root.render(React.createElement(ResourceControler, {
+    //   exclude: opts.exclude,
+    //   include: opts.include,
+    //   group: opts.group,
+    //   initialData: opts.initialData || {},
+    //   selected: opts.selected ? opts.selected : null
+    // }), opts.element);
+    this.prototype.close = ()=> opts.root.unmount()
+    opts.root.render(
+      <ResourceControler
+        exclude={opts.exclude}
+        include={opts.include}
+        group={opts.group}
+        initialData={opts.initialData || {}}
+        selected={opts.selected ? opts.selected : null}
+      />
+    )
   }
   /**
   * @method render 挂载组件方法
   * @return {object} 待渲染的组件对象
   */
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return (<this.view.render />)
   }
 
 
@@ -70,7 +81,9 @@ export default class ResourceControler extends React.Component {
    */
   componentDidMount() {}
 
-  close() {}
+  // close() {
+    
+  // }
   /**
   * @method getPagingList 获取分页列表,
   */

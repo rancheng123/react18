@@ -3,11 +3,7 @@ import Widget from '@/system/widgets/widget';
 
 /**
  * @class {Basic} 基本属性视图类
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
 export default class Basic {
   constructor() {}
   /**@property {object} state 获取最新的state属性 */

@@ -599,6 +599,7 @@ window.public.lang = {
     /**链接 start */
     "page": "页面",
     "link": "链接",
+    "translate": "翻译",
     "pageAnchor": "页面/锚点",
     "externalLinks": "外部链接",
     "email": "电子邮件",

@@ -83,37 +83,38 @@ export default class AttrProxy {
   showAttributePanel(opts) {
     this._module && this._module.showAttributePanel && this._module.showAttributePanel(opts)
   }
+
+
   /**
    * @method selectBox 显示控件选框
    * @param {object} opts 参数对象
    */
-
   selectBox(opts) {
     this._module && this._module.selectBox && this._module.selectBox(opts)
   }
+
   /**
    * @method addComponentBefore 控件新增前执行
    * @param {object} component 控件数据
    */
-
-
   addComponentBefore(component) {
     this._module && this._module.addComponentBefore && this._module.addComponentBefore(component)
   }
+
   /**
    * @method addedComponent 控件新增完成之后调用
    * @param {string} id 控件id
    */
-
   addedComponent(id) {
     this._module && this._module.addedComponent && this._module.addedComponent(id);
   }
+
+
   /**
    * @method selectBefore 选中之前调用
    * @param {object} node 节点对象
    * @param {object} config 配置对象
    */
-
   selectBefore(node, config) {
     this._module && this._module.selectBefore && this._module.selectBefore(node, config)
   }

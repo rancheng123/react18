@@ -93,8 +93,6 @@ export default class ContentControler extends React.Component {
   }
   /**
    * @method switchEdit 切换编辑方式
-   * @date 2019-10-11
-   * @author wyq
    * @param {string} type 切换的类型
    */
 
@@ -126,12 +124,8 @@ export default class ContentControler extends React.Component {
   }
   /**
    * @method setPageId 设置页面id
-   * @date 2020-01-07
-   * @author wyq
    * @param {string} pageid 页面id 
    */
-
-
   setPageId(pageid) {
     const search = this.search('pageid', pageid);
     this.setState({
@@ -141,12 +135,8 @@ export default class ContentControler extends React.Component {
   }
   /**
   * @method setRuler 设置辅助线显隐
-  * @date 2020-02-24
-  * @author sxt
   * @param {string} pageid 页面id 
   */
-
-
   setRuler() {
     let {
       rulerShow
@@ -167,12 +157,8 @@ export default class ContentControler extends React.Component {
   }
   /**
    * @method load 框架页加载完毕后执行方法
-   * @date 2019-10-11
-   * @author wyq
    * @param {Object} event 事件对象
    */
-
-
   load(event) {
     //绑定卸载事件
     event.target.contentWindow.onunload = this.unload.bind(this); //调用load方法 load在main.js中传过来的
@@ -189,17 +175,17 @@ export default class ContentControler extends React.Component {
       Dispatcher.dispatch("setPageName", {
         value: win.pageData.label || ""
       });
-      window.public.pageName = win.pageData.label; //给页面名称赋值 sxt 2020-2-13
-      //初始化时要在页面存在数据时进行模拟点击 lw 2021-1-29
+      window.public.pageName = win.pageData.label; //给页面名称赋值 
+      //初始化时要在页面存在数据时进行模拟点击 
 
       if (window.public.type == 'mo') {
         document.querySelector('.edipage').click();
-      } //页面加载完毕，清空所有限制选中设置 2021-3-03 by wyq
+      } //页面加载完毕，清空所有限制选中设置
 
 
       Dispatcher.dispatch('setLookup', {
         value: ''
-      }); //修改测导航按钮显示状态 2021-3-03 by wyq
+      }); //修改测导航按钮显示状态 
 
       this.state.display = false; //监听滚动事件，滚动property=modal时，让框架页面也跟着滚动
 
@@ -409,7 +395,7 @@ export default class ContentControler extends React.Component {
 
   // 渲染右侧工具栏
   renderEdiTool() {
-    const { state: { type, edibtn } } = this;
+    const { state: { type, edibtn,toolbar } } = this;
     if (type == 'pc') {
       return (
         <div id="ediTool">
@@ -423,7 +409,7 @@ export default class ContentControler extends React.Component {
                         <li
                           key={index}
                           data-type={item.type}
-                          className={`${item.type}`}
+                          className={ item.type != toolbar ? item.type : `${item.type} on`}
                           onClick={() => this.showToolbars(item.type)}
                         >
                           <a>
@@ -453,8 +439,6 @@ export default class ContentControler extends React.Component {
    * @method render 挂载组件方法
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     const { state: { type, height, rulerShow, edibtn } } = this;
     let _style = null;
@@ -463,7 +447,7 @@ export default class ContentControler extends React.Component {
       _style = { top: "60px", height: "calc(100% - 60px)" };
     }
 
-    //页面为pc，并且头部工具栏隐藏时，top变化 sxt 2022-12-12
+    //页面为pc，并且头部工具栏隐藏时，top变化 
     if (type == 'pc' && !edibtn) {
       _style = {
         top: "20px",

@@ -8,7 +8,6 @@ import Util from '../../util/util';
 /**
  * @class {Page} 页面视图类
  */
-
 export default class Page {
   constructor() {
     this.style = this.style.bind(this);
@@ -18,8 +17,6 @@ export default class Page {
    * @method render 挂载组件方法
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     let {
       state: {

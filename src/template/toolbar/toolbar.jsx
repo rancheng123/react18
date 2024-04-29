@@ -30,7 +30,7 @@ export default function Toolbar(props) {
         <div className="toolAddTit">
           {title ? <h4>{title}</h4> : null}
           <span>
-            <i onClick={help}>?</i>
+            {/* <i onClick={help}>?</i> */}
             <i onClick={()=> Toolbar.close(close)} id="panel-close">
               ×
             </i>

@@ -21,7 +21,6 @@ let Components = null;
  * @param {string} type 结构类型 html amp mip 
  * @return {class} 对应控件类 
  */
-
 async function getComponent(componentType, type, skin = '') {
   let [one, cate, name] = skin.split('.');
   const keyName = skin ? `${cate}_${name}` : componentType; //类型产生变化，初始化Components
@@ -45,6 +44,7 @@ async function getComponent(componentType, type, skin = '') {
   }
   return Components[keyName] || null;
 }
+
 /**
  * @function getChild 获取子组件
  * @param {object} component 控件结构数据 
@@ -55,8 +55,6 @@ async function getComponent(componentType, type, skin = '') {
  * @param {boolean} clone 是否复制节点
  * @param {object} props 属性对象 
  */
-
-
 async function getChild(component, data, page, type, context, clone, props) {
   //验证控件数据是否合法
   if (Dispatcher.dispatch("validate", {
@@ -188,14 +186,25 @@ const Util = {
         } //判断是否存在数据
 
 
-        return React.createElement(Util.component, {
-          component: component,
-          page: page,
-          key: `${component.id}${component.skin}`,
-          context: context,
-          clone: clone,
-          props: props
-        });
+        // return React.createElement(Util.component, {
+        //   component: component,
+        //   page: page,
+        //   key: `${component.id}${component.skin}`,
+        //   context: context,
+        //   clone: clone,
+        //   props: props
+        // });
+
+        return (
+          <Util.component
+            component={component}
+            page={page}
+            key={`${component.id}${component.skin}`}
+            context={context}
+            clone={clone}
+            props={props}
+          />
+        )
       });
     }
 
@@ -320,9 +329,8 @@ const Util = {
   },
 
   /**
-      * @method getComponentText 时间戳转化
-      * @date 2024-01-23
-      */
+    * @method getComponentText 时间戳转化
+    */
   dateFormat(pattern = 'y-M-d', time, lang, opts) {
     let _date = new Date(Number(time) * 1000 || new Date().getTime()),
         //获取日期对象

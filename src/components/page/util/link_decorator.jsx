@@ -3,17 +3,12 @@ import React from 'react';
 
 /**
 * @method LinkDecorator 链接公用拼接属性方法
-* @date 2019-11-14
-* @author sxt
 */
-
 const LinkDecorator = {
   /**
   * @method pageAnchor 页面/锚点链接
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 返回页面/锚点链接
+  * @return {object} 返回页面/锚点链接
   */
   pageAnchor(prop) {
     let link = prop.link || {},
@@ -23,13 +18,13 @@ const LinkDecorator = {
 
     if (link.pageId) {
       if (link.itemId && (link.linkToType == "menu" || link.linkToType == "template")) {
-        let _url = link.url; //类型为动画时并且是pc页面时，链接拼接方法改变 sxt 2020-7-31
+        let _url = link.url; //类型为动画时并且是pc页面时，链接拼接方法改变 
 
         if (link.anchorType == "cartoon" && prop.type == "html") {
           let speed = link.speed || 0;
 
           if (_url && _url.substr(0, 1) != '/') {
-            //如果该url第一个字符不为/时候就拼接一个斜杠 lw 2021-5-6;
+            //如果该url第一个字符不为/时候就拼接一个斜杠 
             _url = `/${_url}`;
           }
 
@@ -54,10 +49,8 @@ const LinkDecorator = {
 
   /**
   * @method externalLinks 外部链接
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 外部链接
+  * @return {object} 外部链接
   */
   externalLinks(prop) {
     let link = prop.link || {};
@@ -71,16 +64,14 @@ const LinkDecorator = {
 
   /**
   * @method email 邮箱链接
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 邮箱链接链接
+  * @return {object} 邮箱链接链接
   */
   email(prop) {
     let link = prop.link;
     let recipient = link.recipient && link.recipient.replace(/\s*/g, "");
     let mailTheme = link.mailTheme ? "?subject=" + link.mailTheme : "",
-        presetContent = link.presetContent ? "?body=" + link.presetContent : ""; //丽君让加新增的预设内容 sxt 2022-3-19
+        presetContent = link.presetContent ? "?body=" + link.presetContent : ""; //丽君让加新增的预设内容
 
     let mailtoKey = "";
 
@@ -103,10 +94,8 @@ const LinkDecorator = {
 
   /**
   * @method phone 手机链接
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 手机链接
+  * @return {object} 手机链接
   */
   phone(prop) {
     let phoneNumber = prop.link.phoneNumber && prop.link.phoneNumber.replace(/\s*/g, "");
@@ -117,10 +106,8 @@ const LinkDecorator = {
 
   /**
   * @method phone 返回链接
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 返回链接
+  * @return {object} 返回链接
   */
   back(prop) {
     let link = prop.link || {},
@@ -172,10 +159,8 @@ const LinkDecorator = {
 
   /**
   * @method onlineConsulting 在线咨询
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 在线咨询链接
+  * @return {object} 在线咨询链接
   */
   onlineConsulting(prop) {
     let link = prop.link || {},
@@ -200,7 +185,7 @@ const LinkDecorator = {
       } //presetContent
 
     } else if (link.consultValue == "whatsappPc") {
-      if (account) {//链接中不能有符号，只能有数字 sxt 2023-4-23
+      if (account) {//链接中不能有符号，只能有数字 
         //account=account.replace(/[^0-9]/ig,"");
       }
 
@@ -219,10 +204,8 @@ const LinkDecorator = {
 
   /**
   * @method download 下载
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 下载链接
+  * @return {object} 下载链接
   */
   download(prop) {
     let link = prop.link || {};
@@ -234,10 +217,8 @@ const LinkDecorator = {
 
   /**
   * @method lightbox 弹出窗口
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 弹出窗口链接
+  * @return {object} 弹出窗口链接
   */
   lightbox(prop) {
     let ejectBoxId = prop.link.ejectBoxId || "",
@@ -261,10 +242,8 @@ const LinkDecorator = {
 
   /**
   * @method languageLinks 语言链接
-  * @date 2022-12-28
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 语言链接
+  * @return {object} 语言链接
   */
   languageLinks(prop) {
     let languageType = prop.link.languageType || null;
@@ -277,10 +256,8 @@ const LinkDecorator = {
 
   /**
   * @method functionalLinks 功能链接
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 功能链接
+  * @return {object} 功能链接
   */
   functionalLinks(prop) {
     // //绑定Panel的结构
@@ -294,7 +271,7 @@ const LinkDecorator = {
     let link = prop.link || {},
         functionalLinkType = link.functionalLinkType,
         successText = link.successText || null,
-        shopid = link.shopid; //successText成功后的提示文本 sxt 2020-12-15
+        shopid = link.shopid; //successText成功后的提示文本 
 
     let action = link.action; //类型是amp时
 
@@ -441,10 +418,8 @@ const LinkDecorator = {
 
   /**
   * @method formButton 表单提交按钮
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 表单提交按钮
+  * @return {object} 表单提交按钮
   */
   formButton(prop) {
     let _id = prop.link.id || "";
@@ -476,8 +451,6 @@ const LinkDecorator = {
 
   /**
    * @method annexDownload 下载附件
-   * @date 2020-08-31
-   * @author sxt
    * @param {object} prop 参数对象
    * @return {object} 链接对象 
    */
@@ -503,8 +476,6 @@ const LinkDecorator = {
 
   /**
    * @method sourceLink 数据源链接
-   * @date 2020-08-31
-   * @author wyq
    * @param {object} prop 参数对象
    * @return {object} 链接对象 
    */
@@ -521,10 +492,8 @@ const LinkDecorator = {
 
   /**
   * @method getTag 获取标签
-  * @date 2019-11-14
-  * @author sxt
-   * @param {object} attributes 链接属性
-  * return {object} 功能链接
+  * @param {object} attributes 链接属性
+  * @return {object} 功能链接
   */
   getTag(attributes) {
     //类型里指定标签时，直接返回标签
@@ -537,10 +506,8 @@ const LinkDecorator = {
 
   /**
   * @method shopCart 返回购物车功能的表单结构
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 页面链接结构返回
+  * @return {object} 页面链接结构返回
   */
   shopCart(getTag, attributes, prop) {
     let formData = attributes.formData || {},
@@ -673,10 +640,8 @@ const LinkDecorator = {
 
   /**
   * @method html 页面链接结构返回
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop 属性对象
-  * return {object} 页面链接结构返回
+  * @return {object} 页面链接结构返回
   */
   html(prop) {
     let attributes = {};
@@ -694,7 +659,7 @@ const LinkDecorator = {
     let getTag = this.getTag(attributes);
 
     if (attributes.tagname) {
-      // //标签名为 mip-gototop时，证明是mip的返回顶部 sxt 2020-9-4
+      // //标签名为 mip-gototop时，证明是mip的返回顶部 
       // if(attributes.tagname=="mip-gototop"){
       //     attributes.class = prop.className || null;//此标签要用class不能用className
       //     delete attributes.className
@@ -703,7 +668,7 @@ const LinkDecorator = {
     } // method:"POST",
     // target:"_blank",
     // "custom":action formData:{method:"GET",target:"_blank","custom":action}
-    //返回的数据中有formData时，要返回表单结构 sxt 2020-12-4
+    //返回的数据中有formData时，要返回表单结构 
 
 
     if (attributes.formData) {

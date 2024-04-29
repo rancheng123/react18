@@ -107,7 +107,6 @@ export default class RulerControler extends React.Component {
    * @param {String} i 当前项位置
    * @param {Object} event 事件对象
    */
-
   start(type, id, i, event) {
     try {
       const {

@@ -1,14 +1,8 @@
-
-import React from 'react';
 import ConfigBtn from './single/ConfigBtn'
 
 /**
  * @class {ComponentEdit} 控件编辑类
- * @author wyq
- * @version 1.0
- * @date 2019-10-30
  */
-
 export default class ComponentEdit {
   constructor(controler) {
     /**@property controler 控件编辑控制器实例 */
@@ -31,13 +25,9 @@ export default class ComponentEdit {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-10-30
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
   //onMouseDown = {this.state.hover ?null:this.controler.mousedown.bind(this.controler)}
-
-
   render() {
     // return React.createElement("div", {
     //   id: "selected-mask",
@@ -101,8 +91,6 @@ export default class ComponentEdit {
   }
   /**
    * @method hoverBox 鼠标滑过提示框结构
-   * @date 2019-10-30
-   * @author wyq
    * @param {object} props 参数对象 
    */
   hoverBox({

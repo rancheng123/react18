@@ -1,8 +1,6 @@
 const ImagePath = {
   /**
   * @method imageUri 返回图片拼接好的路径
-  * @date 2019-11-14
-  * @author sxt
   * @param {object} prop{uri:图片路径,quality:图片质量,dataRetain:"原格式"} 属性对象
   * return {string} 图片链接路径
   */

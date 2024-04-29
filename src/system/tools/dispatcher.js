@@ -1,8 +1,6 @@
 const Dispatcher = {
   /**
    * @method register 注册行为
-   * @date 2019-09-12
-   
    * @param {string} name 行为的名称 
    * @param {function} callback 事件监听器
    * @param {object} [context] 事件监听器的上下文对象
@@ -23,8 +21,6 @@ const Dispatcher = {
 
   /**
    * @method unregister 取消注册行为
-   * @date 2019-09-12
-   
    * @param {string} name 行为名称 
    */
   unregister(name) {
@@ -37,8 +33,6 @@ const Dispatcher = {
 
   /**
    * @method dispatch 派发
-   * @date 2019-08-24
-   
    * @param {string} type 触发的行为名称
    * @param {object} opts 参数对象
    * @param {string|array|object} [opts.value] 传递给行为的参数
@@ -68,8 +62,6 @@ const Dispatcher = {
 
   /**
    * @method has 查看是否已经注册此行为
-   * @date 2019-12-30
-   
    * @param {string} name 行为名称
    */
   has(name) {
@@ -78,8 +70,6 @@ const Dispatcher = {
 
   /**
    *@method clear 清空所有注册行为
-   *@date 2020-01-07
-   *@author wyq 
    */
   clear() {
     this._events.clear();
@@ -91,7 +81,7 @@ Object.defineProperty(Dispatcher, "_events", {
   configurable: false,
   value: new Map()
 });
- //提供一个修改数据的接口，方便数据出问题时，修改控件数据 2022-1-17 by wyq
+//提供一个修改数据的接口，方便数据出问题时，修改控件数据 2022-1-17 by wyq
 console.change = (action, params) => Dispatcher.dispatch(action, params);
 
 export default Dispatcher;

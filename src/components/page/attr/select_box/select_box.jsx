@@ -41,7 +41,7 @@ class SelectBox {
       const select = new this(opts.node, element);
 
       
-      this.selectRoot ? null : this.selectRoot = createRoot(element)
+      this.selectRoot = createRoot(element)
 
       // this.selectRoot.render(React.createElement(select.render, {
       //   select: select,

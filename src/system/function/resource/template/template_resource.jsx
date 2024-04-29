@@ -265,7 +265,7 @@ export default class TemplateResource extends Resource {
           value={this.state.key}
           onChange={this.controler.inputChange.bind(this.controler, "key")}
         />
-        <i className="c7p080BIc layer-close yiyingbaoicon icon-search" onClick={this.controler.search.bind(this.controler)}>\uE696</i>
+        <i className="c7p080BIc layer-close yiyingbaoicon icon-search" dangerouslySetInnerHTML={{ __html: "\uE696" }} onClick={this.controler.search.bind(this.controler)}></i>
       </div>
     )
   }

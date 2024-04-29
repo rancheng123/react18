@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 // import ReactDom from 'react-dom'
 import { createRoot } from 'react-dom/client';
 import Widgets from './modal/index.jsx'
@@ -35,11 +35,12 @@ function layout(area, offset) {
     height
   };
 }
+
+
 /**
  * @function mousedown 拖拽
  * @param {event} event 时间对象 
  */
-
 function mousedown(event) {
   const {
     currentTarget: target,
@@ -68,6 +69,8 @@ function mousedown(event) {
     document.onmouseup = null;
   };
 }
+
+
 /**
  * @function Header 头部结构
  * @param {object} props 参数列表
@@ -77,8 +80,6 @@ function mousedown(event) {
  * @param {function|boolean} props.close 启用触发或关闭触发回调 
  * @param {object} 头部结构
  */
-
-
 function Header(props) {
   return (
     <header
@@ -117,7 +118,6 @@ function Header(props) {
  * @param {function} props.ensure 确认触发回调
  * @return {object} 底部结构 
  */
-
 function Footer(props) {
   if (props.buttons) {
     const [cancelName, ensureName] = props.buttons;
@@ -176,6 +176,8 @@ function unlayer(callback) {
     // }
   };
 }
+
+
 /**
  * @function Mask 遮罩层结构
  * @param {object} props 参数列表
@@ -183,7 +185,6 @@ function unlayer(callback) {
  * @param {boolean} opts.shadeClose 是否点击遮罩关闭
  * @return {object} 遮罩层结构
  */
-
 function Mask(props) {
   const { shade, shadeClose } = props;
   if (shade && Array.isArray(shade)) {
@@ -196,11 +197,11 @@ function Mask(props) {
   }
   return null;
 }
+
+
 /**
  * @instance Layer 弹层对象
- * @version 1.0
  */
-
 const Layer = {
   /**
    * @method alert 弹出框
@@ -225,11 +226,13 @@ const Layer = {
       iconPath,
       btns = ['', 'ensure'],
       ensure
-    } = opts; //提示框结构
-
+    } = opts; 
+    
+    //提示框结构
     function Alert() {
-      const [animate, setAnimate] = useState(""); //结构渲染完毕触发动画
-
+      const [animate, setAnimate] = useState(""); 
+      
+      //结构渲染完毕触发动画
       useEffect(() => {
         setTimeout(() => setAnimate("yq-layer-end"), 0);
       }, []);
@@ -402,7 +405,7 @@ const Layer = {
   },
 
   /**
-   * @method open 面板弹框
+   * @method tab 面板弹框
    * @param {string} opts.id 唯一标识
    * @param {string|array} opts.area 定义宽高
    * @param {string|array} opts.offset 定义坐标 
