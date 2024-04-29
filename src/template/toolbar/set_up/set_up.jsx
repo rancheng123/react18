@@ -5,6 +5,9 @@ import React,{useState,useEffect} from 'react';
 import ReactDom from 'react-dom';
 // 导入 toolbar 模块
 import Toolbar from '../toolbar';
+import { componentsAsync } from 'src/config/async_import_components_config'
+
+console.log(componentsAsync, '哈哈哈哈哈')
 
 
 /**

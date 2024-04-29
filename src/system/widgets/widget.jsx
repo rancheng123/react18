@@ -97,7 +97,7 @@ function Input(prop) {
     max: (_prop$max = prop.max) !== null && _prop$max !== void 0 ? _prop$max : null,
     onBlur: prop.blur || null,
     onChange: prop.change || null,
-    maxlength: (_prop$maxlength = prop.maxlength) !== null && _prop$maxlength !== void 0 ? _prop$maxlength : null
+    maxLength: (_prop$maxlength = prop.maxlength) !== null && _prop$maxlength !== void 0 ? _prop$maxlength : null
   });
 
   if (prop.basic) {
@@ -108,9 +108,9 @@ function Input(prop) {
     skin: prop.skin,
     title: prop.title,
     help: prop.help
-  }, input, prop.maxlength ? React.createElement("span", {
+  }, input, prop.maxLength ? React.createElement("span", {
     className: "maxlengthInput"
-  }, prop.value.length, "/", prop.maxlength) : null, prop.children);
+  }, prop.value.length, "/", prop.maxLength) : null, prop.children);
 }
 
 
