@@ -36,30 +36,51 @@ export function s411() {
   }
 
   if (this.state.hidden == true || Util.source) {
-    return React.createElement("div", {
-      id: id,
-      className: `${parClass} panelLeftshow`
-    }, React.createElement("div", {
-      className: "sideBasicPanel"
-    }, React.createElement("div", {
-      className: "panel-header"
-    }, React.createElement("div", {
-      className: "modal-close"
-    }, React.createElement("div", {
-      role: "button",
-      className: "TAR items-start navbar-trigger"
-    }, "\u2715"))), React.createElement("div", {
-      className: "moMenubox"
-    }, React.createElement("ul", {
-      id: "moMainnav",
-      className: `${id}Ul mainNav`
-    }, React.createElement(Component.menuLi, {
-      state: this.state,
-      tabtype: "mo",
-      type: "html"
-    })))), React.createElement("div", {
-      className: "opc"
-    }));
+    return (
+      <div id={id} className={`${parClass} panelLeftshow`}>
+        <div className="sideBasicPanel">
+          <div className="panel-header">
+            <div className="modal-close">
+              <div className='TAR items-start navbar-trigger' role='button'>&#10060;</div>
+            </div>
+          </div>
+          <div className='moMenubox'>
+            <ul id='moMainnav' className={ `${id}Ul mainNav`}>
+              <Component.menuLi
+                state={this.state}
+                tabtype="mo"
+                type='html'
+              />
+            </ul>
+          </div>
+        </div>
+        <div className="opc"></div>
+      </div>
+    )
+    // return React.createElement("div", {
+    //   id: id,
+    //   className: `${parClass} panelLeftshow`
+    // }, React.createElement("div", {
+    //   className: "sideBasicPanel"
+    // }, React.createElement("div", {
+    //   className: "panel-header"
+    // }, React.createElement("div", {
+    //   className: "modal-close"
+    // }, React.createElement("div", {
+    //   role: "button",
+    //   className: "TAR items-start navbar-trigger"
+    // }, "\u2715"))), React.createElement("div", {
+    //   className: "moMenubox"
+    // }, React.createElement("ul", {
+    //   id: "moMainnav",
+    //   className: `${id}Ul mainNav`
+    // }, React.createElement(Component.menuLi, {
+    //   state: this.state,
+    //   tabtype: "mo",
+    //   type: "html"
+    // })))), React.createElement("div", {
+    //   className: "opc"
+    // }));
   } else {
     return null;
   }
