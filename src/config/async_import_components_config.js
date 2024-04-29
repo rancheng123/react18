@@ -9,7 +9,7 @@ const toolbarBasePath = '../template/toolbar/';
   @params path 路径
   @params moduleName 导出文件的名字 如果不传选默认default
 */
-async function getComponent(path, moduleName = 'default') {
+async function getAsyncComponent(path, moduleName = 'default') {
   // console.log(componentsAsync[path])
   if (componentsAsync[path]) {
     return await componentsAsync[path]().then(module => module[moduleName])
@@ -18,7 +18,7 @@ async function getComponent(path, moduleName = 'default') {
 }
 
 export {
-  getComponent,
+  getAsyncComponent,
   componentsAsync,
   toolbarBasePath,
   componentBasePath,
