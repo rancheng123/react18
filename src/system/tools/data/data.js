@@ -9,7 +9,6 @@ import Observer from "./observer";
  * @param {object} data 控件属性数据
  * @param {function} fn 回调函数，在数据查找到后调用
  */
-
 function query(key, component, data, fn) {
   let newData = null; //循环键值
 
@@ -36,12 +35,9 @@ function query(key, component, data, fn) {
 }
 /**
 * @function render 渲染样式
-* @date 2019-11-6
-
 * @param {object} component 控件结构数据 
 * @param {object} theme_data 控件属性数据 
 */
-
 function render(component, theme_data) {
   var _theme_data$document;
 
@@ -104,8 +100,6 @@ const Data = {
 
   /**
    * @method dataHandler 数据处理模板方法
-   * @date 2019-09-16
-   
    * @param {string} key 键值
    * @param {function} opts.handler 回调处理函数
    */
@@ -139,12 +133,11 @@ const Data = {
 
   /**
   * @method set 设置控件单个数据
-  * @date 2019-09-16
-  
   * @param {string|object} key 键或一个对象
   * @param {string|object} [value] 要设置的值
   */
   set(key, value) {
+    console.log(1111111111);
     let oldValue = null;
 
     if (typeof key == "string") {
@@ -168,8 +161,6 @@ const Data = {
 
   /**
    * @method remove 控件删除单个数据
-   * @date 2019-09-16
-   
    * @param {string} key 键值
    * @return {number|string|array|object} 被删除的数据值
    */
@@ -192,8 +183,6 @@ const Data = {
 
   /**
    * @method unrepeatId 避免重复id
-   * @date 20201-03-24
-   
    * @returns {string} 不重复的id
    */
   unrepeatId() {
@@ -210,8 +199,6 @@ const Data = {
 
   /**
   * @method serialize 循环序列化初始数据
-  * @date 2019-11-4
-  
   * @param {object} component 控件结构数据 
   * @param {object} data 控件属性数据 
   */
@@ -258,8 +245,6 @@ const Data = {
 
   /**
    * @method copy 循环复制数据
-   * @date 2019-11-4
-   
    * @param {object} component 控件结构数据 
    * @param {object} data 控件属性数据 
    * @param {object} initData 要复制的初始属性数据
@@ -299,8 +284,6 @@ const Data = {
 
   /**
    * @method resolve 解析数据
-   * @date 2019-09-16
-   
    * @param {object} componentData 要解析的数据
    * @param {boolean} unuseNewId  是否不使用新id
    * @return {object} 解析后的数据 
@@ -321,8 +304,6 @@ const Data = {
 
   /**
   * @method addComponent 新增控件
-  * @date 2019-09-16
-  
   * @param {object} componentData 控件数据 
   * @param {number} index 插入位置
   * @param {function} fn 组件渲染完毕执行
@@ -391,7 +372,6 @@ const Data = {
 
   /**
    * @methhod 往容器内一次性新增多个控件
-   
    * @param {array} componentDatas 存放控件数据的数组
    * @param {number} index 要插入的位置
    * @param {function} fn 回调函数，控件全部新增完毕后执行
@@ -416,8 +396,6 @@ const Data = {
 
   /**
    * @method removeComponent 删除控件
-   * @date 2019-09-16
-   
    * @param {string} id 控件id
    * @return {number} 删除成功则返回控件在父级中的位置索引，删除失败返回-1
    */
@@ -469,7 +447,6 @@ const Data = {
 
   /**
    * @method removeComponents 一次删除多个控件
-   
    * @param {array} components 存放控件数据的数组
    * @param {function} fn 回调函数，控件全部删除完毕后执行
    * @returns {array} 控件在容器内的位置
@@ -492,8 +469,6 @@ const Data = {
 
   /**
   * @method eachComponentData 递归控件数据
-  * @date 2019-09-17
-  
   * @param {object} component 控件数据
   * @param {function} fn 执行回调函数  
   */
@@ -529,8 +504,6 @@ const Data = {
 
   /**
    * @method validate 验证控件数据是否合法
-   * @date 2019-09-17
-   
    * @param {object} component 控件结构数据 
    * @param {object} data 控件属性数据
    * @param {function} [fn] 数据验证合法时执行的回调函数

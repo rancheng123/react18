@@ -17,7 +17,7 @@ export default class HeaderControler extends React.Component {
 
     /**@property {array} btn_list 按钮配置列表*/
 
-    this.btn_list = [//将语言包内的数组改为JSON格式 headList lw 2020-12-11   
+    this.btn_list = [//将语言包内的数组改为JSON格式 headList 
       {
         "event": "rulerShow",
         'title': window.public.lang.guide,
@@ -252,7 +252,7 @@ export default class HeaderControler extends React.Component {
   switchPcEdit() {
     Dispatcher.dispatch("switchEdit", {
       value: "pc"
-    }); //点击切换到pc时，默认关闭弹窗 author lw date 2021-1-26
+    }); //点击切换到pc时，默认关闭弹窗
 
     const close = document.querySelector('.layer-close'); //关闭所有弹层
 
@@ -325,31 +325,25 @@ export default class HeaderControler extends React.Component {
   }
   /**
    * @method undo 撤销
-   * @date 2019-09-10
-   
    */
-
-
   undo() {
     History.undo();
   }
+
+
   /**
    * @method redo 还原
-   * @date 2019-09-10
-   
    */
-
-
   redo() {
     History.redo();
   }
+
+
   /**
    * @method progress 创建或删除进度条
    * @param {object} element 元素节点 
    * @param {object} action  执行行为
    */
-
-
   progress(element, action) {
     if (action == "add") {
       const div = document.createElement("div");
@@ -362,11 +356,7 @@ export default class HeaderControler extends React.Component {
   }
   /**
    * @method save 保存
-   * @date 2019-09-10
-   
    */
-
-
   async save() {
     const header = document.querySelector('#save'); //判断是否已经插入进度条
 
@@ -381,11 +371,7 @@ export default class HeaderControler extends React.Component {
   }
   /**
    * @method preview 预览
-   * @date 2019-09-10
-   
    */
-
-
   preview(event) {
     const promise = this.save(event);
     promise.then(() => {
@@ -407,13 +393,11 @@ export default class HeaderControler extends React.Component {
       window.open(href);
     });
   }
+
+
   /**
    * @method publish 发布
-   * @date 2019-09-10
-   
    */
-
-
   publish(event) {
     const promise = this.save(event);
     promise.then(() => {
@@ -425,11 +409,8 @@ export default class HeaderControler extends React.Component {
   }
   /**
   * @method manage 跳转到cms的链接
-  * @author sxt
   * @param {event} 事件对象
   */
-
-
   manage(e) {
     const _script = document.createElement("script");
 
@@ -444,11 +425,7 @@ export default class HeaderControler extends React.Component {
   }
   /**
    * @method manage 管理
-   * @date 2019-09-10
-   
    */
-
-
   pageManage() {
     const promise = Promise.all(/*! import() | page_management_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("page_management_controler")]).then(__webpack_require__.bind(null, /*! ../page_management/page_management_controler */ "./ui/page_management/page_management_controler.js"));
     promise.then(module => {
@@ -478,11 +455,7 @@ export default class HeaderControler extends React.Component {
   }
   /**
    * @method textPlann    点击多语言按钮展示选项的方法
-   * @author lw
-   * @date 2021-3-8
   */
-
-
   textPlann() {
     const value = this.state.plann == true ? false : true;
     this.setState({

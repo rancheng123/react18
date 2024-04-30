@@ -286,11 +286,21 @@ export default class Text {
     if (list.length >= 1) {
       return list.map(e => {
         let keyFont = `font_${e.id}`;
-        return React.createElement("li", {
-          key: e.id,
-          className: keyFont == value ? 'on' : null,
-          onClick: this.controler.selectFamily.bind(this.controler, key, keyFont)
-        }, e.name);
+        // return React.createElement("li", {
+        //   key: e.id,
+        //   className: keyFont == value ? 'on' : null,
+        //   onClick: this.controler.selectFamily.bind(this.controler, key, keyFont)
+        // }, e.name);
+
+        return (
+          <li
+            key={e.id}
+            className={keyFont === value ? 'on' : null}
+            onClick={this.controler.selectFamily.bind(this.controler, key, keyFont)}
+          >
+            {e.name}
+          </li>
+        )
       });
     } else {
       return null;
@@ -590,43 +600,62 @@ export default class Text {
    */
   date() {
     const pub = window.public;
-    return React.createElement(Widget.Select, {
-      id: "font",
-      title: "dateFormat",
-      value: this.state.sign ? pub.dateFormat(this.state.sign) : "",
-      list: [{
-        name: pub.dateFormat("y.M.d"),
-        value: "y.M.d"
-      }, {
-        name: pub.dateFormat("y-M-d"),
-        value: "y-M-d"
-      }, {
-        name: pub.dateFormat("y/M/d"),
-        value: "y/M/d"
-      }, {
-        name: pub.dateFormat("y M d"),
-        value: "y M d"
-      }, {
-        name: pub.dateFormat("y-M-d h:m:s", "", "", {
-          param: {
-            hour12: false
-          }
-        }),
-        value: "y-M-d h:m:s"
-      }, {
-        name: pub.dateFormat("y.M.d h:m"),
-        value: "y.M.d h:m"
-      }, {
-        name: pub.dateFormat("y-M-d h:m"),
-        value: "y-M-d h:m"
-      }, {
-        name: pub.dateFormat("M y d", "", "en-US", {
-          M: "short"
-        }),
-        value: "M y d"
-      }],
-      change: this.controler.setDate.bind(this.controler)
-    });
+    // return React.createElement(Widget.Select, {
+    //   id: "font",
+    //   title: "dateFormat",
+    //   value: this.state.sign ? pub.dateFormat(this.state.sign) : "",
+    //   list: [{
+    //     name: pub.dateFormat("y.M.d"),
+    //     value: "y.M.d"
+    //   }, {
+    //     name: pub.dateFormat("y-M-d"),
+    //     value: "y-M-d"
+    //   }, {
+    //     name: pub.dateFormat("y/M/d"),
+    //     value: "y/M/d"
+    //   }, {
+    //     name: pub.dateFormat("y M d"),
+    //     value: "y M d"
+    //   }, {
+    //     name: pub.dateFormat("y-M-d h:m:s", "", "", {
+    //       param: {
+    //         hour12: false
+    //       }
+    //     }),
+    //     value: "y-M-d h:m:s"
+    //   }, {
+    //     name: pub.dateFormat("y.M.d h:m"),
+    //     value: "y.M.d h:m"
+    //   }, {
+    //     name: pub.dateFormat("y-M-d h:m"),
+    //     value: "y-M-d h:m"
+    //   }, {
+    //     name: pub.dateFormat("M y d", "", "en-US", {
+    //       M: "short"
+    //     }),
+    //     value: "M y d"
+    //   }],
+    //   change: this.controler.setDate.bind(this.controler)
+    // });
+
+    return (
+      <Widget.Select
+        id="font"
+        title="dateFormat"
+        value={this.state.sign ? pub.dateFormat(this.state.sign) : ""}
+        list={[
+          { name: pub.dateFormat("y.M.d"), value: "y.M.d" },
+          { name: pub.dateFormat("y-M-d"), value: "y-M-d" },
+          { name: pub.dateFormat("y/M/d"), value: "y/M/d" },
+          { name: pub.dateFormat("y M d"), value: "y M d" },
+          { name: pub.dateFormat("y-M-d h:m:s", "", "", { param: { hour12: false } }), value: "y-M-d h:m:s" },
+          { name: pub.dateFormat("y.M.d h:m"), value: "y.M.d h:m" },
+          { name: pub.dateFormat("y-M-d h:m"), value: "y-M-d h:m" },
+          { name: pub.dateFormat("M y d", "", "en-US", { M: "short" }), value: "M y d" }
+        ]}
+        change={this.controler.setDate.bind(this.controler)}
+      />
+    )
   }
 
 

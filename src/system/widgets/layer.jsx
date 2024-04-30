@@ -362,8 +362,12 @@ const Layer = {
           help={opts.help}
           draggable={opts.draggable}
         >
-          {opts.titles[0] && <h4 className="layer-title-one">{opts.titles[0]}</h4> }
-          {opts.titles[1] && <span className="layer-title-two">{opts.titles[1]}</span>}
+          <div className='layer-title-group'>
+            <span className='layer-title-divide'></span>
+            {opts.titles[0] && <h4 className="layer-title-one">{opts.titles[0]}</h4> }
+            {opts.titles[1] && <span className="layer-title-two">{opts.titles[1]}</span>}
+          </div>
+          
         </Header>
         <main>{opts.children}</main>
         {

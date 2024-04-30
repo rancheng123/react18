@@ -8,8 +8,6 @@ import Decorator from "./decorator";
 const ComponentDecorator = {
   /**
    * @method init 初始化方法
-   
-   * @date 2020-03-06
    * @param {ComponentData} component 控件数据对象
    * @return {ComponentDecorator} 控件数据装饰器实例
    */
@@ -21,8 +19,6 @@ const ComponentDecorator = {
 
   /**
    * @method install 安装数据处理相关方法装饰器
-   * @date 2020/03/06
-   
    * @param {object} component  组件状态对象
    */
   install(component) {
@@ -31,8 +27,6 @@ const ComponentDecorator = {
 
   /**
    * @method uninstall 安装数据处理相关方法装饰器
-   * @date 2020/03/06
-   
    * @param {object} component  组件状态对象
    */
   uninstall(component) {
@@ -41,7 +35,6 @@ const ComponentDecorator = {
 
   /**
    * @method get 获取控件数据装饰器
-   
    * @param {array} [arguments] 参数集合
    * @param {object} [arguments.0] 控件结构数据 
    * @param {object} [arguments.1] 控件属性数据

@@ -8,11 +8,7 @@ import Dispatcher from '@/system/tools/dispatcher.js';
 
 /**
  * @class {ComponentSelectBox} 内容面板属性控制器类
- * @author eric
- * @version 1.0
- * @date 2020-02-21
  */
-
 export default class ComponentSelectBox extends SelectBox{
   constructor(node, container) {
     super(node, container);
@@ -30,30 +26,46 @@ export default class ComponentSelectBox extends SelectBox{
       return null;
     }
 
-    return React.createElement("div", {
-      className: "componentAddStyle"
-    }, React.createElement("div", {
-      onMouseDown: this.addStyle.bind(this, "top"),
-      onMouseMove: e => e.stopPropagation(),
-      className: "componentAddTop"
-    }, React.createElement("span", {
-      className: "info"
-    }, "\u4E0A\u90E8\u6DFB\u52A0\u7EC4\u4EF6")), React.createElement("div", {
-      onMouseDown: this.addStyle.bind(this, "bottom"),
-      onMouseMove: e => e.stopPropagation(),
-      className: "componentAddBottom"
-    }, React.createElement("span", {
-      className: "info"
-    }, "\u4E0B\u90E8\u6DFB\u52A0\u7EC4\u4EF6")));
+    // return React.createElement("div", {
+    //   className: "componentAddStyle"
+    // }, React.createElement("div", {
+    //   onMouseDown: this.addStyle.bind(this, "top"),
+    //   onMouseMove: e => e.stopPropagation(),
+    //   className: "componentAddTop"
+    // }, React.createElement("span", {
+    //   className: "info"
+    // }, "\u4E0A\u90E8\u6DFB\u52A0\u7EC4\u4EF6")), React.createElement("div", {
+    //   onMouseDown: this.addStyle.bind(this, "bottom"),
+    //   onMouseMove: e => e.stopPropagation(),
+    //   className: "componentAddBottom"
+    // }, React.createElement("span", {
+    //   className: "info"
+    // }, "\u4E0B\u90E8\u6DFB\u52A0\u7EC4\u4EF6")));
+
+    return (
+      <div className="componentAddStyle">
+        <div
+          onMouseDown={this.addStyle.bind(this, "top")}
+          onMouseMove={e => e.stopPropagation()}
+          className="componentAddTop"
+        >
+          <span className="info">上部添加组件</span>
+        </div>
+        <div
+          onMouseDown={this.addStyle.bind(this, "bottom")}
+          onMouseMove={e => e.stopPropagation()}
+          className="componentAddBottom"
+        >
+          <span className="info">下部添加组件</span>
+        </div>
+      </div>
+    )
   }
+
+  
   /**
    * @method {addStyle} 快速切换
-   * @author eric
-   * @version 1.0
-   * @date 2020-02-21
    */
-
-
   addStyle(dir, e) {
     e.stopPropagation();
     const {

@@ -79,22 +79,47 @@ async function getChild(component, data, page, type, context, clone, props) {
 
       const style = await Util.cssParser(component, comdata.theme_data, type); //解析样式
 
-      style && list.push(React.createElement("style", {
-        key: `style_${id}`,
-        id: `style_${id}`,
-        dangerouslySetInnerHTML: {
-          __html: style
-        }
-      })); //判断是否存在子数据
+      // style && list.push(React.createElement("style", {
+      //   key: `style_${id}`,
+      //   id: `style_${id}`,
+      //   dangerouslySetInnerHTML: {
+      //     __html: style
+      //   }
+      // })); 
 
-      list.push(React.createElement(Component, _extends({
-        key: id,
-        component: component,
-        data: comdata,
-        page: page,
-        context: context,
-        clone: clone
-      }, props)));
+      style && list.push(
+        <style
+          key={`style_${id}`}
+          id={`style_${id}`}
+          dangerouslySetInnerHTML={{
+            __html: style
+          }}
+        />
+      );
+      
+      //判断是否存在子数据
+
+      // list.push(React.createElement(Component, _extends({
+      //   key: id,
+      //   component: component,
+      //   data: comdata,
+      //   page: page,
+      //   context: context,
+      //   clone: clone
+      // }, props)));
+
+      list.push(
+        <Component
+          key={id}
+          component={component}
+          data={comdata}
+          page={page}
+          context={context}
+          clone={clone}
+          {...props}
+        />
+      );
+
       return list;
     }
   }
@@ -104,8 +129,6 @@ async function getChild(component, data, page, type, context, clone, props) {
 /**
  * @instance {Util} 核心工具实例
  */
-
-
 const Util = {
   type: '',
 

@@ -414,22 +414,36 @@ input {
 /* ----弹窗标题为蓝色背景*/
 .em-open-layer .layer-header,
 #info-prompt .layer-header {
-  background: #2196f3;
+  /* background: #2196f3; */
   height: 54px;
   line-height: 54px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  border-bottom: 1px solid #dfe5eb;
 }
 
 .layer-title-one {
-  font-size: 16px;
-  color: #fff;
-  padding-left: 20px;
+  font-size: 18px;
+  /* color: #fff; */
+  color: #333;
+  padding-left: 10px;
   max-width: 75%;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.layer-title-group {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.layer-title-divide {
+  width: 5px;
+  height: 18px;
+  background: #116dff;
 }
 
 .em-open-layer .layer-right,
@@ -450,7 +464,7 @@ input {
 #info-prompt .layer-header h4 {
   font-size: 16px;
   line-height: 54px;
-  padding-left: 24px;
+  padding-left: 10px;
   overflow: hidden;
   position: absolute;
   color: #fff;

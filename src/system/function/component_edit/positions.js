@@ -360,7 +360,7 @@ const positions = {
       btns = (_conf$btns$skin = conf.btns[skin]) !== null && _conf$btns$skin !== void 0 ? _conf$btns$skin : conf.btns.all;
     }
 
-    let returnArr = []; //头部等顶级容器不允许收藏和隐藏 sxt 2020-5-27    分页和搜索组件不允许收藏和隐藏 lw 2020-12-10
+    let returnArr = []; //头部等顶级容器不允许收藏和隐藏    分页和搜索组件不允许收藏和隐藏 
 
     if (/pagecontent|panel|footer|header|lightboxmodal|lightbox|pagination|input/.test(_type)) {
       if (stype == "mo" && (_type == "em-header" || _type == "em-footer" || _type == "em-pagination" || _type == "em-input")) {

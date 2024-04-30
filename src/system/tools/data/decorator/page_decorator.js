@@ -19,7 +19,6 @@ const PageDecorator = {
 
   /**
    * @method install 安装数据处理相关方法装饰器
-   
    * @param {object} component  组件状态对象
    */
   install(component) {
@@ -28,7 +27,6 @@ const PageDecorator = {
 
   /**
    * @method uninstall 安装数据处理相关方法装饰器
-   
    * @param {object} component  组件状态对象
    */
   uninstall(component) {
@@ -37,7 +35,6 @@ const PageDecorator = {
 
   /**
    * @function getPageData 获取当前页面数据
-   
    * @param {String} [id] 当前页面id
    * @return {Object} 当前页面数据
    */
@@ -47,7 +44,6 @@ const PageDecorator = {
 
   /**
    * @function getIfimeData 获取IfimeData数据
-   
    * @return {Object} 页面数据
    */
   getIframeData() {
@@ -56,8 +52,6 @@ const PageDecorator = {
 
   /**
    * @method getData 获取控件的属性数据装饰器
-   * @date 2019-10-24
-   
    * @param {object} component 控件结构数据 
    * @param {string} pageId 页面id 
    * @return {object} 对应属性数据
@@ -68,7 +62,6 @@ const PageDecorator = {
 
   /**
    * @method setData 新增一条属性和样式数据装饰器
-   
    * @param {string} id 控件id
    * @param {string} key 键 
    * @param {string} value 值 
@@ -84,8 +77,6 @@ const PageDecorator = {
 
   /**
    * @method removeData 删除一条属性和样式数据装饰器
-   * @date 2019-11-23
-   
    * @param {string} id 控件id 
    * @param {string} key 键 
    */

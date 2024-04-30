@@ -7,7 +7,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- //用来存储复制后的内容 author   lw data 2021-1-5  因为触发剪切方法时，组建销毁会初始化this.stete，所以要定义一个全局变量用来存贮复制后的值。 
+ //用来存储复制后的内容  因为触发剪切方法时，组建销毁会初始化this.stete，所以要定义一个全局变量用来存贮复制后的值。 
 
 var copyObj = null;
 export default class MouseRightClickMenuControler extends React.Component {
@@ -18,8 +18,9 @@ export default class MouseRightClickMenuControler extends React.Component {
       let _this = this;
 
       var mask = document.querySelector('#selected-mask');
-      let objText = document.getElementById("cke_editor"); //判断文本富文本结构是否存在 lw 2021-2-6
-
+      let objText = document.getElementById("cke_editor"); 
+      
+      //判断文本富文本结构是否存在 
       if (objText) {
         return false;
       }
@@ -30,9 +31,9 @@ export default class MouseRightClickMenuControler extends React.Component {
 
         _this.setState({
           'style': _this.calculationPosition(e)
-        }); // 判断控件是否已经被选中
-
-
+        }); 
+        
+        // 判断控件是否已经被选中
         var x = e.pageX;
         var y = e.pageY - 68;
 
@@ -120,14 +121,14 @@ export default class MouseRightClickMenuControler extends React.Component {
     // __webpack_require__.e(/*! import() | mousetrap */ "mousetrap").then(__webpack_require__.t.bind(null, /*! mousetrap */ "./node_modules/mousetrap/mousetrap.min.js", 7)).then(module => {
       // module.bind('del', () => this.remove()); // module.bind('ctrl+c', () => this.copy());
       // module.bind('ctrl+v', () => this.paste());
-      // module.bind('ctrl+x', () => this.shear()); 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 lw 2021-4-22
-    // }); //author: lby date:2020-06-16
+      // module.bind('ctrl+x', () => this.shear()); 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 
+    // });
 
     document.oncontextmenu = function (e) {
       e.stopPropagation();
       e.preventDefault();
     }; 
-    //以前的方法不适用 组件销毁后再次调用会导致面板不展示 author  lw data 2021-1-5
+    //以前的方法不适用 组件销毁后再次调用会导致面板不展示 
     // $(window).load(function() {
     //     let mask = document.querySelector('#selected-mask')
     //     if (mask) {
@@ -171,7 +172,7 @@ export default class MouseRightClickMenuControler extends React.Component {
     //     }
     // });
 
-  } //在组建加载完毕后，使用事件监听器给函数绑定鼠标右键事件    author lw data 2021-1-5
+  } //在组建加载完毕后，使用事件监听器给函数绑定鼠标右键事件   
 
 
   componentDidMount() {
@@ -226,11 +227,8 @@ export default class MouseRightClickMenuControler extends React.Component {
   }
   /**
   * @method rightClick 关闭鼠标右键弹出框
-  * @data 2020-06-17
   * @param e 事件对象
   */
-
-
   rightClick(e) {
     let that = this;
     let x = that.state.xyPosition.xaxis;
@@ -249,13 +247,10 @@ export default class MouseRightClickMenuControler extends React.Component {
   }
   /**
   * @method Simulatedclick 模拟点击属性面板
-  * @data 2021-1-27
   */
-
-
   Simulatedclick() {
     //property-buttons
-    //选中当前控件时，只弹出有基本设置的属性，没有时的只选中控件，sxt 2021-9-23
+    //选中当前控件时，只弹出有基本设置的属性，没有时的只选中控件
     var basicIco = document.querySelector("#property-buttons .functionUL .basicIco");
 
     if (basicIco) {
@@ -263,21 +258,15 @@ export default class MouseRightClickMenuControler extends React.Component {
     }
   }
   /**
-      * @method mouseMove 鼠标划入菜单的时候取消选中
-      * @data 2020-06-18
-      * @param e 事件对象
-      */
-
-
+    * @method mouseMove 鼠标划入菜单的时候取消选中
+    * @param e 事件对象
+    */
   theMouseMove(e) {
     e.stopPropagation();
   }
   /**
    * @method remove 删除快捷键
-   * @date 2019-12-04
    */
-
-
   remove() {
     const node = this.props.node;
 
@@ -342,11 +331,7 @@ export default class MouseRightClickMenuControler extends React.Component {
   }
   /**
    * @method copy 复制快捷键
-   * @date 2019-12-04
-   * @author nf
    */
-
-
   copy() {
     const node = this.props.node;
 
@@ -368,11 +353,7 @@ export default class MouseRightClickMenuControler extends React.Component {
   }
   /**
    * @method paste 粘贴快捷键
-   * @date 2019-12-04
-   * @author nf
    */
-
-
   paste() {
     //判断是否存在这个变量
     if (copyObj) {
@@ -393,11 +374,7 @@ export default class MouseRightClickMenuControler extends React.Component {
   }
   /**
    * @method shear 剪切方法
-   * @date 2020-12-31
-   * @author lw
    */
-
-
   shear() {
     //调用复制快捷键方法
     this.copy(); //调用删除快捷键的方法
@@ -405,12 +382,10 @@ export default class MouseRightClickMenuControler extends React.Component {
     this.remove();
   }
 
-    /**
+  /**
    * @method render 挂载组件方法
    * @return {object} 待渲染的组件对象
    */
-
-
     render() {
 
       let arr = this.state.data ? this.state.data : [];

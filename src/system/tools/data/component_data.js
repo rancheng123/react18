@@ -8,8 +8,6 @@ import Data_Data from './data'
 const ComponentData = {
   /**
    * @method install 安装数据处理相关方法
-   * @date 2019/09/16
-   
    * @param {object} component  组件状态对象
    */
   install(component) {
@@ -27,8 +25,6 @@ const ComponentData = {
 
   /**
    * @method uninstall 安装数据处理相关方法
-   * @date 2019/09/16
-   
    * @param {object} component  组件状态对象
    */
   uninstall(component) {
@@ -47,8 +43,6 @@ const ComponentData = {
 
   /**
    * @method get 获取控件数据
-   * @date 2019-09-16
-   
    * @param {object|boolean} [component] 控件结构数据  是否返回源对象
    * @return {object} 控件全部数据（传递参数的话返回控件原始数据,数据完整，返回数据，不完整，返回空）
    */
@@ -114,8 +108,6 @@ const ComponentData = {
 
   /**
    * @method getComponentSourceData 获取控件原始数据
-   * @date 2020-03-27
-   
    * @param {object} component 控件结构数据
    * @param {object} data 控件属性数据
    * @return {object} 控件原始数据
@@ -160,8 +152,6 @@ const ComponentData = {
 
   /**
    * @method getComponentUnsourceData 获取控件所有数据
-   * @date 2020-03-27
-   
    * @param {object} component 控件结构数据
    * @param {object} data 控件数据
    * @return {object} 控件所有数据
@@ -199,8 +189,6 @@ const ComponentData = {
 
   /**
    * @method validates 递归验证控件数据是否合法
-   * @date 2019-09-17
-   
    * @param {object} component 控件结构数据 
    * @return {boolean} 控件数据是否合法，合法返回true，不合法返回false
    */

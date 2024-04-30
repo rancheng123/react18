@@ -5,6 +5,7 @@ import ComponentEditTestControler from '../../system/function/component_edit/com
 
 import CollectionControler from '../toolbar/collection/collection_controler'
 import WidgetLibraryControler from '../toolbar/widget_library/widget_library_controler'
+// import TemplateControler from '../toolbar/template/template_controler'
 import { createRoot } from 'react-dom/client';
 export default class ContentControler extends React.Component {
   constructor(props) {
@@ -285,6 +286,8 @@ export default class ContentControler extends React.Component {
         });
       });
     });
+
+    // TemplateControler.template()
   }
 
   /**

@@ -32,7 +32,6 @@ export default class ResourceControler extends React.Component {
     * 
     */
   static resource(opts = {}) {
-    console.log(opts);
     if (!opts.element) {
       if (!opts.selector) {
         opts.selector = "#function-modal";

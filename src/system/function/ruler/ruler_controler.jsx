@@ -54,7 +54,6 @@ export default class RulerControler extends React.Component {
    * @method getRuler 返回辅助线数据 
    * @return {Object} guidHor和guidVer
    */
-
   getRuler() {
     let {
       guidHor = [],
@@ -146,8 +145,6 @@ export default class RulerControler extends React.Component {
    * @param {Object} opts 位置数据
    * @param {Object} event 事件对象
    */
-
-
   drag(opts, event) {
     let {
       left,
@@ -179,8 +176,6 @@ export default class RulerControler extends React.Component {
   * @param {Object} opts 位置数据
   * @param {Object} event 事件对象
   */
-
-
   end(opts, event) {
     let state = this.state || {};
     document.onmousemove = document.onmouseup = null;
@@ -208,16 +203,13 @@ export default class RulerControler extends React.Component {
       this.sendData();
     }
   }
+
   /**
    * @function addGuid 添加辅助线
-   * @date 2020-02-26
-   * @author sxt 
    * @param {Object} o 绑定事件的节点
    * @param {Object} e 事件对象
    * @param {Object} n 当前组件类
    */
-
-
   addGuid(type, event) {
     let state = this.state || {},
         _data = state[type] || [];
@@ -250,15 +242,13 @@ export default class RulerControler extends React.Component {
     });
     this.sendData();
   }
+
+
   /**
   * @function focus 失去焦点事件
-  * @date 2020-02-26
-  * @author sxt 
   * @param {String} i 当前项位置
   * @param {Object} e 事件对象
   */
-
-
   focus(i, e) {
     const _target = e.target;
 
@@ -266,16 +256,14 @@ export default class RulerControler extends React.Component {
       if (e.key == "Enter") this.blur(i, _target), document.onkeydown = null;
     };
   }
+
+
   /**
    * @method bindMouse 绑定change事件
-      * @date 2020-02-26
-      * @author sxt 
    * @param {Object} o 父级节点
    * @param {Object} state 状态对象
    * @param {String} id id值
    */
-
-
   blur(i, e) {
     const _target = e.hasOwnProperty("target") ? e.target : e,
           _guid = _target.closest(".ediCusLin,.ediCuscol");
@@ -317,15 +305,12 @@ export default class RulerControler extends React.Component {
       }
     }
   }
+
   /**
   * @method delete 删除辅助线
-   * @date 2020-02-26
-   * @author sxt
   * @param {String} i 数组当前位置
   * @param {String} type 类型
   */
-
-
   delete(i, type) {
     let state = this.state || {},
         relerType = type != "top" ? "guidHor" : "guidVer",
@@ -336,13 +321,11 @@ export default class RulerControler extends React.Component {
     });
     this.sendData();
   }
+
+
   /**
   * @method sendData 向后台发送辅助线数据
-   * @date 2020-02-26
-   * @author sxt
   */
-
-
   sendData() {
     let _state = this.state || {};
 
@@ -439,12 +422,8 @@ export default class RulerControler extends React.Component {
   
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-10
-   
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     return (
       <div className='auxiliary' style={{height: this.props.height}}>

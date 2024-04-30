@@ -18,11 +18,7 @@ function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = p
 
 /**
  * @class {ComponentEditControler} 控件编辑控制器类
- * @author wyq
- * @version 1.0
- * @date 2019-11-13
  */
-
 export default class ComponentEditControler extends React.Component {
   /**@property {string} lookup 指向查找 */
   constructor(props) {
@@ -60,23 +56,15 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-11-13
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     // return React.createElement(this.view.render, null);
     return <this.view.render />
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2019-11-13
-   * @author wyq
    */
-
-
   init() {
     this.state = {
       hidden: false,
@@ -85,11 +73,7 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method componentDidMount 组件第一次挂载完毕执行方法
-   * @date 2020-01-07
-   * @author wyq
    */
-
-
   componentDidMount() {
     Dispatcher.register('selectedHidden', this.hidden, this);
     Dispatcher.register("selectedComponent", this.mousedown, this);
@@ -97,11 +81,7 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method componentWillUnmount 卸载组件时执行方法
-   * @date 2020-01-07
-   * @author wyq
    */
-
-
   componentWillUnmount() {
     Dispatcher.unregister('selectedHidden');
     Dispatcher.unregister("selectedComponent");
@@ -134,12 +114,8 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method setLookup 设置指向查找 
-   * @date 2020-09-09
-   * @author wyq
    * @param {string} lookup 一个数组，用于存储容器类型 
    */
-
-
   setLookup(lookup) {
     _classPrivateFieldSet(this, _lookup, lookup !== null && lookup !== void 0 ? lookup : '');
   }
@@ -147,11 +123,7 @@ export default class ComponentEditControler extends React.Component {
    * @description: 获取新节点
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-10 14:59:16
    */
-
-
   getNewNode(node) {
     const obj = {};
 
@@ -171,8 +143,6 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method find 根据坐标值查找控件
-   * @date 2019-10-14
-   * @author wyq
    * @param {number} initX x轴坐标
    * @param {number} initY y轴坐标
    * @param {number} stop 滚动条滚动的阈值
@@ -269,16 +239,12 @@ export default class ComponentEditControler extends React.Component {
 
   /**
    * @method findComponent 根据坐标值或id查找控件
-   * @date 2020-02-06
-   * @author wyq
    * @param {number} initX x轴坐标 
    * @param {number} initY y轴坐标
    * @param {number} stop 滚动条滚动的阈值
    * @param {string} cid 要查找的控件id
    * @param {node} 查找到的控件数据
    */
-
-
   findComponent(initX, initY, stop, cid) {
     this.findPropertyBtn(); //获取总数据
 
@@ -353,13 +319,9 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method lookForParent 查找父级
-   * @date 2020-02-06
-   * @author wyq
    * @param {object} current 当前控件数据 
    * @param {array} parents 存储父级的数组 
    */
-
-
   lookForParent(current, parents) {
     const element = current && window.public.dom.querySelector(`#${current.id}`); //循环数组
 
@@ -375,16 +337,12 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method lookForCurrent 查找当前控件
-   * @date 2020-02-06
-   * @author wyq
    * @param {number} x x轴坐标 
    * @param {number} y y轴坐标
    * @param {number} stop 滚动挑滚动的阈值 
    * @param {string} id  要查找的控件id
    * @param {object} componentData 存放共享数据
    */
-
-
   lookForCurrent(x, y, stop, id, componentData) {
     const component = componentData.component,
           element = window.public.dom.querySelector(`#${componentData.component.id}`);
@@ -438,13 +396,9 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method saveParent 存储父级数据
-   * @date 2020-02-06
-   * @author wyq
    * @param {object} componentData 存放共享数据
    * @param {array} parents 存储父级数据的数组 
    */
-
-
   saveParent(componentData, parents) {
     const {
       componentsList: [{
@@ -492,13 +446,9 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method hoverState 获取hover的状态数据
-   * @date 2019-10-12
-   * @author wyq
    * @param {object} state 控件数据 
    * @return {object} 拼接完成后的hover状态数据
    */
-
-
   hoverState(state, scrollTop) {
     //是否存在状态对象并且存在布局数据
     if (state && state.layout) {
@@ -541,7 +491,6 @@ export default class ComponentEditControler extends React.Component {
    * @param {event} event 事件对象 
    */
   hover(event) {
-    // console.log(event);
     const top = document.querySelector("#ediMain").offsetTop,
           stop = event.currentTarget.parentNode.scrollTop;
     const initX = event.pageX;
@@ -609,14 +558,10 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
   * @method isShow 根据条件判断是否显示属性按钮
-  * @date 2020-03-19
-  * @author wyq
   * @param {object} node 节点对象
   * @param {string} show 显示条件
   * @return {boolean} 一个布尔值，用来表示是显示还是隐藏
   */
-
-
   isShow(node, show) {
     let [condition, num] = show.split(' ');
     let parent = node.parent,
@@ -651,8 +596,6 @@ export default class ComponentEditControler extends React.Component {
   }
   /**
    * @method mousedown 鼠标按下选中控件
-   * @date 2019-10-12
-   * @author wyq
    * @param {event} event 事件对象
    * @param {number} [x] x轴坐标
    * @param {number} [y] y轴坐标
@@ -660,8 +603,6 @@ export default class ComponentEditControler extends React.Component {
    * @param {function} [fn] 控件选中后触发事件
    * @return {object} 当前选中控件的数据
    */
-
-
   mousedown(event, x, y, id, fn) {
     const closes = document.querySelectorAll('.layer-close,#panel-close');
 

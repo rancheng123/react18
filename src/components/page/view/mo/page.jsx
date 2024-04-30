@@ -5,23 +5,15 @@ import Util from '../../util/util';
 
 /**
  * @class {Page} 页面视图类
- * @author wyq
- * @version 1.0
- * @date 2019-09-18
  */
-
 export default class Page {
   constructor() {
     this.style = this.style.bind(this);
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-21
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     let {
       state: {
@@ -67,28 +59,33 @@ export default class Page {
       }
     }
 
-    return React.createElement("div", {
-      id: documentType
-    }, React.createElement(this.style, {
-      pid: pid
-    }), React.createElement("div", {
-      className: "document-bg"
-    }), React.createElement(Util.children, {
-      components: components,
-      data: data,
-      page: page
-    }));
+    // return React.createElement("div", {
+    //   id: documentType
+    // }, React.createElement(this.style, {
+    //   pid: pid
+    // }), React.createElement("div", {
+    //   className: "document-bg"
+    // }), React.createElement(Util.children, {
+    //   components: components,
+    //   data: data,
+    //   page: page
+    // }));
+    return (
+      <div id={documentType}>
+        <this.style pid={pid} />
+        <div className="document-bg" />
+        <Util.children components={components} data={data} page={page} />
+      </div>
+    )
   }
+
+
   /**
    * @method style 页面样式
-   * @date 202-02-12
-   * @author wyq
    * @param {object} props 参数对象
    * @param {string} props.pid 页面id
    * @return {object} 样式结构
    */
-
-
   style(props) {
     const {
       state: {
@@ -117,12 +114,12 @@ export default class Page {
         return React.createElement("style", {
           id: `${id}_style`
         }, `.${id}-bg{
-                                    ${bgColor ? `background-color:${bgColor};` : ''}
-                                    ${uri ? `background:url(${uri + imgQuality}) ${positionMode};` : ''}
-                                    ${posVal ? `background-position:${posVal};` : ''}
-                                    ${attachment ? `background-attachment:${attachment};` : ''}
-                                    ${opacity ? `opacity:${opacity};` : ''}
-                               }`);
+            ${bgColor ? `background-color:${bgColor};` : ''}
+            ${uri ? `background:url(${uri + imgQuality}) ${positionMode};` : ''}
+            ${posVal ? `background-position:${posVal};` : ''}
+            ${attachment ? `background-attachment:${attachment};` : ''}
+            ${opacity ? `opacity:${opacity};` : ''}
+        }`);
       }
 
       return null;

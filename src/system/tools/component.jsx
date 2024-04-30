@@ -7,7 +7,6 @@ import dataManager from './data/data_manager'
  * @param {object} Controler 控制器对象 
  * @return {class} 包装后的类
  */
-
 function ComponentDecorator(View, Controler) {
   if (!View) {
     return null;
@@ -18,7 +17,6 @@ function ComponentDecorator(View, Controler) {
   /**
    * @class {Component} 组件类
    */
-
   return class Component extends React.Component {
     constructor(props) {
       super(props);
@@ -58,16 +56,14 @@ function ComponentDecorator(View, Controler) {
      * @method render 挂载组件方法
      * @return {object} 待渲染的组件对象
      */
-
-
     render() {
       return React.createElement(this.view.render, null);
     }
+
+
     /**
      * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
      */
-
-
     init() {
       this.state = {
         component: this.props.component,
@@ -90,11 +86,7 @@ function ComponentDecorator(View, Controler) {
     }
     /**
      * @method componentWillUnmount 组件卸载后执行
-     * @date 2019-09-18
-     
      */
-
-
     componentWillUnmount() {
       this.data.uninstall(this);
       this.controler && this.controler.componentWillUnmount && this.controler.componentWillUnmount();
