@@ -961,8 +961,6 @@ const positions = {
    * @description: 获取当前与父级节点数组
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-13 11:42:49
    */
   getParentNodes(node) {
 

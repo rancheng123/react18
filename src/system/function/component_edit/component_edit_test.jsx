@@ -252,9 +252,10 @@ export default class ComponentEdit {
 
       return (
         <div className="component-hover">
-          {this.state.hover.map((data, i) => {
+          {/* 重复渲染注释一个 */}
+          {/* {this.state.hover.map((data, i) => {
             return <this.hoverBox key={i} index={i} data={data} />;
-          })}
+          })} */}
           {this.state.hover.map((data, i) => {
             // 鼠标移入的结构
             return <this.hoverBtn key={i} index={i} data={data} />;

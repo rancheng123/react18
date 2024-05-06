@@ -40,10 +40,12 @@ const Hoverbtns = ({
   "em-flipper": {
     "btns": [{
       "name": "flipperProperty",
-      "type": "basic"
+      "type": "basic",
+      "iconName": "&#xe7a0;"
     }, {
       "name": "design",
-      "type": "design"
+      "type": "design",
+      "iconName": "&#xe79d;"
     }, {
       "name": "itemManage",
       "type": "manage"
