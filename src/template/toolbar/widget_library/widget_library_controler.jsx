@@ -13,9 +13,9 @@ import componentsManager from '@/components/components_manager';
 import Toolbar from "../toolbar";
 
 
-var nmbTerm = null; //用来存储切换控件库内选项的index lw date 2021-2-3
+var nmbTerm = null; //用来存储切换控件库内选项的index
 
-var nmbTermid = null; //用来存储切换控件库内选项的id   lw
+var nmbTermid = null; //用来存储切换控件库内选项的id   
 
 export default class WidgetLibraryControler extends React.Component {
   constructor(props) {

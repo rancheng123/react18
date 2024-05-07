@@ -29,7 +29,7 @@ export default class ContentControler extends React.Component {
 
     // 右侧操作栏
     this.toolbars = [{
-      iconClass: "yiyingbaoicon",
+      iconClass: "iconfont",
       iconName: "&#xe76e;",
       type: "componentLibrary"
     }, {
@@ -43,11 +43,11 @@ export default class ContentControler extends React.Component {
     //   type: "setUp"
     // },
     {
-      iconClass: "yiyingbaoicon",
+      iconClass: "iconfont",
       iconName: "&#xe774;",
       type: "template"
     }, {
-      iconClass: "yiyingbaoicon",
+      iconClass: "iconfont",
       iconName: "&#xe76d;",
       type: "collection"
     }]; //绑定this
@@ -271,6 +271,7 @@ export default class ContentControler extends React.Component {
     var box = document.getElementById("edit-toolbar-content"),
       close = box.querySelector("#panel-close");
     close && close.click();
+    console.log(box, close, toolBarsRoot)
     WidgetLibraryControler.widgetLibrary(toolBarsRoot, 'component');
   }
 
