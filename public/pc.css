@@ -453,12 +453,13 @@ input {
 
 .em-open-layer .layer-right i,
 #info-prompt .layer-right i {
-  color: rgba(255, 255, 255, 0.6);
+  /* color: rgba(255, 255, 255, 0.6); */
+  color: #7c7c7c;
 }
 
 .em-open-layer .layer-right i:hover,
 #info-prompt .layer-right i:hover {
-  color: #fff;
+  color: #7c7c7c;
 }
 
 #info-prompt .layer-header h4 {
@@ -870,7 +871,7 @@ input {
 #textBtn li,
 #iconBtn li,
 #em-367 li {
-  background: url(../images/control/btn.jpg?v=1);
+  background: url(../images/control/btn.jpg);
   height: 44px;
   width: 138px;
   margin-left: 8px;

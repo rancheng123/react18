@@ -9,14 +9,9 @@ import Dispatcher from '@/system/tools/dispatcher.js';
 // 导入 Background 模块
 import Background from './background.js';
 
-
 /**
  * @class {BackgroundControler} 页面背景控制器类
- * @author wyq
- * @version 1.0
- * @date 2020-02-07
  */
-
 export default class BackgroundControler extends React.Component {
   constructor(props) {
     super(props);
@@ -31,38 +26,34 @@ export default class BackgroundControler extends React.Component {
 
     this.view.render = this.view.render.bind(this.view);
   }
+
   /**
    * @static background 背景渲染
-   * @author wyq 
-   * @date 2020-02-07
    * @param {object} opts 参数列表
    * @param {object} opts.element 节点对象
    * @param {string} opts.id 控件id
    */
-
-
   static background(id) {
     const element = document.querySelector(`#${id}`);
-    ReactDom.render(React.createElement(BackgroundControler, null), element);
+    ReactDom.render( <BackgroundControler />, element);
   }
+
+
   /**
    * @method render 挂载组件方法
-   * @date 2020-02-07
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return (
+      <this.view.render/>
+    )
   }
+
+
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2020-02-13
-   * @author wyq
    */
-
-
   init() {
     var _children$2$pageId, _design_data$this$id;
 
@@ -81,14 +72,12 @@ export default class BackgroundControler extends React.Component {
   }
 
   help() {}
+
+
   /**
    * @method backgroundColor 设置背景颜色
-   * @date 2020-02-13
-   * @author wyq 
    * @param {string} bgColor 色值
    */
-
-
   backgroundColor(bgColor) {
     Dispatcher.dispatch('document_set', {
       args: [`design_data.${this.id}`, {
@@ -101,23 +90,18 @@ export default class BackgroundControler extends React.Component {
       type: 'BackgroundColor'
     });
   }
+
   /**
    * @method setImg 设置图片方法
-   * @date 2020-02-13
-   * @author wyq
    */
-
-
   setImage(datas) {
     this.backgroundImage(datas.ima_path);
   }
+
+
   /**
    * @method backgroundImage 设置图片方法
-   * @date 2020-02-13
-   * @author wyq
    */
-
-
   backgroundImage(uri) {
     Dispatcher.dispatch('document_set', {
       args: [`design_data.${this.id}.`, {
@@ -130,15 +114,13 @@ export default class BackgroundControler extends React.Component {
       type: 'Image'
     });
   }
+
+
   /**
    * @method setVideo 设置视频
-   * @date 2020-02-13
-   * @author wyq 
    * @param {Object} datas 返回数据
    * @param {event} event 事件对象
    */
-
-
   setVideo(datas, uri) {
     Dispatcher.dispatch('document_set', {
       args: [`design_data.${this.id}`, {
@@ -151,13 +133,10 @@ export default class BackgroundControler extends React.Component {
       type: 'video'
     });
   }
+
   /**
    * @method selectVideoShow 显示选择视频面板
-   * @date 2019-02-13
-   * @author wyq 
    */
-
-
   selectVideoShow() {
     const promise = __webpack_require__.e(/*! import() | resource_manager */ "resource_manager").then(__webpack_require__.bind(null, /*! ../../../../system/function/resource/resource_manager */ "./system/function/resource/resource_manager.js"));
     promise.then(({
@@ -170,13 +149,11 @@ export default class BackgroundControler extends React.Component {
       }));
     });
   }
+
+
   /**
    * @method selectImageShow 显示图片选择面板
-   * @date 2020-02-13
-   * @author wyq 
    */
-
-
   selectImageShow() {
     const promise = __webpack_require__.e(/*! import() | resource_manager */ "resource_manager").then(__webpack_require__.bind(null, /*! ../../../../system/function/resource/resource_manager */ "./system/function/resource/resource_manager.js"));
     promise.then(({
@@ -189,13 +166,11 @@ export default class BackgroundControler extends React.Component {
       }));
     });
   }
+
+
   /**
    * @method showImagePanel 显示图片属性设置面板
-   * @date 2020-02-13
-   * @author wyq 
    */
-
-
   showImagePanel() {
     const promise = __webpack_require__.e(/*! import() | background_image_controler */ "background_image_controler").then(__webpack_require__.bind(null, /*! ./backgroundImage/background_image_controler */ "./ui/toolbar/set_up/background/backgroundImage/background_image_controler.js"));
     promise.then(({
@@ -208,13 +183,11 @@ export default class BackgroundControler extends React.Component {
       });
     });
   }
+
+
   /**
    * @method showApplyPanel 显示应用到所有页面面板
-   * @date 2020-02-13
-   * @author wyq
    */
-
-
   showApplyPanel() {
     const {
       data: {

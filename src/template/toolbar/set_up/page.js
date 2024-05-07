@@ -2,18 +2,12 @@
 // 导入 dispatcher 模块
 import Dispatcher from '../../system/tools/dispatcher';
 
-
 /**
  * @class PageControler 页面设置控制器类
- * @date 2020-04-11
- * @author wyq
  */
-
 const Page = {
   /**
    * @method exec 执行命令
-   * @date 2020-06-10
-   * @author wyq
    */
   exec() {
     console.command = str => {
@@ -23,8 +17,6 @@ const Page = {
 
   /**
    * @method set 设置数据
-   * @date 2020-06-10
-   * @author wyq
    */
   set() {
     const iframeData = Dispatcher.dispatch('document_get');
@@ -75,8 +67,6 @@ const Page = {
 
   /**
    * @method clear 清空数据
-   * @date 2020-06-10
-   * @author wyq
    */
   clear() {
     Dispatcher.dispatch('document_remove', {
@@ -86,8 +76,6 @@ const Page = {
 
   /**
    * @method calcWidth 计算控件宽度
-   * @date 2020-05-15
-   * @author wyq
    * @param {numbe} value1 边距值
    * @param {number} value2 边距值
    * @return {number} 计算后的宽度

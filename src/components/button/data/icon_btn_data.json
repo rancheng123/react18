@@ -1,0 +1,540 @@
+{
+    "items": {
+        "button.iconBtn.s48.58": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s48.58"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "button.iconBtn.s48.58"
+            },
+            "animation": {
+                "className": "aNone",
+                "duration": 1,
+                "delay": 0,
+                "angle": 90,
+                "offsetDistance": 200,
+                "translateX": "",
+                "translateY": "",
+                "name": "noAnimation",
+                "value": "无动画",
+                "skin": "button.iconBtn.s48.58"
+            },
+            "style": {
+                "skin": "button.iconBtn.s48.58",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "paddingTop": "15",
+                    "paddingRight": "15",
+                    "paddingBottom": "15",
+                    "paddingLeft": "15",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": "15",
+                    "mopaddingRight": "15",
+                    "mopaddingBottom": "15",
+                    "mopaddingLeft": "15",
+                    "bgColor": "#2196f3",
+                    "hoverbgColor": "#0542E7",
+                    "fontFamily": "微软雅黑",
+                    "borRadius": "60px",
+                    "iconSize": "3",
+                    "iconColor": "#fff",
+                    "hovericonSize": "3",
+                    "hovericonColor": "#fff",
+                    "textSizeUnit": "rem",
+                    "iconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "marginLeftUnit": "",
+                    "marginRightUnit": ""
+                }
+            }
+        },
+        "button.iconBtn.s49.57": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s49.57"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "button.iconBtn.s49.57"
+            },
+            "animation": {
+                "className": "aNone",
+                "duration": 1,
+                "delay": 0,
+                "angle": 90,
+                "offsetDistance": 200,
+                "translateX": "",
+                "translateY": "",
+                "name": "noAnimation",
+                "value": "无动画",
+                "skin": "button.iconBtn.s49.57"
+            },
+            "style": {
+                "skin": "button.iconBtn.s49.57",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "paddingTop": "15",
+                    "paddingRight": "15",
+                    "paddingBottom": "15",
+                    "paddingLeft": "15",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": "15",
+                    "mopaddingRight": "15",
+                    "mopaddingBottom": "15",
+                    "mopaddingLeft": "15",
+                    "bgColor": "#d0482e",
+                    "fontFamily": "微软雅黑",
+                    "iconSize": "3",
+                    "moiconSize": "3",
+                    "iconColor": "#fff",
+                    "hovericonSize": "3",
+                    "hovericonColor": "#fff",
+                    "textSizeUnit": "rem",
+                    "iconSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "marginLeftUnit": "",
+                    "marginRightUnit": ""
+                }
+            }
+        },
+        "button.iconBtn.s50.56": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s50.56"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "button.iconBtn.s50.56"
+            },
+            "animation": {
+                "className": "aNone",
+                "duration": 1,
+                "delay": 0,
+                "angle": 90,
+                "offsetDistance": 200,
+                "translateX": "",
+                "translateY": "",
+                "name": "noAnimation",
+                "value": "无动画",
+                "skin": "button.iconBtn.s50.56"
+            },
+            "style": {
+                "skin": "button.iconBtn.s50.56",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "paddingTop": "15",
+                    "paddingRight": "15",
+                    "paddingBottom": "15",
+                    "paddingLeft": "15",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": "15",
+                    "mopaddingRight": "15",
+                    "mopaddingBottom": "15",
+                    "mopaddingLeft": "15",
+                    "borRadius": "60px",
+                    "fontFamily": "微软雅黑",
+                    "borWidth": "2",
+                    "borStyle": "solid",
+                    "borColor": "#f4346d",
+                    "bgColor": "none",
+                    "hoverbgColor": "#f4346d",
+                    "iconSize": "3",
+                    "moiconSize": "3",
+                    "iconColor": "#f4346d",
+                    "hovericonSize": "3",
+                    "hovericonColor": "#fff",
+                    "iconSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "marginLeftUnit": "",
+                    "marginRightUnit": ""
+                }
+            }
+        },
+        "button.iconBtn.s51.256": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s51.256"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "button.iconBtn.s51.256"
+            },
+            "style": {
+                "skin": "button.iconBtn.s51.256",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "paddingTop": "15",
+                    "paddingRight": "15",
+                    "paddingBottom": "15",
+                    "paddingLeft": "15",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": "15",
+                    "mopaddingRight": "15",
+                    "mopaddingBottom": "15",
+                    "mopaddingLeft": "15",
+                    "borRadius": "3px",
+                    "borWidth": "2",
+                    "borStyle": "solid",
+                    "borColor": "#e4903a",
+                    "bgColor": "none",
+                    "hoverbgColor": "#e4903a",
+                    "fontFamily": "微软雅黑",
+                    "iconSize": "3",
+                    "moiconSize": "3",
+                    "iconColor": "#e4903a",
+                    "hovericonSize": "3",
+                    "hovericonColor": "#fff",
+                    "iconSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "marginLeftUnit": "",
+                    "marginRightUnit": ""
+                }
+            }
+        },
+        "button.iconBtn.s52.255": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s52.255"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "button.iconBtn.s52.255"
+            },
+            "style": {
+                "skin": "button.iconBtn.s52.255",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "paddingTop": "15",
+                    "paddingRight": "15",
+                    "paddingBottom": "15",
+                    "paddingLeft": "15",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": "15",
+                    "mopaddingRight": "15",
+                    "mopaddingBottom": "15",
+                    "mopaddingLeft": "15",
+                    "borRadius": "5px",
+                    "bgColor": "#329ff4",
+                    "shadow": "2px 2px 0 2px #0773a4",
+                    "iconSize": "3",
+                    "moiconSize": "3",
+                    "fontFamily": "微软雅黑",
+                    "iconColor": "#fff",
+                    "hovericonSize": "3",
+                    "hovericonColor": "#fff",
+                    "iconSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "marginLeftUnit": "",
+                    "marginRightUnit": ""
+                }
+            }
+        },
+        "button.iconBtn.s53.254": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s53.254"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "button.iconBtn.s53.254"
+            },
+            "style": {
+                "skin": "button.iconBtn.s53.254",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "paddingTop": "15",
+                    "paddingRight": "15",
+                    "paddingBottom": "15",
+                    "paddingLeft": "15",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": "15",
+                    "mopaddingRight": "15",
+                    "mopaddingBottom": "15",
+                    "mopaddingLeft": "15",
+                    "borRadius": "3px",
+                    "bgColor": "#111111",
+                    "fontFamily": "微软雅黑",
+                    "iconSize": "3",
+                    "moiconSize": "3",
+                    "iconColor": "#fff",
+                    "hovericonSize": "3",
+                    "hovericonColor": "#fff",
+                    "iconSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "marginLeftUnit": "",
+                    "marginRightUnit": ""
+                }
+            }
+        },
+        "button.iconBtn.s54.253": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s54.253"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconSrc": "https://img.bjyyb.net/icons/message11_60.png"
+                },
+                "skin": "button.iconBtn.s54.253"
+            },
+            "style": {
+                "skin": "button.iconBtn.s54.253",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "paddingTop": "15",
+                    "paddingRight": "15",
+                    "paddingBottom": "15",
+                    "paddingLeft": "15",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": "15",
+                    "mopaddingRight": "15",
+                    "mopaddingBottom": "15",
+                    "mopaddingLeft": "15",
+                    "borWidth": "3",
+                    "borStyle": "solid",
+                    "borColor": "#fff",
+                    "borRadius": "100px",
+                    "shadow": "0 0 0 4px #4e7aab",
+                    "fontFamily": "微软雅黑",
+                    "bgColor": "#4e7aab",
+                    "iconSize": "3",
+                    "moiconSize": "3",
+                    "iconColor": "#fff",
+                    "hovericonSize": "3",
+                    "hovericonColor": "#fff",
+                    "textSizeUnit": "rem",
+                    "iconSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "marginLeftUnit": "",
+                    "marginRightUnit": ""
+                }
+            }
+        },
+        "button.iconBtn.s425.530": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Button",
+                "skin": "button.iconBtn.s425.530"
+            },
+            "data": {
+                "componentType": "em-Button",
+                "icon": {
+                    "iconName": "",
+                    "iconClass": "yiyingbaoicon",
+                    "iconType": "iconFont"
+                },
+                "clickIcon": {
+                    "iconName": "",
+                    "iconClass": "yiyingbaoicon",
+                    "iconType": "iconFont"
+                },
+                "link": {
+                    "type": "functionalLinks",
+                    "functionalLinkType": "bindPanel",
+                    "functionalLinkName": "绑定侧导航",
+                    "value": "功能链接 绑定侧导航"
+                },
+                "skin": "button.iconBtn.s425.530"
+            },
+            "animation": {
+                "className": "aNone",
+                "duration": 1,
+                "delay": 0,
+                "angle": 90,
+                "offsetDistance": 200,
+                "translateX": "",
+                "translateY": "",
+                "name": "noAnimation",
+                "value": "无动画",
+                "skin": "button.iconBtn.s425.530"
+            },
+            "style": {
+                "skin": "button.iconBtn.s425.530",
+                "style": {
+                    "marginTop": "1",
+                    "marginRight": "auto",
+                    "marginBottom": "1",
+                    "marginLeft": "auto",
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "bgColor": "none",
+                    "marginTopUnit": "%",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center"
+                }
+            }
+        }
+    }
+}

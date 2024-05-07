@@ -11,7 +11,7 @@ import Layer from '@/system/widgets/layer.js';
 
 
 
-const fontFamily = () => {
+export default function FontFamily () {
   const [familyShow, setfamilyShow] = useState(false);
   const [familyTab, setfamilyTab] = useState("system");
   const [familyData, setFamilyData] = useState("Arial");
@@ -81,21 +81,39 @@ const fontFamily = () => {
         hoveName = window.public.lang["fontEmpower"];
       }
 
-      return React.createElement("li", {
-        key: e.value,
-        className: e.value == value ? 'on' : null,
-        onClick: () => {
-          setFamilyData(e.value);
-          setFamilyName(e.name);
-          setfamilyShow(false);
-        }
-      }, React.createElement("p", {
-        className: "textNameP"
-      }, name, size ? React.createElement("span", {
-        className: "textNameSize"
-      }, " (", size, ")") : null), React.createElement("span", {
-        className: "textHoverSpan"
-      }, hoveName));
+      // return React.createElement("li", {
+      //   key: e.value,
+      //   className: e.value == value ? 'on' : null,
+      //   onClick: () => {
+      //     setFamilyData(e.value);
+      //     setFamilyName(e.name);
+      //     setfamilyShow(false);
+      //   }
+      // }, React.createElement("p", {
+      //   className: "textNameP"
+      // }, name, size ? React.createElement("span", {
+      //   className: "textNameSize"
+      // }, " (", size, ")") : null), React.createElement("span", {
+      //   className: "textHoverSpan"
+      // }, hoveName));
+
+      return (
+        <li
+          key={e.value}
+          className={e.value === value ? 'on' : null}
+          onClick={() => {
+            setFamilyData(e.value);
+            setFamilyName(e.name);
+            setfamilyShow(false);
+          }}
+        >
+          <p className="textNameP">
+            {name}
+            {size ? <span className="textNameSize"> ({size})</span> : null}
+          </p>
+          <span className="textHoverSpan">{hoveName}</span>
+        </li>
+      )
     });
   }; //自定义字体列表
 
@@ -104,15 +122,28 @@ const fontFamily = () => {
     if (list.length >= 1) {
       return list.map(e => {
         let keyFont = `font_${e.id}`;
-        return React.createElement("li", {
-          key: e.id,
-          className: keyFont == value ? 'on' : null,
-          onClick: () => {
-            setFamilyData('font_' + e.id);
-            setFamilyName(e.name);
-            setfamilyShow(false);
-          }
-        }, e.name);
+        // return React.createElement("li", {
+        //   key: e.id,
+        //   className: keyFont == value ? 'on' : null,
+        //   onClick: () => {
+        //     setFamilyData('font_' + e.id);
+        //     setFamilyName(e.name);
+        //     setfamilyShow(false);
+        //   }
+        // }, e.name);
+        return (
+          <li
+            key={e.id}
+            className={ keyFont == value ? 'on' : null}
+            onClick={() => {
+              setFamilyData(`font_${e.id}`);
+              setFamilyName(e.name);
+              setfamilyShow(false);
+            }}
+          >
+            {e.name}
+          </li>
+        )
       });
     } else {
       return null;
@@ -278,5 +309,4 @@ const fontFamily = () => {
   }, "2.\u5B57\u4F53\u66FF\u6362\u4F1A\u5237\u65B0\u7F16\u8F91\u754C\u9762\uFF0C\u8BF7\u786E\u4FDD\u7F51\u7AD9\u5DF2\u7ECF\u4FDD\u5B58\u6700\u65B0\u72B6\u6001 !"), React.createElement("div", {
     className: "csstitleFont1"
   }, "\u70B9\u51FB\u786E\u8BA4\u6309\u94AE\uFF0C\u9ED8\u8BA4\u60A8\u5DF2\u77E5\u6653\u4EE5\u4E0A\u63D0\u793A\u4FE1\u606F\u3002"))) : "");
-};
-export default fontFamily
+}

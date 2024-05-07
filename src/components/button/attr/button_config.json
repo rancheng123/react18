@@ -1,0 +1,451 @@
+{
+    "dots": {
+        "btns": [
+            "top",
+            "top-left",
+            "left"
+        ],
+        "list": [
+            "right"
+        ]
+    },
+    "pc": {
+        "tabs": {
+            "all": [
+                {
+                    "name": "buttonProperty",
+                    "type": "basic"
+                },
+                {
+                    "name": "design",
+                    "type": "design"
+                },
+                {
+                    "name": "setUp",
+                    "type": "setting"
+                },
+                {
+                    "name": "style",
+                    "type": "custom"
+                },
+                {
+                    "name": "animation",
+                    "type": "animation"
+                }
+            ],
+            "button.textBtn.s999": [
+                {
+                    "name": "design",
+                    "type": "design"
+                },
+                {
+                    "name": "setUp",
+                    "type": "setting"
+                }
+            ]
+        },
+        "btns": [
+            {
+                "name": "buttonProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design"
+            },
+            {
+                "name": "setUp",
+                "type": "setting"
+            },
+            {
+                "name": "style",
+                "type": "custom"
+            },
+            {
+                "name": "animation",
+                "type": "animation"
+            },
+            {
+                "name": "quote",
+                "type": "quote",
+                "show": "Hoverbox 2"
+            }
+        ]
+    },
+    "mo": {
+        "tabs": [
+            {
+                "name": "buttonProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design"
+            }
+        ],
+        "btns": [
+            {
+                "name": "buttonProperty",
+                "type": "basic"
+            },
+            {
+                "name": "design",
+                "type": "design"
+            }
+        ],
+        "group": {
+            "basic": {
+                "all": {
+                    "include": "maxWidth|align|marginLeft|marginRight"
+                }
+            }
+        }
+    },
+    "group": {
+        "basic": {
+            "all": {
+                "include": "controlsName|selectionContentSet|inputText|dataText|selectIcon|link|anchorSet|maxWidth|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s48": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s49": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s50": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s51": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s52": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s53": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s54": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.iconBtn.s425": {
+                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
+            },
+            "button.textBtn.s443": {
+                "include": "controlsName|inputText|maxWidth|align|marginLeft|marginRight"
+            }
+        },
+        "design": {
+            "all": {
+                "include": "text|icon|background|border|radius|shadow|position",
+                "button.textBtn.s44": {
+                    "include": "text|background|border|radius|shadow|position"
+                },
+                "button.textBtn.s45": {
+                    "include": "text|background|border|radius|shadow|position"
+                },
+                "button.textBtn.s46": {
+                    "include": "text|background|border|radius|shadow|position"
+                },
+                "button.textBtn.s47": {
+                    "include": "text|background|border|radius|shadow|position"
+                },
+                "group": {
+                    "position": {
+                        "margin": "left|right",
+                        "padding": true
+                    }
+                }
+            },
+            "button.iconBtn.s48": {
+                "include": "icon|background|border|radius|shadow|position"
+            },
+            "button.iconBtn.s49": {
+                "include": "icon|background|border|radius|shadow|position"
+            },
+            "button.iconBtn.s50": {
+                "include": "icon|background|border|radius|shadow|position"
+            },
+            "button.iconBtn.s51": {
+                "include": "icon|background|border|radius|shadow|position"
+            },
+            "button.iconBtn.s52": {
+                "include": "icon|background|border|radius|shadow|position"
+            },
+            "button.iconBtn.s53": {
+                "include": "icon|background|border|radius|shadow|position"
+            },
+            "button.iconBtn.s54": {
+                "include": "icon|background|border|radius|shadow|position"
+            },
+            "button.iconBtn.s425": {
+                "include": "icon|background|border|radius|shadow|position"
+            }
+        },
+        "setting": {
+            "all": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|icon|background|animation|border|radius|shadow",
+                        "button.textBtn.s44": {
+                            "include": "text|background|animation|border|radius|shadow"
+                        },
+                        "button.textBtn.s45": {
+                            "include": "text|background|animation|border|radius|shadow"
+                        },
+                        "button.textBtn.s46": {
+                            "include": "text|background|animation|border|radius|shadow"
+                        },
+                        "button.textBtn.s47": {
+                            "include": "text|background|animation|border|radius|shadow"
+                        },
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.textBtn.s44": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|animation|border|radius|shadow",
+                        "group": {
+                            "text": {
+                                "exclude": "align|letterSpace|marginLeft|marginRight"
+                            }
+                        }
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.textBtn.s45": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "text|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s48": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s49": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s50": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s51": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s52": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s53": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s54": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            },
+            "button.iconBtn.s425": {
+                "tabs": [
+                    "hover",
+                    "click",
+                    "double",
+                    "submit"
+                ],
+                "group": {
+                    "hover": {
+                        "include": "icon|background|animation|border|radius|shadow"
+                    },
+                    "click": {
+                        "include": "code"
+                    },
+                    "double": {
+                        "include": "code"
+                    },
+                    "submit": {
+                        "include": "code"
+                    }
+                }
+            }
+        }
+    }
+}

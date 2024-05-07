@@ -12,14 +12,9 @@ import componentsManager from "@/components/components_manager";
 import Dispatcher from "dispatcher";
 
 
-
 /**
  * @class {CustomControler} 样式切换功能类
- * @author sxt
- * @version 1.0
- * @date 2020-2-6
  */
-
 export default class CustomControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -29,14 +24,12 @@ export default class CustomControler extends React.Component {
 
     this.view.render = this.view.render.bind(this.view);
   }
+
+
   /**
    * @static custom 插入结构方法
-   * @author sxt 
-   * @date 2020-2-6
    * @param {object} opts 参数列表
   */
-
-
   static custom(opts) {
     const {
       node,
@@ -49,23 +42,20 @@ export default class CustomControler extends React.Component {
       config: config
     }), element);
   }
+
+
   /**
    * @static render 返回结构
-   * @author sxt 
-   * @date 2020-2-6
    * @return {object} 结构
   */
   render() {
-    debugger
     return React.createElement(this.view.render, null);
   }
+
+
   /**
    * @static init 初始化方法
-   * @author sxt 
-   * @date 2020-2-6
   */
-
-
   init() {
     let currentId = this.props.id; //当前控件id
 
@@ -116,29 +106,25 @@ export default class CustomControler extends React.Component {
 
     this.state.group = currentData.group; //控件样式列表数据
   }
+
+
   /**
   * @method clickTabs 设置上部选项的切换
-  * @author sxt 
-   * @date 2020-2-7
   * @param {string} value 切换值
   */
-
-
   clickTabs(value) {
     this.setState({
       currentTab: value
     });
   }
+
+
   /**
   * @method changeStyle 修改样式数据方法
-  * @author sxt 
-   * @date 2020-2-10
   * @param {Object} newComponent 新数据里的值
    * @param {Object} state state对象
    * @return {Object} 设置的新数据
   */
-
-
   changeStyle(newComponent, state) {
     let stateData = state.datas.data || {},
         layout = state.datas.component.layout;
@@ -159,10 +145,10 @@ export default class CustomControler extends React.Component {
 
     return newComponent;
   }
+
+
   /**
   * @method getStyleMargin 获取数据中的margin的数据
-  * @author sxt 
-   * @date 2020-2-12
   * @param {Object} style style数据
    * @return {Object} Margin数据
   */
@@ -205,19 +191,17 @@ export default class CustomControler extends React.Component {
       momarginLeftUnit: style.momarginLeftUnit || ""
     };
   }
+
+
   /**
   * @method setMargin 获取数据中的margin的数据
-  * @author sxt 
-   * @date 2020-2-12
   * @param {Object} component 新控件数据
    * @param {Object} state state对象
    * @return {Object} style数据
   */
-
-
   setMargin(component, state) {
     let stateStyle = state.datas.data.theme_data.style || {},
-        margin = this.getStyleMargin(stateStyle); //保留原有的禁拖和禁删属性   wh 2022-9-3
+        margin = this.getStyleMargin(stateStyle); //保留原有的禁拖和禁删属性   
 
     let isDragable = state.datas.component.isDragable,
         removable = state.datas.component.removable;
@@ -240,16 +224,14 @@ export default class CustomControler extends React.Component {
     };
     return component;
   }
+
+
   /**
   * @method addSelect 新增切换样式方法
-  * @author sxt 
-   * @date 2020-2-11
    * @param {string} componentType 控件类型
   * @param {Object} component 新数据里的值
    * @param {Object} state state对象
   */
-
-
   addSelect(componentType, component, state, event) {
     let newComponent = {}; //类型为列表和表单时，所有数据都替换
 
@@ -294,14 +276,12 @@ export default class CustomControler extends React.Component {
       }, notRender]
     });
   }
+
+
   /**
   * @method selected 样式切换
-  * @author sxt 
-   * @date 2020-2-7
   * @param {string} skin 切换的皮肤
   */
-
-
   selected(skin, event) {
     event.persist();
     let state = this.state || {};
@@ -339,7 +319,7 @@ export default class CustomControler extends React.Component {
 
         Dispatcher.dispatch(`${state.currentId}_set`, {
           args: [`component.skin`, skin]
-        }); //控件是移动端头部和移动端底部时，修改顶层数据，进行结构渲染 sxt 2021-2-1
+        }); //控件是移动端头部和移动端底部时，修改顶层数据，进行结构渲染
 
         if (componentType == "em-MoHeader" || componentType == "em-MoFooter" || componentType == "em-Panel") {
           let length = skin && skin.split('.')[3];
@@ -365,15 +345,13 @@ export default class CustomControler extends React.Component {
       }
     });
   }
+
+
   /**
    * @method getData 获取控件数据
-   * @date 2020-2-7
-   * @author sxt
    * @param {string} skin 皮肤
    * @return {object} 控件数据 
    */
-
-
   async getData(skin) {
     if (skin) {
       const [type, classname] = skin.split(".");

@@ -5,6 +5,10 @@ import App from './App'
 import Util from '@/components/page/util/util.jsx'
 import './utils/public.js'
 import './language/system/zh.js'
+
+
+import { componentsAsync } from "@/config/async_import_components_config";
+console.log(componentsAsync,'componentsAsync');
   async function load(event, callback) {
       const pub = window.public;
       //存储框架页window对象

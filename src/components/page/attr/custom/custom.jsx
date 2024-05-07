@@ -4,9 +4,6 @@ import React from "react";
 
 /**
  * @class {Custom} 样式切换视图类
- * @author sxt
- * @version 1.0
- * @date 2020-2-6
  */
 export default class Custom {
   constructor(controler) {
@@ -67,10 +64,7 @@ export default class Custom {
   }
   /**
    * @method listHtml 样式选择列表
-   * @author sxt
    */
-
-
   listHtml() {
     let state = this.state || {},
         skin = state.skin;

@@ -7,6 +7,7 @@ import CollectionControler from '../toolbar/collection/collection_controler'
 import WidgetLibraryControler from '../toolbar/widget_library/widget_library_controler'
 // import TemplateControler from '../toolbar/template/template_controler'
 import { createRoot } from 'react-dom/client';
+
 export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -111,7 +112,7 @@ export default class ContentControler extends React.Component {
       save.then(() => {
         const search = this.search('type', type); //存储页面类型
 
-        window.public.type = type; //重置列出隐藏状态，eric,2020.03.03
+        window.public.type = type; //重置列出隐藏状态
 
         window.public.hiding = 'reset'; //添加到hash
 
