@@ -986,7 +986,8 @@ const Hoverbtns = ({
       // }
       {
         "name": "buttonProperty",
-        "type": "basic"
+        "type": "basic",
+        "iconName": "&#xe7a0;"
       },
       {
         "name": "design",
@@ -1028,7 +1029,8 @@ const Hoverbtns = ({
     "mo": {
       "btns": [{
         "name": "buttonProperty",
-        "type": "basic"
+        "type": "basic",
+        "iconName": "&#xe7a0;"
       }, {
         "name": "design",
         "type": "design"

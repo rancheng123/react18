@@ -215,7 +215,7 @@ class Buttons {
     //   })));
     return (
       <ConfigBtn.ConfigBtnWaper style={layout} name={componentName} id={id}>
-        <ul className="functionUL">
+        <ul className="functionUL" id='asdf'>
           {/* 循环控件属性按钮 */}
           {btns.map(({ name, type, hidden, select, selected, show, className = type,iconName }, i) => {
             //判断属性按钮是隐藏还是显示
