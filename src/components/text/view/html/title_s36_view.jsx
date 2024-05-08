@@ -51,7 +51,7 @@ function s36() {
   if (fontLabel && fontLabel != "not") {
     textLineP = "";
 
-    let str = _text.replace(/<(h\d)/g, '<span').replace(/<\/(h\d)>/g, '</span>'); //获取并且替换标签为span lw 2021-3-29
+    let str = _text.replace(/<(h\d)/g, '<span').replace(/<\/(h\d)>/g, '</span>'); //获取并且替换标签为span 
 
 
     _text = `<${fontLabel} class="textLineP">${str}</${fontLabel}>`;

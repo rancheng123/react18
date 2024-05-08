@@ -51,19 +51,33 @@
             },
             {
                 "name": "design",
-                "type": "design"
+                "type": "design",
+                "iconName": "&#xe79d;"
             },
             {
                 "name": "setUp",
-                "type": "setting"
-            },
-            {
-                "name": "style",
-                "type": "custom"
+                "type": "setting",
+                "iconName": "&#xe7a2;"
             },
             {
                 "name": "animation",
-                "type": "animation"
+                "type": "animation",
+                "iconName": "&#xe796;"
+            },
+            {
+                "name": "link",
+                "type": "link",
+                "iconName": "&#xe79a;"
+            },
+            {
+                "name": "style",
+                "type": "custom",
+                "iconName": "&#xe79e;"
+            },
+            {
+                "name": "translate",
+                "type": "translate",
+                "iconName": "&#xe7a4;"
             },
             {
                 "name": "quote",

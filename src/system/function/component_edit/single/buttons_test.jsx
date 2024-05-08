@@ -252,6 +252,7 @@ class Buttons {
    */
   btnListLayout(btnId, setLayout) {
     return () => {
+
       const btn = document.querySelector(`#${btnId} ul`);
 
       if (btn) {
@@ -282,7 +283,8 @@ class Buttons {
           //如果以控件坐标为基准放不下属性按钮，则以属性按钮宽度来计算属性按钮的x坐标
           //80为右侧工具库按钮宽度
           if (innerWidth - layout.x < width + 95) {
-            left = innerWidth - (width + 85);
+            // left = innerWidth - (width + 85);
+            left = innerWidth - (width + 89);
           } 
           
           //如果属性按钮y坐标小于自身高度，则属性按钮y坐标等于控件y坐标加上其高度的值
@@ -292,8 +294,8 @@ class Buttons {
         } else {
           const main = document.querySelector('#ediMain');
           height = main.offsetTop + height;
-          left = Buttons.x >= width ? Buttons.x - width : Buttons.x + width; //如果属性按钮x轴加上自身宽度超出屏幕宽度，则x等于屏幕宽度减去属性按钮自身宽度
-
+          left = Buttons.x >= width ? Buttons.x - width : Buttons.x + width; 
+          //如果属性按钮x轴加上自身宽度超出屏幕宽度，则x等于屏幕宽度减去属性按钮自身宽度
           if (left + width >= innerWidth) {
             left = innerWidth - width - 15;
           }

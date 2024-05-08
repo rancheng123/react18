@@ -46,19 +46,33 @@ function s47() {
     text = Util.getComponentText(id, document_data, 'label', context);
   }
 
-  return React.createElement(Util.linkDecorator, {
-    id: id,
-    className: `${id}A btn2 minWidth btnbox btnCont ${hoverAnimationClass} ${formBtn}`,
-    link: Util.setLinkUrl(context.link, link),
-    type: "html"
-  }, React.createElement(Component.script, {
-    id: id,
-    document_data: document_data
-  }), React.createElement("div", {
-    className: `${id}TextBox  textBox`
-  }, React.createElement("span", {
-    className: `${id}Te btnText`
-  }, text)));
+  // return React.createElement(Util.linkDecorator, {
+  //   id: id,
+  //   className: `${id}A btn2 minWidth btnbox btnCont ${hoverAnimationClass} ${formBtn}`,
+  //   link: Util.setLinkUrl(context.link, link),
+  //   type: "html"
+  // }, React.createElement(Component.script, {
+  //   id: id,
+  //   document_data: document_data
+  // }), React.createElement("div", {
+  //   className: `${id}TextBox  textBox`
+  // }, React.createElement("span", {
+  //   className: `${id}Te btnText`
+  // }, text)));
+
+  return (
+    <Util.linkDecorator
+      id={id}
+      className={`${id}A btn2 minWidth btnbox btnCont ${hoverAnimationClass} ${formBtn}`}
+      link={Util.setLinkUrl(context.link, link)}
+      type="html"
+    >
+      <Component.script id={id} document_data={document_data} />
+      <div className={`${id}TextBox  textBox`}>
+        <span className={`${id}Te btnText`}>{text}</span>
+      </div>
+    </Util.linkDecorator>
+  )
 }
 
 export {s47}

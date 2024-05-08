@@ -32,18 +32,30 @@ function s49() {
     }
   }
 
-  return React.createElement(Util.linkDecorator, {
-    id: id,
-    className: `${id}A btn3 btnAnati  btnbox btnCont ${hoverAnimationClass} ${formBtn}`,
-    link: Util.setLinkUrl(context.link, link),
-    type: "html"
-  }, React.createElement(Component.script, {
-    id: id,
-    document_data: document_data
-  }), React.createElement(Component.icon, {
-    id: id,
-    icon: icon
-  }));
+  // return React.createElement(Util.linkDecorator, {
+  //   id: id,
+  //   className: `${id}A btn3 btnAnati  btnbox btnCont ${hoverAnimationClass} ${formBtn}`,
+  //   link: Util.setLinkUrl(context.link, link),
+  //   type: "html"
+  // }, React.createElement(Component.script, {
+  //   id: id,
+  //   document_data: document_data
+  // }), React.createElement(Component.icon, {
+  //   id: id,
+  //   icon: icon
+  // }));
+
+  return (
+    <Util.linkDecorator
+      id={id}
+      className={`${id}A btn3 btnAnati btnbox btnCont ${hoverAnimationClass} ${formBtn}`}
+      link={Util.setLinkUrl(context.link, link)}
+      type="html"
+    >
+      <Component.script id={id} document_data={document_data} />
+      <Component.icon id={id} icon={icon} />
+    </Util.linkDecorator>
+  )
 }
 
 export { s49 }

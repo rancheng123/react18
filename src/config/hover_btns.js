@@ -963,26 +963,67 @@ const Hoverbtns = ({
     }
   },
   "em-button": {
-    "btns": [{
-      "name": "buttonProperty",
-      "type": "basic"
-    }, {
-      "name": "design",
-      "type": "design"
-    }, {
-      "name": "setUp",
-      "type": "setting"
-    }, {
-      "name": "style",
-      "type": "custom"
-    }, {
-      "name": "animation",
-      "type": "animation"
-    }, {
-      "name": "quote",
-      "type": "quote",
-      "show": "Hoverbox 2"
-    }],
+    "btns": [
+      // {
+      //   "name": "buttonProperty",
+      //   "type": "basic"
+      // }, {
+      //   "name": "design",
+      //   "type": "design"
+      // }, {
+      //   "name": "setUp",
+      //   "type": "setting"
+      // }, {
+      //   "name": "style",
+      //   "type": "custom"
+      // }, {
+      //   "name": "animation",
+      //   "type": "animation"
+      // }, {
+      //   "name": "quote",
+      //   "type": "quote",
+      //   "show": "Hoverbox 2"
+      // }
+      {
+        "name": "buttonProperty",
+        "type": "basic"
+      },
+      {
+        "name": "design",
+        "type": "design",
+        "iconName": "&#xe79d;"
+      },
+      {
+        "name": "setUp",
+        "type": "setting",
+        "iconName": "&#xe7a2;"
+      },
+      {
+        "name": "animation",
+        "type": "animation",
+        "iconName": "&#xe796;"
+      },
+      {
+        "name": "link",
+        "type": "link",
+        "iconName": "&#xe79a;"
+      },
+      {
+        "name": "style",
+        "type": "custom",
+        "iconName": "&#xe79e;"
+      },
+      {
+        "name": "translate",
+        "type": "translate",
+        "iconName": "&#xe7a4;"
+      },
+      {
+        "name": "quote",
+        "type": "quote",
+        "show": "Hoverbox 2"
+      }
+    ],
     "dots": [],
     "mo": {
       "btns": [{

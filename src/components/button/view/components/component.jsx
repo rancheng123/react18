@@ -20,26 +20,34 @@ const Component = {
         iconName,
         iconSrc
       }
-    } = props; //判断是否存在图标icon
-
+    } = props; 
+    
+    //判断是否存在图标icon
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic btnIcon yiyingbaoicon`
-      }, iconName);
-    } //判断是否存在图片路径
+      // return React.createElement("i", {
+      //   className: `${id}Ic btnIcon yiyingbaoicon`
+      // }, iconName);
 
-
+      return <i className={`${id}Ic btnIcon yiyingbaoicon`}>{iconName}</i>
+    } 
+    
+    //判断是否存在图片路径
     if (iconSrc) {
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon`
-      }, React.createElement("img", {
-        className: "btnImg lazyload",
-        "data-src": iconSrc,
-        src: Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc
-      }));
-    } //返回null
-
-
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon`
+      // }, React.createElement("img", {
+      //   className: "btnImg lazyload",
+      //   "data-src": iconSrc,
+      //   src: Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc
+      // }));
+      return (
+        <div className={`${id}Ic btnIcon`}>
+          <img className="btnImg lazyload" data-src={iconSrc} src={Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc} />
+        </div>
+      )
+    }
+    
+    //返回null
     return null;
   },
 
@@ -68,31 +76,49 @@ const Component = {
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
-    } //判断是否存在图标icon
-
-
+    } 
+    
+    //判断是否存在图标icon
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic btnIcon yiyingbaoicon`
-      }, iconName);
-    } //判断是否存在图片路径
-
-
+      // return React.createElement("i", {
+      //   className: `${id}Ic btnIcon yiyingbaoicon`
+      // }, iconName);
+      return (
+        <i className={`${id}Ic btnIcon yiyingbaoicon`}>{iconName}</i>
+      )
+    } 
+    
+    
+    //判断是否存在图片路径
     if (iconSrc) {
       const webp = Util.webp(iconSrc);
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon`
-      }, React.createElement("amp-img", {
-        width: imgFixed,
-        height: imgFixed,
-        "data-amp-auto-lightbox-disable": "true",
-        layout: "fixed",
-        class: "btnImg",
-        src: iconSrc
-      }));
-    } //返回null
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon`
+      // }, React.createElement("amp-img", {
+      //   width: imgFixed,
+      //   height: imgFixed,
+      //   "data-amp-auto-lightbox-disable": "true",
+      //   layout: "fixed",
+      //   class: "btnImg",
+      //   src: iconSrc
+      // }));
 
+      return (
+        <div className={`${id}Ic btnIcon`}>
+          <amp-img
+            width={imgFixed}
+            height={imgFixed}
+            data-amp-auto-lightbox-disable="true"
+            layout="fixed"
+            class="btnImg"
+            src={iconSrc}
+          />
+        </div>
 
+      )
+    } 
+    
+    //返回null
     return null;
   },
 
@@ -121,36 +147,44 @@ const Component = {
 
     if (imgUnit == "rem" || imgUnit == "em") {
       imgFixed = imgFixed * 10;
-    } //判断是否存在图标icon
-
-
+    }
+    
+    //判断是否存在图标icon
     if (iconName) {
-      return React.createElement("i", {
-        className: `${id}Ic btnIcon yiyingbaoicon`
-      }, iconName);
-    } //判断是否存在图片路径
-
-
+      // return React.createElement("i", {
+      //   className: `${id}Ic btnIcon yiyingbaoicon`
+      // }, iconName);
+      return <i className={`${id}Ic btnIcon yiyingbaoicon`}>{iconName}</i>
+    }
+    
+    //判断是否存在图片路径
     if (iconSrc) {
-      return React.createElement("div", {
-        className: `${id}Ic btnIcon`
-      }, React.createElement("mip-img", {
-        width: imgFixed,
-        height: imgFixed,
-        layout: "fixed",
-        class: "btnImg",
-        src: iconSrc
-      }));
-    } //返回null
-
-
+      // return React.createElement("div", {
+      //   className: `${id}Ic btnIcon`
+      // }, React.createElement("mip-img", {
+      //   width: imgFixed,
+      //   height: imgFixed,
+      //   layout: "fixed",
+      //   class: "btnImg",
+      //   src: iconSrc
+      // }));
+      <div className={`${id}Ic btnIcon`}>
+        <mip-img
+          width={imgFixed}
+          height={imgFixed}
+          layout="fixed"
+          className="btnImg"
+          src={iconSrc}
+        />
+      </div>
+    }
+    
+    //返回null
     return null;
   },
 
   /**
    * @method script json数据
-   * @author wyq
-   * @date 2020-11-30
    * @param {object} props 参数列表
    */
   script(props) {
@@ -164,13 +198,21 @@ const Component = {
 
     if (clickcode || doublecode || submitcode) {
       const data = `{"clickcode":"${clickcode}","doublecode":"${doublecode}","submitcode":"${submitcode}"}`;
-      return React.createElement("script", {
-        className: "button-code",
-        type: "text/json",
-        dangerouslySetInnerHTML: {
-          __html: data
-        }
-      });
+      // return React.createElement("script", {
+      //   className: "button-code",
+      //   type: "text/json",
+      //   dangerouslySetInnerHTML: {
+      //     __html: data
+      //   }
+      // });
+
+      return (
+        <script
+          className="button-code"
+          type="text/json"
+          dangerouslySetInnerHTML={{ __html: data }}
+        />
+      )
     } //返回空
 
 

@@ -33,20 +33,20 @@ export default class ComponentEditControler extends React.Component {
     this.selected = null;
     /**@property {Node} node 当前鼠标指针下的控件节点对象*/
 
-    this.node = null; 
-    
+    this.node = null;
+
     // /**@property {AttrProxy} proxy 属性代理 */
     // this.proxy = new AttrProxy();
 
     /**@property {MouseRightClickMenuControler} menu 右键菜单组件 */
-    this.menu = MouseRightClickMenuControler; 
-    
+    this.menu = MouseRightClickMenuControler;
+
     //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
 
     /**@property {ComponentEdit} view 初始化 view 实例*/
-    this.view = new ComponentEdit(this); 
-    
+    this.view = new ComponentEdit(this);
+
     //给view 入口方法绑定this
     this.view.render = this.view.render.bind(this.view);
 
@@ -93,9 +93,9 @@ export default class ComponentEditControler extends React.Component {
 
     if (selected) {
       const children = selected.children,
-            {
-        children: [parentBtn, btn]
-      } = children[0]; //卸载父级属性按钮
+        {
+          children: [parentBtn, btn]
+        } = children[0]; //卸载父级属性按钮
 
       ReactDom.unmountComponentAtNode(parentBtn); //卸载属性按钮
 
@@ -139,7 +139,7 @@ export default class ComponentEditControler extends React.Component {
       }
 
       return obj;
-    } catch (error) {}
+    } catch (error) { }
   }
   /**
    * @method find 根据坐标值查找控件
@@ -246,37 +246,59 @@ export default class ComponentEditControler extends React.Component {
    * @param {node} 查找到的控件数据
    */
   findComponent(initX, initY, stop, cid) {
-    this.findPropertyBtn(); //获取总数据
+    this.findPropertyBtn();
 
-    const data = Dispatcher.dispatch("getIframeData"); //判断data中是否存有数据
+    //获取总数据
+    const data = Dispatcher.dispatch("getIframeData");
 
+    //判断data中是否存有数据
     if (data) {
       //判断当前是否是移动端浏览
       if (window.public.type == 'mo') {
         initX = initX - (window.innerWidth - 375) / 2;
       }
 
+      // let {
+      //   component: {
+      //     documentType,
+      //     children: components
+      //   }
+      // } = data,
+      //     isroot = true,
+      //     componentData = {
+      //   components,
+      //   i: 0,
+      //   len: components.length,
+      //   current: null,
+      //   componentsList: []
+      // },
+      //     parents = [{
+      //   id: documentType
+      // }]; 
+
       let {
         component: {
           documentType,
           children: components
         }
-      } = data,
-          isroot = true,
-          componentData = {
+      } = data
+      let isroot = true
+      let componentData = {
         components,
         i: 0,
         len: components.length,
         current: null,
         componentsList: []
-      },
-          parents = [{
+      }
+      let parents = [{
         id: documentType
-      }]; //循环
+      }];
 
+      //循环
       while (componentData.i < componentData.len) {
-        componentData.component = componentData.components[componentData.i]; //类型如果是em-Content，则把数据变成当前页面的数据
+        componentData.component = componentData.components[componentData.i];
 
+        //类型如果是em-Content，则把数据变成当前页面的数据
         if (componentData.component.componentType == "em-Content") {
           const page = Dispatcher.dispatch("getPageData", {
             value: componentData.component.pageId
@@ -287,14 +309,19 @@ export default class ComponentEditControler extends React.Component {
         const {
           id,
           componentType: type
-        } = componentData.component; //如果指定指向查找并且当前容器类型未包含在指定查找属性中，跳出循环 只查找根级下的直系父级
+        } = componentData.component;
 
-        (isroot == false || _classPrivateFieldGet(this, _lookup) == '' || _classPrivateFieldGet(this, _lookup).indexOf(type.split('-')[1]) != -1) && this.lookForCurrent(initX, initY, stop, cid, componentData); //是否已循环到最后一个或是传入的id与当前循环的id相同
+        //如果指定指向查找并且当前容器类型未包含在指定查找属性中，跳出循环 只查找根级下的直系父级
+        (isroot == false || _classPrivateFieldGet(this, _lookup) == '' || _classPrivateFieldGet(this, _lookup).indexOf(type.split('-')[1]) != -1) && this.lookForCurrent(initX, initY, stop, cid, componentData);
 
+
+        //是否已循环到最后一个或是传入的id与当前循环的id相同
         if (componentData.i == componentData.len - 1 || id == cid) {
           //赋值false，表示已经循环完毕根级下的直系父级
-          isroot = false; //数组内是否还有父级数据，有存储父级数据，无根据当前控件查找父级数据
+          isroot = false;
 
+
+          //数组内是否还有父级数据，有存储父级数据，无根据当前控件查找父级数据
           if (componentData.componentsList.length && id != cid) {
             this.saveParent(componentData, parents);
             continue;
@@ -306,15 +333,15 @@ export default class ComponentEditControler extends React.Component {
 
         componentData.i++;
       }
-
       positions.virtual = false;
+
       return componentData.current ? {
         parent: componentData.current.parent,
         current: componentData.current
       } : null;
-    } //没有数据返回空
+    }
 
-
+    //没有数据返回空
     return null;
   }
   /**
@@ -345,8 +372,7 @@ export default class ComponentEditControler extends React.Component {
    */
   lookForCurrent(x, y, stop, id, componentData) {
     const component = componentData.component,
-          element = window.public.dom.querySelector(`#${componentData.component.id}`);
-
+      element = window.public.dom.querySelector(`#${componentData.component.id}`);
     if (element) {
       const {
         left,
@@ -356,8 +382,9 @@ export default class ComponentEditControler extends React.Component {
         width,
         height
       } = element.getBoundingClientRect(),
-            hidden = element.dataset.mask; //过滤不在屏幕内的控件
+        hidden = element.dataset.mask;
 
+      //过滤不在屏幕内的控件
       if (!(bottom <= 0 || top >= window.public.win.innerHeight)) {
         var _component$layout;
 
@@ -366,18 +393,21 @@ export default class ComponentEditControler extends React.Component {
           y: top + stop,
           width,
           height
-        }; //判断控件是否时固定定位的
+        };
 
+        //判断控件是否时固定定位的
         if (((_component$layout = component.layout) !== null && _component$layout !== void 0 ? _component$layout : {}).position == 'fixed') {
           y = y - stop, stop = 0;
-        } //过滤不在当前鼠标指针范围内的控件
+        }
 
-
+        //过滤不在当前鼠标指针范围内的控件
         if (id == component.id || x >= left && x <= right && y >= top + stop && y <= bottom + stop) {
           const parentNode = componentData.current && element.ownerDocument.querySelector(`#${componentData.current.id}`); //
 
           if (!(parentNode && parentNode.contains(element) != true && parentNode.dataset.position == 'highest') && component.selectable != false) {
-            componentData.current = { ...component,
+
+            componentData.current = {
+              ...component,
               layout,
               hidden,
               dragable: component.isDragable,
@@ -406,14 +436,14 @@ export default class ComponentEditControler extends React.Component {
         component
       }]
     } = componentData,
-          {
-      id,
-      skin,
-      selectable,
-      componentType,
-      type,
-      combinationType
-    } = component; //去重
+      {
+        id,
+        skin,
+        selectable,
+        componentType,
+        type,
+        combinationType
+      } = component; //去重
 
     id != parents[parents.length - 1].id && parents.push({
       layout,
@@ -458,9 +488,9 @@ export default class ComponentEditControler extends React.Component {
         absolute,
         id
       } = state,
-            hover = {
-        name: window.public.getName(type)
-      }; //判断是否存在布局数据
+        hover = {
+          name: window.public.getName(type)
+        }; //判断是否存在布局数据
 
       if (layout) {
         const {
@@ -492,22 +522,21 @@ export default class ComponentEditControler extends React.Component {
    */
   hover(event) {
     const top = document.querySelector("#ediMain").offsetTop,
-          stop = event.currentTarget.parentNode.scrollTop;
+      stop = event.currentTarget.parentNode.scrollTop;
     const initX = event.pageX;
     const initY = event.pageY - top + stop;
     this._initX = initX - (document.body.clientWidth - document.querySelector('#ediMain').getBoundingClientRect().width) / 2;
     this._initY = initY;
     this.virtualNode = positions.findVirtual(this._initX, this._initY);
-    
+
     //找到虚拟区域，保留当前位置导航按钮
     if (this.virtualNode !== false && this.state.hover) {
       this.node = this.virtualNode;
       return;
-    } 
-    
+    }
     //查找指定坐标范围内的控件  
-    this.node = this.findComponent(initX, initY, stop); 
-    
+    this.node = this.findComponent(initX, initY, stop);
+
     //是否查找到了控件
     if (this.node) {
       const {
@@ -515,8 +544,8 @@ export default class ComponentEditControler extends React.Component {
           current
         }
       } = this;
-      const configList = []; 
-      
+      const configList = [];
+
       //判断当前查找到的控件是否是已经选中的控件，不是则if，是则else
       if (!(this.selected && this.selected.isNode(current))) {
         const nodes = positions.getParentNodes(this.node, this._initX);
@@ -528,18 +557,18 @@ export default class ComponentEditControler extends React.Component {
             configList.push(cur);
           }
         });
-        
+
         //更新视图
         this.setState({
           hidden: false,
           hover: configList
         });
       } else {
-          //如果鼠标在当前选中控件内，则不出现滑入框并且清空this.node
-          this.node = null, this.setState({
-            hover: null
-          });
-        }
+        //如果鼠标在当前选中控件内，则不出现滑入框并且清空this.node
+        this.node = null, this.setState({
+          hover: null
+        });
+      }
     }
   }
   /**
@@ -553,7 +582,7 @@ export default class ComponentEditControler extends React.Component {
         document.getElementById(id + '-' + type).click();
       }, 200);
     });
-    
+
     e.stopPropagation();
   }
   /**
@@ -565,9 +594,9 @@ export default class ComponentEditControler extends React.Component {
   isShow(node, show) {
     let [condition, num] = show.split(' ');
     let parent = node.parent,
-        i = 1,
-        isshow = true,
-        unshow = false; //条件内是否存在叹号。存在叹号则进行取反操作
+      i = 1,
+      isshow = true,
+      unshow = false; //条件内是否存在叹号。存在叹号则进行取反操作
 
     if (condition.charAt(0) == "!") {
       //取反赋值
@@ -606,7 +635,7 @@ export default class ComponentEditControler extends React.Component {
   mousedown(event, x, y, id, fn) {
     const closes = document.querySelectorAll('.layer-close,#panel-close');
 
-     //获取导航项管理的父级id 以及关闭的类 author lw date 2021-1-27
+    //获取导航项管理的父级id 以及关闭的类 author lw date 2021-1-27
     let el = document.querySelector('#page-management .layer-close');
     closes.length && [...closes].forEach(e => {
       if (window.public.type == 'mo' && el == e) {
@@ -620,7 +649,7 @@ export default class ComponentEditControler extends React.Component {
       //判断鼠标按下的是否是左键
       if (event.button == 0) {
         this.selected = event.ctrlKey ? MoreComponentEdit : SingleComponentEdit;
-        this.selected.controler = this; 
+        this.selected.controler = this;
         //如果id类型为function，把id值赋给变量fn，id赋为空
 
         if (typeof id == 'function') {

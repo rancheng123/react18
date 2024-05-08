@@ -1,9 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s37", function() { return s37; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-// /* harmony import */ var _components_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/component */ "./components/button/view/components/component.js");
 
 import React from 'react';
 import Util from '@/components/page/util/util';
@@ -54,22 +48,37 @@ function s37() {
     text = Util.getComponentText(id, document_data, 'label', context);
   }
 
-  return React.createElement(Util.linkDecorator, {
-    id: id,
-    className: `${id}A btn btnbox btnCont minWidth ${hoverAnimationClass} ${formBtn}`,
-    link: Util.setLinkUrl(context.link, link),
-    type: "html"
-  }, React.createElement(Component.script, {
-    id: id,
-    document_data: document_data
-  }), React.createElement("div", {
-    className: `${id}TextBox  textBox`
-  }, React.createElement(Component.icon, {
-    id: id,
-    icon: icon
-  }), React.createElement("span", {
-    className: `${id}Te btnText`
-  }, text)));
+  // return React.createElement(Util.linkDecorator, {
+  //   id: id,
+  //   className: `${id}A btn btnbox btnCont minWidth ${hoverAnimationClass} ${formBtn}`,
+  //   link: Util.setLinkUrl(context.link, link),
+  //   type: "html"
+  // }, React.createElement(Component.script, {
+  //   id: id,
+  //   document_data: document_data
+  // }), React.createElement("div", {
+  //   className: `${id}TextBox  textBox`
+  // }, React.createElement(Component.icon, {
+  //   id: id,
+  //   icon: icon
+  // }), React.createElement("span", {
+  //   className: `${id}Te btnText`
+  // }, text)));
+
+  return (
+    <Util.linkDecorator
+      id={id}
+      className={`${id}A btn btnbox btnCont minWidth ${hoverAnimationClass} ${formBtn}`}
+      link={Util.setLinkUrl(context.link, link)}
+      type="html"
+    >
+      <Component.script id={id} document_data={document_data} />
+      <div className={`${id}TextBox  textBox`}>
+        <Component.icon id={id} icon={icon} />
+        <span className={`${id}Te btnText`}>{text}</span>
+      </div>
+    </Util.linkDecorator>
+  )
 }
 
 export { s37 }

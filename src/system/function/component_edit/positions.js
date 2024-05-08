@@ -247,7 +247,8 @@ const positions = {
               parentNav
             } = this.proofreadingPosition(parent.nav, current.nav);
             parent.nav = parentNav;
-            current.nav = currentNav; //console.log('父级往左偏',parent.nav.left);
+            current.nav = currentNav;
+            //console.log('父级往左偏',parent.nav.left);
 
             this.virtual = this.createVirtualNode(current, parent);
           }
@@ -915,9 +916,7 @@ const positions = {
   /**
    * @description: 相对位置检测
    * @param {type} 
-   * @return: void
-   * @author: Eric
-   * @Date: 2020-03-12 13:02:10
+   * @return void
    */
   relativePosition(nav, comp) {
     if (comp.height >= base) {
@@ -934,9 +933,7 @@ const positions = {
   /**
    * @description: 生成导航对象
    * @param {type} 
-   * @return: void
-   * @author: Eric
-   * @Date: 2020-03-11 14:22:36
+   * @return void
    */
   createNavObj(buttonLen, textLen, type, flen = 0) {
     const name = window.public.getName(type); //console.log(name,type)
@@ -960,7 +957,7 @@ const positions = {
   /**
    * @description: 获取当前与父级节点数组
    * @param {type} 
-   * @return: void
+   * @return void
    */
   getParentNodes(node) {
 
@@ -985,8 +982,7 @@ const positions = {
         ns = [nodes[0]];
       } else {
         ns = [nodes[0], nodes[1]];
-      } // console.log(ns,'nsnsnsnsnsnsnsnsnsnsns')
-
+      }
 
       const {
         document: {

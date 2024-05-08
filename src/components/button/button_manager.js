@@ -5,6 +5,7 @@
  */
 const ButtonManager = {
   getView(opts) {
+    console.log(opts);
     // return __webpack_require__("./components/button/view lazy recursive ^\\.\\/.*\\/.*_.*_view$")(`./${opts.type}/${opts.cate}_${opts.name}_view`).then(module => module[opts.name]);
     return import(`./view/${opts.type}/${opts.cate}_${opts.name}_view.jsx`).then(module => module[opts.name]);
   },

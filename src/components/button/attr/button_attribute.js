@@ -13,10 +13,7 @@ const ButtonAttribute = Object.create(Attribute);
 ButtonAttribute.config = buttonConfig;
 /**
  * @method 样式类读取方法
- * @author sxt
- * @date 2020-2-11 
  */
-
 ButtonAttribute.custom = async function (opts) {
   const {
     node: {
