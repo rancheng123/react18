@@ -37,6 +37,7 @@ const PublicAttrManager = {
     console.log(name);
     if (name) {
       const [path, moduleName] = connect(name, ["basic/[name]_basic_controler", "BasicControler"]);
+      console.log(path, moduleName);
       const module = await this.basicDynamicImport(path, moduleName)
       return module;
       // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
@@ -93,8 +94,9 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, ['[name]_custom_controler.js', moduleName]);
     }
-
-    return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    console.log(path);
+    // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    return import(`../../${path}`).then(module => module[moduleName]);
   },
 
   /**

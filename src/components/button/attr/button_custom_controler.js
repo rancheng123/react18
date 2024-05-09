@@ -26,4 +26,4 @@ class ButtonCustomControler extends CustomControler {
 
 }
 
-export default ButtonCustomControler
+export { ButtonCustomControler }

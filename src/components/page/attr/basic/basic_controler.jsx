@@ -2,10 +2,9 @@
 import React from 'react';
 import Dispatcher from '@/system/tools/dispatcher';
 
-export  default class BasicControler extends React.Component {
+export default class BasicControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
-    
     this.init();
   }
   /**
@@ -25,20 +24,31 @@ export  default class BasicControler extends React.Component {
     } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
 
     if (node && element) {
-      root.render(React.createElement(this, {
-        id: node.current.id,
-        node: node,
-        config: config,
-        group: group,
-        groupList: this.LIST,
-        publicAttr: publicAttr,
-        prefix: window.public.type == 'pc' ? '' : 'mo'
-      }));
+      // root.render(React.createElement(this, {
+      //   id: node.current.id,
+      //   node: node,
+      //   config: config,
+      //   group: group,
+      //   groupList: this.LIST,
+      //   publicAttr: publicAttr,
+      //   prefix: window.public.type == 'pc' ? '' : 'mo'
+      // }));
+      let Com = this
+      root.render(<Com
+        id={node.current.id}
+        node={node}
+        config={config}
+        group={group}
+        groupList={this.LIST}
+        publicAttr={publicAttr}
+        prefix={window.public.type === 'pc' ? '' : 'mo'}
+      />);
     }
   }
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />
   }
 
   init() {
@@ -74,7 +84,8 @@ export  default class BasicControler extends React.Component {
   componentDidMount() {
     //判断是否存在连接数据
     if (this.state.link) {
-      const promise = Promise.all(/*! import() | link_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("link_controler")]).then(__webpack_require__.bind(null, /*! ../../../../system/function/link/link_controler */ "./system/function/link/link_controler.js"));
+      // const promise = Promise.all(/*! import() | link_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("link_controler")]).then(__webpack_require__.bind(null, /*! ../../../../system/function/link/link_controler */ "./system/function/link/link_controler.js"));
+      const promise = import(/* webpackChunkName: "LinkControler" */ "@/system/function/link/link_controler")
       promise.then(module => {
         module.LinkControler && this.setState(state => {
           state.link.value = module.LinkControler.linkText(state.link);
@@ -85,12 +96,11 @@ export  default class BasicControler extends React.Component {
       });
     }
   }
+
+
   /**
    * @method link 设置链接
-   * @author sxt
    */
-
-
   link() {
     const promise = Promise.all(/*! import() | link_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("link_controler")]).then(__webpack_require__.bind(null, /*! ../../../../system/function/link/link_controler */ "./system/function/link/link_controler.js"));
     promise.then(module => {
@@ -111,10 +121,7 @@ export  default class BasicControler extends React.Component {
   }
   /**
    * @method getDataSize ajax返回图片size
-   * @author sxt
    */
-
-
   getDataSize(uri) {
     return fetch(`/index.php/webdesign/getImgSize?imgsrc=${uri}&u_siteID=${window.pageData.siteId}`, {
       method: 'GET' // credentials: 'same-origin',
@@ -122,19 +129,17 @@ export  default class BasicControler extends React.Component {
 
     }).then(response => response.json()).then(data => data ? data : "").catch(err => console.log("Oh, error", err));
   }
+
+
   /**
   * @method getParentType 获取是否包含控件父级
-  * @author sxt
-  * @date 2020-2-28
   * @param {Object} node 控件父级数据
   * @param {event} type 查找的控件类型
   * @return {Object} 返回当前项的数据
   */
-
-
   getParentType(node, type) {
     let find = true,
-        current = "";
+      current = "";
 
     while (find) {
       if (node.parent) {
@@ -153,13 +158,9 @@ export  default class BasicControler extends React.Component {
   }
   /**
   * @method  setAnchor 设置锚点
-  * @date 2019-11-26
-  * @author LBY
   * @param {string} key 属性名
   * @param {event} e 事件对象
   */
-
-
   setAnchor(key, e) {
     let _value = e.target.value == "true" ? true : false;
 

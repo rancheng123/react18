@@ -5,16 +5,12 @@ import ReactDOM from "react-dom"
 // 导入其他模块
 import Link from "./link";
 import Dispatcher from "@/system/tools/dispatcher";
-import {resourceManager} from "@/system/function/resource/resource_manager";
+import { resourceManager } from "@/system/function/resource/resource_manager";
 
 
 /**
  * @class {LinkControler} 链接面板控制器类
- * @author wyq
- * @version 1.0
- * @date 2019-08-16
  */
-
 class LinkControler extends React.Component {
   constructor(props = {}) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -28,8 +24,6 @@ class LinkControler extends React.Component {
   }
   /**
    * @static link 创建链接面板
-   * @author wyq
-   * @date 2019-08-15
    * @param {object} opts 参数列表
    * @param {string} opts.selector css选择器
    * @param {object} opts.element 节点对象
@@ -41,8 +35,6 @@ class LinkControler extends React.Component {
    * @param {function} [opts.cancel] 点击取消时调用方法
    * @param {function} opts.ensure  点击确定时调用方法
    */
-
-
   static link(opts = {}) {
     if (!opts.element) {
       if (!opts.selector) {
@@ -71,7 +63,7 @@ class LinkControler extends React.Component {
         case "noLink":
           _text = window.public.lang['noLink'];
           break;
-        //选择为无链接时内容展示无连接 lw 2021-4-1;
+        //选择为无链接时内容展示无连接
 
         case "externalLinks":
           _text = window.public.lang['externalLinks'] + " " + (link.url || window.public.lang["pleaseChoose"]);
@@ -120,33 +112,31 @@ class LinkControler extends React.Component {
 
       return _text;
     } else {
-      _text = window.public.lang['noLink']; //选择为无链接时内容展示无连接 lw 2021-4-1;
+      _text = window.public.lang['noLink']; //选择为无链接时内容展示无连接 
 
       return _text;
     }
   }
+
+
   /**
    * @method render 挂载组件方法
-   * @date 2019-08-16
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
-
-
   render() {
     return React.createElement(this.view.render, null);
   }
+
+
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
    * @author 
    */
-
-
   init() {
-    //"download","functionalLinks"  功能未做暂时隐藏 sxt 2020-1-10
+    //"download","functionalLinks"  功能未做暂时隐藏 
     this.tabs = window.public.configure(["noLink", "pageAnchor", "externalLinks", "email", "phone", "back", "onlineConsulting", "functionalLinks", "lightbox", "annexDownload"], this.props);
     let dataSource = this.props.dataState,
-        componentType = dataSource.componentType; //控件类型
+      componentType = dataSource.componentType; //控件类型
 
     this.state = {
       tab: this.props.initialData.type || "noLink",
@@ -159,7 +149,7 @@ class LinkControler extends React.Component {
 
   componentWillMount() {
     let state = this.state || {},
-        data = state.data;
+      data = state.data;
 
     if (state.tab == "pageAnchor") {
       this.getDataLink({
@@ -167,7 +157,7 @@ class LinkControler extends React.Component {
         id: data.pageId,
         itemId: data.itemId
       });
-    } //类型为弹出窗口时，渲染弹出窗口列表 sxt 2020-7-24
+    } //类型为弹出窗口时，渲染弹出窗口列表 
 
 
     if (state.tab == "lightbox") {
@@ -180,35 +170,31 @@ class LinkControler extends React.Component {
   }
   /**
    * @method getAnchorsList 获取锚点列表
-   * @date
-   * @author 
    * @param {string} id 选择的当前页面id
    * @returns
    */
 
 
-  getAnchorsList(id) {}
+  getAnchorsList(id) { }
   /**
    * @method getlightboxsList 获取弹出层列表
    * @date
    * @author
    * @returns
    */
-
-
   getlightboxsList() {
     //this.state = {}; 
     const getIframeData = Dispatcher.dispatch("getIframeData");
     let children = getIframeData.component.children || [],
-        //框架页控件数据
-    lightboxArr = [];
+      //框架页控件数据
+      lightboxArr = [];
 
     for (let i = 0; i < children.length; i++) {
       let current = children[i];
 
       if (current.componentType == "em-Lightboxmodal") {
         let id = current.id,
-            name = getIframeData.data.document_data[current.components[0].id].componentName || "弹出窗口";
+          name = getIframeData.data.document_data[current.components[0].id].componentName || "弹出窗口";
         lightboxArr.push({
           "name": name,
           "value": id
@@ -219,19 +205,17 @@ class LinkControler extends React.Component {
     return lightboxArr;
   }
 
-  getPagesList() {}
+  getPagesList() { }
   /**
    * @method getDefaultValue 获取对应项默认值
    */
-
-
   getDefaultValue(type) {
     switch (type) {
       case "pageAnchor":
         let getPageData = Dispatcher.dispatch("getPageData") || {},
-            //当前页面数据
-        pageType = getPageData.component.pageType,
-            currentPage = ""; //只有在内页是在标currentPage的数据，用于后台拼标签 sxt 2020-7-17
+          //当前页面数据
+          pageType = getPageData.component.pageType,
+          currentPage = ""; //只有在内页是在标currentPage的数据，用于后台拼标签
 
         if (pageType == "Search" || pageType == "NewsContent" || pageType == "ProductContent" || pageType == "ShoppingCart" || pageType == "PageLabel") {
           currentPage = getPageData.component.id;
@@ -242,17 +226,16 @@ class LinkControler extends React.Component {
           id: getPageData.component.id,
           displayContent: "classify",
           currentPage: currentPage
-        }); //给锚点的类型添加为动画类型，并设置0.8s的时间 sxt 2021-3-24
+        }); //给锚点的类型添加为动画类型，并设置0.8s的时间
 
         this.state.data.anchorType = "cartoon";
-        this.state.data.speed = "0.8"; //此处设置默认值 ，链接类型为导航项，展示内容为分类 sxt 2020-2-5
-
+        this.state.data.speed = "0.8"; //此处设置默认值 ，链接类型为导航项，展示内容为分类 
         return {
           type: type,
           linkToType: "menu",
           currentPage: getPageData.component.id
         };
-      //切换类型时，默认就是当前页面要标当前页面数据 sxt 2020-5-11
+      //切换类型时，默认就是当前页面要标当前页面数据
 
       case "lightbox":
         if (!this.lightboxsList) {
@@ -285,7 +268,7 @@ class LinkControler extends React.Component {
     });
   }
 
-  close() {}
+  close() { }
 
   cancel() {
     this.props.cancel && this.props.cancel();
@@ -297,13 +280,9 @@ class LinkControler extends React.Component {
   }
   /**
    * @method inputHandler input设置数据方法
-   * @date 2019-08-29
-   * @author sxt
    * @param {key} key 设置的数据名称 
    * @param {event} event 事件对象 
    */
-
-
   inputHandler(key, event) {
     let _value = event.target.value;
     let {
@@ -318,13 +297,9 @@ class LinkControler extends React.Component {
   }
   /**
   * @method rangeHandler 滑块设置数据方法
-  * @date 2019-08-29
-  * @author sxt
   * @param {key} key 设置的数据名称 
   * @param {event} event 事件对象 
   */
-
-
   rangeHandler(key, event) {
     let _value = event.target.value;
     let {
@@ -337,19 +312,17 @@ class LinkControler extends React.Component {
       data: data
     });
   }
+
+
   /**
   * @method selectHandler 下拉设置数据方法
-  * @date 2019-08-29
-  * @author sxt
   * @param {key} key 设置的数据名称 
   * @param {event} event 事件对象 
   */
-
-
   selectHandler(key, key1, event) {
     let _value = event.target.value,
-        _index = event.target.selectedIndex,
-        _text = event.target.options[_index].text;
+      _index = event.target.selectedIndex,
+      _text = event.target.options[_index].text;
     let {
       state: {
         data = {}
@@ -370,19 +343,17 @@ class LinkControler extends React.Component {
       data: data
     });
   }
+
+
   /**
   * @method setConsulting 设置在线咨询类型
-  * @date 2019-08-29
-  * @author sxt
   * @param {key} key 设置的数据名称 
   * @param {event} event 事件对象 
   */
-
-
   setConsulting(key, key1, event) {
     let _value = event.target.value,
-        _index = event.target.selectedIndex,
-        _text = event.target.options[_index].text;
+      _index = event.target.selectedIndex,
+      _text = event.target.options[_index].text;
     let {
       state: {
         data = {}
@@ -402,15 +373,13 @@ class LinkControler extends React.Component {
       data: data
     });
   }
+
+
   /**
    * @method radioHandler 单选设置数据方法
-   * @date 2019-08-29
-   * @author sxt
    * @param {key} key 设置的数据名称 
    * @param {event} event 事件对象 
    */
-
-
   radioHandler(key, event) {
     let _value = event.target.value;
     let {
@@ -423,15 +392,12 @@ class LinkControler extends React.Component {
       data: data
     });
   }
+
   /**
   * @method setLinkTo 设置链接到类型方法
-  * @date 2019-08-29
-  * @author sxt
   * @param {key} key 设置的数据名称 
   * @param {event} event 事件对象 
   */
-
-
   setLinkTo(key, event) {
     let _value = event.target.value;
     let {
@@ -444,20 +410,18 @@ class LinkControler extends React.Component {
       type: _value
     }); //this.setState({data:data,showList:false,showContent:false,newList:[],newContentList:[]});
   }
+
+
   /**
   * @method changeClassifyList 搜索分类功能 
-  * @date 2019-12-4
-  * @author sxt
   * @param {event} event 事件对象 
   */
-
-
   changePageList(e) {
     let _state = this.state || {},
-        _list = _state.list || [];
+      _list = _state.list || [];
 
     let _value = e.target.value,
-        _newList = [];
+      _newList = [];
 
     for (let i = 0; i < _list.length; i++) {
       if (_list[i].name.indexOf(_value) != -1) {
@@ -469,14 +433,12 @@ class LinkControler extends React.Component {
       newList: _newList
     });
   }
+
+
   /**
   * @method selectPageList 下拉选择分类功能 
-  * @date 2019-12-4
-  * @author sxt
   * @param {event} event 事件对象 
   */
-
-
   selectPageList(prop) {
     let {
       state: {
@@ -486,10 +448,10 @@ class LinkControler extends React.Component {
 
     if (data.linkToType == "menu") {
       let getPageData = Dispatcher.dispatch("getPageData") || {},
-          //当前页面数据
-      pageType = getPageData.component.pageType,
-          //页面类型
-      pid = getPageData.component.id; //设置的链接为当前页面时，给后台标上数据currentPage  用于内页赋值链接 sxt 2020-5-11
+        //当前页面数据
+        pageType = getPageData.component.pageType,
+        //页面类型
+        pid = getPageData.component.id; //设置的链接为当前页面时，给后台标上数据currentPage  用于内页赋值链接 
       //只有在内页是在标currentPage的数据，用于后台拼标签 sxt 2020-7-17
 
       if (pid == prop.id && (pageType == "Search" || pageType == "NewsContent" || pageType == "ProductContent" || pageType == "ShoppingCart" || pageType == "PageLabel")) {
@@ -505,18 +467,16 @@ class LinkControler extends React.Component {
       id: prop.id
     });
   }
+
+
   /**
   * @method selectPageList 点击显示分类列表
-  * @date 2019-12-4
-  * @author sxt
   * @param {event} event 事件对象 
   */
-
-
   clickPageList() {
     let _state = this.state || {},
-        _showList = _state.showList,
-        _isListTrue = false;
+      _showList = _state.showList,
+      _isListTrue = false;
 
     if (_showList) {
       _isListTrue = false;
@@ -531,18 +491,16 @@ class LinkControler extends React.Component {
       newContentList: []
     });
   }
+
+
   /**
   * @method changeClassifyList 搜索内容功能 
-  * @date 2019-12-4
-  * @author sxt
   * @param {event} event 事件对象 
   */
-
-
   changeContentList(e) {
     let _value = e.target.value,
-        _newContentList = [],
-        contentList = this.state.itemsList || [];
+      _newContentList = [],
+      contentList = this.state.itemsList || [];
 
     for (let i = 0; i < contentList.length; i++) {
       if (contentList[i].name.indexOf(_value) != -1) {
@@ -554,18 +512,16 @@ class LinkControler extends React.Component {
       newContentList: _newContentList
     });
   }
+
+
   /**
   * @method clickContentList 点击显示内容列表
-  * @date 2019-12-4
-  * @author sxt
   * @param {event} event 事件对象 
   */
-
-
   clickContentList() {
     let _state = this.state || {},
-        _showContent = _state.showContent,
-        _isClassifyTrue = false;
+      _showContent = _state.showContent,
+      _isClassifyTrue = false;
 
     if (_showContent) {
       _isClassifyTrue = false;
@@ -580,14 +536,13 @@ class LinkControler extends React.Component {
       newContentList: []
     });
   }
+
+
+
   /**
   * @method selectContentList 下拉选择内容功能 
-  * @date 2019-12-4
-  * @author sxt
   * @param {event} event 事件对象 
   */
-
-
   selectContentList(prop) {
     let {
       state: {
@@ -604,14 +559,12 @@ class LinkControler extends React.Component {
       newContentList: []
     });
   }
+
+
   /**
   * @method getDataSourceData 公用数据源后台请求方法
-  * @date 2019-08-20
-  * @author sxt
   * @param {string} type 类型选项
   */
-
-
   getLanguageList(prop) {
     let {
       state: {
@@ -631,7 +584,7 @@ class LinkControler extends React.Component {
     window.public.fetchRpc(url, ajaxDatas).then(datas => {
       if (datas && datas.suc == 0) {
         let data = datas.data || {},
-            _list = data.list || [];
+          _list = data.list || [];
 
         for (let i = 0; i < _list.length; i++) {
           _list[i].value = _list[i].resource_language;
@@ -643,29 +596,28 @@ class LinkControler extends React.Component {
       }
     });
   }
+
+
   /**
   * @method getDataSourceData 公用数据源后台请求方法
-  * @date 2019-08-20
-  * @author sxt
   * @param {string} type 类型选项
   */
-
-
   getDataLink(prop) {
     let {
       state: {
         data = {}
       }
-    } = this; //displayContent展示内容 先读取数据中的，再读取传过来的默认值  sxt 2020-2-5
+    } = this; //displayContent展示内容 先读取数据中的，再读取传过来的默认值  
 
     let dataDef = {
       sid: pageData.siteId,
       type: data.linkToType,
       displayContent: data.displayContent || prop.displayContent
     };
-    let ajaxData = { ...dataDef,
+    let ajaxData = {
+      ...dataDef,
       ...prop
-    }; //类型为导航时，传个pid（当前页面的id）用于内页面时，也能添加锚点; sxt 2020-5-11
+    }; //类型为导航时，传个pid（当前页面的id）用于内页面时，也能添加锚点;
 
     if (ajaxData.type == "menu") {
       let getPageData = Dispatcher.dispatch("getPageData") || {}; //当前页面数据
@@ -694,7 +646,7 @@ class LinkControler extends React.Component {
         data.pageId = msgData.pageId || "";
         data.pageName = msgData.pageName || "";
         data.linkToType = ajaxData.type;
-        data.displayContent = ajaxData.displayContent; //当前页面相同时，赋值，sxt 2020-5-11
+        data.displayContent = ajaxData.displayContent; //当前页面相同时，赋值，
 
         if (ajaxData.currentPage) {
           data.currentPage = ajaxData.currentPage;
@@ -737,15 +689,13 @@ class LinkControler extends React.Component {
       }];
     }
   }
+
+
   /**
    * @method webLinkBlur 自定义输入链接失去焦点处理逻辑 
-   * @date 2019-08-29
-   * @author sxt
    * @param {key} key 设置的数据名称 
    * @param {event} event 事件对象 
    */
-
-
   webLinkBlur(key, event) {
     let _value = event.target.value;
     let {
@@ -762,13 +712,11 @@ class LinkControler extends React.Component {
       });
     }
   }
+
+
   /**
   * @method duenloadFile 下载选择文件方法
-  * @date 2019-08-31
-  * @author sxt
   */
-
-
   duenloadFile() {
     resourceManager("file").then(module => {
       module.resource({
@@ -776,37 +724,31 @@ class LinkControler extends React.Component {
       });
     });
   }
+
+
   /**
    * @method setFile 设置文件方法
-   * @date 2019-11-7
-   * @author sxt 
    * @param {Object} datas 返回数据
    * @param {event} event 事件对象
    */
+  setFile(datas) { }
 
-
-  setFile(datas) {} // this.setState({"uri":datas.ima_path})
+  // this.setState({"uri":datas.ima_path})
   // Dispatcher.dispatch(`${this.props.id}_set`,{
   //     args:[`document_data.uri`,datas.ima_path]
   // })
 
   /**
    * @method SelectImage 图片设置面板显示方法
-   * @date 2019-11-7
-   * @author sxt 
    * @param {event} event 事件对象
    */
+  selectImageShow() { }
 
 
-  selectImageShow() {}
   /**
    * @method selectLinkSource 选择链接来源
-   * @date 2019-08-16
-   * @author sxt
    * @param {event} event 事件对象 
    */
-
-
   selectLinkSource(event) {
     const value = event.target.value;
     this.setState({
@@ -815,17 +757,14 @@ class LinkControler extends React.Component {
     this.pageList = this.getPagesList(value);
   }
 
-  dataSource(type, event) {} //调用数据源面板 
+  dataSource(type, event) { } //调用数据源面板 
 
   /**
    * @method showDataSource 显示数据源面板
-   * @author wyq
    */
-
-
   showDataSource(data) {
     let tab = this.state.tab,
-        _linkType = "linkEmail";
+      _linkType = "linkEmail";
 
     if (tab == "phone") {
       _linkType = "linkPhone";
@@ -894,19 +833,19 @@ class LinkControler extends React.Component {
       });
     });
   }
+
+
   /**
    * @method showTextClose 清除数据源数据
-   * @author sxt 
    */
-
-
   showTextClose() {
     let {
       state: {
         data = {}
       }
     } = this;
-    let newData = { ...data,
+    let newData = {
+      ...data,
       ...{
         dataSource: undefined,
         phoneNumber: "",
@@ -918,13 +857,11 @@ class LinkControler extends React.Component {
       data: newData
     });
   }
+
+
   /**
   * @method setAnnexType 设置附件类型
-   * @data   2020-9-8
-  * @author sxt 
   */
-
-
   setAnnexType(key, event) {
     let _value = event.target.value;
     let {

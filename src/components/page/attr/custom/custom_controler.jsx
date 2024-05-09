@@ -9,7 +9,7 @@ import customConfig from "@/config//custom_config.json";
 // 导入组件管理器
 import componentsManager from "@/components/components_manager";
 // 导入调度器
-import Dispatcher from "dispatcher";
+import Dispatcher from "@/system/tools/dispatcher";
 
 
 /**
@@ -17,11 +17,14 @@ import Dispatcher from "dispatcher";
  */
 export default class CustomControler extends React.Component {
   constructor(props) {
-    super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
+    super(props);
 
+    //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
-    this.view = new Custom(this); //给view 入口方法绑定this
 
+    this.view = new Custom(this);
+
+    //给view 入口方法绑定this
     this.view.render = this.view.render.bind(this.view);
   }
 
@@ -62,25 +65,28 @@ export default class CustomControler extends React.Component {
     let parentId = this.props.node.parent.id; //父级id
 
     let parentData = Dispatcher.dispatch(`${parentId}_get`),
-        //父级数据
-    components = parentData && parentData.component.components || [],
-        //父级控件数组
-    _index = 0; //当前控件所在父级位置
-    //id为document时，取children sxt 2020-7-9
+      //父级数据
+      components = parentData && parentData.component.components || [],
+      //父级控件数组
+      _index = 0; //当前控件所在父级位置
 
+
+    //id为document时，取children 
     if (parentId == "document") {
       components = parentData && parentData.component.children || [];
     }
 
-    let datas = Dispatcher.dispatch(`${currentId}_get`); //获取控件数据
+    let datas = Dispatcher.dispatch(`${currentId}_get`);
 
+    //获取控件数据
     const {
       component: {
         layout
       },
       data = {}
-    } = datas; //循环查找控件所在父级位置
+    } = datas;
 
+    //循环查找控件所在父级位置
     for (let i = 0; i < components.length; i++) {
       if (currentId == components[i].id) {
         _index = i;
@@ -95,8 +101,8 @@ export default class CustomControler extends React.Component {
     this.state.datas = datas; //控件数据
 
     let skin = data.theme_data.skin,
-        skinArr = skin.split("."),
-        currentData = customConfig.group[skinArr[0]]; //当前控件样式配置数据
+      skinArr = skin.split("."),
+      currentData = customConfig.group[skinArr[0]]; //当前控件样式配置数据
 
     this.state.skin = skin; //当前控件皮肤
 
@@ -127,7 +133,7 @@ export default class CustomControler extends React.Component {
   */
   changeStyle(newComponent, state) {
     let stateData = state.datas.data || {},
-        layout = state.datas.component.layout;
+      layout = state.datas.component.layout;
 
     if (stateData.document_data) {
       newComponent.data = stateData.document_data;
@@ -152,8 +158,6 @@ export default class CustomControler extends React.Component {
   * @param {Object} style style数据
    * @return {Object} Margin数据
   */
-
-
   getStyleMargin(style) {
     // "marginTop":"0",
     // "marginRight":"32",
@@ -171,7 +175,7 @@ export default class CustomControler extends React.Component {
     // "momarginRightUnit": "%",
     // "momarginBottomUnit": "rem",
     // "momarginLeftUnit": "%",
-    //修改margin时，要把margin和momargin及单位都要保留 sxt 2021-3-23
+    //修改margin时，要把margin和momargin及单位都要保留
     return {
       marginTop: style.marginTop || "",
       marginRight: style.marginRight || "",
@@ -201,25 +205,28 @@ export default class CustomControler extends React.Component {
   */
   setMargin(component, state) {
     let stateStyle = state.datas.data.theme_data.style || {},
-        margin = this.getStyleMargin(stateStyle); //保留原有的禁拖和禁删属性   
+      margin = this.getStyleMargin(stateStyle); //保留原有的禁拖和禁删属性   
 
     let isDragable = state.datas.component.isDragable,
-        removable = state.datas.component.removable;
+      removable = state.datas.component.removable;
     let newStyle = component.style.style;
 
     if (isDragable === true || isDragable === false) {
-      component.structure = { ...component.structure,
+      component.structure = {
+        ...component.structure,
         isDragable
       };
     }
 
     if (removable === true || removable === false) {
-      component.structure = { ...component.structure,
+      component.structure = {
+        ...component.structure,
         removable
       };
     }
 
-    component.style.style = { ...newStyle,
+    component.style.style = {
+      ...newStyle,
       ...margin
     };
     return component;
@@ -249,8 +256,10 @@ export default class CustomControler extends React.Component {
     }
 
     let add = `${state.parentId}_addComponent`,
-        remove = `${state.parentId}_removeComponent`,
-        notRender = ""; // if(componentType=="em-MoHeader"||componentType=="em-MoFooter"){
+      remove = `${state.parentId}_removeComponent`,
+      notRender = "";
+
+    // if(componentType=="em-MoHeader"||componentType=="em-MoFooter"){
     //     add="addComponent";
     //     remove="removeComponent";
     //     notRender=true;//此参数为true时，不渲染结构 
@@ -263,7 +272,7 @@ export default class CustomControler extends React.Component {
             //选中控件
             Dispatcher.dispatch(`selectedComponent`, {
               args: [event, 0, 0, current.id, function () {
-                //先判断结构有没有再模拟点击，属性面板 sxt 2020-4-10
+                //先判断结构有没有再模拟点击，属性面板 
                 let customIco = document.querySelector("#property-buttons .functionUL .customIco");
 
                 if (customIco) {
@@ -296,7 +305,7 @@ export default class CustomControler extends React.Component {
 
       if (componentType == "em-Box" || componentType == "em-SlideShow" || componentType == "em-MoFooter" || componentType == "em-Submenu" || componentType == "em-MoHeader" || componentType == "em-Panel") {
         let themeData = component.style || {},
-            docData = component.data || {}; //只改样式数据时，控件中会写selectedThemeData方法
+          docData = component.data || {}; //只改样式数据时，控件中会写selectedThemeData方法
 
         if (this.selectedThemeData) {
           //调用控件中写的单独方法，themeData 新themeData数据  state
@@ -306,7 +315,7 @@ export default class CustomControler extends React.Component {
 
         Dispatcher.dispatch(`${state.currentId}_set`, {
           args: [`theme_data.`, themeData]
-        }); //修改控件中document_data数据 sxt 2020-7-9
+        }); //修改控件中document_data数据 
 
         if (this.selectedDocumentData) {
           //调用控件中写的单独方法，themeData 新themeData数据  state
@@ -328,9 +337,11 @@ export default class CustomControler extends React.Component {
               len: length
             }
           });
-          this.props.node.current.skin = skin; //修改下node中控件结构的皮肤，用于属性面板按照控件渲染 
-          //Dispatcher.dispatch(`document_set`,{args:[`component.id`,"masterPage"]})
-        } // let child=window.public.dom.getElementById(`${state.currentId}`);
+          this.props.node.current.skin = skin;
+        }
+        //修改下node中控件结构的皮肤，用于属性面板按照控件渲染 
+        //Dispatcher.dispatch(`document_set`,{args:[`component.id`,"masterPage"]})
+        // let child=window.public.dom.getElementById(`${state.currentId}`);
         // let {left,top,width,height} = child.getBoundingClientRect();
         // //计算控件中心坐标
         // left = left,top = top;

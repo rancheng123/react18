@@ -7,9 +7,6 @@ import Layer from "@/system/widgets/layer";
 
 /**
  * @class {Link} 链接面板视图类
- * @author wyq
- * @version 1.0
- * @date 2019-08-16
  */
 
 class Link {
@@ -30,8 +27,6 @@ class Link {
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-08-16
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
   // <div className="linkMain">
@@ -68,8 +63,6 @@ class Link {
   }
   /**
    * @method linkList 左侧链接项
-   * @date 2019-08-29
-   * @author sxt
    * @return {object} 左侧链接项结构
    */
 
@@ -92,13 +85,9 @@ class Link {
   }
   /**
    * @method noLink 无链接
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * @return {object} 无链接组件结构
    */
-
-
   noLink() {
     return React.createElement("div", {
       className: "noLink",
@@ -120,13 +109,13 @@ class Link {
   pageAnchor(prop, state) {
     //linkTo //链接到  //navItem 导航项  templatePageQuick 模版页 news:"新闻",product:"产品","download":"下载","essay":"文章",
     let linkToType = prop.linkToType || "menu",
-        anchorType = prop.anchorType || "protogenesis",
-        displayContent = prop.displayContent; //在初始赋值了，不用写默认值了  sxt 2020-2-5
+      anchorType = prop.anchorType || "protogenesis",
+      displayContent = prop.displayContent; //在初始赋值了，不用写默认值了  sxt 2020-2-5
 
     let list = state.list || [],
-        newList = state.newList || [],
-        itemsList = state.itemsList || [],
-        newContentList = state.newContentList || [];
+      newList = state.newList || [],
+      itemsList = state.itemsList || [],
+      newContentList = state.newContentList || [];
 
     if (newList.length >= 1) {
       list = newList;
@@ -277,11 +266,11 @@ class Link {
 
   dataInput(prop) {
     let _readonly = "",
-        _openClose = false,
-        _link = prop.data || {};
+      _openClose = false,
+      _link = prop.data || {};
 
     let _type = _link.type,
-        _value = prop.data[prop.key]; //设置的属性值
+      _value = prop.data[prop.key]; //设置的属性值
 
     if (_link.dataSource) {
       let dataSource = _link.dataSource || {};
