@@ -14,8 +14,6 @@ const Hiding = {
    * @description: 
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-03 13:31:13
    */
   hidingHandle(hidden, hiddenList, systype, doc, id, pageId) {
     // let hlist = (typeof hiddenList == 'undefined')?[]:hiddenList;
@@ -48,8 +46,6 @@ const Hiding = {
    * @description: 当前控件隐藏或显示
    * @param {opts} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-02-27 15:23:18
    */
   hiding(opts) {
     const {
@@ -104,8 +100,6 @@ const Hiding = {
    * @description: 查找隐藏的控件数据
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-04-14 13:26:18
    */
   showHandler(type, systype) {
     let hlist = null;
@@ -146,8 +140,6 @@ const Hiding = {
    * @description: 显示所有隐藏控件
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-02-27 15:23:37
    */
   show() {
     const {
@@ -173,8 +165,6 @@ const Hiding = {
    * @description: 强制隐藏
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-02-28 12:26:45
    */
   hiddenEle(ele, show) {
     Dispatcher.dispatch('selectedHidden', {
@@ -192,8 +182,6 @@ const Hiding = {
    * @description: 插入遮罩层
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-02-28 15:00:58
    */
   insertMask(ele) {
     if (ele) {
@@ -216,8 +204,6 @@ const Hiding = {
    * @description: 删除遮罩层
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-03 13:16:44
    */
   removeMask(ele) {
     if (ele) {
@@ -241,8 +227,6 @@ const Hiding = {
    * @description: 强制显示
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-02-28 12:26:56
    */
   showEle(ele, show) {
     if (show) {
@@ -254,8 +238,6 @@ const Hiding = {
    * @description: dom插入遮罩层
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-02-27 16:57:03
    */
   handleMask(ele, show) {
     if (show) {
@@ -269,8 +251,6 @@ const Hiding = {
    * @description: 获取遮罩层
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-02-28 12:26:35
    */
   getMask() {
     const maskEle = document.createElement('div');

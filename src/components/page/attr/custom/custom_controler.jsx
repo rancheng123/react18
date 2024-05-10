@@ -37,9 +37,10 @@ export default class CustomControler extends React.Component {
     const {
       node,
       element,
-      config
+      config,
+      root
     } = opts;
-    ReactDOM.render(React.createElement(this, {
+    root.render(React.createElement(this, {
       id: node.current.id,
       node: node,
       config: config

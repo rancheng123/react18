@@ -1,0 +1,28 @@
+.monaco-code {
+  position: relative;
+}
+
+.full-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.monaco-icon {
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  bottom: 5px;
+  font-size: 22px;
+  right: 5px;
+}
+
+.full-screen .monaco-icon {
+  position: fixed;
+  z-index: 10;
+  color: #fff;
+  font-size: 22px;
+  bottom: 5px;
+  right: 5px;
+}

@@ -94,9 +94,27 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, ['[name]_custom_controler.js', moduleName]);
     }
-    console.log(path);
     // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
-    return import(`../../${path}`).then(module => module[moduleName]);
+    // return import(`../../${path}`).then(module => module[moduleName]);
+    return import(`./custom/custom_controler.jsx`).then(module => module[moduleName]);
+  },
+
+
+  /**
+   * @method customcss 获取自定义css模块
+   * @return {CustomcssControler} 自定义样式模块
+   */
+  customcss(name, pathname) {
+    let path = "page/attr/customcss/customcss_controler.js",
+      moduleName = "CustomcssControler";
+
+    if (name) {
+      [path, moduleName] = connect(name, [(pathname == undefined ? '' : pathname + '/') + '[name]_customcss_controler.js', moduleName]);
+    }
+
+    // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}`).then(module => module[moduleName]);
+    return import(`./customcss/customcss_controler.js`).then(module => module[moduleName]);
   },
 
   /**

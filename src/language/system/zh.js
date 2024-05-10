@@ -1119,4 +1119,11 @@ window.public.lang = {
     "html": "html",
     "css": "css",
     "letterSpace": "字间距",
+    "customcss": "自定义CSS",
+    "tabposition": "Tab位置",
+    "filleted": "圆角",
+    "accordion": "手风琴",
+    "accordionProperty": "手风琴属性",
+    "selectedWidth": "选中宽度",
+    "addColumn": "添加列"
 }

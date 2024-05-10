@@ -1,5 +1,5 @@
 // 导入 React 库
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 // 导入 dispatcher 工具
 import Dispatcher from '@/system/tools/dispatcher.js';
 // 导入样式表
@@ -7,11 +7,11 @@ import './style.css';
 // 导入字体 JSON 数据
 import fonts from './fonts.json';
 // 导入自定义 UI 库或工具
-import Layer from '@/system/widgets/layer.js';
+import Layer from '@/system/widgets/layer';
 
 
 
-export default function FontFamily () {
+export default function FontFamily() {
   const [familyShow, setfamilyShow] = useState(false);
   const [familyTab, setfamilyTab] = useState("system");
   const [familyData, setFamilyData] = useState("Arial");
@@ -74,8 +74,8 @@ export default function FontFamily () {
     let empower = ["楷体", "宋体", "黑体", "仿宋", "Arial", "思源黑体", "思源柔黑", "思源宋体", "BreeSerif", "Comfortaa", "Crimson", "KumbhSans", "Lato", "LeagueGothic", "LibreBaskerville", "Lora", "Manrope", "Merriweather", "NotoSans", "Poly", "SourceSansPro", "Ubuntu"];
     return list.map(e => {
       let name = e.name,
-          size = e.size,
-          hoveName = window.public.lang["fontFree"];
+        size = e.size,
+        hoveName = window.public.lang["fontFree"];
 
       if (!empower.includes(name)) {
         hoveName = window.public.lang["fontEmpower"];
@@ -134,7 +134,7 @@ export default function FontFamily () {
         return (
           <li
             key={e.id}
-            className={ keyFont == value ? 'on' : null}
+            className={keyFont == value ? 'on' : null}
             onClick={() => {
               setFamilyData(`font_${e.id}`);
               setFamilyName(e.name);
@@ -160,8 +160,8 @@ export default function FontFamily () {
           let savePage = Dispatcher.dispatch("savePage");
           await savePage.then(() => {
             let data = Dispatcher.dispatch("getIframeData"),
-                dataItems = data.data.document_data.MAIN_MENU.items || [],
-                tempitems = data.data.document_data.MAIN_MENU.tempitems || [];
+              dataItems = data.data.document_data.MAIN_MENU.items || [],
+              tempitems = data.data.document_data.MAIN_MENU.tempitems || [];
             let pids = [];
             dataItems.forEach(element => {
               pids.push({
@@ -206,7 +206,7 @@ export default function FontFamily () {
           setUserCheck(false);
           setPageName([]);
         }
-      } catch (error) {}
+      } catch (error) { }
     })();
   };
 

@@ -1,7 +1,7 @@
 // 导入 React 库
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 // 导入 ReactDOM 库
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 // 导入自定义的 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher.js';
 // 导入自定义的 single_selected 模块
@@ -40,7 +40,7 @@ class SelectBox {
     if (element) {
       const select = new this(opts.node, element);
 
-      
+
       this.selectRoot = createRoot(element)
 
       // this.selectRoot.render(React.createElement(select.render, {
@@ -110,13 +110,9 @@ class SelectBox {
   }
   /**
    * @method bindEvent 绑定事件
-   * @author wyq
-   * @date 2020-01-22
    * @param {object} button 按钮节点对象 
    * @param {array} state 状态对象 
    */
-
-
   bindEvent(button, state) {
     const setLayout = state[1];
     button.onmousedown = this.positionStart.bind(this, setLayout);
@@ -125,31 +121,25 @@ class SelectBox {
   }
   /**
    * @method removeEvent 删除事件对象
-   * @date 2020-01-22
-   * @author wyq
    * @param {object} button 按钮节点对象
    */
-
-
   removeEvent(button) {
     button.onmousedown = null;
     window.removeEventListener('keydown', keydown);
   }
+
+
   /**
    * @method loaded 结构加载完毕执行
-   * @date 2020-01-22
-   * @author wyq
    * @param {array} state 状态对象 
    * @param {object} def_layout 默认布局对象 
    * @param {object} dots 操作点对象
    * @return {function} 卸载函数 
    */
-
-
   loaded(state, dots) {
     const button = this.container.querySelector('.adjustingButton'),
-          name = `${this.node.current.id}_select_setLayout`,
-          setLayout = state[1]; //2021-1-19 wyq 注释
+      name = `${this.node.current.id}_select_setLayout`,
+      setLayout = state[1]; //2021-1-19 wyq 注释
     //setLayout(def_layout);//清除事件和绑定事件
 
     if (dots && button) {
@@ -172,21 +162,15 @@ class SelectBox {
    * @param {function} setLayout 设置布局的函数
    * @returns {function} 经过装饰以后的布局函数
    */
-
-
   decorateLayout(setLayout, dots) {
     //返回设置布局的方法
     return value => setLayout(typeof value != 'function' ? this.optimizeSelectionBox(value, dots) : prevState => this.optimizeSelectionBox(value(prevState), dots));
   }
   /**
    * @method selection 选中框结构
-   * @date 2020-02-28
-   * @author wyq
    * @param {object} props 参数对象
    * @return {object} 选中框结构
    */
-
-
   selection(dots) {
     if (dots == undefined) return null;
     const {
@@ -224,7 +208,7 @@ class SelectBox {
           return (
             <em key={i} className={`occupa-${e}`} data-position={e}>
               {/* <i className={icon.name} data-position={e}>{icon.icon}</i> */}
-              <i className={icon.name} data-position={e} dangerouslySetInnerHTML={{ __html: icon.icon}}></i>
+              <i className={icon.name} data-position={e} dangerouslySetInnerHTML={{ __html: icon.icon }}></i>
             </em>
           );
         }) : null}
@@ -241,11 +225,7 @@ class SelectBox {
   }
   /**
    * @method show 点击显示
-   * @date 2020-02-28
-   * @author wyq
    */
-
-
   show() {
     // const promise = __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ../hiding */ "./components/page/attr/hiding.js"));
     const promise = import('../hiding.js')
@@ -263,27 +243,23 @@ class SelectBox {
   }
   /**
    * @method listenLayout 监听控件布局变化，更改选中框布局。只监听宽高数据
-   * @date 2020-02-03
-   * @author wyq
    * @param {object} layout 布局数据
    * @return {ResizeObserver} 实例对象
    */
-
-
   listenLayout(state) {
     const component = window.public.dom.querySelector(`#${this.node.current.id}`),
-          {
-      parentNode: {
-        offsetLeft,
-        offsetTop
-      }
-    } = document.querySelector('.property-modal'),
-          posValue = getComputedStyle(component).position;
+      {
+        parentNode: {
+          offsetLeft,
+          offsetTop
+        }
+      } = document.querySelector('.property-modal'),
+      posValue = getComputedStyle(component).position;
     const resize = new ResizeObserver(function (state) {
       //创建动画帧，在下一帧更新节点
       const timer = window.requestAnimationFrame(() => {
         const scrollTop = component.ownerDocument.documentElement.scrollTop,
-              [layout, setSelectionLayout] = state;
+          [layout, setSelectionLayout] = state;
         let {
           left,
           top,
@@ -296,7 +272,8 @@ class SelectBox {
           setSelectionLayout(prevState => {
             let position = '';
             posValue == 'fixed' ? (position = posValue, top += offsetTop, left += offsetLeft) : top += scrollTop;
-            state.splice(0, 1, { ...prevState,
+            state.splice(0, 1, {
+              ...prevState,
               width,
               height,
               left,
@@ -392,8 +369,6 @@ class SelectBox {
   }
   /**
    * @method useAdsorption 是否使用吸附功能
-   * @date 2021-07-15
-   * @author wyq
    * @returns {boolean} true 或 false
    */
   // useAdsorption(){
@@ -407,11 +382,7 @@ class SelectBox {
    * 
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2019-12-28 16:11:19
    */
-
-
   positionDrag(setLayout, position, event) {
     let {
       angle,
@@ -497,12 +468,8 @@ class SelectBox {
     }
   }
   /**
-  * @description: addControlPosUnit 新增控件定位的默认数据
-  * @author: sxt
-  * @Date: 2021-2-26 
+  * @description addControlPosUnit 新增控件定位的默认数据
   */
-
-
   addControlPosUnit(id) {
     const fnName = `${id}_get`;
     const {
@@ -518,7 +485,7 @@ class SelectBox {
 
     if (componentType == "em-Button" || componentType == "em-Shopcart") {
       return false;
-    } //按钮控件数据完整，不用进行数据处理，并且在居中时补单位会出问题 sxt 2021-3-11 
+    } //按钮控件数据完整，不用进行数据处理，并且在居中时补单位会出问题 
 
 
     let defStyle = {
@@ -539,7 +506,8 @@ class SelectBox {
       "mopaddingBottomUnit": "px",
       "mopaddingLeftUnit": "px"
     };
-    let newStyle = { ...defStyle,
+    let newStyle = {
+      ...defStyle,
       ...style
     };
     Dispatcher.dispatch(`${id}_set`, {
@@ -549,11 +517,7 @@ class SelectBox {
   /**
    * @description: 控件移动初始化
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-26 13:43:09
    */
-
-
   positionInit() {
     // 判断当layout存在的时候执行代码 lby 2020-07-02
     if (this.node.parent.layout) {
@@ -590,9 +554,9 @@ class SelectBox {
         SingleSelected.init(ediBox.offsetWidth, ediBox.offsetLeft);
         SingleDrag.init(event);
         const marginLeft = this.getCssValue(window, this.currentEle, 'marginLeft'),
-              marginTop = this.getCssValue(window, this.currentEle, 'marginTop'),
-              marginBottom = this.getCssValue(window, this.currentEle, 'marginBottom'),
-              marginRight = this.getCssValue(window, this.currentEle, 'marginRight');
+          marginTop = this.getCssValue(window, this.currentEle, 'marginTop'),
+          marginBottom = this.getCssValue(window, this.currentEle, 'marginBottom'),
+          marginRight = this.getCssValue(window, this.currentEle, 'marginRight');
         marginMap.set(`#${id}`, [marginTop, marginRight, marginBottom, marginLeft]);
       }
     }
@@ -602,17 +566,13 @@ class SelectBox {
    * @param {setLayout}
    * @param {event} 
    * @return: void
-   * @author: Eric
-   * @Date: 2020-03-26 13:42:38
    */
-
-
   onkeydown(setLayout, event) {
     let change;
     const {
       keyCode
     } = event,
-          movingDistance = 1;
+      movingDistance = 1;
     this.positionInit();
 
     if (this.currentEle) {
@@ -679,13 +639,9 @@ class SelectBox {
   }
   /**
    * 上/左边距拖动初始化
-   * @author eric
-   * @date 2019-12-05
    * @param {stirng} position 
    * @param {object} event 
    */
-
-
   positionStart(setLayout, event) {
     try {
       this.positionInit();
@@ -723,22 +679,17 @@ class SelectBox {
         document.onmousemove = this.positionDrag.bind(this, setLayout, position);
         document.onmouseup = this.positionEnd.bind(this, oldLeft, oldTop);
       }
-    } catch (e) {}
+    } catch (e) { }
 
     event.stopPropagation();
   }
   /**
    * 获取控件css属性值
-   * 
    * @param {win} window对象
    * @param {ele} 当前元素
    * @param {attr} 要取的css属性值
    * @return:css属性值
-   * @author: Eric
-   * @Date: 2019-12-28 15:59:42
    */
-
-
   getCssValue(win, ele, attr) {
     return parseFloat(win.getComputedStyle(ele)[attr].replace('px', '')); //当前控件marginRight值
   }
@@ -747,11 +698,7 @@ class SelectBox {
    * 
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2019-12-28 16:07:36
    */
-
-
   positionDragTop({
     currentEle,
     id,
@@ -779,7 +726,7 @@ class SelectBox {
     }
 
     let _mTop = offsetY + mTop,
-        scale = _mTop; // this.getScale(_mTop,currentEle.parentNode.offsetWidth);//margin比例
+      scale = _mTop; // this.getScale(_mTop,currentEle.parentNode.offsetWidth);//margin比例
 
 
     if (scale < 0) scale = 0;
@@ -787,8 +734,8 @@ class SelectBox {
     const marginTop = marginType(this.systype, 'marginTop');
 
     let dataGet = Dispatcher.dispatch(`${id}_get`) || {},
-        //获取控件数据
-    _style = dataGet.data.theme_data.style || {}; //获取控件style数据
+      //获取控件数据
+      _style = dataGet.data.theme_data.style || {}; //获取控件style数据
 
 
     let unit = _style[`${marginTop}Unit`] || "%"; //获取数据中的单位
@@ -813,11 +760,7 @@ class SelectBox {
     * 
     * @param {type} 
     * @return: 
-    * @author: Eric
-    * @Date: 2020-02-27 17:07:36
     */
-
-
   positionDragLeft({
     id,
     currentEle,
@@ -837,7 +780,7 @@ class SelectBox {
       }
     } = currentEle;
     let [mTop, mRight, mBottom, mLeft] = marginMap.get(`#${id}`),
-        selectedWidth = currentEle.offsetWidth; //框架内拖拽X值
+      selectedWidth = currentEle.offsetWidth; //框架内拖拽X值
 
     let _iframeX = offsetX;
 
@@ -853,9 +796,9 @@ class SelectBox {
     }
 
     let offsetLeft = _iframeX + mLeft,
-        offsetRight,
-        scaleLeft = 0,
-        scaleRight = 0;
+      offsetRight,
+      scaleLeft = 0,
+      scaleRight = 0;
     const diffLeft = pwidth - selectedWidth; //可移动最大值
 
     const boundaryValue = mLeft + mRight;
@@ -880,14 +823,14 @@ class SelectBox {
 
     marginMap.set(`#${id}`, [mTop, offsetRight, mBottom, offsetLeft]);
     const marginLeft = marginType(this.systype, 'marginLeft'),
-          marginRight = marginType(this.systype, 'marginRight');
+      marginRight = marginType(this.systype, 'marginRight');
 
     let dataGet = Dispatcher.dispatch(`${id}_get`) || {},
-        //获取控件数据
-    skin = dataGet.component.skin,
-        skinType = skin && skin.split(".")[1],
-        //获取控件皮肤中，具体的控件类型   
-    _style = dataGet.data.theme_data.style || {}; //获取控件style数据
+      //获取控件数据
+      skin = dataGet.component.skin,
+      skinType = skin && skin.split(".")[1],
+      //获取控件皮肤中，具体的控件类型   
+      _style = dataGet.data.theme_data.style || {}; //获取控件style数据
 
 
     let unitLeft = _style[`${marginLeft}Unit`] || "%";
@@ -907,11 +850,11 @@ class SelectBox {
     let style = {
       [marginLeft]: scaleLeft,
       [marginRight]: scaleRight
-    }; //控件类型为icon按钮和文本按钮时，根据按钮位置设置左右的margin  sxt 2020-6-2  
+    }; //控件类型为icon按钮和文本按钮时，根据按钮位置设置左右的margin  
 
     if (skinType == "button" || skinType == "textBtn" || skinType == "number") {
       let styleMarginLeft = _style[marginLeft],
-          styleMarginRight = _style[marginRight];
+        styleMarginRight = _style[marginRight];
 
       if (styleMarginLeft == 'auto' && styleMarginRight == 'auto') {
         style = {};
@@ -941,11 +884,7 @@ class SelectBox {
     * 
     * @param {type} 
     * @return: 
-    * @author: Eric
-    * @Date: 2019-12-28 16:07:36
     */
-
-
   positionDragRight({
     currentEle,
     offsetX,
@@ -963,15 +902,15 @@ class SelectBox {
     } = currentEle;
     const [mTop, mRight, mBottom, mLeft] = marginMap.get(`#${id}`);
     let offset = mRight - offsetX,
-        scale = offset; // this.getScale(offset,currentEle.parentNode.offsetWidth);//margin比例
+      scale = offset; // this.getScale(offset,currentEle.parentNode.offsetWidth);//margin比例
 
-    const selectedWidth =SingleSelected.getWidth(),
-          _ediBoxWidth = selectedWidth + offsetX; //不走之前的百分比计算了，走老王的算法，不需要判断  sxt 2020-5-23
+    const selectedWidth = SingleSelected.getWidth(),
+      _ediBoxWidth = selectedWidth + offsetX; //不走之前的百分比计算了，走老王的算法，不需要判断 
     //if(scale >= 0 && scale <= 100){
 
 
     if (scale < 0) scale = 0;
-   SingleSelected.setWidth(_ediBoxWidth);
+    SingleSelected.setWidth(_ediBoxWidth);
     marginMap.set(`#${id}`, [mTop, offset, mBottom, mLeft]);
     setLayout({
       width: currentEleWidth,
@@ -982,12 +921,12 @@ class SelectBox {
     const marginRight = marginType(this.systype, 'marginRight');
 
     let dataGet = Dispatcher.dispatch(`${id}_get`) || {},
-        //获取控件数据
-    skin = dataGet.component.skin,
-        skinType = skin && skin.split(".")[1],
-        //获取控件皮肤中，具体的控件类型
-    _style = dataGet.data.theme_data.style || {}; //获取控件style数据
-    //控件类型为icon按钮和文本按钮时，向右拖拽改变最大宽度数据  sxt 2020-6-2  
+      //获取控件数据
+      skin = dataGet.component.skin,
+      skinType = skin && skin.split(".")[1],
+      //获取控件皮肤中，具体的控件类型
+      _style = dataGet.data.theme_data.style || {}; //获取控件style数据
+    //控件类型为icon按钮和文本按钮时，向右拖拽改变最大宽度数据 
 
 
     if (skinType == "button" || skinType == "textBtn") {
@@ -1035,11 +974,7 @@ class SelectBox {
     * 
     * @param {type} 
     * @return: 
-    * @author: Eric
-    * @Date: 2020-02-27 17:07:36
     */
-
-
   positionDragRightV2({
     currentEle,
     offsetX,
@@ -1056,14 +991,14 @@ class SelectBox {
         offsetWidth: pwidth
       }
     } = currentEle,
-          selectedWidth =SingleSelected.getWidth(),
-          diffLeft = pwidth - selectedWidth,
-          [mTop, mRight, mBottom, mLeft] = marginMap.get(`#${id}`),
-          boundaryValue = mLeft + mRight;
+      selectedWidth = SingleSelected.getWidth(),
+      diffLeft = pwidth - selectedWidth,
+      [mTop, mRight, mBottom, mLeft] = marginMap.get(`#${id}`),
+      boundaryValue = mLeft + mRight;
     let offsetLeft = offsetX + mLeft,
-        offsetRight,
-        scaleLeft = 0,
-        scaleRight = 0;
+      offsetRight,
+      scaleLeft = 0,
+      scaleRight = 0;
 
     if (offsetLeft <= 0) {
       //左边临界
@@ -1091,11 +1026,11 @@ class SelectBox {
       height: currentEle.offsetHeight
     });
     const marginLeft = marginType(this.systype, 'marginLeft'),
-          marginRight = marginType(this.systype, 'marginRight');
+      marginRight = marginType(this.systype, 'marginRight');
 
     let dataGet = Dispatcher.dispatch(`${id}_get`) || {},
-        //获取控件数据
-    _style = dataGet.data.theme_data.style || {}; //获取控件style数据
+      //获取控件数据
+      _style = dataGet.data.theme_data.style || {}; //获取控件style数据
 
 
     let unitLeft = _style[`${marginLeft}Unit`] || "%";
@@ -1125,11 +1060,7 @@ class SelectBox {
    * 
    * @param {type} 
    * @return: 
-   * @author: Eric
-   * @Date: 2020-02-10 8:46:36
    */
-
-
   positionDragTopLeft({
     x,
     offsetX,
@@ -1152,10 +1083,10 @@ class SelectBox {
         offsetWidth: pwidth
       }
     } = currentEle,
-        selectedWidth =SingleSelected.getWidth(),
-        diffLeft = pwidth - selectedWidth,
-        [mTop, mRight, mBottom, mLeft] = marginMap.get(`#${id}`),
-        boundaryValue = mLeft + mRight; //框架内拖拽X值
+      selectedWidth = SingleSelected.getWidth(),
+      diffLeft = pwidth - selectedWidth,
+      [mTop, mRight, mBottom, mLeft] = marginMap.get(`#${id}`),
+      boundaryValue = mLeft + mRight; //框架内拖拽X值
 
     let _iframeX = offsetX;
 
@@ -1180,11 +1111,11 @@ class SelectBox {
     }
 
     let offsetLeft = _iframeX + mLeft,
-        _mTop = offsetY + mTop,
-        offsetRight,
-        scaleLeft = 0,
-        scaleRight = 0,
-        scaleTop = _mTop; //this.getScale(_mTop,pwidth);
+      _mTop = offsetY + mTop,
+      offsetRight,
+      scaleLeft = 0,
+      scaleRight = 0,
+      scaleTop = _mTop; //this.getScale(_mTop,pwidth);
 
 
     if (offsetLeft <= 0) {
@@ -1211,15 +1142,15 @@ class SelectBox {
 
     marginMap.set(`#${id}`, [_mTop, offsetRight, mBottom, offsetLeft]);
     const marginLeft = marginType(this.systype, 'marginLeft'),
-          marginRight = marginType(this.systype, 'marginRight'),
-          marginTop = marginType(this.systype, 'marginTop');
+      marginRight = marginType(this.systype, 'marginRight'),
+      marginTop = marginType(this.systype, 'marginTop');
 
     let dataGet = Dispatcher.dispatch(`${id}_get`) || {},
-        //获取控件数据
-    skin = dataGet.component.skin,
-        skinType = skin && skin.split(".")[1],
-        //获取控件皮肤中，具体的控件类型   
-    _style = dataGet.data.theme_data.style || {}; //获取控件style数据
+      //获取控件数据
+      skin = dataGet.component.skin,
+      skinType = skin && skin.split(".")[1],
+      //获取控件皮肤中，具体的控件类型   
+      _style = dataGet.data.theme_data.style || {}; //获取控件style数据
 
 
     let unitLeft = _style[`${marginLeft}Unit`] || "%";
@@ -1247,11 +1178,11 @@ class SelectBox {
       [marginLeft]: scaleLeft,
       [marginRight]: scaleRight,
       [marginTop]: scaleTop
-    }; //控件类型为icon按钮和文本按钮时，只改变marginLeft就可以  sxt 2020-6-2  
+    }; //控件类型为icon按钮和文本按钮时，只改变marginLeft就可以  
 
     if (skinType == "button" || skinType == "textBtn") {
       let styleMarginLeft = _style[marginLeft],
-          styleMarginRight = _style[marginRight];
+        styleMarginRight = _style[marginRight];
 
       if (styleMarginLeft == 'auto' && styleMarginRight == 'auto') {
         style = {
@@ -1285,11 +1216,7 @@ class SelectBox {
    * 
    * @param {type} 
    * @return: 
-   * @author: Eric
-   * @Date: 2019-12-28 16:07:36
    */
-
-
   positionDragBottomRight({
     angle,
     offsetX,
@@ -1320,16 +1247,16 @@ class SelectBox {
 
     const _offsetX = Math.abs(offsetX);
 
-    let selectedWidth =SingleSelected.getWidth(),
-        selectedX =SingleSelected.getX(),
-        diff = _offsetX * 2,
-        left = selectedX + operation1 * _offsetX,
-        _ediBoxWidth = selectedWidth + operation2 * diff,
-        _mLeft = mLeft - offsetX,
-        _mRight = mRight - offsetX,
-        leftScale = _mLeft,
-        //this.getScale(_mLeft,currentEle.parentNode.offsetWidth),//margin比例
-    rightScale = _mRight; //this.getScale(_mRight,currentEle.parentNode.offsetWidth);//margin比例
+    let selectedWidth = SingleSelected.getWidth(),
+      selectedX = SingleSelected.getX(),
+      diff = _offsetX * 2,
+      left = selectedX + operation1 * _offsetX,
+      _ediBoxWidth = selectedWidth + operation2 * diff,
+      _mLeft = mLeft - offsetX,
+      _mRight = mRight - offsetX,
+      leftScale = _mLeft,
+      //this.getScale(_mLeft,currentEle.parentNode.offsetWidth),//margin比例
+      rightScale = _mRight; //this.getScale(_mRight,currentEle.parentNode.offsetWidth);//margin比例
 
 
     marginMap.set(`#${id}`, [mTop, _mRight, mBottom, _mLeft]);
@@ -1343,8 +1270,8 @@ class SelectBox {
     } //if(leftScale <= 49.9 && rightScale <= 49.9){
 
 
-   SingleSelected.setWidth(_ediBoxWidth);
-   SingleSelected.setX(left);
+    SingleSelected.setWidth(_ediBoxWidth);
+    SingleSelected.setX(left);
     setLayout({
       left: _offsetLeft,
       top: _offsetTop,
@@ -1352,11 +1279,11 @@ class SelectBox {
       width
     });
     const marginLeft = marginType(this.systype, 'marginLeft'),
-          marginRight = marginType(this.systype, 'marginRight');
+      marginRight = marginType(this.systype, 'marginRight');
 
     let dataGet = Dispatcher.dispatch(`${id}_get`) || {},
-        //获取控件数据
-    _style = dataGet.data.theme_data.style || {}; //获取控件style数据
+      //获取控件数据
+      _style = dataGet.data.theme_data.style || {}; //获取控件style数据
 
 
     let unitLeft = _style[`${marginLeft}Unit`] || "%";
@@ -1386,11 +1313,7 @@ class SelectBox {
    * 
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2019-12-28 16:09:46
    */
-
-
   positionEnd(oldLeft, oldTop, event) {
     const {
       currentTarget: target
@@ -1426,11 +1349,7 @@ class SelectBox {
    * 
    * @param {type} 
    * @return: void
-   * @author: Eric
-   * @Date: 2019-12-28 16:10:27
    */
-
-
   getScale(value, baseWidth) {
     return value / baseWidth * 100;
   }
@@ -1439,14 +1358,10 @@ class SelectBox {
   * 
   * @param {obj} 传入节点
   * @return: void
-  * @author: Eric
-  * @Date: 2019-12-28 16:10:51
   */
-
-
   getPoint(obj) {
     let t = 0,
-        l = 0;
+      l = 0;
 
     do {
       t += obj.offsetTop; //获取该元素对应父容器的上边距  
@@ -1463,4 +1378,4 @@ class SelectBox {
   }
 
 }
-export {SelectBox}
+export { SelectBox }

@@ -18,11 +18,34 @@ export default async function cssParser(component, themeData, type) {
       skin = "",
       style = {},
       css = '',
+      customcss,
       background = {}
     } = themeData;
     const data = Object.assign({}, style, background, component.layout);
-    const cssStr = css ? css.replace(/(^|})(\.|#|\d)/g, `$1#${component.id} $2`) : ''; //获取视图类
 
+
+    let cssStr = "";
+
+    if (css) {
+      cssStr = css ? css.replace(/(^|})(\.|#|\d)/g, `$1#${component.id} $2`) : '';
+    }
+
+    // 收集自定义样式数据 
+    if (customcss) {
+      var commonId = `#${component.id}`; // 使用正则表达式在每个样式前添加共同的ID
+
+      cssStr = customcss.replace(/((?!@media)[^{])*?{[^}]*}|@media[^{]*{[^}]*}/g, function (match) {
+        // 不处理@media规则和同样id的不处理
+        if (match.includes('@media') || match.includes(commonId)) {
+          return match;
+        } // 在样式前边添加共同的 ID
+
+
+        return commonId + " " + match;
+      });
+    }
+
+    //获取视图类
     const csses = await module.getStyle(humpJoin(skin.split(".")[1], '_'), type); //csses 与 data 同时存在执行if
 
     if (csses && data) {

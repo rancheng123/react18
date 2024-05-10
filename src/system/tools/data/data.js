@@ -39,6 +39,7 @@ function query(key, component, data, fn) {
 * @param {object} theme_data 控件属性数据 
 */
 function render(component, theme_data) {
+  console.log(component, theme_data);
   var _theme_data$document;
 
   const { id = "document" } = component,
@@ -58,6 +59,7 @@ function render(component, theme_data) {
   ); //获取控件样式节点
 
   promise.then((cssstr) => {
+    console.log(cssstr, 'cssstr');
     let style = dom.querySelector(`#style_${id}`); //判断节点是否存在，存在直接赋值
 
     if (style) {

@@ -17,7 +17,7 @@ function App(props) {
           showHidden: action.showHidden
         }
       default:
-        return {...state, ...action}
+        return { ...state, ...action }
     }
   }
   const [state, dispatch] = useReducer(reducers, initState);

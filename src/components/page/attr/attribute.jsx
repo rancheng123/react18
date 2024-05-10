@@ -36,6 +36,34 @@ const Attribute = {
   },
 
   /**
+ * @method getParentType 获取是否包含控件父级
+ * @author sxt
+ * @date 2020-2-28
+ * @param {Object} node 控件父级数据
+ * @param {event} type 查找的控件类型
+ * @return {Object} 返回当前项的数据
+ */
+  getParentType(node, type) {
+    let find = true,
+      current = "";
+
+    while (find) {
+      if (node.parent) {
+        if (node.parent.type == type) {
+          current = node.parent;
+          find = false;
+        } else {
+          node = node.parent;
+        }
+      } else {
+        find = false;
+      }
+    }
+
+    return current;
+  },
+
+  /**
    * @method showAttributePanel 点击属性按钮触发方法
    * @param {object} opts 参数对象
    * @param {object} opts.node 控件结构数据对象 
@@ -49,7 +77,7 @@ const Attribute = {
       draggable = {}
     } = opts; //解构赋值
 
-    const {
+    let {
       config,
       width,
       height,
@@ -66,18 +94,18 @@ const Attribute = {
 
       const key = skin.slice(0, skin.lastIndexOf('.'));
       tabs = (_ref2 = (_tabs$key = tabs[key]) !== null && _tabs$key !== void 0 ? _tabs$key : tabs.all) !== null && _ref2 !== void 0 ? _ref2 : tabs;
-    } 
-    
+    }
+
     //index 不存在则通过opts.type查找。 opts.type 也不存在，默认为零
     if (opts.index == undefined) {
       opts.index = opts.type ? tabs.findIndex(e => e.type == opts.type) : 0;
     }
-    
+
     //查找tabs数组中是否包含type类型
     if (opts.index != -1) {
       const element = document.querySelector(`#${opts.id}`),
-            cid = this.node.current.id; 
-            
+        cid = this.node.current.id;
+
       //父级元素内为插入面板结构或reload为true或要展示的控件id与当前展示面板的控件id不同，则重新载入面板结构
       if (element.children.length == 0 || opts.reload || cid != Attribute.currentId) {
         //如果面板为打开状态且reload不为true，则不在加载面板，通过模拟点击来选中对应项
@@ -99,8 +127,28 @@ const Attribute = {
 
         this.showState = 'open'; //如果此接口被实现，则进行调用
 
-        if (this.editTabs) tabs = this.editTabs(tabs.map(e => ({ ...e
+        if (this.editTabs) tabs = this.editTabs(tabs.map(e => ({
+          ...e
         })));
+
+
+        // 推入自定义css模块
+        let result = tabs.findIndex(item => item.type == "customcss");
+        if (result == -1) {
+          let parentData = this.getParentType(this.node, "em-List");
+
+          if (!parentData) {
+            tabs.push({
+              "name": "customcss",
+              "type": "customcss"
+            });
+          }
+        }
+
+        if (tabs.length == 7) {
+          width = width + 60;
+        }
+
         const modalDom = ReactDOM.createRoot(element)
         // modalDom.render(React.createElement(Layer.tab, {
         //   id: id,
@@ -167,7 +215,7 @@ const Attribute = {
   /**
    * @virtual closeAttributePanel 关闭面板时触发
    */
-  closeAttributePanel() {},
+  closeAttributePanel() { },
 
   /**
    * @method showTab 选中指定项，显示对应内容
@@ -179,9 +227,9 @@ const Attribute = {
     const skin = this.node.current.skin || '';
     const key = skin.slice(0, skin.lastIndexOf('.'));
     const conf = (_this$config$window$p = this.config[window.public.type]) !== null && _this$config$window$p !== void 0 ? _this$config$window$p : this.config;
-    const group = (_type = ((_conf$group = conf.group) !== null && _conf$group !== void 0 ? _conf$group : {})[type]) !== null && _type !== void 0 ? _type : this.config.group[type]; 
-    
-    
+    const group = (_type = ((_conf$group = conf.group) !== null && _conf$group !== void 0 ? _conf$group : {})[type]) !== null && _type !== void 0 ? _type : this.config.group[type];
+
+
     //参数赋值
     let param = {
       node: this.node,
@@ -197,7 +245,7 @@ const Attribute = {
 
     if (id) {
       param.element = document.querySelector(`#${id}`);
-      param.root = ReactDOM.createRoot(document.querySelector(`#${id}`)) 
+      param.root = ReactDOM.createRoot(document.querySelector(`#${id}`))
     }
     this[type](param);
   },
@@ -306,6 +354,17 @@ const Attribute = {
     custom.custom(opts);
   },
 
+
+  /**
+   * @method custom 自定义选项属性
+   * @param {object} opts 参数对象 
+   */
+  async customcss(opts) {
+    const customcss = await PublicAttrManager.customcss();
+    customcss.customcss(opts);
+  },
+
+
   /**
   * @method collection 收藏选项属性
   * @param {object} opts 参数对象 
@@ -359,7 +418,7 @@ const Attribute = {
 
     // 渲染函数式组件
     const Link = await PublicAttrManager.link();
-    opts.root.render(<Link {...opts}/>)
+    opts.root.render(<Link {...opts} />)
   }
 
 };
