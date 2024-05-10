@@ -113,7 +113,7 @@ export default class DragAdd {
             component = structure
           }
         } = opts;
-        let type = component.combinationType || component.componentType; //先获取combinationType的属性，此属性存在证明是组件库中的控件，是不允许嵌套的，sxt 2021-2-2
+        let type = component.combinationType || component.componentType; //先获取combinationType的属性，此属性存在证明是组件库中的控件，是不允许嵌套的
 
         //生成控件遮罩层
         this.componentMask(main, left, top, width, height, bounding);

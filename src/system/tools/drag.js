@@ -134,8 +134,6 @@ const Drag = {
 
   /**
    * @method getComElement 获取控件数据与元素
-   * @date 2019-10-21
-   
    * @param {object} component 控件数据
    * @param {number} i 控件索引
    * @param {number} len 容器内子控件的个数
@@ -241,8 +239,6 @@ const Drag = {
 
   /**
    * @method scrollingPage 滚动页面
-   * @date 2021-01-29
-   
    * @param {number} y 鼠标指针y轴坐标 
    */
   scrollingPage(y) {
@@ -264,8 +260,6 @@ const Drag = {
 
   /**
    * @method drag 拖拽算法封装方法
-   * @date 2019-10-21
-   
    * @param {number} x x轴
    * @param {number} y y轴
    * @param {object} [opts] 参数对象
@@ -279,6 +273,8 @@ const Drag = {
     var _opts$height;
 
     const data = Dispatcher.dispatch("getIframeData"); //如果存在应用到所有属性，给应用到所有属性赋值
+
+    console.log(data)
 
     if (opts && opts.isApply) {
       this.isApply = opts.isApply;

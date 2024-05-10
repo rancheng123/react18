@@ -84,7 +84,7 @@ export default class WidgetLibraryControler extends React.Component {
 
     this.state = {
       current: tabsinx != '' ? tabs[tabsinx] : tabs[0]
-    }; //初始化时如果tabsinx值为''的话，打开时就默认选中第一个选项，否则打开就是之前关闭时的位置 lw date 2021-2-3
+    }; //初始化时如果tabsinx值为''的话，打开时就默认选中第一个选项，否则打开就是之前关闭时的位置
   }
   /**
    * @method selectTab 切换控件项方法
@@ -226,6 +226,7 @@ export default class WidgetLibraryControler extends React.Component {
    * @param {event} event 事件对象
    */
   start(skin, event) {
+    console.log(event, '哈哈哈哈')
     this.skin = skin;
     new DragAdd(this).start(event);
   }
