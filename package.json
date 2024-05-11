@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "ssr-dev": "node ./ssr/server",
     "ssr-build": "npm run build:client && npm run build:server",
-    "ssr-build:client": "vite build --ssrManifest --outDir ssrdist/client",
+    "ssr-build:client": "vite build  --base=/ssr/src/index.html --ssrManifest --outDir ssrdist/client",
     "ssr-build:server": "vite build --ssr ssr/src/entry-server.jsx --outDir ssrdist/server",
     "ssr-preview": "cross-env NODE_ENV=production node server"
   },
