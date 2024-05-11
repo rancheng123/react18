@@ -1,6 +1,10 @@
 import React from 'react'
 import { renderToPipeableStream } from 'react-dom/server'
+<<<<<<< HEAD
 import App from './App'
+=======
+import App from '../../src/App'
+>>>>>>> 470503b (RN-000: 测试服务)
 
 /**
  * @param {string} url
