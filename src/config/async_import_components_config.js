@@ -17,9 +17,33 @@ async function getAsyncComponent(path, moduleName = 'default') {
   return null
 }
 
+/**
+  @params components 文件夹下 path 路径
+  @params moduleName 导出文件的名字 如果不传选默认default
+*/
+async function getAsyncComForComponents(path, moduleName = 'default') {
+  if (componentsAsync[componentBasePath + path]) {
+    return await componentsAsync[path]().then(module => module[moduleName])
+  }
+  return null
+}
+
+/**
+  @params template/toolbar 文件夹下 path 路径
+  @params moduleName 导出文件的名字 如果不传选默认default
+*/
+async function getAsyncComForToolbar(path, moduleName = 'default') {
+  if (componentsAsync[toolbarBasePath + path]) {
+    return await componentsAsync[path]().then(module => module[moduleName])
+  }
+  return null
+}
+
 export {
   getAsyncComponent,
   componentsAsync,
   toolbarBasePath,
   componentBasePath,
+  getAsyncComForComponents,
+  getAsyncComForToolbar,
 }
