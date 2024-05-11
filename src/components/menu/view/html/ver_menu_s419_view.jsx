@@ -26,26 +26,27 @@ export function s419() {
     anyway = "downWard";
   }
 
-  return React.createElement(
-    Component.box,
-    {
-      id: id,
-      className: "menubox",
-    },
-    React.createElement(
-      "nav",
-      {
-        className: "nav",
-      },
-      React.createElement(
-        "ul",
-        {
-          "data-position": `${anyway}`,
-          "data-mouse": `${anDropDown}`,
-          className: `${id}Ul verticalNav verticalArrmenu  ${columnClass}`,
-        },
-        Component.menuLiVertical("pc", this.state)
-      )
-    )
-  );
+  return (
+    <Component.box id={id} className='menubox'>
+      <nav className="nav">
+        <ul 
+        data-position={`${anyway}`} 
+        data-mouse={`${anDropDown}`} 
+        className={`${id}Ul verticalNav verticalArrmenu  ${columnClass}`}>
+          {Component.menuLiVertical("pc", this.state)}
+        </ul>
+      </nav>
+    </Component.box>
+  )
+
+  // return React.createElement(Component.box, {
+  //   id: id,
+  //   className: "menubox"
+  // }, React.createElement("nav", {
+  //   className: "nav"
+  // }, React.createElement("ul", {
+  //   "data-position": `${anyway}`,
+  //   "data-mouse": `${anDropDown}`,
+  //   className: `${id}Ul verticalNav verticalArrmenu  ${columnClass}`
+  // }, Component.menuLiVertical("pc", this.state))));
 }
