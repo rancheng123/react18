@@ -129,8 +129,10 @@ const PublicAttrManager = {
   //单项
   manage(name) {
     if (name) {
-      const [path, moduleName] = connect(name, ["manage/[name]_manage_controler.js", "ManageControler"]);
+      const [path, moduleName] = connect(name, ["manage/[name]_manage_controler.jsx", "ManageControler"]);
+      console.log(path,moduleName);
       return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+      // return import('./manage/component_manage_controler').then(res=>res.default)
     }
 
     return null;

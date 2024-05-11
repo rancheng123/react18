@@ -6,6 +6,7 @@ import React from 'react';
 import Widget from '@/system/widgets/widget';
 
 
+
 export default class Icon {
   constructor(controler) {
     /**@property controler 边框控制器实例 */
