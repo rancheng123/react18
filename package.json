@@ -8,7 +8,11 @@
     "build": "vite build --mode production",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "ssr-dev": "node ./ssr/server"
+    "ssr-dev": "node ./ssr/server",
+    "ssr-build": "npm run build:client && npm run build:server",
+    "ssr-build:client": "vite build --ssrManifest --outDir ssrdist/client",
+    "ssr-build:server": "vite build --ssr ssr/src/entry-server.jsx --outDir ssrdist/server",
+    "ssr-preview": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.3",

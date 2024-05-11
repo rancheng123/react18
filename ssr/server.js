@@ -10,10 +10,10 @@ const ABORT_DELAY = 10000
 
 // Cached production assets
 const templateHtml = isProduction
-  ? await fs.readFile('./dist/client/index.html', 'utf-8')
+  ? await fs.readFile('./ssrdist/client/index.html', 'utf-8')
   : ''
 const ssrManifest = isProduction
-  ? await fs.readFile('./dist/client/.vite/ssr-manifest.json', 'utf-8')
+  ? await fs.readFile('./ssrdist/client/.vite/ssr-manifest.json', 'utf-8')
   : undefined
 
 // Create http server
@@ -33,7 +33,7 @@ if (!isProduction) {
   const compression = (await import('compression')).default
   const sirv = (await import('sirv')).default
   app.use(compression())
-  app.use(base, sirv('./dist/client', { extensions: [] }))
+  app.use(base, sirv('./ssrdist/client', { extensions: [] }))
 }
 
 // Serve HTML
@@ -47,10 +47,10 @@ app.use('*', async (req, res) => {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render
+      render = (await vite.ssrLoadModule('ssr/src/entry-server.jsx')).render
     } else {
       template = templateHtml
-      render = (await import('./dist/server/entry-server.js')).render
+      render = (await import('./ssrdist/server/entry-server.js')).render
     }
 
     let didError = false
