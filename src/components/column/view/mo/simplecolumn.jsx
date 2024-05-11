@@ -1,6 +1,6 @@
 import React from 'react';
 import Util from '@/components/page/util/util';
-import { D } from 'dist/static/index-YB5XjPBq';
+// import { D } from 'dist/static/index-YB5XjPBq';
 
 export default function Column() {
   var _theme_data$backgroun, _theme_data$backgroun2;
@@ -54,13 +54,13 @@ export default function Column() {
       {
         child ? (
           <Util.children
-            components={components} 
+            components={components}
             context={context}
             clone={clone}
           />
-      ) : (
-        unedit && <button>可拖入控件到此位置</button>
-      )
+        ) : (
+          unedit && <button>可拖入控件到此位置</button>
+        )
       }
     </div>
   )

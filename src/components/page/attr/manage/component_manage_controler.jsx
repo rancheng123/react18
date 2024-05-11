@@ -2,16 +2,16 @@
 import React from "react"; // 导入 React 模块
 import ReactDOM from "react-dom"; // 导入 ReactDOM 模块
 import Dispatcher from "@/system/tools/dispatcher"; // 导入 dispatcher 模块
-import componentsManager  from "@/components/components_manager"; // 导入 componentsManager 
+import componentsManager from "@/components/components_manager"; // 导入 componentsManager 
 import Attribute from "../attribute"; // 导入 attrProxy 变量
 import Layer from "@/system/widgets/layer"; // 导入 layer 变量
-import BackgroundControler from "../design/background/background_controler"; 
+import { BackgroundControler } from "../design/background/background_controler";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
 let initIndex = 0,
-    index = 0;
+  index = 0;
 /**
  * @class {ComponentManageControler} 容器项管理控制器类
  * @author wyq
@@ -124,7 +124,7 @@ export default class ComponentManageControler extends React.Component {
         }
       }]
     } = this,
-          group = this.props.list[type]; //截取皮肤
+      group = this.props.list[type]; //截取皮肤
 
     skin = skin.substring(0, skin.lastIndexOf('.'));
     this.state = {
@@ -268,7 +268,7 @@ export default class ComponentManageControler extends React.Component {
         id
       }
     } = item,
-          pid = this.props.id;
+      pid = this.props.id;
     const {
       data: {
         document_data = {}
@@ -324,7 +324,7 @@ export default class ComponentManageControler extends React.Component {
 
   hidden(item) {
     const id = this.props.id,
-          itemId = item.component.id;
+      itemId = item.component.id;
     let {
       document_data: {
         hidden

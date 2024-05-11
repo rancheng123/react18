@@ -5,11 +5,7 @@ import Widget from "@/system/widgets/widget"; // 导入 widget 模块
 
 /**
  * @class {Manage} 项管里视图类
- * @author wyq
- * @version 1.0
- * @date 2019-11-19
  */
-
 export default class Manage {
   constructor(controler) {
     /**@property controler 控件编辑控制器实例 */
@@ -102,12 +98,8 @@ export default class Manage {
   }
   /**
    * @method anchor 锚点
-   * @author wyq
    * @return {object} 锚点
-   * @date  2020-08-06
    */
-
-
   anchor() {
     return React.createElement(Widget.Radio, {
       title: "anchor",

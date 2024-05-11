@@ -1,7 +1,7 @@
 // 导入 React 库
 import React, { useState, useEffect } from 'react';
 // 导入 dispatcher 工具
-import Dispatcher from '@/system/tools/dispatcher.js';
+import Dispatcher from '@/system/tools/dispatcher';
 // 导入样式表
 import './style.css';
 // 导入字体 JSON 数据

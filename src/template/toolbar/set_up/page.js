@@ -1,6 +1,6 @@
 
 // 导入 dispatcher 模块
-import Dispatcher from '../../system/tools/dispatcher';
+import Dispatcher from '@/system/tools/dispatcher';
 
 /**
  * @class PageControler 页面设置控制器类

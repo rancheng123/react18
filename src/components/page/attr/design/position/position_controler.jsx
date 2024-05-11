@@ -2,10 +2,10 @@
 import React from 'react';
 
 // 导入dispatcher模块
-import Dispatcher from '@/system/tools/dispatcher.js';
+import Dispatcher from '@/system/tools/dispatcher';
 
 // 导入Icon模块
-import Position  from './position';
+import Position from './position';
 
 /**
  * @class {PositionControler} 定位控制器类
@@ -97,11 +97,11 @@ export class PositionControler extends React.Component {
     const {
       data
     } = Dispatcher.dispatch(`${this.props.id}_get`),
-          {
-      theme_data: {
-        style = {}
-      }
-    } = data;
+      {
+        theme_data: {
+          style = {}
+        }
+      } = data;
     this.state = style;
     this.layout = this.getLayout(); //保存控件原始高度
 
@@ -133,7 +133,7 @@ export class PositionControler extends React.Component {
       }
     } = select;
     let mleft = 0,
-        mtop = 0;
+      mtop = 0;
     window.public.unit.selector = `#${id}`;
 
     if (marginLeftUnit != 'px') {
@@ -167,7 +167,7 @@ export class PositionControler extends React.Component {
     } = this; //计算值
 
     const key = (window.public.type == 'pc' ? '' : 'mo') + setType + "Unit",
-          unit = state[key] || "%";
+      unit = state[key] || "%";
 
     if (unit != "px") {
       window.public.unit.selector = `#${id}`;
@@ -176,7 +176,8 @@ export class PositionControler extends React.Component {
 
 
     Dispatcher.dispatch(`${id}_select_setLayout`, {
-      value: prevState => ({ ...prevState,
+      value: prevState => ({
+        ...prevState,
         [type]: layout[type] + parseFloat(value)
       })
     });
@@ -294,8 +295,8 @@ export class PositionControler extends React.Component {
   /**
    * @virtual selected 单位更换后触发回调
    */
-  selected() {}
-  
+  selected() { }
+
   /**
    * @virtual blur 失去焦点执行方法
    */

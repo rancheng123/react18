@@ -8,7 +8,6 @@ const PageManager = {
    */
   getView(opts) {
     return import(`./view/${opts.type}/page.jsx`).then(module => module.default);
-    // return __webpack_require__("./components/page/view lazy recursive ^\\.\\/.*\\/page$")(`./${opts.type}/page`).then(module => module.Page);
   },
 
   /**

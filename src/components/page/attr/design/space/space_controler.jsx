@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // 导入dispatcher模块
-import Dispatcher from '@/system/tools/dispatcher.js';
+import Dispatcher from '@/system/tools/dispatcher';
 
 // 导入Space模块
 import Space from './space';
@@ -105,7 +105,8 @@ class SpaceControler extends React.Component {
     this.state = document_data; //theme_data数据存在并且存在style数据，则与state合并
 
     if (theme_data && theme_data.style) {
-      this.state = { ...this.state,
+      this.state = {
+        ...this.state,
         ...theme_data.style
       };
     }

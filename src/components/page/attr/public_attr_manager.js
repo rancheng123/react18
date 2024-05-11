@@ -88,15 +88,15 @@ const PublicAttrManager = {
    * @return {CustomControler} 自定义样式模块
    */
   custom(name) {
-    let path = "page/attr/custom/custom_controler.js",
+    let path = "page/attr/custom/custom_controler.jsx",
       moduleName = "CustomControler";
 
     if (name) {
-      [path, moduleName] = connect(name, ['[name]_custom_controler.js', moduleName]);
+      [path, moduleName] = connect(name, ['[name]_custom_controler.jsx', moduleName]);
     }
     // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
-    // return import(`../../${path}`).then(module => module[moduleName]);
-    return import(`./custom/custom_controler.jsx`).then(module => module[moduleName]);
+    return import(`../../${path}`).then(module => module[moduleName]);
+    // return import(`./custom/custom_controler.jsx`).then(module => module[moduleName]);
   },
 
 
@@ -105,7 +105,7 @@ const PublicAttrManager = {
    * @return {CustomcssControler} 自定义样式模块
    */
   customcss(name, pathname) {
-    let path = "page/attr/customcss/customcss_controler.js",
+    let path = "page/attr/customcss/customcss_controler.jsx",
       moduleName = "CustomcssControler";
 
     if (name) {
@@ -114,7 +114,7 @@ const PublicAttrManager = {
 
     // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
     // return import(`./${path}`).then(module => module[moduleName]);
-    return import(`./customcss/customcss_controler.js`).then(module => module[moduleName]);
+    return import(`./customcss/customcss_controler.jsx`).then(module => module[moduleName]);
   },
 
   /**

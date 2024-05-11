@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // 导入dispatcher模块
-import Dispatcher from '@/system/tools/dispatcher.js';
+import Dispatcher from '@/system/tools/dispatcher';
 
 // 导入Icon模块
 import Icon from './icon';
@@ -105,8 +105,8 @@ class IconControler extends React.Component {
     }
 
     const icon = document_data[_prefix],
-          //[`${this.props.prefix}icon`],icon不区分mo和pc  sxt 2020-7-20
-    link = document_data.link;
+      //[`${this.props.prefix}icon`],icon不区分mo和pc  sxt 2020-7-20
+      link = document_data.link;
     this.state = Object.assign(this.state, document_data); //把document_data的数据也进行合并
 
     this.state.prefixIcon = _prefix; //把icon的键值存起来，用于结构中读取icon数据
@@ -260,4 +260,4 @@ class IconControler extends React.Component {
 
 _defineProperty(IconControler, "LIST", ["size", "color"]);
 
-export {IconControler};
+export { IconControler };
