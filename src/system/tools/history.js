@@ -14,13 +14,15 @@ const History = {
    * 
    */
   async bind() {
-    if (window.Mousetrap) {
-      Mousetrap.bind('ctrl+z', this.undo);
-      Mousetrap.bind('ctrl+y', this.redo);
-    } else {
-      setTimeout(() => {
-        this.bind()
-      }, 10)
+    if (typeof window !== 'undefined') {
+      if (window.Mousetrap) {
+        Mousetrap.bind('ctrl+z', this.undo);
+        Mousetrap.bind('ctrl+y', this.redo);
+      } else {
+        setTimeout(() => {
+          this.bind()
+        }, 10)
+      }
     }
   },
 

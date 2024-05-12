@@ -1,6 +1,11 @@
 import fs from 'node:fs/promises'
 import express from 'express'
 import { Transform } from 'node:stream'
+// import { fileURLToPath } from 'node:url'
+// import path from 'node:path'
+
+// const __dirname = fileURLToPath(new URL('.', import.meta.url))
+
 
 // Constants
 const isProduction = process.env.NODE_ENV === 'production'
@@ -24,6 +29,7 @@ let vite
 if (!isProduction) {
   const { createServer } = await import('vite')
   vite = await createServer({
+    configFile: './ssr/ssr.vite.config.js',
     server: { middlewareMode: true },
     appType: 'custom',
     base
@@ -45,7 +51,7 @@ app.use('*', async (req, res) => {
     let render
     if (!isProduction) {
       // Always read fresh template in development
-      template = await fs.readFile('./index.html', 'utf-8')
+      template = await fs.readFile('./ssr/index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
       render = (await vite.ssrLoadModule('ssr/src/entry-server.jsx')).render
     } else {
