@@ -1,7 +1,7 @@
 // 导入 React 库
 import React from 'react';
 // 导入 widget 模块
-import Widget from '@/system/widgets/widget.js';
+import Widget from '@/system/widgets/widget';
 
 /**
  * @class {Background} 背景视图类
@@ -126,7 +126,7 @@ export default class Background {
             <div className="stripBgColor" style={{ backgroundColor: "#eee" }}>
               <p />
             </div>
-            <img src={uri} width="300" height="174" alt="" /> 
+            <img src={uri} width="300" height="174" alt="" />
           </div>
         )
 
@@ -183,7 +183,7 @@ export default class Background {
           <h5>{window.public.lang["chooseBackground"]}</h5>
         </li>
         <li>
-          <div 
+          <div
             onClick={this.controler.backgroundColor.bind(this.controler, '')}
             className="BgstyleList noBg"
           >

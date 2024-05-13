@@ -1,15 +1,15 @@
 
 // 导入 React 库
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 // 导入 ReactDom 库
 import ReactDom from 'react-dom';
 // 导入 toolbar 模块
 import Toolbar from '../toolbar';
 
 import FontFamily from './fontFamily/fontFamily'
-import { componentsAsync } from 'src/config/async_import_components_config'
+// import { componentsAsync } from 'src/config/async_import_components_config'
 
-console.log(componentsAsync, '哈哈哈哈哈')
+// console.log(componentsAsync, '哈哈哈哈哈')
 
 
 /**

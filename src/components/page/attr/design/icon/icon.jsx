@@ -3,7 +3,8 @@
 import React from 'react';
 
 // 导入widget模块
-import Widget from '@/system/widgets/widget.jsx';
+import Widget from '@/system/widgets/widget';
+
 
 
 export default class Icon {

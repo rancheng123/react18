@@ -1,17 +1,7 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony import */ var PropTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-// /* harmony import */ var PropTypes_default = /*#__PURE__*/__webpack_require__.n(PropTypes);
-// /* harmony import */ var React = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var React_default = /*#__PURE__*/__webpack_require__.n(React);
-// /* harmony import */ var monaco = __webpack_require__(/*! monaco-editor/esm/vs/editor/editor.api */ "./include-loader!./node_modules/monaco-editor/esm/vs/editor/editor.api.js");
-// /* harmony import */ var monaco_default = /*#__PURE__*/__webpack_require__.n(monaco);
 
-
-import PropTypes from 'prop-types';
-
-// 使用 ES6 模块语法导入 React
 import React from 'react';
-// 使用 ES6 模块语法导入 Monaco Editor
+import PropTypes from 'prop-types';
+import './userWorker';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -127,7 +117,6 @@ class MonacoEditor extends React.Component {
       overrideServices,
       className
     } = this.props;
-
     if (this.containerElement) {
       // Before initializing monaco editor
       const options = {
@@ -143,9 +132,10 @@ class MonacoEditor extends React.Component {
         ...options,
         ...(theme ? {
           theme
-        } : {})
-      }, overrideServices); // After initializing monaco editor
+        } : {}),
+      }, overrideServices);
 
+      // After initializing monaco editor
       this.editorDidMount(this.editor);
     }
   }
@@ -178,11 +168,19 @@ class MonacoEditor extends React.Component {
       width: fixedWidth,
       height: fixedHeight
     };
-    return React.createElement("div", {
-      ref: this.assignRef,
-      style: style,
-      className: "react-monaco-editor-container"
-    });
+    // return React.createElement("div", {
+    //   ref: this.assignRef,
+    //   style: style,
+    //   className: "react-monaco-editor-container"
+    // });
+
+    return (
+      <div
+        ref={this.assignRef}
+        style={style}
+        className="react-monaco-editor-container"
+      />
+    )
   }
 
 }

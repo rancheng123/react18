@@ -3,11 +3,11 @@ import React from 'react';
 // 导入 ReactDOM 库
 import ReactDom from 'react-dom';
 // 导入 widget 模块
-import Widget from '@/system/widgets/widget.js';
+import Widget from '@/system/widgets/widget';
 // 导入 dispatcher 模块
-import Dispatcher from '@/system/tools/dispatcher.js';
+import Dispatcher from '@/system/tools/dispatcher';
 // 导入 Background 模块
-import Background from './background.js';
+import Background from './background';
 
 /**
  * @class {BackgroundControler} 页面背景控制器类
@@ -35,7 +35,7 @@ export default class BackgroundControler extends React.Component {
    */
   static background(id) {
     const element = document.querySelector(`#${id}`);
-    ReactDom.render( <BackgroundControler />, element);
+    ReactDom.render(<BackgroundControler />, element);
   }
 
 
@@ -46,7 +46,7 @@ export default class BackgroundControler extends React.Component {
   render() {
     // return React.createElement(this.view.render, null);
     return (
-      <this.view.render/>
+      <this.view.render />
     )
   }
 
@@ -67,11 +67,12 @@ export default class BackgroundControler extends React.Component {
       }
     } = data;
     this.id = (_children$2$pageId = children[2].pageId) !== null && _children$2$pageId !== void 0 ? _children$2$pageId : children[1].pageId;
-    this.state = data ? { ...((_design_data$this$id = design_data[this.id]) !== null && _design_data$this$id !== void 0 ? _design_data$this$id : {})
+    this.state = data ? {
+      ...((_design_data$this$id = design_data[this.id]) !== null && _design_data$this$id !== void 0 ? _design_data$this$id : {})
     } : {};
   }
 
-  help() {}
+  help() { }
 
 
   /**
@@ -195,7 +196,7 @@ export default class BackgroundControler extends React.Component {
       }
     } = Dispatcher.dispatch('document_get');
     let data = JSON.parse(JSON.stringify(design_data)),
-        oldData = {};
+      oldData = {};
     Widget.PageSelector({
       element: document.querySelector('#function-modal'),
       isBackground: true,
@@ -206,10 +207,12 @@ export default class BackgroundControler extends React.Component {
           var _data$id;
 
           oldData[id] = (_data$id = data[id]) !== null && _data$id !== void 0 ? _data$id : {};
-          data[id] = { ...data[this.id]
+          data[id] = {
+            ...data[this.id]
           };
         } else {
-          data[id] = { ...oldData[id]
+          data[id] = {
+            ...oldData[id]
           };
         }
 
