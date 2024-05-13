@@ -69,7 +69,6 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, ['[name]_setting.jsx', moduleName]);
     }
-    console.log(path, 'setting');
     // return import(`./${path}`).then(module => module[moduleName]);
     return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
@@ -97,7 +96,6 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, ['[name]_custom_controler.js', moduleName]);
     }
-    console.log(componentBasePath + path, moduleName, 'custom');
     // return import(`../../${path}`).then(module => module[moduleName]);
     return getAsyncComponent(componentBasePath + path, moduleName)
     // return import(`./custom/custom_controler.jsx`).then(module => module[moduleName]);
@@ -132,7 +130,6 @@ const PublicAttrManager = {
   manage(name) {
     if (name) {
       const [path, moduleName] = connect(name, ["manage/[name]_manage_controler.jsx", "ManageControler"]);
-      console.log(path, moduleName);
       return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
       // return import('./manage/component_manage_controler').then(res=>res.default)
     }

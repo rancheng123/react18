@@ -18,7 +18,7 @@ import Dispatcher from "@/system/tools/dispatcher";
 export default class CustomControler extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log('CustomControler', 222222, props);
     //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
 
@@ -53,7 +53,8 @@ export default class CustomControler extends React.Component {
    * @return {object} 结构
   */
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />
   }
 
 

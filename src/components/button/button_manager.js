@@ -5,7 +5,6 @@
  */
 const ButtonManager = {
   getView(opts) {
-    console.log(opts);
     return import(`./view/${opts.type}/${opts.cate}_${opts.name}_view.jsx`).then(module => module[opts.name]);
   },
 
