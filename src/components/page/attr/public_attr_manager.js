@@ -178,7 +178,7 @@ const PublicAttrManager = {
   // 动态导入处理函数
   async basicDynamicImport(path, name) {
     try {
-      const modules = import.meta.glob('../../../components/*/attr/basic/*.js')
+      const modules = import.meta.glob("../../../components/*/attr/basic/*.js")
       const m = await modules[`../../${path}.js`]
       return m ? m().then(mod => mod[name]) : null
     } catch (error) {
