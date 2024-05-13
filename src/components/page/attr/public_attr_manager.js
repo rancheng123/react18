@@ -177,6 +177,16 @@ const PublicAttrManager = {
     return import('./link/link_controler.jsx').then(module => module.LinkContainer);
   },
 
+  // 动态导入处理函数
+  //   async basicDynamicImport(path, name) {
+  //     try {
+  //       const modules = import.meta.glob("../../../components/*/attr/basic/*.js")
+  //       const m = await modules[`../../${path}.js`]
+  //       return m ? m().then(mod => mod[name]) : null
+  //     } catch (error) {
+  //       console.error('err', error);
+  //     }
+  //   }
 };
 
 export default PublicAttrManager
