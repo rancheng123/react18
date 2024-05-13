@@ -6,6 +6,7 @@ import CustomControler from "@/components/page/attr/custom/custom_controler";
 class ButtonCustomControler extends CustomControler {
   constructor(props) {
     super(props);
+    console.log('ButtonCustomControler', props);
   }
   /**
   * @method selectedData 控件单独处理数据方法

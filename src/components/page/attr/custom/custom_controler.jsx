@@ -76,7 +76,7 @@ export default class CustomControler extends React.Component {
     if (parentId == "document") {
       components = parentData && parentData.component.children || [];
     }
-
+    console.log(currentId, 'currentId');
     let datas = Dispatcher.dispatch(`${currentId}_get`);
 
     //获取控件数据

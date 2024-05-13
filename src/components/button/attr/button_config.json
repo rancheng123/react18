@@ -66,11 +66,6 @@
                 "iconName": "&#xe796;"
             },
             {
-                "name": "link",
-                "type": "link",
-                "iconName": "&#xe79a;"
-            },
-            {
                 "name": "style",
                 "type": "custom",
                 "iconName": "&#xe79e;"

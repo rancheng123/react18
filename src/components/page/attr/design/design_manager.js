@@ -1,4 +1,8 @@
 
+import { getAsyncComponent, componentBasePath } from '@/config/async_import_components_config'
+
+// 当前文件的引入基路径
+const importBasPath = 'page/attr/design/'
 /**
  * @instance {DesignManager} 设计管理器实例
  */
@@ -13,13 +17,12 @@ const DesignManager = {
       moduleName = "Background"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "background/background_controler";
+      path = "background/background_controler.jsx";
       moduleName = "BackgroundControler";
     }
-
     //返回对应模块类
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -32,12 +35,12 @@ const DesignManager = {
       moduleName = "Border"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "border/border_controler";
+      path = "border/border_controler.jsx";
       moduleName = "BorderControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -50,12 +53,12 @@ const DesignManager = {
       moduleName = "Radius"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "radius/radius_controler";
+      path = "radius/radius_controler.jsx";
       moduleName = "RadiusControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -68,12 +71,12 @@ const DesignManager = {
       moduleName = "Shadow"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "shadow/shadow_controler";
+      path = "shadow/shadow_controler.jsx";
       moduleName = "ShadowControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -86,12 +89,11 @@ const DesignManager = {
       moduleName = "Text"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "text/text_controler";
+      path = "text/text_controler.jsx";
       moduleName = "TextControler";
     } //返回对应模块类
-
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -107,9 +109,8 @@ const DesignManager = {
       path = "animation/animation_controler";
       moduleName = "AnimationControler";
     } //返回对应模块类
-
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -125,8 +126,8 @@ const DesignManager = {
       moduleName = "HoveranimationControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -139,12 +140,12 @@ const DesignManager = {
       moduleName = "Icon"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "icon/icon_controler";
+      path = "icon/icon_controler.jsx";
       moduleName = "IconControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -157,12 +158,12 @@ const DesignManager = {
       moduleName = "Position"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "position/position_controler";
+      path = "position/position_controler.jsx";
       moduleName = "PositionControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -175,12 +176,12 @@ const DesignManager = {
       moduleName = "Space"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "space/space_controler";
+      path = "space/space_controler.jsx";
       moduleName = "SpaceControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -189,7 +190,7 @@ const DesignManager = {
   * @return {Backgroun} 返回对应的控制器或视图类
   */
   levelnav(type) {
-    let path = "levelnav/levelnav",
+    let path = "levelnav/levelnav.jsx",
       moduleName = "Levelnav"; //判断类型是否为控制器
 
     if (type == "controler") {
@@ -197,8 +198,8 @@ const DesignManager = {
       moduleName = "LevelnavControler";
     } //返回对应模块类
 
-    return import(`./${path}.jsx`).then(module => module[moduleName])
-    // return __webpack_require__("./components/page/attr/design lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}.jsx`).then(module => module[moduleName])
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   }
 
 };

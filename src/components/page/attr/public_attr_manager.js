@@ -1,3 +1,7 @@
+import { getAsyncComponent, componentBasePath } from '@/config/async_import_components_config'
+
+// 当前文件的引入基路径
+const importBasPath = 'page/attr/'
 
 /**
  * @function connect 连接处理模块路径与模块名 
@@ -34,13 +38,11 @@ const PublicAttrManager = {
    * @return {Basic} 基本属性模块
    */
   async basic(name) {
-    console.log(name);
     if (name) {
-      const [path, moduleName] = connect(name, ["basic/[name]_basic_controler", "BasicControler"]);
-      console.log(path, moduleName);
-      const module = await this.basicDynamicImport(path, moduleName)
-      return module;
-      // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
+      const [path, moduleName] = connect(name, ["basic/[name]_basic_controler.js", "BasicControler"]);
+      // const module = await this.basicDynamicImport(path, moduleName)
+      // return module;
+      return getAsyncComponent(componentBasePath + path, moduleName)
       // return import(`../../${path}`).then(module => module[moduleName]);
     }
 
@@ -67,8 +69,9 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, ['[name]_setting.jsx', moduleName]);
     }
-    // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
-    return import(`./${path}`).then(module => module[moduleName]);
+    console.log(path, 'setting');
+    // return import(`./${path}`).then(module => module[moduleName]);
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -79,8 +82,8 @@ const PublicAttrManager = {
   animation(name) {
     let path = "animation/animation_controler.jsx",
       moduleName = "AnimationControler";
-    // return __webpack_require__("./components/page/attr lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
-    return import(`./${path}`).then(module => module[moduleName]);
+    // return import(`./${path}`).then(module => module[moduleName]);
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
   /**
@@ -88,14 +91,15 @@ const PublicAttrManager = {
    * @return {CustomControler} 自定义样式模块
    */
   custom(name) {
-    let path = "page/attr/custom/custom_controler.jsx",
+    let path = "page/attr/custom/custom_controler.js",
       moduleName = "CustomControler";
 
     if (name) {
-      [path, moduleName] = connect(name, ['[name]_custom_controler.jsx', moduleName]);
+      [path, moduleName] = connect(name, ['[name]_custom_controler.js', moduleName]);
     }
-    // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
-    return import(`../../${path}`).then(module => module[moduleName]);
+    console.log(componentBasePath + path, moduleName, 'custom');
+    // return import(`../../${path}`).then(module => module[moduleName]);
+    return getAsyncComponent(componentBasePath + path, moduleName)
     // return import(`./custom/custom_controler.jsx`).then(module => module[moduleName]);
   },
 
@@ -111,8 +115,6 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, [(pathname == undefined ? '' : pathname + '/') + '[name]_customcss_controler.js', moduleName]);
     }
-
-    // return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
     // return import(`./${path}`).then(module => module[moduleName]);
     return import(`./customcss/customcss_controler.jsx`).then(module => module[moduleName]);
   },
@@ -122,7 +124,7 @@ const PublicAttrManager = {
    * @return {CustomControler} 自定义样式模块
    */
   collection() {
-    return import('../../../template/toolbar/collection/add_collection_controler').then(res => res.default)
+    return import('../../../template/toolbar/collection/add_collection_controler').then(module => module.default)
     // return Promise.all(/*! import() | add_collection_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("add_collection_controler")]).then(__webpack_require__.bind(null, /*! ../../../ui/toolbar/collection/add_collection_controler.js */ "./ui/toolbar/collection/add_collection_controler.js")).then(module => module.AddCollectionControler);
   },
 
@@ -130,7 +132,7 @@ const PublicAttrManager = {
   manage(name) {
     if (name) {
       const [path, moduleName] = connect(name, ["manage/[name]_manage_controler.jsx", "ManageControler"]);
-      console.log(path,moduleName);
+      console.log(path, moduleName);
       return __webpack_require__("./components lazy recursive ^\\.\\/.*$")(`./${path}`).then(module => module[moduleName]);
       // return import('./manage/component_manage_controler').then(res=>res.default)
     }
@@ -174,17 +176,6 @@ const PublicAttrManager = {
   link() {
     return import('./link/link_controler.jsx').then(module => module.LinkContainer);
   },
-
-  // 动态导入处理函数
-  async basicDynamicImport(path, name) {
-    try {
-      const modules = import.meta.glob('../../../components/*/attr/basic/*.js')
-      const m = await modules[`../../${path}.js`]
-      return m ? m().then(mod => mod[name]) : null
-    } catch (error) {
-      console.error('err', error);
-    }
-  }
 
 };
 

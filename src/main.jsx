@@ -4,6 +4,7 @@ import "./index.css";
 import App from './App'
 import Util from '@/components/page/util/util.jsx'
 import './utils/public.js'
+import './utils/userWorker';
 import './language/system/zh.js'
 
 import { componentsAsync } from "@/config/async_import_components_config";
