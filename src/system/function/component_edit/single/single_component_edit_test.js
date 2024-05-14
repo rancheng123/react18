@@ -36,6 +36,7 @@ const SingleComponentEdit = {
     btnId,
     boxId
   }) {
+
     const {
       current: {
         layout: {
@@ -85,6 +86,7 @@ const SingleComponentEdit = {
         }
       }
     } = this;
+
 
     //判断是不是容器只有非容器，才继续执行
     if (feature != 'Container') {
@@ -268,6 +270,7 @@ const SingleComponentEdit = {
       const stop = document.querySelector(".property-modal").scrollTop; //存在坐标参数，表示方法不是事件触发，不允许执行拖拽方法。 调用查找方法，查找控件
 
       isdrag = false, this.node = this.controler.findComponent(x, y + stop, stop, id);
+      console.log(99999999999, this.node);
     } //判断是否存在控件
 
 
