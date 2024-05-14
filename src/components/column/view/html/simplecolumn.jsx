@@ -21,8 +21,8 @@ export function Column() {
       clone
     }
   } = this,
-        child = components[0],
-        len = components.length;
+    child = components[0],
+    len = components.length;
   const unedit = Util.source != undefined;
   const className = child && child.type != 'Placeholder' || unedit || len > 1 ? '' : 'col-m-height';
   let hidName = ''; //hidden等于1,返回null 2020-12-15 by wyq
@@ -68,7 +68,7 @@ export function Column() {
   )
 
   return dom
-  
+
   // return React.createElement("div", {
   //   id: id,
   //   className: `${id}row_col rowcol${hidName} ${className}`
@@ -83,4 +83,3 @@ export function Column() {
   // }) : unedit ? null : React.createElement("button", null, "\u53EF\u62D6\u5165\u63A7\u4EF6\u5230\u6B64\u4F4D\u7F6E"));
 }
 
- 

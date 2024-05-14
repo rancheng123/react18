@@ -34,26 +34,45 @@ export function s55() {
 
     if (context.openListLink == "imgBig") {
         effect = "imgBig";
-    } //effect=="imgBig" 是图片放大的结构 sxt 2020-1-16 14:47
+    } //effect=="imgBig" 是图片放大的结构 
 
 
-    return React.createElement(Component.box, {
-        id: id,
-        context: context
-    }, React.createElement(Component.script, {
-        id: id,
-        document_data: document_data
-    }), effect == "imgBig" ? React.createElement(Component.enlargeImage, {
-        state: this.state,
-        props: this.props
-    }) : React.createElement(Util.linkDecorator, {
-        link: Util.setLinkUrl(context.link, link),
-        type: "html",
-        className: `imgHoverAn Imgbox clearfix ${hoverAnimationClass}`
-    }, React.createElement(Component.image, {
-        className: `${id}Img img`,
-        state: this.state || {},
-        context: context
-    })));
+    // return React.createElement(Component.box, {
+    //     id: id,
+    //     context: context
+    // }, React.createElement(Component.script, {
+    //     id: id,
+    //     document_data: document_data
+    // }), effect == "imgBig" ? React.createElement(Component.enlargeImage, {
+    //     state: this.state,
+    //     props: this.props
+    // }) : React.createElement(Util.linkDecorator, {
+    //     link: Util.setLinkUrl(context.link, link),
+    //     type: "html",
+    //     className: `imgHoverAn Imgbox clearfix ${hoverAnimationClass}`
+    // }, React.createElement(Component.image, {
+    //     className: `${id}Img img`,
+    //     state: this.state || {},
+    //     context: context
+    // })));
+
+    return (
+        <Component.box id={id} context={context}>
+            <Component.script id={id} document_data={document_data} />
+            {effect === "imgBig" ?
+                <Component.enlargeImage state={this.state} props={this.props} /> :
+                <Util.linkDecorator
+                    link={Util.setLinkUrl(context.link, link)}
+                    type="html"
+                    className={`imgHoverAn Imgbox clearfix ${hoverAnimationClass}`}
+                >
+                    <Component.image
+                        className={`${id}Img img`}
+                        state={this.state || {}}
+                        context={context}
+                    />
+                </Util.linkDecorator>
+            }
+        </Component.box>
+    );
 }
-    

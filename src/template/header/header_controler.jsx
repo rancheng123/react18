@@ -2,7 +2,7 @@ import React from 'react'
 import Dispatcher from '@/system/tools/dispatcher';
 import History from '@/system/tools/history';
 import logo from '@/assets/image/logo.png'
-import { Select,Button} from 'antd';
+import { Select, Button } from 'antd';
 import EditPage from './editPage.jsx'
 import styles from './header.module.less'
 
@@ -37,9 +37,9 @@ export default class HeaderControler extends React.Component {
         "iconName": "&#xe7a1;",
         "iconClass": "",
         'title': window.public.lang.showHidden
-      }, 
-      {"iconClass":"iconfont","iconName":"&#xe775;","event":"undo",'title':window.public.lang.backOff}, //先注掉 原因是功能还没完全的做完。 lw 2021-4-22
-      {"iconClass":"iconfont","iconName":"&#xe771;","event":"redo",'title':window.public.lang.forwards},
+      },
+      { "iconClass": "iconfont", "iconName": "&#xe775;", "event": "undo", 'title': window.public.lang.backOff }, //先注掉 原因是功能还没完全的做完。 lw 2021-4-22
+      { "iconClass": "iconfont", "iconName": "&#xe771;", "event": "redo", 'title': window.public.lang.forwards },
       // {
       //   "iconName": "",
       //   "iconClass": "",
@@ -57,7 +57,7 @@ export default class HeaderControler extends React.Component {
         'iconName': window.public.lang.preview,
         className: 'btn textBtn firstTextBtn'
       }, //判断是否上线，上线显示发布，不上线不显示发布
-       {
+      {
         "event": "save",
         'title': window.public.lang.preservation,
         'iconName': window.public.lang.preservation,
@@ -74,8 +74,8 @@ export default class HeaderControler extends React.Component {
         className: 'btn textBtn',
         iconName: window.public.lang.returnAdministration
       }]; //组件挂载前的初始化方法，整个生命周期内只执行一次
-    
-    
+
+
     // 设备数据
     this.device_list = [
       {
@@ -93,11 +93,11 @@ export default class HeaderControler extends React.Component {
         'title': window.public.lang.MobileEditing,
         'iconName': "&#xe76c;"
       },
-    ] 
+    ]
 
     // 语言数据
-    this.lang_list= [
-      'Chinese', 'German' ,'Arabic', 'Spanish' ,'Korean' ,'Italian'
+    this.lang_list = [
+      'Chinese', 'German', 'Arabic', 'Spanish', 'Korean', 'Italian'
     ]
 
     // 页面数据
@@ -146,16 +146,16 @@ export default class HeaderControler extends React.Component {
             <Select
               className={styles.langSelect}
               defaultValue="Chinese"
-              style={{ width: '150px',height:"32px"}}
+              style={{ width: '150px', height: "32px" }}
               options={[
                 {
                   label: <span className={styles.langSelectTitle}>我的网站语言</span>,
-                  title:"lang",
-                  options: this.lang_list.map((item,index)=>{
+                  title: "lang",
+                  options: this.lang_list.map((item, index) => {
                     return (
                       {
-                        label:<span className={styles.langSelectChild} key={item}>{item}</span>,
-                        value:item
+                        label: <span className={styles.langSelectChild} key={item}>{item}</span>,
+                        value: item
                       }
                     )
                   }),
@@ -166,30 +166,30 @@ export default class HeaderControler extends React.Component {
           </div>
 
           <div className={styles.edipage}>
-            <EditPage pageList={this.page_list}/>
+            <EditPage pageList={this.page_list} />
           </div>
 
           <div className={styles.ediDevice}>
-              <ul>
-                {
-                  this.device_list.map((item, index) => {
-                    return (
-                      <li
-                        key={item.event}
-                        id={item.event}
-                        title={item.title}
-                        className={item.className}
-                        onClick={item.event ? this[item.event].bind(this) : () => {}}
-                      >
-                        <a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a> 
-                      </li>
-                    )
-                  })
-                }
-              </ul>
+            <ul>
+              {
+                this.device_list.map((item, index) => {
+                  return (
+                    <li
+                      key={item.event}
+                      id={item.event}
+                      title={item.title}
+                      className={item.className}
+                      onClick={item.event ? this[item.event].bind(this) : () => { }}
+                    >
+                      <a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a>
+                    </li>
+                  )
+                })
+              }
+            </ul>
           </div>
         </div>
-        
+
         <div className="ediHeRight">
           <ul className="e_ulBox">
             {
@@ -201,7 +201,7 @@ export default class HeaderControler extends React.Component {
                     id={item.event}
                     title={item.title}
                     className={item.className}
-                    onClick={item.event ? this[item.event].bind(this) : () => {}}
+                    onClick={item.event ? this[item.event].bind(this) : () => { }}
                   >
                     {
                       // item.event === 'rulerShow' ? (
@@ -235,7 +235,7 @@ export default class HeaderControler extends React.Component {
         </div>
         <div className="hideBtn" data-hidden="false"><i className="iconfont"></i></div>
       </header>
-    ) 
+    )
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
@@ -263,7 +263,7 @@ export default class HeaderControler extends React.Component {
     }
 
     close && close.click();
-  }  
+  }
 
   /**
    * @method switchEdit 切换到平板编辑模式

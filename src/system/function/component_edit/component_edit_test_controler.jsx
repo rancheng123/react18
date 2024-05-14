@@ -250,7 +250,8 @@ export default class ComponentEditControler extends React.Component {
 
     //获取总数据
     const data = Dispatcher.dispatch("getIframeData");
-
+    console.log(initX, initY, stop, cid)
+    console.log(data, 'data')
     //判断data中是否存有数据
     if (data) {
       //判断当前是否是移动端浏览
@@ -258,41 +259,41 @@ export default class ComponentEditControler extends React.Component {
         initX = initX - (window.innerWidth - 375) / 2;
       }
 
-      // let {
-      //   component: {
-      //     documentType,
-      //     children: components
-      //   }
-      // } = data,
-      //     isroot = true,
-      //     componentData = {
-      //   components,
-      //   i: 0,
-      //   len: components.length,
-      //   current: null,
-      //   componentsList: []
-      // },
-      //     parents = [{
-      //   id: documentType
-      // }]; 
-
       let {
         component: {
           documentType,
           children: components
         }
-      } = data
-      let isroot = true
-      let componentData = {
-        components,
-        i: 0,
-        len: components.length,
-        current: null,
-        componentsList: []
-      }
-      let parents = [{
-        id: documentType
-      }];
+      } = data,
+        isroot = true,
+        componentData = {
+          components,
+          i: 0,
+          len: components.length,
+          current: null,
+          componentsList: []
+        },
+        parents = [{
+          id: documentType
+        }];
+
+      // let {
+      //   component: {
+      //     documentType,
+      //     children: components
+      //   }
+      // } = data
+      // let isroot = true
+      // let componentData = {
+      //   components,
+      //   i: 0,
+      //   len: components.length,
+      //   current: null,
+      //   componentsList: []
+      // }
+      // let parents = [{
+      //   id: documentType
+      // }];
 
       //循环
       while (componentData.i < componentData.len) {
@@ -320,7 +321,7 @@ export default class ComponentEditControler extends React.Component {
           //赋值false，表示已经循环完毕根级下的直系父级
           isroot = false;
 
-
+          console.log(id, componentData.current, 'id');
           //数组内是否还有父级数据，有存储父级数据，无根据当前控件查找父级数据
           if (componentData.componentsList.length && id != cid) {
             this.saveParent(componentData, parents);
@@ -634,8 +635,8 @@ export default class ComponentEditControler extends React.Component {
    */
   mousedown(event, x, y, id, fn) {
     const closes = document.querySelectorAll('.layer-close,#panel-close');
-
-    //获取导航项管理的父级id 以及关闭的类 author lw date 2021-1-27
+    console.log(11111111111111);
+    //获取导航项管理的父级id 以及关闭的类 
     let el = document.querySelector('#page-management .layer-close');
     closes.length && [...closes].forEach(e => {
       if (window.public.type == 'mo' && el == e) {

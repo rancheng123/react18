@@ -32,7 +32,7 @@ export function s55() {
 
     if (context.openListLink == "imgBig") {
         effect = "imgBig";
-    } //effect=="imgBig" 是图片放大的结构 sxt 2020-1-16 14:47
+    } //effect=="imgBig" 是图片放大的结构
 
 
     return React.createElement(Component.box, {

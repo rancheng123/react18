@@ -90,9 +90,9 @@ const Drag = {
       },
       data: {
         text: `添加到${(_window$public$getNam = window.public.getName(this.insertName)) !==
-            null && _window$public$getNam !== void 0
-            ? _window$public$getNam
-            : "这里"
+          null && _window$public$getNam !== void 0
+          ? _window$public$getNam
+          : "这里"
           }`,
       },
       style: {
@@ -274,7 +274,7 @@ const Drag = {
 
     const data = Dispatcher.dispatch("getIframeData"); //如果存在应用到所有属性，给应用到所有属性赋值
 
-    console.log(data)
+    // console.log(data)
 
     if (opts && opts.isApply) {
       this.isApply = opts.isApply;

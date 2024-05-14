@@ -6,40 +6,41 @@ import Util from "@/components/page/util/util.jsx";
 
 /**
  * @instance {Component} 控件公用HTML视图实例
- * @author wyq
- * @version 1.0
- * @date 2019-10-18
  */
 
 const Component = {
   /**
    * @method box 控件外层包裹结构
-   * @date 2019-11-4
-   * @author wyq
    * @param {object} props 参数对象
    * @param {string} porps.id 控件id
    * @param {object} props.children 控件子节点集合
    * @return {object} 控件外层包裹结构
    */
   box(props) {
-    return React.createElement("div", {
-      id: props.id,
-      className: `${props.id} ImghidCont`
-    }, props.children);
+    // return React.createElement("div", {
+    //   id: props.id,
+    //   className: `${props.id} ImghidCont`
+    // }, props.children);
+    return (
+      <div
+        id={props.id}
+        className={`${props.id} ImghidCont`}
+      >
+        {props.children}
+      </div>
+    );
   },
 
   /**
    * @method enlargeImage 放大图片结构
-   * @date 2020-08-29
-   * @author wyq
    * @param {object} param0 参数对象
    * @param {object} param0.state 状态对象
    * @param {object} param0.props 属性对象
    */
   enlargeImage({
-                 state,
-                 props
-               }) {
+    state,
+    props
+  }) {
     const {
       component: {
         id
@@ -65,7 +66,7 @@ const Component = {
       webp,
       alt,
       title
-    }); //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 sxt 2020-11-11
+    }); //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 
 
     if (context && context.selectionContent == "custom") {
       dataRetain = context.dataRetain;
@@ -79,24 +80,39 @@ const Component = {
       dataRetain,
       quality
     }));
-    return React.createElement("div", {
-      className: "clearfix baguetteBox"
-    }, React.createElement("a", {
-      href: src,
-      "data-enlarge-webp": Util.webp(src),
-      "data-caption": arr.title,
-      className: `imgHoverAn ${hoverAnimationClass} Imgbox`
-    }, React.createElement(Component.image, {
-      className: `${id}Img img`,
-      state: state,
-      context: props.context
-    })));
+    // return React.createElement("div", {
+    //   className: "clearfix baguetteBox"
+    // }, React.createElement("a", {
+    //   href: src,
+    //   "data-enlarge-webp": Util.webp(src),
+    //   "data-caption": arr.title,
+    //   className: `imgHoverAn ${hoverAnimationClass} Imgbox`
+    // }, React.createElement(Component.image, {
+    //   className: `${id}Img img`,
+    //   state: state,
+    //   context: props.context
+    // })));
+
+    return (
+      <div className="clearfix baguetteBox">
+        <a
+          href={src}
+          data-enlarge-webp={Util.webp(src)}
+          data-caption={arr.title}
+          className={`imgHoverAn ${hoverAnimationClass} Imgbox`}
+        >
+          <Component.image
+            className={`${id}Img img`}
+            state={state}
+            context={props.context}
+          />
+        </a>
+      </div>
+    );
   },
 
   /**
    * @method image 图片结构处理
-   * @date 2020-2-28
-   * @author sxt
    * @param {object} props 参数对象
    * @param {string} props.className 图片class
    * @param {object} props.state 控件数据
@@ -141,22 +157,22 @@ const Component = {
 
 
     let quality = (_document_data$ = document_data[`${Util.type}quality`]) !== null && _document_data$ !== void 0 ? _document_data$ : document_data.quality,
-        dataRetain = (_ref = (_document_data$2 = document_data[`${Util.type}dataRetain`]) !== null && _document_data$2 !== void 0 ? _document_data$2 : document_data.dataRetain) !== null && _ref !== void 0 ? _ref : '';
+      dataRetain = (_ref = (_document_data$2 = document_data[`${Util.type}dataRetain`]) !== null && _document_data$2 !== void 0 ? _document_data$2 : document_data.dataRetain) !== null && _ref !== void 0 ? _ref : '';
     let arr = Component.tags(id, imgArr, {
-          uri,
-          webp,
-          alt,
-          title,
-          width,
-          height,
-          videoUrl: ""
-        }),
-        thumb = null;
+      uri,
+      webp,
+      alt,
+      title,
+      width,
+      height,
+      videoUrl: ""
+    }),
+      thumb = null;
     let dataSpesc = null;
     let companyField = dataSource.companyField;
 
     if (Util.source && companyField == "thumb_img" && dataSource.selectContent == "autoBinding" && dataSource.type != "list") {
-      //数据源开启并且类型为缩略图，且是绑定的数据源 ，类型不为列表 赋值属性用于绑定规格参数替换图片属性 sxt 2020-9-17
+      //数据源开启并且类型为缩略图，且是绑定的数据源 ，类型不为列表 赋值属性用于绑定规格参数替换图片属性
       dataSpesc = "thumb_img";
     }
 
@@ -180,7 +196,7 @@ const Component = {
       if (companyField == "banner" && context.bannerImg) {
         arr.videoUrl = context.bannerImg["videoUrl"];
       }
-    } //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 sxt 2020-11-11
+    } //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 
 
 
     if (context && context.selectionContent == "custom") {
@@ -197,7 +213,7 @@ const Component = {
           uri: arr.uri,
           dataRetain,
           quality: 100
-        }); //当图片中存在宽和高时，走占位路径 sxt  2020-5-27
+        }); //当图片中存在宽和高时，走占位路径 
 
         if (context.img_width && context.img_height) {
           thumb = `https:\/\/img.bjyyb.net/grey.png?x-oss-process=image/resize,m_fixed,w_${context.img_width},h_${context.img_height},limit_0`;
@@ -224,15 +240,15 @@ const Component = {
       }
 
       let uriSwitch = Util.imagePath({
-            uri: `{$vo.${coverSource}.1}`,
-            dataRetain,
-            quality
-          }),
-          webpSwitch = Util.webp(Util.imagePath({
-            uri: `{$vo.${coverSource}.1}`,
-            dataRetain,
-            quality
-          }));
+        uri: `{$vo.${coverSource}.1}`,
+        dataRetain,
+        quality
+      }),
+        webpSwitch = Util.webp(Util.imagePath({
+          uri: `{$vo.${coverSource}.1}`,
+          dataRetain,
+          quality
+        }));
       return React.createElement(React.Fragment, null, React.createElement("img", {
         className: `${props.className} lazyload <notempty name="vo.${coverSource}.1">firstImage</notempty>`,
         "data-specsimg": dataSpesc,
@@ -284,8 +300,6 @@ const Component = {
 
   /**
    * @method ampImage amp图片结构
-   * @date 2020-03-14
-   * @author wyq
    * @param {Object} props 参数对象
    * @param {string} props.className 图片class
    * @param {object} props.state 控件数据
@@ -306,13 +320,13 @@ const Component = {
       }
     } = props.state || {};
     let {
-          width = 100,
-          height = 100,
-          currentHeight = 50
-        } = layout,
-        tap = null,
-        role = null,
-        imgNoBig = "true";
+      width = 100,
+      height = 100,
+      currentHeight = 50
+    } = layout,
+      tap = null,
+      role = null,
+      imgNoBig = "true";
     let {
       imgArr = context.imgArr,
       uri,
@@ -332,7 +346,7 @@ const Component = {
 
 
     let quality = (_document_data$moqual = document_data.moquality) !== null && _document_data$moqual !== void 0 ? _document_data$moqual : document_data.quality,
-        dataRetain = (_ref2 = (_document_data$modata = document_data.modataRetain) !== null && _document_data$modata !== void 0 ? _document_data$modata : document_data.dataRetain) !== null && _ref2 !== void 0 ? _ref2 : '';
+      dataRetain = (_ref2 = (_document_data$modata = document_data.modataRetain) !== null && _document_data$modata !== void 0 ? _document_data$modata : document_data.dataRetain) !== null && _ref2 !== void 0 ? _ref2 : '';
     let arr = Component.tags(id, imgArr, {
       uri,
       webp,
@@ -341,7 +355,7 @@ const Component = {
       width,
       height
     }); //let context={type:"slider",uri:"{$slide.uri}",alt:"{$slide.alt}",title:"{$slide.title}",width:"{$slide.width}",height:"{$slide.height}"};
-    //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 sxt 2020-11-11
+    //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 
 
     if (context && context.selectionContent == "custom") {
       dataRetain = context.dataRetain;
@@ -353,7 +367,7 @@ const Component = {
       arr.width = context.img_width;
       arr.height = context.img_height;
       effect = context.openListLink; //图片放大类型
-    } //传过来的打开方式为图片放大时，走传过来的类型（只有列表开启放大会传过来）sxt 2021-7-1
+    } //传过来的打开方式为图片放大时，走传过来的类型（只有列表开启放大会传过来）
 
 
     if (context && context.openListLink == "imgBig") {
@@ -376,11 +390,11 @@ const Component = {
       imgNoBig = null;
     }
 
-    let layoutType = "responsive"; //控件类型为浮动时，要单独计算宽高 sxt
+    let layoutType = "responsive"; //控件类型为浮动时，要单独计算宽高
 
     if (context.layoutType == "fixed") {
       let headerImgH = currentHeight,
-          headerImgW = headerImgH * width / height;
+        headerImgW = headerImgH * width / height;
       arr.height = headerImgH;
       arr.width = headerImgW;
       layoutType = "fixed";
@@ -413,8 +427,6 @@ const Component = {
 
   /**
    * @method ampImage amp图片结构
-   * @date 2020-03-14
-   * @author wyq
    * @param {Object} props 参数对象
    * @param {string} props.className 图片class
    * @param {object} props.state 控件数据
@@ -458,7 +470,7 @@ const Component = {
 
 
     let quality = (_document_data$moqual2 = document_data.moquality) !== null && _document_data$moqual2 !== void 0 ? _document_data$moqual2 : document_data.quality,
-        dataRetain = (_ref3 = (_document_data$modata2 = document_data.modataRetain) !== null && _document_data$modata2 !== void 0 ? _document_data$modata2 : document_data.dataRetain) !== null && _ref3 !== void 0 ? _ref3 : '';
+      dataRetain = (_ref3 = (_document_data$modata2 = document_data.modataRetain) !== null && _document_data$modata2 !== void 0 ? _document_data$modata2 : document_data.dataRetain) !== null && _ref3 !== void 0 ? _ref3 : '';
     let arr = Component.tags(id, imgArr, {
       uri,
       webp,
@@ -467,7 +479,7 @@ const Component = {
       width,
       height
     }); //let context={type:"slider",uri:"{$slide.uri}",alt:"{$slide.alt}",title:"{$slide.title}",width:"{$slide.width}",height:"{$slide.height}"};
-    //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 sxt 2020-11-11
+    //传递数据存在，并且selectionContent为自定义时，此时是列表自定义的图片数据 
 
     if (context && context.selectionContent == "custom") {
       dataRetain = context.dataRetain;
@@ -479,7 +491,7 @@ const Component = {
       arr.width = context.img_width;
       arr.height = context.img_height;
       effect = context.openListLink; //图片放大类型
-    } //传过来的打开方式为图片放大时，走传过来的类型（只有列表开启放大会传过来）sxt 2021-7-1
+    } //传过来的打开方式为图片放大时，走传过来的类型（只有列表开启放大会传过来）
 
 
     if (context && context.openListLink == "imgBig") {
@@ -496,11 +508,11 @@ const Component = {
       dataRetain,
       quality
     }));
-    let layoutType = "responsive"; //控件类型为浮动时，要单独计算宽高 sxt
+    let layoutType = "responsive"; //控件类型为浮动时，要单独计算宽高 
 
     if (context.layoutType == "fixed") {
       let headerImgH = currentHeight,
-          headerImgW = headerImgH * width / height;
+        headerImgW = headerImgH * width / height;
       arr.height = headerImgH;
       arr.width = headerImgW;
       layoutType = "fixed";
@@ -523,8 +535,6 @@ const Component = {
 
   /**
    * @method tags 标签处理
-   * @author wyq
-   * @date 2020-07-02
    * @param {string} id 控件id
    * @param {string} prefix PHP变量
    * @param {object} arrs 数据
@@ -551,8 +561,6 @@ const Component = {
 
   /**
    * @method getImgZoomSrc 获取原始格式图片路径
-   * @date 2020-1-16 14：03
-   * @author sxt
    * @return {String} 返回原始格式图片路径
    */
   getImgZoomSrc(src) {
@@ -567,8 +575,6 @@ const Component = {
 
   /**
    * @method script json数据
-   * @author wyq
-   * @date 2020-11-30
    * @param {object} props 参数列表
    */
   script(props) {

@@ -6,7 +6,7 @@ import Dispatcher from '@/system/tools/dispatcher';
 // 导入自定义的 component 模块
 import ComponentDecorator from '@/system/tools/component';
 // 导入自定义的 components_manager 模块
-import componentsManager from '../../components_manager';
+import componentsManager from '@/components/components_manager';
 // 导入自定义的 link_decorator 模块
 import LinkDecorator from './link_decorator';
 // 导入自定义的 image_path 模块
@@ -22,6 +22,7 @@ let Components = null;
  * @return {class} 对应控件类 
  */
 async function getComponent(componentType, type, skin = '') {
+
   let [one, cate, name] = skin.split('.');
   const keyName = skin ? `${cate}_${name}` : componentType; //类型产生变化，初始化Components
 
@@ -65,8 +66,9 @@ async function getChild(component, data, page, type, context, clone, props) {
       componentType,
       skin
     } = component,
-        list = []; //获取控件结构
+      list = [];
 
+    //获取控件结构
     const Component = await getComponent(componentType, type, skin);
 
     if (Component) {
@@ -96,29 +98,29 @@ async function getChild(component, data, page, type, context, clone, props) {
           }}
         />
       );
-      
+
       //判断是否存在子数据
 
-      // list.push(React.createElement(Component, _extends({
-      //   key: id,
-      //   component: component,
-      //   data: comdata,
-      //   page: page,
-      //   context: context,
-      //   clone: clone
-      // }, props)));
+      list.push(React.createElement(Component, _extends({
+        key: id,
+        component: component,
+        data: comdata,
+        page: page,
+        context: context,
+        clone: clone
+      }, props)));
 
-      list.push(
-        <Component
-          key={id}
-          component={component}
-          data={comdata}
-          page={page}
-          context={context}
-          clone={clone}
-          {...props}
-        />
-      );
+      // list.push(
+      //   <Component
+      //     key={id}
+      //     component={component}
+      //     data={comdata}
+      //     page={page}
+      //     context={context}
+      //     clone={clone}
+      //     {...props}
+      //   />
+      // );
 
       return list;
     }
@@ -157,10 +159,10 @@ const Util = {
 
     this.type = type, this.pid = structure.children[2].pageId; //上一次类型与当前类型不同，返回true，相同返回false
 
-    this.istype = type != this.ptype ? (this.ptype = type, true) : false; 
+    this.istype = type != this.ptype ? (this.ptype = type, true) : false;
 
     //获取页面结构
-    const Page = await getComponent("document", type); 
+    const Page = await getComponent("document", type);
     //获取控件样式
     const style = await Util.cssParser(structure, data.theme_data.document, type);
 
@@ -281,16 +283,19 @@ const Util = {
           data
         } = Dispatcher.dispatch('getData', {
           value: component
-        }); //获取控件结构
+        });
 
+        //获取控件结构
         const promise = getChild(component, data, page, Util.type, context, clone, props);
+
         promise.then(childs => setChilds(clone ? childs[1] || childs[0] : childs));
-      }, [context]); //返回控件
+      }, [context]);
 
+      //返回控件
       return childs;
-    } //返回空
+    }
 
-
+    //返回空
     return null;
   },
 
@@ -356,10 +361,10 @@ const Util = {
     */
   dateFormat(pattern = 'y-M-d', time, lang, opts) {
     let _date = new Date(Number(time) * 1000 || new Date().getTime()),
-        //获取日期对象
-    param = {
-      hour12: true
-    };
+      //获取日期对象
+      param = {
+        hour12: true
+      };
 
     if (opts) {
       const name = {
@@ -387,8 +392,8 @@ const Util = {
       //分隔时间部分和分隔年月日部分 
 
       const _d = _dateTime[0].split(/\/|-/),
-            _t = _dateTime[1] ? _dateTime[1].split(":") : [],
-            _s = _t[2] ? _t[2].split(" ") : []; //把年月日时间通过指定的键存储起来
+        _t = _dateTime[1] ? _dateTime[1].split(":") : [],
+        _s = _t[2] ? _t[2].split(" ") : []; //把年月日时间通过指定的键存储起来
 
 
       let _data = {

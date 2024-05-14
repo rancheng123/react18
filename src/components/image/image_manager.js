@@ -6,7 +6,8 @@ const ImageManager = {
   },
 
   getAttr() {
-    return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(127)]).then(__webpack_require__.bind(null, /*! ./attr/image_attribute.js */ "./components/image/attr/image_attribute.js")).then(module => module.ImageAttribute);
+    // return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5), __webpack_require__.e(127)]).then(__webpack_require__.bind(null, /*! ./attr/image_attribute.js */ "./components/image/attr/image_attribute.js")).then(module => module.ImageAttribute);
+    return import('./attr/image_attribute.js').then(module => module.ImageAttribute);
   },
 
   getStyle(cate, type) {

@@ -36,6 +36,7 @@ const SingleComponentEdit = {
     btnId,
     boxId
   }) {
+
     const {
       current: {
         layout: {
@@ -87,23 +88,23 @@ const SingleComponentEdit = {
       }
     } = this;
 
+
     //判断是不是容器只有非容器，才继续执行
     if (feature != 'Container') {
       var _this$parent;
-
       //查找指定的父级数据
       parent = this.findParents(); //存在父级并且父级id不同，执行父级选中
 
       if (parent && ((_this$parent = this.parent) !== null && _this$parent !== void 0 ? _this$parent : {}).id != parent.current.id) {
         var _this$proxy$config;
 
-        this.parent = parent; //获取代理对象
+        this.parent = parent;
 
-        this.proxy = await new AttrProxy().init(this.parent.current.type); //删除操作点配置
+        //获取代理对象
+        this.proxy = await new AttrProxy().init(this.parent.current.type);
 
 
-
-
+        //删除操作点配置
         delete ((_this$proxy$config = this.proxy.config) !== null && _this$proxy$config !== void 0 ? _this$proxy$config : {}).dots; //执行选中
 
         this.select({
@@ -181,6 +182,7 @@ const SingleComponentEdit = {
     boxId,
     btnId
   }) {
+    console.log(node, 'this.node');
 
     //判断是否存在配置对象
     if (this.proxy.config) {
@@ -258,7 +260,7 @@ const SingleComponentEdit = {
    */
   mousedown(event, x, y, id, fn) {
     var _event$isdrag;
-
+    console.log('mousedown');
     //pc端允许拖拽，mo端不允许拖拽
     let isdrag = ((_event$isdrag = event.isdrag) !== null && _event$isdrag !== void 0 ? _event$isdrag : window.public.type == 'pc') ? true : false;
     this.proxy && this.proxy.selectBlur(this.node); //判断是否存在滑入控件信息，把鼠标滑过的节点赋给选中的this.node属性
@@ -272,6 +274,7 @@ const SingleComponentEdit = {
       const stop = document.querySelector(".property-modal").scrollTop; //存在坐标参数，表示方法不是事件触发，不允许执行拖拽方法。 调用查找方法，查找控件
 
       isdrag = false, this.node = this.controler.findComponent(x, y + stop, stop, id);
+      console.log(99999999999, this.node);
     } //判断是否存在控件
 
 
@@ -285,12 +288,16 @@ const SingleComponentEdit = {
         {
           pageX: x,
           pageY: y
-        } = event; //如果是pc端直接赋x坐标，移动端需要减去移动端的左边距离屏幕边距的距离
+        } = event;
 
-      this.x = window.public.type == 'pc' ? x : x - (window.innerWidth - 375) / 2, this.y = y; //初始化选中框。 如果控件允许拖拽且isdrag属性为true，则执行拖拽开始方法
+      //如果是pc端直接赋x坐标，移动端需要减去移动端的左边距离屏幕边距的距离
+      this.x = window.public.type == 'pc' ? x : x - (window.innerWidth - 375) / 2, this.y = y;
 
-      this.init().then(() => (fn && fn(id), isdrag && !dragable && this.start(x, y))); //返回控件
 
+      //初始化选中框。 如果控件允许拖拽且isdrag属性为true，则执行拖拽开始方法
+      this.init().then(() => (fn && fn(id), isdrag && !dragable && this.start(x, y)));
+
+      //返回控件
       return this.node;
     }
     //阻止默认事件

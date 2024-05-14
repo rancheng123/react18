@@ -70,6 +70,7 @@ const Attribute = {
    * @param {boolean} opts.reload 是否重新加载面板 true 重新加载 false 不重新加载。注：此属性仅在面板已经处于开启状态时有效
    */
   showAttributePanel(opts) {
+
     var _ref, _tabs, _config$window$public;
 
     this.node = opts.node;
@@ -105,7 +106,6 @@ const Attribute = {
     if (opts.index != -1) {
       const element = document.querySelector(`#${opts.id}`),
         cid = this.node.current.id;
-
       //父级元素内为插入面板结构或reload为true或要展示的控件id与当前展示面板的控件id不同，则重新载入面板结构
       if (element.children.length == 0 || opts.reload || cid != Attribute.currentId) {
         //如果面板为打开状态且reload不为true，则不在加载面板，通过模拟点击来选中对应项

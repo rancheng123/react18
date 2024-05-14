@@ -1,7 +1,7 @@
 
 // 导入 react、react-dom、dispatcher 和 ConfigBtn 模块
 import React from "react";
-import {createRoot} from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import Dispatcher from "@/system/tools/dispatcher";
 import ConfigBtn from "./ConfigBtn";
 
@@ -37,19 +37,19 @@ class Buttons {
       var _ref, _data$data$document_d, _node$current$skin;
 
       const button = new Buttons(proxy, node),
-      {
-        current: {
-          id: cid,
-          layout: {
-            x,
-            y
+        {
+          current: {
+            id: cid,
+            layout: {
+              x,
+              y
+            }
           }
-        }
-      } = node
-      
+        } = node
+
       const data = Dispatcher.dispatch(`${cid}_get`)
       const componentName = (_ref = (_data$data$document_d = data.data.document_data.categoryName) !== null && _data$data$document_d !== void 0 ? _data$data$document_d : window.public.lang[((_node$current$skin = node.current.skin) !== null && _node$current$skin !== void 0 ? _node$current$skin : '').split('.')[1]]) !== null && _ref !== void 0 ? _ref : window.public.getName(node.current.type);
-      
+
       btns = Buttons.btnsHandle(btns, node.current.type);
 
       const buttonRoot = createRoot(container)
@@ -62,7 +62,7 @@ class Buttons {
           btns={btns}
         />
       )
-      
+
       // ReactDOM.render(React.createElement(button.render, {
       //   button: button,
       //   componentName: componentName,
@@ -142,16 +142,16 @@ class Buttons {
 
     const [layout, setLayout] = React.useState({
       opacity: 0
-    }); 
-    
+    });
+
     //每次选中控件时，计算属性按钮位置。
-    React.useEffect(button.btnListLayout(btnId, setLayout), []); 
-    
+    React.useEffect(button.btnListLayout(btnId, setLayout), []);
+
     //属性按钮选中
     const [selectState, setSelectState] = React.useState(null),
-      [buttonList, setButtonList] = React.useState(btns); 
-      
-      
+      [buttonList, setButtonList] = React.useState(btns);
+
+
     //注册选中加载按钮方法
     React.useEffect(() => {
       Dispatcher.register(`${id}_set_property_btns`, setButtonList, Buttons);
@@ -217,7 +217,7 @@ class Buttons {
       <ConfigBtn.ConfigBtnWaper style={layout} name={componentName} id={id}>
         <ul className="functionUL" id='asdf'>
           {/* 循环控件属性按钮 */}
-          {btns.map(({ name, type, hidden, select, selected, show, className = type,iconName }, i) => {
+          {btns.map(({ name, type, hidden, select, selected, show, className = type, iconName }, i) => {
             //判断属性按钮是隐藏还是显示
             if (hidden !== true) {
               if (show && !Buttons.controler.isShow(button.node, show)) {
@@ -275,18 +275,18 @@ class Buttons {
           left,
           top;
         height = height + 10;
-        
+
         //如果头部或底部可以显示全按钮，则在头部或底部显示，否则点哪里在哪里显示
         if (cy > height || innerHeight - (cy + layout.height) > height) {
-          top = layout.y - height, left = layout.x > 20 ? layout.x : 0; 
+          top = layout.y - height, left = layout.x > 20 ? layout.x : 0;
 
           //如果以控件坐标为基准放不下属性按钮，则以属性按钮宽度来计算属性按钮的x坐标
           //80为右侧工具库按钮宽度
           if (innerWidth - layout.x < width + 95) {
             // left = innerWidth - (width + 85);
             left = innerWidth - (width + 89);
-          } 
-          
+          }
+
           //如果属性按钮y坐标小于自身高度，则属性按钮y坐标等于控件y坐标加上其高度的值
           if (cy <= height) {
             top = layout.height + layout.y + 10;
@@ -294,7 +294,7 @@ class Buttons {
         } else {
           const main = document.querySelector('#ediMain');
           height = main.offsetTop + height;
-          left = Buttons.x >= width ? Buttons.x - width : Buttons.x + width; 
+          left = Buttons.x >= width ? Buttons.x - width : Buttons.x + width;
           //如果属性按钮x轴加上自身宽度超出屏幕宽度，则x等于屏幕宽度减去属性按钮自身宽度
           if (left + width >= innerWidth) {
             left = innerWidth - width - 15;
@@ -325,16 +325,18 @@ class Buttons {
       type,
       node: this.node,
       id: "component-property"
-    }; //如果可以选中则标选中状态
+    };
 
+    //如果可以选中则标选中状态
     if (select) {
       setSelectState(type), param.close = () => setSelectState('');
     }
     this.proxy.showAttributePanel(param);
   }
 
-} //注册选中加载按钮方法
+}
 
+//注册选中加载按钮方法
 _defineProperty(Buttons, "btns", ConfigBtn['defaultBtns']);
 
 _defineProperty(Buttons, "x", 0);
