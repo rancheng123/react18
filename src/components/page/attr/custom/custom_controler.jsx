@@ -18,7 +18,6 @@ import Dispatcher from "@/system/tools/dispatcher";
 export default class CustomControler extends React.Component {
   constructor(props) {
     super(props);
-
     //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
 
@@ -34,7 +33,6 @@ export default class CustomControler extends React.Component {
    * @param {object} opts 参数列表
   */
   static custom(opts) {
-    console.log(opts, 'opts');
     const {
       node,
       element,
@@ -278,14 +276,12 @@ export default class CustomControler extends React.Component {
 
     Dispatcher.dispatch(`${remove}`, {
       args: [state.currentId, () => {
-        console.log(777777777777, newComponent);
         Dispatcher.dispatch(`${add}`, {
           args: [newComponent, state.index, (target, child, current) => {
             console.log(current, 'current');
             //选中控件
             Dispatcher.dispatch(`selectedComponent`, {
               args: [event, 0, 0, current.id, function () {
-                console.log(8888888888888);
                 //先判断结构有没有再模拟点击，属性面板 
                 let customIco = document.querySelector("#property-buttons .functionUL .customIco");
 

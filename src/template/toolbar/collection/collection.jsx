@@ -50,6 +50,7 @@ export default class Collection extends React.Component {
     * @return {object} 工具库内容项结构
   */
   content() {
+    console.log('生成', this.props);
     //let {controlType} = this.state,{tabs,group} = data.group[controlType];
     // let state = this.state || {},
     //   colists = state.colists;
