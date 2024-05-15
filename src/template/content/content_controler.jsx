@@ -11,7 +11,6 @@ import { createRoot } from 'react-dom/client';
 export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
-
     // this.init();
     /**@property {RulerControler} 标尺组件控制器 */
 
@@ -69,16 +68,16 @@ export default class ContentControler extends React.Component {
       height: 0,
       search: `?pageid=${pageid}&type=${type}`,
       rulerShow: false,
-    }); 
-    
+    });
+
     //注册切换编辑事件
-    Dispatcher.register("switchEdit", this.switchEdit, this); 
+    Dispatcher.register("switchEdit", this.switchEdit, this);
     //注册隐藏工具栏事件
     Dispatcher.register("hideToolbars", this.hideToolbars, this);
     //注册设置页面id事件
-    Dispatcher.register("setPageId", this.setPageId, this); 
+    Dispatcher.register("setPageId", this.setPageId, this);
     //注册设置辅助线显隐功能
-    Dispatcher.register("setRuler", this.setRuler, this); 
+    Dispatcher.register("setRuler", this.setRuler, this);
     //注册左侧工具栏显隐功能
     Dispatcher.register("setEdibtn", this.setEdibtn, this);
   }
@@ -105,9 +104,9 @@ export default class ContentControler extends React.Component {
       Dispatcher.dispatch("selectedHidden", {
         value: true
       });
-      
+
       //调用保存
-      const save = Dispatcher.dispatch('savePage'); 
+      const save = Dispatcher.dispatch('savePage');
       //保存成功后执行切换
       save.then(() => {
         const search = this.search('type', type); //存储页面类型
@@ -231,7 +230,7 @@ export default class ContentControler extends React.Component {
    */
   showToolbars(type, event) {
     // 获取toolBar根节点对象
-    const toolBarsRoot  = createRoot(document.getElementById("edit-toolbar-content"));
+    const toolBarsRoot = createRoot(document.getElementById("edit-toolbar-content"));
 
     //判断是否存在弹出此工具栏的面板
     if (this[type]) {
@@ -400,7 +399,7 @@ export default class ContentControler extends React.Component {
 
   // 渲染右侧工具栏
   renderEdiTool() {
-    const { state: { type, edibtn,toolbar } } = this;
+    const { state: { type, edibtn, toolbar } } = this;
     if (type == 'pc') {
       return (
         <div id="ediTool">
@@ -414,7 +413,7 @@ export default class ContentControler extends React.Component {
                         <li
                           key={index}
                           data-type={item.type}
-                          className={ item.type != toolbar ? item.type : `${item.type} on`}
+                          className={item.type != toolbar ? item.type : `${item.type} on`}
                           onClick={() => this.showToolbars(item.type)}
                         >
                           <a>
@@ -492,3 +491,5 @@ export default class ContentControler extends React.Component {
     )
   }
 }
+
+

@@ -2,7 +2,6 @@
 import React from 'react';
 // 导入 toolbar 模块
 import Toolbar from '../toolbar';
-
 /**
  * @class {Collection} 收藏视图类
  */
@@ -10,7 +9,7 @@ export default class Collection extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
-
+    console.log(this.props, 333);
   }
   /**@property {object} state 获取最新的state属性 */
 
@@ -31,8 +30,8 @@ export default class Collection extends React.Component {
   render() {
     return (
       <>
-        <Toolbar title={ window.public.lang["collection"]}  close={()=> this.props.toolBarsclose()}>
-            {this.content()}
+        <Toolbar title={window.public.lang["collection"]} close={() => this.props.toolBarsclose()}>
+          {this.content()}
         </Toolbar>
       </>
     )
@@ -51,9 +50,12 @@ export default class Collection extends React.Component {
     * @return {object} 工具库内容项结构
   */
   content() {
+    console.log('生成', this.props);
     //let {controlType} = this.state,{tabs,group} = data.group[controlType];
-    let state = this.state || {},
-        colists = state.colists;
+    // let state = this.state || {},
+    //   colists = state.colists;
+
+    let colists = this.props.colists;
 
     if (colists && colists.length) {
       return (
@@ -63,10 +65,10 @@ export default class Collection extends React.Component {
               {colists.map((e, i) => {
                 return (
                   <li key={e.id} data-id={e.id}>
-                    <p onMouseDown={this.controler.start.bind(this.controler, e.id)}>
+                    <p onMouseDown={this.props.controler.start.bind(this.props.controler, e.id)}>
                       {e.title}
                     </p>
-                    <a onClick={this.controler.deleteList.bind(this.controler, e.id)} className="yscIcon yiyingbaoicon">
+                    <a onClick={this.props.controler.deleteList.bind(this.props.controler, e.id)} className="yscIcon yiyingbaoicon">
                       {"\uE808"}
                     </a>
                   </li>
@@ -75,7 +77,7 @@ export default class Collection extends React.Component {
             </ul>
           </div>
           <div className="panlBottom">
-            <button className="contorlBtn" onClick={this.controler.emptyList.bind(this.controler)}>
+            <button className="contorlBtn" onClick={this.props.controler.emptyList.bind(this.props.controler)}>
               <font>{window.public.lang["emptyAll"]}</font>
             </button>
           </div>
@@ -88,7 +90,8 @@ export default class Collection extends React.Component {
         </div>
       );
     }
-    
+
   }
 
 }
+

@@ -1,6 +1,6 @@
 
 // 导入 ReactDom 库
-import {createRoot} from "react-dom/client";
+import { createRoot } from "react-dom/client";
 // 导入 dispatcher 模块
 import Dispatcher from "../../system/tools/dispatcher";
 
@@ -16,7 +16,7 @@ import Dispatcher from "../../system/tools/dispatcher";
  * @return {object} 工具栏面板组件
  */
 export default function Toolbar(props) {
-  const { children, title, isbtn, click, btnTitle, help ,close} = props;
+  const { children, title, isbtn, click, btnTitle, help, close } = props;
   let Tabs = null,
     Content = null,
     Anchor = null;
@@ -31,7 +31,7 @@ export default function Toolbar(props) {
           {title ? <h4>{title}</h4> : null}
           <span>
             {/* <i onClick={help}>?</i> */}
-            <i onClick={()=> Toolbar.close(close)} id="panel-close">
+            <i onClick={() => Toolbar.close(close)} id="panel-close">
               ×
             </i>
           </span>

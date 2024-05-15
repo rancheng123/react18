@@ -2,16 +2,16 @@
 // 导入 React 库
 import React from 'react';
 // 导入 ReactDOM 库
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 // 导入 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher';
-
 // 导入 layer 模块
 import Layer from '@/system/widgets/layer';
-
 // 导入 widget 模块
 import Widget from '@/system/widgets/widget';
 
+import store from '@/store';
+import { useSelector } from 'react-redux';
 
 export default class AddCollectionControler extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ export default class AddCollectionControler extends React.Component {
       node
     } = opts;
     const collectionRoot = createRoot(element)
-    collectionRoot.render(<AddCollectionControler  id={node.current.id} node={node} collectionRoot={collectionRoot} />);
+    collectionRoot.render(<AddCollectionControler id={node.current.id} node={node} collectionRoot={collectionRoot} />);
   }
 
 
@@ -47,8 +47,8 @@ export default class AddCollectionControler extends React.Component {
         shade={[0.8, "#000000"]}
         skin="em-collection-add"
         draggable={true}
-        cancel={()=> this.props.collectionRoot.unmount()}
-        ensure={()=>this.ensure()}
+        cancel={() => this.props.collectionRoot.unmount()}
+        ensure={() => this.ensure()}
         close={() => this.props.collectionRoot.unmount()}
       >
         <ul className="pcConAttDesign">
@@ -59,7 +59,7 @@ export default class AddCollectionControler extends React.Component {
               readonly={false}
               placeholder={this.state.placeholder}
               value={this.state.collectionText || ""}
-              change={(event)=> this.changText("collectionText",event)}
+              change={(event) => this.changText("collectionText", event)}
             />
           </li>
         </ul>
@@ -74,8 +74,8 @@ export default class AddCollectionControler extends React.Component {
    */
   init() {
     let getPageData = Dispatcher.dispatch("getPageData"),
-        //当前页面数据
-    pageId = getPageData.component.id;
+      //当前页面数据
+      pageId = getPageData.component.id;
     let currentId = this.props.id; //当前控件id
 
     let datas = Dispatcher.dispatch('getComponentData', {
@@ -113,71 +113,100 @@ export default class AddCollectionControler extends React.Component {
    * @method ensure 点击确定方法
    */
   ensure() {
-    let state = this.state || {};
+    // 模拟确定
+    let id = new Date().getTime()
+    let title = this.state.collectionText || this.state.placeholder
+    let content = this.state.content
 
-    let _times = new Date().getTime();
+    let _data = localStorage.dataResp ? JSON.parse(localStorage.dataResp) : {};
 
-    let content = state.content,
-        //控件完整数据
-    title = state.collectionText || state.placeholder; //收藏名称
-    //edition 时间   pagetype:6 类型，用于区分响应式或pc的
+    let _colists = [];
 
-    let newData = {
-      siteid: pageData.siteId,
-      title: title,
-      content: content,
-      edition: _times,
-      pageid: state.pageId,
-      type: state.componentType,
-      pagetype: 6
-    };
-    let body = `content=${encodeURIComponent(JSON.stringify(newData))}`;
-    return fetch("/desktop/index.php/Edit/Collection/index", {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-      },
-      body: body
-    }).then(response => response.json()).then(data => {
-      if (data.suc == 0) {
-        localStorage.editionResp = _times;
-        localStorage.dataResp = localStorage.dataResp || "{}";
+    if (localStorage.colistsResp) {
+      _colists = JSON.parse(localStorage.colistsResp);
+    }
 
-        if (localStorage.dataResp == "null") {
-          localStorage.dataResp = "{}";
-        }
+    _colists.unshift({
+      id: id,
+      title: title
+    });
 
-        let _data = JSON.parse(localStorage.dataResp);
+    if (_colists.length >= 50) {
+      _colists.pop();
+    }
 
-        let _colists = [];
+    _data[id] = content;
+    localStorage.dataResp = JSON.stringify(_data);
+    localStorage.colistsResp = JSON.stringify(_colists);
 
-        if (localStorage.colistsResp) {
-          _colists = JSON.parse(localStorage.colistsResp);
-        }
+    // 卸载弹框
+    this.props.collectionRoot.unmount()
 
-        _colists.unshift({
-          id: data.msg.id,
-          title: title
-        });
+    // let state = this.state || {};
 
-        if (_colists.length >= 50) {
-          _colists.pop();
-        }
+    // let _times = new Date().getTime();
 
-        _data[data.msg.id] = content;
-        localStorage.dataResp = JSON.stringify(_data);
-        localStorage.colistsResp = JSON.stringify(_colists);
-      } else {
-        Layer.alert({
-          area: ["420px", "225px"],
-          skin: "",
-          close: true,
-          cancel: true,
-          ensure: true,
-          content: window.public.lnag["addFailed"]
-        });
-      }
-    }).catch(error => console.log("Error", error));
+    // let content = state.content,
+    //   //控件完整数据
+    //   title = state.collectionText || state.placeholder; //收藏名称
+    // //edition 时间   pagetype:6 类型，用于区分响应式或pc的
+
+    // let newData = {
+    //   siteid: pageData.siteId,
+    //   title: title,
+    //   content: content,
+    //   edition: _times,
+    //   pageid: state.pageId,
+    //   type: state.componentType,
+    //   pagetype: 6
+    // };
+    // let body = `content=${encodeURIComponent(JSON.stringify(newData))}`;
+    // return fetch("/desktop/index.php/Edit/Collection/index", {
+    //   method: 'POST',
+    //   headers: {
+    //     "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+    //   },
+    //   body: body
+    // }).then(response => response.json()).then(data => {
+    //   if (data.suc == 0) {
+    //     localStorage.editionResp = _times;
+    //     localStorage.dataResp = localStorage.dataResp || "{}";
+
+    //     if (localStorage.dataResp == "null") {
+    //       localStorage.dataResp = "{}";
+    //     }
+
+    //     let _data = JSON.parse(localStorage.dataResp);
+
+    //     let _colists = [];
+
+    //     if (localStorage.colistsResp) {
+    //       _colists = JSON.parse(localStorage.colistsResp);
+    //     }
+
+    //     _colists.unshift({
+    //       id: data.msg.id,
+    //       title: title
+    //     });
+
+    //     if (_colists.length >= 50) {
+    //       _colists.pop();
+    //     }
+
+    //     _data[data.msg.id] = content;
+    //     localStorage.dataResp = JSON.stringify(_data);
+    //     localStorage.colistsResp = JSON.stringify(_colists);
+    //   } else {
+    //     Layer.alert({
+    //       area: ["420px", "225px"],
+    //       skin: "",
+    //       close: true,
+    //       cancel: true,
+    //       ensure: true,
+    //       content: window.public.lnag["addFailed"]
+    //     });
+    //   }
+    // }).catch(error => console.log("Error", error));
   }
 
 

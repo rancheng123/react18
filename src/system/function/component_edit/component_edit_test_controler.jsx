@@ -250,8 +250,6 @@ export default class ComponentEditControler extends React.Component {
 
     //获取总数据
     const data = Dispatcher.dispatch("getIframeData");
-    console.log(initX, initY, stop, cid)
-    console.log(data, 'data')
     //判断data中是否存有数据
     if (data) {
       //判断当前是否是移动端浏览
@@ -321,7 +319,6 @@ export default class ComponentEditControler extends React.Component {
           //赋值false，表示已经循环完毕根级下的直系父级
           isroot = false;
 
-          console.log(id, componentData.current, 'id');
           //数组内是否还有父级数据，有存储父级数据，无根据当前控件查找父级数据
           if (componentData.componentsList.length && id != cid) {
             this.saveParent(componentData, parents);
@@ -372,8 +369,10 @@ export default class ComponentEditControler extends React.Component {
    * @param {object} componentData 存放共享数据
    */
   lookForCurrent(x, y, stop, id, componentData) {
+    // console.log(x, y, stop, id, componentData);
     const component = componentData.component,
       element = window.public.dom.querySelector(`#${componentData.component.id}`);
+
     if (element) {
       const {
         left,
@@ -406,7 +405,6 @@ export default class ComponentEditControler extends React.Component {
           const parentNode = componentData.current && element.ownerDocument.querySelector(`#${componentData.current.id}`); //
 
           if (!(parentNode && parentNode.contains(element) != true && parentNode.dataset.position == 'highest') && component.selectable != false) {
-
             componentData.current = {
               ...component,
               layout,
@@ -635,7 +633,6 @@ export default class ComponentEditControler extends React.Component {
    */
   mousedown(event, x, y, id, fn) {
     const closes = document.querySelectorAll('.layer-close,#panel-close');
-    console.log(11111111111111);
     //获取导航项管理的父级id 以及关闭的类 
     let el = document.querySelector('#page-management .layer-close');
     closes.length && [...closes].forEach(e => {

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import * as antd from 'antd';
 /**
  * @method Container 容器组件，存放属性组件的外层结构
@@ -85,32 +85,61 @@ function Help(prop) {
 function Input(prop) {
   var _prop$type, _prop$min, _prop$max, _prop$maxlength;
 
-  const input = React.createElement("input", {
-    className: "pcInputTextStyle",
-    id: prop.id || null,
-    type: (_prop$type = prop.type) !== null && _prop$type !== void 0 ? _prop$type : 'text',
-    readOnly: prop.readonly || null,
-    placeholder: prop.placeholder || "",
-    value: prop.value,
-    help: prop.help || '',
-    min: (_prop$min = prop.min) !== null && _prop$min !== void 0 ? _prop$min : null,
-    max: (_prop$max = prop.max) !== null && _prop$max !== void 0 ? _prop$max : null,
-    onBlur: prop.blur || null,
-    onChange: prop.change || null,
-    maxLength: (_prop$maxlength = prop.maxlength) !== null && _prop$maxlength !== void 0 ? _prop$maxlength : null
-  });
+  // const input = React.createElement("input", {
+  //   className: "pcInputTextStyle",
+  //   id: prop.id || null,
+  //   type: (_prop$type = prop.type) !== null && _prop$type !== void 0 ? _prop$type : 'text',
+  //   readOnly: prop.readonly || null,
+  //   placeholder: prop.placeholder || "",
+  //   value: prop.value,
+  //   help: prop.help || '',
+  //   min: (_prop$min = prop.min) !== null && _prop$min !== void 0 ? _prop$min : null,
+  //   max: (_prop$max = prop.max) !== null && _prop$max !== void 0 ? _prop$max : null,
+  //   onBlur: prop.blur || null,
+  //   onChange: prop.change || null,
+  //   maxLength: (_prop$maxlength = prop.maxlength) !== null && _prop$maxlength !== void 0 ? _prop$maxlength : null
+  // });
+  const input = (
+    <input
+      className="pcInputTextStyle"
+      id={prop.id || null}
+      type={prop.type || 'text'}
+      readOnly={prop.readonly || null}
+      placeholder={prop.placeholder || ""}
+      value={prop.value}
+      help={prop.help || ''}
+      min={prop.min || null}
+      max={prop.max || null}
+      onBlur={prop.blur || null}
+      onChange={prop.change || null}
+      maxLength={prop.maxlength || null}
+    />
+  )
 
   if (prop.basic) {
     return input;
   }
 
-  return React.createElement(Container, {
-    skin: prop.skin,
-    title: prop.title,
-    help: prop.help
-  }, input, prop.maxLength ? React.createElement("span", {
-    className: "maxlengthInput"
-  }, prop.value.length, "/", prop.maxLength) : null, prop.children);
+  // return React.createElement(Container, {
+  //   skin: prop.skin,
+  //   title: prop.title,
+  //   help: prop.help
+  // }, input, prop.maxLength ? React.createElement("span", {
+  //   className: "maxlengthInput"
+  // }, prop.value.length, "/", prop.maxLength) : null, prop.children);
+  return (
+    <Container
+      skin={prop.skin}
+      title={prop.title}
+      help={prop.help}
+    >
+      {input}
+      {prop.maxLength && <span className="maxlengthInput">
+        {prop.value.length} / {prop.maxLength}
+      </span>}
+      {prop.children}
+    </Container>
+  )
 }
 
 
@@ -173,7 +202,7 @@ function Textarea(prop) {
  * @return {object} 单项选择组件结构
  */
 function Radio(prop) {
-  
+
   const radio = prop.list.map((e, i) => {
     let propValue = prop.value;
 
@@ -184,7 +213,7 @@ function Radio(prop) {
       } = e;
     } else {
       var name = e,
-          value = e;
+        value = e;
     }
 
     if (propValue == undefined) {
@@ -212,7 +241,7 @@ function Radio(prop) {
 
     return (
       <label key={i} className="em-radio-label">
-       {/* <antd.Radio 
+        {/* <antd.Radio 
           type="radio"
           name={prop.id}
           id={`${prop.id}-${value}`}
@@ -348,18 +377,18 @@ function Range(prop) {
   //   className: "unitNumber"
   // }, prop.unit) : null); 
   const range = <div className={`em-drag-slider${prop.units ? ' em-drag-select-slider' : ''}`}>
-        <input
-          type="range"
-          className="slider-range-input"
-          step={prop.step || 1}
-          min={prop.min || 0}
-          max={prop.max}
-          value={prop.value}
-          onChange={prop.change}
-          onBlur={prop.blur}
-        />
+    <input
+      type="range"
+      className="slider-range-input"
+      step={prop.step || 1}
+      min={prop.min || 0}
+      max={prop.max}
+      value={prop.value}
+      onChange={prop.change}
+      onBlur={prop.blur}
+    />
 
-        {/* <antd.Slider 
+    {/* <antd.Slider 
           step={prop.step || 1}
           min={prop.min || 0}
           max={prop.max}
@@ -367,51 +396,51 @@ function Range(prop) {
           onChange={prop.change}
           onBlur={prop.blur}
         /> */}
-        <input
-          type="number"
-          className="slider-number-input"
-          step={prop.step || 1}
-          min={prop.min || 0}
-          max={prop.max}
-          value={prop.value}
-          onChange={prop.change}
-          onBlur={prop.blur || null}
+    <input
+      type="number"
+      className="slider-number-input"
+      step={prop.step || 1}
+      min={prop.min || 0}
+      max={prop.max}
+      value={prop.value}
+      onChange={prop.change}
+      onBlur={prop.blur || null}
+    />
+    {prop.units ? (
+      <div style={{ width: '68px' }}>
+        <Select
+          basic={true}
+          isChoose={true}
+          list={prop.units}
+          value={prop.unit}
+          disabled={prop.disabled}
+          change={prop.selectChange}
         />
-        {prop.units ? (
-          <div style={{width:'68px'}}>
-            <Select
-              basic={true}
-              isChoose={true}
-              list={prop.units}
-              value={prop.unit}
-              disabled={prop.disabled}
-              change={prop.selectChange}
-            />
-          </div>
-          
-          // <antd.Select
-          //   id={prop.id}
-          //   value={prop.value || ""}
-          //   disabled={prop.disabled}
-          //   onChange={prop.change}
-          // >
-          //   {/* <option value="">{window.public.lang["pleaseChoose"]}</option> */}
-          //   {prop.isChoose ? null :<antd.Select.Option  value="">{window.public.lang["pleaseChoose"]}</antd.Select.Option> } 
-          //   {prop.units.map((e, i) => 
-          //     e.hidden !== true ? (
-          //       <antd.Select.Option  key={i} label={e.name} value={e.value}>{e.name}</antd.Select.Option>
-          //     ) : null
-          //   )}
-          // </antd.Select>
-
-        ) : null}
-        {prop.units == undefined && prop.unit ? (
-          <span className="unitNumber">{prop.unit}</span>
-        ) : null}
       </div>
- 
 
-  
+      // <antd.Select
+      //   id={prop.id}
+      //   value={prop.value || ""}
+      //   disabled={prop.disabled}
+      //   onChange={prop.change}
+      // >
+      //   {/* <option value="">{window.public.lang["pleaseChoose"]}</option> */}
+      //   {prop.isChoose ? null :<antd.Select.Option  value="">{window.public.lang["pleaseChoose"]}</antd.Select.Option> } 
+      //   {prop.units.map((e, i) => 
+      //     e.hidden !== true ? (
+      //       <antd.Select.Option  key={i} label={e.name} value={e.value}>{e.name}</antd.Select.Option>
+      //     ) : null
+      //   )}
+      // </antd.Select>
+
+    ) : null}
+    {prop.units == undefined && prop.unit ? (
+      <span className="unitNumber">{prop.unit}</span>
+    ) : null}
+  </div>
+
+
+
   //如果basic为true只返回基本结构
   if (prop.basic) {
     return range;
@@ -464,7 +493,7 @@ function Select(prop) {
   //   label: e.name,
   //   value: e.value
   // }, e.name) : null)); 
-  
+
   const select = (
     // <select
     //   className="em-select-box"
@@ -485,19 +514,19 @@ function Select(prop) {
       value={prop.value || ""}
       disabled={prop.disabled}
       onChange={prop.change}
-      style={{width:'100%'}}
+      style={{ width: '100%' }}
     >
       {/* <option value="">{window.public.lang["pleaseChoose"]}</option> */}
       {/* {prop.isChoose ? null :<antd.Select.Option  value="">{window.public.lang["pleaseChoose"]}</antd.Select.Option> }  */}
-      {prop.list.map((e, i) => 
+      {prop.list.map((e, i) =>
         e.hidden !== true ? (
-          <antd.Select.Option  key={i} label={e.name} value={e.value}>{e.name}</antd.Select.Option>
+          <antd.Select.Option key={i} label={e.name} value={e.value}>{e.name}</antd.Select.Option>
         ) : null
       )}
     </antd.Select>
   )
 
-  
+
   //如果basic为true只返回基本结构
   if (prop.basic) {
     return select;
@@ -670,16 +699,16 @@ function Align(prop) {
     //只有类型为文本时才会存在两端对齐 lw 2021-4-6
     list = [{
       value: "left",
-      icon:"&#xe782;"
+      icon: "&#xe782;"
     }, {
       value: "center",
-      icon:"&#xe791;"
+      icon: "&#xe791;"
     }, {
       value: "right",
-      icon:"&#xe785;"
+      icon: "&#xe785;"
     }, {
       value: "justify",
-      icon:"&#xe794;"
+      icon: "&#xe794;"
     }];
   }
 
@@ -701,9 +730,9 @@ function Align(prop) {
   //   change: prop.change
   // })));
 
-  const changeAlign= (value,event)=>{
-      event.target.alignValue  =  value
-      prop.change(event)
+  const changeAlign = (value, event) => {
+    event.target.alignValue = value
+    prop.change(event)
   }
 
   return (
@@ -725,16 +754,16 @@ function Align(prop) {
           skin="em-align-radio"
           change={prop.change}
         /> */}
-        { 
+        {
           list.map(item => {
             return (
               <li
                 className={`textalign_li ${prop.value == item.value ? 'textalign_li_active' : ''}`}
                 key={item.value}
                 id={id}
-                onClick={(event)=>changeAlign(item.value,event)}
-                >
-                  <i className="iconfont" dangerouslySetInnerHTML={{ __html: item.icon }}></i>
+                onClick={(event) => changeAlign(item.value, event)}
+              >
+                <i className="iconfont" dangerouslySetInnerHTML={{ __html: item.icon }}></i>
               </li>
             )
           })
@@ -936,7 +965,7 @@ function ColorPicker(prop) {
       //选择器位置是否可以拖拽
       alwaysShow: false,
       autoConfirm: true,
-      onError: function (e) {},
+      onError: function (e) { },
       onCancel: function (color) {
         document.querySelector(".fcolorpicker").remove();
       },
@@ -962,11 +991,11 @@ function ColorPicker(prop) {
     <div id={prop.id} className="em-color-picker">
       <span></span>
       <div className={prop.id} style={{ padding: '5px' }}>
-        
+
       </div>
     </div>
   )
-  
+
 
 
   if (prop.basic) {
@@ -1046,7 +1075,7 @@ function CheckBox(prop) {
       } = e;
     } else {
       var name = e,
-          value = e;
+        value = e;
     }
 
     return React.createElement("label", {

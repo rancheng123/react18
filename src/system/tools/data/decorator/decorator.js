@@ -31,6 +31,7 @@ const Decorator = {
    * @param {boolean} isrecord 是否把操作记录到历史记录中。 false 不记录，true 记录
    */
   addComponent(componentData, index, fn, isrecord) {
+    console.log("addComponent", componentData, index, fn, isrecord);
     //设置编辑状态
     window.public.editState = "edit";
     const newid = Decorator.component.addComponent.call(

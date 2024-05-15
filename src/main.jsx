@@ -7,6 +7,9 @@ import './utils/public.js'
 import './utils/userWorker';
 import './language/system/zh.js'
 
+import store from "./store";
+import { Provider } from "react-redux";
+
 import { componentsAsync } from "@/config/async_import_components_config";
 console.log(componentsAsync, 'componentsAsync');
 async function load(event, callback) {
@@ -49,6 +52,8 @@ function unload(event) {
 
 export const root = ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App load={load} unload={unload} />
+    <Provider store={store}>
+      <App load={load} unload={unload} />
+    </Provider>,
   </React.StrictMode>
 );
