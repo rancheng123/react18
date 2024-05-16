@@ -44,22 +44,42 @@ class Link {
 
 
   render() {
-    return React.createElement(Layer.open, {
-      titles: [window.public.lang["link"]],
-      area: ["612px", "auto"],
-      shade: [0.8, "#000000"],
-      skin: "em-function-link",
-      close: true,
-      draggable: true,
-      cancel: true,
-      ensure: this.controler.ensure.bind(this.controler)
-    }, React.createElement("div", {
-      className: "linkMain"
-    }, React.createElement("ul", {
-      className: "linkSelect"
-    }, this.linkList()), React.createElement("div", {
-      className: "linkCon"
-    }, this[this.state.tab](this.state.data, this.state))));
+    // return React.createElement(Layer.open, {
+    //   titles: [window.public.lang["link"]],
+    //   area: ["612px", "auto"],
+    //   shade: [0.8, "#000000"],
+    //   skin: "em-function-link",
+    //   close: true,
+    //   draggable: true,
+    //   cancel: true,
+    //   ensure: this.controler.ensure.bind(this.controler)
+    // }, React.createElement("div", {
+    //   className: "linkMain"
+    // }, React.createElement("ul", {
+    //   className: "linkSelect"
+    // }, this.linkList()), React.createElement("div", {
+    //   className: "linkCon"
+    // }, this[this.state.tab](this.state.data, this.state))));
+    console.log(this.state.data, '数据');
+    return (
+      <Layer.open
+        titles={[window.public.lang["link"]]}
+        area={["612px", "auto"]}
+        shade={[0.8, "#000000"]}
+        skin="em-function-link"
+        close={true}
+        draggable={true}
+        cancel={true}
+        ensure={this.controler.ensure.bind(this.controler)}
+      >
+        <div className="linkMain">
+          <ul className="linkSelect">{this.linkList()}</ul>
+          <div className="linkCon">
+            {this[this.state.tab](this.state.data, this.state)}
+          </div>
+        </div>
+      </Layer.open>
+    )
   }
   /**
    * @method linkList 左侧链接项
@@ -71,14 +91,27 @@ class Link {
     let _state = this.state || {};
 
     let _str = this.controler.tabs.map((e, i) => {
-      return React.createElement("li", {
-        onClick: this.controler.selectTab.bind(this.controler, e),
-        "data-name": e,
-        key: e,
-        className: _state.tab == e ? "tabSelect on" : "tabSelect"
-      }, React.createElement("a", {
-        href: "javascript:;"
-      }, React.createElement("font", null, window.public.lang[e])));
+      // return React.createElement("li", {
+      //   onClick: this.controler.selectTab.bind(this.controler, e),
+      //   "data-name": e,
+      //   key: e,
+      //   className: _state.tab == e ? "tabSelect on" : "tabSelect"
+      // }, React.createElement("a", {
+      //   href: "javascript:;"
+      // }, React.createElement("font", null, window.public.lang[e])));
+
+      return (
+        <li
+          onClick={this.controler.selectTab.bind(this.controler, e)}
+          data-name={e}
+          key={e}
+          className={this.state.tab === e ? 'tabSelect on' : 'tabSelect'}
+        >
+          <a href="javascript:;">
+            <font>{window.public.lang[e]}</font>
+          </a>
+        </li>
+      )
     });
 
     return _str;
@@ -99,18 +132,14 @@ class Link {
   }
   /**
    * @method pageAnchor 页面链接
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * @return {object} 页面链接组件结构
    */
-
-
   pageAnchor(prop, state) {
     //linkTo //链接到  //navItem 导航项  templatePageQuick 模版页 news:"新闻",product:"产品","download":"下载","essay":"文章",
     let linkToType = prop.linkToType || "menu",
       anchorType = prop.anchorType || "protogenesis",
-      displayContent = prop.displayContent; //在初始赋值了，不用写默认值了  sxt 2020-2-5
+      displayContent = prop.displayContent; //在初始赋值了，不用写默认值了 
 
     let list = state.list || [],
       newList = state.newList || [],
@@ -123,7 +152,7 @@ class Link {
 
     if (newContentList.length >= 1) {
       itemsList = newContentList;
-    } //{name:"templatePageQuick",value:"template"}, 内页暂时隐藏掉 sxt 2020-3-3
+    } //{name:"templatePageQuick",value:"template"}, 内页暂时隐藏掉 
 
 
     return React.createElement("div", {
@@ -229,12 +258,8 @@ class Link {
   }
   /**
      * @method displayContentHtml 展示内容类型
-     * @date 2019-12-4
-     * @author sxt
      * @return {object} 展示内容类型结构
      */
-
-
   displayContentHtml() {
     let displayContent = this.state.displayContent || "content";
     let displayContentList = this.state.displayContentList || []; //displayContent[{name:"content",value:"content"},{name:"classify",value:"classify"},{name:"parameter",value:"parameter"}]
@@ -252,8 +277,6 @@ class Link {
   }
   /**
    * @method dataInput 公用input链接调取数据源面板
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 配置对象
    * @param {object} prop.data 当前数据
    * @param {string} prop.skin 父级class
@@ -262,8 +285,6 @@ class Link {
    * @param {string} prop.placeholder 提示文本
    * @return {object} 公用input链接调取数据源面板组件结构
    */
-
-
   dataInput(prop) {
     let _readonly = "",
       _openClose = false,
@@ -305,67 +326,103 @@ class Link {
       onClick: this.controler.showTextClose.bind(this.controler, prop.data)
     }, "\u2573") : null));
   }
+
+
   /**
    * @method externalLinks 外部链接
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * @return {object} 外部链接组件结构
    */
-
-
   externalLinks(prop) {
-    return React.createElement("div", {
-      className: "webLink"
-    }, React.createElement("ul", {
-      className: "pcConAttDesign"
-    }, React.createElement("li", {
-      className: "pcAttList"
-    }, React.createElement(Widget.Input, {
-      title: "webLink",
-      value: prop.url,
-      placeholder: window.public.lang["inputWebLink"],
-      change: this.controler.inputHandler.bind(this.controler, "url"),
-      blur: this.controler.webLinkBlur.bind(this.controler, "url")
-    })), React.createElement("li", {
-      className: "pcAttList"
-    }, React.createElement(Widget.Radio, {
-      title: "openMode",
-      value: prop.target || "_self",
-      change: this.controler.radioHandler.bind(this.controler, "target"),
-      id: "openMode",
-      list: [{
-        name: "self",
-        value: "_self"
-      }, {
-        name: "blank",
-        value: "_blank"
-      }]
-    })), React.createElement("li", {
-      className: "pcAttList"
-    }, React.createElement(Widget.Radio, {
-      title: "nofollow",
-      value: prop.nofollow || "closeOff",
-      change: this.controler.radioHandler.bind(this.controler, "nofollow"),
-      id: "nofollow1",
-      list: [{
-        name: "openTurn",
-        value: "openTurn"
-      }, {
-        name: "closeOff",
-        value: "closeOff"
-      }]
-    }))));
+    console.log(prop, 11111);
+    // return React.createElement("div", {
+    //   className: "webLink"
+    // }, React.createElement("ul", {
+    //   className: "pcConAttDesign"
+    // }, React.createElement("li", {
+    //   className: "pcAttList"
+    // }, React.createElement(Widget.Input, {
+    //   title: "webLink",
+    //   value: prop.url,
+    //   placeholder: window.public.lang["inputWebLink"],
+    //   change: this.controler.inputHandler.bind(this.controler, "url"),
+    //   blur: this.controler.webLinkBlur.bind(this.controler, "url")
+    // })), React.createElement("li", {
+    //   className: "pcAttList"
+    // }, React.createElement(Widget.Radio, {
+    //   title: "openMode",
+    //   value: prop.target || "_self",
+    //   change: this.controler.radioHandler.bind(this.controler, "target"),
+    //   id: "openMode",
+    //   list: [{
+    //     name: "self",
+    //     value: "_self"
+    //   }, {
+    //     name: "blank",
+    //     value: "_blank"
+    //   }]
+    // })), React.createElement("li", {
+    //   className: "pcAttList"
+    // }, React.createElement(Widget.Radio, {
+    //   title: "nofollow",
+    //   value: prop.nofollow || "closeOff",
+    //   change: this.controler.radioHandler.bind(this.controler, "nofollow"),
+    //   id: "nofollow1",
+    //   list: [{
+    //     name: "openTurn",
+    //     value: "openTurn"
+    //   }, {
+    //     name: "closeOff",
+    //     value: "closeOff"
+    //   }]
+    // }))));
+
+
+    return (
+      <div className="webLink">
+        <ul className="pcConAttDesign">
+          <li className="pcAttList">
+            <Widget.Input
+              title="webLink"
+              value={prop.url}
+              placeholder={window.public.lang["inputWebLink"]}
+              change={this.controler.inputHandler.bind(this.controler, "url")}
+              blur={this.controler.webLinkBlur.bind(this.controler, "url")}
+            />
+          </li>
+          <li className="pcAttList">
+            <Widget.Radio
+              title="openMode"
+              value={prop.target || "_self"}
+              change={this.controler.radioHandler.bind(this.controler, "target")}
+              id="openMode"
+              list={[
+                { name: "self", value: "_self" },
+                { name: "blank", value: "_blank" }
+              ]}
+            />
+          </li>
+          <li className="pcAttList">
+            <Widget.Radio
+              title="nofollow"
+              value={prop.nofollow || "closeOff"}
+              change={this.controler.radioHandler.bind(this.controler, "nofollow")}
+              id="nofollow1"
+              list={[
+                { name: "openTurn", value: "openTurn" },
+                { name: "closeOff", value: "closeOff" }
+              ]}
+            />
+          </li>
+        </ul>
+      </div>
+    )
   }
   /**
    * @method email 电子邮件
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * @return {object} 电子邮件组件结构
    */
-
-
   email(prop) {
     return React.createElement("div", {
       className: "emailLink"
@@ -395,13 +452,9 @@ class Link {
   }
   /**
    * @method phone 电话号码
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 电话号码组件结构
    */
-
-
   phone(prop) {
     return React.createElement("div", {
       className: "telLink"
@@ -422,13 +475,9 @@ class Link {
   }
   /**
    * @method back 返回顶部
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 返回顶部组件结构
    */
-
-
   back(prop) {
     let _back = prop.back;
     return React.createElement("div", {
@@ -464,13 +513,9 @@ class Link {
   }
   /**
    * @method onlineConsulting 在线咨询
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 在线咨询组件结构
    */
-
-
   onlineConsulting(prop) {
     return React.createElement("div", {
       className: "onlineLink"
@@ -530,13 +575,9 @@ class Link {
   }
   /**
    * @method download 下载
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 下载组件结构
    */
-
-
   download(prop) {
     return React.createElement("div", {
       className: "download"
@@ -552,13 +593,9 @@ class Link {
   }
   /**
    * @method lightbox 弹出容器
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 弹出容器组件结构
    */
-
-
   lightbox(prop) {
     let _ejectList = this.controler.lightboxsList || [];
 
@@ -577,13 +614,9 @@ class Link {
   }
   /**
    * @method  languageLinks 多语言链接
-   * @date 2022-12-27
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 多语言链接
    */
-
-
   languageLinks(prop) {
     let languageList = this.state.languageList || [];
     return React.createElement("div", {
@@ -601,13 +634,9 @@ class Link {
   }
   /**
    * @method  functionalLinks 功能链接
-   * @date 2019-08-29
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 功能链接组件结构
    */
-
-
   functionalLinks(prop, state) {
     let componentType = state.componentType; //控件类型
 
@@ -620,7 +649,7 @@ class Link {
     }, {
       value: "skipMoreShopCart",
       name: window.public.lang["skipMoreShopCart"]
-    }]; //控件类型为按钮时，显示购物相关的功能按钮; sxt　2020-12-7
+    }]; //控件类型为按钮时，显示购物相关的功能按钮;
 
     if (componentType == "em-Button") {
       _funArr = [{
@@ -666,13 +695,9 @@ class Link {
   }
   /**
    * @method  annexDownload 附件下载
-   * @date 2020-09-8
-   * @author sxt
    * @param {object} prop 属性对象
    * return {object} 附件下载组件结构
    */
-
-
   annexDownload(prop) {
     let annexType = prop.annexType || "link";
     return React.createElement("div", {

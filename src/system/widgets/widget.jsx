@@ -600,28 +600,52 @@ function OnOff(prop) {
  * @return {object} 显示信息结构
  */
 function ShowInfo(prop) {
-  const show = React.createElement("div", null, React.createElement("div", {
-    className: "setDataP",
-    onClick: prop.click
-  }, React.createElement("p", {
-    className: "pcsetDataSource"
-  }, prop.value), !prop.unuseArrow ? React.createElement("i", {
-    className: "iconBor" + (prop.iconClass ? " " + prop.iconClass : "")
-  }, prop.icon || "▼") : null), prop.isButton ? React.createElement("button", {
-    className: "pcwindow.publicButton",
-    onClick: prop.btnClick
-  }, window.public.lang[prop.btnTitle]) : null);
+  // const show = React.createElement("div", null, React.createElement("div", {
+  //   className: "setDataP",
+  //   onClick: prop.click
+  // }, React.createElement("p", {
+  //   className: "pcsetDataSource"
+  // }, prop.value), !prop.unuseArrow ? React.createElement("i", {
+  //   className: "iconBor" + (prop.iconClass ? " " + prop.iconClass : "")
+  // }, prop.icon || "▼") : null), prop.isButton ? React.createElement("button", {
+  //   className: "pcwindow.publicButton",
+  //   onClick: prop.btnClick
+  // }, window.public.lang[prop.btnTitle]) : null);
+
+  const show = (
+    <div>
+      <div className="setDataP" onClick={prop.click}>
+        <p className="pcsetDataSource">{prop.value}</p>
+        {!prop.unuseArrow && <i className={`iconBor${prop.iconClass ? ' ' + prop.iconClass : ''}`}>
+          {prop.icon || '▼'}
+        </i>}
+      </div>
+      {prop.isButton && <button className="pcwindow.publicButton" onClick={prop.btnClick}>
+        {window.public.lang[prop.btnTitle]}
+      </button>}
+    </div>
+  )
 
   if (prop.basic) {
     return show;
   }
 
-  return React.createElement(Container, {
-    skin: prop.skin,
-    title: prop.title,
-    help: prop.help,
-    children: show
-  });
+  // return React.createElement(Container, {
+  //   skin: prop.skin,
+  //   title: prop.title,
+  //   help: prop.help,
+  //   children: show
+  // });
+
+  return (
+    <Container
+      skin={prop.skin}
+      title={prop.title}
+      help={prop.help}
+    >
+      {show}
+    </Container>
+  )
 }
 
 

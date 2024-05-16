@@ -1,12 +1,18 @@
 // 导入 React 库
-import {useState} from "react";
+import { useState } from "react";
 import Widget from "@/system/widgets/widget"; // 导入 Widget
-import { Input } from "antd";
+// import { Input } from "antd";
 
 /**
  * @Description: 链接控制器
  */
 export function LinkContainer(props) {
+    console.log(props, 'newprops');
+    // 初始状态数据
+    const [state, setState] = useState({
+
+    })
+
 
     // 链接类型
     const [linkType, setLinkType] = useState('not')
@@ -52,23 +58,40 @@ export function LinkContainer(props) {
 
 
     // 链接改变方法类型
-    const change = (event)=> {
+    const change = (event) => {
         setLinkType(event.target.value)
     }
 
     // 新窗口单选框发生改变
-    const openNewStatusChange = (event)=>{
+    const openNewStatusChange = (event) => {
         setOpenNewStatus(event.target.value)
     }
 
     // 是否传递权重发生改变
-    const weightStatusChange = (event)=>{
+    const weightStatusChange = (event) => {
         setWeightStatus(event.target.value)
     }
-
+    /**
+       * @method inputHandler input设置数据方法
+       * @param {key} key 设置的数据名称 
+       * @param {event} event 事件对象 
+       */
+    const inputHandler = (key, event) => {
+        console.log(key, event);
+        let _value = event.target.value;
+        // let {
+        //     state: {
+        //         data = {}
+        //     }
+        // } = this;
+        // data[key] = _value;
+        // this.setState({
+        //     data: data
+        // });
+    }
     return (
-        <div style={{padding: '20px'}}>
-            <div style={{width:'100%'}}>
+        <div style={{ padding: '20px' }}>
+            <div style={{ width: '100%' }}>
                 <Widget.Radio
                     basic={true}
                     list={linkTypeList}
@@ -77,13 +100,17 @@ export function LinkContainer(props) {
                 />
                 {linkType !== "not" && (
                     <ul>
-                        <li style={{display:'flex',alignItems: 'center', margin:'10px 0'}}>
-                            <div style={{width:'84px',textAlign:'right',marginRight:'10px',flex:'none'}}>网址</div>
-                            <Input/>
+                        <li style={{ display: 'flex', alignItems: 'center', margin: '10px 0' }}>
+                            <div style={{ width: '84px', textAlign: 'right', marginRight: '10px', flex: 'none' }}>网址</div>
+                            <Widget.Input
+                                value={props.url}
+                                placeholder={window.public.lang["inputWebLink"]}
+                                change={(event) => inputHandler("url", event)}
+                            />
                         </li>
 
-                        <li style={{display:'flex',alignItems: 'center', margin:'10px 0'}}>
-                            <div style={{width:'84px',textAlign:'right',marginRight:'10px',flex:'none'}}>新窗口打开</div>
+                        <li style={{ display: 'flex', alignItems: 'center', margin: '10px 0' }}>
+                            <div style={{ width: '84px', textAlign: 'right', marginRight: '10px', flex: 'none' }}>新窗口打开</div>
                             <Widget.Radio
                                 basic={true}
                                 list={statusList}
@@ -93,8 +120,8 @@ export function LinkContainer(props) {
                         </li>
                         {
                             linkType === "outside" && (
-                                <li style={{display:'flex',alignItems: 'center', margin:'10px 0'}}>
-                                    <div style={{width:'84px',textAlign:'right',marginRight:'10px',flex:'none'}}>是否传递权重</div>
+                                <li style={{ display: 'flex', alignItems: 'center', margin: '10px 0' }}>
+                                    <div style={{ width: '84px', textAlign: 'right', marginRight: '10px', flex: 'none' }}>是否传递权重</div>
                                     <Widget.Radio
                                         basic={true}
                                         list={statusList}
@@ -104,13 +131,15 @@ export function LinkContainer(props) {
                                 </li>
                             )
                         }
-                        <div style={{fontWeight: '400',fontSize: '12px',color:' #666666'}}>
+                        <div style={{ fontWeight: '400', fontSize: '12px', color: ' #666666' }}>
                             注：可填写完整链接，也可只填写除域名外的部分如/products.html
                         </div>
                     </ul>
-         
+
                 )}
             </div>
         </div>
     )
 }
+
+

@@ -3,7 +3,7 @@ import Dispatcher from "@/system/tools/dispatcher";
 import TextBasic from "./text_basic";
 import BasicControler from "@/components/page/attr/basic/basic_controler";
 import AttrProxy from "@/components/page/attr_proxy";
-import LinkControler from "@/system/function/link/link_controler";
+import { LinkControler } from "@/system/function/link/link_controler";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -11,7 +11,6 @@ class TextBasicControler extends BasicControler {
   constructor(props) {
     super(props);
     /**@property {Link} view 初始化 view 实例*/
-
     this.view = new TextBasic(this); //给view 入口方法绑定this
 
     this.view.render = this.view.render.bind(this.view);
@@ -87,7 +86,8 @@ class TextBasicControler extends BasicControler {
     LinkControler.link({
       initialData: _link,
       ensure: this.setLink.bind(this)
-    }); // alert("设置链接")
+    });
+    // alert("设置链接")
   }
 
 
@@ -162,7 +162,7 @@ class TextBasicControler extends BasicControler {
         data_source_type: "Text",
         identifier_item: "goods",
         ensure: data => {
-          let newData = JSON.parse(JSON.stringify(data)); //先把对象拷贝出来，防止对象赋值改变 sxt 2021-3-12
+          let newData = JSON.parse(JSON.stringify(data)); //先把对象拷贝出来，防止对象赋值改变 
 
           data.sourceName = "text";
 

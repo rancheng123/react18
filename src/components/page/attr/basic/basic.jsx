@@ -24,6 +24,7 @@ export default class Basic {
    */
   render() {
     let groupList = this.state.groupList || [];
+
     // return React.createElement("div", {
     //   className: "pc-basic-setting"
     // }, React.createElement("ul", {
@@ -51,6 +52,7 @@ export default class Basic {
   * @param {object} 设置链接结构。
   */
   link() {
+
     const {
       state: {
         link
@@ -68,7 +70,7 @@ export default class Basic {
         title="setUpLink"
         id="set-up-link"
         value={link ? link.value : window.public.lang["addButtonLink"]}
-        click={() => this.controler.link.bind(this.controler)}
+        click={this.controler.link.bind(this.controler)}
       />
     )
   }
@@ -122,6 +124,9 @@ export default class Basic {
     }
   }
 
+
+
+  // 控件名称
   controlsName() {
     let value = this.state.componentName;
     let componentName = this.state.componentType; //slice(3)

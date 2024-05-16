@@ -34,6 +34,7 @@ export default class BasicControler extends React.Component {
       //   prefix: window.public.type == 'pc' ? '' : 'mo'
       // }));
       let Com = this
+
       root.render(<Com
         id={node.current.id}
         node={node}
@@ -70,7 +71,7 @@ export default class BasicControler extends React.Component {
     }
 
     let parentData = this.getParentType(this.props.node, "em-List"); //查找当前控件是否在列表中
-
+    console.log(111111111111, this.props.id, document_data);
     this.state = {
       groupList,
       controlType,
@@ -102,12 +103,14 @@ export default class BasicControler extends React.Component {
    * @method link 设置链接
    */
   link() {
-    const promise = Promise.all(/*! import() | link_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("link_controler")]).then(__webpack_require__.bind(null, /*! ../../../../system/function/link/link_controler */ "./system/function/link/link_controler.js"));
+    // const promise = Promise.all(/*! import() | link_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("link_controler")]).then(__webpack_require__.bind(null, /*! ../../../../system/function/link/link_controler */ "./system/function/link/link_controler.js"));
+    const promise = import('@/system/function/link/link_controler.jsx')
     promise.then(module => {
       module.LinkControler && module.LinkControler.link({
         initialData: this.state.link,
         dataState: this.state,
         ensure: data => {
+          console.log(data, 'data');
           data.value = module.LinkControler.linkText(data);
           this.setState({
             link: data

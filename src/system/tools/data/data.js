@@ -10,6 +10,8 @@ import Observer from "./observer";
  * @param {function} fn 回调函数，在数据查找到后调用
  */
 function query(key, component, data, fn) {
+  console.log("query", key, component, data, fn);
+
   let newData = null; //循环键值
 
   key.split(".").forEach((e, i, list) => {
@@ -137,15 +139,18 @@ const Data = {
   * @param {string|object} [value] 要设置的值
   */
   set(key, value) {
+    console.log("set", key, value);
     let oldValue = null;
 
     if (typeof key == "string") {
       //调用数据处理方法
       value != undefined &&
         Data.dataHandler.call(this, key, (data, key) => {
+          console.log("data", data, key);
           key != ""
             ? ((oldValue = data[key]), (data[key] = value))
             : ((oldValue = { ...data }), Object.assign(data, value));
+          console.log("1111", oldValue);
         });
     } //如果key类型为object，则执行setState
     else if (/Object/.test(key.toString())) {
@@ -154,7 +159,7 @@ const Data = {
     else {
       console.error("你输入的键值无效");
     }
-
+    console.log("oldValue", oldValue);
     return oldValue;
   },
 

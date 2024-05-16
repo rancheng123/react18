@@ -36,6 +36,7 @@ class LinkControler extends React.Component {
    * @param {function} opts.ensure  点击确定时调用方法
    */
   static link(opts = {}) {
+
     if (!opts.element) {
       if (!opts.selector) {
         opts.selector = "#function-modal";
@@ -44,15 +45,16 @@ class LinkControler extends React.Component {
       opts.element = document.querySelector(opts.selector);
     }
 
-    ReactDOM.render(React.createElement(LinkControler, {
-      exclude: opts.exclude,
-      include: opts.include,
-      cancel: opts.cancel ? opts.cancel : null,
-      ensure: opts.ensure ? opts.ensure : null,
-      group: opts.group,
-      initialData: opts.initialData || {},
-      dataState: opts.dataState || {}
-    }), opts.element);
+    ReactDOM.render(
+      <LinkControler
+        exclude={opts.exclude}
+        include={opts.include}
+        cancel={opts.cancel || null}
+        ensure={opts.ensure || null}
+        group={opts.group}
+        initialData={opts.initialData || {}}
+        dataState={opts.dataState || {}}
+      />, opts.element);
   }
 
   static linkText(link) {
@@ -124,7 +126,8 @@ class LinkControler extends React.Component {
    * @return {object} 待渲染的组件对象
    */
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />
   }
 
 
@@ -133,6 +136,7 @@ class LinkControler extends React.Component {
    * @author 
    */
   init() {
+    console.log(this.props, 'oldProps');
     //"download","functionalLinks"  功能未做暂时隐藏 
     this.tabs = window.public.configure(["noLink", "pageAnchor", "externalLinks", "email", "phone", "back", "onlineConsulting", "functionalLinks", "lightbox", "annexDownload"], this.props);
     let dataSource = this.props.dataState,
@@ -262,6 +266,7 @@ class LinkControler extends React.Component {
   }
 
   selectTab(type, event) {
+    console.log(type);
     this.setState({
       tab: type,
       data: this.getDefaultValue(type)
@@ -295,6 +300,8 @@ class LinkControler extends React.Component {
       data: data
     });
   }
+
+
   /**
   * @method rangeHandler 滑块设置数据方法
   * @param {key} key 设置的数据名称 
@@ -877,4 +884,4 @@ class LinkControler extends React.Component {
 
 }
 
-export default LinkControler
+export { LinkControler }

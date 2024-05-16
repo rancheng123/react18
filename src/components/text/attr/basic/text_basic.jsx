@@ -5,7 +5,7 @@ import React from "react";
 // 导入其他模块
 import Basic from "@/components/page/attr/basic/basic";
 import Widget from "@/system/widgets/widget";
-import LinkControler from "@/system/function/link/link_controler";
+import { LinkControler } from "@/system/function/link/link_controler";
 
 class TextBasic extends Basic {
   constructor(controler) {
@@ -109,7 +109,7 @@ class TextBasic extends Basic {
       />
     )
   }
-  
+
   /**
    * @method  minimumHeight 文本最小的高度
    * @return {object} 文本的最小高度

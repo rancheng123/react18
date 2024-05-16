@@ -97,6 +97,7 @@ const Attribute = {
       tabs = (_ref2 = (_tabs$key = tabs[key]) !== null && _tabs$key !== void 0 ? _tabs$key : tabs.all) !== null && _ref2 !== void 0 ? _ref2 : tabs;
     }
 
+
     //index 不存在则通过opts.type查找。 opts.type 也不存在，默认为零
     if (opts.index == undefined) {
       opts.index = opts.type ? tabs.findIndex(e => e.type == opts.type) : 0;
@@ -247,6 +248,7 @@ const Attribute = {
       param.element = document.querySelector(`#${id}`);
       param.root = ReactDOM.createRoot(document.querySelector(`#${id}`))
     }
+
     this[type](param);
   },
 

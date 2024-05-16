@@ -12,9 +12,9 @@ const LinkDecorator = {
   */
   pageAnchor(prop) {
     let link = prop.link || {},
-        _href = "",
-        linkData = {},
-        _anchor = null;
+      _href = "",
+      linkData = {},
+      _anchor = null;
 
     if (link.pageId) {
       if (link.itemId && (link.linkToType == "menu" || link.linkToType == "template")) {
@@ -71,7 +71,7 @@ const LinkDecorator = {
     let link = prop.link;
     let recipient = link.recipient && link.recipient.replace(/\s*/g, "");
     let mailTheme = link.mailTheme ? "?subject=" + link.mailTheme : "",
-        presetContent = link.presetContent ? "?body=" + link.presetContent : ""; //丽君让加新增的预设内容
+      presetContent = link.presetContent ? "?body=" + link.presetContent : ""; //丽君让加新增的预设内容
 
     let mailtoKey = "";
 
@@ -111,12 +111,12 @@ const LinkDecorator = {
   */
   back(prop) {
     let link = prop.link || {},
-        _back = null,
-        speed = link.speed || 0,
-        _on = null,
-        tagname = null,
-        role = null,
-        tabIndex = null;
+      _back = null,
+      speed = link.speed || 0,
+      _on = null,
+      tagname = null,
+      role = null,
+      tabIndex = null;
 
     if (prop.type == "html") {
       _back = "/back/" + link.back + "/" + speed; //link.back=="prev"?"javascript:history.back(-1)":
@@ -164,16 +164,16 @@ const LinkDecorator = {
   */
   onlineConsulting(prop) {
     let link = prop.link || {},
-        _consultName = "";
+      _consultName = "";
     let account = link.account && link.account.replace(/\s*/g, ""),
-        presetContent = link.presetContent || "";
+      presetContent = link.presetContent || "";
 
     if (link.consultValue == "qq") {
       _consultName = account ? "http://wpa.qq.com/msgrd?v=3&uin=" + account + "&site=qq&menu=yes" : null;
     } else if (link.consultValue == "skype") {
       //获取skpye咨询方式 ，voiceCall类型时为call  instantMessage类型时为chat
       let _skypeMode = link.skypeMode || "voiceCall",
-          _skypeType = _skypeMode == "instantMessage" ? "chat" : "call";
+        _skypeType = _skypeMode == "instantMessage" ? "chat" : "call";
 
       _consultName = account ? "skype:" + account + "?" + _skypeType : null;
     } else if (link.consultValue == "whatsApp") {
@@ -222,10 +222,10 @@ const LinkDecorator = {
   */
   lightbox(prop) {
     let ejectBoxId = prop.link.ejectBoxId || "",
-        _on = null,
-        _role = null,
-        _tabIndex = null,
-        _dataLightbox = ejectBoxId || null;
+      _on = null,
+      _role = null,
+      _tabIndex = null,
+      _dataLightbox = ejectBoxId || null;
 
     if (prop.type == "amp" || prop.type == "mip") {// _on=`tap:${ejectBoxId}.open`;
       // _dataLightbox="";
@@ -269,9 +269,9 @@ const LinkDecorator = {
     //     return (<label   className={className}   htmlFor = "header-trigger"  dangerouslySetInnerHTML = {{__html:html}}></label>)
     // }
     let link = prop.link || {},
-        functionalLinkType = link.functionalLinkType,
-        successText = link.successText || null,
-        shopid = link.shopid; //successText成功后的提示文本 
+      functionalLinkType = link.functionalLinkType,
+      successText = link.successText || null,
+      shopid = link.shopid; //successText成功后的提示文本 
 
     let action = link.action; //类型是amp时
 
@@ -396,7 +396,7 @@ const LinkDecorator = {
 
 
     let _shopid = null,
-        _formAction = null;
+      _formAction = null;
 
     if (functionalLinkType == "addMoreShopCart" || functionalLinkType == "inquiryMoreShopCart") {
       _shopid = shopid || "<goodsid></goodsid>";
@@ -456,9 +456,9 @@ const LinkDecorator = {
    */
   annexDownload(prop) {
     let link = prop.link || {},
-        annexType = link.annexType || "link",
-        href = "{$rs.url}",
-        target = "_self";
+      annexType = link.annexType || "link",
+      href = "{$rs.url}",
+      target = "_self";
 
     if (annexType == "download") {
       href = "{$rs.annex_url}";
@@ -511,20 +511,20 @@ const LinkDecorator = {
   */
   shopCart(getTag, attributes, prop) {
     let formData = attributes.formData || {},
-        method = formData.method,
-        //请求方式
-    target = formData.target,
-        //打开方式
-    action = formData.action,
-        //请求路径
-    operation = formData.operation,
-        //操作方式
-    pageType = formData.pageType,
-        //页面类型
-    shopid = formData.shopid || "<goodsid></goodsid>",
-        //商品id
-    type = formData.type,
-        _btnhtml = "";
+      method = formData.method,
+      //请求方式
+      target = formData.target,
+      //打开方式
+      action = formData.action,
+      //请求路径
+      operation = formData.operation,
+      //操作方式
+      pageType = formData.pageType,
+      //页面类型
+      shopid = formData.shopid || "<goodsid></goodsid>",
+      //商品id
+      type = formData.type,
+      _btnhtml = "";
     delete attributes.formData;
 
     if (method == "POST") {
@@ -644,6 +644,7 @@ const LinkDecorator = {
   * @return {object} 页面链接结构返回
   */
   html(prop) {
+    debugger
     let attributes = {};
 
     if (prop.link && this[prop.link.type]) {

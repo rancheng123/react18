@@ -13,6 +13,10 @@
     "pc": {
         "tabs": [
             {
+                "name": "textProperty",
+                "type": "basic"
+            },
+            {
                 "name": "design",
                 "type": "design"
             },
@@ -45,7 +49,7 @@
                 "name": "textProperty",
                 "type": "basic",
                 "iconName": "&#xe7a0;",
-                "hidden": true
+                "hidden": false
             },
             {
                 "name": "design",

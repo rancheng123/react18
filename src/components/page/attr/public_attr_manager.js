@@ -38,6 +38,7 @@ const PublicAttrManager = {
    * @return {Basic} 基本属性模块
    */
   async basic(name) {
+
     if (name) {
       const [path, moduleName] = connect(name, ["basic/[name]_basic_controler.js", "BasicControler"]);
       // const module = await this.basicDynamicImport(path, moduleName)
