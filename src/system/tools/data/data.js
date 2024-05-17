@@ -159,7 +159,6 @@ const Data = {
     else {
       console.error("你输入的键值无效");
     }
-    console.log("oldValue", oldValue);
     return oldValue;
   },
 

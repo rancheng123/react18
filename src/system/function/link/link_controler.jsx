@@ -1,6 +1,6 @@
 
 import React from "react";
-import ReactDOM from "react-dom"
+import { createRoot } from "react-dom/client"
 
 // 导入其他模块
 import Link from "./link";
@@ -36,25 +36,39 @@ class LinkControler extends React.Component {
    * @param {function} opts.ensure  点击确定时调用方法
    */
   static link(opts = {}) {
-
+    console.log('basic_controler传来的数据', opts);
     if (!opts.element) {
       if (!opts.selector) {
         opts.selector = "#function-modal";
       }
 
       opts.element = document.querySelector(opts.selector);
+      opts.root = createRoot(opts.element);
+
+      opts.root.render(
+        <LinkControler
+          exclude={opts.exclude}
+          include={opts.include}
+          cancel={opts.cancel || null}
+          ensure={opts.ensure || null}
+          group={opts.group}
+          initialData={opts.initialData || {}}
+          dataState={opts.dataState || {}}
+          root={opts.root}
+        />);
     }
 
-    ReactDOM.render(
-      <LinkControler
-        exclude={opts.exclude}
-        include={opts.include}
-        cancel={opts.cancel || null}
-        ensure={opts.ensure || null}
-        group={opts.group}
-        initialData={opts.initialData || {}}
-        dataState={opts.dataState || {}}
-      />, opts.element);
+
+    // ReactDOM.render(
+    //   <LinkControler
+    //     exclude={opts.exclude}
+    //     include={opts.include}
+    //     cancel={opts.cancel || null}
+    //     ensure={opts.ensure || null}
+    //     group={opts.group}
+    //     initialData={opts.initialData || {}}
+    //     dataState={opts.dataState || {}}
+    //   />, opts.element);
   }
 
   static linkText(link) {
@@ -136,7 +150,6 @@ class LinkControler extends React.Component {
    * @author 
    */
   init() {
-    console.log(this.props, 'oldProps');
     //"download","functionalLinks"  功能未做暂时隐藏 
     this.tabs = window.public.configure(["noLink", "pageAnchor", "externalLinks", "email", "phone", "back", "onlineConsulting", "functionalLinks", "lightbox", "annexDownload"], this.props);
     let dataSource = this.props.dataState,
@@ -266,22 +279,28 @@ class LinkControler extends React.Component {
   }
 
   selectTab(type, event) {
-    console.log(type);
+    // console.log(type);
     this.setState({
       tab: type,
       data: this.getDefaultValue(type)
     });
   }
 
-  close() { }
+  // 关闭方法
+  close() {
+    this.props.root.unmount()
+  }
 
+  // 取消方法
   cancel() {
     this.props.cancel && this.props.cancel();
     this.close();
   }
 
+  // 确定方法
   ensure() {
     this.props.ensure && this.props.ensure(Object.assign({}, this.state.data));
+    this.close();
   }
   /**
    * @method inputHandler input设置数据方法

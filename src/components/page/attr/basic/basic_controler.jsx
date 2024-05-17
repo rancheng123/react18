@@ -71,7 +71,6 @@ export default class BasicControler extends React.Component {
     }
 
     let parentData = this.getParentType(this.props.node, "em-List"); //查找当前控件是否在列表中
-    console.log(111111111111, this.props.id, document_data);
     this.state = {
       groupList,
       controlType,
@@ -80,6 +79,8 @@ export default class BasicControler extends React.Component {
       isParentList: parentData,
       ...theme_data.style
     };
+    console.log('basic获取修改链接所需数据的', this.props, fnName, this.state);
+
   }
 
   componentDidMount() {
@@ -110,7 +111,7 @@ export default class BasicControler extends React.Component {
         initialData: this.state.link,
         dataState: this.state,
         ensure: data => {
-          console.log(data, 'data');
+          console.log('最终触发修改链接数据结构的方法data', data);
           data.value = module.LinkControler.linkText(data);
           this.setState({
             link: data

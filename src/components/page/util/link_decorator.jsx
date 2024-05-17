@@ -644,7 +644,6 @@ const LinkDecorator = {
   * @return {object} 页面链接结构返回
   */
   html(prop) {
-    debugger
     let attributes = {};
 
     if (prop.link && this[prop.link.type]) {

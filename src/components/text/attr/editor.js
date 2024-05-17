@@ -30,7 +30,7 @@ export function changeText(id, e) {
 
       _editor.on("change", change.bind(null, id));
 
-      _editor.on("blur", blur.bind(null, id)); //动态插入个蒙层，在失去焦点后，删除掉，修复编辑器根据选中控件位置变化的问题 sxt 2019-12-11
+      _editor.on("blur", blur.bind(null, id)); //动态插入个蒙层，在失去焦点后，删除掉，修复编辑器根据选中控件位置变化的问题 
 
 
       let editorShow = document.createElement("div");

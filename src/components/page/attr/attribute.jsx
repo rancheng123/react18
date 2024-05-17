@@ -317,6 +317,7 @@ const Attribute = {
       }
     } = this;
     const basic = await PublicAttrManager.basic(type);
+    console.log('basic参数', opts);
     basic && basic.basic(opts);
   },
 
@@ -417,7 +418,7 @@ const Attribute = {
   async link(opts) {
     // const link =  await PublicAttrManager.link();
     // link.link(opts)
-
+    console.log('link参数', opts);
     // 渲染函数式组件
     const Link = await PublicAttrManager.link();
     opts.root.render(<Link {...opts} />)
