@@ -57,7 +57,8 @@ function ComponentDecorator(View, Controler) {
      * @return {object} 待渲染的组件对象
      */
     render() {
-      return React.createElement(this.view.render, null);
+      // return React.createElement(this.view.render, null);
+      return <this.view.render />
     }
 
 

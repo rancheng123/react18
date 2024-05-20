@@ -71,9 +71,9 @@ const ComponentData = {
         return true;
       });
       return isComplete ? newData : null;
-    } //是否存在状态对象
+    }
 
-
+    //是否存在状态对象
     if (this.state) {
       //控件数据
       const newData = {

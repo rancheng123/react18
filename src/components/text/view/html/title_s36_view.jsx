@@ -26,7 +26,7 @@ function s36() {
   } = document_data;
   const context = (_this$props$context = this.props.context) !== null && _this$props$context !== void 0 ? _this$props$context : {};
 
-  let _daSource = dataSource && dataSource.companyField; //数据源存在时，给控件data-source的自定义属性，用于查找数据源 sxt 2020-12-16
+  let _daSource = dataSource && dataSource.companyField; //数据源存在时，给控件data-source的自定义属性，用于查找数据源
 
 
   if (!Util.source) {
@@ -40,7 +40,7 @@ function s36() {
   }
 
   let _text = text || "",
-      textLineP = "textLineP"; //在编辑页面时,text无内容时,给个占位的文字
+    textLineP = "textLineP"; //在编辑页面时,text无内容时,给个占位的文字
 
 
   if (!Util.source) {

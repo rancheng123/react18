@@ -123,8 +123,6 @@ const Drag = {
 
   /**
    * @method setPoint 设置指定插入到某个容器
-   * @date 2021-02-19
-   
    * @param {string} exp 一个或多个控件id，以.分割
    */
   setPoint(exp) {
@@ -169,8 +167,6 @@ const Drag = {
 
   /**
    * @method spliceSeat 追加占位
-   * @date 2019-10-22
-   
    * @param {object} [opts] 参数对象
    * @param {function} opts.removed 占位删除成功执行
    * @param {funciton} opts.added 添加占位成功执行
@@ -272,7 +268,8 @@ const Drag = {
   drag(x, y, opts) {
     var _opts$height;
 
-    const data = Dispatcher.dispatch("getIframeData"); //如果存在应用到所有属性，给应用到所有属性赋值
+    const data = Dispatcher.dispatch("getIframeData");
+    //如果存在应用到所有属性，给应用到所有属性赋值
 
     // console.log(data)
 

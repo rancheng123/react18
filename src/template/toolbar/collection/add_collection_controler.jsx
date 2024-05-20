@@ -89,7 +89,7 @@ export default class AddCollectionControler extends React.Component {
         componentType
       },
       data = {}
-    } = datas; //控件类型为列表时，在收藏时把分页数据、无结果提示数据都去掉 sxt 2022-7-13
+    } = datas; //控件类型为列表时，在收藏时把分页数据、无结果提示数据都去掉 
 
     if (componentType == "em-List") {
       datas.structure.components = [datas.structure.components[0]];
@@ -113,7 +113,7 @@ export default class AddCollectionControler extends React.Component {
    * @method ensure 点击确定方法
    */
   ensure() {
-    // 模拟确定
+    // TODO　模拟确定
     let id = new Date().getTime()
     let title = this.state.collectionText || this.state.placeholder
     let content = this.state.content

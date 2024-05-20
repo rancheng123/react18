@@ -8098,6 +8098,7 @@ textarea.fail {
   padding: 0px 7px;
   box-sizing: border-box;
   cursor: pointer;
+  border-bottom: 2px solid #fff;
 }
 
 .layer-tabs > li:first-child > a {

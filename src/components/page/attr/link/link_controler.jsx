@@ -2,14 +2,14 @@
 // 导入 React 库
 import { useState, } from "react";
 import Widget from "@/system/widgets/widget";
-import { Input, Button } from "antd";
+import { Input, Button, message } from "antd";
 import Dispatcher from "@/system/tools/dispatcher";
 
 /**
  * @Description: 链接控制器
  */
 export function LinkContainer(props) {
-    // 解构取值
+    // 解构取父组件传递的属性值
     const {
         node: {
             current: {
@@ -18,11 +18,24 @@ export function LinkContainer(props) {
         }
     } = props
 
+    // 触发获取控件数据事件
+    const fnName = `${id}_get`;
+    const {
+        component: {
+            layout,
+            controlType
+        },
+        data: {
+            document_data,
+            theme_data = {}
+        }
+    } = Dispatcher.dispatch(fnName);
+
     // 初始状态数据
     const [state, setState] = useState({
-        url: props.url || '',  // 链接地址
-        type: props.type || 'not',   // 链接类型
-        target: props.target || '_self',  // 是否新窗口打开"_blank"
+        url: document_data?.link?.url || '',  // 链接地址
+        type: document_data?.link?.type || 'not',   // 链接类型
+        target: document_data?.link?.target || '_self',  // 是否新窗口打开"_blank"
     })
 
     // 链接类型数据
@@ -45,13 +58,15 @@ export function LinkContainer(props) {
     ]
     // 链接改变方法类型
     const linkTypeChange = (event) => {
-        // 更新数据
+        // 当链接类型发生改变时，置空数据
         setState({
             type: event.target.value,
             url: "",
             target: "_self",
         })
     }
+
+
     // 是否新窗口打开的数据
     const targetList = [
         {
@@ -105,7 +120,7 @@ export function LinkContainer(props) {
         if (_value.indexOf("http") == -1) {
             _value = "http://" + _value;
         }
-        // 更新数据
+        // 更新url数据
         setState({
             ...state,
             url: _value
@@ -121,7 +136,7 @@ export function LinkContainer(props) {
         let _value = event.target.value;
         if (_value.indexOf("http") == -1) {
             _value = "http://" + _value;
-            // 更新数据
+            // 更新url数据
             setState({
                 ...state,
                 url: _value
@@ -137,15 +152,21 @@ export function LinkContainer(props) {
         //     "url": "http://23213",
         //     "value": "外部链接 http://23213"
         // }
+
+        if (!state.url) {
+            message.warning('链接地址不能为空')
+            return false
+        }
+
         const data = {
             ...state,
         }
-        console.log('函数式组件data数据', data);
+        // console.log('函数式组件data数据', data);
 
         // 派发事件,触发修改链接数据
-        // Dispatcher.dispatch(`${id}_set`, {
-        //     args: [`document_data.link`, data]
-        // });
+        Dispatcher.dispatch(`${id}_set`, {
+            args: [`document_data.link`, data]
+        });
     }
 
 
