@@ -199,6 +199,7 @@ function Textarea(prop) {
  * @param {boolean} prop.isLang   是否启用语言包 true不启用语言包  默认false
  * @param {boolean} prop.basic -是否返回基本组件，true 不对组件进行包装，只返回基本组件 false 对组件进行包装，返回包装后的组件
  * @param {function} prop.change -单项选择值发生变化时触发的事件处理函数
+ * @param {function} prop.linkLayout -单项选择值布局
  * @return {object} 单项选择组件结构
  */
 function Radio(prop) {
@@ -240,7 +241,7 @@ function Radio(prop) {
 
 
     return (
-      <label key={i} className="em-radio-label">
+      <label key={i} className="em-radio-label" style={{ display: prop.linkLayout == 'vertical' ? 'block' : 'inline-block' }}>
         {/* <antd.Radio 
           type="radio"
           name={prop.id}

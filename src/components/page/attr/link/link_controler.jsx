@@ -1,14 +1,18 @@
 /* eslint-disable react/prop-types */
 // 导入 React 库
-import { useState, } from "react";
+import { useState, useMemo } from "react";
 import Widget from "@/system/widgets/widget";
-import { Input, Button, message } from "antd";
+import { Input, Button, message, Divider } from "antd";
 import Dispatcher from "@/system/tools/dispatcher";
 
 /**
  * @Description: 链接控制器
  */
 export function LinkContainer(props) {
+
+    // 获取布局结构数据
+    const linkLayout = props?.config?.group?.link?.all.layout || 'horizontal';
+
     // 解构取父组件传递的属性值
     const {
         node: {
@@ -37,25 +41,13 @@ export function LinkContainer(props) {
         type: document_data?.link?.type || 'not',   // 链接类型
         target: document_data?.link?.target || '_self',  // 是否新窗口打开"_blank"
     })
+    // 获取链接类型列表
+    const linkTypeList = useMemo(() => {
+        const include = props?.config?.group?.link?.all.include || ''
+        return linkList.filter(item => include.indexOf(item.value) !== -1);
+    }, [props])
 
-    // 链接类型数据
-    const linkTypeList = [
-        {
-            name: 'noLink',
-            value: 'noLink',
-            title: '无'
-        },
-        {
-            name: 'pageAnchor',
-            value: 'pageAnchor',
-            title: '站内页面'
-        },
-        {
-            name: 'externalLinks',
-            value: 'externalLinks',
-            title: '站外链接'
-        },
-    ]
+
     // 链接改变方法类型
     const linkTypeChange = (event) => {
         // 当链接类型发生改变时，置空数据
@@ -65,7 +57,6 @@ export function LinkContainer(props) {
             target: "_self",
         })
     }
-
 
     // 是否新窗口打开的数据
     const targetList = [
@@ -144,30 +135,7 @@ export function LinkContainer(props) {
         }
     }
 
-    // 点击确定按钮
-    const ensure = () => {
-        // 模拟数据
-        // const data = {
-        //     "type": "externalLinks",
-        //     "url": "http://23213",
-        //     "value": "外部链接 http://23213"
-        // }
 
-        if (!state.url) {
-            message.warning('链接地址不能为空')
-            return false
-        }
-
-        const data = {
-            ...state,
-        }
-        // console.log('函数式组件data数据', data);
-
-        // 派发事件,触发修改链接数据
-        Dispatcher.dispatch(`${id}_set`, {
-            args: [`document_data.link`, data]
-        });
-    }
 
 
 
@@ -185,6 +153,10 @@ export function LinkContainer(props) {
                 return PageAnchor();
             case 'externalLinks':
                 return ExternalLinks();
+            case 'back':
+                return back();
+            case 'lightbox':
+                return lightbox();
             default:
                 break;
         }
@@ -270,24 +242,134 @@ export function LinkContainer(props) {
         )
     }
 
+    /**
+     * 顶部底部结构
+     * @returns  dom
+     */
+    const back = () => {
+        return (
+            <div className="link_contr">
+                <Widget.Select
+                    id="textTheme"
+                    title="返回至"
+                    value={"not"}
+                    list={[
+                        { name: window.public.lang["not"], value: "not" },
+                        { name: "H1", value: "h1" },
+                        { name: "H2", value: "h2" },
+                        { name: "H3", value: "h3" },
+                        { name: "H4", value: "h4" },
+                        { name: "H5", value: "h5" },
+                        { name: "H6", value: "h6" },
+                    ]}
+                />
+            </div >
+        )
+    }
+
+    /**
+     * 弹窗结构
+     * @returns  dom
+     */
+    const lightbox = () => {
+        return (
+            <div className="link_contr">
+                <Widget.Select
+                    id="textTheme"
+                    title="在当前页面显示"
+                    value={"not"}
+                    list={[
+                        { name: window.public.lang["not"], value: "not" },
+                        { name: "H1", value: "h1" },
+                        { name: "H2", value: "h2" },
+                        { name: "H3", value: "h3" },
+                        { name: "H4", value: "h4" },
+                        { name: "H5", value: "h5" },
+                        { name: "H6", value: "h6" },
+                    ]}
+                />
+            </div>
+
+        )
+    }
+
+
+
+    // 点击确定按钮
+    const ensure = () => {
+        // 模拟数据
+        // const data = {
+        //     "type": "externalLinks",
+        //     "url": "http://23213",
+        //     "value": "外部链接 http://23213"
+        // }
+
+        if (!state.url) {
+            message.warning('链接地址不能为空')
+            return false
+        }
+
+        const data = {
+            ...state,
+        }
+        // console.log('函数式组件data数据', data);
+
+        // 派发事件,触发修改链接数据
+        Dispatcher.dispatch(`${id}_set`, {
+            args: [`document_data.link`, data]
+        });
+    }
+
     return (
-        <div style={{ padding: '20px' }}>
-            <div style={{ width: '100%' }}>
+        <div style={{ padding: '20px', height: '100%', position: 'relative' }}>
+            <div style={{ width: '100%', height: '100%', display: linkLayout == 'vertical' ? 'flex' : 'block' }}>
                 <Widget.Radio
                     basic={true}
                     list={linkTypeList}
                     value={state.type}
                     change={linkTypeChange}
+                    linkLayout={linkLayout}
                 />
-                <ul>
+                {linkLayout == 'vertical' && <Divider style={{ height: '100%' }} type="vertical" />}
+                <ul style={{ flex: linkLayout == 'vertical' ? '1' : undefined }}>
                     {/* 根据linkType 获取显示的dom */}
                     {getDom()}
                 </ul>
-                <div style={{ marginTop: '10px', textAlign: 'right' }}>
-                    <Button onClick={ensure} type="primary">{window.public.lang['ensure']}</Button>
-                </div>
             </div>
-        </div>
+            <div style={{
+                marginTop: '10px', textAlign: 'right', position: 'absolute', bottom: '20px', right: '20px'
+            }}>
+                <Button onClick={ensure} type="primary">{window.public.lang['ensure']}</Button>
+            </div>
+        </div >
     )
 }
 
+// 链接类型数据
+const linkList = [
+    {
+        name: 'noLink',
+        value: 'noLink',
+        title: '无'
+    },
+    {
+        name: 'pageAnchor',
+        value: 'pageAnchor',
+        title: '站内页面'
+    },
+    {
+        name: 'externalLinks',
+        value: 'externalLinks',
+        title: '站外链接'
+    },
+    {
+        name: 'back',
+        value: 'back',
+        title: '顶部/底部'
+    },
+    {
+        name: 'lightbox',
+        value: 'lightbox',
+        title: '弹窗'
+    },
+]

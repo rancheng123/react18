@@ -144,6 +144,12 @@
             "all": {
                 "include": "imgBig|imageQuality|originalFormat"
             }
+        },
+        "link": {
+            "all": {
+                "include": "noLink|pageAnchor|externalLinks",
+                "layout": "horizontal"
+            }
         }
     }
 }

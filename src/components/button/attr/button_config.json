@@ -31,6 +31,10 @@
                 {
                     "name": "animation",
                     "type": "animation"
+                },
+                {
+                    "name": "link",
+                    "type": "link"
                 }
             ],
             "button.textBtn.s999": [
@@ -64,6 +68,11 @@
                 "name": "animation",
                 "type": "animation",
                 "iconName": "&#xe796;"
+            },
+            {
+                "name": "link",
+                "type": "link",
+                "iconName": "&#xe79a;"
             },
             {
                 "name": "style",
@@ -459,6 +468,12 @@
                         "include": "code"
                     }
                 }
+            }
+        },
+        "link": {
+            "all": {
+                "include": "noLink|pageAnchor|externalLinks|back|lightbox",
+                "layout": "vertical"
             }
         }
     }

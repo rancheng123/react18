@@ -89,23 +89,29 @@ export default class ComponentEditControler extends React.Component {
   }
 
   hidden(value) {
-    const selected = document.querySelector(".component-selected"); //选中框节点是否存在
+    const selected = document.querySelector(".component-selected");
 
+    //选中框节点是否存在
     if (selected) {
       const children = selected.children,
         {
           children: [parentBtn, btn]
-        } = children[0]; //卸载父级属性按钮
+        } = children[0];
 
-      ReactDom.unmountComponentAtNode(parentBtn); //卸载属性按钮
+      //卸载父级属性按钮
+      ReactDom.unmountComponentAtNode(parentBtn);
 
-      ReactDom.unmountComponentAtNode(btn); //卸载父级选中框
+      //卸载属性按钮
+      ReactDom.unmountComponentAtNode(btn);
 
-      ReactDom.unmountComponentAtNode(children[1]); //卸载选中框
+      //卸载父级选中框
+      ReactDom.unmountComponentAtNode(children[1]);
 
+      //卸载选中框
       ReactDom.unmountComponentAtNode(children[2]);
-    } //如果选中对象存在则调用选中框卸载方法
+    }
 
+    //如果选中对象存在则调用选中框卸载方法
 
     this.selected && this.selected.componentWillUnmount();
     this.setState({

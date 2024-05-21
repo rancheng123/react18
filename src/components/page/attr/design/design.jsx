@@ -9,12 +9,12 @@ import DesignManager from "./design_manager"; // 导入 DesignManager 变量
 
 let prefix = "",
 
-/**@private disableUnit 禁止单位选择*/
-disableUnit = "",
+  /**@private disableUnit 禁止单位选择*/
+  disableUnit = "",
 
-/**@property tabs 属性项集合 */
-tabs = ["background", "border", "radius", "shadow", "text", "icon", "space", "animation", "hoveranimation", "position", "divider", "levelnav"];
-const iconsList = ['&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784','&#xe784'];
+  /**@property tabs 属性项集合 */
+  tabs = ["background", "border", "radius", "shadow", "text", "icon", "space", "animation", "hoveranimation", "position", "divider", "levelnav"];
+const iconsList = ['&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784'];
 
 /**
  * @instance {Design} 设计实例
@@ -40,7 +40,7 @@ const Design = {
 
     var _opts$prefix;
 
-    const { root }= opts
+    const { root } = opts
 
     const DesignComponent = this.render.bind(this);
     this.config = opts.config
@@ -118,7 +118,7 @@ const Design = {
       node: this.node,
       config: this.config,
       publicAttr: this.publicAttr,
-    }; 
+    };
 
     // 统一获取渲染根节点
     // if(!root){
