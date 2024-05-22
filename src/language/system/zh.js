@@ -36,7 +36,7 @@ window.public.lang = {
     tabHeight: "标签高度",
     tabPosition: "标签位置",
     tabPadding: "边距",
-    clicShow: "点击显示控件",
+    clicShow: "点击显示",
     collapsible: "可折叠",
     collapsibleProperty: "可折叠属性",
     collapseAll: "默认收起",

@@ -157,19 +157,19 @@ const PublicAttrManager = {
    * @method hiding 获取隐藏模块
    */
   hiding() {
-    return import('./hiding').then(module => module.default)
+    return import('./hiding.js').then(module => module.Hiding)
     // return __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ./hiding */ "./components/page/attr/hiding.js")).then(module => module.Hiding);
   },
 
   /**
-   * @method hiding 获取应用模块
+   * @method quote 获取应用模块
    */
   quote() {
     return __webpack_require__.e(/*! import() */ 1024).then(__webpack_require__.bind(null, /*! ../../hoverbox/attr/quote.js */ "./components/hoverbox/attr/quote.js")).then(module => module.Quote);
   },
 
   /**
-   * @method hiding 获取链接模块
+   * @method link 获取链接模块
    */
   link() {
     return import('./link/link_controler.jsx').then(module => module.LinkContainer);

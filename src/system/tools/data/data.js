@@ -41,6 +41,7 @@ function query(key, component, data, fn) {
 * @param {object} theme_data 控件属性数据 
 */
 function render(component, theme_data) {
+  console.log('渲染', component, theme_data);
   var _theme_data$document;
 
   const { id = "document" } = component,

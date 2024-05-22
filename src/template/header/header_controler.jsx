@@ -15,6 +15,13 @@ export default class HeaderControler extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      page: "",
+      hidden: false,
+      plann: false,
+      showIcon: '&#xe7a1;'
+    }
+
     /**@property {array} btn_list 按钮配置列表*/
 
     this.btn_list = [//将语言包内的数组改为JSON格式 headList 
@@ -34,8 +41,6 @@ export default class HeaderControler extends React.Component {
         'iconName': "&#xe76a;"
       }, {
         "event": "showHidden",
-        "iconName": "&#xe7a1;",
-        "iconClass": "",
         'title': window.public.lang.showHidden
       },
       { "iconClass": "iconfont", "iconName": "&#xe775;", "event": "undo", 'title': window.public.lang.backOff }, //先注掉 原因是功能还没完全的做完。 lw 2021-4-22
@@ -115,12 +120,6 @@ export default class HeaderControler extends React.Component {
       '单页',
       '空白页',
     ]
-    this.state = {
-      page: "",
-      hidden: false,
-      plann: false,
-      showIcon: '&#xe9cd;'
-    }
 
     // this.init();
   }
@@ -213,8 +212,12 @@ export default class HeaderControler extends React.Component {
                       //         p-id="5779" fill="#ffffff"></path>
                       //     </svg></a>
                       // ) : (<a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a>)
+                      item.event === 'showHidden' ? (
+                        <a><i className="iconfont" dangerouslySetInnerHTML={{ __html: this.state.showIcon }}></i></a>
+                      ) : (
+                        <a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a>
+                      )
 
-                      <a><i className="iconfont" dangerouslySetInnerHTML={{ __html: item.iconName }}></i></a>
                     }
                   </li>
                 )
@@ -298,28 +301,27 @@ export default class HeaderControler extends React.Component {
       module.PageWidth.pageWidth('function-modal', target);
     });
   }
+
+
   /**
    * @method showHidden 列出隐藏
    */
-
-
   showHidden() {
-    const iconName = this.state.showIcon == '&#xe7a1;' ? '&#xe7a1;' : '&#xe798;';
+    const iconName = this.state.showIcon != '&#xe7a1;' ? '&#xe7a1;' : '&#xe798;';
     this.setState({
       showIcon: iconName
     });
-    const promise = __webpack_require__.e(/*! import() | hiding */ "hiding").then(__webpack_require__.bind(null, /*! ../../components/page/attr/hiding */ "./components/page/attr/hiding.js"));
+    // const promise = __webpack_require__.e(/*! import() | hiding */ "hiding").then(__webpack_require__.bind(null, /*! ../../components/page/attr/hiding */ "./components/page/attr/hiding.js"));
+    const promise = import('../../components/page/attr/hiding.js')
     promise.then(({
       Hiding
     }) => Hiding.show());
   }
+
+
   /**
    * @method rulerShow 设置辅助线显隐功能
-   * @date 2020-2-24
-   * @author sxt
    */
-
-
   rulerShow() {
     Dispatcher.dispatch("setRuler");
   }

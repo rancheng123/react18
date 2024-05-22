@@ -61,6 +61,7 @@ const Hiding = {
       }
     } = Dispatcher.dispatch("getPageData"); //当前页面数据
 
+    console.log('Dispatcher.dispatch("getPageData")', Dispatcher.dispatch("getPageData"));
     const {
       node: {
         current: {
@@ -185,9 +186,9 @@ const Hiding = {
    */
   insertMask(ele) {
     if (ele) {
-      //  只有 position不存在时才赋值relative, 已经存在时赋值会对固定定位的控件会影响(侧边栏) sxt 2020-9-16
+      //  只有 position不存在时才赋值relative, 已经存在时赋值会对固定定位的控件会影响(侧边栏) 
       var style = window.getComputedStyle(ele, null),
-        _position = style.position; //_position 为static时，证明没有定位，要赋值定位，防止遮档的bug sxt 2020-9-16
+        _position = style.position; //_position 为static时，证明没有定位，要赋值定位，防止遮档的bug 
 
       if (_position == "static") {
         ele.style.position = 'relative';
@@ -267,4 +268,4 @@ const Hiding = {
 
 };
 
-export default Hiding
+export { Hiding }
