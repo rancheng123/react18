@@ -110,6 +110,7 @@ const LinkDecorator = {
   * @return {object} 返回链接
   */
   back(prop) {
+    console.log('生成结构');
     let link = prop.link || {},
       _back = null,
       speed = link.speed || 0,

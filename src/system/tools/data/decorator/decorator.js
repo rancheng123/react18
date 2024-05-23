@@ -34,6 +34,7 @@ const Decorator = {
     console.log("addComponent", componentData, index, fn, isrecord);
     //设置编辑状态
     window.public.editState = "edit";
+
     const newid = Decorator.component.addComponent.call(
       this,
       componentData,

@@ -346,7 +346,8 @@ class LinkControler extends React.Component {
   * @param {event} event 事件对象 
   */
   selectHandler(key, key1, event) {
-    let _value = event.target.value,
+    console.log(key, key1, event);
+    let _value = event?.target?.value || event,
       _index = event.target.selectedIndex,
       _text = event.target.options[_index].text;
     let {

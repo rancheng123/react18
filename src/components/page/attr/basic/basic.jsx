@@ -52,7 +52,7 @@ export default class Basic {
   * @param {object} 设置链接结构。
   */
   link() {
-
+    console.log('link');
     const {
       state: {
         link

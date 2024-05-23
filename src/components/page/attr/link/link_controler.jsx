@@ -30,17 +30,27 @@ export function LinkContainer(props) {
             controlType
         },
         data: {
-            document_data,
+            document_data: {
+                link
+            },
             theme_data = {}
         }
     } = Dispatcher.dispatch(fnName);
+    console.log(link);
 
-    // 初始状态数据
+    // 当前激活的链接类型
+    const activeType = link ? link?.type : ''
+
+    // 初始所有状态数据
     const [state, setState] = useState({
-        url: document_data?.link?.url || '',  // 链接地址
-        type: document_data?.link?.type || 'not',   // 链接类型
-        target: document_data?.link?.target || '_self',  // 是否新窗口打开"_blank"
+        url: link?.url || '',  // 链接地址
+        type: link?.type || 'not',   // 链接类型
+        target: link?.target || '_self',  // 是否新窗口打开"_blank"
+        nofollow: link?.nofollow || 'openTurn',  // 是否添加nofollow标签
+        back: link?.back || '',  // 顶部/底部数据
+        ejectBoxId: link?.ejectBoxId || '',  //弹出窗口数据
     })
+
     // 获取链接类型列表
     const linkTypeList = useMemo(() => {
         const include = props?.config?.group?.link?.all.include || ''
@@ -50,12 +60,48 @@ export function LinkContainer(props) {
 
     // 链接改变方法类型
     const linkTypeChange = (event) => {
-        // 当链接类型发生改变时，置空数据
-        setState({
-            type: event.target.value,
-            url: "",
-            target: "_self",
-        })
+        // 当链接类型发生改变时，初始化数据
+        const type = event.target.value;
+
+        switch (type) {
+            case 'noLink':
+                setState({
+                    type: type,
+                })
+                return
+            case 'pageAnchor':
+                setState({
+                    type: type,
+                    url: activeType === type ? link?.url || '' : '',
+                    target: activeType === type ? link?.target || '_self' : '_self',
+                })
+                return
+            case 'externalLinks':
+                setState({
+                    type: type,
+                    url: activeType === type ? link?.url || '' : '',
+                    target: activeType === type ? link?.target || '_self' : '_self',
+                    nofollow: activeType === type ? link?.nofollow || 'openTurn' : 'openTurn',
+                })
+                return
+            case 'back':
+                setState({
+                    type: type,
+                    back: link?.back || ''
+                })
+                return
+            case 'lightbox':
+                setState({
+                    type: type,
+                    ejectBoxId: link?.ejectBoxId || ''
+                })
+                return
+            default:
+                setState({
+                    type: type,
+                })
+                return
+        }
     }
 
     // 是否新窗口打开的数据
@@ -78,27 +124,6 @@ export function LinkContainer(props) {
             target: event.target.value,
         })
     }
-
-    // 是否传递权重的数据
-    const [weightStatus, setWeightStatus] = useState('yes')
-    // 权重数据
-    const weightList = [
-        {
-            name: 'yes',
-            value: 'yes',
-            title: '是'
-        },
-        {
-            name: 'no',
-            value: 'no',
-            title: '否'
-        },
-    ]
-    // 是否传递权重发生改变
-    const weightStatusChange = (event) => {
-        setWeightStatus(event.target.value)
-    }
-
 
     /**
      * @method inputHandler input设置数据方法
@@ -136,17 +161,14 @@ export function LinkContainer(props) {
     }
 
 
-
-
-
-
     /**
      * 根据链接类型获取dom
      * @param {*} props  父组件参数
      * @returns  dom
      */
     const getDom = () => {
-        switch (state.type) {
+        const type = state.type
+        switch (type) {
             case 'noLink':
                 return NoLink();
             case 'pageAnchor':
@@ -158,7 +180,7 @@ export function LinkContainer(props) {
             case 'lightbox':
                 return lightbox();
             default:
-                break;
+                return NoLink();
         }
     }
     /**
@@ -166,6 +188,19 @@ export function LinkContainer(props) {
      * @returns  dom
      */
     const ExternalLinks = () => {
+
+        // 权重数据
+        const nofollowList = [
+            { name: "openTurn", value: "openTurn" },
+            { name: "closeOff", value: "closeOff" }
+        ]
+        // 是否传递权重发生改变
+        const nofollowStatusChange = (event) => {
+            setState({
+                ...state,
+                nofollow: event.target.value
+            })
+        }
         return (
             <>
                 <li style={{ display: 'flex', alignItems: 'center', margin: '10px 0' }}>
@@ -190,9 +225,9 @@ export function LinkContainer(props) {
                     <div style={{ width: '84px', textAlign: 'right', marginRight: '10px', flex: 'none' }}>是否传递权重</div>
                     <Widget.Radio
                         basic={true}
-                        list={weightList}
-                        value={weightStatus}
-                        change={weightStatusChange}
+                        list={nofollowList}
+                        value={state.nofollow}
+                        change={nofollowStatusChange}
                     />
                 </li>
                 <div style={{ fontWeight: '400', fontSize: '12px', color: ' #666666' }}>
@@ -247,21 +282,24 @@ export function LinkContainer(props) {
      * @returns  dom
      */
     const back = () => {
+
+        const selectBack = (value) => {
+            setState({
+                ...state,
+                back: value  // 顶部底部
+            })
+        }
         return (
             <div className="link_contr">
                 <Widget.Select
-                    id="textTheme"
+                    id="backLink"
                     title="返回至"
-                    value={"not"}
+                    value={state.back}
                     list={[
-                        { name: window.public.lang["not"], value: "not" },
-                        { name: "H1", value: "h1" },
-                        { name: "H2", value: "h2" },
-                        { name: "H3", value: "h3" },
-                        { name: "H4", value: "h4" },
-                        { name: "H5", value: "h5" },
-                        { name: "H6", value: "h6" },
+                        { value: "top", name: window.public.lang["top"] },
+                        { value: "bottom", name: window.public.lang["footer"] },
                     ]}
+                    change={selectBack}
                 />
             </div >
         )
@@ -272,21 +310,24 @@ export function LinkContainer(props) {
      * @returns  dom
      */
     const lightbox = () => {
+        const select = (value) => {
+            setState({
+                ...state,
+                ejectBoxId: value   // 弹窗id
+            })
+        }
+
         return (
             <div className="link_contr">
                 <Widget.Select
                     id="textTheme"
                     title="在当前页面显示"
-                    value={"not"}
+                    value={state.ejectBoxId}
                     list={[
-                        { name: window.public.lang["not"], value: "not" },
-                        { name: "H1", value: "h1" },
-                        { name: "H2", value: "h2" },
-                        { name: "H3", value: "h3" },
-                        { name: "H4", value: "h4" },
-                        { name: "H5", value: "h5" },
-                        { name: "H6", value: "h6" },
+                        { name: "弹框1", value: "1" },
+                        { name: "弹框2", value: "2" },
                     ]}
+                    change={select}
                 />
             </div>
 
@@ -296,7 +337,7 @@ export function LinkContainer(props) {
 
 
     // 点击确定按钮
-    const ensure = () => {
+    const ensure = async () => {
         // 模拟数据
         // const data = {
         //     "type": "externalLinks",
@@ -304,7 +345,7 @@ export function LinkContainer(props) {
         //     "value": "外部链接 http://23213"
         // }
 
-        if (!state.url) {
+        if ((state.type == 'pageAnchor' || state.type == 'externalLinks') && !state.url) {
             message.warning('链接地址不能为空')
             return false
         }
@@ -312,12 +353,13 @@ export function LinkContainer(props) {
         const data = {
             ...state,
         }
-        // console.log('函数式组件data数据', data);
+        console.log('函数式组件data数据', data);
 
         // 派发事件,触发修改链接数据
-        Dispatcher.dispatch(`${id}_set`, {
+        await Dispatcher.dispatch(`${id}_set`, {
             args: [`document_data.link`, data]
         });
+        message.success('操作成功')
     }
 
     return (
@@ -350,26 +392,21 @@ const linkList = [
     {
         name: 'noLink',
         value: 'noLink',
-        title: '无'
     },
     {
         name: 'pageAnchor',
         value: 'pageAnchor',
-        title: '站内页面'
     },
     {
         name: 'externalLinks',
         value: 'externalLinks',
-        title: '站外链接'
     },
     {
         name: 'back',
         value: 'back',
-        title: '顶部/底部'
     },
     {
         name: 'lightbox',
         value: 'lightbox',
-        title: '弹窗'
     },
 ]
