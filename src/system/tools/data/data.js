@@ -321,7 +321,6 @@ const Data = {
     } else {
       unuseNewId = true;
     }
-    debugger
 
     const {
       state: {
@@ -332,26 +331,34 @@ const Data = {
       newData = Data.resolve(componentData, unuseNewId),
       data = Dispatcher.dispatch("getData", {
         value: component,
-      }); //判断是否存在新数据并且能否获取到对应控件数据
+      });
 
+    //判断是否存在新数据并且能否获取到对应控件数据
     if (newData && data) {
       //指定插入位置，则插入到指定位置，否则插入到最后
       components
         ? index != undefined && index >= 0
           ? components.splice(index, 0, newData.component)
           : components.push(newData.component)
-        : (component.components = [newData.component]); //合并数据到站点数据中
+        : (component.components = [newData.component]);
 
+      //合并数据到站点数据中
       Data.dataTypes.forEach((e) => {
+
         //数据是否存在
         if (newData.data[e]) {
           //判断数据类型是否是object，不是重新赋值
-          data.data[e] && /Object/.test(data.data[e].toString())
-            ? Object.assign(data.data[e], newData.data[e])
-            : (data.data[e] = newData.data[e]);
+          // data.data[e] && /Object/.test(data.data[e].toString())
+          //   ? Object.assign(data.data[e], newData.data[e])
+          //   : (data.data[e] = newData.data[e]);
+          if (data.data[e] && /Object/.test(data.data[e].toString())) {
+            Object.assign(data.data[e], newData.data[e])
+          } else {
+            data.data[e] = newData.data[e];
+          }
         }
-      }); //unrender不为true，表示要渲染ui，为true则不渲染ui
-
+      });
+      //unrender不为true，表示要渲染ui，为true则不渲染ui
       if (unrender != true) {
         //更新控件UI
         this.setState({

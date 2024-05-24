@@ -253,7 +253,7 @@ export default class ContentControler extends React.Component {
 
 
   /**
-   * @method widgetLibrary 弹出工具栏面板
+   * @method widgetLibrary 弹出控件面板
    */
   widgetLibrary(toolBarsRoot) {
     var box = document.getElementById("edit-toolbar-content"),
@@ -264,7 +264,7 @@ export default class ContentControler extends React.Component {
   }
 
   /**
-   * @method componentLibrary 组件工具栏弹出面板
+   * @method componentLibrary 模块库弹出面板
    */
   componentLibrary(toolBarsRoot) {
     var box = document.getElementById("edit-toolbar-content"),

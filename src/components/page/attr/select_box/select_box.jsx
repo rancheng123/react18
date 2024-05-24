@@ -1,7 +1,8 @@
 // 导入 React 库
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 // 导入 ReactDOM 库
 import { createRoot } from 'react-dom/client';
+// import ReactDom from 'react-dom';
 // 导入自定义的 dispatcher 模块
 import Dispatcher from '@/system/tools/dispatcher.js';
 // 导入自定义的 single_selected 模块
@@ -43,11 +44,11 @@ class SelectBox {
 
       this.selectRoot = createRoot(element)
 
-      // this.selectRoot.render(React.createElement(select.render, {
+      // ReactDom.render(React.createElement(select.render, {
       //   select: select,
       //   dots: opts.dots,
       //   def_layout: opts.layout
-      // }));
+      // }), element);
 
       this.selectRoot.render(
         <select.render
@@ -88,7 +89,7 @@ class SelectBox {
     //   className: "hidDivBtn",
     //   onClick: select.show.bind(select)
     // }, window.public.lang.clicShow));
-
+    console.log('select', select);
     return (
       <div
         className="ediBox"
@@ -227,6 +228,7 @@ class SelectBox {
    * @method show 点击显示
    */
   show() {
+    console.log('展示');
     // const promise = __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ../hiding */ "./components/page/attr/hiding.js"));
     const promise = import('../hiding.js')
     promise.then(({
@@ -235,8 +237,9 @@ class SelectBox {
       Hiding.hiding({
         node: this.node
       });
-    }); //清空选中框
+    });
 
+    //清空选中框
     Dispatcher.dispatch('selectedHidden', {
       value: true
     });

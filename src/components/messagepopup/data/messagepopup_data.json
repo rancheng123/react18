@@ -1,0 +1,55 @@
+{
+    "items": {
+        "messagepopup.messagepopup.s1.1": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Messagepopup",
+                "skin": "messagepopup.messagepopup.s1.1"
+            },
+            "data": {
+                "componentType": "em-Messagepopup",
+                "text": "这是测试数据",
+                "fontLabel": "",
+                "skin": "messagepopup.messagepopup.s1.1"
+            },
+            "style": {
+                "skin": "messagepopup.messagepopup.s1.1",
+                "style": {
+                    "marginTop": "3",
+                    "marginRight": "0",
+                    "marginBottom": "3",
+                    "marginLeft": "0",
+                    "momarginTop": "1",
+                    "momarginRight": "3",
+                    "momarginBottom": "1",
+                    "momarginLeft": "3",
+                    "textColor": "#000000",
+                    "textSize": 2.4,
+                    "motextSize": 2.4,
+                    "lineHeight": 170,
+                    "molineHeight": 170,
+                    "textSizeUnit": "rem",
+                    "motextSizeUnit": "rem",
+                    "lineHeightUnit": "%",
+                    "molineHeightUnit": "%",
+                    "marginTopUnit": "rem",
+                    "marginRightUnit": "%",
+                    "marginBottomUnit": "rem",
+                    "marginLeftUnit": "%",
+                    "momarginTopUnit": "%",
+                    "momarginRightUnit": "%",
+                    "momarginBottomUnit": "%",
+                    "momarginLeftUnit": "%",
+                    "paddingTopUnit": "%",
+                    "paddingRightUnit": "%",
+                    "paddingBottomUnit": "%",
+                    "paddingLeftUnit": "%",
+                    "mopaddingTopUnit": "%",
+                    "mopaddingRightUnit": "%",
+                    "mopaddingBottomUnit": "%",
+                    "mopaddingLeftUnit": "%"
+                }
+            }
+        }
+    }
+}

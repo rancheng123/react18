@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
+// import { createRoot } from 'react-dom/client';
 import Dispatcher from '../../tools/dispatcher';
 import ComponentEdit from './component_edit_test'
 import SingleComponentEdit from './single/single_component_edit_test'
@@ -89,6 +90,7 @@ export default class ComponentEditControler extends React.Component {
   }
 
   hidden(value) {
+    console.log('hidden');
     const selected = document.querySelector(".component-selected");
 
     //选中框节点是否存在
@@ -97,6 +99,10 @@ export default class ComponentEditControler extends React.Component {
         {
           children: [parentBtn, btn]
         } = children[0];
+
+      // const root = createRoot(selected)
+      // root.unmount()
+
 
       //卸载父级属性按钮
       ReactDom.unmountComponentAtNode(parentBtn);

@@ -271,8 +271,6 @@ const Drag = {
     const data = Dispatcher.dispatch("getIframeData");
     //如果存在应用到所有属性，给应用到所有属性赋值
 
-    // console.log(data)
-
     if (opts && opts.isApply) {
       this.isApply = opts.isApply;
     } //滚动页面
@@ -411,8 +409,6 @@ const Drag = {
 
   /**
    * @method end 拖拽结束
-   * @date 2019-10-22
-   
    * @param {event} event 事件对象
    * @param {object} component 控件数据
    * @param {boolean} unadd 如果值为true，不执行新增操作
@@ -424,7 +420,6 @@ const Drag = {
     //Drag.handlePageToggleDash('end');
     unuseNewId = true;
     const { prevId: id, seatId, isApply } = this;
-
     //id、占位符id或是否应用到全部没有值，则返回null
     if (!(id && seatId) && !isApply) {
       return null;

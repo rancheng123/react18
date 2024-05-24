@@ -61,7 +61,6 @@ const Hiding = {
       }
     } = Dispatcher.dispatch("getPageData"); //当前页面数据
 
-    console.log('Dispatcher.dispatch("getPageData")', Dispatcher.dispatch("getPageData"));
     const {
       node: {
         current: {

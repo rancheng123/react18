@@ -1,5 +1,9 @@
-const  WidgetLibraryConfig = {
+const WidgetLibraryConfig = {
     "tabs": [
+        {
+            "id": 666, // 模拟弹框数据
+            "name": "测试弹窗",
+        },
         {
             "id": 123,
             "name": "文本"
@@ -102,6 +106,28 @@ const  WidgetLibraryConfig = {
         }
     ],
     "group": {
+        // 模拟弹框数据
+        "666": {
+            "tabs": [
+                {
+                    "id": 667,
+                    "name": "留言弹窗"
+                },
+            ],
+            "group": {
+                "667": [
+                    {
+                        "skin": "messagepopup.messagepopup.s1.1",
+                        "skinStyle": "text-1",
+                        "id": 667,
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null,
+                        "component_type": 0
+                    }
+                ],
+            }
+        },
         "95": {
             "tabs": [
                 {

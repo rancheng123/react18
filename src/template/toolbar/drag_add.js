@@ -100,6 +100,7 @@ export default class DragAdd {
     if (!opts.component) {
       //关闭面板
       // this.component.view.close(); 
+
       this.component.view ? this.component.view.close() : this.component.props.toolBarsclose();
 
       //获取控件数据  
@@ -149,9 +150,11 @@ export default class DragAdd {
       if (opts.isdrag != true) {
         this.noDragPrompt('close');
         return void 0;
-      } //卸载遮罩层
+      }
 
+      console.log('end', opts.component);
 
+      //卸载遮罩层
       this.componentMask(opts.main);
 
       if (opts.component) {
@@ -168,18 +171,18 @@ export default class DragAdd {
           hour12: false
         });
 
-        //记录拖入时间 wyq change 2020-10-26
+        //记录拖入时间 
         opts.component.structure.drag_in_time = time;
 
         //控件新增之前执行
-        proxy.addComponentBefore(opts.component);
+        // proxy.addComponentBefore(opts.component);
 
         //如果新增成功，执行回调
         const promise = Drag.end(event, opts.component);
 
         //如果promise为true，表示新增成功，执行新增成功回调方法
         if (promise) {
-          promise.then(id => proxy.addedComponent(id));
+          // promise.then(id => proxy.addedComponent(id));
         }
       }
     } catch (e) {

@@ -46,7 +46,7 @@ export default class WidgetLibraryControler extends React.Component {
   }
 
   static widgetLibrary(toolBarsRoot, configType) {
-    toolBarsRoot.render(<WidgetLibraryControler configType={configType}  toolBarsclose={()=> toolBarsRoot.unmount()}/>)
+    toolBarsRoot.render(<WidgetLibraryControler configType={configType} toolBarsclose={() => toolBarsRoot.unmount()} />)
   }
   /**
    * @method render 挂载组件方法
@@ -59,24 +59,24 @@ export default class WidgetLibraryControler extends React.Component {
 
     return (
       <Toolbar
-          title={lang.add + this.state.current.name}
-          close={()=> this.props.toolBarsclose()}
-          // help={this.controler.help.bind(this.controler)}
-        >
-          {this.menus()}
-          {this.content()}
-          {this.configType !== "component" && this.anchor()}
-        </Toolbar>
+        title={lang.add + this.state.current.name}
+        close={() => this.props.toolBarsclose()}
+      // help={this.controler.help.bind(this.controler)}
+      >
+        {this.menus()}
+        {this.content()}
+        {this.configType !== "component" && this.anchor()}
+      </Toolbar>
     )
 
   }
-  
+
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
    */
   init() {
     var tabs = this.tabs || [],
-        tabsinx = '';
+      tabsinx = '';
 
     if (nmbTerm && nmbTermid && tabs[nmbTerm] && nmbTermid == tabs[nmbTerm].id) {
       tabsinx = nmbTerm;
@@ -109,31 +109,31 @@ export default class WidgetLibraryControler extends React.Component {
   }
 
   // close(close) {
-    // this.__proto__.close = close;
-    // Toolbar.close();
+  // this.__proto__.close = close;
+  // Toolbar.close();
   // }
 
-  help() {}
+  help() { }
   /**
    * @method scrollTo 滚动条变化时，锚点定位方法
    */
   scrollTo() {
     const _anchor = document.querySelector(".anchorsMain .selected"),
-          _parent = document.querySelector(".content_2"),
-          {
-      offsetHeight: conHeight
-    } = _parent,
-          {
-      offsetHeight: mHeight,
-      scrollTop: parNodePar
-    } = _parent.parentNode; //当前项存在下一个元素时
+      _parent = document.querySelector(".content_2"),
+      {
+        offsetHeight: conHeight
+      } = _parent,
+      {
+        offsetHeight: mHeight,
+        scrollTop: parNodePar
+      } = _parent.parentNode; //当前项存在下一个元素时
 
 
     if (_anchor.nextElementSibling) {
       //获取下一个元素的top值
       let _nextName = _anchor.nextElementSibling.dataset.anchorName,
-          _next = document.getElementById(_nextName),
-          _nextTop = _next.offsetTop; //滚动条的位置大于下一个元素的top时，赋值
+        _next = document.getElementById(_nextName),
+        _nextTop = _next.offsetTop; //滚动条的位置大于下一个元素的top时，赋值
 
 
       if (parNodePar > _nextTop) {
@@ -147,8 +147,8 @@ export default class WidgetLibraryControler extends React.Component {
     if (_anchor.previousElementSibling) {
       //获取上一个元素的top值
       let _prevName = _anchor.previousElementSibling.dataset.anchorName,
-          _prev = document.getElementById(_prevName),
-          _prevTop = _prev.offsetTop; //滚动条的位置小于等于下一个元素的top时，赋值
+        _prev = document.getElementById(_prevName),
+        _prevTop = _prev.offsetTop; //滚动条的位置小于等于下一个元素的top时，赋值
 
 
       if (parNodePar <= _prevTop) {
@@ -243,7 +243,7 @@ export default class WidgetLibraryControler extends React.Component {
             <li
               key={e.id}
               className={this.state.current.id !== e.id ? null : "on"}
-              onClick={()=>this.selectTab(e)}
+              onClick={() => this.selectTab(e)}
             >
               <a>
                 <span>{e.name}</span>
@@ -279,7 +279,7 @@ export default class WidgetLibraryControler extends React.Component {
                     className={
                       e.skinStyle || e.skin.split(".").slice(2, 4).join("-")
                     }
-                    onMouseDown={(event)=> this.start(e.skin,event)}
+                    onMouseDown={(event) => this.start(e.skin, event)}
                   />
                 </div>
               </div>
@@ -296,6 +296,7 @@ export default class WidgetLibraryControler extends React.Component {
    * @return {object} 工具库内容项结构
    */
   toolLibraryHtml() {
+    console.log(this.state.current.id);
     let { tabs, group } = this.group[this.state.current.id];
     return (
       <div className="content_2 content" style={{ position: "relative" }}>
@@ -322,9 +323,9 @@ export default class WidgetLibraryControler extends React.Component {
                           className={
                             skinStyle || skin.split(".").slice(2, 4).join("-")
                           }
-                          onMouseDown={(event)=> this.start(skin,event)}
+                          onMouseDown={(event) => this.start(skin, event)}
                         >
-                          {this.video({path:videoPath})}
+                          {this.video({ path: videoPath })}
                           {t.need_pay ? (
                             <div className="component_pay">
                               <p></p>
@@ -349,7 +350,7 @@ export default class WidgetLibraryControler extends React.Component {
    * @return {object} 工具库内容项结构
    */
   content() {
-    let configType = this.configType; //类型为组件库时，走组件库的结构 sxt 2021-1-20
+    let configType = this.configType; //类型为组件库时，走组件库的结构 
 
     if (configType == "component") {
       return this.componentHtml();
@@ -411,12 +412,12 @@ export default class WidgetLibraryControler extends React.Component {
                   key={e + i}
                   className={e.id !== jump ? "" : "selected"}
                   data-anchor-name={e.id}
-                  onMouseEnter={()=>this.anchorMouseEnter(e)}
-                  onMouseLeave={()=>this.anchorMouseLeave(e)}
+                  onMouseEnter={() => this.anchorMouseEnter(e)}
+                  onMouseLeave={() => this.anchorMouseLeave(e)}
                 >
                   <a
                     href={"#" + e.id}
-                    onClick={()=> this.jumpAnchor(e)}
+                    onClick={() => this.jumpAnchor(e)}
                   >
                     <div className="anchorsPin" />
                   </a>

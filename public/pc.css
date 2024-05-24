@@ -5071,6 +5071,7 @@ hr.hr-short {
   left: calc(50% - 40px);
   top: calc(50% - 15px);
   cursor: pointer;
+  padding: 0;
 }
 
 .showPanel {

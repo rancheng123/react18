@@ -4,12 +4,13 @@ import { useState, useMemo } from "react";
 import Widget from "@/system/widgets/widget";
 import { Input, Button, message, Divider } from "antd";
 import Dispatcher from "@/system/tools/dispatcher";
+// 引入弹框数据
+import messagepopupJSON from "@/components/messagepopup/data/messagepopup_data.json";
 
 /**
  * @Description: 链接控制器
  */
 export function LinkContainer(props) {
-
     // 获取布局结构数据
     const linkLayout = props?.config?.group?.link?.all.layout || 'horizontal';
 
@@ -36,7 +37,6 @@ export function LinkContainer(props) {
             theme_data = {}
         }
     } = Dispatcher.dispatch(fnName);
-    console.log(link);
 
     // 当前激活的链接类型
     const activeType = link ? link?.type : ''
@@ -324,8 +324,7 @@ export function LinkContainer(props) {
                     title="在当前页面显示"
                     value={state.ejectBoxId}
                     list={[
-                        { name: "弹框1", value: "1" },
-                        { name: "弹框2", value: "2" },
+                        { name: "留言弹窗", value: "messagepopup.messagepopup.s1.1" },
                     ]}
                     change={select}
                 />
@@ -334,28 +333,53 @@ export function LinkContainer(props) {
         )
     }
 
-
+    // 弹窗id
+    let popupId = ''
+    // 获取生成页面的主体id    
+    const {
+        component: {
+            id: iframeId
+        }
+    } = Dispatcher.dispatch("getPageData")
 
     // 点击确定按钮
     const ensure = async () => {
-        // 模拟数据
-        // const data = {
-        //     "type": "externalLinks",
-        //     "url": "http://23213",
-        //     "value": "外部链接 http://23213"
-        // }
-
         if ((state.type == 'pageAnchor' || state.type == 'externalLinks') && !state.url) {
             message.warning('链接地址不能为空')
             return false
         }
+        // 校验数据是否合法
+        if (hasEmptyProperty(state)) {
+            message.warning('数据不合法')
+            return
+        }
 
+
+        // 弹框类型特异性处理
+        if (state.type == 'lightbox') {
+            // 获取控件数据
+            const component = messagepopupJSON.items[state.ejectBoxId]
+
+            popupId && Dispatcher.dispatch(`${iframeId}_removeComponent`, {
+                args: [
+                    popupId
+                ]
+            })
+
+            popupId = Dispatcher.dispatch(`${iframeId}_addComponent`, {
+                args: [
+                    component,
+                ],
+            });
+        }
+
+        // 整理参数
         const data = {
             ...state,
         }
         console.log('函数式组件data数据', data);
 
-        // 派发事件,触发修改链接数据
+        // 最终派发事件,触发修改链接数据
         await Dispatcher.dispatch(`${id}_set`, {
             args: [`document_data.link`, data]
         });
@@ -410,3 +434,8 @@ const linkList = [
         value: 'lightbox',
     },
 ]
+
+// 判读数行是否为空
+function hasEmptyProperty(obj) {
+    return Object.keys(obj).some(key => obj[key] === undefined || obj[key] === null || obj[key] === '' || obj[key] === 0);
+}
