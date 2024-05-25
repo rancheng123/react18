@@ -1,0 +1,23 @@
+{
+    "page.page.rootPage": {
+        "css": {
+            "media": {
+                "@media (min-width:1920px)": {
+                    "header>.componentsBox,.container>.componentsBox,footer>.componentsBox": "padding-left:[w1920u]%;padding-right:[w1920u]%;"
+                },
+                "@media (min-width:1440px) and (max-width:1919px)": {
+                    "header>.componentsBox,.container>.componentsBox,footer>.componentsBox": "padding-left:[w1440_1919]%;padding-right:[w1440_1919]%;"
+                },
+                "@media (min-width:1280px) and (max-width:1439px)": {
+                    "header>.componentsBox,.container>.componentsBox,footer>.componentsBox": "padding-left:[w1280_1439]%;padding-right:[w1280_1439]%;"
+                },
+                "@media (min-width:1024px) and (max-width:1279px)": {
+                    "header>.componentsBox,.container>.componentsBox,footer>.componentsBox": "padding-left:[w1024_1279]%;padding-right:[w1024_1279]%;"
+                },
+                "@media screen and (max-width:1023px)": {
+                    "header>.componentsBox,.container>.componentsBox,footer>.componentsBox": "padding-left:[w1023d]%;padding-right:[w1023d]%;"
+                }
+            }
+        }
+    }
+}

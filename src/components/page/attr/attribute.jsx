@@ -418,7 +418,6 @@ const Attribute = {
   async link(opts) {
     // const link =  await PublicAttrManager.link();
     // link.link(opts)
-    console.log('link参数', opts);
     // 渲染函数式组件
     const Link = await PublicAttrManager.link();
     opts.root.render(<Link {...opts} />)

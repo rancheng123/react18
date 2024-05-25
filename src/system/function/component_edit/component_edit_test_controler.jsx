@@ -90,7 +90,6 @@ export default class ComponentEditControler extends React.Component {
   }
 
   hidden(value) {
-    console.log('hidden');
     const selected = document.querySelector(".component-selected");
 
     //选中框节点是否存在
@@ -381,7 +380,6 @@ export default class ComponentEditControler extends React.Component {
    * @param {object} componentData 存放共享数据
    */
   lookForCurrent(x, y, stop, id, componentData) {
-    // console.log(x, y, stop, id, componentData);
     const component = componentData.component,
       element = window.public.dom.querySelector(`#${componentData.component.id}`);
 

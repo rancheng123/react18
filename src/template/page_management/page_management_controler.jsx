@@ -12,8 +12,8 @@ import MenuDragTools from './menu_drag/MenuDragTools'
 
 const { offset, l1, l2 } = MenuDragTools.getConf();
 let childAdd = false,
-    //是否添加子级
-addClassify = ""; //是新增分类还是修改分类
+  //是否添加子级
+  addClassify = ""; //是新增分类还是修改分类
 
 export default class PageManagementControler extends React.Component {
   constructor(props) {
@@ -69,21 +69,21 @@ export default class PageManagementControler extends React.Component {
     this.state = {};
     const getIframeData = Dispatcher.dispatch("getIframeData");
     let getPageData = Dispatcher.dispatch("getPageData"),
-        //当前页面数据
-    pageType = getPageData.component.pageType;
+      //当前页面数据
+      pageType = getPageData.component.pageType;
     let items = getIframeData.data.document_data.MAIN_MENU.items || [],
-        //已递归的数据
-    tab = "menu",
-        children = getIframeData.component.children || [],
-        //框架页控件数据
-    lightboxArr = [];
+      //已递归的数据
+      tab = "menu",
+      children = getIframeData.component.children || [],
+      //框架页控件数据
+      lightboxArr = [];
 
     for (let i = 0; i < children.length; i++) {
       let current = children[i];
 
       if (current.componentType == "em-Lightboxmodal") {
         let id = current.id,
-            name = getIframeData.data.document_data[current.components[0].id].componentName || "弹出窗口";
+          name = getIframeData.data.document_data[current.components[0].id].componentName || "弹出窗口";
         lightboxArr.push({
           "label": name,
           "pid": id
@@ -118,14 +118,14 @@ export default class PageManagementControler extends React.Component {
 
   setTab(type) {
     let data = Dispatcher.dispatch("getIframeData"),
-        MAIN_MENU = data.data.document_data.MAIN_MENU,
-        _itemsList = [];
+      MAIN_MENU = data.data.document_data.MAIN_MENU,
+      _itemsList = [];
 
     if (type == "menu") {
       _itemsList = MAIN_MENU.items || [];
       this.maxLevel = 3;
       this.lightboxClose(); //清除弹出层
-      //this.clickSelected(_itemsList[0]) //切换选项时不走默认选中第一个的方法(客服提的) sxt 2021-1-13
+      //this.clickSelected(_itemsList[0]) //切换选项时不走默认选中第一个的方法(客服提的)
     } else if (type == "template") {
       _itemsList = MAIN_MENU.tempitems;
       this.maxLevel = 1;
@@ -178,7 +178,7 @@ export default class PageManagementControler extends React.Component {
 
   setExpand(id) {
     let state = this.state || {},
-        expand = state.expand || [];
+      expand = state.expand || [];
 
     if (expand.includes(id)) {
       expand.splice(expand.indexOf(id), 1);
@@ -199,10 +199,10 @@ export default class PageManagementControler extends React.Component {
     }
 
     let close = document.querySelector("#function-modal .layer-close"),
-        pageSet = document.querySelector("#pageSet .layer-close"),
-        propertyClose = document.querySelector("#component-property .layer-close"),
-        //属性面板关闭
-    functionClose = document.querySelector("#function-modal .layer-close"); //功能面板关闭
+      pageSet = document.querySelector("#pageSet .layer-close"),
+      propertyClose = document.querySelector("#component-property .layer-close"),
+      //属性面板关闭
+      functionClose = document.querySelector("#function-modal .layer-close"); //功能面板关闭
 
     close && close.click();
     pageSet && pageSet.click();
@@ -221,7 +221,7 @@ export default class PageManagementControler extends React.Component {
     if (pageType == "PageLink" || pageType == "Search" || pageType == "NewsContent" || pageType == "ProductContent" || pageType == "ShoppingCart" || pageType == "PageLabel") {
       let savePage = Dispatcher.dispatch("savePage");
       savePage.then(() => {
-        window.public.pageName = prop.label; //给页面名称赋值 sxt 2020-2-13
+        window.public.pageName = prop.label; //给页面名称赋值 
 
         Dispatcher.dispatch("setPageName", {
           value: prop.label
@@ -349,13 +349,14 @@ export default class PageManagementControler extends React.Component {
 
   changeLink(prop) {
     let state = this.state || {},
-        linkData = state.currentData || {};
+      linkData = state.currentData || {};
     const promise = Promise.all(/*! import() | link_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("link_controler")]).then(__webpack_require__.bind(null, /*! ../../system/function/link/link_controler */ "./system/function/link/link_controler.js"));
     promise.then(module => {
       module.LinkControler && module.LinkControler.link({
         initialData: linkData.link || {},
         ensure: data => {
-          let ajaxData = { ...prop,
+          let ajaxData = {
+            ...prop,
             ...{
               json: data
             }
@@ -367,7 +368,7 @@ export default class PageManagementControler extends React.Component {
   } //新增导航标题
 
 
-  addPageMenu() {} //新增新闻产品分类 
+  addPageMenu() { } //新增新闻产品分类 
 
 
   pageAddCat(type) {
@@ -375,7 +376,7 @@ export default class PageManagementControler extends React.Component {
 
     let state = this.state || {};
     let element = document.querySelector("#pageSet"),
-        cat = {};
+      cat = {};
 
     if (addClassify == "CatLink") {
       cat = state.currentData.cat || {};
@@ -388,7 +389,7 @@ export default class PageManagementControler extends React.Component {
         initialData={cat}
         ensure={this.classifyEnsure}
       />
-    , element)
+      , element)
     // ReactDom.render(React.createElement(_classify_page_classify_controler__WEBPACK_IMPORTED_MODULE_4__["PageAddClassify"], {
     //   callThis: this,
     //   ensure: this.classifyEnsure,
@@ -408,9 +409,9 @@ export default class PageManagementControler extends React.Component {
 
   history() {
     const element = document.querySelector("#pageSet"),
-          cat = {},
-          currentData = this.state.currentData;
-      ReactDom.render(<PageHistoryControler callThis={this} pid={currentData.id} initialData={cat} />, element);
+      cat = {},
+      currentData = this.state.currentData;
+    ReactDom.render(<PageHistoryControler callThis={this} pid={currentData.id} initialData={cat} />, element);
     // ReactDom.render(React.createElement(_history_page_history_controler__WEBPACK_IMPORTED_MODULE_5__["PageHistoryControler"], {
     //   callThis: this,
     //   pid: currentData.id,
@@ -699,7 +700,7 @@ export default class PageManagementControler extends React.Component {
           components = []
         }
       } = Dispatcher.dispatch(`${state.lightboxId}_get`),
-          id = components[0].id;
+        id = components[0].id;
       Dispatcher.dispatch(`${id}_set`, {
         args: [`document_data.componentName`, _value]
       });
@@ -714,10 +715,10 @@ export default class PageManagementControler extends React.Component {
 
   pageNameBlur() {
     let state = this.state || {},
-        pageType = state.currentData.pageType;
+      pageType = state.currentData.pageType;
     let getIframeData = Dispatcher.dispatch("getIframeData"),
-        //框架页数据
-    getPageData = Dispatcher.dispatch("getPageData"); //当前页面数据
+      //框架页数据
+      getPageData = Dispatcher.dispatch("getPageData"); //当前页面数据
 
     let data = {
       type: "label",
@@ -756,7 +757,7 @@ export default class PageManagementControler extends React.Component {
    */
 
 
-  completeName() {} // let state=this.state||{};
+  completeName() { } // let state=this.state||{};
   // let data={type:"label",name:state.currentData.label,id:state.currentPageId};
   // this.setState({pageNameId:""}) 
   // this.pageAjax(data);
@@ -794,9 +795,9 @@ export default class PageManagementControler extends React.Component {
 
   pageSetDelete() {
     let state = this.state || {},
-        currentData = state.currentData || {},
-        label = currentData.label,
-        text = window.public.lang["confirmDelete"] + label + window.public.lang["you"];
+      currentData = state.currentData || {},
+      label = currentData.label,
+      text = window.public.lang["confirmDelete"] + label + window.public.lang["you"];
     Layer.alert({
       area: ["420px", "225px"],
       skin: "",
@@ -821,7 +822,7 @@ export default class PageManagementControler extends React.Component {
 
   pageShow() {
     let state = this.state || {},
-        _value = 1;
+      _value = 1;
 
     if (state.currentData.isVisible) {
       _value = 0;
@@ -844,7 +845,7 @@ export default class PageManagementControler extends React.Component {
   } //更改母版
 
 
-  childPageTemplate() {}
+  childPageTemplate() { }
   /**
    * @method pageAjax 公用页面管理后台请求方法
    * @author sxt 
@@ -863,9 +864,10 @@ export default class PageManagementControler extends React.Component {
       sid: pageData.siteId,
       tabType: tabType
     },
-        newData = { ...data,
-      ...param
-    };
+      newData = {
+        ...data,
+        ...param
+      };
     fetch("/desktop/index.php/Edit/Pages/pagesEditOperat", {
       method: 'POST',
       headers: {},
@@ -881,7 +883,7 @@ export default class PageManagementControler extends React.Component {
         //修改当前页面存储的数组类型
 
         let getIframeData = Dispatcher.dispatch("getIframeData"),
-            itemsType = "items";
+          itemsType = "items";
 
         if (tabType == "template") {
           itemsType = "tempitems";
@@ -895,7 +897,7 @@ export default class PageManagementControler extends React.Component {
 
         if (item) {
           let pageNameId = "",
-              paramType = param.type; //类型为新增和复制页面时，显示页面重命名结构 sxt 2020-1-16 18：26 
+            paramType = param.type; //类型为新增和复制页面时，显示页面重命名结构 sxt 2020-1-16 18：26 
 
           if (paramType == "add" || paramType == "copy") {
             pageNameId = item.pid;
@@ -1012,8 +1014,8 @@ export default class PageManagementControler extends React.Component {
       const parent = MenuDragTools.findEle(data, this.current.parent_id); //找到父级
 
       let sameList,
-          diffList,
-          list = [];
+        diffList,
+        list = [];
 
       if (parent) {
         //如果存在父级
@@ -1059,9 +1061,9 @@ export default class PageManagementControler extends React.Component {
 
   rightHandle(plac, data, currentX, currentY) {
     let or = plac.listorder - 1,
-        sameList,
-        diffList,
-        list = [];
+      sameList,
+      diffList,
+      list = [];
     const prev = data.find((item, i) => {
       if (item.parent_id == plac.parent_id && item.listorder == or) {
         return true;
@@ -1098,8 +1100,8 @@ export default class PageManagementControler extends React.Component {
   verticalHanlde(now, data, currentX, currentY) {
     if (now.pid != this.current.pid) {
       let sameList,
-          diffList,
-          list = [];
+        diffList,
+        list = [];
       sameList = MenuDragTools.getSameList(data, now.parent_id);
       diffList = MenuDragTools.getDiffList(data, now.parent_id);
 
@@ -1200,11 +1202,11 @@ export default class PageManagementControler extends React.Component {
 
   dragEnd() {
     let prev,
-        plac,
-        _data = {
-      id: this.original.pid,
-      parent_id: this.original.parent_id
-    };
+      plac,
+      _data = {
+        id: this.original.pid,
+        parent_id: this.original.parent_id
+      };
     const errorMsg = '错误：同一级下，不允许有相同的页面名或分类名称!';
     plac = MenuDragTools.data.find((item, i) => {
       return item.type == 'plac';
@@ -1216,7 +1218,8 @@ export default class PageManagementControler extends React.Component {
       //排序
       const list = MenuDragTools.data.map((item, i) => {
         if (item.type == 'plac') {
-          return { ...this.original,
+          return {
+            ...this.original,
             parent_id: plac.parent_id
           };
         } else {
@@ -1399,7 +1402,8 @@ export default class PageManagementControler extends React.Component {
         _y = 0;
       }
 
-      _dragElement = { ...dragElement,
+      _dragElement = {
+        ...dragElement,
         x: _x,
         y: _y
       };

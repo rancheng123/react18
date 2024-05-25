@@ -36,7 +36,6 @@ const SingleComponentEdit = {
     btnId,
     boxId
   }) {
-
     const {
       current: {
         layout: {
@@ -182,7 +181,6 @@ const SingleComponentEdit = {
     boxId,
     btnId
   }) {
-
     //判断是否存在配置对象
     if (this.proxy.config) {
       //选中控件之前调用
@@ -259,7 +257,6 @@ const SingleComponentEdit = {
    */
   mousedown(event, x, y, id, fn) {
     var _event$isdrag;
-    console.log('mousedown');
     //pc端允许拖拽，mo端不允许拖拽
     let isdrag = ((_event$isdrag = event.isdrag) !== null && _event$isdrag !== void 0 ? _event$isdrag : window.public.type == 'pc') ? true : false;
     this.proxy && this.proxy.selectBlur(this.node); //判断是否存在滑入控件信息，把鼠标滑过的节点赋给选中的this.node属性

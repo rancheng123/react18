@@ -77,13 +77,14 @@ export default class ComponentEdit {
                 <div id="select-parent-box" />
                 <div id="select-box" />
               </div>
+              <div className="component-menu">
+                <this.controler.menu
+                  node={(this.controler.selected || {}).node}
+                  removeBefore={(node) => this.controler.selected.proxy.removeBefore(node)}
+                />
+              </div>
             </div>
-            <div className="component-menu">
-              <this.controler.menu
-                node={(this.controler.selected || {}).node}
-                removeBefore={(node) => this.controler.selected.proxy.removeBefore(node)}
-              />
-            </div>
+
           </div>
         ) : null}
       </div>

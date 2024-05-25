@@ -8,6 +8,7 @@ import dataManager from './data/data_manager'
  * @return {class} 包装后的类
  */
 function ComponentDecorator(View, Controler) {
+  // console.log('View, Controler', View, Controler);
   if (!View) {
     return null;
   }

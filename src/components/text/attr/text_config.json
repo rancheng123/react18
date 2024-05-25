@@ -13,10 +13,6 @@
     "pc": {
         "tabs": [
             {
-                "name": "textProperty",
-                "type": "basic"
-            },
-            {
                 "name": "design",
                 "type": "design"
             },

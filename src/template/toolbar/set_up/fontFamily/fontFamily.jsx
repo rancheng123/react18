@@ -50,7 +50,8 @@ export default function FontFamily() {
         setFamilyList(data.data.data);
       }
     }).catch(err => console.log("Oh, error", err));
-  }, []); // 获取整个文档的根元素
+  }, []);
+  // 获取整个文档的根元素
 
   let rootElement = document.documentElement; // 添加点击事件监听器
 
@@ -235,78 +236,168 @@ export default function FontFamily() {
     return true;
   };
 
-  return React.createElement("div", {
-    className: "settingFontPadding"
-  }, React.createElement("div", {
-    className: "settingFontTop"
-  }, "\u5168\u5C40\u5B57\u4F53\uFF1A"), React.createElement("div", null, React.createElement("div", {
-    style: {
-      marginBottom: "5px"
-    }
-  }, "\u9ED8\u8BA4\uFF1A"), " ", React.createElement("div", {
-    className: "settingSetDataP"
-  }, React.createElement("div", {
-    className: "rowMaxFont"
-  }, familyName), React.createElement("div", null, React.createElement("button", {
-    className: "settingButton",
-    onClick: () => {
-      setfamilyShow(true);
-    }
-  }, "\u66F4\u6362"))), familyShow ? React.createElement("div", {
-    className: "setting-fontStyle-box settingOption"
-  }, React.createElement("div", {
-    className: "tabs-header"
-  }, tabList.map(e => {
-    return React.createElement("div", {
-      key: e.value,
-      onClick: () => {
-        setfamilyTab(e.value);
-      },
-      className: e.value == familyTab ? 'tab-item tab_active' : "tab-item"
-    }, window.public.lang[e.name]);
-  })), familyTab == 'system' ? React.createElement("div", {
-    className: "tabs-content"
-  }, React.createElement("div", {
-    className: "font-family-type-wrap type-wrap01"
-  }, React.createElement("ul", null, familyList(fonts, familyData)))) : React.createElement("div", {
-    className: "font-family-type-wrap type-wrap02"
-  }, familList.length < 1 ? React.createElement("p", {
-    className: "noFont"
-  }, window.public.lang["uploadFontHelp"]) : null, React.createElement("div", {
-    className: "type-wrapCon"
-  }, React.createElement("ul", null, familyCustomList(familList, familyData))))) : null), React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'center'
-    }
-  }, React.createElement("div", {
-    className: "buttonFontAPP",
-    onClick: () => {
-      setUserCheck(true);
-    }
-  }, "\u6574\u7AD9\u5B57\u4F53\u66FF\u6362")), uschek ? React.createElement(Layer.open, {
-    titles: ["提示："],
-    area: ["466px", "250px"],
-    close: () => {
-      setPageName([]);
-      setUserCheck(false);
-    },
-    ensure: () => onOk()
-  }, pageNmae && pageNmae.length > 0 ? React.createElement("div", {
-    className: "pressCss"
-  }, pageNmae.map((e, i) => {
-    return i >= pageNmae.length - 3 ? React.createElement("div", {
-      className: "cssend"
-    }, React.createElement("div", {
-      className: "circle-with-checkbox"
-    }), e, " \u9875\u9762\u66FF\u6362\u5B8C\u6BD5") : "";
-  })) : React.createElement("div", {
-    className: "cssMargin"
-  }, React.createElement("div", {
-    className: "csstitleFont"
-  }, "1.\u6574\u7AD9\u5B57\u4F53\u66FF\u6362\u540E\u4E0D\u53EF\u8FD8\u539F\uFF0C\u8BF7\u8C28\u614E\u4F7F\u7528\uFF01"), React.createElement("div", {
-    className: "csstitleFont"
-  }, "2.\u5B57\u4F53\u66FF\u6362\u4F1A\u5237\u65B0\u7F16\u8F91\u754C\u9762\uFF0C\u8BF7\u786E\u4FDD\u7F51\u7AD9\u5DF2\u7ECF\u4FDD\u5B58\u6700\u65B0\u72B6\u6001 !"), React.createElement("div", {
-    className: "csstitleFont1"
-  }, "\u70B9\u51FB\u786E\u8BA4\u6309\u94AE\uFF0C\u9ED8\u8BA4\u60A8\u5DF2\u77E5\u6653\u4EE5\u4E0A\u63D0\u793A\u4FE1\u606F\u3002"))) : "");
+  // return React.createElement("div", {
+  //   className: "settingFontPadding"
+  // }, React.createElement("div", {
+  //   className: "settingFontTop"
+  // }, "\u5168\u5C40\u5B57\u4F53\uFF1A"), React.createElement("div", null, React.createElement("div", {
+  //   style: {
+  //     marginBottom: "5px"
+  //   }
+  // }, "\u9ED8\u8BA4\uFF1A"), " ", React.createElement("div", {
+  //   className: "settingSetDataP"
+  // }, React.createElement("div", {
+  //   className: "rowMaxFont"
+  // }, familyName), React.createElement("div", null, React.createElement("button", {
+  //   className: "settingButton",
+  //   onClick: () => {
+  //     setfamilyShow(true);
+  //   }
+  // }, "\u66F4\u6362"))), familyShow ? React.createElement("div", {
+  //   className: "setting-fontStyle-box settingOption"
+  // }, React.createElement("div", {
+  //   className: "tabs-header"
+  // }, tabList.map(e => {
+  //   return React.createElement("div", {
+  //     key: e.value,
+  //     onClick: () => {
+  //       setfamilyTab(e.value);
+  //     },
+  //     className: e.value == familyTab ? 'tab-item tab_active' : "tab-item"
+  //   }, window.public.lang[e.name]);
+  // })), familyTab == 'system' ? React.createElement("div", {
+  //   className: "tabs-content"
+  // }, React.createElement("div", {
+  //   className: "font-family-type-wrap type-wrap01"
+  // }, React.createElement("ul", null, familyList(fonts, familyData)))) : React.createElement("div", {
+  //   className: "font-family-type-wrap type-wrap02"
+  // }, familList.length < 1 ? React.createElement("p", {
+  //   className: "noFont"
+  // }, window.public.lang["uploadFontHelp"]) : null, React.createElement("div", {
+  //   className: "type-wrapCon"
+  // }, React.createElement("ul", null, familyCustomList(familList, familyData))))) : null), React.createElement("div", {
+  //   style: {
+  //     display: 'flex',
+  //     justifyContent: 'center'
+  //   }
+  // }, React.createElement("div", {
+  //   className: "buttonFontAPP",
+  //   onClick: () => {
+  //     setUserCheck(true);
+  //   }
+  // }, "\u6574\u7AD9\u5B57\u4F53\u66FF\u6362")), uschek ? React.createElement(Layer.open, {
+  //   titles: ["提示："],
+  //   area: ["466px", "250px"],
+  //   close: () => {
+  //     setPageName([]);
+  //     setUserCheck(false);
+  //   },
+  //   ensure: () => onOk()
+  // }, pageNmae && pageNmae.length > 0 ? React.createElement("div", {
+  //   className: "pressCss"
+  // }, pageNmae.map((e, i) => {
+  //   return i >= pageNmae.length - 3 ? React.createElement("div", {
+  //     className: "cssend"
+  //   }, React.createElement("div", {
+  //     className: "circle-with-checkbox"
+  //   }), e, " \u9875\u9762\u66FF\u6362\u5B8C\u6BD5") : "";
+  // })) : React.createElement("div", {
+  //   className: "cssMargin"
+  // }, React.createElement("div", {
+  //   className: "csstitleFont"
+  // }, "1.\u6574\u7AD9\u5B57\u4F53\u66FF\u6362\u540E\u4E0D\u53EF\u8FD8\u539F\uFF0C\u8BF7\u8C28\u614E\u4F7F\u7528\uFF01"), React.createElement("div", {
+  //   className: "csstitleFont"
+  // }, "2.\u5B57\u4F53\u66FF\u6362\u4F1A\u5237\u65B0\u7F16\u8F91\u754C\u9762\uFF0C\u8BF7\u786E\u4FDD\u7F51\u7AD9\u5DF2\u7ECF\u4FDD\u5B58\u6700\u65B0\u72B6\u6001 !"), React.createElement("div", {
+  //   className: "csstitleFont1"
+  // }, "\u70B9\u51FB\u786E\u8BA4\u6309\u94AE\uFF0C\u9ED8\u8BA4\u60A8\u5DF2\u77E5\u6653\u4EE5\u4E0A\u63D0\u793A\u4FE1\u606F\u3002"))) : "");
+
+  <div className="settingFontPadding">
+    <div className="settingFontTop">全局字体：</div>
+    <div className="settingFontTop">
+      <div style={{ marginBottom: "5px" }}>默认：</div>
+      <div className="settingSetDataP">
+        <div className="rowMaxFont">{familyName}</div>
+        <button className="settingButton" onClick={() => setfamilyShow(true)}>
+          更换
+        </button>
+      </div>
+    </div>
+    {familyShow && (
+      <div className="setting-fontStyle-box settingOption">
+        <div className="tabs-header">
+          {tabList.map((e, i) => (
+            <div
+              key={e.value}
+              onClick={() => setfamilyTab(e.value)}
+              className={e.value === familyTab ? 'tab-item tab_active' : "tab-item"}
+            >
+              {window.public.lang[e.name]}
+            </div>
+          ))}
+        </div>
+        {familyTab === 'system' ? (
+          <div className="tabs-content">
+            <div className="font-family-type-wrap type-wrap01">
+              <ul>{familyList(fonts, familyData)}</ul>
+            </div>
+          </div>
+        ) : (
+          <div className="font-family-type-wrap type-wrap02">
+            {familList.length < 1 ? (
+              <p className="noFont">{window.public.lang["uploadFontHelp"]}</p>
+            ) : (
+              <div className="type-wrapCon">
+                <ul>{familyCustomList(familList, familyData)}</ul>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    )}
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div
+        className="buttonFontAPP"
+        onClick={() => {
+          setUserCheck(true);
+        }}
+      >
+        全站字体更换
+      </div>
+    </div>
+    {uschek && (
+      <Layer.open
+        titles={["提示："]}
+        area={["466px", "250px"]}
+        close={() => {
+          setPageName([]);
+          setUserCheck(false);
+        }}
+        ensure={() => onOk()}
+      >
+        {pageNmae && pageNmae.length > 0 ? (
+          <div className="pressCss">
+            {pageNmae.map((e, i) => (
+              <div className="cssend" key={i}>
+                <div className="circle-with-checkbox" />
+                {e} 页面更换完毕
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="cssMargin">
+            <div className="csstitleFont">
+              1. 全站字体更换后不可还原，请谨慎使用！
+            </div>
+            <div className="csstitleFont">
+              2. 字体更换会刷新编辑页面，请确保网站已经保存最新状态！
+            </div>
+            <div className="csstitleFont1">
+              点击确认按钮，您已知悉以上提示信息。
+            </div>
+          </div>
+        )}
+      </Layer.open>
+    )}
+  </div>
+
 }

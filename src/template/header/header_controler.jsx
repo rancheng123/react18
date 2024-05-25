@@ -5,7 +5,7 @@ import logo from '@/assets/image/logo.png'
 import { Select, Button } from 'antd';
 import EditPage from './editPage.jsx'
 import styles from './header.module.less'
-
+import GlobalFamily from "./GlobalFamily.jsx";
 
 /**
  * @class {HeaderControler} 编辑页头部控制器类
@@ -19,7 +19,8 @@ export default class HeaderControler extends React.Component {
       page: "",
       hidden: false,
       plann: false,
-      showIcon: '&#xe7a1;'
+      showIcon: '&#xe7a1;',
+      editfontFamily: false
     }
 
     /**@property {array} btn_list 按钮配置列表*/
@@ -36,7 +37,7 @@ export default class HeaderControler extends React.Component {
         'iconName': "&#xe78d;"
       },
       {
-        "event": "rulerShow",
+        "event": "fontFamily",
         'title': window.public.lang.font,
         'iconName': "&#xe76a;"
       }, {
@@ -237,6 +238,10 @@ export default class HeaderControler extends React.Component {
           </ul>
         </div>
         <div className="hideBtn" data-hidden="false"><i className="iconfont"></i></div>
+
+
+        {/* 全局字体弹框 */}
+        {this.state.editfontFamily && <GlobalFamily close={() => this.setState({ editfontFamily: false })} />}
       </header>
     )
   }
@@ -456,12 +461,20 @@ export default class HeaderControler extends React.Component {
     });
   }
   /**
-   * @method textPlann    点击多语言按钮展示选项的方法
+   * @method textPlann 点击多语言按钮展示选项的方法
   */
   textPlann() {
     const value = this.state.plann == true ? false : true;
     this.setState({
       plann: value
+    });
+  }
+
+
+  // 
+  fontFamily() {
+    this.setState({
+      editfontFamily: true
     });
   }
 

@@ -1,12 +1,12 @@
 const WidgetLibraryConfig = {
     "tabs": [
         {
-            "id": 666, // 模拟弹框数据
-            "name": "测试弹窗",
-        },
-        {
             "id": 123,
             "name": "文本"
+        },
+        {
+            "id": 666, // 模拟弹框数据
+            "name": "测试弹窗",
         },
         {
             "id": 119,

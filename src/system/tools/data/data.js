@@ -361,6 +361,7 @@ const Data = {
       //unrender不为true，表示要渲染ui，为true则不渲染ui
       if (unrender != true) {
         //更新控件UI
+
         this.setState({
           component: component,
         });

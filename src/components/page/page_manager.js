@@ -15,7 +15,8 @@ const PageManager = {
    * @return 对应视图
    */
   getStyle() {
-    return __webpack_require__.e(/*! import() */ 780).then(__webpack_require__.t.bind(null, /*! ./style/page */ "./components/page/style/page.json", 3)).then(module => module.default);
+    // return __webpack_require__.e(/*! import() */ 780).then(__webpack_require__.t.bind(null, /*! ./style/page */ "./components/page/style/page.json", 3)).then(module => module.default);
+    return import('./style/page.json').then(module => module.default)
   }
 
 };

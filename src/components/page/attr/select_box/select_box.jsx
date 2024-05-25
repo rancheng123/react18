@@ -41,7 +41,9 @@ class SelectBox {
     if (element) {
       const select = new this(opts.node, element);
 
-
+      if (this.selectRoot) {
+        this.selectRoot.unmount()
+      }
       this.selectRoot = createRoot(element)
 
       // ReactDom.render(React.createElement(select.render, {
@@ -49,7 +51,6 @@ class SelectBox {
       //   dots: opts.dots,
       //   def_layout: opts.layout
       // }), element);
-
       this.selectRoot.render(
         <select.render
           select={select}
@@ -89,7 +90,6 @@ class SelectBox {
     //   className: "hidDivBtn",
     //   onClick: select.show.bind(select)
     // }, window.public.lang.clicShow));
-    console.log('select', select);
     return (
       <div
         className="ediBox"
@@ -102,7 +102,7 @@ class SelectBox {
         {select.node.current.hidden !== '1' ? (
           select.selection(dots)
         ) : (
-          <button className="hidDivBtn" onClick={select.show.bind(select)}>
+          <button className="hidDivBtn" onMouseDown={select.show.bind(select)}>
             {window.public.lang.clicShow}
           </button>
         )}
@@ -228,7 +228,6 @@ class SelectBox {
    * @method show 点击显示
    */
   show() {
-    console.log('展示');
     // const promise = __webpack_require__.e(/*! import() */ "hiding").then(__webpack_require__.bind(null, /*! ../hiding */ "./components/page/attr/hiding.js"));
     const promise = import('../hiding.js')
     promise.then(({

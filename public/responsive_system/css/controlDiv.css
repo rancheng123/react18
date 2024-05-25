@@ -4186,10 +4186,9 @@ form.searchbox4 {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 99999;
-  background: red;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 #popupContainer .popupContent {
