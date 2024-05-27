@@ -3,9 +3,10 @@ import Dispatcher from '@/system/tools/dispatcher';
 import History from '@/system/tools/history';
 import logo from '@/assets/image/logo.png'
 import { Select, Button } from 'antd';
-import EditPage from './editPage.jsx'
 import styles from './header.module.less'
-import GlobalFamily from "./GlobalFamily.jsx";
+import EditPage from './components/editPage.jsx'
+import GlobalFamily from "./components/GlobalFamily.jsx";
+import Background from "./components/background.jsx";
 
 /**
  * @class {HeaderControler} 编辑页头部控制器类
@@ -20,7 +21,8 @@ export default class HeaderControler extends React.Component {
       hidden: false,
       plann: false,
       showIcon: '&#xe7a1;',
-      editfontFamily: false
+      editfontFamily: false,   // 是否展示编辑全局字体
+      editBackground: false,   // 是否展示编辑背景
     }
 
     /**@property {array} btn_list 按钮配置列表*/
@@ -32,7 +34,7 @@ export default class HeaderControler extends React.Component {
         'iconName': "&#xe76f;"
       },
       {
-        "event": "rulerShow",
+        "event": "background",
         'title': window.public.lang.image,
         'iconName': "&#xe78d;"
       },
@@ -242,6 +244,8 @@ export default class HeaderControler extends React.Component {
 
         {/* 全局字体弹框 */}
         {this.state.editfontFamily && <GlobalFamily close={() => this.setState({ editfontFamily: false })} />}
+        {/* 背景弹框 */}
+        {this.state.editBackground && <Background close={() => this.setState({ editBackground: false })} />}
       </header>
     )
   }
@@ -471,11 +475,17 @@ export default class HeaderControler extends React.Component {
   }
 
 
-  // 
+  // 全局字体
   fontFamily() {
     this.setState({
       editfontFamily: true
     });
   }
 
+  // 全局背景
+  background() {
+    this.setState({
+      editBackground: true
+    });
+  }
 }

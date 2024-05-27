@@ -1275,9 +1275,11 @@ const Widget = {
    */
   PageSelector: function (opts) {
     //加载模块
-    Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(1847)]).then(__webpack_require__.bind(null, /*! ./page_selector/page_selector_controler */ "./system/widgets/page_selector/page_selector_controler.js")).then(({
-      PageControler
-    }) => PageControler.pageSelector(opts));
+    // Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(1847)]).then(__webpack_require__.bind(null, /*! ./page_selector/page_selector_controler */ "./system/widgets/page_selector/page_selector_controler.js")).then(({
+    //   PageControler
+    // }) => PageControler.pageSelector(opts));
+
+    import('./page_selector/page_selector_controler.jsx').then(({ PageControler }) => PageControler.pageSelector(opts))
   }
 };
 
