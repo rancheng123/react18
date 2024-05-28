@@ -6,7 +6,8 @@ import { Select, Button } from 'antd';
 import styles from './header.module.less'
 import EditPage from './components/editPage.jsx'
 import GlobalFamily from "./components/GlobalFamily.jsx";
-import Background from "./components/background.jsx";
+// import Background from "./components/background.jsx";
+import Background from "./components/background/index.jsx";
 
 /**
  * @class {HeaderControler} 编辑页头部控制器类

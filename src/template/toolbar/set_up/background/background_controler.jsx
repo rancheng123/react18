@@ -173,7 +173,8 @@ export default class BackgroundControler extends React.Component {
    * @method showImagePanel 显示图片属性设置面板
    */
   showImagePanel() {
-    const promise = __webpack_require__.e(/*! import() | background_image_controler */ "background_image_controler").then(__webpack_require__.bind(null, /*! ./backgroundImage/background_image_controler */ "./ui/toolbar/set_up/background/backgroundImage/background_image_controler.js"));
+    // const promise = __webpack_require__.e(/*! import() | background_image_controler */ "background_image_controler").then(__webpack_require__.bind(null, /*! ./backgroundImage/background_image_controler */ "./ui/toolbar/set_up/background/backgroundImage/background_image_controler.js"));
+    const promise = import('./backgroundImage/background_image_controler.jsx')
     promise.then(({
       BackgroundImageControler
     }) => {

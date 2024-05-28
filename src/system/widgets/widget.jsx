@@ -341,7 +341,7 @@ function Button(prop) {
  * @param {disabled} prop.disabled -禁用选择框
  * @param {function} prop.selectChange -选择处理函数
  * @param {function} prop.change -拖拽范围值发生变化时触发的事件处理函数
- * @param {function} prop.onBlur -失去焦点时触发的事件处理函数 lw 2021-4-22
+ * @param {function} prop.onBlur -失去焦点时触发的事件处理函数
  * @return {object} 拖拽范围结构
  */
 function Range(prop) {
@@ -478,6 +478,7 @@ function Range(prop) {
  * @param {boolean} prop.isChoose -是否显示请选择选项
  * @param {boolean} prop.disabled -是否禁用选择框
  * @param {function} prop.change -拖拽范围值发生变化时触发的事件处理函数
+ * @param {object} prop.styles -样式
  * @return {object} 下拉选择组件结构
  */
 function Select(prop) {
@@ -515,7 +516,7 @@ function Select(prop) {
       value={prop.value || ""}
       disabled={prop.disabled}
       onChange={prop.change}
-      style={{ width: '100%' }}
+      style={{ width: '100%', ...prop.styles }}
     >
       {/* <option value="">{window.public.lang["pleaseChoose"]}</option> */}
       {/* {prop.isChoose ? null :<antd.Select.Option  value="">{window.public.lang["pleaseChoose"]}</antd.Select.Option> }  */}
@@ -857,58 +858,123 @@ function ImageQuality(prop) {
 
   let _data = prop.data || {};
 
-  const quality = React.createElement("div", null, React.createElement(Select, {
-    id: "imageQuality",
-    unuseLi: true,
-    basic: true // mo端先读mo质量，没有再读pc质量值
-    ,
-    value: (_ref = (_data$ = _data[`${(_prop$prefix = prop.prefix) !== null && _prop$prefix !== void 0 ? _prop$prefix : ''}quality`]) !== null && _data$ !== void 0 ? _data$ : _data['quality']) !== null && _ref !== void 0 ? _ref : "original",
-    list: [{
-      name: "100px",
-      value: "100"
-    }, {
-      name: "200px",
-      value: "200"
-    }, {
-      name: "400px",
-      value: "400"
-    }, {
-      name: "600px",
-      value: "600"
-    }, {
-      name: "800px",
-      value: "800"
-    }, {
-      name: "1000px",
-      value: "1000"
-    }, {
-      name: "1200px",
-      value: "1200"
-    }, {
-      name: "1400px",
-      value: "1400"
-    }, {
-      name: "1600px",
-      value: "1600"
-    }, {
-      name: "2000px",
-      value: "2000"
-    }, {
-      name: window.public.lang["original"],
-      value: "original"
-    }],
-    change: prop.change
-  }), _data.dataSize ? React.createElement("input", {
-    className: "pcInputTextStyle",
-    type: "text",
-    readOnly: "readonly",
-    placeholder: (_data.dataSize || "") + "KB"
-  }) : false);
-  return React.createElement(Container, {
-    skin: prop.skin,
-    help: prop.help,
-    title: "imageQuality"
-  }, quality);
+  // const quality = React.createElement("div", null, React.createElement(Select, {
+  //   id: "imageQuality",
+  //   unuseLi: true,
+  //   basic: true // mo端先读mo质量，没有再读pc质量值
+  //   ,
+  //   value: (_ref = (_data$ = _data[`${(_prop$prefix = prop.prefix) !== null && _prop$prefix !== void 0 ? _prop$prefix : ''}quality`]) !== null && _data$ !== void 0 ? _data$ : _data['quality']) !== null && _ref !== void 0 ? _ref : "original",
+  //   list: [{
+  //     name: "100px",
+  //     value: "100"
+  //   }, {
+  //     name: "200px",
+  //     value: "200"
+  //   }, {
+  //     name: "400px",
+  //     value: "400"
+  //   }, {
+  //     name: "600px",
+  //     value: "600"
+  //   }, {
+  //     name: "800px",
+  //     value: "800"
+  //   }, {
+  //     name: "1000px",
+  //     value: "1000"
+  //   }, {
+  //     name: "1200px",
+  //     value: "1200"
+  //   }, {
+  //     name: "1400px",
+  //     value: "1400"
+  //   }, {
+  //     name: "1600px",
+  //     value: "1600"
+  //   }, {
+  //     name: "2000px",
+  //     value: "2000"
+  //   }, {
+  //     name: window.public.lang["original"],
+  //     value: "original"
+  //   }],
+  //   change: prop.change
+  // }), _data.dataSize ? React.createElement("input", {
+  //   className: "pcInputTextStyle",
+  //   type: "text",
+  //   readOnly: "readonly",
+  //   placeholder: (_data.dataSize || "") + "KB"
+  // }) : false);
+
+
+  const quality = (
+    <div>
+      <Select
+        id="imageQuality"
+        unuseLi={true}
+        basic={true} // mo端先读mo质量，没有再读pc质量值
+        value={(_ref = (_data$ = _data[`${(_prop$prefix = prop.prefix) !== null && _prop$prefix !== void 0 ? _prop$prefix : ''}quality`]) !== null && _data$ !== void 0 ? _data$ : _data['quality']) !== null && _ref !== void 0 ? _ref : "original"}
+        list={[{
+          name: "100px",
+          value: "100"
+        }, {
+          name: "200px",
+          value: "200"
+        }, {
+          name: "400px",
+          value: "400"
+        }, {
+          name: "600px",
+          value: "600"
+        }, {
+          name: "800px",
+          value: "800"
+        }, {
+          name: "1000px",
+          value: "1000"
+        }, {
+          name: "1200px",
+          value: "1200"
+        }, {
+          name: "1400px",
+          value: "1400"
+        }, {
+          name: "1600px",
+          value: "1600"
+        }, {
+          name: "2000px",
+          value: "2000"
+        }, {
+          name: window.public.lang["original"],
+          value: "original"
+        }]}
+        change={prop.change}
+      />
+      {_data.dataSize ? (
+        <input
+          className="pcInputTextStyle"
+          type="text"
+          readOnly
+          placeholder={(_data.dataSize || "") + "KB"}
+        />
+      ) : false}
+    </div>
+  )
+  // return React.createElement(Container, {
+  //   skin: prop.skin,
+  //   help: prop.help,
+  //   title: "imageQuality"
+  // }, quality);
+
+  return (
+    <Container
+      skin={prop.skin}
+      help={prop.help}
+      title="imageQuality"
+    >
+      {quality}
+    </Container>
+  )
 }
 
 

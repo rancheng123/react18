@@ -33,8 +33,8 @@ export default class Page {
       }
     } = this;
     let components = children.concat([]),
-        pid = Util.pid,
-        page = pages[pid];
+      pid = Util.pid,
+      page = pages[pid];
 
     if (hidden == undefined) {
       hidden = page.data.document_data[pid].hidden;
@@ -107,17 +107,31 @@ export default class Page {
           positionMode = '',
           posVal,
           attachment,
-          opacity
+          opacity,
+          quality,
         } = background;
-        return React.createElement("style", {
-          id: `${id}_style`
-        }, `.${id}-bg{
-            ${bgColor ? `background-color:${bgColor};` : ''}
-            ${uri ? `background:url(${uri + imgQuality}) ${positionMode};` : ''}
-            ${posVal ? `background-position:${posVal};` : ''}
-            ${attachment ? `background-attachment:${attachment};` : ''}
-            ${opacity ? `opacity:${opacity};` : ''}
-        }`);
+        // return React.createElement("style", {
+        //   id: `${id}_style`
+        // }, `.${id}-bg{
+        //     ${bgColor ? `background-color:${bgColor};` : ''}
+        //     ${uri ? `background:url(${uri + imgQuality}) ${positionMode};` : ''}
+        //     ${posVal ? `background-position:${posVal};` : ''}
+        //     ${attachment ? `background-attachment:${attachment};` : ''}
+        //     ${opacity ? `opacity:${opacity};` : ''}
+        // }`);
+        // TODO 图片质量的实现目前通过设置bakground-size来实现的
+        return (
+          <style id={`${id}_style`}>
+            {`.${id}-bg{
+              ${bgColor ? `background-color:${bgColor};` : ''}
+              ${uri ? `background:url(${uri}) ${positionMode};` : ''}
+              ${posVal ? `background-position:${posVal};` : ''}
+              ${attachment ? `background-attachment:${attachment};` : ''}
+              ${opacity ? `opacity:${opacity};` : ''}
+              ${quality ? `background-size:${quality}px auto` : ''}
+          }`}
+          </style>
+        )
       }
 
       return null;
