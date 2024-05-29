@@ -19,7 +19,6 @@ const ImageCongfig = ({ imageConfig, setImageConfig, styles, pageId }) => {
      * @param {event} event 事件对象
      */
     const set = (key, event) => {
-        console.log(key, event);
         const value = event.target.value;
         // this.setState({
         //     [key]: value
@@ -204,12 +203,12 @@ const ImageCongfig = ({ imageConfig, setImageConfig, styles, pageId }) => {
         ];
 
         const change = (event) => {
-            console.log(event);
-            set('positionMode', event);
             setImageConfig({
                 ...imageConfig,
                 positionMode: event.target.value
             })
+            set('positionMode', event);
+
         }
         return (
             <div className={styles.imageConfigItem}>
@@ -227,7 +226,7 @@ const ImageCongfig = ({ imageConfig, setImageConfig, styles, pageId }) => {
         )
     }
 
-    // 定位
+    // 背景定位
     const position = () => {
         const list = [{
             name: 'fixed',
@@ -236,25 +235,35 @@ const ImageCongfig = ({ imageConfig, setImageConfig, styles, pageId }) => {
             name: 'nofixed',
             value: "initial"
         }];
+
+        const change = (event) => {
+            setImageConfig({
+                ...imageConfig,
+                attachment: event.target.value
+            })
+
+            set('attachment', event)
+        }
         return (
             <div className={styles.imageConfigItem}>
+                <div style={{ marginRight: '10px' }}>
+                    {window.public.lang['backgroundFixed']}
+                </div>
                 <Widget.Radio
-                    title="selectionContent"
-                    id="" // 如果id不需要动态变化，可以赋予一个具体的字符串值
-                    list={this.props.list || this.state.list} // 根据实际情况选择props或state
-                    value={this.props.value || this.state.value} // 根据实际情况选择props或state
-                    change={this.controler.selectPositionMode.bind(this.controler)}
+                    list={list}
+                    value={imageConfig.attachment}
+                    change={change}
                 />
             </div>
         )
     }
     return (
         <>
-            {/* TODO  */}
-            {/* {upload()}
+            {upload()}
             {opacity()}
             {size()}
-            {showMode()} */}
+            {showMode()}
+            {position()}
         </>
     )
 }

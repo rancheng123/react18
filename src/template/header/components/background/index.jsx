@@ -5,6 +5,7 @@ import Widget from '@/system/widgets/widget';
 import Dispatcher from "@/system/tools/dispatcher";
 import styles from './background.module.less'
 import ImageCongfig from "./ImageCongfig.jsx";
+import SelectPage from "./SelectPage.jsx";
 /***
  * 背景修改结构
  * @param props.close 关闭弹窗的方法
@@ -12,8 +13,8 @@ import ImageCongfig from "./ImageCongfig.jsx";
  */
 const Background = ({ close }) => {
     let _childrenPageId, pageId
+    // 获取页面数据
     const documentData = Dispatcher.dispatch('document_get')
-    console.log(documentData);
     const {
         component: {
             children
@@ -49,7 +50,8 @@ const Background = ({ close }) => {
         uri: getAttributeValue('uri', ''),   //   图片地址
         opacity: getAttributeValue('opacity', 1),  //   透明度
         quality: getAttributeValue('quality', ''),  //   图片质量
-        positionMode: getAttributeValue('positionMode', '') //   图片展示效果
+        positionMode: getAttributeValue('positionMode', ''), //   图片展示效果
+        attachment: getAttributeValue('attachment', ''),
     })
 
 
@@ -83,6 +85,12 @@ const Background = ({ close }) => {
         // 设置类型
         setType(value)
     }
+
+    // 删除背景
+    const handDeleteBackground = () => {
+        reset()
+    }
+
 
     // 颜色选择器改变事件
     const colorPickerChange = (bgColor) => {
@@ -134,6 +142,10 @@ const Background = ({ close }) => {
 
                     <div className={styles.globalBackgroundTop}>
                         {getBGPreview() ? getBGPreview() : '点击下方按钮进行设置'}
+                        {/* TODO */}
+                        {/* <div onClick={handDeleteBackground} className={styles.deleteBackground}>
+                            删除
+                        </div> */}
                     </div>
 
                     <div className={styles.globalBackgroundMiddle}>
@@ -179,17 +191,7 @@ const Background = ({ close }) => {
 
             {/* 页面选择框 */}
             {
-                usePageStatus && <Layer.open
-                    titles={['选择页面']}
-                    area={[380, 186]}
-                    offset={[distanceToScreenLeft - 380, 60]}
-                    draggable
-                    close={close}
-                >
-                    <div style={{ textAlign: 'center', marginTop: '30px' }}>
-                        <Button type="primary">确定</Button>
-                    </div>
-                </Layer.open>
+                usePageStatus && <SelectPage distanceToScreenLeft={distanceToScreenLeft} pageId={pageId} close={() => setUsePageStatus(false)} />
             }
 
         </>

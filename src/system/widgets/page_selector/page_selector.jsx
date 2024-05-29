@@ -1,5 +1,4 @@
 
-import React from 'react';
 import Layer from '@/system/widgets/layer';
 /**
  * @class {Page} 页面视图类
