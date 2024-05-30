@@ -66,11 +66,15 @@ export default class Collection extends React.Component {
                 return (
                   <li key={e.id} data-id={e.id}>
                     <p onMouseDown={this.props.controler.start.bind(this.props.controler, e.id)}>
-                      {e.title}
+                      <span>{e.title}</span>
+                      <i onClick={this.props.controler.deleteList.bind(this.props.controler, e.id)} className="iconfont" dangerouslySetInnerHTML={{ __html: '&#xe797;' }}></i>
                     </p>
-                    <a onClick={this.props.controler.deleteList.bind(this.props.controler, e.id)} className="yscIcon yiyingbaoicon">
+                    <div style={{ height: '34px', background: '#F2F2F3', textAlign: 'center', lineHeight: "34px" }}>
+                      占位图
+                    </div>
+                    {/* <a onClick={this.props.controler.deleteList.bind(this.props.controler, e.id)} className="yscIcon yiyingbaoicon">
                       {"\uE808"}
-                    </a>
+                    </a> */}
                   </li>
                 );
               })}

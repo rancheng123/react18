@@ -25,8 +25,9 @@ export default class RulerControler extends React.Component {
       width: window.public.minWidth,
       top: 0
     };
-    this.state = { ...state,
-      ...guid
+    this.state = {
+      ...state,
+      ...guid,
     };
   }
   /**
@@ -107,20 +108,21 @@ export default class RulerControler extends React.Component {
    * @param {Object} event 事件对象
    */
   start(type, id, i, event) {
+    console.log(type, id, i, event);
     try {
       const {
         target,
         clientX,
         clientY
       } = event,
-            {
-        left,
-        top,
-        width,
-        height
-      } = target.getBoundingClientRect();
+        {
+          left,
+          top,
+          width,
+          height
+        } = target.getBoundingClientRect();
       let parent = document.querySelector(`#${id}`),
-          topVal = 68;
+        topVal = 68;
       const scrollTop = document.querySelector(".property-modal").scrollTop; //获取滚动条高度
 
       let opts = {
@@ -212,7 +214,7 @@ export default class RulerControler extends React.Component {
    */
   addGuid(type, event) {
     let state = this.state || {},
-        _data = state[type] || [];
+      _data = state[type] || [];
 
     let _id = "";
 
@@ -266,7 +268,7 @@ export default class RulerControler extends React.Component {
    */
   blur(i, e) {
     const _target = e.hasOwnProperty("target") ? e.target : e,
-          _guid = _target.closest(".ediCusLin,.ediCuscol");
+      _guid = _target.closest(".ediCusLin,.ediCuscol");
 
     let state = this.state || {};
     let _value = _target.value;
@@ -278,7 +280,7 @@ export default class RulerControler extends React.Component {
     if (_guid.id.indexOf("ediCusLin") != -1) {
       if (typeof _value == "number" && _value < window.innerWidth - 23) {
         let _horVal = state.guidHor[i].value,
-            guidHor = state.guidHor.concat([]);
+          guidHor = state.guidHor.concat([]);
         guidHor[i].value = _value;
         this.setState({
           guidHor: guidHor
@@ -293,7 +295,7 @@ export default class RulerControler extends React.Component {
 
       if (typeof _value == "number" && _value > 20 && _value < bodHeight) {
         let _guidVal = state.guidVer[i].value,
-            guidVer = state.guidVer.concat([]);
+          guidVer = state.guidVer.concat([]);
         guidVer[i].value = _value;
         this.setState({
           guidVer: guidVer
@@ -313,8 +315,8 @@ export default class RulerControler extends React.Component {
   */
   delete(i, type) {
     let state = this.state || {},
-        relerType = type != "top" ? "guidHor" : "guidVer",
-        newList = state[relerType];
+      relerType = type != "top" ? "guidHor" : "guidVer",
+      newList = state[relerType];
     newList.splice(i, 1);
     this.setState({
       [relerType]: newList
@@ -340,18 +342,35 @@ export default class RulerControler extends React.Component {
       },
       body: `sId=${pageData.siteId}&data=${ajaxData}`
     }).then(response => response.json()).then(data => {
-      if (data.suc == 0) {} else {// Layer.alert({area:["420px","225px"],skin:"",close:true,cancel:true,ensure:true,content:window.public.lnag["addFailed"]})
+      if (data.suc == 0) { } else {// Layer.alert({area:["420px","225px"],skin:"",close:true,cancel:true,ensure:true,content:window.public.lnag["addFailed"]})
       }
     }).catch(error => console.log("Error", error));
+  }
+
+  // 右键点击事件
+  handContextMenu(event, i) {
+    console.log('右键', event, i);
+    event.stopPropagation();
+    event.preventDefault()
+    // 隐藏参考线信息数据
+    this.setState({
+      rightPopIndex: i,
+      rightPopX: event.clientX,
+      rightPopY: event.clientY
+    })
+    console.log(this.state);
+    // 展示对应的右键菜单结构
   }
 
 
 
   ruler(props) {
+    console.log('ruler', props);
     return (
       <div
         className={`${props.dir}Number`}
         onClick={this.addGuid.bind(this, props.type)}
+        onContextMenu={(event) => { event.stopPropagation(); event.preventDefault() }}
       >
         <i className={`ruler${props.dir}`}></i>
         <div className={"rul" + props.dir + "Num"} style={props.style || null}>
@@ -359,7 +378,7 @@ export default class RulerControler extends React.Component {
             {
               props.numbers.map((item, index) => {
                 return <li key={index}>{index * this.space}</li>
-              }) 
+              })
             }
           </ul>
         </div>
@@ -368,6 +387,14 @@ export default class RulerControler extends React.Component {
   }
 
   getGuid(type, event) {
+    console.log(111111111111, this.state);
+    // 
+    const rightPopStyle = {
+      position: 'fixed',
+      zIndex: 99999,
+      background: 'red'
+    }
+
     let state = this.state || {};
     let _data = [], idName = "";
 
@@ -381,26 +408,27 @@ export default class RulerControler extends React.Component {
 
     return _data.map((e, i) => {
       let _id = e.id,
-          _value = e.value;
+        _value = e.value;
 
       if (!_value) {
         return null;
       }
 
       return (
-        <div 
-          className={_id.split("-")[0]} 
-          id={_id} 
-          key={_id} 
-          data-index={i} 
+        <div
+          className={_id.split("-")[0]}
+          id={_id}
+          key={_id}
+          data-index={i}
           style={{ [type]: _value }}>
           <div className="cusLines"></div>
           <div className="cusLinCon">
-            <i 
-              className="iconfont" 
-              data-draggable="true" 
-              onMouseDown={this.start.bind(this,type, _id, i)}>
-                
+            <i
+              className="iconfont"
+              data-draggable="true"
+              onContextMenu={(event) => this.handContextMenu(event, i)}
+              onMouseDown={this.start.bind(this, type, _id, i)}>
+              
             </i>
             <p className="cusLinNum">
               <input
@@ -409,45 +437,55 @@ export default class RulerControler extends React.Component {
                 placeholder={_value}
                 onFocus={this.focus.bind(this, i)}
                 onBlur={this.blur.bind(this, i)}
-                 />
+              />
               <span>px</span>
-              <i className="iconfont" data-emname="del-guid" onClick={this.delete.bind(this, i, type)}></i>
+              {/* <i className="iconfont" data-emname="del-guid" onClick={this.delete.bind(this, i, type)}></i> */}
             </p>
+            {/* 右键弹窗 */}
+            {
+              this.state.rightPopIndex == i ?
+                <div style={{ ...rightPopStyle, top: this.state.rightPopY + 10, left: this.state.rightPopX + 10 }} >
+                  <div onClick={this.delete.bind(this, i, type)}>删除</div>
+                  <div>锁定</div>
+                </div> : null
+            }
           </div>
         </div>
       )
     });
   }
 
-  
+
   /**
    * @method render 挂载组件方法
    * @return {object} 待渲染的组件对象
    */
   render() {
+
     return (
-      <div className='auxiliary' style={{height: this.props.height}}>
+      <div className='auxiliary' style={{ height: this.props.height }}>
         {
           !this.state.hidden && (
             <div>
-                {
-                  this.ruler({ numbers: this.horizontal, dir: "top", type: "guidHor"})
-                }
-                {
-                  this.ruler({ numbers: this.vertical, dir: "right", type: "guidVer"})
-                }
-                <div id="horizontal">
-                  {this.getGuid("left")}
-                </div>
-                <div id="vertical">
-                  {this.getGuid("top")}
-                </div>
+              {
+                this.ruler({ numbers: this.horizontal, dir: "top", type: "guidHor" })
+              }
+              {
+                this.ruler({ numbers: this.vertical, dir: "right", type: "guidVer" })
+              }
+              <div id="horizontal">
+                {this.getGuid("left")}
+              </div>
+              <div id="vertical">
+                {this.getGuid("top")}
+              </div>
+
             </div>
           )
         }
         <div className="ediLines">
           <div className="ediConLines">
-            <div className="eLines eLi3" style={{top: this.state.top}} />
+            <div className="eLines eLi3" style={{ top: this.state.top }} />
           </div>
         </div>
       </div>

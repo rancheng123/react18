@@ -155,7 +155,7 @@ const SelectPage = ({ distanceToScreenLeft, pageId, close }) => {
                     })
                 }
                 <div style={{ textAlign: 'center', marginTop: '30px' }}>
-                    <Button type="primary">确定</Button>
+                    <Button type="primary" onClick={close}>确定</Button>
                 </div>
             </div>
         </Layer.open>

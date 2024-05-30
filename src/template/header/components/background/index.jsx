@@ -141,11 +141,15 @@ const Background = ({ close }) => {
                 <div id={styles.globalBackground}>
 
                     <div className={styles.globalBackgroundTop}>
-                        {getBGPreview() ? getBGPreview() : '点击下方按钮进行设置'}
-                        {/* TODO */}
-                        {/* <div onClick={handDeleteBackground} className={styles.deleteBackground}>
-                            删除
-                        </div> */}
+                        {/* 预览图结构 */}
+                        {getBGPreview() ?
+                            <>
+                                {getBGPreview()}
+                                < div style={{ cursor: 'pointer' }} onClick={handDeleteBackground} className={styles.deleteBackground}>
+                                    <i className="iconfont" style={{ color: "#FFFFFF" }} dangerouslySetInnerHTML={{ __html: '&#xe797;' }}></i>
+                                </div>
+                            </>
+                            : '点击下方按钮进行设置'}
                     </div>
 
                     <div className={styles.globalBackgroundMiddle}>
@@ -187,7 +191,7 @@ const Background = ({ close }) => {
                 </div>
 
 
-            </Layer.open>
+            </Layer.open >
 
             {/* 页面选择框 */}
             {
