@@ -7,7 +7,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
- //用来存储复制后的内容  因为触发剪切方法时，组建销毁会初始化this.stete，所以要定义一个全局变量用来存贮复制后的值。 
+//用来存储复制后的内容  因为触发剪切方法时，组建销毁会初始化this.stete，所以要定义一个全局变量用来存贮复制后的值。 
 
 var copyObj = null;
 export default class MouseRightClickMenuControler extends React.Component {
@@ -18,8 +18,8 @@ export default class MouseRightClickMenuControler extends React.Component {
       let _this = this;
 
       var mask = document.querySelector('#selected-mask');
-      let objText = document.getElementById("cke_editor"); 
-      
+      let objText = document.getElementById("cke_editor");
+
       //判断文本富文本结构是否存在 
       if (objText) {
         return false;
@@ -31,8 +31,8 @@ export default class MouseRightClickMenuControler extends React.Component {
 
         _this.setState({
           'style': _this.calculationPosition(e)
-        }); 
-        
+        });
+
         // 判断控件是否已经被选中
         var x = e.pageX;
         var y = e.pageY - 68;
@@ -91,19 +91,19 @@ export default class MouseRightClickMenuControler extends React.Component {
 
 
     this.Property_panel_list = [// {"event":"copy","title":window.public.lang.copy,"name":"Ctrl+C"},
-    // {"event":"paste","title":window.public.lang.paste,"name":"Ctrl+V"},
-    // {"event":"shear","title":window.public.lang.shear,"name":"Ctrl+X"}, 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 lw 2021-4-22
-    {
-      "event": "remove",
-      "title": window.public.lang.remove,
-      "name": "Del"
-    }, {
-      "event": "",
-      "title": window.public.lang.cascadeControl,
-      "secondary": window.public.lang.laminatedStructure,
-      "iconClass": "cascadeControl",
-      "iconC": "iconfont"
-    }]; //组件挂载前的初始化方法，整个生命周期内只执行一次
+      // {"event":"paste","title":window.public.lang.paste,"name":"Ctrl+V"},
+      // {"event":"shear","title":window.public.lang.shear,"name":"Ctrl+X"}, 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 lw 2021-4-22
+      {
+        "event": "remove",
+        "title": window.public.lang.remove,
+        "name": "Del"
+      }, {
+        "event": "",
+        "title": window.public.lang.cascadeControl,
+        "secondary": window.public.lang.laminatedStructure,
+        "iconClass": "cascadeControl",
+        "iconC": "iconfont"
+      }]; //组件挂载前的初始化方法，整个生命周期内只执行一次
 
     this.init();
   }
@@ -119,15 +119,15 @@ export default class MouseRightClickMenuControler extends React.Component {
     _this.state = {};
     window.Mousetrap.bind('del', () => this.remove());
     // __webpack_require__.e(/*! import() | mousetrap */ "mousetrap").then(__webpack_require__.t.bind(null, /*! mousetrap */ "./node_modules/mousetrap/mousetrap.min.js", 7)).then(module => {
-      // module.bind('del', () => this.remove()); // module.bind('ctrl+c', () => this.copy());
-      // module.bind('ctrl+v', () => this.paste());
-      // module.bind('ctrl+x', () => this.shear()); 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 
+    // module.bind('del', () => this.remove()); // module.bind('ctrl+c', () => this.copy());
+    // module.bind('ctrl+v', () => this.paste());
+    // module.bind('ctrl+x', () => this.shear()); 注掉，原因为功能未完全开发完成，不能想粘贴到哪里就粘贴到哪里 
     // });
 
     document.oncontextmenu = function (e) {
       e.stopPropagation();
       e.preventDefault();
-    }; 
+    };
     //以前的方法不适用 组件销毁后再次调用会导致面板不展示 
     // $(window).load(function() {
     //     let mask = document.querySelector('#selected-mask')
@@ -179,7 +179,7 @@ export default class MouseRightClickMenuControler extends React.Component {
     document.addEventListener('contextmenu', this.handleContextMenu);
   }
 
-  //组件销毁后，使用移除事件监听器移除鼠标右键事件  author lw data 2021-1-5
+  //组件销毁后，使用移除事件监听器移除鼠标右键事件 
   componentWillUnmount() {
     document.removeEventListener('contextmenu', this.handleContextMenu);
   }
@@ -198,23 +198,23 @@ export default class MouseRightClickMenuControler extends React.Component {
     let iframeDom = document.getElementById('iframe').contentWindow.document.documentElement;
     // let iframeDom = window.public.dom.documentElement,
     let scrolltop = iframeDom.scrollTop //因为在内容页在iframe框架里 不能直接通过获取html的卷曲高度
-    ,
-        x = e.pageX,
-        y = e.pageY - 68,
-        screenWidth = window.screen.width,
-        width = screenWidth - x > 130 ? 'left' : 'right' //判断鼠标点击的位置向右侧是否能够展开 如果展不开的话就贴着右边展开
-    ,
-        screenHeight = document.documentElement.clientHeight //获取当前屏幕可视区域的高度
-    ,
-        allHeight = iframeDom.offsetHeight //总高
-    ,
-        bottom = allHeight - y - scrolltop //bottom位置
-    ,
-        height = screenHeight - y > 250 ? 'top' : 'bottom',
-        _value = {
-      [width]: width == 'left' ? x : x = 0,
-      [height]: height == 'top' ? y + scrolltop : bottom
-    };
+      ,
+      x = e.pageX,
+      y = e.pageY - 68,
+      screenWidth = window.screen.width,
+      width = screenWidth - x > 130 ? 'left' : 'right' //判断鼠标点击的位置向右侧是否能够展开 如果展不开的话就贴着右边展开
+      ,
+      screenHeight = document.documentElement.clientHeight //获取当前屏幕可视区域的高度
+      ,
+      allHeight = iframeDom.offsetHeight //总高
+      ,
+      bottom = allHeight - y - scrolltop //bottom位置
+      ,
+      height = screenHeight - y > 250 ? 'top' : 'bottom',
+      _value = {
+        [width]: width == 'left' ? x : x = 0,
+        [height]: height == 'top' ? y + scrolltop : bottom
+      };
 
     if (window.public.type == "mo") {
       _value = {
@@ -386,83 +386,83 @@ export default class MouseRightClickMenuControler extends React.Component {
    * @method render 挂载组件方法
    * @return {object} 待渲染的组件对象
    */
-    render() {
+  render() {
 
-      let arr = this.state.data ? this.state.data : [];
+    let arr = this.state.data ? this.state.data : [];
 
-      if (arr && arr.length != 0) {
-        let _marginLeft = '-10px';
-        if (window.public.type == "pc") {
-          let winW = window.innerWidth,
-              left = this.state.style.left || winW,
-              rightClickWidth = 210 + 130; //
-  
-          if (winW - left <= rightClickWidth) {
-            _marginLeft = '-340px';
-          }
+    if (arr && arr.length != 0) {
+      let _marginLeft = '-10px';
+      if (window.public.type == "pc") {
+        let winW = window.innerWidth,
+          left = this.state.style.left || winW,
+          rightClickWidth = 210 + 130; //
+
+        if (winW - left <= rightClickWidth) {
+          _marginLeft = '-340px';
         }
-
-        return (
-          <div 
-            className='rightClick'
-            onMouseMove={this.theMouseMove.bind(this)}
-            style={{
-              'display': 'block',
-              'position': 'absolute',
-              'left': this.state.style.left,
-              'bottom': this.state.style.bottom,
-              'right': this.state.style.right,
-              'top': this.state.style.top
-            }}
-          >
-            <ul className="rightClick-popUp">
-              {
-                this.Property_panel_list.map((e, index) => {
-                  return (
-                    <li 
-                      key={index} 
-                      id={e.event}
-                      className={e.iconClass} 
-                      title={e.title} 
-                      onMouseDown={e.event ? this[e.event].bind(this) : null}
-                    >
-                      <span>{e.title}</span>
-                      <span className={e.iconC}>{e.name}{e.iconC ? "" : ''}</span>
-                      {
-                        e.secondary && (
-                          <ul className="rightClick rightclickCascade" style={{
-                            'position': 'absolute',
-                            'left': '100%',
-                            'top': '-15px',
-                            'marginLeft': _marginLeft,
-                            'zIndex': '1'
-                          }}>
-                            {
-                              arr.map(item => {
-                                var _item$name;
-                                return (
-                                  <li key={item.id} id={item.id} onMouseDown={this.rightClick.bind(this)}>
-                                    {
-                                    (_item$name = item.name) !== null && _item$name !== void 0 ? _item$name : window.public.getName(item.type)
-                                    }
-                                  </li>
-                                )
-                              })
-                            }
-                          </ul>
-                        )
-                      }
-                    </li>
-                  )
-                })
-              }
-            </ul>
-          </div>
-        )
       }
 
-      return null
-      // return <MouseRightClickMenu {...this} />
+      return (
+        <div
+          className='rightClick'
+          onMouseMove={this.theMouseMove.bind(this)}
+          style={{
+            'display': 'block',
+            'position': 'absolute',
+            'left': this.state.style.left,
+            'bottom': this.state.style.bottom,
+            'right': this.state.style.right,
+            'top': this.state.style.top
+          }}
+        >
+          <ul className="rightClick-popUp">
+            {
+              this.Property_panel_list.map((e, index) => {
+                return (
+                  <li
+                    key={index}
+                    id={e.event}
+                    className={e.iconClass}
+                    title={e.title}
+                    onMouseDown={e.event ? this[e.event].bind(this) : null}
+                  >
+                    <span>{e.title}</span>
+                    <span className={e.iconC}>{e.name}{e.iconC ? "" : ''}</span>
+                    {
+                      e.secondary && (
+                        <ul className="rightClick rightclickCascade" style={{
+                          'position': 'absolute',
+                          'left': '100%',
+                          'top': '-15px',
+                          'marginLeft': _marginLeft,
+                          'zIndex': '1'
+                        }}>
+                          {
+                            arr.map(item => {
+                              var _item$name;
+                              return (
+                                <li key={item.id} id={item.id} onMouseDown={this.rightClick.bind(this)}>
+                                  {
+                                    (_item$name = item.name) !== null && _item$name !== void 0 ? _item$name : window.public.getName(item.type)
+                                  }
+                                </li>
+                              )
+                            })
+                          }
+                        </ul>
+                      )
+                    }
+                  </li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      )
     }
+
+    return null
+    // return <MouseRightClickMenu {...this} />
+  }
 
 }

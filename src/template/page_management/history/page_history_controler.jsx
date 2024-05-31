@@ -1,13 +1,10 @@
-
 // 导入React和ReactDOM库
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 // 导入其他模块
-import PageHistory from './page_history';
-import Layer from '@/system/widgets/layer.js';
-
-
+import PageHistory from "./page_history";
+import Layer from "@/system/widgets/layer";
 
 export default class PageHistoryControler extends React.Component {
   constructor(props) {
@@ -22,83 +19,78 @@ export default class PageHistoryControler extends React.Component {
   }
 
   static pageManagement() {
-    const element = document.querySelector('#page-management');
+    const element = document.querySelector("#page-management");
     ReactDOM.render(React.createElement(PageHistoryControler, null), element);
   }
   /**
-      * @method  render 挂载组件方法
-      * @author sxt
-      */
-
+   * @method  render 挂载组件方法
+   * @author sxt
+   */
 
   render() {
     return React.createElement(this.view.render, null);
   }
   /**
-      * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-      * @author wyq
-      */
-
+   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
+   */
 
   init() {
     this.state = {
-      data: []
+      data: [],
     };
   }
 
   componentWillMount() {
-    const {
-      pid
-    } = this.props;
+    const { pid } = this.props;
     let newData = {
       sid: pageData.siteId,
       pid,
-      module: 'page'
+      module: "page",
     };
     return fetch("/desktop/index.php/Edit/DBLog/index", {
-      method: 'POST',
+      method: "POST",
       headers: {},
-      body: JSON.stringify(newData)
-    }).then(response => response.json()).then(data => {
-      this.setState({
-        data: data.msg
+      body: JSON.stringify(newData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          data: data.msg,
+        });
       });
-    });
   }
   /**
    * @description: 页面数据还原
-   * @param {type} 
+   * @param {type}
    * @return: void
-   * @author: Eric
-   * @Date: 2020-01-08 16:02:24
    */
-
 
   pageDataReductionHandle(id) {
     fetch("/desktop/index.php/Edit/DBLog/recoveryDbLog", {
-      method: 'POST',
+      method: "POST",
       headers: {},
       body: JSON.stringify({
-        id
-      })
-    }).then(response => response.json()).then(data => {
-      if (!data.suc) {
-        document.getElementById('pageSet').querySelector('.layer-close').click();
-        window.public.reload();
-      } else {
-        alert(data.msg);
-      }
-    });
+        id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.suc) {
+          document
+            .getElementById("pageSet")
+            .querySelector(".layer-close")
+            .click();
+          window.public.reload();
+        } else {
+          alert(data.msg);
+        }
+      });
   }
   /**
    * @description: 页面数据还原提示
    * @param {id} 页面日志id
    * @return: void
-   * @author: Eric
-   * @Date: 2020-01-08 15:07:28
    */
-
-
   pageDataReduction(id) {
     Layer.alert({
       area: ["420px", "225px"],
@@ -106,8 +98,7 @@ export default class PageHistoryControler extends React.Component {
       close: true,
       cancel: true,
       ensure: this.pageDataReductionHandle.bind(this, id),
-      content: '确定要还原页面数据吗?'
+      content: "确定要还原页面数据吗?",
     });
   }
-
 }

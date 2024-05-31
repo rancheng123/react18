@@ -1,12 +1,10 @@
-
 // 导入React和ReactDOM库
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 // 导入其他模块
-import Dispatcher from '@/system/tools/dispatcher';
-import Classify from './page_classify';
-
+import Dispatcher from "@/system/tools/dispatcher";
+import Classify from "./page_classify";
 
 class PageAddClassify extends React.Component {
   constructor(props) {
@@ -21,23 +19,19 @@ class PageAddClassify extends React.Component {
   }
 
   static pageManagement() {
-    const element = document.querySelector('#page-management');
+    const element = document.querySelector("#page-management");
     ReactDOM.render(React.createElement(PageAddClassify, null), element);
   }
   /**
-      * @method  render 挂载组件方法
-      * @author sxt
-      */
-
+   * @method  render 挂载组件方法
+   */
 
   render() {
     return React.createElement(this.view.render, null);
   }
   /**
-      * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-      * @author wyq
-      */
-
+   * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
+   */
 
   init() {
     let pageList = this.getLink();
@@ -50,36 +44,34 @@ class PageAddClassify extends React.Component {
 
     let data = {
       pageList: pageList,
-      catType: cat.catType || "product"
+      catType: cat.catType || "product",
     };
-    this.state = { ...data,
-      ...cat
-    };
+    this.state = { ...data, ...cat };
   }
 
   componentWillMount() {
     let state = this.state || {},
-        catType = state.catType;
+      catType = state.catType;
     const promise = this.getAjaxClassify(catType);
-    promise.then(data => {
+    promise.then((data) => {
       if (data) {
         if (!state.catId) {
-          let catName = data[0] && data[0].catname || "";
+          let catName = (data[0] && data[0].catname) || "";
           this.setState({
             classifyList: data,
             catId: data[0] && data[0].id,
             catName: catName,
-            label: state.label || catName || window.public.lang["noClassification"]
+            label:
+              state.label || catName || window.public.lang["noClassification"],
           });
         } else {
           this.setState({
-            classifyList: data
+            classifyList: data,
           });
         }
       }
     });
   } //确定
-
 
   ensure() {
     let state = this.state || {};
@@ -89,67 +81,64 @@ class PageAddClassify extends React.Component {
       catName: state.catName,
       pageId: state.pageId,
       pageName: state.pageName,
-      label: state.label || window.public.lang["noClassification"]
+      label: state.label || window.public.lang["noClassification"],
     };
     this.props.ensure.call(this.props.callThis, cta);
   } //修改分类名称
 
-
   changeCatName(e) {
     let value = e.target.value;
     this.setState({
-      label: value
+      label: value,
     });
   } //修改分类类型
-
 
   selectType(e) {
     let type = e.target.value;
     this.setState({
-      catType: type
+      catType: type,
     });
     const promise = this.getAjaxClassify(type);
-    promise.then(data => {
+    promise.then((data) => {
       this.setState({
         classifyList: data,
         catId: data[0] && data[0].id,
-        catName: data[0] && data[0].catname
+        catName: data[0] && data[0].catname,
       });
     });
   } //请求分类数据方法
 
-
   getAjaxClassify(type) {
     let newData = {
       sid: pageData.siteId,
-      type: type
+      type: type,
     };
     return fetch("/desktop/index.php/Edit/List/getcategory", {
-      method: 'POST',
+      method: "POST",
       headers: {},
-      body: JSON.stringify(newData)
-    }).then(response => response.json()).then(data => {
-      let datas = data.data || {};
+      body: JSON.stringify(newData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        let datas = data.data || {};
 
-      if (datas.list) {
-        return datas.list || [];
-      } else {
-        return [];
-      }
-    }).catch(error => console.log("Error", error));
+        if (datas.list) {
+          return datas.list || [];
+        } else {
+          return [];
+        }
+      })
+      .catch((error) => console.log("Error", error));
   }
   /**
-  * @method clickClassifyList 点击显示分类列表
-  * @date 2019-12-4
-  * @author sxt
-  * @param {event} event 事件对象 
-  */
-
+   * @method clickClassifyList 点击显示分类列表
+   * @param {event} event 事件对象
+   */
 
   clickClassifyList() {
     let _state = this.state || {},
-        _showClassify = _state.showClassify,
-        _isClassifyTrue = false;
+      _showClassify = _state.showClassify,
+      _isClassifyTrue = false;
 
     if (_showClassify) {
       _isClassifyTrue = false;
@@ -159,30 +148,28 @@ class PageAddClassify extends React.Component {
 
     this.setState({
       showClassify: _isClassifyTrue,
-      showPage: false
+      showPage: false,
     });
   } //选择分类
-
 
   selectClassifyList(prop) {
     this.setState({
       catName: prop.catname,
       catId: prop.id,
-      showClassify: false
+      showClassify: false,
     });
   } //获取所有实体页面方法
 
-
   getLink(items, arr = []) {
     let data = Dispatcher.dispatch("getIframeData"),
-        dataItems = data.data.document_data.MAIN_MENU.items || [];
+      dataItems = data.data.document_data.MAIN_MENU.items || [];
     items = items || dataItems;
 
     for (let item of items) {
       if (item.pageType == "PageLink") {
         arr.push({
           name: item.label,
-          id: item.pid
+          id: item.pid,
         });
       }
 
@@ -192,28 +179,25 @@ class PageAddClassify extends React.Component {
     return arr;
   } //获取页面方法
 
-
   getPageLink() {
     this.state = {};
     const data = Dispatcher.dispatch("getIframeData"),
-          items = data.data.document_data.MAIN_MENU.items || [];
+      items = data.data.document_data.MAIN_MENU.items || [];
     return this.getLink(items, []);
   } //下拉切换页面
-
 
   selectPageList(prop) {
     this.setState({
       pageName: prop.name,
       pageId: prop.id,
-      showPage: false
+      showPage: false,
     });
   } //点击显示选择页面
 
-
   clickPageList() {
     let _state = this.state || {},
-        _showPage = _state.showPage,
-        _isPageTrue = false;
+      _showPage = _state.showPage,
+      _isPageTrue = false;
 
     if (_showPage) {
       _isPageTrue = false;
@@ -223,10 +207,9 @@ class PageAddClassify extends React.Component {
 
     this.setState({
       showPage: _isPageTrue,
-      showClassify: false
+      showClassify: false,
     });
   }
-
 }
 
 export default PageAddClassify;

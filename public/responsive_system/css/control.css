@@ -315,7 +315,7 @@ mip-form.search,
     background-color: transparent;
   }
 }
-/* 编辑器表格样式 田朔让加的 sxt 2022-12-02 */
+/* 编辑器表格样式 */
 .ue-table-interlace-color-single {
   background-color: #fcfcfc;
 }
@@ -327,7 +327,7 @@ mip-form.search,
   max-width: 100%;
   height: auto;
 }
-/* vertical-align: middle 是去掉并排图片之间的间距 sxt 2022-12-21 */
+/* vertical-align: middle 是去掉并排图片之间的间距 */
 .listTxt img {
   max-width: 100%;
   height: auto;

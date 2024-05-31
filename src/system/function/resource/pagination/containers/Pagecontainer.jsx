@@ -2,7 +2,7 @@ import React from "react";
 import Pagecomponent from "../components/Pagecomponent.js";
 
 /**
- * Created By brand On 2018/2/2
+ * Created By brand On 
  */
 export default class Pagecontainer extends React.Component {
   constructor(props) {

@@ -706,6 +706,24 @@
   left: -8px;
   cursor: w-resize !important;
 }
+.cusLinCon .rightPop {
+  position: fixed;
+  z-index: 99999;
+  background: #fff;
+  cursor: pointer;
+  width: 67px;
+  text-align: center;
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 13px;
+}
+.cusLinCon .rightPop .rightPopItem {
+  padding: 5px 0;
+}
+.cusLinCon .rightPop .rightPopItem:hover {
+  background: #dae8ff;
+  color: #116dff;
+}
 
 .cusLinCon > i {
   color: #7adee4;
@@ -749,10 +767,11 @@
   width: 12px;
   position: absolute;
   right: 5px;
-  top: 3px;
-  font-size: 0.8rem;
+  top: 5px;
+  /* font-size: 0.8rem; */
+  font-size: 13px;
   color: #292f44;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 /*行 自定义辅助线*/

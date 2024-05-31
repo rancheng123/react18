@@ -226,7 +226,6 @@ export default class WidgetLibraryControler extends React.Component {
    * @param {event} event 事件对象
    */
   start(skin, event) {
-    console.log(event, '哈哈哈哈')
     this.skin = skin;
     new DragAdd(this).start(event);
   }
@@ -296,7 +295,6 @@ export default class WidgetLibraryControler extends React.Component {
    * @return {object} 工具库内容项结构
    */
   toolLibraryHtml() {
-    console.log(this.state.current.id);
     let { tabs, group } = this.group[this.state.current.id];
     return (
       <div className="content_2 content" style={{ position: "relative" }}>

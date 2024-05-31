@@ -6,7 +6,7 @@ import React from 'react';
 import Widget from '@/system/widgets/widget.js';
 import Layer from '@/system/widgets/layer.js';
 
- //弹出下拉
+//弹出下拉
 
 const ComboBoxData = prop => {
   return React.createElement("div", {
@@ -47,7 +47,6 @@ const ComboBoxData = prop => {
 };
 /**
  * @class Classify 分类页面结构类
- * @author  
  */
 
 
@@ -55,7 +54,7 @@ class Classify {
   constructor(controler) {
     /**@property controler seo控制器实例 */
     this.controler = controler;
-    let innerHeight = window.innerHeight; //计算上部显示位置,用于修复小屏下显示不开的问题 sxt 2020-2-5
+    let innerHeight = window.innerHeight; //计算上部显示位置,用于修复小屏下显示不开的问题 
 
     this.top = innerHeight - 474 - 80 + "px";
   }
@@ -73,7 +72,6 @@ class Classify {
   }
   /**
    * @method render 视图入口方法
-   * @author sxt
    * @return {object} 组件结构
    */
 
@@ -137,7 +135,7 @@ class Classify {
 
   classifyType() {
     let state = this.state || {},
-        catType = state.catType || "product";
+      catType = state.catType || "product";
     return React.createElement(Widget.Radio, {
       title: "type",
       id: "",

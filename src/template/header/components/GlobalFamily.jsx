@@ -18,7 +18,6 @@ const GlobalFamily = ({ close }) => {
     const rect = document.getElementById('fontFamily').getBoundingClientRect()
     const distanceToScreenLeft = rect.left - 200;
 
-    console.log(iframeData);
 
     // 确定事件
     const ensure = () => {
@@ -31,7 +30,6 @@ const GlobalFamily = ({ close }) => {
 
 
     const handleChange = (value) => {
-        console.log(value);
         setFamilyData(value)
     }
     return (

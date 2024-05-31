@@ -152,7 +152,6 @@ export default class DragAdd {
         return void 0;
       }
 
-      console.log('end', opts.component);
 
       //卸载遮罩层
       this.componentMask(opts.main);

@@ -28,6 +28,7 @@ export default class RulerControler extends React.Component {
     this.state = {
       ...state,
       ...guid,
+      lockingIndexList: []
     };
   }
   /**
@@ -108,7 +109,11 @@ export default class RulerControler extends React.Component {
    * @param {Object} event 事件对象
    */
   start(type, id, i, event) {
-    console.log(type, id, i, event);
+    // 清空右键弹窗展示索引,隐藏右键弹窗
+    this.setState({
+      rightPopIndex: null
+    })
+
     try {
       const {
         target,
@@ -213,6 +218,12 @@ export default class RulerControler extends React.Component {
    * @param {Object} n 当前组件类
    */
   addGuid(type, event) {
+
+    // 清空右键弹窗展示索引,隐藏右键弹窗
+    this.setState({
+      rightPopIndex: null
+    })
+
     let state = this.state || {},
       _data = state[type] || [];
 
@@ -319,7 +330,8 @@ export default class RulerControler extends React.Component {
       newList = state[relerType];
     newList.splice(i, 1);
     this.setState({
-      [relerType]: newList
+      [relerType]: newList,
+      rightPopIndex: null
     });
     this.sendData();
   }
@@ -349,23 +361,45 @@ export default class RulerControler extends React.Component {
 
   // 右键点击事件
   handContextMenu(event, i) {
-    console.log('右键', event, i);
     event.stopPropagation();
     event.preventDefault()
-    // 隐藏参考线信息数据
+    // 展示右键菜单
     this.setState({
       rightPopIndex: i,
       rightPopX: event.clientX,
       rightPopY: event.clientY
     })
-    console.log(this.state);
-    // 展示对应的右键菜单结构
+  }
+
+  // 锁定
+  locking(i) {
+    let arr = this.state.lockingIndexList
+    arr.indexOf(i) !== -1 ? arr.splice(arr.indexOf(i), 1) : arr.push(i)
+    this.setState({
+      lockingIndexList: arr,
+      // 清空右键弹窗展示索引,隐藏右键弹窗
+      // rightPopIndex: null
+    })
+  }
+
+  //解锁
+  unlock(i) {
+    // 解锁
+    let arr = this.state.lockingIndexList
+    if (arr.indexOf(i) !== -1) {
+      arr.splice(arr.indexOf(i), 1)
+    }
+    this.setState({
+      lockingIndexList: arr,
+      // 清空右键弹窗展示索引,隐藏右键弹窗
+      // rightPopIndex: null
+    })
   }
 
 
 
+
   ruler(props) {
-    console.log('ruler', props);
     return (
       <div
         className={`${props.dir}Number`}
@@ -387,14 +421,6 @@ export default class RulerControler extends React.Component {
   }
 
   getGuid(type, event) {
-    console.log(111111111111, this.state);
-    // 
-    const rightPopStyle = {
-      position: 'fixed',
-      zIndex: 99999,
-      background: 'red'
-    }
-
     let state = this.state || {};
     let _data = [], idName = "";
 
@@ -413,6 +439,8 @@ export default class RulerControler extends React.Component {
       if (!_value) {
         return null;
       }
+      // 获取是否锁定状态
+      let _isLocking = this.state.lockingIndexList.indexOf(i) !== -1 ? true : false;
 
       return (
         <div
@@ -427,7 +455,7 @@ export default class RulerControler extends React.Component {
               className="iconfont"
               data-draggable="true"
               onContextMenu={(event) => this.handContextMenu(event, i)}
-              onMouseDown={this.start.bind(this, type, _id, i)}>
+              onMouseDown={_isLocking ? null : this.start.bind(this, type, _id, i)}>
               
             </i>
             <p className="cusLinNum">
@@ -439,14 +467,20 @@ export default class RulerControler extends React.Component {
                 onBlur={this.blur.bind(this, i)}
               />
               <span>px</span>
-              {/* <i className="iconfont" data-emname="del-guid" onClick={this.delete.bind(this, i, type)}></i> */}
+              {
+                // 锁定结构
+                _isLocking && <i className="iconfont" dangerouslySetInnerHTML={{ __html: '&#xe763;' }}></i>
+              }
             </p>
-            {/* 右键弹窗 */}
             {
+              //  右键弹窗结构
               this.state.rightPopIndex == i ?
-                <div style={{ ...rightPopStyle, top: this.state.rightPopY + 10, left: this.state.rightPopX + 10 }} >
-                  <div onClick={this.delete.bind(this, i, type)}>删除</div>
-                  <div>锁定</div>
+                <div className='rightPop' style={{ top: this.state.rightPopY + 10, left: this.state.rightPopX + 10 }} >
+                  <div className='rightPopItem' onClick={this.delete.bind(this, i, type)}>删除</div>
+                  {
+                    _isLocking ? <div className='rightPopItem' onClick={this.unlock.bind(this, i)}>解锁</div> : <div className='rightPopItem' onClick={this.locking.bind(this, i)}>锁定</div>
+                  }
+
                 </div> : null
             }
           </div>
