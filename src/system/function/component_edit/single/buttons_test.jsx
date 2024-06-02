@@ -326,7 +326,6 @@ class Buttons {
       node: this.node,
       id: "component-property"
     };
-
     //如果可以选中则标选中状态
     if (select) {
       setSelectState(type), param.close = () => setSelectState('');

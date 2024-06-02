@@ -25,12 +25,11 @@ function s35() {
     hidden,
     dataSource,
     overflowPart = "automatic",
-    fontLabel
+    fontLabel,
   } = document_data;
   const context = (_this$props$context = this.props.context) !== null && _this$props$context !== void 0 ? _this$props$context : {};
 
   let _daSource = dataSource && dataSource.companyField; //数据源存在时，给控件data-source的自定义属性，用于查找数据源 
-
 
   if (!Util.source) {
     if (dataSource && (dataSource.sign || dataSource.companyField == "publish_time" || dataSource.companyField == "add_time" || dataSource.companyField == "edit_time" || dataSource.companyField == "online_time" || dataSource.companyField == "offline_time")) {

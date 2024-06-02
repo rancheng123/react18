@@ -1,5 +1,6 @@
 
 import Dispatcher from '@/system/tools/dispatcher'
+import Util, { lan } from '@/components/page/util/util';
 
 /**
 * @method changeText 修改控件文本
@@ -22,15 +23,15 @@ export function changeText(id, e) {
       _editor = window.CKEDITOR.inline('editor');
       window.public.dom.querySelector(`#${id}`).style.visibility = "hidden";
 
-      _editor.setData(document_data.text, {
+      _editor.setData(Util.getComponentText(id, document_data, 'text', {}), {
         callback: () => {
           _editor.focus(true);
         }
       });
 
-      _editor.on("change", change.bind(null, id));
+      _editor.on("change", change.bind(null, id, document_data));
 
-      _editor.on("blur", blur.bind(null, id)); //动态插入个蒙层，在失去焦点后，删除掉，修复编辑器根据选中控件位置变化的问题 
+      _editor.on("blur", blur.bind(null, id, document_data)); //动态插入个蒙层，在失去焦点后，删除掉，修复编辑器根据选中控件位置变化的问题 
 
 
       let editorShow = document.createElement("div");
@@ -42,7 +43,7 @@ export function changeText(id, e) {
 /**
  * @function blur 失去焦点时执行方法
  */
-function blur(id, e) {
+function blur(id, document_data, e) {
   // property.setState((prev,prop)=>{
   //     prev.selected.editorShow = "none",
   //     prev.selected.editable = "false",
@@ -51,7 +52,7 @@ function blur(id, e) {
   // });
   document.querySelector(".editorShow").remove();
   Dispatcher.dispatch(`${id}_set`, {
-    args: [`document_data.text`, e.editor.getData()]
+    args: [lan ? document_data.language ? `document_data.language.${lan}` : `document_data.text` : `document_data.text`, e.editor.getData()]
   });
   e.editor.setData(""), e.editor.destroy();
   window.public.dom.querySelector(`#${id}`).style.visibility = "visible";
@@ -63,10 +64,11 @@ function blur(id, e) {
  * @function change 修改文本时触发方法
  * @param {object} e 事件对象 
  */
-function change(id, e) {
+function change(id, document_data, e) {
   if (e.editor.getData()) {
+    // 这里加了判断修改语言， 如果有相对应语言修改相对应语言 如果没有直接修改默认的
     Dispatcher.dispatch(`${id}_set`, {
-      args: [`document_data.text`, e.editor.getData()]
+      args: [lan ? document_data.language ? `document_data.language.${lan}` : `document_data.text` : `document_data.text`, e.editor.getData()]
     });
   }
   // let offsetHeight= window.public.dom.querySelector(`#${id}`).offsetHeight||10;
