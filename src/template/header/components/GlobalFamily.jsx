@@ -24,7 +24,11 @@ const GlobalFamily = ({ close }) => {
         Dispatcher.dispatch(`document_set`, {
             args: [`theme_data.SITE_HEADER.style.fontPageFamily`, familyData]
         });
+        const pub = window.public.win
 
+        console.log(pub);
+        // pub.siteAsJson
+        // pub.location.reload();
         console.log(Dispatcher.dispatch("getIframeData"));
     }
 

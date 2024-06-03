@@ -1,9 +1,7 @@
-
 // 导入 React 库
-import React from 'react';
+import React from "react";
 // 导入自定义的 util 模块
-import Util from '../../util/util';
-
+import Util from "../../util/util";
 
 /**
  * @class {Page} 页面视图类
@@ -22,15 +20,10 @@ export default class Page {
     let {
       state: {
         hidden,
-        component: {
-          documentType,
-          children
-        },
-        data
+        component: { documentType, children },
+        data,
       },
-      props: {
-        pages
-      }
+      props: { pages },
     } = this;
     let components = children.concat([]),
       pid = Util.pid,
@@ -74,8 +67,7 @@ export default class Page {
         <this.fontStyle pid={pid} />
         <Util.children components={components} data={data} page={page} />
       </div>
-    )
-
+    );
   }
   /**
    * @method style 页面样式
@@ -86,14 +78,9 @@ export default class Page {
   style(props) {
     const {
       state: {
-        component: {
-          documentType: id
-        },
-        data: {
-          design_data,
-          theme_data
-        }
-      }
+        component: { documentType: id },
+        data: { design_data, theme_data },
+      },
     } = this; //判断design_data数据是否存在
 
     if (design_data) {
@@ -103,8 +90,8 @@ export default class Page {
         const {
           bgColor,
           uri,
-          imgQuality = '',
-          positionMode = '',
+          imgQuality = "",
+          positionMode = "",
           posVal,
           attachment,
           opacity,
@@ -123,15 +110,15 @@ export default class Page {
         return (
           <style id={`${id}_style`}>
             {`.${id}-bg{
-              ${bgColor ? `background-color:${bgColor};` : ''}
-              ${uri ? `background:url(${uri}) ${positionMode};` : ''}
-              ${posVal ? `background-position:${posVal};` : ''}
-              ${attachment ? `background-attachment:${attachment};` : ''}
-              ${opacity ? `opacity:${opacity};` : ''}
-              ${quality ? `background-size:${quality}px auto` : ''}
+              ${bgColor ? `background-color:${bgColor};` : ""}
+              ${uri ? `background:url(${uri}) ${positionMode};` : ""}
+              ${posVal ? `background-position:${posVal};` : ""}
+              ${attachment ? `background-attachment:${attachment};` : ""}
+              ${opacity ? `opacity:${opacity};` : ""}
+              ${quality ? `background-size:${quality}px auto` : ""}
           }`}
           </style>
-        )
+        );
       }
 
       return null;
@@ -143,39 +130,37 @@ export default class Page {
   fontStyle() {
     const {
       state: {
-        component: {
-          documentType: id
-        },
-        data: {
-          theme_data
-        }
-      }
+        component: { documentType: id },
+        data: { theme_data },
+      },
     } = this;
 
     if (theme_data) {
       const {
         SITE_HEADER: {
-          style: {
-            fontPageFamily
-          }
-        }
+          style: { fontPageFamily },
+        },
       } = theme_data;
 
       if (fontPageFamily) {
-        return React.createElement("style", {
-          id: `${id}_fontAllPageStyle`
-        }, `
+        return React.createElement(
+          "style",
+          {
+            id: `${id}_fontAllPageStyle`,
+          },
+          `
                .container {
-                ${fontPageFamily ? `font-family:${fontPageFamily}` : ''}
+                ${fontPageFamily ? `font-family:${fontPageFamily}` : ""}
                }
                #SITE_FOOTER {
-                ${fontPageFamily ? `font-family:${fontPageFamily}` : ''}
+                ${fontPageFamily ? `font-family:${fontPageFamily}` : ""}
                }
 
                #SITE_HEADER {
-                ${fontPageFamily ? `font-family:${fontPageFamily}` : ''}
+                ${fontPageFamily ? `font-family:${fontPageFamily}` : ""}
                }
-               `);
+               `
+        );
       }
 
       return null;
@@ -183,5 +168,4 @@ export default class Page {
 
     return null;
   }
-
 }

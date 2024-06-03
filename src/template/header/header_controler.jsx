@@ -6,9 +6,8 @@ import { Select, Button } from 'antd';
 import styles from './header.module.less'
 import EditPage from './components/editPage.jsx'
 import GlobalFamily from "./components/GlobalFamily.jsx";
-// import Background from "./components/background.jsx";
 import Background from "./components/background/index.jsx";
-
+import TranslatePopup from '@/components/publicComponents/TranslatePopup/TranslatePopup.jsx'
 /**
  * @class {HeaderControler} 编辑页头部控制器类
  */
@@ -165,7 +164,7 @@ export default class HeaderControler extends React.Component {
                 }
               ]}
             />
-            <Button type="primary" className={styles.translateBtn}>翻译</Button>
+            <Button type="primary" className={styles.translateBtn} onClick={this.handTranslate.bind(this)}>翻译</Button>
           </div>
 
           <div className={styles.edipage}>
@@ -247,6 +246,8 @@ export default class HeaderControler extends React.Component {
         {this.state.editfontFamily && <GlobalFamily close={() => this.setState({ editfontFamily: false })} />}
         {/* 背景弹框 */}
         {this.state.editBackground && <Background close={() => this.setState({ editBackground: false })} />}
+        {/* 全局翻译弹框 */}
+        {this.state.translate && <TranslatePopup close={() => this.setState({ translate: false })} />}
       </header>
     )
   }
@@ -487,6 +488,13 @@ export default class HeaderControler extends React.Component {
   background() {
     this.setState({
       editBackground: true
+    });
+  }
+
+  // 全局翻译
+  handTranslate() {
+    this.setState({
+      translate: true
     });
   }
 }

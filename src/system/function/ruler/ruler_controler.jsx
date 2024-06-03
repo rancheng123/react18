@@ -378,7 +378,7 @@ export default class RulerControler extends React.Component {
     this.setState({
       lockingIndexList: arr,
       // 清空右键弹窗展示索引,隐藏右键弹窗
-      // rightPopIndex: null
+      rightPopIndex: null
     })
   }
 
@@ -392,7 +392,7 @@ export default class RulerControler extends React.Component {
     this.setState({
       lockingIndexList: arr,
       // 清空右键弹窗展示索引,隐藏右键弹窗
-      // rightPopIndex: null
+      rightPopIndex: null
     })
   }
 
