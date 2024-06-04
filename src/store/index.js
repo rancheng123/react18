@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import collectionRducer from "./module/collectionSlice";
+import userStore from "./module/userStore";
 
 export default configureStore({
     reducer: {
-        collectionRducer,
+        userStore
     },
 });

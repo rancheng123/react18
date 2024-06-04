@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// 函数式组件连接redux
 class MyComponent extends Component {
     constructor(props) {
         super(props);

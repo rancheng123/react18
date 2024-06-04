@@ -1,7 +1,7 @@
 import { Modal, Checkbox, Button, Spin } from 'antd';
 import styles from './TranslatePopup.module.less'
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { getlangListAPI } from '@/api/translate'
 /**
  * 翻译弹窗
  * @param {*} props.close  卸载弹框方法
@@ -9,35 +9,38 @@ import { useState } from 'react';
  */
 const TranslatePopup = ({ close }) => {
 
-    // 模拟语言数据
-    const data = [
-        { id: 1, name: '英语' },
-        { id: 2, name: '韩语' },
-        { id: 3, name: '西班牙语' },
-        { id: 4, name: '法语' },
-        { id: 5, name: '德语' },
-        { id: 6, name: '日语' },
-        { id: 7, name: '俄语' },
-        { id: 8, name: '葡萄牙语' },
-        { id: 9, name: '意大利语' },
-        { id: 10, name: '阿拉伯语' },
-    ]
 
     // 初始化默认的翻译语言列表数据
-    const [dataCopy, setdataCopy] = useState(() => {
-        if (data.length % 3 == 1) {
-            data.push({ id: Date.now() + 'a', name: '' }, { id: Date.now() + 'b', name: '' })
-        } else if (data.length % 3 == 2) {
-            data.push({ id: Date.now() + 'c', name: '' })
-        }
-        data.map(item => item.checked = false)
-        return data
-    })
-
+    const [dataCopy, setdataCopy] = useState([])
     // 初始化要翻译的数据
     const [translateIngData, setTranslateIngData] = useState([])
     // 初始化翻译是否完成
     const [translateIsOK, setTranslateIsOK] = useState(false)
+
+
+    useEffect(() => {
+        const getTranslateList = async () => {
+            await getlangListAPI().then(res => {
+                console.log(res);
+                let dataCopy = res.data.list;
+                // 处理数据
+                if (dataCopy.length % 3 == 1) {
+                    dataCopy.push({ id: Date.now() + 'a', name: '' }, { id: Date.now() + 'b', name: '' })
+                } else if (dataCopy.length % 3 == 2) {
+                    dataCopy.push({ id: Date.now() + 'c', name: '' })
+                }
+                dataCopy.map(item => item.checked = false)
+                setdataCopy(dataCopy)
+            })
+        }
+
+        // 获取翻译的语言列表
+        getTranslateList()
+    }, [])
+
+
+
+
 
 
     // 单独选择怨言

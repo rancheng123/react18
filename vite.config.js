@@ -16,6 +16,14 @@ export default defineConfig({
   build: {
     assetsDir: 'static',
   },
+  // server: {
+  //   proxy: {
+  //     '/translate': {
+  //       target: 'https://member.chukouplus.com/',
+  //       changeOrigin: true,
+  //     }
+  //   }
+  // },
   css: {
     preprocessorOptions: {
       less: {

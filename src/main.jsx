@@ -1,4 +1,3 @@
-import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import "./index.css";
 import App from './App'
@@ -11,7 +10,6 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { ConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
-
 
 import { componentsAsync } from "@/config/async_import_components_config";
 console.log(componentsAsync, 'componentsAsync');
@@ -41,7 +39,6 @@ async function load(event, callback) {
     }
   }
 }
-
 
 /**
  * @function unload 卸载页面

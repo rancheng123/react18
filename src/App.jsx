@@ -1,8 +1,11 @@
-import { useState, useReducer } from 'react'
+import { useState, useReducer, useEffect } from 'react'
 import Router from './routes'
 import './App.css'
 import Header from './template/header/header_controler'
 import Content from './template/content/content_controler'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchToken } from '@/store/module/userStore'
 
 function App(props) {
   const [count, setCount] = useState(0);
@@ -39,9 +42,28 @@ function App(props) {
     }
   }
 
+
+  // TODO模拟代码
+  const [load, setLoad] = useState(false)
+  const dispatchToken = useDispatch()
+  const token = useSelector(state => state.userStore.token)
+  const init = async () => {
+    const timestamp = Math.floor(Date.now() / 1000);
+    // 如果token不存在或者过期刷新token
+    if (!token || token.expiration < timestamp) {
+      await dispatchToken(fetchToken())
+    }
+    setLoad(true)
+  }
+
+  useEffect(() => {
+    init()
+  }, [])
+
+
   return (
     <div className='editorCon'>
-      <Header />
+      {load && <Header />}
       <Content load={props.load} />
       {/* <Router /> */}
     </div>

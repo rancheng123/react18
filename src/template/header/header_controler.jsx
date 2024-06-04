@@ -8,6 +8,7 @@ import EditPage from './components/editPage.jsx'
 import GlobalFamily from "./components/GlobalFamily.jsx";
 import Background from "./components/background/index.jsx";
 import TranslatePopup from '@/components/publicComponents/TranslatePopup/TranslatePopup.jsx'
+import { getcustomerLangListtAPI } from '@/api/translate';
 /**
  * @class {HeaderControler} 编辑页头部控制器类
  */
@@ -104,9 +105,7 @@ export default class HeaderControler extends React.Component {
     ]
 
     // 语言数据
-    this.lang_list = [
-      'Chinese', 'German', 'Arabic', 'Spanish', 'Korean', 'Italian'
-    ]
+    this.lang_list = []
 
     // 页面数据
     this.page_list = [
@@ -126,7 +125,12 @@ export default class HeaderControler extends React.Component {
 
     // this.init();
   }
-  componentDidMount() {
+  async componentDidMount() {
+    // 获取语种列表
+    await getcustomerLangListtAPI().then(res => {
+      this.lang_list = res.data.list
+    })
+
     this.init()
   }
   /**
@@ -156,8 +160,8 @@ export default class HeaderControler extends React.Component {
                   options: this.lang_list.map((item, index) => {
                     return (
                       {
-                        label: <span className={styles.langSelectChild} key={item}>{item}</span>,
-                        value: item
+                        label: <span className={styles.langSelectChild} key={item.id}> {item.is_main === 1 && <em>*</em>}{item.name}</span>,
+                        value: item.name
                       }
                     )
                   }),
@@ -256,6 +260,7 @@ export default class HeaderControler extends React.Component {
    */
 
   init() {
+    console.log('init', 11111111111);
     Dispatcher.register('setPageName', this.setPageName, this);
     Dispatcher.register('savePage', this.save, this);
   }
