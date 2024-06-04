@@ -9,11 +9,8 @@ import './language/system/zh.js'
 
 import store from "./store";
 import { Provider } from "react-redux";
-<<<<<<< HEAD
 import { ConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
-=======
->>>>>>> 56cf7aa (转换收藏相关结构为jsx格式,走通并模拟实现项目中的收藏流程,包括收藏删除清空等操作,项目引入redux)
 
 import { getTemplateDataAPI } from "@/api/template/index.js";
 
