@@ -175,6 +175,14 @@ const PublicAttrManager = {
     return import('./link/link_controler.jsx').then(module => module.LinkContainer);
   },
 
+
+  /**
+   * @method translate 获取翻译模块
+   */
+  translate() {
+    return import('./translate/translate_controler.jsx').then(module => module.default);
+  },
+
   // 动态导入处理函数
   //   async basicDynamicImport(path, name) {
   //     try {

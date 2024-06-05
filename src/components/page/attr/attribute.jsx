@@ -248,7 +248,7 @@ const Attribute = {
       param.element = document.querySelector(`#${id}`);
       param.root = ReactDOM.createRoot(document.querySelector(`#${id}`))
     }
-
+    console.log(id, type);
     this[type](param);
   },
 
@@ -421,6 +421,13 @@ const Attribute = {
     // 渲染函数式组件
     const Link = await PublicAttrManager.link();
     opts.root.render(<Link {...opts} />)
+  },
+
+
+  // 翻译属性
+  async translate(opts) {
+    const translate = await PublicAttrManager.translate();
+    translate.translate(opts)
   }
 
 };

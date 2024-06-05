@@ -16,3 +16,12 @@ export const getcustomerLangListtAPI = () => {
     })
 }
 
+// 翻译提交接口
+export const translateAPI = (data) => {
+    return http({
+        url: 'translate/submit',
+        method: 'post',
+        data
+    })
+}
+

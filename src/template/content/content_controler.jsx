@@ -488,6 +488,7 @@ export default class ContentControler extends React.Component {
         <div id="page-management"></div>
         <div id="info-prompt"></div>
         <div id="collection-modal"></div>
+        <div id="translate-modal"></div>
         <div id="publish-modal"></div>
       </div>
     )

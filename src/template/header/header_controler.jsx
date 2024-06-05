@@ -24,6 +24,7 @@ export default class HeaderControler extends React.Component {
       showIcon: '&#xe7a1;',
       editfontFamily: false,   // 是否展示编辑全局字体
       editBackground: false,   // 是否展示编辑背景
+      lang_list: []   // 语言数据
     }
 
     /**@property {array} btn_list 按钮配置列表*/
@@ -104,9 +105,6 @@ export default class HeaderControler extends React.Component {
       },
     ]
 
-    // 语言数据
-    this.lang_list = []
-
     // 页面数据
     this.page_list = [
       '产品列表页',
@@ -128,7 +126,9 @@ export default class HeaderControler extends React.Component {
   async componentDidMount() {
     // 获取语种列表
     await getcustomerLangListtAPI().then(res => {
-      this.lang_list = res.data.list
+      this.setState({
+        lang_list: res.data.list
+      })
     })
 
     this.init()
@@ -157,7 +157,7 @@ export default class HeaderControler extends React.Component {
                 {
                   label: <span className={styles.langSelectTitle}>我的网站语言</span>,
                   title: "lang",
-                  options: this.lang_list.map((item, index) => {
+                  options: this.state.lang_list.map((item, index) => {
                     return (
                       {
                         label: <span className={styles.langSelectChild} key={item.id}> {item.is_main === 1 && <em>*</em>}{item.name}</span>,

@@ -2,7 +2,7 @@
 // 导入 React 库
 import { useState, useMemo } from "react";
 import Widget from "@/system/widgets/widget";
-import { Input, Button, message, Divider } from "antd";
+import { Button, message, Divider } from "antd";
 import Dispatcher from "@/system/tools/dispatcher";
 // 引入弹框数据
 import messagepopupJSON from "@/components/messagepopup/data/messagepopup_data.json";
@@ -435,7 +435,7 @@ const linkList = [
     },
 ]
 
-// 判读数行是否为空
+// 判断对象是否为空
 function hasEmptyProperty(obj) {
     return Object.keys(obj).some(key => obj[key] === undefined || obj[key] === null || obj[key] === '' || obj[key] === 0);
 }

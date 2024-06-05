@@ -1,3 +1,4 @@
+import React from "react";
 import * as ReactDOM from "react-dom/client";
 import "./index.css";
 import App from './App'
@@ -14,6 +15,7 @@ import zh_CN from 'antd/es/locale/zh_CN';
 import { componentsAsync } from "@/config/async_import_components_config";
 console.log(componentsAsync, 'componentsAsync');
 async function load(event, callback) {
+  console.log('编辑页面刷新');
   const pub = window.public;
   //存储框架页window对象
   pub.win = event.target.contentWindow,
@@ -56,5 +58,5 @@ export const root = ReactDOM.createRoot(document.getElementById("root")).render(
       <App load={load} unload={unload} />
     </ConfigProvider>
   </Provider>
-  // </React.StrictMode>
+  // {/* </React.StrictMode> */}
 );
