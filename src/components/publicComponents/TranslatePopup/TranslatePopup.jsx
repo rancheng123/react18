@@ -12,8 +12,9 @@ let isStop = false
  * @param {*} props.close 卸载弹框方法
  * @param {*} props.opts  组件数据
  */
-// eslint-disable-next-line react/prop-types
-const TranslatePopup = ({ close, opts = {} }) => {
+const TranslatePopup = ({ close, opts }) => {
+
+    // console.log(Dispatcher.dispatch("getIframeData"));
 
     // 获取控件id
     const id = opts?.node?.current?.id || ''
@@ -79,6 +80,8 @@ const TranslatePopup = ({ close, opts = {} }) => {
     }, [])
 
 
+
+
     // 单独选择语言
     const handCheckboxChange = (event, id) => {
         setdataCopy(() => {
@@ -101,6 +104,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
         })
 
     }
+    const [istranslate, setistranslate] = useState(false)
 
     /**
      * 单个控件翻译
@@ -233,8 +237,6 @@ const TranslatePopup = ({ close, opts = {} }) => {
         if (!arr || arr.length == 0) {
             return message.info('请选择要翻译的语言')
         }
-
-
         // 设置要翻译的数据
         setTranslateIngData(() => {
             const langList = arr.map(item => ({ ...item, status: 0 }))
@@ -293,8 +295,86 @@ const TranslatePopup = ({ close, opts = {} }) => {
             return langList
         })
 
+        setistranslate(true)
+        console.log(translateIngData, arr);
 
+        const pop = async () => {
+            for (let index = 0; index < 10; index++) {
 
+                const res = await new Promise(resolve => {
+                    setTimeout(() => {
+                        resolve(index)
+                    }, 3000)
+                })
+                console.log(res);
+
+            }
+            console.log('执行完成');
+            // const response = await fetch(url);
+            // const result = await response.json();
+            // // 将获取的数据追加到data数组中
+            // setData(prevData => [...prevData, result]);
+        }
+        pop()
+        // async function asyncForEach(array, callback) {
+        //     for (let i = 0; i < array.length; i++) {
+        //         const res = await callback(array[i], i);
+        //         // 每次拿到结果后执行代码
+        //         // 翻译成功更新状态
+        //         setTranslateIngData(() => {
+        //             return translateIngData.map(item => {
+        //                 if (item.id == res.data.translate_lang_id) {
+        //                     return { ...item, status: 2 }
+        //                 } else {
+        //                     return item
+        //                 }
+        //             })
+        //         })
+        //     }
+        // }
+        // async function main() {
+        //     await asyncForEach(arr, async (item) => {
+        //         return new Promise((resolve, reject) => {
+        //             // 整理参数
+        //             const obj = {
+        //                 translate_lang_id: item.id, //要翻译的语种id
+        //                 data: [singleData]        // 要翻译的数据
+        //             }
+
+        //             // 翻译中更新状态
+        //             setTranslateIngData(() => {
+        //                 return translateIngData.map(v => {
+        //                     if (v.id == item.id) {
+        //                         return { ...v, status: 1 }
+        //                     } else {
+        //                         return v
+        //                     }
+        //                 })
+        //             })
+        //             // 调用翻译接口
+        //             translateAPI(obj).then(res => {
+        //                 console.log(res);
+        //                 resolve(res)
+        //             })
+
+        //         })
+        //     });
+
+        //     console.log('所有异步操作完成');
+        // }
+
+        // main();
+
+        if (id) {
+            // 单个控件翻译
+        } else {
+            // 整体翻译
+        }
+
+        // 模拟翻译完成
+        // setTimeout(() => {
+        //     setTranslateIsOK(true)
+        // }, 3000);
     }
 
 
