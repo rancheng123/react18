@@ -3,23 +3,23 @@ import React from 'react';
 // 导入自定义的 select_box 模块
 import { SelectBox } from '../../page/attr/select_box/select_box';
 // 导入自定义的 dispatcher 模块
-import Dispatcher from '@/system/tools/dispatcher.js';
+import Dispatcher from '@/system/tools/dispatcher';
 
 
 /**
  * @class {ComponentSelectBox} 内容面板属性控制器类
  */
-export default class ComponentSelectBox extends SelectBox{
+export default class ComponentSelectBox extends SelectBox {
   constructor(node, container) {
     super(node, container);
   }
 
   prev() {
     let _minWidth = 760,
-        _btnHeight = 30 * 2,
-        _domComponent = window.public.dom.querySelector(`#${this.node.current.id}`),
-        _componentWidth = _domComponent.offsetWidth,
-        _componentHeight = _domComponent.offsetHeight; //控件宽度小于规定的最小宽度时，或者组件高度小于按钮的高度*2时，不显示添加按钮
+      _btnHeight = 30 * 2,
+      _domComponent = window.public.dom.querySelector(`#${this.node.current.id}`),
+      _componentWidth = _domComponent.offsetWidth,
+      _componentHeight = _domComponent.offsetHeight; //控件宽度小于规定的最小宽度时，或者组件高度小于按钮的高度*2时，不显示添加按钮
 
 
     if (_componentWidth <= _minWidth || _componentHeight <= _btnHeight) {
@@ -62,7 +62,7 @@ export default class ComponentSelectBox extends SelectBox{
     )
   }
 
-  
+
   /**
    * @method {addStyle} 快速切换
    */
@@ -77,10 +77,10 @@ export default class ComponentSelectBox extends SelectBox{
       }
     } = this;
     let ediToolbtn = document.querySelector("#ediToolbtn"),
-        componentLibrary = ediToolbtn.querySelector(".componentLibrary"),
-        toolbarContent = document.querySelector("#edit-toolbar-content");
+      componentLibrary = ediToolbtn.querySelector(".componentLibrary"),
+      toolbarContent = document.querySelector("#edit-toolbar-content");
     let fnName = `${parent.id}_get`,
-        index = 0;
+      index = 0;
     const {
       component: {
         components

@@ -11,26 +11,38 @@ import Dispatcher from "@/system/tools/dispatcher";
  */
 const TranslatePopup = ({ close, opts }) => {
 
-    // console.log(Dispatcher.dispatch("getIframeData"));
+
 
     // 获取控件id
     const id = opts?.node?.current?.id || ''
-    let singleData = null
+    // 整理参数
+    let translateData = []
     if (id) {
+        // 获取控件容内容数据
         const text = Dispatcher.dispatch(`${id}_get`).data.document_data.text || ''
-        const regex = /<[^>]+>/g;
-        if (regex.test(text)) {
-            singleData = {
-                text,
-                is_editor: 1  //是否html格式，1 是，2 否
-            }
-        } else {
-            singleData = {
-                text,
-                is_editor: 2
+
+        translateData.push({
+            text,
+            is_editor: isHtml(text) ? 1 : 2  //是否html格式，1 是，2 否
+        })
+        console.log(translateData);
+    } else {
+        // 整体翻译
+        const document_data = Dispatcher.dispatch("getIframeData").data.document_data || {}
+        const pageData = Dispatcher.dispatch("getPageData") || {}
+        console.log('document_data', document_data, pageData);
+        for (const key in document_data) {
+            if (Object.hasOwnProperty.call(document_data, key)) {
+                const element = document_data[key];
+                if (element.text) {
+                    translateData.push({
+                        text: element.text,
+                        is_editor: isHtml(element.text) ? 1 : 2  //是否html格式，1 是，2 否
+                    })
+                }
             }
         }
-        console.log(singleData);
+        console.log(translateData);
     }
 
     // 初始化默认的翻译语言列表数据
@@ -44,7 +56,6 @@ const TranslatePopup = ({ close, opts }) => {
     useEffect(() => {
         const getTranslateList = async () => {
             await getlangListAPI().then(res => {
-                console.log(res);
                 let dataCopy = res.data.list;
                 // 处理数据
                 if (dataCopy.length % 3 == 1) {
@@ -60,8 +71,6 @@ const TranslatePopup = ({ close, opts }) => {
         // 获取翻译的语言列表
         getTranslateList()
     }, [])
-
-
 
 
     // 单独选择语言
@@ -86,65 +95,73 @@ const TranslatePopup = ({ close, opts }) => {
         })
 
     }
-    const [istranslate, setistranslate] = useState(false)
 
-    useEffect(() => {
-        console.log(translateIsOK);
-        // if (istranslate) {
+    // 请求接口翻译
+    const translate = async (newarr, parameter = []) => {
+        let result = null
+        const asyncForEach = async (array, callback) => {
+            for (let i = 0; i < array.length; i++) {
+                const res = await callback(array[i], i);
+                console.log(66666, res);
+                // 每次拿到结果后执行代码
+                if (res.code === 200) {
+                    // 翻译成功更新状态
+                    setTranslateIngData((data) => {
+                        const arr = data.map(item => {
+                            if (item.id == Number(res.data.translate_lang_id)) {
+                                return { ...item, status: 2 }
+                            } else {
+                                return item
+                            }
+                        })
+                        return arr
+                    })
+                } else {
+                    // 翻译失败更新状态
+                    setTranslateIngData((data) => {
+                        const arr = data.map(item => {
+                            if (item.id == Number(res.data.translate_lang_id)) {
+                                return { ...item, status: 3 }
+                            } else {
+                                return item
+                            }
+                        })
+                        return arr
+                    })
+                }
 
-        //     async function asyncForEach(array, callback) {
-        //         for (let i = 0; i < array.length; i++) {
-        //             const res = await callback(array[i], i);
-        //             console.log(66666, res);
-        //             // 每次拿到结果后执行代码
-        //             // 翻译成功更新状态
-        //             setTranslateIngData((data) => {
-        //                 const arr = data.map(item => {
-        //                     if (item.id == Number(res.data.translate_lang_id)) {
-        //                         return { ...item, status: 2 }
-        //                     } else {
-        //                         return item
-        //                     }
-        //                 })
-        //                 console.log(7777777, arr);
-        //                 return arr
-        //             })
-        //         }
-        //     }
-        //     async function main() {
-        //         await asyncForEach(translateIngData, async (item) => {
-        //             return new Promise((resolve, reject) => {
-        //                 // 整理参数
-        //                 const obj = {
-        //                     translate_lang_id: item.id, //要翻译的语种id
-        //                     data: [singleData]        // 要翻译的数据
-        //                 }
-        //                 console.log('v,item', item);
-        //                 // 翻译中更新状态
-        //                 setTranslateIngData((data) => {
-        //                     return data.map(v => {
-        //                         if (v.id == item.id) {
-        //                             return { ...v, status: 1 }
-        //                         } else {
-        //                             return v
-        //                         }
-        //                     })
-        //                 })
-        //                 // 调用翻译接口
-        //                 translateAPI(obj).then(res => {
-        //                     resolve(res)
-        //                 })
+            }
+        }
+        await asyncForEach(newarr, async (item) => {
+            return new Promise((resolve, reject) => {
+                // 整理参数
+                const obj = {
+                    translate_lang_id: item.id, //要翻译的语种id
+                    data: parameter      // 要翻译的数据
+                }
+                // 翻译中更新状态
+                setTranslateIngData((data) => {
+                    return data.map(v => {
+                        if (v.id == item.id) {
+                            return { ...v, status: 1 }
+                        } else {
+                            return v
+                        }
+                    })
+                })
+                // 调用翻译接口
+                translateAPI(obj).then(res => {
+                    resolve(res)
+                })
 
-        //             })
-        //         });
-        //         setTranslateIsOK(true)
-        //         console.log('所有异步操作完成');
-        //     }
+            })
+        });
 
-        //     main();
-        // }
+        // 翻译完成
+        setTranslateIsOK(true)
+        console.log('所有异步操作完成');
+    }
 
-    }, [istranslate])
     // 点击翻译按钮事件
     const handTranslate = () => {
         // 获取勾选的语言列表
@@ -156,91 +173,26 @@ const TranslatePopup = ({ close, opts }) => {
         if (!arr || arr.length == 0) {
             return message.info('请选择要翻译的语言')
         }
+
+
         // 设置要翻译的数据
         setTranslateIngData(() => {
-            return arr.map(item => ({ ...item, status: 0 }))
+            const newarr = arr.map(item => ({ ...item, status: 0 }))
+
+            if (id) {
+                // 单个控件翻译
+                translate(newarr, translateData)
+
+            } else {
+                // 整体翻译
+                translate(newarr, translateData)
+            }
+
+            return newarr
         })
 
-        setistranslate(true)
-        console.log(translateIngData, arr);
 
-        const pop = async () => {
-            for (let index = 0; index < 10; index++) {
 
-                const res = await new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve(index)
-                    }, 3000)
-                })
-                console.log(res);
-
-            }
-            console.log('执行完成');
-            // const response = await fetch(url);
-            // const result = await response.json();
-            // // 将获取的数据追加到data数组中
-            // setData(prevData => [...prevData, result]);
-        }
-        pop()
-        // async function asyncForEach(array, callback) {
-        //     for (let i = 0; i < array.length; i++) {
-        //         const res = await callback(array[i], i);
-        //         // 每次拿到结果后执行代码
-        //         // 翻译成功更新状态
-        //         setTranslateIngData(() => {
-        //             return translateIngData.map(item => {
-        //                 if (item.id == res.data.translate_lang_id) {
-        //                     return { ...item, status: 2 }
-        //                 } else {
-        //                     return item
-        //                 }
-        //             })
-        //         })
-        //     }
-        // }
-        // async function main() {
-        //     await asyncForEach(arr, async (item) => {
-        //         return new Promise((resolve, reject) => {
-        //             // 整理参数
-        //             const obj = {
-        //                 translate_lang_id: item.id, //要翻译的语种id
-        //                 data: [singleData]        // 要翻译的数据
-        //             }
-
-        //             // 翻译中更新状态
-        //             setTranslateIngData(() => {
-        //                 return translateIngData.map(v => {
-        //                     if (v.id == item.id) {
-        //                         return { ...v, status: 1 }
-        //                     } else {
-        //                         return v
-        //                     }
-        //                 })
-        //             })
-        //             // 调用翻译接口
-        //             translateAPI(obj).then(res => {
-        //                 console.log(res);
-        //                 resolve(res)
-        //             })
-
-        //         })
-        //     });
-
-        //     console.log('所有异步操作完成');
-        // }
-
-        // main();
-
-        if (id) {
-            // 单个控件翻译
-        } else {
-            // 整体翻译
-        }
-
-        // 模拟翻译完成
-        // setTimeout(() => {
-        //     setTranslateIsOK(true)
-        // }, 3000);
     }
 
 
@@ -248,6 +200,7 @@ const TranslatePopup = ({ close, opts }) => {
     const handContinue = () => {
         // 清空翻译中数据
         setTranslateIngData([])
+        setTranslateIsOK(false)
     }
 
     const title = () => {
@@ -270,7 +223,7 @@ const TranslatePopup = ({ close, opts }) => {
                             <div>
                                 <p className={styles.title}>翻译语言</p>
                                 <div className={styles.selectAll}>
-                                    <Checkbox onChange={handCheckboxAll}>
+                                    <Checkbox onChange={handCheckboxAll} checked={dataCopy.length !== 0 && dataCopy.every(v => v.checked)}>
                                         全选
                                     </Checkbox>
                                 </div>
@@ -374,4 +327,10 @@ const translateIconEnum = {
     2: '&#xe778;',
     3: '&#xe79f;'
 }
+
+// 判断是否为html结构
+const isHtml = (str) => {
+    return /<[^>]+>/g.test(str)
+}
+
 export default TranslatePopup;

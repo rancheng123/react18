@@ -189,7 +189,6 @@ const Util = {
     this.type = type, this.pid = structure.children[2].pageId; //上一次类型与当前类型不同，返回true，相同返回false
 
     this.istype = type != this.ptype ? (this.ptype = type, true) : false;
-
     //获取页面结构
     const Page = await getComponent("document", type);
     //获取控件样式

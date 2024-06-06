@@ -4,8 +4,6 @@ import Layer from '../widgets/layer'
 /**
  * @class {Save} 编辑页头部视图类
  * @author wyq
- * @version 1.0
- * @date 2019-11-29
  */
 
 class Save {

@@ -468,6 +468,7 @@ export default class ContentControler extends React.Component {
             scrolling="no"
             onLoad={(event) => this.load(event)}
             src={`/framework.html`}
+          // src={`/blank.html`}
           // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
           />
         </div>
