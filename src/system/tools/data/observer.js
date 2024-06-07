@@ -6,6 +6,7 @@
  * @param {function} fn 触发观察者时执行的回调函数 
  */
 function Observer(action, id, cid, fn) {
+  console.log("Observer", action, id, cid, fn);
   const element = window.public.dom.querySelector(`#${id}`); //判断控件节点是否存在
 
   if (element) {
@@ -52,4 +53,4 @@ function Observer(action, id, cid, fn) {
   }
 }
 
-export default Observer;
+export { Observer };

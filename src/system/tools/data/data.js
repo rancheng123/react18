@@ -1,6 +1,6 @@
 import Util from "@/components/page/util/util";
 import Dispatcher from "../dispatcher";
-import Observer from "./observer";
+import { Observer } from "./observer";
 
 /**
  * @function query 根据键值循环数据查找到对应数据
@@ -336,12 +336,12 @@ const Data = {
     //判断是否存在新数据并且能否获取到对应控件数据
     if (newData && data) {
       //指定插入位置，则插入到指定位置，否则插入到最后
-      components
-        ? index != undefined && index >= 0
-          ? components.splice(index, 0, newData.component)
-          : components.push(newData.component)
-        : (component.components = [newData.component]);
-
+      // components
+      //   ? index != undefined && index >= 0
+      //     ? components.splice(index, 0, newData.component)
+      //     : components.push(newData.component)
+      //   : (component.components = [newData.component]);
+      components ? index != undefined && index >= 0 ? components.splice(index, 0, newData.component) : components.push(newData.component) : component.components = [newData.component];
       //合并数据到站点数据中
       Data.dataTypes.forEach((e) => {
 
@@ -351,11 +351,14 @@ const Data = {
           // data.data[e] && /Object/.test(data.data[e].toString())
           //   ? Object.assign(data.data[e], newData.data[e])
           //   : (data.data[e] = newData.data[e]);
-          if (data.data[e] && /Object/.test(data.data[e].toString())) {
-            Object.assign(data.data[e], newData.data[e])
-          } else {
-            data.data[e] = newData.data[e];
-          }
+
+          // if (data.data[e] && /Object/.test(data.data[e].toString())) {
+          //   Object.assign(data.data[e], newData.data[e])
+          // } else {
+          //   data.data[e] = newData.data[e];
+          // }
+
+          data.data[e] && /Object/.test(data.data[e].toString()) ? Object.assign(data.data[e], newData.data[e]) : data.data[e] = newData.data[e];
         }
       });
       //unrender不为true，表示要渲染ui，为true则不渲染ui

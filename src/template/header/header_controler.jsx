@@ -151,8 +151,8 @@ export default class HeaderControler extends React.Component {
           <div className={styles.ediLang}>
             <Select
               className={styles.langSelect}
-              defaultValue="Chinese"
               style={{ width: '150px', height: "32px" }}
+              key={'id'}
               options={[
                 {
                   label: <span className={styles.langSelectTitle}>我的网站语言</span>,
@@ -160,13 +160,14 @@ export default class HeaderControler extends React.Component {
                   options: this.state.lang_list.map((item, index) => {
                     return (
                       {
-                        label: <span className={styles.langSelectChild} key={item.id}> {item.is_main === 1 && <em>*</em>}{item.name}</span>,
-                        value: item.name
+                        label: <span className={styles.langSelectChild} key={item.id} > {item.is_main === 1 && <em>*</em>}{item.name}</span>,
+                        value: item.id + '#' + item.name + '#' + item.is_main,
                       }
                     )
                   }),
                 }
               ]}
+              onChange={this.handLangChange}
             />
             <Button type="primary" className={styles.translateBtn} onClick={this.handTranslate.bind(this)}>翻译</Button>
           </div>
@@ -260,7 +261,6 @@ export default class HeaderControler extends React.Component {
    */
 
   init() {
-    console.log('init', 11111111111);
     Dispatcher.register('setPageName', this.setPageName, this);
     Dispatcher.register('savePage', this.save, this);
   }
@@ -380,9 +380,10 @@ export default class HeaderControler extends React.Component {
 
     if (header.lastChild.className != "save-progress") {
       const progress = this.progress(header, 'add');
-      const {
-        Save
-      } = await Promise.all(/*! import() | save */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("save")]).then(__webpack_require__.bind(null, /*! ../../system/function/save */ "./system/function/save.js"));
+      // const {
+      //   Save
+      // } = await Promise.all(/*! import() | save */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("save")]).then(__webpack_require__.bind(null, /*! ../../system/function/save */ "./system/function/save.js"));
+      const { Save } = await import('../../system/function/save.js');
       await new Save("#component-modal").save();
       this.progress(progress, 'remove');
     }
@@ -501,5 +502,15 @@ export default class HeaderControler extends React.Component {
     this.setState({
       translate: true
     });
+  }
+
+  // 切换语言下拉框
+  handLangChange(v) {
+    const [id, name, is_main] = v.split('#')
+    console.log(id, name, is_main);
+    localStorage.setItem('is_main', is_main)
+
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('lan',)
   }
 }

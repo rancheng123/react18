@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dispatcher from '@/system/tools/dispatcher';
-import BackgroundImage from './backgroundImage/background_image.jsx';
+import BackgroundImage from './background_image.jsx';
 
 
 class BackgroundImageControler extends React.Component {

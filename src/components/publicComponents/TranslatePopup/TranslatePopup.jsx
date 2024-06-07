@@ -9,9 +9,8 @@ import Dispatcher from "@/system/tools/dispatcher";
  * @param {*} props.close 卸载弹框方法
  * @param {*} props.opts  组件数据
  */
-const TranslatePopup = ({ close, opts }) => {
-
-
+// eslint-disable-next-line react/prop-types
+const TranslatePopup = ({ close, opts = {} }) => {
 
     // 获取控件id
     const id = opts?.node?.current?.id || ''
@@ -29,8 +28,9 @@ const TranslatePopup = ({ close, opts }) => {
     } else {
         // 整体翻译
         const document_data = Dispatcher.dispatch("getIframeData").data.document_data || {}
-        const pageData = Dispatcher.dispatch("getPageData") || {}
-        console.log('document_data', document_data, pageData);
+        const pageData = Dispatcher.dispatch("getPageData").data.document_data || {}
+
+        console.log('页面数据', document_data, pageData);
         for (const key in document_data) {
             if (Object.hasOwnProperty.call(document_data, key)) {
                 const element = document_data[key];
@@ -47,7 +47,7 @@ const TranslatePopup = ({ close, opts }) => {
 
     // 初始化默认的翻译语言列表数据
     const [dataCopy, setdataCopy] = useState([])
-    // 初始化要翻译的数据
+    // 初始化选中的要翻译语言列表的数据
     const [translateIngData, setTranslateIngData] = useState([])
     // 初始化翻译是否完成
     const [translateIsOK, setTranslateIsOK] = useState(false)
@@ -97,7 +97,7 @@ const TranslatePopup = ({ close, opts }) => {
     }
 
     // 请求接口翻译
-    const translate = async (newarr, parameter = []) => {
+    const translate = async (newarr, parameter = [], cb) => {
         let result = null
         const asyncForEach = async (array, callback) => {
             for (let i = 0; i < array.length; i++) {
@@ -120,7 +120,7 @@ const TranslatePopup = ({ close, opts }) => {
                     // 翻译失败更新状态
                     setTranslateIngData((data) => {
                         const arr = data.map(item => {
-                            if (item.id == Number(res.data.translate_lang_id)) {
+                            if (item.id == array[i].id) {
                                 return { ...item, status: 3 }
                             } else {
                                 return item
@@ -129,6 +129,9 @@ const TranslatePopup = ({ close, opts }) => {
                         return arr
                     })
                 }
+
+                // 执行回调
+                cb(res)
 
             }
         }
@@ -181,7 +184,18 @@ const TranslatePopup = ({ close, opts }) => {
 
             if (id) {
                 // 单个控件翻译
-                translate(newarr, translateData)
+                translate(newarr, translateData, (res) => {
+                    console.log('每次结束后执行回调方法', res, id);
+
+                    if (!res.data.translate_lang_id) return
+
+                    const language = res.data.translate_lang_id
+                    Dispatcher.dispatch(`${id}_set`, {
+                        args: [`document_data.language.${language}`, id]
+                    })
+                    // console.log(Dispatcher.dispatch(`${id}_get`));
+                    console.log(Dispatcher.dispatch(`getPageData`));
+                })
 
             } else {
                 // 整体翻译

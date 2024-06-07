@@ -61,8 +61,9 @@ export default class CustomControler extends React.Component {
    * @static init 初始化方法
   */
   init() {
-    let currentId = this.props.id; //当前控件id
 
+    let currentId = this.props.id; //当前控件id
+    // debugger
     let parentId = this.props.node.parent.id; //父级id
 
     let parentData = Dispatcher.dispatch(`${parentId}_get`),
@@ -241,7 +242,7 @@ export default class CustomControler extends React.Component {
   */
   addSelect(componentType, component, state, event) {
     let newComponent = {}; //类型为列表和表单时，所有数据都替换
-
+    // debugger event
     if (componentType == "em-List" || componentType == "em-Form" || componentType == "em-Search" || componentType == "em-Menu") {
       newComponent = component;
     } else {

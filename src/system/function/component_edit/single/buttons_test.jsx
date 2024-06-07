@@ -223,6 +223,11 @@ class Buttons {
               if (show && !Buttons.controler.isShow(button.node, show)) {
                 return null;
               }
+              // 当前页面不是主语种时，隐藏翻译按钮
+              if (name === 'translate' && type === 'translate' && localStorage.getItem('is_main') == '2') {
+                return null
+              }
+
               return (
                 <ConfigBtn.ConfigButton
                   key={i}

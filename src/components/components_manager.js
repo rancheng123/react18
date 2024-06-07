@@ -10,13 +10,6 @@ const dynamicImport = async (path, name) => {
     }
     const m = await modules[`./${path}.js`]
     return m ? m().then(mod => comProxy(mod[name])) : null
-
-
-    // let Module = null
-    // modules[`./${path}.js`] && await modules[`./${path}.js`]().then((mod) => {
-    //   Module = mod
-    // })
-    // return comProxy(Module[name]);
   } catch (error) {
     console.error('err', error);
   }

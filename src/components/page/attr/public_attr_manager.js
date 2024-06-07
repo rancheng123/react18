@@ -97,6 +97,7 @@ const PublicAttrManager = {
     if (name) {
       [path, moduleName] = connect(name, ['[name]_custom_controler.js', moduleName]);
     }
+    console.log(path, moduleName);
     // return import(`../../${path}`).then(module => module[moduleName]);
     return getAsyncComponent(componentBasePath + path, moduleName)
     // return import(`./custom/custom_controler.jsx`).then(module => module[moduleName]);
