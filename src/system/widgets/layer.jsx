@@ -235,6 +235,7 @@ const Layer = {
       //结构渲染完毕触发动画
       useEffect(() => {
         setTimeout(() => setAnimate("yq-layer-end"), 0);
+        return () => {}
       }, []);
       return (
         <section
@@ -351,6 +352,7 @@ const Layer = {
 
     useEffect(() => {
       setTimeout(() => setAnimate("yq-layer-end"), 0);
+      return () => {}
     }, []);
     return (
       <section
@@ -427,12 +429,14 @@ const Layer = {
 
     useEffect(() => {
       setTimeout(() => setAnimate("yq-layer-end"), 0);
+      return () => {}
     }, []);
     const [tab, selectedTab] = useState(opts.tab); //面板结构渲染完毕且属性类型不同时执行方法
 
     if (opts.change) {
       useEffect(() => {
         opts.change(tab);
+        return () => {}
       }, [tab]);
     }
 

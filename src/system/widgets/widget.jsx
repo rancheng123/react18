@@ -1067,6 +1067,7 @@ function ColorPicker(prop) {
         prop.change(e.colorType == "single" ? e.color.rgba : e.color.str, colorTypeOption);
       }
     }); //清除方法
+    return () => {}
   }, [color]);
   // const picker = React.createElement("div", {
   //   id: prop.id,

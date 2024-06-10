@@ -58,6 +58,7 @@ function App(props) {
 
   useEffect(() => {
     init()
+    return () => {}
   }, [])
 
 
