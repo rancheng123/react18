@@ -8,24 +8,13 @@
     "build": "vite build --mode production",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f84b245 (RN-000: test ssr)
     "ssr-dev": "node ./server",
     "ssr-build": "npm run ssr-build:client && npm run ssr-build:server",
     "ssr-build:client": "vite build --base=/ssr/src/index.html --ssrManifest --outDir ssrdist/client",
     "ssr-build:server": "vite build --ssr ssr/src/entry-server.jsx --outDir ssrdist/server",
-<<<<<<< HEAD
-    "ssr-preview": "cross-env NODE_ENV=production node server"
-=======
-    "ssr-dev": "node ./ssr/server"
->>>>>>> 470503b (RN-000: 测试服务)
-=======
     "ssr-preview": "cross-env NODE_ENV=production node server",
     "next-dev": "node ./server.js",
     "next-build": "next build"
->>>>>>> fe8c24b (RN-000: 预览bug处理)
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.3",
@@ -36,9 +25,6 @@
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
     "axios": "^1.7.2",
-    "compression": "^1.7.4",
-    "cross-env": "^7.0.3",
-    "express": "^4.19.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "monaco-editor": "^0.48.0",
@@ -50,20 +36,8 @@
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.2",
     "react-router-dom": "^6.22.3",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "sirv": "^2.0.4",
     "sort-by": "^1.2.0"
-=======
-    "sort-by": "^1.2.0",
-    "sirv": "^2.0.4",
-    "compression": "^1.7.4",
-    "express": "^4.19.2"
->>>>>>> 470503b (RN-000: 测试服务)
-=======
-    "sirv": "^2.0.4",
-    "sort-by": "^1.2.0"
->>>>>>> f84b245 (RN-000: test ssr)
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
