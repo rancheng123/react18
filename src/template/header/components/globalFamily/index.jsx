@@ -30,7 +30,7 @@ const GlobalFamily = ({ close }) => {
 
         win.siteAsJson.masterPage.data.theme_data.SITE_HEADER.style.fontPageFamily = familyData
 
-        // 模拟实现
+        // 模拟实现替换全局字体
         const res = await Util.loadComponent(window.public.type == 'pc' ? 'html' : 'mo', JSON.parse(JSON.stringify(win.siteAsJson)))
         createRoot(win.document.querySelector("#root")).render(res)
         console.log(Dispatcher.dispatch("getIframeData"));

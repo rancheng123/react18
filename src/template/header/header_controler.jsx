@@ -5,10 +5,11 @@ import logo from '@/assets/image/logo.png'
 import { Select, Button } from 'antd';
 import styles from './header.module.less'
 import EditPage from './components/editPage.jsx'
-import GlobalFamily from "./components/GlobalFamily.jsx";
+import GlobalFamily from "./components/globalFamily/index.jsx";
 import Background from "./components/background/index.jsx";
 import TranslatePopup from '@/components/publicComponents/TranslatePopup/TranslatePopup.jsx'
 import { getcustomerLangListtAPI } from '@/api/translate';
+import { getLan } from '@/utils/utils.js';
 /**
  * @class {HeaderControler} 编辑页头部控制器类
  */
@@ -152,21 +153,22 @@ export default class HeaderControler extends React.Component {
             <Select
               className={styles.langSelect}
               style={{ width: '150px', height: "32px" }}
-              key={'id'}
-              options={[
-                {
-                  label: <span className={styles.langSelectTitle}>我的网站语言</span>,
-                  title: "lang",
-                  options: this.state.lang_list.map((item, index) => {
-                    return (
-                      {
-                        label: <span className={styles.langSelectChild} key={item.id} > {item.is_main === 1 && <em>*</em>}{item.name}</span>,
-                        value: item.id + '#' + item.name + '#' + item.is_main,
-                      }
-                    )
-                  }),
-                }
-              ]}
+              defaultValue={getLan() ? decodeURIComponent(getLan()) : ''}
+              options={
+                [
+                  {
+                    label: <span className={styles.langSelectTitle}>我的网站语言</span>,
+                    title: "lang",
+                    options: this.state.lang_list.map((item, index) => {
+                      return (
+                        {
+                          label: <span className={styles.langSelectChild} key={item.id} > {item.is_main === 1 && <em>*</em>}{item.name}</span>,
+                          value: item.id + '#' + item.name + '#' + item.is_main,
+                        }
+                      )
+                    }),
+                  }
+                ]}
               onChange={this.handLangChange}
             />
             <Button type="primary" className={styles.translateBtn} onClick={this.handTranslate.bind(this)}>翻译</Button>
@@ -506,11 +508,15 @@ export default class HeaderControler extends React.Component {
 
   // 切换语言下拉框
   handLangChange(v) {
+    // 语种id,语种名字,是否为主语种
     const [id, name, is_main] = v.split('#')
-    console.log(id, name, is_main);
     localStorage.setItem('is_main', is_main)
 
     const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set('lan',)
+    searchParams.set('lan', v)
+
+    // 替换页面数据
+    window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}`)
+    window.location.reload()
   }
 }

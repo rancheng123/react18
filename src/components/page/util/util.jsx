@@ -11,38 +11,14 @@ import componentsManager from '@/components/components_manager';
 import LinkDecorator from './link_decorator';
 // 导入自定义的 image_path 模块
 import ImagePath from './image_path';
+import { getLan } from '@/utils/utils.js';
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 let Components = null;
-const lan = getLan();
+// const lan = getLan();
+const lan = getLan() ? getLan().split('#')[0] : '';
 export { lan };
-
-/** 
-* @param {string}  url
-* @return {string} url 所选参数的value
-*/
-function getQueryParam(url) {
-  // 通过 ? 分割获取后面的参数字符串
-  let urlStr = url.split('?')[1] || ''
-  // 创建空对象存储参数
-  let obj = {};
-  // 再通过 & 将每一个参数单独分割出来
-  let paramsArr = urlStr.split('&')
-  for (let i = 0, len = paramsArr.length; i < len; i++) {
-    // 再通过 = 将每一个参数分割为 key:value 的形式
-    let arr = paramsArr[i].split('=')
-    obj[arr[0]] = arr[1];
-  }
-  return obj
-}
-
-/** 
-* @return {string} 浏览器选择当前语言
-*/
-function getLan() {
-  return getQueryParam(window.location.href)['lan']
-}
 
 /**
  * @function getComponent 获取对应组件
@@ -366,12 +342,12 @@ const Util = {
 
       if (text == undefined) {
         text = "";
-      } //控件是列表数据源时，并且传过来了列表数据时 获取数据中的内容 sxt 2020-2-28
+      } //控件是列表数据源时，并且传过来了列表数据时 获取数据中的内容 
 
 
       if (dataSource.type == "list" && context) {
         keyValue = `${dataSource.companyLabelText || ""}${text}`;
-      } //类型为数据源并且列表数据是自定义时，读取传过来的值 sxt 2020-11-10
+      } //类型为数据源并且列表数据是自定义时，读取传过来的值 
 
 
       if (context && context.selectionContent == "custom") {
@@ -380,7 +356,8 @@ const Util = {
 
       return keyValue;
     } else {
-      return lan ? data.language ? data.language[lan] : data[key] : data[key];
+      // return lan ? data.language ? data.language[lan] : data[key] : data[key];
+      return (lan && data.language && data.language[lan]) ? data.language[lan] : data[key];
     }
   },
 
@@ -510,7 +487,7 @@ const Util = {
 
       if (dataSource.type == "list" && context) {
         keyValue = `${dataSource.companyLabelText || ""}${text}`;
-      } //类型为数据源并且列表数据是自定义时，读取传过来的值 sxt 2020-11-10
+      } //类型为数据源并且列表数据是自定义时，读取传过来的值 
 
 
       if (context && context.selectionContent == "custom") {
@@ -519,7 +496,8 @@ const Util = {
 
       return keyValue;
     } else {
-      return lan ? data.language ? data.language[lan] : data[key] : data[key];
+      // return lan ? data.language ? data.language[lan] : data[key] : data[key];
+      return (lan && data.language && data.language[lan]) ? data.language[lan] : data[key];
       // return data[key];
     }
   }

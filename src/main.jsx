@@ -14,13 +14,19 @@ import zh_CN from 'antd/es/locale/zh_CN';
 
 import { componentsAsync } from "@/config/async_import_components_config";
 console.log(componentsAsync, 'componentsAsync');
+
+/**
+ * 异步加载函数，用于在特定事件触发时加载页面。
+ * @param {Event} event - 触发事件的对象。
+ * @param {Function} callback - 加载完成后的回调函数。
+ */
 async function load(event, callback) {
   console.log('编辑页面刷新');
   const pub = window.public;
   //存储框架页window对象
-  pub.win = event.target.contentWindow,
-    //存储框架页document对象
-    pub.dom = pub.win.document;
+  pub.win = event.target.contentWindow
+  //存储框架页document对象
+  pub.dom = pub.win.document;
 
   //是否存在页面数据
   if (pub.win.siteAsJson) {
@@ -41,6 +47,8 @@ async function load(event, callback) {
     }
   }
 }
+
+
 
 /**
  * @function unload 卸载页面

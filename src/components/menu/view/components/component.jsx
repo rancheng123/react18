@@ -469,10 +469,10 @@ const Component = {
     if (iconSrc) {
       return (
         <div className={`${id}Ic btnIcon ${id}${type}`}>
-          <img 
+          <img
             className="btnImg lazyload"
-            data-src={iconSrc} 
-          src={Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc} alt="" />
+            data-src={iconSrc}
+            src={Util.source ? 'https://img.bjyyb.net/grey.png' : iconSrc} alt="" />
         </div>
       )
       // return React.createElement("div", {
@@ -733,8 +733,6 @@ const Component = {
 
   /**
   * @method menuLi li基本结构
-  * @date 2019-12-30  17：06
-  * @author sxt
   * @return {object} li基本结构
   */
   menuUl(prop) {
@@ -759,7 +757,7 @@ const Component = {
 
       if (!_list) {
         return null;
-      } //没结构时，不读取结构 sxt 2020-5-14
+      } //没结构时，不读取结构 
 
 
       let ulClass = "",

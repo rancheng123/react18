@@ -31,6 +31,16 @@ const TranslatePopup = ({ close, opts = {} }) => {
         const pageData = Dispatcher.dispatch("getPageData").data.document_data || {}
 
         console.log('页面数据', document_data, pageData);
+
+        /**
+         * 参数有哪些
+         * document_data : {
+         *      em-text: text,
+         *      em-button: label
+         * }     
+         * menu_data    name
+         * 
+         */
         for (const key in document_data) {
             if (Object.hasOwnProperty.call(document_data, key)) {
                 const element = document_data[key];
@@ -163,6 +173,12 @@ const TranslatePopup = ({ close, opts = {} }) => {
         // 翻译完成
         setTranslateIsOK(true)
         console.log('所有异步操作完成');
+        // 观察是否修改
+        setTimeout(() => {
+            console.log(Dispatcher.dispatch(`${id}_get`));
+            console.log(Dispatcher.dispatch(`getIframeData`));
+            console.log(Dispatcher.dispatch(`getPageData`));
+        }, 1000)
     }
 
     // 点击翻译按钮事件
@@ -189,12 +205,14 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
                     if (!res.data.translate_lang_id) return
 
+                    // 语种id
                     const language = res.data.translate_lang_id
+                    // 翻译后的内容
+                    const text = res.data.data[0].text
+                    // 派发修改控件数据事件
                     Dispatcher.dispatch(`${id}_set`, {
-                        args: [`document_data.language.${language}`, id]
+                        args: [`document_data.language.${language}`, text]
                     })
-                    // console.log(Dispatcher.dispatch(`${id}_get`));
-                    console.log(Dispatcher.dispatch(`getPageData`));
                 })
 
             } else {

@@ -33,7 +33,6 @@ function s36() {
     text = language.zh_CN
   }
 
-
   if (!Util.source) {
     if (dataSource && (dataSource.sign || dataSource.companyField == "publish_time" || dataSource.companyField == "add_time" || dataSource.companyField == "edit_time" || dataSource.companyField == "online_time" || dataSource.companyField == "offline_time")) {
       text = Util.timeTypeCont(id, document_data, 'text', context);
