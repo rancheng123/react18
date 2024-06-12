@@ -52,6 +52,8 @@ async function load(event, callback) {
 
     try {
       const res = await Util.loadComponent(pub.type == 'pc' ? 'html' : 'mo', JSON.parse(JSON.stringify(pub.win.siteAsJson)))
+
+      console.log(res, '哈斯对方哈萨克的回复喀什的海景房')
       ReactDOM.createRoot(pub.dom.querySelector("#root")).render(res)
       callback && callback()
     } catch (error) {

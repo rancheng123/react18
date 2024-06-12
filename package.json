@@ -16,10 +16,16 @@
     "ssr-build": "npm run ssr-build:client && npm run ssr-build:server",
     "ssr-build:client": "vite build --base=/ssr/src/index.html --ssrManifest --outDir ssrdist/client",
     "ssr-build:server": "vite build --ssr ssr/src/entry-server.jsx --outDir ssrdist/server",
+<<<<<<< HEAD
     "ssr-preview": "cross-env NODE_ENV=production node server"
 =======
     "ssr-dev": "node ./ssr/server"
 >>>>>>> 470503b (RN-000: 测试服务)
+=======
+    "ssr-preview": "cross-env NODE_ENV=production node server",
+    "next-dev": "node ./server.js",
+    "next-build": "next build"
+>>>>>>> fe8c24b (RN-000: 预览bug处理)
   },
   "dependencies": {
     "@ant-design/icons": "^4.8.3",
@@ -37,6 +43,7 @@
     "match-sorter": "^6.3.4",
     "monaco-editor": "^0.48.0",
     "mousetrap": "^1.6.5",
+    "next": "^14.2.3",
     "prop-types": "^15.8.1",
     "rc-dialog": "^9.4.0",
     "react": "^18.2.0",
@@ -63,12 +70,12 @@
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@vitejs/plugin-react": "^4.2.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "less": "^4.2.0",
-    "cross-env": "^7.0.3",
     "vite": "^5.1.6"
   }
 }
