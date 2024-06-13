@@ -32,6 +32,10 @@
         {
           "name": "animation",
           "type": "animation"
+        },
+        {
+          "name": "link",
+          "type": "link"
         }
       ],
       "image.commonImg.s402": [
@@ -58,27 +62,43 @@
         {
           "name": "selectImage",
           "type": "selectImage",
-          "className": "edit"
+          "className": "edit",
+          "iconName": "&#xe7a6;"
         },
         {
           "name": "imageProperty",
-          "type": "basic"
+          "type": "basic",
+          "iconName": "&#xe7a0;"
         },
         {
           "name": "design",
-          "type": "design"
+          "type": "design",
+          "iconName": "&#xe79d;"
         },
         {
           "name": "setUp",
-          "type": "setting"
-        },
-        {
-          "name": "style",
-          "type": "custom"
+          "type": "setting",
+          "iconName": "&#xe7a2;"
         },
         {
           "name": "animation",
-          "type": "animation"
+          "type": "animation",
+          "iconName": "&#xe796;"
+        },
+        {
+          "name": "link",
+          "type": "link",
+          "iconName": "&#xe79a;"
+        },
+        {
+          "name": "style",
+          "type": "custom",
+          "iconName": "&#xe79e;"
+        },
+        {
+          "name": "translate",
+          "type": "translate",
+          "iconName": "&#xe7a4;"
         },
         {
           "name": "quote",
@@ -455,6 +475,12 @@
     "design": {
       "image.commonImg.s59": {
         "include": "border|radius|shadow|position"
+      }
+    },
+    "link": {
+      "all": {
+        "include": "noLink|pageAnchor|externalLinks",
+        "layout": "horizontal"
       }
     }
   }

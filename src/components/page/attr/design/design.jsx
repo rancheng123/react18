@@ -45,7 +45,7 @@ const Design = {
     const DesignComponent = this.render.bind(this);
     this.config = opts.config
 
-
+    debugger
     // 
     this.group = opts.list;
 
@@ -90,7 +90,7 @@ const Design = {
     return (
       <div className="pcPagePropertiesCon">
 
-        {/* 去掉参考站的侧边栏 */}
+        {/* 参考站的侧边栏 */}
         {/* <div className="pcDesignLeft">
           <ul className="pcPatternUl">
             {tabs.map((e, i) => (
@@ -130,7 +130,7 @@ const Design = {
     //判断是否有属性项的配置      
     if (this.group.group) {
       param.group = this.group.group[tab];
-
+      debugger
       if (param.group && param.group.all) {
         var _param$group$skin;
 
@@ -138,7 +138,7 @@ const Design = {
         param.group = (_param$group$skin = param.group[skin]) !== null && _param$group$skin !== void 0 ? _param$group$skin : param.group.all;
       }
     }
-
+    console.log(tab);
     this[tab](param);
   },
 

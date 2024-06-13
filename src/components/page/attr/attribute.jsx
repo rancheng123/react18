@@ -72,7 +72,6 @@ const Attribute = {
   showAttributePanel(opts) {
 
     var _ref, _tabs, _config$window$public;
-
     this.node = opts.node;
     let {
       draggable = {}

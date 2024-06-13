@@ -86,12 +86,11 @@ const SingleComponentEdit = {
       }
     } = this;
 
-
     //判断是不是容器只有非容器，才继续执行
     if (feature != 'Container') {
-      var _this$parent;
-      //查找指定的父级数据
-      parent = this.findParents(); //存在父级并且父级id不同，执行父级选中
+      var _this$parent,
+        //查找指定的父级数据
+        parent = this.findParents(); //存在父级并且父级id不同，执行父级选中
 
       if (parent && ((_this$parent = this.parent) !== null && _this$parent !== void 0 ? _this$parent : {}).id != parent.current.id) {
         var _this$proxy$config;
@@ -290,7 +289,6 @@ const SingleComponentEdit = {
 
       //初始化选中框。 如果控件允许拖拽且isdrag属性为true，则执行拖拽开始方法
       this.init().then(() => (fn && fn(id), isdrag && !dragable && this.start(x, y)));
-
       //返回控件
       return this.node;
     }

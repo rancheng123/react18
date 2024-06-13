@@ -18,6 +18,7 @@ import Dispatcher from "@/system/tools/dispatcher";
 export default class CustomControler extends React.Component {
   constructor(props) {
     super(props);
+
     //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
 
@@ -44,6 +45,11 @@ export default class CustomControler extends React.Component {
       node: node,
       config: config
     }));
+    // ReactDOM.render(React.createElement(this, {
+    //   id: node.current.id,
+    //   node: node,
+    //   config: config
+    // }), element);
   }
 
 
@@ -63,7 +69,6 @@ export default class CustomControler extends React.Component {
   init() {
 
     let currentId = this.props.id; //当前控件id
-    // debugger
     let parentId = this.props.node.parent.id; //父级id
 
     let parentData = Dispatcher.dispatch(`${parentId}_get`),
@@ -240,11 +245,15 @@ export default class CustomControler extends React.Component {
   * @param {Object} component 新数据里的值
    * @param {Object} state state对象
   */
-  addSelect(componentType, component, state, event) {
+  addSelect(componentType, component, state, event, skin) {
     let newComponent = {}; //类型为列表和表单时，所有数据都替换
-    // debugger event
     if (componentType == "em-List" || componentType == "em-Form" || componentType == "em-Search" || componentType == "em-Menu") {
-      newComponent = component;
+      if (skin.indexOf('list.gallery') == 0) {
+        newComponent = JSON.parse(JSON.stringify(component));
+        newComponent.source = JSON.parse(JSON.stringify(state.datas.data.source_data));
+      } else {
+        newComponent = component;
+      }
     } else {
       newComponent = JSON.parse(JSON.stringify(component));
       newComponent = this.changeStyle(newComponent, state); //存在单独处理方法时

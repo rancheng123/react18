@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   createHashRouter,
   RouterProvider,
-} from "react-router-dom";  
+} from "react-router-dom";
 
 import routerConfig from './router.config'
 const router = createBrowserRouter(routerConfig);

@@ -274,12 +274,15 @@ const Util = {
   component({
     component,
     page,
-    context,
+    context = {
+      key: ''
+    },
     clone,
     props = {}
   }) {
     //判断是否存在控件数据
     if (component) {
+      var _context$key;
       const [childs, setChilds] = useState(null); //结构加载完毕以后执行一次
 
       useEffect(() => {
@@ -293,7 +296,7 @@ const Util = {
         const promise = getChild(component, data, page, Util.type, context, clone, props);
 
         promise.then(childs => setChilds(clone ? childs[1] || childs[0] : childs));
-      }, [context]);
+      }, [component.id + ((_context$key = context.key) !== null && _context$key !== void 0 ? _context$key : '') + (component.random || "")]);
 
       //返回控件
       return childs;

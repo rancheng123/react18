@@ -1,11 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageBasicControler", function () { return ImageBasicControler; });
-// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-// /* harmony import */ var _image_basic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./image_basic */ "./components/image/attr/basic/image_basic.js");
-// /* harmony import */ var basic_controler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! basic-controler */ "./components/page/attr/basic/basic_controler.js");
-// /* harmony import */ var _system_function_resource_resource_manager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../system/function/resource/resource_manager */ "./system/function/resource/resource_manager.js");
-// /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
-
 
 import Dispatcher from '@/system/tools/dispatcher';
 import ImageBasic from './image_basic';
@@ -15,8 +7,6 @@ import Util from '@/components/page/util/util';
 
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
 
 class ImageBasicControler extends BasicControler {

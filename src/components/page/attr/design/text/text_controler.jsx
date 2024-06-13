@@ -1,6 +1,6 @@
 
 import React from "react"; // 导入 React 库
-import {createRoot} from "react-dom/client"; // 导入 ReactDOM 库
+import { createRoot } from "react-dom/client"; // 导入 ReactDOM 库
 import Dispatcher from "@/system/tools/dispatcher"; // 导入 TextControler 变量
 import Text from "./text"; // 导入 Text 变量
 
@@ -51,7 +51,7 @@ class TextControler extends React.Component {
           disableUnit={disableUnit}
         />
       );
-      
+
       // ReactDOM.render(React.createElement(TextControler, {
       //   id: node.current.id,
       //   node: node,
@@ -81,19 +81,19 @@ class TextControler extends React.Component {
         document_data
       }
     } = Dispatcher.dispatch(fnName);
-    
+
     //将存在的fontLabel的值赋给state中 lw 2021-3-29；
     this.state = {
       sign: document_data.sign,
       fontLabel: document_data.fontLabel,
       tab: ''
-    }; 
-    
+    };
+
     //theme_data数据存在并且存在style数据，则与state合并
     if (theme_data && theme_data.style) {
       Object.assign(this.state, theme_data.style);
     }
-    
+
     let group = this.props.group;
     this.state.list = TextControler.LIST;
 
@@ -182,30 +182,30 @@ class TextControler extends React.Component {
         "fontFamily": ''
       });
       this.set("fontFamily", '');
-    } 
+    }
     // Dispatcher.dispatch(`${this.props.id}_set`, {
     //     args: [`document_data.${key}`, _value]
     // })
 
-  } 
-  
-  
+  }
+
+
   //设置字体
   selectFamily(key, value) {
     this.set(key, value);
     this.setState({
       familyShow: false
     });
-  } 
-  
+  }
+
   //显示字体选择结构
   showFamily(key) {
     let isShow = this.state.familyShow ? false : true;
     this.setState({
       [key]: isShow
     });
-  } 
-  
+  }
+
   //弹出上传字体
   uploadFamily() {
     alert("大师上传");
@@ -244,18 +244,18 @@ class TextControler extends React.Component {
   change(key, event) {
     // let _value = event.target.value; 
     // 增加获取文本位置代码event.target.alignValue
-    let _value = event.target.value || event.target.alignValue; 
+    let _value = event.target.value || event.target.alignValue;
 
     let padLeft = this.state.tab + "padLeft",
-        padLeftkey = this.props.prefix + padLeft;
+      padLeftkey = this.props.prefix + padLeft;
     let padRight = this.state.tab + "padRight",
-        padRightkey = this.props.prefix + padRight;
+      padRightkey = this.props.prefix + padRight;
 
     if (_value == 'left') {
       Dispatcher.dispatch(`${this.props.id}_set`, {
         args: [`theme_data.style.${padLeftkey}`, 10]
-      }); 
-      
+      });
+
       //切换居左时，补上padLeft的单位，没有单位会导致设置项不显示 sxt 2021-2-19
       Dispatcher.dispatch(`${this.props.id}_set`, {
         args: [`theme_data.style.padLeftUnit`, "px"]
@@ -290,9 +290,9 @@ class TextControler extends React.Component {
 
     // this.set(key, event.target.value);
     this.set(key, _value);
-    
-  } 
-  
+
+  }
+
   // changeAlign(key, e) {
   //     this.set(key, event.target.value);
   // }
@@ -322,5 +322,5 @@ class TextControler extends React.Component {
 
 }
 
-_defineProperty(TextControler, "LIST", ["ceshi","size", "letterSpace", "family", "color", "style", "align", "marginLeft", "marginRight"]);
-export {TextControler}
+_defineProperty(TextControler, "LIST", ["ceshi", "size", "letterSpace", "family", "color", "style", "align", "marginLeft", "marginRight"]);
+export { TextControler }

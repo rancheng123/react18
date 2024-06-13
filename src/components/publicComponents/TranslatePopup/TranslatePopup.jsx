@@ -362,7 +362,8 @@ const translateIconEnum = {
 
 // 判断是否为html结构
 const isHtml = (str) => {
-    return /<[^>]+>/g.test(str)
+    // return /<[^>]+>/g.test(str)
+    return /(?:<[^>]*>)|(?:&lt;[^>]*&gt;)/g.test(str)
 }
 
 export default TranslatePopup;

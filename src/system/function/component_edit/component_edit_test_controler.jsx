@@ -8,7 +8,7 @@ import SingleComponentEdit from './single/single_component_edit_test'
 import MoreComponentEdit from './more_component_edit'
 // import AttrProxy from '@/components/page/attr_proxy'
 import MouseRightClickMenuControler from '../mouse_right_click_menu/mouse_right_click_menu_controler'
-import positions from '../../function/component_edit/positions'
+import positions from './positions.js'
 
 
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = privateMap.get(receiver); if (!descriptor) { throw new TypeError("attempted to get private field on non-instance"); } if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
