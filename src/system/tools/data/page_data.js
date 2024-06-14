@@ -56,7 +56,8 @@ const PageData = {
         }
       }
     } = this,
-          page = pages[id || (children[2] || {}).pageId];
+      page = pages[id || (children[2] || {}).pageId];
+
     return page ? {
       component: page.structure,
       data: page.data
@@ -220,7 +221,7 @@ const PageData = {
 
     for (let i = 0, len = names.length; i < len; i++) {
       const id = component[names[i]],
-            type = types[i]; //判断控件是否包含对应数据id且数据中存在对应类型的数据
+        type = types[i]; //判断控件是否包含对应数据id且数据中存在对应类型的数据
 
       if (id && (idata[type] || pdata[type])) {
         //判断框架数据中是否存在控件的数据

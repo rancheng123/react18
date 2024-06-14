@@ -5,14 +5,14 @@ import Widget from "@/system/widgets/widget"; // 导入 Widget
 import fonts from "./fonts.json"; // 导入 fonts 
 
 
-import { BackgroundControler  } from "../background/background_controler";
-import { PositionControler  } from "../position/position_controler";
+import { BackgroundControler } from "../background/background_controler";
+import { PositionControler } from "../position/position_controler";
 export default class Text {
   constructor(controler) {
     /**@property controler 边框控制器实例 */
     this.controler = controler;
-    this.tabs = this.tabs.bind(this); 
-    
+    this.tabs = this.tabs.bind(this);
+
     //unit 绑定this，实现伪继承
     this.unit = this.props.publicAttr.unit.bind(this);
   }
@@ -64,7 +64,7 @@ export default class Text {
    */
   tabs() {
     const tabs = this.controler.tabs;
-    
+
     if (tabs) {
       // return React.createElement("ul", {
       //   className: "pcSetUpActive"
@@ -136,14 +136,14 @@ export default class Text {
 
     return (
       <this.unit
-          id="lineHeight"
-          title="lineHeight"
-          sname="lineHeight"
-          uname="lineHeightUnit"
-          disabled={this.props.disableUnit}
-          unrem={true}
-          unem={true}
-        />
+        id="lineHeight"
+        title="lineHeight"
+        sname="lineHeight"
+        uname="lineHeightUnit"
+        disabled={this.props.disableUnit}
+        unrem={true}
+        unem={true}
+      />
     )
   }
 
@@ -157,16 +157,16 @@ export default class Text {
   family() {
     let state = this.state || {};
     let tab = state.tab,
-        prefix = this.props.prefix;
+      prefix = this.props.prefix;
     const name = tab + "fontFamily";
     const key = prefix + name;
     let familyTypeName = tab + "familyType",
-        familyTypeKey = prefix + familyTypeName,
-        familyType = state[familyTypeKey] || state[familyTypeName] || "default";
+      familyTypeKey = prefix + familyTypeName,
+      familyType = state[familyTypeKey] || state[familyTypeName] || "default";
     let familyShow = state.familyShow;
     let fontValue = state[key] || state[name] || window.public.lang["font"];
     let customList = state.customList || [];
-    
+
     //自定义字体存在，并且字体类型为id时，找数组中的title 
     if (customList.length >= 1 && fontValue.indexOf("font_") != -1) {
       for (let i = 0; i < customList.length; i++) {
@@ -204,7 +204,7 @@ export default class Text {
     //   value: fontValue,
     //   click: this.controler.showFamily.bind(this.controler, "familyShow")
     // })) : null, familyShow && familyType == "custom" ? this.familyBox() : null)); 
-    
+
     return (
       <div>
         <h5 className="pcConAttTitle verTop"> {window.public.lang["font"]} </h5>
@@ -238,16 +238,16 @@ export default class Text {
     //     value={this.state[key] || this.state[name]}
     //     change={this.controler.change.bind(this.controler, key)}
     // />)
-  } 
-  
-  
+  }
+
+
   //字体列表
   familyList(list = [], key, value) {
     let empower = ["楷体", "宋体", "黑体", "仿宋", "Arial", "思源黑体", "思源柔黑", "思源宋体", "BreeSerif", "Comfortaa", "Crimson", "KumbhSans", "Lato", "LeagueGothic", "LibreBaskerville", "Lora", "Manrope", "Merriweather", "NotoSans", "Poly", "SourceSansPro", "Ubuntu"];
     return list.map(e => {
       let name = e.name,
-          size = e.size,
-          hoveName = window.public.lang["fontFree"];
+        size = e.size,
+        hoveName = window.public.lang["fontFree"];
 
       if (!empower.includes(name)) {
         hoveName = window.public.lang["fontEmpower"];
@@ -279,8 +279,8 @@ export default class Text {
         </li>
       )
     });
-  } 
-  
+  }
+
   //自定义字体列表
   familyCustomList(list = [], key, value) {
     if (list.length >= 1) {
@@ -305,20 +305,20 @@ export default class Text {
     } else {
       return null;
     }
-  } 
-  
-  
+  }
+
+
   //字体选择父级结构
   familyBox() {
     let state = this.state || {},
-        tab = state.tab,
-        prefix = this.props.prefix;
+      tab = state.tab,
+      prefix = this.props.prefix;
     let name = tab + "fontFamily",
-        key = prefix + name;
+      key = prefix + name;
     let fontValue = state[key] || state[name];
     let familySourceName = tab + "familySource",
-        familySourceKey = prefix + familySourceName,
-        familySource = state[familySourceKey] || state[familySourceName] || "system";
+      familySourceKey = prefix + familySourceName,
+      familySource = state[familySourceKey] || state[familySourceName] || "system";
     let tabList = [{
       name: "systemFont",
       value: "system"
@@ -352,33 +352,33 @@ export default class Text {
 
     return (
       <div className="fontStyle-box">
-          <div className="tabs-header">
-            {tabList.map(e => (
-              <div
-                key={e.value}
-                className={e.value === familySource ? 'tab-item tab_active' : 'tab-item'}
-                onClick={this.controler.setFamilyType.bind(this.controler, familySourceKey, e.value)}
-              >
-                {window.public.lang[e.name]}
-              </div>
-            ))}
-          </div>
-          <div className="tabs-content">
-            {familySource === 'system' ? (
-              <div className="font-family-type-wrap type-wrap01">
-                <ul>{this.familyList(fonts, key, fontValue)}</ul>
-              </div>
-            ) : null}
-            {familySource === 'custom' ? (
-              <div className="font-family-type-wrap type-wrap02">
-                {customList.length < 1 ? <p className="noFont">{window.public.lang['uploadFontHelp']}</p> : null}
-                <div className="type-wrapCon">
-                  <ul>{this.familyCustomList(customList, key, fontValue)}</ul>
-                </div>
-              </div>
-            ) : null}
-          </div>
+        <div className="tabs-header">
+          {tabList.map(e => (
+            <div
+              key={e.value}
+              className={e.value === familySource ? 'tab-item tab_active' : 'tab-item'}
+              onClick={this.controler.setFamilyType.bind(this.controler, familySourceKey, e.value)}
+            >
+              {window.public.lang[e.name]}
+            </div>
+          ))}
         </div>
+        <div className="tabs-content">
+          {familySource === 'system' ? (
+            <div className="font-family-type-wrap type-wrap01">
+              <ul>{this.familyList(fonts, key, fontValue)}</ul>
+            </div>
+          ) : null}
+          {familySource === 'custom' ? (
+            <div className="font-family-type-wrap type-wrap02">
+              {customList.length < 1 ? <p className="noFont">{window.public.lang['uploadFontHelp']}</p> : null}
+              <div className="type-wrapCon">
+                <ul>{this.familyCustomList(customList, key, fontValue)}</ul>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </div>
     )
   }
 
@@ -390,9 +390,9 @@ export default class Text {
   color() {
     var _color;
     const name = this.state.tab + "textColor",
-          key = this.props.prefix + name;
-    let color = this.state[key]; 
-    
+      key = this.props.prefix + name;
+    let color = this.state[key];
+
     //mo端没有字体颜色，默认走pc端字体颜色 2021-03-09 by wyq
     if (color == undefined && key.indexOf('mo') != -1) color = this.state[name];
     // return React.createElement(Widget.ColorPicker, {
@@ -466,10 +466,10 @@ export default class Text {
         <div className="pcConAttCon">
           <ul className="fontStyle">
             {[
-              { name: "B", value: "bold", key: "fontWeight" ,iconName:"&#xe795;"},
-              { name: "I", value: "italic", key: "fontStyle" ,iconName:"&#xe78b;"},
-              { name: "U", value: "underline", key: "textDec",iconName:"&#xe78e;" },
-              { name: "S", value: "line-through", key: "textDec" ,iconName:"&#xe793;"}
+              { name: "B", value: "bold", key: "fontWeight", iconName: "&#xe795;" },
+              { name: "I", value: "italic", key: "fontStyle", iconName: "&#xe78b;" },
+              { name: "U", value: "underline", key: "textDec", iconName: "&#xe78e;" },
+              { name: "S", value: "line-through", key: "textDec", iconName: "&#xe793;" }
             ].map((e, i) => {
               //添加删除线 lw date 2021-2-3 
               const name = this.state.tab + e.key;
@@ -508,7 +508,7 @@ export default class Text {
    */
   align() {
     const name = this.state.tab + "textAlign",
-          componentType = this.props.node.current.componentType || null; //用来判断什么时候展示两端对齐 lw 2021-4-9
+      componentType = this.props.node.current.componentType || null; //用来判断什么时候展示两端对齐 lw 2021-4-9
 
     const key = this.props.prefix + name;
     // return React.createElement(Widget.Align, {
@@ -737,39 +737,39 @@ export default class Text {
   }
 
   // 背景颜色
-  background(){
+  background() {
     // 整理参数
     const content = document.querySelector("#pro-design");
     const obj = {
-      element:content,
+      element: content,
       ...this.props,
     }
-    obj.group= undefined
+    obj.group = undefined
 
     // 获取修改背景颜色结构
-    const dom = BackgroundControler.background(obj) 
+    const dom = BackgroundControler.background(obj)
     return (
       dom
     )
   }
 
   // margin和padding
-  position(){
+  position() {
 
     // 整理参数
     const content = document.querySelector("#pro-design");
     const obj = {
-      element:content,
+      element: content,
       ...this.props,
     }
-    obj.group= undefined
+    obj.group = undefined
 
     // 获取修改背景颜色结构
     const dom = PositionControler.position(obj)
     return (
       dom
-    ) 
-    
+    )
+
   }
 
 }

@@ -3,8 +3,8 @@ import { Select } from 'antd';
 import fontJson from './fonts.json'
 import Dispatcher from "@/system/tools/dispatcher";
 import { useState } from "react";
-import Util from '@/components/page/util/util.jsx'
-import { createRoot } from "react-dom/client";
+// import Util from '@/components/page/util/util.jsx'
+// import { createRoot } from "react-dom/client";
 /***
  * 全局字体修改结构
  * @param props.close 关闭弹窗的方法
@@ -26,14 +26,20 @@ const GlobalFamily = ({ close }) => {
         Dispatcher.dispatch(`document_set`, {
             args: [`theme_data.SITE_HEADER.style.fontPageFamily`, familyData]
         });
-        const win = window.public.win
 
-        win.siteAsJson.masterPage.data.theme_data.SITE_HEADER.style.fontPageFamily = familyData
+        // 调用保存页面接口
+        let savePage = Dispatcher.dispatch("savePage");
+        await savePage.then(() => {
+            window.location.reload()
+        });
+        // const win = window.public.win
 
-        // 模拟实现替换全局字体
-        const res = await Util.loadComponent(window.public.type == 'pc' ? 'html' : 'mo', JSON.parse(JSON.stringify(win.siteAsJson)))
-        createRoot(win.document.querySelector("#root")).render(res)
-        console.log(Dispatcher.dispatch("getIframeData"));
+        // win.siteAsJson.masterPage.data.theme_data.SITE_HEADER.style.fontPageFamily = familyData
+
+        // // 模拟实现替换全局字体
+        // const res = await Util.loadComponent(window.public.type == 'pc' ? 'html' : 'mo', JSON.parse(JSON.stringify(win.siteAsJson)))
+        // createRoot(win.document.querySelector("#root")).render(res)
+        // console.log(Dispatcher.dispatch("getIframeData"));
     }
 
 

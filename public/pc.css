@@ -8215,7 +8215,7 @@ textarea.fail {
 
 .pcConAttDesign > li {
   display: block;
-  line-height: 0;
+  /* line-height: 0; */
   margin: 8px auto 8px;
 }
 

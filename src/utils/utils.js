@@ -23,3 +23,17 @@ export function getQueryParam(url) {
 export function getLan() {
     return getQueryParam(window.location.href)['lan'] ? decodeURIComponent(getQueryParam(window.location.href)['lan']) : ''
 }
+
+// 当前语种
+export const lan = getLan() ? getLan() : '';
+
+/** 
+ * 返回当前语种对应的数据
+* @param {object} data  数据
+* @param {string} key   默认显示的数据key
+* @return {string} 浏览器选择当前语言对应的数据没有则返回默认数据
+*/
+export function getLanTranslateData(data, key) {
+    return lan && data.language && data.language[lan] ? data.language[lan] : data[key]
+}
+

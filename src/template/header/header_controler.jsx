@@ -153,7 +153,8 @@ export default class HeaderControler extends React.Component {
             <Select
               className={styles.langSelect}
               style={{ width: '150px', height: "32px" }}
-              defaultValue={getLan() ? decodeURIComponent(getLan()) : ''}
+              labelInValue={true}
+              value={getLan() ? Number(decodeURIComponent(getLan())) : ''}
               options={
                 [
                   {
@@ -162,8 +163,9 @@ export default class HeaderControler extends React.Component {
                     options: this.state.lang_list.map((item, index) => {
                       return (
                         {
-                          label: <span className={styles.langSelectChild} key={item.id} > {item.is_main === 1 && <em>*</em>}{item.name}</span>,
-                          value: item.id + '#' + item.name + '#' + item.is_main,
+                          label: <span className={styles.langSelectChild} key={item.id} data_ismain={item.is_main}> {item.is_main === 1 && <em>*</em>}{item.name}</span>,
+                          // value: item.id + '#' + item.name + '#' + item.is_main,
+                          value: item.id,
                         }
                       )
                     }),
@@ -509,11 +511,12 @@ export default class HeaderControler extends React.Component {
   // 切换语言下拉框
   handLangChange(v) {
     // 语种id,语种名字,是否为主语种
-    const [id, name, is_main] = v.split('#')
-    localStorage.setItem('is_main', is_main)
+    // const [id, name, is_main] = v.split('#')
+
+    localStorage.setItem('is_main', v.label.props.data_ismain)
 
     const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set('lan', v)
+    searchParams.set('lan', v.value)
 
     // 替换页面数据
     window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}`)

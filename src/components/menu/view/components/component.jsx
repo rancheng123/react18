@@ -1,6 +1,7 @@
 // 导入模块
 import React from "react";
 import Util from "@/components/page/util/util";
+import { getLanTranslateData } from "@/utils/utils";
 
 /**
  * @function getSubmenuData 获取次级导航数据
@@ -174,8 +175,8 @@ const Component = {
         const child = getSubmenuData(state, e, i) || pubChild;
         let isIcon = false,
           showIconClass = "",
-          alignClass = `subMenuAlign${align}`; //alignClass 是给次给显示位置添加的class sxt 2021-2-22
-        //能显示icon时，单独给li加个class sxt 2020-6-15 
+          alignClass = `subMenuAlign${align}`; //alignClass 是给次给显示位置添加的class
+        //能显示icon时，单独给li加个class 
 
         if (child && e.child && dropdownIcon) {
           isIcon = true;
@@ -198,7 +199,8 @@ const Component = {
           }
           return (
             <React.Fragment>
-              <p>{e.name}</p>
+              {/* <p>{e.name}</p> */}
+              <p>{getLanTranslateData(e, 'name')}</p>
               {
                 (isIcon && !typeData) && <i className={`${id}i iconfont`}>{arrowIcon}</i>
               }
@@ -768,28 +770,63 @@ const Component = {
         menuLength = "menuLength" + _list.length;
       }
 
-      return React.createElement("nav", {
-        className: "nav horizontalNav"
-      }, React.createElement("input", {
-        type: "checkbox",
-        id: id + "-toggle",
-        className: "menuToggle"
-      }), React.createElement("ul", {
-        className: `${id}Ul mainNav menuUl ${ulClass} ${menuLength}`
-      }, _list.slice(0, 3)), _list.length > 3 ? React.createElement("label", {
-        htmlFor: id + "-toggle",
-        className: "menuIcon yiyingbaoicon"
-      }, React.createElement("i", null, "")) : null, _list.length > 3 ? React.createElement("ul", {
-        className: `${id}Ul mainNav menuUl1`
-      }, _list.slice(3)) : null);
+      // return React.createElement("nav", {
+      //   className: "nav horizontalNav"
+      // }, React.createElement("input", {
+      //   type: "checkbox",
+      //   id: id + "-toggle",
+      //   className: "menuToggle"
+      // }), React.createElement("ul", {
+      //   className: `${id}Ul mainNav menuUl ${ulClass} ${menuLength}`
+      // }, _list.slice(0, 3)), _list.length > 3 ? React.createElement("label", {
+      //   htmlFor: id + "-toggle",
+      //   className: "menuIcon yiyingbaoicon"
+      // }, React.createElement("i", null, "")) : null, _list.length > 3 ? React.createElement("ul", {
+      //   className: `${id}Ul mainNav menuUl1`
+      // }, _list.slice(3)) : null);
+
+      return (
+        <nav className="nav horizontalNav">
+          <input
+            type="checkbox"
+            id={`${id}-toggle`}
+            className="menuToggle"
+          />
+          <ul className={`${id}Ul mainNav menuUl ${ulClass} ${menuLength}`}>
+            {_list.slice(0, 3)}
+          </ul>
+          {_list.length > 3 && (
+            <label htmlFor={`${id}-toggle`} className="menuIcon yiyingbaoicon">
+              <i></i>
+            </label>
+          )}
+          {_list.length > 3 && (
+            <ul className={`${id}Ul mainNav menuUl1`}>
+              {_list.slice(3)}
+            </ul>
+          )}
+        </nav>
+      )
     } else {
-      return React.createElement("nav", {
-        className: "nav"
-      }, React.createElement("ul", {
-        id: "pcMainnav",
-        "data-switch": twoLevelNavOpen,
-        className: `${id}Ul mainNav pcMainnav  ${columnClass}`
-      }, Component.menuLi("pc", prop.state, prop.type)));
+      // return React.createElement("nav", {
+      //   className: "nav"
+      // }, React.createElement("ul", {
+      //   id: "pcMainnav",
+      //   "data-switch": twoLevelNavOpen,
+      //   className: `${id}Ul mainNav pcMainnav  ${columnClass}`
+      // }, Component.menuLi("pc", prop.state, prop.type)));
+
+      return (
+        <nav className="nav">
+          <ul
+            id="pcMainnav"
+            data-switch={twoLevelNavOpen}
+            className={`${id}Ul mainNav pcMainnav ${columnClass}`}
+          >
+            {Component.menuLi("pc", prop.state, prop.type)}
+          </ul>
+        </nav>
+      )
     }
   }
 

@@ -16,7 +16,7 @@ export const getcustomerLangListtAPI = () => {
     })
 }
 
-// 翻译提交接口
+// 单个控件翻译提交接口
 export const translateAPI = (data) => {
     return http({
         url: 'translate/submit',
@@ -25,3 +25,12 @@ export const translateAPI = (data) => {
     })
 }
 
+
+// 整体翻译提交接口
+export const translateAllAPI = (data) => {
+    return http({
+        url: 'translate/batchSubmit',
+        method: 'post',
+        data
+    })
+}

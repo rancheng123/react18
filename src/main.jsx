@@ -12,6 +12,8 @@ import { Provider } from "react-redux";
 import { ConfigProvider } from 'antd';
 import zh_CN from 'antd/es/locale/zh_CN';
 
+import { getTemplateDataAPI } from "@/api/template/index.js";
+
 import { componentsAsync } from "@/config/async_import_components_config";
 console.log(componentsAsync, 'componentsAsync');
 
@@ -27,6 +29,16 @@ async function load(event, callback) {
   pub.win = event.target.contentWindow
   //存储框架页document对象
   pub.dom = pub.win.document;
+
+
+  // 模拟获取模板数据
+  const obj = {
+    template_id: 1  //模板id
+  }
+  await getTemplateDataAPI(obj).then((res) => {
+    console.log(res);
+    pub.win.siteAsJson = res.data.content
+  })
 
   //是否存在页面数据
   if (pub.win.siteAsJson) {

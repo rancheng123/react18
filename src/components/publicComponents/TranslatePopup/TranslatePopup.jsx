@@ -1,7 +1,7 @@
 import { Modal, Checkbox, Button, Spin, message } from 'antd';
 import styles from './TranslatePopup.module.less'
 import { useEffect, useState } from 'react';
-import { getlangListAPI, translateAPI } from '@/api/translate'
+import { getlangListAPI, translateAPI, translateAllAPI } from '@/api/translate'
 import Dispatcher from "@/system/tools/dispatcher";
 
 /**
@@ -14,46 +14,30 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
     // 获取控件id
     const id = opts?.node?.current?.id || ''
-    // 整理参数
-    let translateData = []
-    if (id) {
-        // 获取控件容内容数据
-        const text = Dispatcher.dispatch(`${id}_get`).data.document_data.text || ''
 
-        translateData.push({
-            text,
-            is_editor: isHtml(text) ? 1 : 2  //是否html格式，1 是，2 否
-        })
-        console.log(translateData);
-    } else {
-        // 整体翻译
-        const document_data = Dispatcher.dispatch("getIframeData").data.document_data || {}
-        const pageData = Dispatcher.dispatch("getPageData").data.document_data || {}
-
-        console.log('页面数据', document_data, pageData);
-
-        /**
-         * 参数有哪些
-         * document_data : {
-         *      em-text: text,
-         *      em-button: label
-         * }     
-         * menu_data    name
-         * 
-         */
-        for (const key in document_data) {
-            if (Object.hasOwnProperty.call(document_data, key)) {
-                const element = document_data[key];
-                if (element.text) {
-                    translateData.push({
-                        text: element.text,
-                        is_editor: isHtml(element.text) ? 1 : 2  //是否html格式，1 是，2 否
-                    })
-                }
-            }
-        }
-        console.log(translateData);
-    }
+    // if (id) {
+    // } else {
+    //     /**
+    //      * 参数有哪些
+    //      * document_data : {
+    //      *      em-text: text,
+    //      *      em-button: label
+    //      * }     
+    //      * menu_data    name
+    //      * 
+    //      */
+    //     // for (const key in document_data) {
+    //     //     if (Object.hasOwnProperty.call(document_data, key)) {
+    //     //         const element = document_data[key];
+    //     //         if (element.text) {
+    //     //             translateData.push({
+    //     //                 text: element.text,
+    //     //                 is_editor: isHtml(element.text) ? 1 : 2  //是否html格式，1 是，2 否
+    //     //             })
+    //     //         }
+    //     //     }
+    //     // }
+    // }
 
     // 初始化默认的翻译语言列表数据
     const [dataCopy, setdataCopy] = useState([])
@@ -80,6 +64,10 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
         // 获取翻译的语言列表
         getTranslateList()
+
+        return () => {
+            console.log(111111111);
+        }
     }, [])
 
 
@@ -106,13 +94,18 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
     }
 
-    // 请求接口翻译
-    const translate = async (newarr, parameter = [], cb) => {
-        let result = null
+    /**
+     * 单个控件翻译
+     * @param {*} langList 翻译的语言列表
+     * @param {*} parameter 翻译的参数
+     * @param {*} cb 翻译成功后的回调
+     */
+    const translate = async (langList, parameter = [], cb) => {
+
+        // 定义异步队列函数
         const asyncForEach = async (array, callback) => {
             for (let i = 0; i < array.length; i++) {
                 const res = await callback(array[i], i);
-                console.log(66666, res);
                 // 每次拿到结果后执行代码
                 if (res.code === 200) {
                     // 翻译成功更新状态
@@ -142,16 +135,13 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
                 // 执行回调
                 cb(res)
-
             }
         }
-        await asyncForEach(newarr, async (item) => {
+
+        // 调用
+        await asyncForEach(langList, async (item) => {
             return new Promise((resolve, reject) => {
-                // 整理参数
-                const obj = {
-                    translate_lang_id: item.id, //要翻译的语种id
-                    data: parameter      // 要翻译的数据
-                }
+
                 // 翻译中更新状态
                 setTranslateIngData((data) => {
                     return data.map(v => {
@@ -162,24 +152,62 @@ const TranslatePopup = ({ close, opts = {} }) => {
                         }
                     })
                 })
-                // 调用翻译接口
+
+                // 整理参数
+                const obj = {
+                    translate_lang_id: item.id, //要翻译的语种id
+                    data: parameter      // 要翻译的数据
+                }
+                // 单个控件调用翻译接口
                 translateAPI(obj).then(res => {
                     resolve(res)
                 })
-
             })
         });
 
         // 翻译完成
         setTranslateIsOK(true)
         console.log('所有异步操作完成');
-        // 观察是否修改
-        setTimeout(() => {
-            console.log(Dispatcher.dispatch(`${id}_get`));
-            console.log(Dispatcher.dispatch(`getIframeData`));
-            console.log(Dispatcher.dispatch(`getPageData`));
-        }, 1000)
+
     }
+
+    /**
+     * 整体翻译
+     * @param {Array} langList 翻译的语言列表
+     * @param {Array} parameter 翻译的数据
+     */
+    const translateAll = (langList, parameter) => {
+
+        // 翻译中更新状态
+        setTranslateIngData((data) => {
+            return data.map(v => {
+                return { ...v, status: 1 }
+            })
+        })
+
+        // 整理参数
+        const obj = {
+            "template_id": 1, //模板id
+            translate_lang_ids: langList.map(v => v.id), //要翻译的语种id数组
+            data: parameter      // 要翻译的数据
+        }
+        // 整体翻译接口
+        translateAllAPI(obj).then(res => {
+            const lanList = res.data.language
+
+            // 修改翻译状态
+            setTranslateIngData((data) => {
+                return data.map(v => {
+                    const lan = lanList.find(item => item.id === v.id)
+                    return { ...v, status: lan.status == 1 ? 2 : 3 }
+                })
+            })
+
+            // 翻译完成
+            setTranslateIsOK(true)
+        })
+    }
+
 
     // 点击翻译按钮事件
     const handTranslate = () => {
@@ -196,13 +224,22 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
         // 设置要翻译的数据
         setTranslateIngData(() => {
-            const newarr = arr.map(item => ({ ...item, status: 0 }))
+            const langList = arr.map(item => ({ ...item, status: 0 }))
 
+            // 翻译参数
+            let translateData = []
             if (id) {
-                // 单个控件翻译
-                translate(newarr, translateData, (res) => {
-                    console.log('每次结束后执行回调方法', res, id);
+                // 获取的单个控件内容数据
+                const text = Dispatcher.dispatch(`${id}_get`).data.document_data.text || ''
 
+                translateData.push({
+                    text,
+                    is_editor: isHtml(text) ? 1 : 2  //是否html格式，1 是，2 否
+                })
+
+                // 调用单个控件翻译
+                translate(langList, translateData, (res) => {
+                    console.log('每次结束后执行回调方法', res, id);
                     if (!res.data.translate_lang_id) return
 
                     // 语种id
@@ -216,11 +253,31 @@ const TranslatePopup = ({ close, opts = {} }) => {
                 })
 
             } else {
-                // 整体翻译
-                translate(newarr, translateData)
+                // 获取整体翻译参数
+                const iframeData = Dispatcher.dispatch("document_get");
+                const pageId = iframeData.component.children[2].pageId;
+                const pageData = Dispatcher.dispatch("getPageData", {
+                    value: pageId
+                });
+
+                translateData = {
+                    masterPage: {
+                        structure: iframeData.component,
+                        data: iframeData.data
+                    },
+                    pages: {
+                        [pageId]: {
+                            structure: pageData.component,
+                            data: pageData.data
+                        }
+                    }
+                }
+
+                // 调用整体翻译
+                translateAll(langList, translateData)
             }
 
-            return newarr
+            return langList
         })
 
 

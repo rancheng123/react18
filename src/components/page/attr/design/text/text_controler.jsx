@@ -82,7 +82,7 @@ class TextControler extends React.Component {
       }
     } = Dispatcher.dispatch(fnName);
 
-    //将存在的fontLabel的值赋给state中 lw 2021-3-29；
+    //将存在的fontLabel的值赋给state中 
     this.state = {
       sign: document_data.sign,
       fontLabel: document_data.fontLabel,
@@ -170,6 +170,7 @@ class TextControler extends React.Component {
   * @param {event} e 事件对象
   */
   setFamilyType(key, value, e) {
+    console.log("setFamilyType", key, value, 111, e);
     if (!value) {
       value = e.target.value;
     } //this.setState({ [key]: _value })

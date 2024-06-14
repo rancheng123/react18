@@ -467,8 +467,8 @@ export default class ContentControler extends React.Component {
             id="iframe"
             scrolling="no"
             onLoad={(event) => this.load(event)}
-            src={`/framework2.html`}
-          // src={`/blank.html`}
+            // src={`/framework2.html`}
+            src={`/blank.html`}
           // src={`/desktop/index.php/Edit/Response/edit/sid/${siteId}.html${this.state.search}`} 
           />
         </div>

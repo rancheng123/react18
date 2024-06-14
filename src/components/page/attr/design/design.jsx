@@ -45,7 +45,7 @@ const Design = {
     const DesignComponent = this.render.bind(this);
     this.config = opts.config
 
-    debugger
+
     // 
     this.group = opts.list;
 
@@ -130,7 +130,6 @@ const Design = {
     //判断是否有属性项的配置      
     if (this.group.group) {
       param.group = this.group.group[tab];
-      debugger
       if (param.group && param.group.all) {
         var _param$group$skin;
 

@@ -1,6 +1,7 @@
 
 import Dispatcher from '@/system/tools/dispatcher'
-import Util, { lan } from '@/components/page/util/util';
+import Util from '@/components/page/util/util';
+import { lan } from '@/utils/utils';
 
 /**
 * @method changeText 修改控件文本

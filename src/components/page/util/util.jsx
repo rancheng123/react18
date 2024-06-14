@@ -11,14 +11,15 @@ import componentsManager from '@/components/components_manager';
 import LinkDecorator from './link_decorator';
 // 导入自定义的 image_path 模块
 import ImagePath from './image_path';
-import { getLan } from '@/utils/utils.js';
+// import { getLan } from '@/utils/utils.js';
+import { getLanTranslateData } from "@/utils/utils";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 let Components = null;
 // const lan = getLan();
-const lan = getLan() ? getLan().split('#')[0] : '';
-export { lan };
+// const lan = getLan() ? getLan().split('#')[0] : '';
+// export { lan };
 
 /**
  * @function getComponent 获取对应组件
@@ -360,7 +361,8 @@ const Util = {
       return keyValue;
     } else {
       // return lan ? data.language ? data.language[lan] : data[key] : data[key];
-      return (lan && data.language && data.language[lan]) ? data.language[lan] : data[key];
+      // return (lan && data.language && data.language[lan]) ? data.language[lan] : data[key];
+      return getLanTranslateData(data, key);
     }
   },
 
@@ -500,7 +502,8 @@ const Util = {
       return keyValue;
     } else {
       // return lan ? data.language ? data.language[lan] : data[key] : data[key];
-      return (lan && data.language && data.language[lan]) ? data.language[lan] : data[key];
+      // return (lan && data.language && data.language[lan]) ? data.language[lan] : data[key];
+      return getLanTranslateData(data, key)
       // return data[key];
     }
   }
