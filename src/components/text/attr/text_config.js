@@ -1,4 +1,4 @@
-{
+const obj = {
     "dots": {
         "btns": [
             "top",
@@ -109,30 +109,33 @@
                 "include": "controlsName|anchorSet"
             }
         },
+        // 设计模块配置参数
         "design": {
             "all": {
-                "include": "text|background|position",
+                "include": "text|background|position",  // 包含那些字模块
+                // 子模块分组
                 "group": {
                     "text": {
                         "include": "size|family|color|style|align|lineHeight|headLine|letterSpace"
                     },
-                    "allShow": true
+                    "allShow": true   // 是否为直接展示全部不分组
                 }
             }
         },
+        // 划过配置参数
         "setting": {
             "all": {
+                // 划过子tab有哪些
                 "tabs": [
                     "hover"
                 ],
                 "group": {
                     "hover": {
-                        "include": "background|text",
+                        "include": "text|background|border|radius|shadow",
                         "group": {
                             "text": {
                                 "include": "background|color|style"
-                            },
-                            "allShow": true
+                            }
                         }
                     }
                 }

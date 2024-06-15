@@ -1,8 +1,11 @@
 import { Modal, Checkbox, Button, Spin, message } from 'antd';
 import styles from './TranslatePopup.module.less'
 import { useEffect, useState } from 'react';
-import { getlangListAPI, translateAPI, translateAllAPI } from '@/api/translate'
+import { getlangListAPI, translateAPI, translateAllAPI, cancelTranslateAllAPI } from '@/api/translate'
 import Dispatcher from "@/system/tools/dispatcher";
+
+// 初始化是否停止翻译
+let isStop = false
 
 /**
  * 翻译弹窗
@@ -52,10 +55,11 @@ const TranslatePopup = ({ close, opts = {} }) => {
             await getlangListAPI().then(res => {
                 let dataCopy = res.data.list;
                 // 处理数据
-                if (dataCopy.length % 3 == 1) {
-                    dataCopy.push({ id: Date.now() + 'a', name: '' }, { id: Date.now() + 'b', name: '' })
-                } else if (dataCopy.length % 3 == 2) {
-                    dataCopy.push({ id: Date.now() + 'c', name: '' })
+                // 布局为每行多少个数据
+                const base = 5
+                const pop = base - (dataCopy.length % base === 0 ? base : dataCopy.length % base)
+                for (let i = 0; i < pop; i++) {
+                    dataCopy.push({ id: Date.now() + i, name: '' })
                 }
                 dataCopy.map(item => item.checked = false)
                 setdataCopy(dataCopy)
@@ -66,7 +70,11 @@ const TranslatePopup = ({ close, opts = {} }) => {
         getTranslateList()
 
         return () => {
-            console.log(111111111);
+            if (id) {
+                isStop = true
+            } else {
+                cancelTranslateAllAPI()
+            }
         }
     }, [])
 
@@ -105,6 +113,10 @@ const TranslatePopup = ({ close, opts = {} }) => {
         // 定义异步队列函数
         const asyncForEach = async (array, callback) => {
             for (let i = 0; i < array.length; i++) {
+                if (isStop) {
+                    isStop = false
+                    return false
+                }
                 const res = await callback(array[i], i);
                 // 每次拿到结果后执行代码
                 if (res.code === 200) {
@@ -168,8 +180,8 @@ const TranslatePopup = ({ close, opts = {} }) => {
         // 翻译完成
         setTranslateIsOK(true)
         console.log('所有异步操作完成');
-
     }
+
 
     /**
      * 整体翻译
@@ -184,15 +196,16 @@ const TranslatePopup = ({ close, opts = {} }) => {
                 return { ...v, status: 1 }
             })
         })
-
         // 整理参数
         const obj = {
             "template_id": 1, //模板id
             translate_lang_ids: langList.map(v => v.id), //要翻译的语种id数组
-            data: parameter      // 要翻译的数据
+            data: parameter,      // 要翻译的数据
         }
+
         // 整体翻译接口
         translateAllAPI(obj).then(res => {
+            if (!res?.data) return
             const lanList = res.data.language
 
             // 修改翻译状态
@@ -205,7 +218,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
             // 翻译完成
             setTranslateIsOK(true)
-        })
+        }).catch(() => { })
     }
 
 
@@ -239,7 +252,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
                 // 调用单个控件翻译
                 translate(langList, translateData, (res) => {
-                    console.log('每次结束后执行回调方法', res, id);
+                    // console.log('每次结束后执行回调方法', res, id);
                     if (!res.data.translate_lang_id) return
 
                     // 语种id
@@ -300,9 +313,10 @@ const TranslatePopup = ({ close, opts = {} }) => {
             </div>
         )
     }
+
     return (
         <>
-            <Modal title={title()} open={true} footer={null} onCancel={close} maskClosable={false}>
+            <Modal width={700} title={title()} open={true} footer={null} onCancel={close} maskClosable={false}>
                 <div id={styles.translate_popup}>
                     <div className={styles.translate_popup_content}>
 
@@ -320,7 +334,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
                                     {
                                         dataCopy.map(item => {
                                             return (
-                                                <div className={styles.language_item} key={item.id}>
+                                                <div className={styles.language_item} key={item.id} title={item.name}>
                                                     {
                                                         item.name && <Checkbox checked={item.checked} onChange={(event) => handCheckboxChange(event, item.id)}>
                                                             {item.name}

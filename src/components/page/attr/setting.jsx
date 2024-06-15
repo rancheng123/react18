@@ -46,7 +46,7 @@ const Setting = {
       this.node = opts.node
       this.ele = opts.element;
       // ReactDOM.render(<SettingComponent />, this.ele);
-      opts.root.render(<SettingComponent  root={opts.root}/>);
+      opts.root.render(<SettingComponent root={opts.root} />);
     }
   },
 
@@ -54,10 +54,10 @@ const Setting = {
    * @method render 设置项结构
    * @return {object} 设置项结构
    */
-  render({root}) {
+  render({ root }) {
     const [tab, selectTab] = useState(this.tabs[0]);
     useEffect(() => {
-      this.showTabContent(tab,root);
+      this.showTabContent(tab, root);
     }, [tab]);
     // return React.createElement("div", {
     //   className: "pcInteractContent"
@@ -74,6 +74,7 @@ const Setting = {
     // }));
 
     return (
+      // TODO
       <div className="pcInteractContent">
         <ul className="pcSetUpActive">
           {this.tabs.map((e, i) => {
@@ -97,16 +98,16 @@ const Setting = {
    * @method showTabContent 选中当前点击项并显示对应内容
    * @param {object} tab 当前选中项 
    */
-  async showTabContent(tab,root) {
+  async showTabContent(tab) {
     const list = this.group[tab];
     const element = this.ele.querySelector("#em-set-content");
 
     if (list && list.include.indexOf('code') != -1) {
       return ReactDOM.render(Setting.code(tab), element);
     }
-    
+
     const design = await PublicAttrManager.design();
-    
+
     //插入设计属性
     design.design({
       list: list,
@@ -115,7 +116,6 @@ const Setting = {
       prefix: tab,
       publicAttr: this.publicAttr,
       element: element,
-      root
     });
   },
 

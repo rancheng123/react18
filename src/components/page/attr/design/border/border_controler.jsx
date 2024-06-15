@@ -1,8 +1,8 @@
 
 import React from 'react';
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import Dispatcher from '@/system/tools/dispatcher';
-import Border from './border'; 
+import Border from './border';
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -43,14 +43,29 @@ class BorderControler extends React.Component {
         list = window.public.configure(this.LIST, group);
       }
       const root = createRoot(element)
-      root.render(
-        <BorderControler
-          id={opts.id || node.current.id}
-          node={node}
-          prefix={prefix}
-          list={list}
-        />
-      );
+
+
+      if (opts.allShow) {
+        return (
+          <BorderControler
+            id={opts.id || node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+            key={Date.now() + 'border'}
+          />
+        )
+      } else {
+        root.render(
+          <BorderControler
+            id={opts.id || node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+          />
+        );
+      }
+
     }
   }
   /**
@@ -101,7 +116,8 @@ class BorderControler extends React.Component {
       [key + type]: value
     }; //更新面板ui 
 
-    this.setState({ ...border
+    this.setState({
+      ...border
     });
     Dispatcher.dispatch(`${this.props.id}_set`, {
       args: [`theme_data.style.`, border]
@@ -122,8 +138,8 @@ class BorderControler extends React.Component {
       for (let i = 0, len = list.length; i < len; i++) {
         const name = prefix + list[i].replace("der", "");
         const width = `${name}Width`,
-              style = `${name}Style`,
-              color = `${name}Color`;
+          style = `${name}Style`,
+          color = `${name}Color`;
         delete state[width], delete state[style], delete state[color];
         Dispatcher.dispatch(`${this.props.id}_remove`, {
           value: `theme_data.style.${width}`
@@ -144,4 +160,4 @@ class BorderControler extends React.Component {
 
 _defineProperty(BorderControler, "LIST", ["border", "borderTop", "borderRight", "borderBottom", "borderLeft"]);
 
-export {BorderControler}
+export { BorderControler }

@@ -151,7 +151,7 @@ const Data = {
           key != ""
             ? ((oldValue = data[key]), (data[key] = value))
             : ((oldValue = { ...data }), Object.assign(data, value));
-          console.log("1111", oldValue);
+          // console.log("1111", oldValue);
         });
     } //如果key类型为object，则执行setState
     else if (/Object/.test(key.toString())) {

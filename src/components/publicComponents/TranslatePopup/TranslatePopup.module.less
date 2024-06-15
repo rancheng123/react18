@@ -1,3 +1,5 @@
+
+
 #translate_popup{
     .translate_popup_content{
         .title{
@@ -17,7 +19,7 @@
 
         .language{
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             border: 1px solid #E3E2E8;
             border-top: none;
             border-left: none;
@@ -30,6 +32,18 @@
                 line-height: 36px;
                 border-top: 1px solid #E3E2E8;
                 border-left: 1px solid #E3E2E8;
+                width: 130px;
+                :global{
+                    .ant-checkbox-wrapper{
+                        width: 100% ;
+                        span:last-child{
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+                
             }
         }
 
@@ -74,7 +88,7 @@
                 border: 1px solid #E8E8E8;
                 color: #666666;
                 div{
-                    width: 100px;
+                    width: 150px;
                     i{
                         margin-right: 8px;
                     }

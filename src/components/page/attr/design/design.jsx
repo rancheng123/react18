@@ -40,7 +40,7 @@ const Design = {
 
     var _opts$prefix;
 
-    const { root } = opts
+    // const { root } = opts
 
     const DesignComponent = this.render.bind(this);
     this.config = opts.config
@@ -54,6 +54,7 @@ const Design = {
     prefix = (window.public.type == 'pc' ? '' : 'mo') + ((_opts$prefix = opts.prefix) !== null && _opts$prefix !== void 0 ? _opts$prefix : "");
     tabs = window.public.configure(tabs, this.group);
     // const ele = ReactDOM.createRoot(opts.element)
+    const root = createRoot(opts.element)
     root.render(<DesignComponent root={root} />)
     // ReactDOM.render(React.createElement(DesignComponent, null), opts.element);
   },
@@ -64,7 +65,29 @@ const Design = {
    */
   render() {
     const [tab, selectedTab] = useState(tabs[0]);
-    useEffect(() => this.showTab(tab), [tab]);
+    // useEffect(() => this.showTab(tab), [tab]);
+
+    const [children, setChildren] = useState(null);
+    useEffect(() => {
+      const init = async () => {
+        let res = []
+
+        if (this.group.group.allShow) {
+          // 如果所有项都显示，则直接显示所有项
+          for (let index = 0; index < tabs.length; index++) {
+            const result = await this.showTab(tabs[index])
+            res.push(result)
+          }
+        } else {
+          // 分组展示
+          this.showTab(tab)
+        }
+
+        setChildren(res)
+      }
+      init()
+
+    }, [tab]);
 
 
     // return React.createElement("div", {
@@ -91,16 +114,21 @@ const Design = {
       <div className="pcPagePropertiesCon">
 
         {/* 参考站的侧边栏 */}
-        {/* <div className="pcDesignLeft">
-          <ul className="pcPatternUl">
-            {tabs.map((e, i) => (
-              <li key={e} className={tab !== e ? null : "on"} onClick={() => selectedTab(e)}>
-                <i className={`pc-${e}-icon iconfont`} dangerouslySetInnerHTML={{__html: iconsList[i]}} />
-              </li>
-            ))}
-          </ul>
-        </div> */}
-        <div className="pcDesignRight" id="pro-design" />
+        {
+          //  分组展示
+          !this.group.group.allShow &&
+          (<div className="pcDesignLeft">
+            <ul className="pcPatternUl">
+              {tabs.map((e, i) => (
+                <li key={e} className={tab !== e ? null : "on"} onClick={() => selectedTab(e)}>
+                  <i className={`pc-${e}-icon iconfont`} dangerouslySetInnerHTML={{ __html: iconsList[i] }} />
+                </li>
+              ))}
+            </ul>
+          </div>)
+        }
+
+        <div className="pcDesignRight" id="pro-design" >{children}</div>
       </div>
     )
   },
@@ -109,7 +137,7 @@ const Design = {
    * @method showTab 选中当前点击项并显示对应内容
    * @param {object} tab 当前选中项 
    */
-  showTab(tab) {
+  async showTab(tab) {
     const content = document.querySelector("#pro-design");
     const param = {
       element: content,
@@ -137,8 +165,16 @@ const Design = {
         param.group = (_param$group$skin = param.group[skin]) !== null && _param$group$skin !== void 0 ? _param$group$skin : param.group.all;
       }
     }
-    console.log(tab);
-    this[tab](param);
+
+    // 增加判断是否需要直接显示全部属性
+    if (this.group.group.allShow) {
+      param.allShow = true
+    }
+
+    // 调用生成dom函数
+    const res = await this[tab](param);
+    return res
+
   },
 
   /**
@@ -147,7 +183,7 @@ const Design = {
    */
   async background(opts) {
     const background = await DesignManager.background("controler");
-    background.background(opts);
+    return background.background(opts);
   },
 
   /**
@@ -156,7 +192,7 @@ const Design = {
    */
   async border(opts) {
     const border = await DesignManager.border("controler");
-    border.border(opts);
+    return border.border(opts);
   },
 
   /**
@@ -165,7 +201,7 @@ const Design = {
    */
   async radius(opts) {
     const radius = await DesignManager.radius("controler");
-    radius.radius(opts);
+    return radius.radius(opts);
   },
 
   /**
@@ -174,7 +210,7 @@ const Design = {
    */
   async shadow(opts) {
     const shadow = await DesignManager.shadow("controler");
-    shadow.shadow(opts);
+    return shadow.shadow(opts);
   },
 
   /**
@@ -183,7 +219,8 @@ const Design = {
    */
   async text(opts) {
     const text = await DesignManager.text("controler");
-    text.text(opts);
+    //  text.text(opts);
+    return text.text(opts);
   },
 
   /**
@@ -192,7 +229,7 @@ const Design = {
   */
   async animation(opts) {
     const animation = await DesignManager.animation("controler");
-    animation.animation(opts);
+    return animation.animation(opts);
   },
 
   /**
@@ -201,7 +238,7 @@ const Design = {
    */
   async hoveranimation(opts) {
     const hoveranimation = await DesignManager.hoveranimation("controler");
-    hoveranimation.hoveranimation(opts);
+    return hoveranimation.hoveranimation(opts);
   },
 
   /**
@@ -210,7 +247,7 @@ const Design = {
    */
   async icon(opts) {
     const icon = await DesignManager.icon("controler");
-    icon.icon(opts);
+    return icon.icon(opts);
   },
 
   /**
@@ -219,7 +256,9 @@ const Design = {
    */
   async position(opts) {
     const position = await DesignManager.position("controler");
-    position.position(opts);
+    //  position.position(opts);
+    return position.position(opts);
+
   },
 
   /**
@@ -228,7 +267,7 @@ const Design = {
    */
   async space(opts) {
     const space = await DesignManager.space("controler");
-    space.space(opts);
+    return space.space(opts);
   },
 
   /**
@@ -237,7 +276,7 @@ const Design = {
    */
   async levelnav(opts) {
     const levelnav = await DesignManager.levelnav("controler");
-    levelnav.levelnav(opts);
+    return levelnav.levelnav(opts);
   }
 
 };

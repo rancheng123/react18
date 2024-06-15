@@ -737,39 +737,39 @@ export default class Text {
   }
 
   // 背景颜色
-  background() {
-    // 整理参数
-    const content = document.querySelector("#pro-design");
-    const obj = {
-      element: content,
-      ...this.props,
-    }
-    obj.group = undefined
+  // background() {
+  //   // 整理参数
+  //   const content = document.querySelector("#pro-design");
+  //   const obj = {
+  //     element: content,
+  //     ...this.props,
+  //   }
+  //   obj.group = undefined
 
-    // 获取修改背景颜色结构
-    const dom = BackgroundControler.background(obj)
-    return (
-      dom
-    )
-  }
+  //   // 获取修改背景颜色结构
+  //   const dom = BackgroundControler.background(obj)
+  //   return (
+  //     dom
+  //   )
+  // }
 
   // margin和padding
-  position() {
+  // position() {
 
-    // 整理参数
-    const content = document.querySelector("#pro-design");
-    const obj = {
-      element: content,
-      ...this.props,
-    }
-    obj.group = undefined
+  //   // 整理参数
+  //   const content = document.querySelector("#pro-design");
+  //   const obj = {
+  //     element: content,
+  //     ...this.props,
+  //   }
+  //   obj.group = undefined
 
-    // 获取修改背景颜色结构
-    const dom = PositionControler.position(obj)
-    return (
-      dom
-    )
+  //   // 获取修改背景颜色结构
+  //   const dom = PositionControler.position(obj)
+  //   return (
+  //     dom
+  //   )
 
-  }
+  // }
 
 }

@@ -4,7 +4,8 @@ import { setToken } from '@/store/module/userStore'
 import store from "../store";
 
 const http = axios.create({
-    baseURL: "https://member.chukouplus.com/",
+    // baseURL: "https://member.chukouplus.com/",
+    baseURL: import.meta.env.VITE_API_URL,
     timeout: 3000000,
 });
 
@@ -18,7 +19,6 @@ http.interceptors.request.use(config => {
     const token = JSON.parse(localStorage.getItem('token')) || {}
     // 设置token
     config.headers.Authorization = token?.value || '';
-
 
     return config
 }, (error) => {
@@ -77,7 +77,6 @@ http.interceptors.response.use(response => {
 
     return Promise.resolve(response.data)
 }, (error) => {
-    console.log(error)
     Promise.reject(error)
 })
 

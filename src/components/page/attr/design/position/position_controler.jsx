@@ -1,10 +1,10 @@
 
 import React from 'react';
-
+import { createRoot } from 'react-dom/client';
 // 导入dispatcher模块
 import Dispatcher from '@/system/tools/dispatcher';
 
-// 导入Icon模块
+// 导入模块
 import Position from './position';
 
 /**
@@ -53,7 +53,7 @@ export class PositionControler extends React.Component {
 
     if (node && element) {
       const PositionControler = this;
-
+      const root = createRoot(element);
       // ReactDOM.render(React.createElement(PositionControler, {
       //   id: node.current.id,
       //   node: node,
@@ -66,16 +66,30 @@ export class PositionControler extends React.Component {
       //   disableUnit: disableUnit
       // }), element);
 
-      return (
-        <PositionControler
+      if (opts.allShow) {
+        return (
+          <PositionControler
+            id={node.current.id}
+            node={node}
+            group={group !== null && group !== undefined ? group : { padding: true, margin: true }}
+            publicAttr={publicAttr}
+            prefix={prefix}
+            disableUnit={disableUnit}
+            key={Date.now() + 'position'}
+          />
+        )
+      } else {
+        root.render(<PositionControler
           id={node.current.id}
           node={node}
           group={group !== null && group !== undefined ? group : { padding: true, margin: true }}
           publicAttr={publicAttr}
           prefix={prefix}
           disableUnit={disableUnit}
-        />
-      )
+        />)
+      }
+
+
     }
   }
 

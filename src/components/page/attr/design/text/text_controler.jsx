@@ -41,16 +41,31 @@ class TextControler extends React.Component {
 
     if (node && element) {
       const root = createRoot(element)
-      root.render(
-        <TextControler
-          id={node.current.id}
-          node={node}
-          prefix={prefix}
-          group={group}
-          publicAttr={publicAttr}
-          disableUnit={disableUnit}
-        />
-      );
+      if (opts.allShow) {
+        return (
+          <TextControler
+            id={node.current.id}
+            node={node}
+            prefix={prefix}
+            group={group}
+            publicAttr={publicAttr}
+            disableUnit={disableUnit}
+            key={Date.now() + 'text'}
+          />
+        )
+      } else {
+        root.render(
+          <TextControler
+            id={node.current.id}
+            node={node}
+            prefix={prefix}
+            group={group}
+            publicAttr={publicAttr}
+            disableUnit={disableUnit}
+          />
+        );
+      }
+
 
       // ReactDOM.render(React.createElement(TextControler, {
       //   id: node.current.id,
