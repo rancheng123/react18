@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // 导入dispatcher模块
 import Dispatcher from '@/system/tools/dispatcher';
@@ -16,9 +16,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * @class {SpaceControler} 间距控制器类
- * @author wyq
- * @version 1.0
- * @date 2020-05-18
  */
 
 class SpaceControler extends React.Component {
@@ -37,8 +34,6 @@ class SpaceControler extends React.Component {
 
   /**
    * @static space 间距渲染
-   * @author wyq 
-   * @date 2020-05-18
    * @param {object} opts 参数列表
    * @param {object} opts.element 节点对象
    * @param {object} opts.group 属性配置项
@@ -65,20 +60,43 @@ class SpaceControler extends React.Component {
         list = window.public.configure(this.LIST, group);
       }
 
-      ReactDOM.render(React.createElement(SpaceControler, {
-        id: node.current.id,
-        prefix: prefix,
-        node: node,
-        list: list,
-        publicAttr: publicAttr,
-        disableUnit: disableUnit
-      }), element);
+
+      if (opts.allShow) {
+        return (
+          <SpaceControler
+            id={node.current.id}
+            prefix={prefix}
+            node={node}
+            list={list}
+            publicAttr={publicAttr}
+            disableUnit={disableUnit}
+          />
+        )
+      } else {
+        const root = createRoot(element);
+        root.render(<SpaceControler
+          id={node.current.id}
+          prefix={prefix}
+          node={node}
+          list={list}
+          publicAttr={publicAttr}
+          disableUnit={disableUnit}
+        />)
+      }
+
+
+      // ReactDOM.render(React.createElement(SpaceControler, {
+      //   id: node.current.id,
+      //   prefix: prefix,
+      //   node: node,
+      //   list: list,
+      //   publicAttr: publicAttr,
+      //   disableUnit: disableUnit
+      // }), element);
     }
   }
   /**
    * @method render 挂载组件方法
-   * @date 2020-05-18
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
 
@@ -88,8 +106,6 @@ class SpaceControler extends React.Component {
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
-   * @date 2020-05-18
-   * @author wyq
    */
 
 
@@ -113,8 +129,6 @@ class SpaceControler extends React.Component {
   }
   /**
    * @method range 拖拽滑块触发回到函数
-   * @date 2020-05-18
-   * @author wyq
    * @param {string} key 属性键值 
    * @param {object} event 事件对象 
    */

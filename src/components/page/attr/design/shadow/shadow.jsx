@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shadow", function() { return Shadow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shadow", function () { return Shadow; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
@@ -7,9 +7,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * @class {Radius} 圆角视图类
- * @author wyq
- * @version 1.0
- * @date 2019-11-8
  */
 
 class Shadow {
@@ -31,8 +28,6 @@ class Shadow {
   }
   /**
    * @method render 组件渲染方法
-   * @date 2019-11-12
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
 
@@ -51,8 +46,6 @@ class Shadow {
   }
   /**
   * @method direction 阴影方向属性
-  * @date 2019-11-12
-  * @author wyq
   * @return {object} 阴影方向属性结构
   */
 
@@ -84,8 +77,6 @@ class Shadow {
   }
   /**
    * @method distance 阴影距离属性
-   * @date 2019-11-12
-   * @author wyq 
    * @return {object} 阴影距离属性结构 
    */
 
@@ -102,8 +93,6 @@ class Shadow {
   }
   /**
    * @method size 阴影大小属性
-   * @date 2019-11-12
-   * @author wyq
    * @return {object} 阴影属性结构
    */
 
@@ -120,8 +109,6 @@ class Shadow {
   }
   /**
    * @method vague 阴影模糊属性
-   * @date 2019-11-12
-   * @author wyq
    * @return {object} 阴影模糊属性结构
    */
 
@@ -138,8 +125,6 @@ class Shadow {
   }
   /**
    * @method color 阴影颜色属性
-   * @date 2019-11-12
-   * @author wyq
    * @return {object} 阴影颜色属性结构
    */
 
@@ -154,8 +139,6 @@ class Shadow {
   }
   /**
    * @method isShadow 是否启用阴影
-   * @date 2019-11-12
-   * @author wyq
    * @return {object} 阴影结构
    */
 

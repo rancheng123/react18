@@ -28,7 +28,6 @@ export default class Icon {
   }
   /**
    * @method render 组件渲染方法
-   * @author sxt
    * @return {object} 待渲染的组件对象
    */
 
@@ -45,7 +44,6 @@ export default class Icon {
   }
   /**
    * @method size 文本大小结构
-   * @author sxt
    * @return {object} 文本大小结构
    */
 
@@ -62,11 +60,8 @@ export default class Icon {
   }
   /**
   * @method color 文本字体颜色结构
-  * @author sxt
   * @return {object} 文本字体颜色结构
   */
-
-
   color() {
     const key = this.props.prefix + "iconColor";
     return React.createElement(Widget.ColorPicker, {
@@ -78,8 +73,6 @@ export default class Icon {
   }
   /**
   * @method iconBg Icon背景色结构
-  * @author sxt
-  * @date 2021-2-1
   * @return {object} Icon背景色结构
   */
 
@@ -95,8 +88,6 @@ export default class Icon {
   }
   /**
   * @method selectIcon 选择Icon结构
-  * @date 2020-04-02
-   * @author wyq 
   * @return {object} 选择Icon结构
   */
 
@@ -112,8 +103,6 @@ export default class Icon {
   }
   /**
   * @method leftIcon 选择左侧Icon结构
-  * @date 2021-02-02
-  * @author sxt
   * @return {object} 选择左侧Icon结构
   */
 
@@ -129,8 +118,6 @@ export default class Icon {
   }
   /**
   * @method rightIcon 选择右侧Icon结构
-  * @date 2021-02-02
-  * @author sxt
   * @return {object} 选择左侧Icon结构
   */
 
@@ -150,11 +137,8 @@ export default class Icon {
 
   /**
    * @method link 设置链接
-   * @author sxt
    * @param {object} 设置链接结构。
    */
-
-
   link() {
     const {
       state: {
@@ -170,7 +154,6 @@ export default class Icon {
   }
   /**
    * @method leftLink 左侧设置链接
-   * @author sxt
    * @param {object} 设置链接结构。
    */
 
@@ -190,7 +173,6 @@ export default class Icon {
   }
   /**
    * @method rightLink 右侧设置链接
-   * @author sxt
    * @param {object} 设置链接结构。
    */
 
@@ -210,7 +192,6 @@ export default class Icon {
   }
   /**
    * @method dataText 数据源文本   
-   * @author sxt
    * @param {object} 更改数据源内容
    */
 

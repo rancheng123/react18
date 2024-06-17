@@ -15,7 +15,6 @@ class Radius extends React.Component {
    * @method render 组件渲染方法
    * @return {object} 待渲染的组件对象
    */
-
   render() {
     const { list, state: {
       values,
@@ -32,7 +31,7 @@ class Radius extends React.Component {
                   max={100}
                   value={values[i]}
                   unit='px'
-                  change={(event) => this.props.value(i,event)} // 这里可能有bug 需要执行看一下
+                  change={(event) => this.props.value(i, event)} // 这里可能有bug 需要执行看一下
                 />
               </div>
             )
@@ -54,13 +53,13 @@ class Radius extends React.Component {
           }
           <p className={`radiusLink${isLocking ? ' on' : ''}`}>
             <label className='iconfont'>
-              <input 
-                type="checkbox" 
-                value="locking" 
-                checked={isLocking ? 'checked' : ''} 
+              <input
+                type="checkbox"
+                value="locking"
+                checked={isLocking ? 'checked' : ''}
                 onChange={() => this.props.locking()}
               />
-              {isLocking? '' : ''}
+              {isLocking ? '' : ''}
             </label>
           </p>
         </div>

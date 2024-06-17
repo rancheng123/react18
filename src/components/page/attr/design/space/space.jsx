@@ -7,11 +7,7 @@ import Widget from '@/system/widgets/widget';
 
 /**
  * @class {Space} 间距视图类
- * @author wyq
- * @version 1.0
- * @date 2020-05-18
  */
-
 export default class Space {
   constructor(controler) {
     /**@property controler 间距控制器实例 */
@@ -33,8 +29,6 @@ export default class Space {
   }
   /**
    * @method render 组件渲染方法
-   * @author wyq
-   * @date 2020-05-18
    * @return {object} 待渲染的组件对象
    */
 
@@ -49,8 +43,6 @@ export default class Space {
   }
   /**
    * @method columnSpace 列间距
-   * @author wyq
-   * @date 2020-05-18
    * @return {object} 列间距结构
    */
 
@@ -66,8 +58,6 @@ export default class Space {
   }
   /**
    * @method rowSpace 行间距
-   * @author wyq
-   * @date 2020-05-18
    * @return {object} 行间距结构
    */
 
@@ -83,8 +73,6 @@ export default class Space {
   }
   /**
    * @method innerspacing 内间距
-   * @date 2020-05-20
-   * @author wyq
    * @return {object} 内间距结构
    */
 
@@ -106,8 +94,6 @@ export default class Space {
   }
   /**
   * @method paddingBtm 上下内间距结构
-  * @date 2020-05-20
-  * @author sxt
   * @return {object} 上下内间距结构
   */
 
@@ -123,8 +109,6 @@ export default class Space {
   }
   /**
    * @method paddingRit 左右内间距结构
-   * @date 2020-05-20
-      * @author sxt
    * @return {object} 左右内间距结构
    */
 

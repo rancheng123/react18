@@ -42,7 +42,6 @@ class BorderControler extends React.Component {
       if (group) {
         list = window.public.configure(this.LIST, group);
       }
-      const root = createRoot(element)
 
 
       if (opts.allShow) {
@@ -56,6 +55,7 @@ class BorderControler extends React.Component {
           />
         )
       } else {
+        const root = createRoot(element)
         root.render(
           <BorderControler
             id={opts.id || node.current.id}

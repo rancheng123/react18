@@ -1,6 +1,7 @@
 
 // 导入 React 库
 import React from "react";
+import { createRoot } from 'react-dom/client';
 // 导入 Background 组件
 import Background from "./background";
 // 导入 dispatcher 模块
@@ -31,8 +32,8 @@ class BackgroundControler extends React.Component {
       node,
       element,
       prefix
-    } = opts; 
-    
+    } = opts;
+
     //控件数据与要插入的父级元素是否存在，存在继续执行
     if (node && element) {
       const BackgroundControler = this;
@@ -48,24 +49,29 @@ class BackgroundControler extends React.Component {
       //   list: list
       // }), element);
 
-      return (
-        <BackgroundControler
-          id={opts.id || node.current.id}
-          node={node}
-          prefix={prefix}
-          list={list}
-        />
-      )
+      if (opts.allShow) {
+        return (
+          <BackgroundControler
+            id={opts.id || node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+          />
+        )
+      } else {
+        const root = createRoot(element)
+        root.render(
+          <BackgroundControler
+            id={opts.id || node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+          />
+        );
+      }
 
-      // const root =createRoot(element)
-      // root.render(
-      //   <BackgroundControler
-      //     id={opts.id || node.current.id}
-      //     node={node}
-      //     prefix={prefix}
-      //     list={list}
-      //   />
-      // );
+
+
     }
   }
 
@@ -87,8 +93,8 @@ class BackgroundControler extends React.Component {
       var _theme_data$style, _theme_data$backgroun;
 
       const style = (_theme_data$style = theme_data.style) !== null && _theme_data$style !== void 0 ? _theme_data$style : {},
-            prefix = this.props.prefix,
-            key = `${prefix}bgColor`;
+        prefix = this.props.prefix,
+        key = `${prefix}bgColor`;
       this.state = {
         bgColor: style.bgColor,
         LinearGradient: style.LinearGradient,
@@ -478,10 +484,11 @@ class BackgroundControler extends React.Component {
         data[key] = this.state[key];
       } //
       else if (this.state[e]) {
-          stateData[e] = undefined;
-        }
+        stateData[e] = undefined;
+      }
     });
-    this.setState({ ...stateData,
+    this.setState({
+      ...stateData,
       ...data
     });
     Dispatcher.dispatch(`${this.props.id}_set`, {

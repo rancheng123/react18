@@ -399,6 +399,7 @@ input {
 /* ----弹窗标题为白色背景*/
 .em-tab-layer .layer-right {
   right: 7px;
+  line-height: 40px;
 }
 
 .em-tab-layer .layer-right i {
@@ -8086,7 +8087,7 @@ textarea.fail {
 .em-tab-layer .layer-header {
   height: 40px;
   line-height: 40px;
-  border-bottom: 2px solid #f1f1f1;
+  /* border-bottom: 2px solid #f1f1f1; */
 }
 
 .layer-tabs > li {
@@ -8104,6 +8105,8 @@ textarea.fail {
   box-sizing: border-box;
   cursor: pointer;
   border-bottom: 2px solid #fff;
+  line-height: 40px;
+  height: 40px;
 }
 
 .layer-tabs > li:first-child > a {
@@ -8141,6 +8144,7 @@ textarea.fail {
 /*----设计&设置左右布局-wp*/
 .layer-content {
   height: calc(100% - 42px);
+  margin-top: 2px;
 }
 
 .pcPagePropertiesCon {
@@ -8162,7 +8166,9 @@ textarea.fail {
 }
 
 .pcPatternUl li.on {
-  background: #fff;
+  /* background: #fff; */
+  background: #116dff;
+  color: #fff;
 }
 
 /*----设计&设置图标-wp*/
@@ -8326,8 +8332,11 @@ textarea.fail {
 /* --属性面板框架整体样式结构 end */
 /* ---设计面板-wp begin*/
 .pcDesignLeft .pcPatternUl li {
-  height: 50px;
+  /* height: 50px; */
+  height: 28px;
+  line-height: 28px;
   cursor: pointer;
+  text-align: center;
 }
 
 .pcDesignLeft {

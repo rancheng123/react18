@@ -53,7 +53,6 @@ export class PositionControler extends React.Component {
 
     if (node && element) {
       const PositionControler = this;
-      const root = createRoot(element);
       // ReactDOM.render(React.createElement(PositionControler, {
       //   id: node.current.id,
       //   node: node,
@@ -79,6 +78,7 @@ export class PositionControler extends React.Component {
           />
         )
       } else {
+        const root = createRoot(element);
         root.render(<PositionControler
           id={node.current.id}
           node={node}
