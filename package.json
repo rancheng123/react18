@@ -24,7 +24,6 @@
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.19.2",
-    "axios": "^1.7.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "monaco-editor": "^0.48.0",

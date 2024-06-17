@@ -21,39 +21,6 @@ let Components = null;
 // const lan = getLan() ? getLan().split('#')[0] : '';
 // export { lan };
 
-<<<<<<< HEAD
-=======
-/** 
-* @param {string}  url
-* @return {string} url 所选参数的value
-*/
-function getQueryParam(url) {
-  // 通过 ? 分割获取后面的参数字符串
-  let urlStr = url.split('?')[1] || ''
-  // 创建空对象存储参数
-  let obj = {};
-  // 再通过 & 将每一个参数单独分割出来
-  let paramsArr = urlStr.split('&')
-  for (let i = 0, len = paramsArr.length; i < len; i++) {
-    // 再通过 = 将每一个参数分割为 key:value 的形式
-    let arr = paramsArr[i].split('=')
-    obj[arr[0]] = arr[1];
-  }
-  return obj
-}
-
-/** 
-* @return {string} 浏览器选择当前语言
-*/
-function getLan() {
-  try {
-    return getQueryParam(window ? window.location.href : '')['lan']
-  } catch {
-    return getQueryParam('')['lan']
-  }
-}
-
->>>>>>> cbf9d12 (RN-000: 测试服务)
 /**
  * @function getComponent 获取对应组件
  * @param {string} componentType 控件类型 
@@ -73,26 +40,25 @@ async function getComponent(componentType, type, skin = '') {
     const module = await componentsManager(componentType); //判断是否获取到了工厂对象
     if (module) {
       try {
-
         cate = window.humpJoin(cate, '_'); //获取视图类
-      } catch (err) {
+      } catch(err) {
         function humpJoin(str, sign) {
           //字符串不为undefined或null或'',连接符不为undefined或null或''
           if (str && sign) {   //回调函数
-            const lamda = (o, one, i) => {
-              const char = i == 0 ? '' : sign;
-
-              return `${char}${one.toLowerCase()}`
-            };
-            //返回替换后的字符
-            return str.replace(/([A-Z]{1})/g, lamda);
+              const lamda = (o, one, i) => {
+                  const char = i == 0 ? '' : sign;
+      
+                  return `${char}${one.toLowerCase()}`
+              };
+              //返回替换后的字符
+              return str.replace(/([A-Z]{1})/g, lamda);
           }
-
+      
           return '';
-        }
-        cate = humpJoin(cate, '_')
+       }
+       cate = humpJoin(cate, '_');
       }
-
+      
       const View = await module.getView({
         type,
         name,
@@ -350,8 +316,7 @@ const Util = {
         const promise = getChild(component, data, page, Util.type, context, clone, props);
 
         promise.then(childs => setChilds(clone ? childs[1] || childs[0] : childs));
-        return () => { }
-      }, [context]);
+      }, [component.id + ((_context$key = context.key) !== null && _context$key !== void 0 ? _context$key : '') + (component.random || "")]);
 
       //返回控件
       return childs;

@@ -21,7 +21,11 @@ export function getQueryParam(url) {
 * @return {string} 浏览器选择当前语言
 */
 export function getLan() {
-    return getQueryParam(window.location.href)['lan'] ? decodeURIComponent(getQueryParam(window.location.href)['lan']) : ''
+    try {
+        return getQueryParam(window.location.href)['lan'] ? decodeURIComponent(getQueryParam(window.location.href)['lan']) : ''
+    } catch(err) {
+        return ''
+    }
 }
 
 // 当前语种
