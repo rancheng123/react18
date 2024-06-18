@@ -102,7 +102,8 @@ class SpaceControler extends React.Component {
 
 
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次

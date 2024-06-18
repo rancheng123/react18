@@ -130,9 +130,9 @@ export default class HeaderControler extends React.Component {
       this.setState({
         lang_list: res.data.list
       })
+      this.init()
     })
 
-    this.init()
   }
   /**
    * @method render 挂载组件方法
@@ -519,7 +519,7 @@ export default class HeaderControler extends React.Component {
     searchParams.set('lan', v.value)
 
     // 替换页面数据
-    window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}`)
+    window.history.replaceState({}, '', `${window.location.pathname}?${searchParams}${window.location.hash}`)
     window.location.reload()
   }
 }

@@ -105,7 +105,6 @@ export default class ContentControler extends React.Component {
       Dispatcher.dispatch("selectedHidden", {
         value: true
       });
-
       //调用保存
       const save = Dispatcher.dispatch('savePage');
       //保存成功后执行切换

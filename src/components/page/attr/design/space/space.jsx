@@ -34,12 +34,21 @@ export default class Space {
 
 
   render() {
-    return React.createElement("ul", {
-      className: "design-space"
-    }, this.props.list.map((e, i) => React.createElement("li", {
-      className: "pcAttList",
-      key: i
-    }, this[e] && this[e]())));
+    // return React.createElement("ul", {
+    //   className: "design-space"
+    // }, this.props.list.map((e, i) => React.createElement("li", {
+    //   className: "pcAttList",
+    //   key: i
+    // }, this[e] && this[e]())));
+    return (
+      <ul className="design-space">
+        {this.props.list.map((e, i) => (
+          <li className="pcAttList" key={i}>
+            {this[e] ? this[e]() : null}
+          </li>
+        ))}
+      </ul>
+    )
   }
   /**
    * @method columnSpace 列间距
@@ -48,13 +57,22 @@ export default class Space {
 
 
   columnSpace() {
-    return React.createElement(this.unit, {
-      id: "columnSpace",
-      title: "columnSpace",
-      sname: "colspacing",
-      uname: "colspacingUnit",
-      disabled: this.props.disableUnit
-    });
+    // return React.createElement(this.unit, {
+    //   id: "columnSpace",
+    //   title: "columnSpace",
+    //   sname: "colspacing",
+    //   uname: "colspacingUnit",
+    //   disabled: this.props.disableUnit
+    // });
+    return (
+      <this.unit
+        id="columnSpace"
+        title="columnSpace"
+        sname="colspacing"
+        uname="colspacingUnit"
+        disabled={this.props.disableUnit}
+      />
+    )
   }
   /**
    * @method rowSpace 行间距
@@ -82,15 +100,31 @@ export default class Space {
 
     const name = "innerSpace";
     const key = this.props.prefix + name;
-    return React.createElement(Widget.Range, {
-      id: "innerspacing",
-      title: "innerspacing",
-      unit: "px",
-      min: 0,
-      max: 30,
-      value: (_this$state$key = this.state[key]) !== null && _this$state$key !== void 0 ? _this$state$key : this.state[name],
-      change: this.controler.range.bind(this.controler, key)
-    });
+    // return React.createElement(Widget.Range, {
+    //   id: "innerspacing",
+    //   title: "innerspacing",
+    //   unit: "px",
+    //   min: 0,
+    //   max: 30,
+    //   value: (_this$state$key = this.state[key]) !== null && _this$state$key !== void 0 ? _this$state$key : this.state[name],
+    //   change: this.controler.range.bind(this.controler, key)
+    // });
+
+    return (
+      <Widget.Range
+        id="innerspacing"
+        title="innerspacing"
+        unit="px"
+        min={0}
+        max={30}
+        value={
+          this.state[key] !== null && this.state[key] !== undefined
+            ? this.state[key]
+            : this.state[name]
+        }
+        change={this.controler.range.bind(this.controler, key)}
+      />
+    )
   }
   /**
   * @method paddingBtm 上下内间距结构
@@ -99,13 +133,22 @@ export default class Space {
 
 
   paddingBtm() {
-    return React.createElement(this.unit, {
-      id: "paddingBtm",
-      title: "paddingBtm",
-      sname: "paddingBtm",
-      uname: "paddingBtmUnit",
-      disabled: this.props.disableUnit
-    });
+    // return React.createElement(this.unit, {
+    //   id: "paddingBtm",
+    //   title: "paddingBtm",
+    //   sname: "paddingBtm",
+    //   uname: "paddingBtmUnit",
+    //   disabled: this.props.disableUnit
+    // });
+    return (
+      <this.unit
+        id="paddingBtm"
+        title="paddingBtm"
+        sname="paddingBtm"
+        uname="paddingBtmUnit"
+        disabled={this.props.disableUnit}
+      />
+    )
   }
   /**
    * @method paddingRit 左右内间距结构
@@ -114,13 +157,22 @@ export default class Space {
 
 
   paddingRit() {
-    return React.createElement(this.unit, {
-      id: "paddingRit",
-      title: "paddingRit",
-      sname: "paddingRit",
-      uname: "paddingRitUnit",
-      disabled: this.props.disableUnit
-    });
+    // return React.createElement(this.unit, {
+    //   id: "paddingRit",
+    //   title: "paddingRit",
+    //   sname: "paddingRit",
+    //   uname: "paddingRitUnit",
+    //   disabled: this.props.disableUnit
+    // });
+    return (
+      <this.unit
+        id="paddingRit"
+        title="paddingRit"
+        sname="paddingRit"
+        uname="paddingRitUnit"
+        disabled={this.props.disableUnit}
+      />
+    )
   }
 
 }
