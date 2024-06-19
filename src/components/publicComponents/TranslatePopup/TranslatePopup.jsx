@@ -8,6 +8,7 @@ import Dispatcher from "@/system/tools/dispatcher";
 
 // 初始化是否停止翻译
 let isStop = false
+// 初始化整体翻译成功后的数据
 let translateAllData = null
 
 /**
@@ -479,7 +480,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
                                                 translateIsOK ? (
                                                     <>
                                                         <i style={{ color: '#52C41A' }} className="iconfont" dangerouslySetInnerHTML={{ __html: '&#xe781;' }}></i>
-                                                        <p>翻译完成</p>
+                                                        <p>翻译完成,点击保存按钮,保存已翻译数据</p>
                                                     </>
 
                                                 ) : (
