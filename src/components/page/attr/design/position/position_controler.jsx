@@ -53,7 +53,6 @@ export class PositionControler extends React.Component {
 
     if (node && element) {
       const PositionControler = this;
-      const root = createRoot(element);
       // ReactDOM.render(React.createElement(PositionControler, {
       //   id: node.current.id,
       //   node: node,
@@ -79,6 +78,7 @@ export class PositionControler extends React.Component {
           />
         )
       } else {
+        const root = createRoot(element);
         root.render(<PositionControler
           id={node.current.id}
           node={node}
@@ -273,18 +273,18 @@ export class PositionControler extends React.Component {
    * @method set 设置属性值
    * @param {string} key 键值 
    * @param {event} event 事件对象 
-   * @param {string} type key类型 lw 2021-4-22
-   * @param {string} keyName 区分是否为失去焦点事件 lw 2021-4-22
+   * @param {string} type key类型 
+   * @param {string} keyName 区分是否为失去焦点事件 
    */
   set(key, event, type, keyName) {
     let value;
 
     if (type == "margin") {
-      //为margin的时候 才支持输入负号 lw 2021-4-23
+      //为margin的时候 才支持输入负号 
       value = event.target.value;
 
       if (keyName && value == "") {
-        //如果keyName存在且value的值为空，则执行下面语句。 lw 2021-4-23
+        //如果keyName存在且value的值为空，则执行下面语句。
         value = 0;
       }
     } else {

@@ -56,11 +56,24 @@ class Save {
     if (window.public.editState == 'edit') {
       const data = this.send(); //数据存在向后台发送数据
 
+      // if (data) {
+      // let promise = this.saving(data);
+      // // promise = promise.then(response => response.json());
+      // promise = promise.then(data => this.saved(data));
+      // return promise.catch(error => this.fail(error));
+      // }
+
+      // 增加捕获异常代码
       if (data) {
-        let promise = this.saving(data);
-        // promise = promise.then(response => response.json());
-        promise = promise.then(data => this.saved(data));
-        return promise.catch(error => this.fail(error));
+        return new Promise((resolve, reject) => {
+          this.saving(data).then(res => {
+            this.saved(res)
+            resolve(res)
+          }).catch(err => {
+            console.log(err);
+            reject(err)
+          })
+        });
       }
     }
   }

@@ -3,11 +3,18 @@ import axios from 'axios'
 
 const CancelToken = axios.CancelToken
 let translateAllAPICancel = CancelToken.source()
+let translateAPICancel = CancelToken.source()
 
 // 取消整体翻译接口
 export const cancelTranslateAllAPI = () => {
     translateAllAPICancel.cancel()
     translateAllAPICancel = CancelToken.source()
+}
+
+// 取消单个翻译接口
+export const cancelTranslateAPI = () => {
+    translateAPICancel.cancel()
+    translateAPICancel = CancelToken.source()
 }
 
 
@@ -33,7 +40,8 @@ export const translateAPI = (data) => {
     return http({
         url: 'translate/submit',
         method: 'post',
-        data
+        data,
+        cancelToken: translateAPICancel.token,
     })
 }
 

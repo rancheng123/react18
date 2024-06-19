@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import Dispatcher from '@/system/tools/dispatcher';
 import Widget from '@/system/widgets/widget';
 // /* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shadow */ "./components/page/attr/design/shadow/shadow.js");
@@ -11,11 +11,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * @class {RadiusControler} 阴影控制器类
- * @author wyq
- * @version 1.0
- * @date 2019-11-8
  */
-
 class ShadowControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -32,8 +28,6 @@ class ShadowControler extends React.Component {
 
   /**
    * @static radius 圆角渲染
-   * @author wyq 
-   * @date 2019-11-8
    * @param {object} opts 参数列表
    * @param {object} opts.element 节点对象
    */
@@ -52,12 +46,32 @@ class ShadowControler extends React.Component {
         list = window.public.configure(this.LIST, group);
       }
 
-      ReactDOM.render(React.createElement(ShadowControler, {
-        id: opts.id || node.current.id,
-        node: node,
-        prefix: prefix,
-        list: list
-      }), element);
+      if (opts.allShow) {
+        return (
+          <ShadowControler
+            id={opts.id || node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+          />
+        )
+      } else {
+        const root = createRoot(element);
+        root.render(<ShadowControler
+          id={opts.id || node.current.id}
+          node={node}
+          prefix={prefix}
+          list={list}
+        />)
+      }
+
+
+      // ReactDOM.render(React.createElement(ShadowControler, {
+      //   id: opts.id || node.current.id,
+      //   node: node,
+      //   prefix: prefix,
+      //   list: list
+      // }), element);
     }
   }
 
@@ -136,12 +150,8 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method start 拖拽旋转开始
-   * @date 2019-11-12
-   * @author wyq
    * @param {event} event 事件对象 
    */
-
-
   start(event) {
     const {
       currentTarget: target
@@ -164,8 +174,6 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method drag 拖拽旋转进行中
-   * @date 2019-11-12
-   * @author wyq
    * @param {object} opts 参数对象 
    * @param {event} event 事件对象 
    */
@@ -189,8 +197,6 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method end 拖拽旋转结束
-   * @date 2019-11-12
-   * @author wyq
    * @param {object} opts 参数对象 
    * @param {event} event 事件对象 
    */
@@ -205,8 +211,6 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method deg 通过坐标计算角度
-   * @date 2019-11-12
-   * @author wyq
    * @param {number} x x轴坐标 
    * @param {number} y y轴坐标
    * @param {number} r 半径
@@ -249,8 +253,6 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method set 设置阴影值
-   * @date 2019-11-12
-   * @author wyq
    * @param {string} name 属性类型
    * @param {string} value 属性值
    */
@@ -288,8 +290,6 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method range 滑块拖拽触发方法
-   * @date 2019-11-12
-   * @author wyq
    * @param {string} key 键值 
    * @param {event} event 事件对象 
    */
@@ -300,8 +300,6 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method isShadow 是否启用阴影
-   * @date 2019-11-12
-   * @author wyq
    * @param {object} event 事件对象
    */
 

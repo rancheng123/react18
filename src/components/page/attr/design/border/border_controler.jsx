@@ -42,7 +42,6 @@ class BorderControler extends React.Component {
       if (group) {
         list = window.public.configure(this.LIST, group);
       }
-      const root = createRoot(element)
 
 
       if (opts.allShow) {
@@ -56,6 +55,7 @@ class BorderControler extends React.Component {
           />
         )
       } else {
+        const root = createRoot(element)
         root.render(
           <BorderControler
             id={opts.id || node.current.id}
@@ -73,7 +73,8 @@ class BorderControler extends React.Component {
    * @return {object} 待渲染的组件对象
    */
   render() {
-    return React.createElement(this.view.render, null);
+    // return React.createElement(this.view.render, null);
+    return <this.view.render />;
   }
 
 

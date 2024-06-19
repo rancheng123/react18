@@ -40,8 +40,10 @@ class TextControler extends React.Component {
     } = opts; //控件数据与要插入的父级元素是否存在，存在继续执行
 
     if (node && element) {
-      const root = createRoot(element)
+
+
       if (opts.allShow) {
+        // 判断结构是否需要全部展示
         return (
           <TextControler
             id={node.current.id}
@@ -54,6 +56,8 @@ class TextControler extends React.Component {
           />
         )
       } else {
+        // 判断结构单独展示
+        const root = createRoot(element)
         root.render(
           <TextControler
             id={node.current.id}

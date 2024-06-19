@@ -16,6 +16,16 @@ let prefix = "",
   tabs = ["background", "border", "radius", "shadow", "text", "icon", "space", "animation", "hoveranimation", "position", "divider", "levelnav"];
 const iconsList = ['&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784', '&#xe784'];
 
+
+const textsLIst = {
+  position: "定位",
+  background: "背景",
+  border: "边框",
+  radius: "圆角",
+  shadow: "阴影",
+  text: "文字",
+  space: "间距",
+};
 /**
  * @instance {Design} 设计实例
  */
@@ -121,7 +131,8 @@ const Design = {
             <ul className="pcPatternUl">
               {tabs.map((e, i) => (
                 <li key={e} className={tab !== e ? null : "on"} onClick={() => selectedTab(e)}>
-                  <i className={`pc-${e}-icon iconfont`} dangerouslySetInnerHTML={{ __html: iconsList[i] }} />
+                  {/* <i className={`pc-${e}-icon iconfont`} dangerouslySetInnerHTML={{ __html: iconsList[i] }} /> */}
+                  {textsLIst[e]}
                 </li>
               ))}
             </ul>

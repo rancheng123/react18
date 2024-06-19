@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // 导入其他模块
 import Levelnav from './levelnav';
@@ -39,13 +39,33 @@ class LevelnavControler extends React.Component {
       if (group) {
         list = window.public.configure(this.LIST, group);
       }
+      if (opts.allShow) {
+        return (
+          <LevelnavControler
+            id={opts.id || node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+          />
+        )
+      } else {
+        const root = createRoot(element)
+        root.render(
+          <LevelnavControler
+            id={opts.id || node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+          />
+        );
 
-      ReactDOM.render(React.createElement(LevelnavControler, {
-        id: opts.id || node.current.id,
-        node: node,
-        prefix: prefix,
-        list: list
-      }), element);
+      }
+      // ReactDOM.render(React.createElement(LevelnavControler, {
+      //   id: opts.id || node.current.id,
+      //   node: node,
+      //   prefix: prefix,
+      //   list: list
+      // }), element);
     }
   }
 

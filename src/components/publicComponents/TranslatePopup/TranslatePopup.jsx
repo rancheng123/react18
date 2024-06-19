@@ -1,11 +1,14 @@
-import { Modal, Checkbox, Button, Spin, message } from 'antd';
+import { Modal, Checkbox, Button, Spin, message, Popconfirm } from 'antd';
 import styles from './TranslatePopup.module.less'
 import { useEffect, useState } from 'react';
-import { getlangListAPI, translateAPI, translateAllAPI, cancelTranslateAllAPI } from '@/api/translate'
+import { getlangListAPI, translateAPI, translateAllAPI, cancelTranslateAllAPI, cancelTranslateAPI } from '@/api/translate'
+import { postTemplateDataAPI } from '@/api/template'
 import Dispatcher from "@/system/tools/dispatcher";
+
 
 // 初始化是否停止翻译
 let isStop = false
+let translateAllData = null
 
 /**
  * 翻译弹窗
@@ -18,37 +21,14 @@ const TranslatePopup = ({ close, opts }) => {
 
     // 获取控件id
     const id = opts?.node?.current?.id || ''
-
-    // if (id) {
-    // } else {
-    //     /**
-    //      * 参数有哪些
-    //      * document_data : {
-    //      *      em-text: text,
-    //      *      em-button: label
-    //      * }     
-    //      * menu_data    name
-    //      * 
-    //      */
-    //     // for (const key in document_data) {
-    //     //     if (Object.hasOwnProperty.call(document_data, key)) {
-    //     //         const element = document_data[key];
-    //     //         if (element.text) {
-    //     //             translateData.push({
-    //     //                 text: element.text,
-    //     //                 is_editor: isHtml(element.text) ? 1 : 2  //是否html格式，1 是，2 否
-    //     //             })
-    //     //         }
-    //     //     }
-    //     // }
-    // }
-
     // 初始化默认的翻译语言列表数据
     const [dataCopy, setdataCopy] = useState([])
     // 初始化选中的要翻译语言列表的数据
     const [translateIngData, setTranslateIngData] = useState([])
     // 初始化翻译是否完成
     const [translateIsOK, setTranslateIsOK] = useState(false)
+    // 保存按钮状态
+    const [handSaveLoading, setHandSaveLoading] = useState(false)
 
 
     useEffect(() => {
@@ -70,12 +50,12 @@ const TranslatePopup = ({ close, opts }) => {
         // 获取翻译的语言列表
         getTranslateList()
 
+        //组件卸载时执行的方法  
         return () => {
-            if (id) {
-                isStop = true
-            } else {
-                cancelTranslateAllAPI()
-            }
+            // 是否停止置为真
+            isStop = true
+            // 翻译调用取消接口
+            id ? cancelTranslateAPI() : cancelTranslateAllAPI()
         }
     }, [])
 
@@ -116,68 +96,85 @@ const TranslatePopup = ({ close, opts }) => {
 
         // 定义异步队列函数
         const asyncForEach = async (array, callback) => {
-            for (let i = 0; i < array.length; i++) {
+            // 调用分组函数
+            const { newArr, groupIndex = 1 } = await enableGrouping(array)
+            // 翻译中页面初始化的时候更新部分数据状态
+            await setTranslateIngData((data) => {
+                return data.map(v => {
+                    if (newArr.slice(0, groupIndex).find(z => z.id === v.id)) {
+                        return { ...v, status: 1 }
+                    } else {
+                        return { ...v }
+                    }
+                })
+            })
+
+
+            for (let i = 0; i < newArr.length; i++) {
                 if (isStop) {
                     isStop = false
                     return false
                 }
-                const res = await callback(array[i], i);
-                // 每次拿到结果后执行代码
-                if (res.code === 200) {
-                    // 翻译成功更新状态
-                    setTranslateIngData((data) => {
-                        const arr = data.map(item => {
-                            if (item.id == Number(res.data.translate_lang_id)) {
-                                return { ...item, status: 2 }
-                            } else {
-                                return item
-                            }
-                        })
-                        return arr
-                    })
-                } else {
-                    // 翻译失败更新状态
-                    setTranslateIngData((data) => {
-                        const arr = data.map(item => {
-                            if (item.id == array[i].id) {
-                                return { ...item, status: 3 }
-                            } else {
-                                return item
-                            }
-                        })
-                        return arr
-                    })
-                }
 
-                // 执行回调
-                cb(res)
+                await callback(newArr[i], i).then(res => {
+                    // 每次拿到结果后执行代码
+                    if (res.code === 200 && res.msg === 'success') {
+                        const langStatusList = res.data.data || [];
+
+                        // 翻译成功更新状态
+                        setTranslateIngData((data) => {
+                            const arr = data.map(item => {
+                                const langStatus = langStatusList.find(v => v.translate_lang_id === item.id)
+                                if (langStatus) {
+                                    return { ...item, status: langStatus.status == 1 ? 2 : 3 }
+                                } else {
+                                    return item
+                                }
+                            })
+                            return arr
+                        })
+
+                        // 成功后执行回调
+                        cb(res)
+                    } else {
+                        alert('服务异常')
+                        return false
+                    }
+                }).catch(err => {
+                    console.log(err);
+                });
             }
         }
 
         // 调用
-        await asyncForEach(langList, async (item) => {
+        await asyncForEach(langList, async (langParams) => {
             return new Promise((resolve, reject) => {
-
-                // 翻译中更新状态
-                setTranslateIngData((data) => {
-                    return data.map(v => {
-                        if (v.id == item.id) {
-                            return { ...v, status: 1 }
-                        } else {
-                            return v
-                        }
+                // langParams 参数有可能为数组也有可能是对象  参数归一,统一为数组
+                if (Array.isArray(langParams)) {
+                    // 翻译中更新状态
+                    setTranslateIngData((data) => {
+                        return data.map(v => {
+                            if (langParams.find(item => item.id === v.id)) {
+                                return { ...v, status: 1 }
+                            } else {
+                                return v
+                            }
+                        })
                     })
-                })
 
-                // 整理参数
-                const obj = {
-                    translate_lang_id: item.id, //要翻译的语种id
-                    data: parameter      // 要翻译的数据
+                    // 整理参数
+                    const obj = {
+                        translate_lang_ids: langParams.map(v => v.id), //要翻译的语种id数组
+                        data: parameter      // 要翻译的数据
+                    }
+                    // 单个控件调用翻译接口
+                    translateAPI(obj).then(res => {
+                        resolve(res)
+                    }).catch(err => {
+                        reject(err)
+                    })
                 }
-                // 单个控件调用翻译接口
-                translateAPI(obj).then(res => {
-                    resolve(res)
-                })
+
             })
         });
 
@@ -192,37 +189,105 @@ const TranslatePopup = ({ close, opts }) => {
      * @param {Array} langList 翻译的语言列表
      * @param {Array} parameter 翻译的数据
      */
-    const translateAll = (langList, parameter) => {
+    const translateAll = async (langList, parameter) => {
+        // 定义异步队列函数
+        const asyncForEach = async (array, callback) => {
 
-        // 翻译中更新状态
-        setTranslateIngData((data) => {
-            return data.map(v => {
-                return { ...v, status: 1 }
-            })
-        })
-        // 整理参数
-        const obj = {
-            "template_id": 1, //模板id
-            translate_lang_ids: langList.map(v => v.id), //要翻译的语种id数组
-            data: parameter,      // 要翻译的数据
-        }
+            // 调用分组函数
+            const { newArr, groupIndex = 1 } = await enableGrouping(array)
 
-        // 整体翻译接口
-        translateAllAPI(obj).then(res => {
-            if (!res?.data) return
-            const lanList = res.data.language
-
-            // 修改翻译状态
-            setTranslateIngData((data) => {
+            // 初始化更新状态
+            await setTranslateIngData((data) => {
                 return data.map(v => {
-                    const lan = lanList.find(item => item.id === v.id)
-                    return { ...v, status: lan.status == 1 ? 2 : 3 }
+                    if (newArr.slice(0, groupIndex).find(z => z.id === v.id)) {
+                        return { ...v, status: 1 }
+                    } else {
+                        return { ...v }
+                    }
                 })
             })
 
-            // 翻译完成
-            setTranslateIsOK(true)
-        }).catch(() => { })
+            // 开始调用循环翻译
+            for (let i = 0; i < newArr.length; i++) {
+
+                // 是否中断
+                if (isStop) {
+                    isStop = false
+                    return false
+                }
+
+                await callback(newArr[i], i).then(res => {
+                    // 每次拿到结果后执行代码
+                    if (res.code === 200) {
+                        const langStatusList = res.data.language || [];
+
+                        // 翻译成功更新状态
+                        setTranslateIngData((data) => {
+                            const arr = data.map(item => {
+                                const langStatus = langStatusList.find(v => v.id === item.id)
+                                if (langStatus) {
+                                    return { ...item, status: langStatus.status == 1 ? 2 : 3 }
+                                } else {
+                                    return item
+                                }
+                            })
+                            return arr
+                        })
+                        // 获取最新数据
+                        translateAllData = res.data.data
+
+                    } else {
+                        alert('服务异常')
+                        return false
+                    }
+                }).catch(err => {
+                    console.log(err);
+                });
+
+            }
+        }
+
+        // 调用
+        await asyncForEach(langList, async (langParams) => {
+            return new Promise((resolve, reject) => {
+                // langParams 参数有可能为数组也有可能是对象  参数归一,统一为数组
+                if (Array.isArray(langParams)) {
+                    // 翻译中更新状态
+                    setTranslateIngData((data) => {
+                        return data.map(v => {
+                            if (langParams.find(item => item.id === v.id)) {
+                                return { ...v, status: 1 }
+                            } else {
+                                return { ...v }
+                            }
+                        })
+                    })
+
+                    // 整理参数
+                    const obj = {
+                        "template_id": 1, //模板id
+                        translate_lang_ids: langParams.map(v => v.id), //要翻译的语种id数组
+                        data: parameter,      // 要翻译的数据
+                    }
+
+                    // 整体翻译接口
+                    translateAllAPI(obj).then(res => {
+                        if (!res?.data) return
+                        resolve(res)
+                    }).catch((err) => {
+                        console.log(err);
+                        reject(err)
+                    })
+                }
+
+
+
+            })
+        });
+
+        // 翻译完成
+        setTranslateIsOK(true)
+        console.log('所有异步操作完成', isStop);
     }
 
 
@@ -243,10 +308,11 @@ const TranslatePopup = ({ close, opts }) => {
 
             // 翻译参数
             let translateData = []
+            // 根据id判断翻译单个控件还是整体
             if (id) {
                 // 获取的单个控件内容数据
                 const text = Dispatcher.dispatch(`${id}_get`).data.document_data.text || ''
-
+                // 参数赋值
                 translateData.push({
                     text,
                     is_editor: isHtml(text) ? 1 : 2  //是否html格式，1 是，2 否
@@ -255,16 +321,20 @@ const TranslatePopup = ({ close, opts }) => {
                 // 调用单个控件翻译
                 translate(langList, translateData, (res) => {
                     // console.log('每次结束后执行回调方法', res, id);
-                    if (!res.data.translate_lang_id) return
+                    if (res?.data?.data.length === 0) return
 
-                    // 语种id
-                    const language = res.data.translate_lang_id
-                    // 翻译后的内容
-                    const text = res.data.data[0].text
-                    // 派发修改控件数据事件
-                    Dispatcher.dispatch(`${id}_set`, {
-                        args: [`document_data.language.${language}`, text]
-                    })
+                    const list = res.data.data
+
+                    // 循环派发修改数据
+                    for (let index = 0; list < list.length; index++) {
+                        const element = list[index];
+                        const language = element.translate_lang_id
+                        // 派发修改控件数据事件
+                        Dispatcher.dispatch(`${id}_set`, {
+                            args: [`document_data.language.${language}`, element.text]
+                        })
+                    }
+
                 })
 
             } else {
@@ -274,7 +344,7 @@ const TranslatePopup = ({ close, opts }) => {
                 const pageData = Dispatcher.dispatch("getPageData", {
                     value: pageId
                 });
-
+                // 参数赋值
                 translateData = {
                     masterPage: {
                         structure: iframeData.component,
@@ -295,86 +365,6 @@ const TranslatePopup = ({ close, opts }) => {
             return langList
         })
 
-        setistranslate(true)
-        console.log(translateIngData, arr);
-
-        const pop = async () => {
-            for (let index = 0; index < 10; index++) {
-
-                const res = await new Promise(resolve => {
-                    setTimeout(() => {
-                        resolve(index)
-                    }, 3000)
-                })
-                console.log(res);
-
-            }
-            console.log('执行完成');
-            // const response = await fetch(url);
-            // const result = await response.json();
-            // // 将获取的数据追加到data数组中
-            // setData(prevData => [...prevData, result]);
-        }
-        pop()
-        // async function asyncForEach(array, callback) {
-        //     for (let i = 0; i < array.length; i++) {
-        //         const res = await callback(array[i], i);
-        //         // 每次拿到结果后执行代码
-        //         // 翻译成功更新状态
-        //         setTranslateIngData(() => {
-        //             return translateIngData.map(item => {
-        //                 if (item.id == res.data.translate_lang_id) {
-        //                     return { ...item, status: 2 }
-        //                 } else {
-        //                     return item
-        //                 }
-        //             })
-        //         })
-        //     }
-        // }
-        // async function main() {
-        //     await asyncForEach(arr, async (item) => {
-        //         return new Promise((resolve, reject) => {
-        //             // 整理参数
-        //             const obj = {
-        //                 translate_lang_id: item.id, //要翻译的语种id
-        //                 data: [singleData]        // 要翻译的数据
-        //             }
-
-        //             // 翻译中更新状态
-        //             setTranslateIngData(() => {
-        //                 return translateIngData.map(v => {
-        //                     if (v.id == item.id) {
-        //                         return { ...v, status: 1 }
-        //                     } else {
-        //                         return v
-        //                     }
-        //                 })
-        //             })
-        //             // 调用翻译接口
-        //             translateAPI(obj).then(res => {
-        //                 console.log(res);
-        //                 resolve(res)
-        //             })
-
-        //         })
-        //     });
-
-        //     console.log('所有异步操作完成');
-        // }
-
-        // main();
-
-        if (id) {
-            // 单个控件翻译
-        } else {
-            // 整体翻译
-        }
-
-        // 模拟翻译完成
-        // setTimeout(() => {
-        //     setTranslateIsOK(true)
-        // }, 3000);
     }
 
 
@@ -383,6 +373,34 @@ const TranslatePopup = ({ close, opts }) => {
         // 清空翻译中数据
         setTranslateIngData([])
         setTranslateIsOK(false)
+    }
+
+    const handSave = async () => {
+        setHandSaveLoading(true)
+        if (id) {
+            // 单个控件翻译派发保存翻译结果事件
+            const res = await Dispatcher.dispatch("savePage");
+            if (res.code === 200) {
+                handContinue()
+            } else {
+                message.error('保存失败,请重试')
+            }
+        } else {
+            // 整体翻译直接调用保存接口
+            const obj = {
+                data: translateAllData,
+                template_id: 1   // 模板id TODO
+            }
+            await postTemplateDataAPI(obj).then(res => {
+                message.success('保存成功')
+                handContinue()
+                translateAllData = null
+            }).catch(err => {
+                message.error('保存失败')
+            })
+        }
+
+        setHandSaveLoading(false)
     }
 
     const title = () => {
@@ -394,9 +412,24 @@ const TranslatePopup = ({ close, opts }) => {
         )
     }
 
+    // 弹出窗口关闭图标
+    const CloseOutlined = () => {
+        return (
+            <Popconfirm
+                title="注意:"
+                description="关闭后所有内容不会保存，确定关闭吗？"
+                onConfirm={close}
+                okText="确定"
+                cancelText="返回"
+            >
+                <i className="iconfont" dangerouslySetInnerHTML={{ __html: ' &#xe779;' }}></i>
+            </Popconfirm>
+        )
+    }
+
     return (
         <>
-            <Modal width={700} title={title()} open={true} footer={null} onCancel={close} maskClosable={false}>
+            <Modal width={700} title={title()} open={true} footer={null} closeIcon={<CloseOutlined />} maskClosable={false} keyboard={false}>
                 <div id={styles.translate_popup}>
                     <div className={styles.translate_popup_content}>
 
@@ -479,8 +512,17 @@ const TranslatePopup = ({ close, opts }) => {
 
                                     {
                                         translateIsOK && <div className={styles.translateIngFooter} >
-                                            <Button type="primary" onClick={handContinue}>继续</Button>
-                                            <Button onClick={close}>取消</Button>
+                                            {/* <Button type="primary" onClick={handContinue}>继续</Button> */}
+                                            <Button type="primary" loading={handSaveLoading} disabled={handSaveLoading} onClick={handSave}>保存</Button>
+                                            <Popconfirm
+                                                title="注意:"
+                                                description="取消后，已翻译的内容将不会被保存，确定取消吗？"
+                                                onConfirm={close}
+                                                okText="确定"
+                                                cancelText="返回"
+                                            >
+                                                <Button>取消</Button>
+                                            </Popconfirm>
                                         </div>
                                     }
 
@@ -517,4 +559,51 @@ const isHtml = (str) => {
     return /(?:<[^>]*>)|(?:&lt;[^>]*&gt;)/g.test(str)
 }
 
+
+
+/**
+ * 数组分组函数
+ * @param {array} array 待分组的数组
+ * @param {number} gIndex 分组大小
+ * @returns {object} 分组后的数组和分组数对象 {newArr: [], groupIndex: 0}
+ */
+const enableGrouping = (array, gIndex) => {
+    // 分组代码
+    // 分组大小
+    let groupIndex = 0
+    // 索引
+    let index = 0
+    // 分组数据
+    let group = []
+    // 生成的新的数组
+    let newArr = []
+
+    if (gIndex) {
+        groupIndex = gIndex
+    } else {
+        // 根据数据长度自定义分组数
+        const length = array.length
+        if (length > 50) {
+            groupIndex = 10
+        } else if (length >= 10 && length <= 50) {
+            groupIndex = 5
+        } else if (length < 10) {
+            groupIndex = 1
+        } else {
+            groupIndex = 1
+        }
+    }
+
+
+    for (let i = 0; i < array.length; i++) {
+        group.push(array[i])
+        if (group.length === groupIndex || i === array.length - 1) {
+            newArr[index] = group
+            group = []
+            index++
+        }
+    }
+
+    return { newArr, groupIndex }
+}
 export default TranslatePopup;

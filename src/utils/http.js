@@ -77,7 +77,7 @@ http.interceptors.response.use(response => {
 
     return Promise.resolve(response.data)
 }, (error) => {
-    Promise.reject(error)
+    throw error;
 })
 
 export default http

@@ -5,8 +5,8 @@
 // /* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
 
 
-import React from 'react';
-
+// import React from 'react';
+// import Widget from '@/system/widgets/widget';
 /**
  * @class {Levelnav} 次级展开视图类
  */

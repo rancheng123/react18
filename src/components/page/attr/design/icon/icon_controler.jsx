@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // 导入dispatcher模块
 import Dispatcher from '@/system/tools/dispatcher';
@@ -28,8 +28,6 @@ class IconControler extends React.Component {
 
   /**
   * @static icon 创建文本属性
-  * @author sxt 
-  * @date 2019-09-30
   * @param {object} opts 参数列表
   * @param {object} opts 参数列表
   * @param {object} opts.element 节点对象
@@ -56,20 +54,41 @@ class IconControler extends React.Component {
         list = window.public.configure(this.LIST, group);
       }
 
-      ReactDOM.render(React.createElement(IconControler, {
-        id: node.current.id,
-        node: node,
-        prefix: prefix,
-        list: list,
-        publicAttr: publicAttr,
-        disableUnit: disableUnit
-      }), element);
+      if (opts.allShow) {
+        return (
+          <IconControler
+            id={node.current.id}
+            node={node}
+            prefix={prefix}
+            list={list}
+            publicAttr={publicAttr}
+            disableUnit={disableUnit}
+          />
+        )
+      } else {
+        const root = createRoot(element)
+        root.render(<IconControler
+          id={node.current.id}
+          node={node}
+          prefix={prefix}
+          list={list}
+          publicAttr={publicAttr}
+          disableUnit={disableUnit}
+        />)
+      }
+
+      //   ReactDOM.render(React.createElement(IconControler, {
+      //     id: node.current.id,
+      //     node: node,
+      //     prefix: prefix,
+      //     list: list,
+      //     publicAttr: publicAttr,
+      //     disableUnit: disableUnit
+      //   }), element);
     }
   }
   /**
    * @method render 挂载组件方法
-   * @date 2019-09-30
-   * @author sxt
    * @return {object} 待渲染的组件对象
    */
 
@@ -95,7 +114,7 @@ class IconControler extends React.Component {
 
     if (theme_data && theme_data.style) {
       this.state = theme_data.style;
-    } //icon不区分pc与mo但是区分基本和click sxt 2020-8-20
+    } //icon不区分pc与mo但是区分基本和click 
 
 
     let _prefix = `${this.props.prefix}icon`;
@@ -115,8 +134,6 @@ class IconControler extends React.Component {
   }
   /**
    * @method range 滑块拖拽方法
-   * @date 2019-11-7
-   * @author wyq 
    * @param {string} key 键值
    * @param {event} event 事件对象
    */
@@ -127,8 +144,6 @@ class IconControler extends React.Component {
   }
   /**
    * @method set 设置样式数据
-   * @date 2019-11-7
-   * @author wyq 
    * @param {string} key 键值
    * @param {string} value 属性值
    */
@@ -144,11 +159,7 @@ class IconControler extends React.Component {
   }
   /**
   * @method delIcon 删除icon方法
-  * @date 2020-04-02
-  * @author wyq 
   */
-
-
   delIcon(type) {
     let prefixIcon = this.state.prefixIcon;
 
@@ -173,8 +184,6 @@ class IconControler extends React.Component {
   }
   /**
    * @method setIcon 设置icon方法
-   * @date 2020-04-02
-   * @author wyq 
    * @param {Object} datas 返回数据
    * @param {event} event 事件对象
    */
@@ -204,8 +213,6 @@ class IconControler extends React.Component {
   }
   /**
   * @method showIcon icon显示方法
-  * @date 2020-04-02
-  * @author wyq 
   * @param {string} key 键值
   * @param {event} event 事件对象
   */
@@ -224,10 +231,7 @@ class IconControler extends React.Component {
   }
   /**
   * @method link 设置链接
-  * @author sxt
   */
-
-
   link(type) {
     const promise = Promise.all(/*! import() | link_controler */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("link_controler")]).then(__webpack_require__.bind(null, /*! ../../../../../system/function/link/link_controler */ "./system/function/link/link_controler.js"));
     let linkType = "link";

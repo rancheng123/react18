@@ -98,12 +98,20 @@ export default class Border {
    */
   color(prop) {
     const key = this.props.prefix + prop.name;
-    return React.createElement(Widget.ColorPicker, {
-      id: key,
-      basic: true,
-      color: this.state[`${key}Color`] || this.state[`${prop.name}Color`] || 'rgba(0,0,0)',
-      change: this.controler.set.bind(this.controler, "Color", key)
-    });
+    // return React.createElement(Widget.ColorPicker, {
+    //   id: key,
+    //   basic: true,
+    //   color: this.state[`${key}Color`] || this.state[`${prop.name}Color`] || 'rgba(0,0,0)',
+    //   change: this.controler.set.bind(this.controler, "Color", key)
+    // });
+    return (
+      <Widget.ColorPicker
+        id={key}
+        basic
+        color={this.state[`${key}Color`] || this.state[`${prop.name}Color`] || 'rgba(0,0,0)'}
+        change={this.controler.set.bind(this.controler, "Color", key)}
+      />
+    )
   }
   /**
    * @method borderColor 边框宽度结构
@@ -120,14 +128,25 @@ export default class Border {
       borderWidth = 0;
     }
 
-    return React.createElement(Widget.Range, {
-      id: key,
-      max: 50,
-      basic: true,
-      unit: "px",
-      value: borderWidth,
-      change: this.controler.set.bind(this.controler, "Width", key, '')
-    });
+    // return React.createElement(Widget.Range, {
+    //   id: key,
+    //   max: 50,
+    //   basic: true,
+    //   unit: "px",
+    //   value: borderWidth,
+    //   change: this.controler.set.bind(this.controler, "Width", key, '')
+    // });
+
+    return (
+      <Widget.Range
+        id={key}
+        max={50}
+        basic
+        unit="px"
+        value={borderWidth}
+        change={this.controler.set.bind(this.controler, "Width", key, '')}
+      />
+    )
   }
   /**
    * @method borderStyle 边框样式结构
@@ -138,22 +157,54 @@ export default class Border {
   style(prop) {
     const lang = window.public.lang;
     const key = this.props.prefix + prop.name;
-    return React.createElement(Widget.Select, {
-      id: key,
-      basic: true,
-      value: this.state[`${key}Style`] || this.state[`${prop.name}Style`],
-      list: [{
-        name: lang.solid,
-        value: "solid"
-      }, {
-        name: lang.dashed,
-        value: "dashed"
-      }, {
-        name: lang.dotted,
-        value: "dotted"
-      }],
-      change: this.controler.set.bind(this.controler, "Style", key, '')
-    });
+    // return React.createElement(Widget.Select, {
+    //   id: key,
+    //   basic: true,
+    //   value: this.state[`${key}Style`] || this.state[`${prop.name}Style`],
+    //   list: [{
+    //     name: lang.solid,
+    //     value: "solid"
+    //   }, {
+    //     name: lang.dashed,
+    //     value: "dashed"
+    //   }, {
+    //     name: lang.dotted,
+    //     value: "dotted"
+    //   }],
+    //   change: this.controler.set.bind(this.controler, "Style", key, '')
+    // });
+    return (
+      <Widget.Select
+        id={key}
+        basic
+        value={
+          this.state[`${key}Style`] ||
+          this.state[`${prop.name}Style`]
+        }
+        list={[
+          {
+            name: lang.solid,
+            value: "solid"
+          },
+          {
+            name: lang.dashed,
+            value: "dashed"
+          },
+          {
+            name: lang.dotted,
+            value: "dotted"
+          }
+        ]}
+        change={
+          this.controler.set.bind(
+            this.controler,
+            "Style",
+            key,
+            ''
+          )
+        }
+      />
+    )
   }
 
 }
