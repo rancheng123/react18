@@ -388,8 +388,18 @@ export default class HeaderControler extends React.Component {
       //   Save
       // } = await Promise.all(/*! import() | save */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e("save")]).then(__webpack_require__.bind(null, /*! ../../system/function/save */ "./system/function/save.js"));
       const { Save } = await import('../../system/function/save.js');
-      await new Save("#component-modal").save();
-      this.progress(progress, 'remove');
+      // await new Save("#component-modal").save();
+      // this.progress(progress, 'remove');
+
+
+      return new Promise((resolve, reject) => {
+        new Save("#component-modal").save().then((res) => {
+          resolve(res);
+        }).catch(err => {
+          reject(err);
+        });
+        this.progress(progress, 'remove');
+      })
     }
   }
   /**

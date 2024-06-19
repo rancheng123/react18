@@ -1,12 +1,14 @@
-import { Modal, Checkbox, Button, Spin, message } from 'antd';
+import { Modal, Checkbox, Button, Spin, message, Popconfirm } from 'antd';
 import styles from './TranslatePopup.module.less'
 import { useEffect, useState } from 'react';
 import { getlangListAPI, translateAPI, translateAllAPI, cancelTranslateAllAPI, cancelTranslateAPI } from '@/api/translate'
+import { postTemplateDataAPI } from '@/api/template'
 import Dispatcher from "@/system/tools/dispatcher";
 
 
 // 初始化是否停止翻译
 let isStop = false
+let translateAllData = null
 
 /**
  * 翻译弹窗
@@ -24,6 +26,8 @@ const TranslatePopup = ({ close, opts = {} }) => {
     const [translateIngData, setTranslateIngData] = useState([])
     // 初始化翻译是否完成
     const [translateIsOK, setTranslateIsOK] = useState(false)
+    // 保存按钮状态
+    const [handSaveLoading, setHandSaveLoading] = useState(false)
 
 
     useEffect(() => {
@@ -182,39 +186,6 @@ const TranslatePopup = ({ close, opts = {} }) => {
      * @param {Array} parameter 翻译的数据
      */
     const translateAll = async (langList, parameter) => {
-        // // 翻译中更新状态
-        // setTranslateIngData((data) => {
-        //     return data.map(v => {
-        //         return { ...v, status: 1 }
-        //     })
-        // })
-        // // 整理参数
-        // const obj = {
-        //     "template_id": 1, //模板id
-        //     translate_lang_ids: langList.map(v => v.id), //要翻译的语种id数组
-        //     data: parameter,      // 要翻译的数据
-        // }
-
-        // // 整体翻译接口
-        // translateAllAPI(obj).then(res => {
-        //     if (!res?.data) return
-        //     const lanList = res.data.language
-
-        //     // 修改翻译状态
-        //     setTranslateIngData((data) => {
-        //         return data.map(v => {
-        //             const lan = lanList.find(item => item.id === v.id)
-        //             return { ...v, status: lan.status == 1 ? 2 : 3 }
-        //         })
-        //     })
-
-        //     // 翻译完成
-        //     setTranslateIsOK(true)
-        // }).catch(() => { })
-
-
-
-        let result
         // 定义异步队列函数
         const asyncForEach = async (array, callback) => {
 
@@ -245,8 +216,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
                     // 每次拿到结果后执行代码
                     if (res.code === 200) {
                         const langStatusList = res.data.language || [];
-                        // 获取最新数据
-                        result = res.data.data
+
                         // 翻译成功更新状态
                         setTranslateIngData((data) => {
                             const arr = data.map(item => {
@@ -259,6 +229,9 @@ const TranslatePopup = ({ close, opts = {} }) => {
                             })
                             return arr
                         })
+                        // 获取最新数据
+                        translateAllData = res.data.data
+
                     } else {
                         alert('服务异常')
                         return false
@@ -310,7 +283,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
         // 翻译完成
         setTranslateIsOK(true)
-        console.log('所有异步操作完成', result, isStop);
+        console.log('所有异步操作完成', isStop);
     }
 
 
@@ -333,6 +306,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
             // 翻译参数
             let translateData = []
+            // 根据id判断翻译单个控件还是整体
             if (id) {
                 // 获取的单个控件内容数据
                 const text = Dispatcher.dispatch(`${id}_get`).data.document_data.text || ''
@@ -399,6 +373,34 @@ const TranslatePopup = ({ close, opts = {} }) => {
         setTranslateIsOK(false)
     }
 
+    const handSave = async () => {
+        setHandSaveLoading(true)
+        if (id) {
+            // 单个控件翻译派发保存翻译结果事件
+            const res = await Dispatcher.dispatch("savePage");
+            if (res.code === 200) {
+                handContinue()
+            } else {
+                message.error('保存失败,请重试')
+            }
+        } else {
+            // 整体翻译直接调用保存接口
+            const obj = {
+                data: translateAllData,
+                template_id: 1   // 模板id TODO
+            }
+            await postTemplateDataAPI(obj).then(res => {
+                message.success('保存成功')
+                handContinue()
+                translateAllData = null
+            }).catch(err => {
+                message.error('保存失败')
+            })
+        }
+
+        setHandSaveLoading(false)
+    }
+
     const title = () => {
         return (
             <div>
@@ -408,9 +410,24 @@ const TranslatePopup = ({ close, opts = {} }) => {
         )
     }
 
+    // 弹出窗口关闭图标
+    const CloseOutlined = () => {
+        return (
+            <Popconfirm
+                title="注意:"
+                description="关闭后所有内容不会保存，确定关闭吗？"
+                onConfirm={close}
+                okText="确定"
+                cancelText="返回"
+            >
+                <i className="iconfont" dangerouslySetInnerHTML={{ __html: ' &#xe779;' }}></i>
+            </Popconfirm>
+        )
+    }
+
     return (
         <>
-            <Modal width={700} title={title()} open={true} footer={null} onCancel={close} maskClosable={false}>
+            <Modal width={700} title={title()} open={true} footer={null} closeIcon={<CloseOutlined />} maskClosable={false} keyboard={false}>
                 <div id={styles.translate_popup}>
                     <div className={styles.translate_popup_content}>
 
@@ -493,8 +510,17 @@ const TranslatePopup = ({ close, opts = {} }) => {
 
                                     {
                                         translateIsOK && <div className={styles.translateIngFooter} >
-                                            <Button type="primary" onClick={handContinue}>继续</Button>
-                                            <Button onClick={close}>取消</Button>
+                                            {/* <Button type="primary" onClick={handContinue}>继续</Button> */}
+                                            <Button type="primary" loading={handSaveLoading} disabled={handSaveLoading} onClick={handSave}>保存</Button>
+                                            <Popconfirm
+                                                title="注意:"
+                                                description="取消后，已翻译的内容将不会被保存，确定取消吗？"
+                                                onConfirm={close}
+                                                okText="确定"
+                                                cancelText="返回"
+                                            >
+                                                <Button>取消</Button>
+                                            </Popconfirm>
                                         </div>
                                     }
 
@@ -555,11 +581,11 @@ const enableGrouping = (array, gIndex) => {
     } else {
         // 根据数据长度自定义分组数
         const length = array.length
-        if (length >= 50) {
+        if (length > 50) {
             groupIndex = 10
-        } else if (length > 10 && length < 50) {
+        } else if (length >= 10 && length <= 50) {
             groupIndex = 5
-        } else if (length <= 10) {
+        } else if (length < 10) {
             groupIndex = 1
         } else {
             groupIndex = 1
