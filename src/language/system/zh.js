@@ -142,7 +142,6 @@ window.public.lang = {
     "simultaneousDeletion": "是否一二级同时删除",
     "generateTemplateHelp": "您确定要将此页面生成模板页？生成模板页用于包含列表控件的页面，生成后无法恢复，并且原页面样式只能去生成的模板页编辑修改。",
     "visitFrequency": "抓取频率",
-    "visitFrequency": "抓取频率",
     "weightType": "权威指向",
     "customLink": "自定义链接",
     "customLinkPrompt": "请输入自定义链接",
@@ -305,7 +304,7 @@ window.public.lang = {
     sharingLine: "Line",
     vk: "VK",
 
-    // lby  2020-04-24
+    // 
 
     "anDropDown": "切换方式",
     "onclick": "鼠标点击",

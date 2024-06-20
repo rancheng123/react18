@@ -9,7 +9,6 @@ export default class Collection extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
-    console.log(this.props, 333);
   }
   /**@property {object} state 获取最新的state属性 */
 

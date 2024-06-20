@@ -14,7 +14,7 @@ export const Content = function () {
   } = this;
   return (
     <div id={id} className='container auto-margin'>
-      <Util.children  components={components} />
+      <Util.children components={components} />
     </div>
   )
   // return React.createElement("div", {

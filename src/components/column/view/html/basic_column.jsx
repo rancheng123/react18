@@ -1,8 +1,3 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Column", function() { return Column; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./components/page/util/util.js");
 
 import React from 'react';
 import Util from '@/components/page/util/util';

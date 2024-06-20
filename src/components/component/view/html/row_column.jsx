@@ -28,8 +28,7 @@ function Component() {
   const {
     background
   } = theme_data !== null && theme_data !== void 0 ? theme_data : {};
-  const name = document_data.name; //对class进行处理，解决class优化后的兼容问题  2020-08-03 wyq
-
+  const name = document_data.name; //对class进行处理，解决class优化后的兼容问题 
   if (typeof name == 'string') {
     document_data.name = name.replace(/(_[0-9a-z]{1})[a-z]+/g, "$1");
   } //组件开启浮动属性
@@ -43,7 +42,7 @@ function Component() {
     >
       {
         background && (background.type || 'BackgroundColor') != 'BackgroundColor' && (
-          <div 
+          <div
             className={"rowListBg" + (background.type == 'Image' ? ' lazyload' : '')}
             data-src={background.type == 'Image' ? Util.imagePath(background) : null}
             data-webp={theme_data.isWebp === false ? null : background.type == 'Image' ? Util.webp(Util.imagePath(background)) : null}

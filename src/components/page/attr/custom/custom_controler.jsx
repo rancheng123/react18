@@ -279,16 +279,19 @@ export default class CustomControler extends React.Component {
       args: [state.currentId, () => {
         Dispatcher.dispatch(`${add}`, {
           args: [newComponent, state.index, (target, child, current) => {
-            console.log(current, 'current');
             //选中控件
             Dispatcher.dispatch(`selectedComponent`, {
               args: [event, 0, 0, current.id, function () {
-                //先判断结构有没有再模拟点击，属性面板 
-                let customIco = document.querySelector("#property-buttons .functionUL .customIco");
+                // 加上延迟，防止属性面板没有渲染完成
+                setTimeout(() => {
+                  //先判断结构有没有再模拟点击，属性面板 
+                  let customIco = document.querySelector("#property-buttons .functionUL .customIco");
 
-                if (customIco) {
-                  customIco.click();
-                }
+                  if (customIco) {
+                    customIco.click();
+                  }
+                }, 0)
+
               }]
             });
           }]

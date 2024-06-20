@@ -44,26 +44,27 @@ function App(props) {
 
 
   // TODO模拟代码
-  const [load, setLoad] = useState(false)
-  const dispatchToken = useDispatch()
-  const token = useSelector(state => state.userStore.token)
-  const init = async () => {
-    const timestamp = Math.floor(Date.now() / 1000);
-    // 如果token不存在或者过期刷新token
-    if (!token || token.expiration < timestamp) {
-      await dispatchToken(fetchToken())
-    }
-    setLoad(true)
-  }
+  // const [load, setLoad] = useState(false)
+  // const dispatchToken = useDispatch()
+  // const token = useSelector(state => state.userStore.token)
+  // const init = async () => {
+  //   const timestamp = Math.floor(Date.now() / 1000);
+  //   // 如果token不存在或者过期刷新token
+  //   if (!token || token.expiration < timestamp) {
+  //     await dispatchToken(fetchToken())
+  //   }
+  //   setLoad(true)
+  // }
 
-  useEffect(() => {
-    init()
-  }, [])
+  // useEffect(() => {
+  //   init()
+  // }, [])
 
 
   return (
     <div className='editorCon'>
-      {load && <Header />}
+      {/* {load && <Header />} */}
+      {<Header />}
       <Content load={props.load} />
       {/* <Router /> */}
     </div>
