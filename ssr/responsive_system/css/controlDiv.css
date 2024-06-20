@@ -2206,9 +2206,9 @@ footer,
   height: 100%;
   box-sizing: border-box;
 }
-.advanced-content .advanced-item > .editColumn > .rowList {
+/* .advanced-content .advanced-item > .editColumn > .rowList {
   border: 1px dashed #ccc;
-}
+} */
 .advanced-content .advanced-item .componentsBox {
   overflow: hidden;
 }
@@ -2352,10 +2352,10 @@ footer,
 .editColumn .col:first-of-type {
   border-left: 1px dashed #ccc;
 }
-.editColumn .col,
+/* .editColumn .col,
 .editColumn .rowcol {
   border: 1px dashed #ccc;
-}
+} */
 .editColumn .m_c .col,
 .editColumn .m_1_2 .col:nth-of-type(2),
 .editColumn .m_2_1 .col:last-of-type,
