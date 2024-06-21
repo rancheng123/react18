@@ -1,17 +1,8 @@
-// __webpack_require__.r(__webpack_exports__);
-// /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShadowControler", function () { return ShadowControler; });
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
-// /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
-// /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-// /* harmony import */ var dispatcher__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! dispatcher */ "./system/tools/dispatcher.js");
-// /* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shadow */ "./components/page/attr/design/shadow/shadow.js");
-
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import Dispatcher from '@/system/tools/dispatcher';
-import Shadow from './shadow';
-
+import Widget from '@/system/widgets/widget';
+// /* harmony import */ var _shadow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shadow */ "./components/page/attr/design/shadow/shadow.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -28,9 +19,9 @@ class ShadowControler extends React.Component {
     this.init();
     /**@property {Link} view 初始化 view 实例*/
 
-    this.view = new Shadow(this); //给view 入口方法绑定this
+    // this.view = new _shadow__WEBPACK_IMPORTED_MODULE_3__["Shadow"](this); //给view 入口方法绑定this
 
-    this.view.render = this.view.render.bind(this.view);
+    // this.view.render = this.view.render.bind(this.view);
   }
   /**@static LIST 属性列表 */
 
@@ -83,20 +74,49 @@ class ShadowControler extends React.Component {
       // }), element);
     }
   }
+
+  isShadowControler() {
+    debugger
+    return (
+      <Widget.OnOff
+        title="openShadow"
+        checked={this.state.isShadow}
+        change={this.isShadow.bind(this)}
+      />
+    );
+  }
+
   /**
    * @method render 挂载组件方法
-   * @date 2019-11-7
-   * @author wyq
    * @return {object} 待渲染的组件对象
    */
 
-
   render() {
-    return React.createElement(this.view.render, null);
+    const { isShadow } = this.state;
+    const { list } = this.props;
+    const DOM = (
+      <div className='pcTextBox'>
+        <ul className='pcConAttDesign'>
+          {
+            isShadow ? list.map((e, i) => {
+              return (
+                <li className='pcAttList' key={i}>
+                  {
+                    this[e] && this[e]()
+                  }
+                </li>
+              )
+            }) : <li className='pcAttList'>{this.isShadowControler()}</li>
+          }
+        </ul>
+      </div>
+    )
+    return DOM
   }
   /**
    * @method init 组件挂载前初始化方法,整个生命周期内只执行一次
    */
+
   init() {
     const fnName = `${this.props.id}_get`;
     const {
@@ -158,6 +178,8 @@ class ShadowControler extends React.Component {
    * @param {object} opts 参数对象 
    * @param {event} event 事件对象 
    */
+
+
   drag(opts, event) {
     const {
       pageX,
@@ -209,6 +231,8 @@ class ShadowControler extends React.Component {
   }
   /**
    * @method distance 计算距离
+   * @date 2019-11-12
+   * @author wyq
    * @param {number} deg 角度值 
    * @param {number} x坐标值
    * @return {number} 距离值 
@@ -218,7 +242,7 @@ class ShadowControler extends React.Component {
   distance(deg, x = 0) {
     //角度值不为零时，通过角度值来计算距离
     if (deg != 0) {
-      //根据角度反向算出距离 ，
+      //根据角度反向算出距离 ，sxt 2020-6-16
       // const arc = deg * Math.PI/ 180;
       // return Math.abs(x / (1 * Math.sin(arc)))
       const _sin = Math.sin(deg * Math.PI / 180);
@@ -233,6 +257,8 @@ class ShadowControler extends React.Component {
    * @param {string} name 属性类型
    * @param {string} value 属性值
    */
+
+
   set(key, value) {
     const {
       props: {

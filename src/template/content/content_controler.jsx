@@ -5,7 +5,7 @@ import ComponentEditTestControler from '../../system/function/component_edit/com
 
 import CollectionControler from '../toolbar/collection/collection_controler'
 import WidgetLibraryControler from '../toolbar/widget_library/widget_library_controler'
-// import TemplateControler from '../toolbar/template/template_controler'
+import TemplateControler from '../toolbar/template/template_controler'
 import { createRoot } from 'react-dom/client';
 
 // import TranslatePopup from '@/components/publicComponents/TranslatePopup/TranslatePopup.jsx'
@@ -278,17 +278,17 @@ export default class ContentControler extends React.Component {
    * @method template 弹出模版更换面板
    */
   template() {
-    import('../../system/function/resource/resource_manager.js').then(module => {
+    // import('../../system/function/resource/resource_manager.js').then(module => {
 
-      module.resourceManager("template").then(module => {
+    //   module.resourceManager("template").then(module => {
 
-        module.resource({
-          selected: null
-        });
-      });
-    });
+    //     module.resource({
+    //       selected: null
+    //     });
+    //   });
+    // });
 
-    // TemplateControler.template()
+    TemplateControler.template()
   }
 
   /**

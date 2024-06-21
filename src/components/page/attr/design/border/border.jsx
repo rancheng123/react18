@@ -59,7 +59,7 @@ export default class Border {
               <li>
                 <div className={`borderDiv ${className}div`} />
               </li>
-              <li>
+              <li style={{ width: '70px' }}>
                 <this.style name={className} />
               </li>
               <li>

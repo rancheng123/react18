@@ -176,7 +176,8 @@
                     "position": {
                         "margin": "left|right",
                         "padding": true
-                    }
+                    },
+                    "allShow": true
                 }
             },
             "button.iconBtn.s48": {
@@ -258,7 +259,8 @@
                             "text": {
                                 "exclude": "align|letterSpace|marginLeft|marginRight"
                             }
-                        }
+                        },
+                        "allShow": true
                     },
                     "click": {
                         "include": "code"

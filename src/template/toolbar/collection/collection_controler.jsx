@@ -13,6 +13,7 @@ export default class CollectionControler extends Component {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.props = props
     this.init();
+    console.log(1111111);
   }
 
   static collection(toolBarsRoot) {

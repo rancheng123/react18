@@ -35,8 +35,8 @@ class Background {
     let preix = window.public.type;
     let skin = this.props.node.current.skin || ""
     let typeList = this.props.list;
-    let btnShow = true; 
-    
+    let btnShow = true;
+
     //如果是mo端和是高级幻灯片并且类型是backgroundPanel，则只展示一项，并隐藏切换选项
     if (preix == 'mo' && skin.indexOf("advanced") != -1 && typeList.indexOf("backgroundPanel") != -1) {
       Background.LIST['Image'] = ['size'];
@@ -49,8 +49,8 @@ class Background {
       }
 
       btnShow = true;
-    } 
-    
+    }
+
     //类型为图片，并且是hover设置时，只显示透明度和颜色设置 sxt 2022-11-14
     if (type == "Image" && prefix && prefix.indexOf("hover") != -1) {
       Background.LIST['Image'] = ['opacity', 'backgroundColor'];
@@ -76,15 +76,15 @@ class Background {
         <ul className="pcConAttDesign">
           {btnShow
             ? this.props.list.map((e, i) => (
-                <li className="pcAttList" key={i}>
-                  {this[e] && this[e]()}
-                </li>
-              ))
+              <li className="pcAttList" key={i}>
+                {this[e] && this[e]()}
+              </li>
+            ))
             : null}
           {this.props.list.indexOf('backgroundPanel') !== -1 ? (
             <li className="pcAttList">{this.example()}</li>
           ) : null}
-          
+
           {(type === 'Image' || type === 'video') ? (
             <li className="pcAttList" key={type}>
               {Background.LIST[type].map(e => this[e]())}
@@ -105,8 +105,8 @@ class Background {
     var _this$state;
 
     const key = this.props.prefix + "bgColor",
-          componentType = this.state.componentType,
-          type = (_this$state = this.state[this.props.prefix + 'type']) !== null && _this$state !== void 0 ? _this$state : this.state.type;
+      componentType = this.state.componentType,
+      type = (_this$state = this.state[this.props.prefix + 'type']) !== null && _this$state !== void 0 ? _this$state : this.state.type;
     var LinearGradient = '';
 
     if (this.props.prefix == 'hover') {
@@ -148,7 +148,7 @@ class Background {
 
     const type = (_this$state2 = this.state[this.props.prefix + 'type']) !== null && _this$state2 !== void 0 ? _this$state2 : this.state.type;
     let prefix = this.props.prefix,
-        _isColor = false;
+      _isColor = false;
 
     if (prefix && prefix.indexOf("hover") != -1) {
       if (type == "Image" || type == "video") {
@@ -243,94 +243,202 @@ class Background {
       color = this.state.bgColor;
     }
 
-    return show ? React.createElement("div", {
-      className: "background-example",
-      style: type == 'BackgroundColor' ? {
-        background: color
-      } : null
-    }, type ? React.createElement("i", {
-      className: "background-example-colse iconfont yiyingbaoicon",
-      onClick: this.controler.clear.bind(this.controler)
-    }, "\uE99D") : React.createElement("div", {
-      className: "background-default"
-    }, React.createElement("i", {
-      className: "bg-default-icon pageiconfont"
-    }, "\uE674"), React.createElement("span", {
-      className: "bg-default-title"
-    }, "\u70B9\u51FB\u4E0A\u65B9\u201C\u6309\u94AE\u201D\u8FDB\u884C\u80CC\u666F\u8BBE\u7F6E")), type == 'Image' ? React.createElement("img", {
-      src: (_this$state$3 = this.state[`${this.props.prefix}uri`]) !== null && _this$state$3 !== void 0 ? _this$state$3 : this.state.uri
-    }) : null, type == 'video' ? React.createElement("video", {
-      src: (_this$state$4 = this.state[`${this.props.prefix}uri`]) !== null && _this$state$4 !== void 0 ? _this$state$4 : this.state.uri,
-      controls: true
-    }) : null) : null;
+    // return show ? React.createElement("div", {
+    //   className: "background-example",
+    //   style: type == 'BackgroundColor' ? {
+    //     background: color
+    //   } : null
+    // }, type ? React.createElement("i", {
+    //   className: "background-example-colse iconfont yiyingbaoicon",
+    //   onClick: this.controler.clear.bind(this.controler)
+    // }, "\uE99D") : React.createElement("div", {
+    //   className: "background-default"
+    // }, React.createElement("i", {
+    //   className: "bg-default-icon pageiconfont"
+    // }, "\uE674"), React.createElement("span", {
+    //   className: "bg-default-title"
+    // }, "\u70B9\u51FB\u4E0A\u65B9\u201C\u6309\u94AE\u201D\u8FDB\u884C\u80CC\u666F\u8BBE\u7F6E")), type == 'Image' ? React.createElement("img", {
+    //   src: (_this$state$3 = this.state[`${this.props.prefix}uri`]) !== null && _this$state$3 !== void 0 ? _this$state$3 : this.state.uri
+    // }) : null, type == 'video' ? React.createElement("video", {
+    //   src: (_this$state$4 = this.state[`${this.props.prefix}uri`]) !== null && _this$state$4 !== void 0 ? _this$state$4 : this.state.uri,
+    //   controls: true
+    // }) : null) : null;
+
+    return show ?
+      (<div className="background-example" style={type === 'BackgroundColor' ? { background: color } : null}>
+        {type ? (
+          <i
+            className="background-example-colse iconfont yiyingbaoicon"
+            onClick={this.controler.clear.bind(this.controler)}
+          >
+            &#xE99D;
+          </i>
+        ) : (
+          <div className="background-default">
+            <i className="bg-default-icon pageiconfont">
+              &#xE674;
+            </i>
+            <span className="bg-default-title">
+              点击上方“按钮”进行背景设置
+            </span>
+          </div>
+        )}
+        {type === 'Image' ? (
+          <img
+            src={
+              (this.state[`${this.props.prefix}uri`] !== null && this.state[`${this.props.prefix}uri`]) ||
+              this.state.uri
+            }
+          />
+        ) : null}
+        {type === 'video' ? (
+          <video
+            src={
+              (this.state[`${this.props.prefix}uri`] !== null && this.state[`${this.props.prefix}uri`]) ||
+              this.state.uri
+            }
+            controls
+          />
+        ) : null}
+      </div>) : null
   }
 
   opacity() {
     var _ref, _this$state$5;
 
-    return React.createElement(Widget.Range, {
-      title: "pictureTransparency",
-      change: this.controler.setOpacity.bind(this.controler),
-      min: 0,
-      max: 1,
-      step: 0.1,
-      value: (_ref = (_this$state$5 = this.state[`${this.props.prefix}opacity`]) !== null && _this$state$5 !== void 0 ? _this$state$5 : this.state.opacity) !== null && _ref !== void 0 ? _ref : 1
-    });
+    // return React.createElement(Widget.Range, {
+    //   title: "pictureTransparency",
+    //   change: this.controler.setOpacity.bind(this.controler),
+    //   min: 0,
+    //   max: 1,
+    //   step: 0.1,
+    //   value: (_ref = (_this$state$5 = this.state[`${this.props.prefix}opacity`]) !== null && _this$state$5 !== void 0 ? _this$state$5 : this.state.opacity) !== null && _ref !== void 0 ? _ref : 1
+    // });
+
+    return (
+      <Widget.Range
+        title="pictureTransparency"
+        change={this.controler.setOpacity.bind(this.controler)}
+        min={0}
+        max={1}
+        step={0.1}
+        value={
+          (_ref = (_this$state$5 = this.state[`${this.props.prefix}opacity`]) !== null && _this$state$5 !== void 0 ? _this$state$5 : this.state.opacity) !== null && _ref !== void 0 ? _ref : 1
+        }
+      />
+    )
   }
 
   size() {
-    return React.createElement(Widget.ImageQuality, {
-      id: "imageQuality",
-      data: this.state,
-      prefix: this.props.prefix,
-      help: "qualityTips",
-      change: this.controler.setQuality.bind(this.controler, "quality")
-    });
+    // return React.createElement(Widget.ImageQuality, {
+    //   id: "imageQuality",
+    //   data: this.state,
+    //   prefix: this.props.prefix,
+    //   help: "qualityTips",
+    //   change: this.controler.setQuality.bind(this.controler, "quality")
+    // });
+
+    return (
+      <Widget.ImageQuality
+        id="imageQuality"
+        data={this.state}
+        prefix={this.props.prefix}
+        help="qualityTips"
+        change={this.controler.setQuality.bind(this.controler, "quality")}
+      />
+    )
   }
 
   showMode() {
     var _ref2, _this$state$6;
 
-    return React.createElement(Widget.Radio, {
-      title: "selectionContent",
-      id: "selectShowlist",
-      list: [{
-        name: 'tile',
-        value: "repeat"
-      }, //平铺
-      {
-        name: 'zoomToFill',
-        value: "no-repeat center center / cover"
-      }, //缩放到填充
-      {
-        name: 'actualSize',
-        value: "no-repeat"
-      }, //实际大小
-      {
-        name: 'equalRatio',
-        value: "no-repeat center center / contain"
-      }],
-      value: (_ref2 = (_this$state$6 = this.state[`${this.props.prefix}positionMode`]) !== null && _this$state$6 !== void 0 ? _this$state$6 : this.state.positionMode) !== null && _ref2 !== void 0 ? _ref2 : 'repeat',
-      change: this.controler.selectShowMode.bind(this.controler)
-    });
+    // return React.createElement(Widget.Radio, {
+    //   title: "selectionContent",
+    //   id: "selectShowlist",
+    //   list: [{
+    //     name: 'tile',
+    //     value: "repeat"
+    //   }, //平铺
+    //   {
+    //     name: 'zoomToFill',
+    //     value: "no-repeat center center / cover"
+    //   }, //缩放到填充
+    //   {
+    //     name: 'actualSize',
+    //     value: "no-repeat"
+    //   }, //实际大小
+    //   {
+    //     name: 'equalRatio',
+    //     value: "no-repeat center center / contain"
+    //   }],
+    //   value: (_ref2 = (_this$state$6 = this.state[`${this.props.prefix}positionMode`]) !== null && _this$state$6 !== void 0 ? _this$state$6 : this.state.positionMode) !== null && _ref2 !== void 0 ? _ref2 : 'repeat',
+    //   change: this.controler.selectShowMode.bind(this.controler)
+    // });
+
+    return (
+      <Widget.Radio
+        title="selectionContent"
+        id="selectShowlist"
+        list={[
+          {
+            name: 'tile',
+            value: "repeat"
+          }, // 平铺
+          {
+            name: 'zoomToFill',
+            value: "no-repeat center center / cover"
+          }, // 缩放到填充
+          {
+            name: 'actualSize',
+            value: "no-repeat"
+          }, // 实际大小
+          {
+            name: 'equalRatio',
+            value: "no-repeat center center / contain"
+          },
+        ]}
+        value={
+          (_ref2 = (_this$state$6 = this.state[`${this.props.prefix}positionMode`]) !== null && _this$state$6 !== void 0 ? _this$state$6 : this.state.positionMode) !== null && _ref2 !== void 0 ? _ref2 : 'repeat'
+        }
+        change={this.controler.selectShowMode.bind(this.controler)}
+      />
+    )
   }
 
   position() {
     var _ref3, _this$state$7;
 
-    return React.createElement(Widget.Radio, {
-      title: "selectionContent",
-      id: "",
-      list: [{
-        name: 'fixed',
-        value: "fixed"
-      }, {
-        name: 'nofixed',
-        value: "initial"
-      }],
-      value: (_ref3 = (_this$state$7 = this.state[`${this.props.prefix}attachment`]) !== null && _this$state$7 !== void 0 ? _this$state$7 : this.state.attachment) !== null && _ref3 !== void 0 ? _ref3 : 'initial',
-      change: this.controler.selectPositionMode.bind(this.controler)
-    });
+    // return React.createElement(Widget.Radio, {
+    //   title: "selectionContent",
+    //   id: "",
+    //   list: [{
+    //     name: 'fixed',
+    //     value: "fixed"
+    //   }, {
+    //     name: 'nofixed',
+    //     value: "initial"
+    //   }],
+    //   value: (_ref3 = (_this$state$7 = this.state[`${this.props.prefix}attachment`]) !== null && _this$state$7 !== void 0 ? _this$state$7 : this.state.attachment) !== null && _ref3 !== void 0 ? _ref3 : 'initial',
+    //   change: this.controler.selectPositionMode.bind(this.controler)
+    // });
+    return (
+      <Widget.Radio
+        title="selectionContent"
+        id=""
+        list={[
+          {
+            name: 'fixed',
+            value: 'fixed',
+          },
+          {
+            name: 'nofixed',
+            value: 'initial',
+          },
+        ]}
+        value={(_ref3 = (_this$state$7 = this.state[`${this.props.prefix}attachment`]) !== null && _this$state$7 !== void 0 ? _this$state$7 : this.state.attachment) !== null && _ref3 !== void 0 ? _ref3 : 'initial'}
+        change={this.controler.selectPositionMode.bind(this.controler)}
+      />
+    )
   }
 
   positionSet() {
@@ -345,27 +453,54 @@ class Background {
       "↓": "center bottom",
       "↘": "right bottom"
     };
-    return React.createElement("div", {
-      className: "scrollEffects imgteCon"
-    }, React.createElement("div", {
-      className: "imgDescribe"
-    }, React.createElement("font", {
-      className: "fontText"
-    }, window.public.lang["backgroundPosition"]), React.createElement("div", {
-      className: "scrollItem"
-    }, Object.keys(position).map((e, i) => {
-      var _ref4, _this$state$8;
+    // return React.createElement("div", {
+    //   className: "scrollEffects imgteCon"
+    // }, React.createElement("div", {
+    //   className: "imgDescribe"
+    // }, React.createElement("font", {
+    //   className: "fontText"
+    // }, window.public.lang["backgroundPosition"]), React.createElement("div", {
+    //   className: "scrollItem"
+    // }, Object.keys(position).map((e, i) => {
+    //   var _ref4, _this$state$8;
 
-      return React.createElement("label", {
-        key: i
-      }, React.createElement("input", {
-        type: "radio",
-        name: "item",
-        checked: ((_ref4 = (_this$state$8 = this.state[`${this.props.prefix}posVal`]) !== null && _this$state$8 !== void 0 ? _this$state$8 : this.state.posVal) !== null && _ref4 !== void 0 ? _ref4 : 'left top') != position[e] ? "" : "checked",
-        value: e,
-        onChange: this.controler.positionSet.bind(this.controler, position[e])
-      }), React.createElement("p", null, e));
-    }))));
+    //   return React.createElement("label", {
+    //     key: i
+    //   }, React.createElement("input", {
+    //     type: "radio",
+    //     name: "item",
+    //     checked: ((_ref4 = (_this$state$8 = this.state[`${this.props.prefix}posVal`]) !== null && _this$state$8 !== void 0 ? _this$state$8 : this.state.posVal) !== null && _ref4 !== void 0 ? _ref4 : 'left top') != position[e] ? "" : "checked",
+    //     value: e,
+    //     onChange: this.controler.positionSet.bind(this.controler, position[e])
+    //   }), React.createElement("p", null, e));
+    // }))));
+
+    return (
+      <div className="scrollEffects imgteCon">
+        <div className="imgDescribe">
+          <font className="fontText">
+            {window.public.lang["backgroundPosition"]}
+          </font>
+        </div>
+        <div className="scrollItem">
+          {Object.keys(position).map((e, i) => {
+            var _ref4, _this$state$8;
+            return (
+              <label key={i}>
+                <input
+                  type="radio"
+                  name="item"
+                  checked={((_ref4 = (_this$state$8 = this.state[`${this.props.prefix}posVal`]) !== null && _this$state$8 !== void 0 ? _this$state$8 : this.state.posVal) !== null && _ref4 !== void 0 ? _ref4 : 'left top') != position[e] ? "" : "checked"}
+                  value={e}
+                  onChange={this.controler.positionSet.bind(this.controler, position[e])}
+                />
+                <p>{e}</p>
+              </label>
+            );
+          })}
+        </div>
+      </div>
+    )
   }
   /**
    * @method imageWebp   设置图片webp是否开启 
@@ -380,19 +515,38 @@ class Background {
       isWebp = true;
     }
 
-    return React.createElement(Widget.Radio, {
-      title: "WebP",
-      id: "",
-      list: [{
-        name: "openTurn",
-        value: "true"
-      }, {
-        name: "closeOff",
-        value: "false"
-      }],
-      value: isWebp,
-      change: this.controler.setImgWebp.bind(this.controler, "isWebp")
-    });
+    // return React.createElement(Widget.Radio, {
+    //   title: "WebP",
+    //   id: "",
+    //   list: [{
+    //     name: "openTurn",
+    //     value: "true"
+    //   }, {
+    //     name: "closeOff",
+    //     value: "false"
+    //   }],
+    //   value: isWebp,
+    //   change: this.controler.setImgWebp.bind(this.controler, "isWebp")
+    // });
+
+    return (
+      <Widget.Radio
+        title="WebP"
+        id=""
+        list={[
+          {
+            name: "openTurn",
+            value: "true",
+          },
+          {
+            name: "closeOff",
+            value: "false",
+          },
+        ]}
+        value={isWebp}
+        change={this.controler.setImgWebp.bind(this.controler, "isWebp")}
+      />
+    )
   }
 
 }

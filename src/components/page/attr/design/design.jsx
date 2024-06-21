@@ -47,11 +47,7 @@ const Design = {
    * @param {object} opts.element 插入到的父级节点
    */
   design(opts) {
-
     var _opts$prefix;
-
-    // const { root } = opts
-
     const DesignComponent = this.render.bind(this);
     this.config = opts.config
 

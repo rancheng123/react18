@@ -73,7 +73,7 @@ function unload(event) {
 export const root = ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <Provider store={store}>
-    <ConfigProvider locale={zh_CN}>
+    <ConfigProvider locale={zh_CN} >
       <App load={load} unload={unload} />
     </ConfigProvider>
   </Provider>

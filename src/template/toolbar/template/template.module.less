@@ -1,0 +1,44 @@
+#templateLibrary{
+    padding: 20px;
+    .templateSearch{
+        width: 100%;
+        min-height: 72px;
+        background-color: #F6FBFF;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        :global{
+            .ant-form-item {
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .templateContent{
+        width: 100%;
+        margin: 18px 0;
+        background-color: #fff;
+        .templateContentItem{
+            // width: 232px;
+            // height: 146px;
+            box-shadow: 0px 0px 12px 0px #D4DCE4;
+            border-radius: 6px;
+            border: 1px solid #DFE5EB;
+            .templateContentItemName{
+                text-align: center;
+                color: #333;
+                height: 14px;
+                font-size: 14px;
+                line-height: 14px;
+            }
+        }
+    }
+    .templatePaging{
+        width: 100%;
+        text-align: center;
+        :global{
+            .ant-pagination-item-active a{
+                color: #fff;
+            }
+        }
+    }
+}

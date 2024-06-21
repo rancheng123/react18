@@ -564,24 +564,48 @@ function Select(prop) {
 
 
 function OnOff(prop) {
-  return React.createElement(Container, {
-    skin: prop.skin,
-    title: prop.title,
-    help: prop.help
-  }, React.createElement("label", {
-    className: "em-on-off switchBtn btnColor"
-  }, React.createElement("input", {
-    type: "checkbox",
-    onChange: prop.change,
-    checked: prop.checked,
-    className: "input input-switch"
-  }), React.createElement("div", {
-    className: "statusBtn"
-  }, React.createElement("p", {
-    className: "closeBtn"
-  }, React.createElement("i", null, "▁")), React.createElement("p", {
-    className: "openBtn"
-  }, React.createElement("i", null, "✔")))));
+  // return React.createElement(Container, {
+  //   skin: prop.skin,
+  //   title: prop.title,
+  //   help: prop.help
+  // }, React.createElement("label", {
+  //   className: "em-on-off switchBtn btnColor"
+  // }, React.createElement("input", {
+  //   type: "checkbox",
+  //   onChange: prop.change,
+  //   checked: prop.checked,
+  //   className: "input input-switch"
+  // }), React.createElement("div", {
+  //   className: "statusBtn"
+  // }, React.createElement("p", {
+  //   className: "closeBtn"
+  // }, React.createElement("i", null, "▁")), React.createElement("p", {
+  //   className: "openBtn"
+  // }, React.createElement("i", null, "✔")))));
+  return (
+    <Container
+      skin={prop.skin}
+      title={prop.title}
+      help={prop.help}
+    >
+      <label className="em-on-off switchBtn btnColor">
+        <input
+          type="checkbox"
+          onChange={prop.change}
+          checked={prop.checked}
+          className="input input-switch"
+        />
+        <div className="statusBtn">
+          <p className="closeBtn">
+            <i> </i>
+          </p>
+          <p className="openBtn">
+            <i>✔</i>
+          </p>
+        </div>
+      </label>
+    </Container>
+  )
 }
 
 
