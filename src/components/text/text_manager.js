@@ -18,6 +18,7 @@ const TextManager = {
   },
 
   getData(type) {
+    debugger
     return import(`./data/${type}_data.json`).then((module) => module.default);
   }
 

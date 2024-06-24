@@ -25,6 +25,8 @@ const textsLIst = {
   shadow: "阴影",
   text: "文字",
   space: "间距",
+  animation: "动画",
+  icon: "图标",
 };
 /**
  * @instance {Design} 设计实例

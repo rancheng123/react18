@@ -8,7 +8,6 @@ import WidgetLibraryControler from '../toolbar/widget_library/widget_library_con
 import TemplateControler from '../toolbar/template/template_controler'
 import { createRoot } from 'react-dom/client';
 
-// import TranslatePopup from '@/components/publicComponents/TranslatePopup/TranslatePopup.jsx'
 export default class ContentControler extends React.Component {
   constructor(props) {
     super(props); //组件挂载前的初始化方法，整个生命周期内只执行一次
@@ -479,7 +478,6 @@ export default class ContentControler extends React.Component {
         </div>
 
         {this.renderEdiTool()}
-        {/* <TranslatePopup /> */}
         <div id="component-property"></div>
         <div id="component-modal"></div>
         <div id="gallery-modal"></div>

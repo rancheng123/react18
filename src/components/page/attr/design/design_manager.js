@@ -106,9 +106,10 @@ const DesignManager = {
       moduleName = "Animation"; //判断类型是否为控制器
 
     if (type == "controler") {
-      path = "animation/animation_controler";
+      path = "animation/animation_controler.jsx";
       moduleName = "AnimationControler";
-    } //返回对应模块类
+    }
+    //返回对应模块类
     // return import(`./${path}.jsx`).then(module => module[moduleName])
     return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },

@@ -58,34 +58,70 @@ export function s63() {
         arr.alt = context.description || "";
     }
 
-    return React.createElement(Component.box, {
-        id: id,
-        context: context
-    }, React.createElement(Component.script, {
-        id: id,
-        document_data: document_data
-    }), effect == "imgBig" ? React.createElement(Component.enlargeImage, {
-        state: this.state,
-        props: this.props
-    }) : React.createElement(Util.linkDecorator, {
-        link: Util.setLinkUrl(context.link, link),
-        type: "html",
-        className: `hoverImg hoverImg2 Imgbox clearfix ${hoverAnimationHoverClass}`
-    }, React.createElement(Component.image, {
-        className: `${id}Img img`,
-        state: this.state || {},
-        context: context
-    }), React.createElement("div", {
-        className: "p-more"
-    }, React.createElement("div", {
-        className: "imgHref"
-    }, React.createElement("div", {
-        className: "title"
-    }, arr.title), React.createElement("div", {
-        className: "alt"
-    }, arr.alt), React.createElement("span", {
-        className: "hrefIcon"
-    }, React.createElement("img", {
-        src: "//img.bjyyb.net/images/icon_09.png"
-    }))))));
+    // return React.createElement(Component.box, {
+    //     id: id,
+    //     context: context
+    // }, React.createElement(Component.script, {
+    //     id: id,
+    //     document_data: document_data
+    // }), effect == "imgBig" ? React.createElement(Component.enlargeImage, {
+    //     state: this.state,
+    //     props: this.props
+    // }) : React.createElement(Util.linkDecorator, {
+    //     link: Util.setLinkUrl(context.link, link),
+    //     type: "html",
+    //     className: `hoverImg hoverImg2 Imgbox clearfix ${hoverAnimationHoverClass}`
+    // }, React.createElement(Component.image, {
+    //     className: `${id}Img img`,
+    //     state: this.state || {},
+    //     context: context
+    // }), React.createElement("div", {
+    //     className: "p-more"
+    // }, React.createElement("div", {
+    //     className: "imgHref"
+    // }, React.createElement("div", {
+    //     className: "title"
+    // }, arr.title), React.createElement("div", {
+    //     className: "alt"
+    // }, arr.alt), React.createElement("span", {
+    //     className: "hrefIcon"
+    // }, React.createElement("img", {
+    //     src: "//img.bjyyb.net/images/icon_09.png"
+    // }))))));
+
+    return (
+        <Component.box id={id} context={context}>
+            <Component.script
+                id={id}
+                document_data={document_data}
+            />
+            {effect === "imgBig" ? (
+                <Component.enlargeImage
+                    state={this.state}
+                    props={this.props}
+                />
+            ) : (
+                <Util.linkDecorator
+                    link={Util.setLinkUrl(context.link, link)}
+                    type="html"
+                    className={`hoverImg hoverImg2 Imgbox clearfix ${hoverAnimationHoverClass}`}
+                >
+                    <Component.image
+                        className={`${id}Img img`}
+                        state={this.state || {}}
+                        context={context}
+                    />
+                    <div className="p-more">
+                        <div className="imgHref">
+                            <div className="title">{arr.title}</div>
+                            <div className="alt">{arr.alt}</div>
+                            <span className="hrefIcon">
+                                <img src="//img.bjyyb.net/images/icon_09.png" alt="" />
+                            </span>
+                        </div>
+                    </div>
+                </Util.linkDecorator>
+            )}
+        </Component.box>
+    )
 }

@@ -14,7 +14,24 @@ export default defineConfig({
     }
   },
   build: {
-    assetsDir: 'static',
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'js/[name]-[hash].js',  // 打包后的入口文件名  
+        entryFileNames: 'js/[name]-[hash].js',  //打包后的代码块文件名
+        // 打包后的静态资源文件名
+        assetFileNames(assetInfo) {
+          if (assetInfo.name.endsWith('.css')) {
+            return 'css/[name]-[hash].css'
+          }
+          const imgType = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.webp']
+          if (imgType.some(item => assetInfo.name.endsWith(item))) {
+            return 'imgs/[name]-[hash].[ext]'
+          }
+
+          return 'assets/[name]-[hash].[ext]'
+        }
+      }
+    }
   },
   // server: {
   //   proxy: {

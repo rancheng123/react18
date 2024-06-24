@@ -14,8 +14,8 @@ import zh_CN from 'antd/es/locale/zh_CN';
 
 import { getTemplateDataAPI } from "@/api/template/index.js";
 
-import { componentsAsync } from "@/config/async_import_components_config";
-console.log(componentsAsync, 'componentsAsync');
+// import { componentsAsync } from "@/config/async_import_components_config";
+// console.log(componentsAsync, 'componentsAsync');
 
 /**
  * 异步加载函数，用于在特定事件触发时加载页面。

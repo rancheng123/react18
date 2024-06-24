@@ -16,10 +16,13 @@ class Radius extends React.Component {
    * @return {object} 待渲染的组件对象
    */
   render() {
-    const { list, state: {
-      values,
-      isLocking
-    } } = this.props;
+    const {
+      list,
+      state: {
+        values,
+        isLocking
+      }
+    } = this.props;
     return (
       <div className='desgin-border-radius'>
         {
@@ -57,9 +60,9 @@ class Radius extends React.Component {
                 type="checkbox"
                 value="locking"
                 checked={isLocking ? 'checked' : ''}
-                onChange={() => this.props.locking()}
+                onChange={(event) => this.props.locking(event)}
               />
-              {isLocking ? '' : ''}
+              <i className="iconfont" dangerouslySetInnerHTML={{ __html: isLocking ? '锁定' : '解锁' }}></i>
             </label>
           </p>
         </div>
