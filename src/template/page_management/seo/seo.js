@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Seo", function() { return Seo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Seo", function () { return Seo; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var widget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! widget */ "./system/widgets/widget.js");
@@ -10,9 +10,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * @class Seo Seo结构类
- * @author sxt
  */
-
 class Seo {
   constructor(controler) {
     /**@property controler seo控制器实例 */
@@ -32,7 +30,6 @@ class Seo {
   }
   /**
    * @method render 视图入口方法
-   * @author sxt
    * @return {object} 组件结构
    */
 
@@ -54,8 +51,6 @@ class Seo {
   }
   /**
    *@method title 标题
-   *@author sxt 
-   *@date 2020-4-27
    *@return {object} 标题结构 
    */
 
@@ -72,8 +67,6 @@ class Seo {
   }
   /**
    * @method keyword 关键字
-   * @author sxt 
-   * @date 2020-4-27
    * @return {object} 关键字结构
    */
 
@@ -89,8 +82,6 @@ class Seo {
   }
   /**
    * @method description 描述
-   * @author sxt 
-   * @date 2020-4-27
    * @return {object} 描述结构
    */
 
@@ -107,8 +98,6 @@ class Seo {
   }
   /**
    * @method staticURI url
-   * @author sxt 
-   * @date 2020-4-27
    * @return {object} url结构
    */
 
@@ -145,8 +134,6 @@ class Seo {
   }
   /**
    * @method visitFrequency 访问pinlv
-   * @author sxt 
-   * @date 2020-4-27
    * @return {object} 访问频率结构
    */
 
@@ -175,11 +162,8 @@ class Seo {
   }
   /**
    * @method chooseWeight 选择权重
-   * @author wyq
    * @return {object} 选择权重结构
    */
-
-
   chooseWeight() {
     const value = this.state.weight; //selected = {value != e ? null : "selected"}
 
@@ -204,12 +188,8 @@ class Seo {
   }
   /**
    *@method weightType 页面权重链接
-   *@author sxt
-   *@date 2020-4-7
    *@return {object} 页面权重链接
    */
-
-
   weightType() {
     const value = this.state.link_type || "default"; //selected = {value != e ? null : "selected"} 
 
@@ -234,12 +214,8 @@ class Seo {
   }
   /**
    *@method customLink 自定义链接
-   *@author sxt
-   *@date 2020-4-7
    *@return {object} 自定义链接结构
    */
-
-
   customLink() {
     let link_type = this.state.link_type;
 
@@ -256,12 +232,8 @@ class Seo {
   }
   /**
    *@method urlRule url规则 
-   *@author sxt
-   *@date 2020-4-7
    *@return {object} url规则结构
    */
-
-
   urlRule() {
     if (this.state.pageType == "PageLink") {
       const value = this.state.custom_rule_id || "";
@@ -287,12 +259,8 @@ class Seo {
   }
   /**
    *@method pageLink 页面链接
-   *@author sxt
-   *@date 2020-4-7
    *@return {object} 页面链接结构
    */
-
-
   pageLink() {
     let link_type = this.state.link_type;
 
@@ -321,7 +289,6 @@ class Seo {
   }
   /**
    * @method chooseImage 选择图片
-   * @author wyq
    * @return {object} 选择图片结构
    */
 
@@ -360,5 +327,3 @@ class Seo {
   }
 
 }
-
-//# sourceURL=webpack:///./ui/page_management/seo/seo.js?

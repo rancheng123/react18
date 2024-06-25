@@ -181,7 +181,7 @@ const Component = {
         uri: arr.uri,
         dataRetain,
         quality: 100
-      }); //当图片中存在宽和高时，走占位路径 sxt  2020-5-27
+      }); //当图片中存在宽和高时，走占位路径 
 
       if (arr.width && arr.height) {
         thumb = `https:\/\/img.bjyyb.net/grey.png?x-oss-process=image/resize,m_fixed,w_${arr.width},h_${arr.height},limit_0`;
@@ -249,52 +249,113 @@ const Component = {
           dataRetain,
           quality
         }));
-      return React.createElement(React.Fragment, null, React.createElement("img", {
-        className: `${props.className} lazyload <notempty name="vo.${coverSource}.1">firstImage</notempty>`,
-        "data-specsimg": dataSpesc,
-        "data-slidew": arr.width,
-        "data-slideh": arr.height,
-        width: arr.width || null,
-        height: arr.height || null,
-        alt: arr.alt,
-        title: arr.title,
-        "data-src": arr.uri,
-        src: thumb || arr.uri,
-        "data-webp": isWebp ? arr.webp : ""
-      }), React.createElement("notempty", {
-        name: `vo.${coverSource}.1`
-      }, React.createElement("img", {
-        className: props.className + ' lazyload activeImage',
-        "data-specsimg": dataSpesc,
-        "data-source": coverSource || null,
-        "data-slidew": arr.width || null,
-        "data-slideh": arr.height || null,
-        alt: arr.alt,
-        title: arr.title,
-        "data-src": uriSwitch,
-        src: thumb || uriSwitch,
-        "data-webp": isWebp ? webpSwitch : "",
-        width: arr.width || null,
-        height: arr.height || null
-      })));
+      // return React.createElement(React.Fragment, null, React.createElement("img", {
+      //   className: `${props.className} lazyload <notempty name="vo.${coverSource}.1">firstImage</notempty>`,
+      //   "data-specsimg": dataSpesc,
+      //   "data-slidew": arr.width,
+      //   "data-slideh": arr.height,
+      //   width: arr.width || null,
+      //   height: arr.height || null,
+      //   alt: arr.alt,
+      //   title: arr.title,
+      //   "data-src": arr.uri,
+      //   src: thumb || arr.uri,
+      //   "data-webp": isWebp ? arr.webp : ""
+      // }), React.createElement("notempty", {
+      //   name: `vo.${coverSource}.1`
+      // }, React.createElement("img", {
+      //   className: props.className + ' lazyload activeImage',
+      //   "data-specsimg": dataSpesc,
+      //   "data-source": coverSource || null,
+      //   "data-slidew": arr.width || null,
+      //   "data-slideh": arr.height || null,
+      //   alt: arr.alt,
+      //   title: arr.title,
+      //   "data-src": uriSwitch,
+      //   src: thumb || uriSwitch,
+      //   "data-webp": isWebp ? webpSwitch : "",
+      //   width: arr.width || null,
+      //   height: arr.height || null
+      // })));
+
+      return (
+        <React.Fragment>
+          <img
+            className={`${props.className} lazyload`}
+            data-specsimg={dataSpesc}
+            data-slidew={arr.width}
+            data-slideh={arr.height}
+            width={arr.width || null}
+            height={arr.height || null}
+            alt={arr.alt}
+            title={arr.title}
+            data-src={arr.uri}
+            src={thumb || arr.uri}
+            data-webp={isWebp ? arr.webp : ""}
+          />
+          {coverSource && (
+            <notempty name={`vo.${coverSource}.1`}>
+              <img
+                className={`${props.className} lazyload activeImage`}
+                data-specsimg={dataSpesc}
+                data-source={coverSource}
+                data-slidew={arr.width || null}
+                data-slideh={arr.height || null}
+                alt={arr.alt}
+                title={arr.title}
+                data-src={uriSwitch}
+                src={thumb || uriSwitch}
+                data-webp={isWebp ? webpSwitch : ''}
+                width={arr.width || null}
+                height={arr.height || null}
+              />
+            </notempty>
+          )}
+        </React.Fragment>
+      )
     } else {
-      return React.createElement(React.Fragment, null, React.createElement("img", {
-        className: props.className + ' lazyload',
-        "data-specsimg": dataSpesc,
-        "data-slidew": arr.width,
-        "data-slideh": arr.height,
-        width: arr.width || null,
-        height: arr.height || null,
-        alt: arr.alt,
-        title: arr.title,
-        "data-src": arr.uri || "https://img.bjyyb.net/notImage.jpg",
-        src: thumb || arr.uri || "https://img.bjyyb.net/notImage.jpg",
-        "data-webp": isWebp ? arr.webp : ""
-      }), arr.videoUrl ? React.createElement("span", {
-        className: `videoMantle ${Util.source ? "hidden" : ""}`,
-        "data-videosrc": arr.videoUrl || null,
-        "data-videoshow": videoShow || null
-      }) : null);
+      // return React.createElement(React.Fragment, null, React.createElement("img", {
+      //   className: props.className + ' lazyload',
+      //   "data-specsimg": dataSpesc,
+      //   "data-slidew": arr.width,
+      //   "data-slideh": arr.height,
+      //   width: arr.width || null,
+      //   height: arr.height || null,
+      //   alt: arr.alt,
+      //   title: arr.title,
+      //   "data-src": arr.uri || "https://img.bjyyb.net/notImage.jpg",
+      //   src: thumb || arr.uri || "https://img.bjyyb.net/notImage.jpg",
+      //   "data-webp": isWebp ? arr.webp : ""
+      // }), arr.videoUrl ? React.createElement("span", {
+      //   className: `videoMantle ${Util.source ? "hidden" : ""}`,
+      //   "data-videosrc": arr.videoUrl || null,
+      //   "data-videoshow": videoShow || null
+      // }) : null);
+
+      return (
+        <React.Fragment>
+          <img
+            className={props.className + ' lazyload'}
+            data-specsimg={dataSpesc}
+            data-slidew={arr.width}
+            data-slideh={arr.height}
+            width={arr.width || null}
+            height={arr.height || null}
+            alt={arr.alt}
+            title={arr.title}
+            data-src={arr.uri || "https://img.bjyyb.net/notImage.jpg"}
+            src={thumb || arr.uri || "https://img.bjyyb.net/notImage.jpg"}
+            data-webp={isWebp ? arr.webp : ""}
+          />
+          {arr.videoUrl ? (
+            <span
+              className={`videoMantle ${Util.source ? "hidden" : ""}`}
+              data-videosrc={arr.videoUrl || null}
+              data-videoshow={videoShow || null}
+            />
+          ) : null}
+        </React.Fragment>
+      )
     }
   },
 
@@ -400,29 +461,59 @@ const Component = {
       layoutType = "fixed";
     }
 
-    return React.createElement(React.Fragment, null, React.createElement("amp-img", {
-      alt: arr.alt,
-      "custom-bind": tap,
-      role: role,
-      tabIndex: "0",
-      "data-amp-auto-lightbox-disable": imgNoBig,
-      layout: layoutType,
-      width: arr.width || 100,
-      height: arr.height || 100,
-      src: arr.uri || "https://img.bjyyb.net/notImage.jpg",
-      "aria-describedby": "imageDescription"
-    }, arr.webp && isWebp ? React.createElement("amp-img", {
-      src: arr.webp || "https://img.bjyyb.net/notImage.jpg",
-      "custom-bind": tap,
-      alt: arr.title,
-      role: role,
-      tabIndex: "0",
-      layout: layoutType,
-      "aria-describedby": "imageDescription",
-      "custom-fallback": "fallback",
-      width: arr.width || 100,
-      height: arr.height || 100
-    }) : null));
+    // return React.createElement(React.Fragment, null, React.createElement("amp-img", {
+    //   alt: arr.alt,
+    //   "custom-bind": tap,
+    //   role: role,
+    //   tabIndex: "0",
+    //   "data-amp-auto-lightbox-disable": imgNoBig,
+    //   layout: layoutType,
+    //   width: arr.width || 100,
+    //   height: arr.height || 100,
+    //   src: arr.uri || "https://img.bjyyb.net/notImage.jpg",
+    //   "aria-describedby": "imageDescription"
+    // }, arr.webp && isWebp ? React.createElement("amp-img", {
+    //   src: arr.webp || "https://img.bjyyb.net/notImage.jpg",
+    //   "custom-bind": tap,
+    //   alt: arr.title,
+    //   role: role,
+    //   tabIndex: "0",
+    //   layout: layoutType,
+    //   "aria-describedby": "imageDescription",
+    //   "custom-fallback": "fallback",
+    //   width: arr.width || 100,
+    //   height: arr.height || 100
+    // }) : null));\
+    return (
+      <React.Fragment>
+        <amp-img
+          alt={arr.alt}
+          custom-bind={tap}
+          role={role}
+          tabIndex="0"
+          data-amp-auto-lightbox-disable={imgNoBig}
+          layout={layoutType}
+          width={arr.width || 100}
+          height={arr.height || 100}
+          src={arr.uri || "https://img.bjyyb.net/notImage.jpg"}
+          aria-describedby="imageDescription"
+        />
+        {arr.webp && isWebp ? (
+          <amp-img
+            src={arr.webp || "https://img.bjyyb.net/notImage.jpg"}
+            custom-bind={tap}
+            alt={arr.title}
+            role={role}
+            tabIndex="0"
+            layout={layoutType}
+            aria-describedby="imageDescription"
+            custom-fallback="fallback"
+            width={arr.width || 100}
+            height={arr.height || 100}
+          />
+        ) : null}
+      </React.Fragment>
+    )
   },
 
   /**
@@ -518,19 +609,36 @@ const Component = {
       layoutType = "fixed";
     }
 
-    return React.createElement("mip-img", {
-      alt: arr.alt,
-      tabIndex: "0",
-      layout: layoutType,
-      width: arr.width,
-      height: arr.height,
-      popup: effect == "imgBig" ? "" : null,
-      src: arr.uri || "https://img.bjyyb.net/notImage.jpg",
-      "aria-describedby": "imageDescription"
-    }, arr.webp && isWebp ? React.createElement("source", {
-      srcSet: arr.webp,
-      type: "image/webp"
-    }) : null);
+    // return React.createElement("mip-img", {
+    //   alt: arr.alt,
+    //   tabIndex: "0",
+    //   layout: layoutType,
+    //   width: arr.width,
+    //   height: arr.height,
+    //   popup: effect == "imgBig" ? "" : null,
+    //   src: arr.uri || "https://img.bjyyb.net/notImage.jpg",
+    //   "aria-describedby": "imageDescription"
+    // }, arr.webp && isWebp ? React.createElement("source", {
+    //   srcSet: arr.webp,
+    //   type: "image/webp"
+    // }) : null);
+
+    return (
+      <mip-img
+        alt={arr.alt}
+        tabIndex="0"
+        layout={layoutType}
+        width={arr.width}
+        height={arr.height}
+        popup={effect === "imgBig" ? "" : null}
+        src={arr.uri || "https://img.bjyyb.net/notImage.jpg"}
+        aria-describedby="imageDescription"
+      >
+        {arr.webp && isWebp ? (
+          <source srcSet={arr.webp} type="image/webp" />
+        ) : null}
+      </mip-img>
+    )
   },
 
   /**
@@ -588,13 +696,21 @@ const Component = {
 
     if (clickcode || doublecode || submitcode) {
       const data = `{"clickcode":"${clickcode}","doublecode":"${doublecode}","submitcode":"${submitcode}"}`;
-      return React.createElement("script", {
-        className: "button-code",
-        type: "text/json",
-        dangerouslySetInnerHTML: {
-          __html: data
-        }
-      });
+      // return React.createElement("script", {
+      //   className: "button-code",
+      //   type: "text/json",
+      //   dangerouslySetInnerHTML: {
+      //     __html: data
+      //   }
+      // });
+
+      return (
+        <script
+          className="button-code"
+          type="text/json"
+          dangerouslySetInnerHTML={{ __html: data }}
+        />
+      )
     } //返回空
 
 

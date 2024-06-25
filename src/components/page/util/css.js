@@ -10,6 +10,8 @@ import componentsManager from '@/components/components_manager'
  * @return {string} 解析后的css 
  */
 export default async function cssParser(component, themeData, type) {
+
+
   var _component$componentT;
   const module = await componentsManager((_component$componentT = component.componentType) !== null && _component$componentT !== void 0 ? _component$componentT : 'document');
 
@@ -47,7 +49,9 @@ export default async function cssParser(component, themeData, type) {
 
     //获取视图类
     const csses = await module.getStyle(humpJoin(skin.split(".")[1], '_'), type); //csses 与 data 同时存在执行if
-
+    // if (themeData?.skin === 'text.title.s36.211') {
+    //   debugger
+    // }
     if (csses && data) {
       var _ref, _csses$skin$replace;
 
@@ -99,6 +103,9 @@ function cssMediaProduce(id, media, style) {
  * @return {string} 替换后的css
  */
 function cssReplace(id, css, item, style) {
+  // if (id === 'cH7EgRH') {
+  //   debugger
+  // }
   const csses = css.split(";"),
     cssName = item.indexOf("%") != -1 ? item.replace(/%{1}/g, id) : item;
   let cssList = [];

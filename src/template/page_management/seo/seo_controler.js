@@ -1,5 +1,5 @@
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeoControler", function() { return SeoControler; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeoControler", function () { return SeoControler; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/umd/react.development.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/umd/react-dom.development.js");
@@ -94,8 +94,6 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
   }
   /**
    * @method getLink 获取所有实体页面方法
-   * @author sxt
-   * @date 2020-4-27
    * @param {string} key SEO键值
    * @param {event} event 事件对象
    */
@@ -106,7 +104,7 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
     id: "1"
   }]) {
     let data = dispatcher__WEBPACK_IMPORTED_MODULE_3__["Dispatcher"].dispatch("getIframeData"),
-        dataItems = data.data.document_data.MAIN_MENU.items || [];
+      dataItems = data.data.document_data.MAIN_MENU.items || [];
     items = items || dataItems;
 
     for (let item of items) {
@@ -124,8 +122,6 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
   }
   /**
    * @method setSeoInfo 设置SEO信息
-   * @author sxt
-   * @date 2020-4-27
    * @param {string} key SEO键值
    * @param {event} event 事件对象
    */
@@ -139,8 +135,6 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
   }
   /**
    * @method setCustomLink 设置自定义链接
-   * @author sxt
-   * @date 2020-4-27
    * @param {string} key SEO键值
    * @param {event} event 事件对象
    */
@@ -154,8 +148,6 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
   }
   /**
    * @method setWeightType 设置权重类型
-   * @author sxt
-   * @date 2020-4-27
    * @param {string} key SEO键值
    * @param {event} event 事件对象
    */
@@ -170,7 +162,6 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
   }
   /**
    * @method showImageGallery 显示图库面板与选择图片
-   * @author wyq
    * @param {number} index 索引
    */
 
@@ -218,7 +209,7 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
   static ensure(id) {
     const data = SeoControler.getData(id);
     let linkType = data.link_type,
-        canonical_point = data.canonical_point; //自定义链接存在，并且选择的自定义类型，不包含http时，弹出提示
+      canonical_point = data.canonical_point; //自定义链接存在，并且选择的自定义类型，不包含http时，弹出提示
 
     if (canonical_point && linkType == "customLink" && canonical_point.indexOf("http") == -1) {
       react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tool.ModalBox, {
@@ -267,5 +258,3 @@ class SeoControler extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
 }
 
 _defineProperty(SeoControler, "data", null);
-
-//# sourceURL=webpack:///./ui/page_management/seo/seo_controler.js?
