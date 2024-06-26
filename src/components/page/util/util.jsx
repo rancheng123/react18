@@ -39,7 +39,26 @@ async function getComponent(componentType, type, skin = '') {
   if (Components[keyName] == undefined) {
     const module = await componentsManager(componentType); //判断是否获取到了工厂对象
     if (module) {
-      cate = window.humpJoin(cate, '_'); //获取视图类
+      try {
+        cate = window.humpJoin(cate, '_'); //获取视图类
+      } catch(err) {
+        function humpJoin(str, sign) {
+          //字符串不为undefined或null或'',连接符不为undefined或null或''
+          if (str && sign) {   //回调函数
+              const lamda = (o, one, i) => {
+                  const char = i == 0 ? '' : sign;
+      
+                  return `${char}${one.toLowerCase()}`
+              };
+              //返回替换后的字符
+              return str.replace(/([A-Z]{1})/g, lamda);
+          }
+      
+          return '';
+       }
+       cate = humpJoin(cate, '_');
+      }
+      
       const View = await module.getView({
         type,
         name,

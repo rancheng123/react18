@@ -1,0 +1,749 @@
+@charset "utf-8";
+/* CSS Document */
+/*中文*/
+/*方正综艺_GBK_0*/
+@font-face {
+  font-family: '方正综艺_GBK_0';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('方正综艺_GBK_0'), local('方正综艺_GBK_0-Regular'), url('https://img.bjyyb.net/p/fonts/FZZYK--GBK1-0.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*汉仪立黑简*/
+@font-face {
+  font-family: '汉仪立黑简';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('汉仪立黑简'), local('汉仪立黑简-Regular'), url('https://img.bjyyb.net/p/fonts/HYt4gj.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*思源黑体*/
+@font-face {
+  font-family: '思源黑体';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('思源黑体'),url('https://img.bjyyb.net/p/fonts/SourceHanSansSC-Normal-2.woff2');
+}
+/*思源柔黑*/
+@font-face {
+  font-family: '思源柔黑';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('思源柔黑'),url('https://img.bjyyb.net/p/fonts/GenJyuuGothic-Normal.woff2');
+}
+/*思源宋体*/
+@font-face {
+  font-family: '思源宋体';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('思源宋体'),url('https://img.bjyyb.net/p/fonts/SourceHanSerifSC-Regular.woff2');
+}
+
+/*BreeSerif*/
+@font-face {
+  font-family: 'BreeSerif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('BreeSerif'),url('https://img.bjyyb.net/p/fonts/BreeSerif-Regular.ttf');
+}
+/*Comfortaa*/
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Comfortaa'),url('https://img.bjyyb.net/p/fonts/Comfortaa-VariableFont_wght.ttf');
+}
+/*Crimson*/
+@font-face {
+  font-family: 'Crimson';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Crimson'),url('https://img.bjyyb.net/p/fonts/CrimsonText-Regular.ttf');
+}
+/*KumbhSans*/
+@font-face {
+  font-family: 'KumbhSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('KumbhSans'),url('https://img.bjyyb.net/p/fonts/KumbhSans-VariableFont_wght.ttf');
+}
+/*Lato*/
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Lato'),url('https://img.bjyyb.net/p/fonts/Lato-Regular.ttf');
+}
+/*LeagueGothic*/
+@font-face {
+  font-family: 'LeagueGothic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('LeagueGothic'),url('https://img.bjyyb.net/p/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf');
+}
+/*LibreBaskerville*/
+@font-face {
+  font-family: 'LibreBaskerville';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('LibreBaskerville'),url('https://img.bjyyb.net/p/fonts/LibreBaskerville-Regular.ttf');
+}
+/*Lora*/
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Lora'),url('https://img.bjyyb.net/p/fonts/Lora-Regular.ttf');
+}
+/*Manrope*/
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Manrope'),url('https://img.bjyyb.net/p/fonts/Manrope-VariableFont_wght.ttf');
+}
+/*Merriweather*/
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Merriweather'),url('https://img.bjyyb.net/p/fonts/Merriweather-Regular.ttf');
+}
+/*NotoSans*/
+@font-face {
+  font-family: 'NotoSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('NotoSans'),url('https://img.bjyyb.net/p/fonts/NotoSans-Regular.ttf');
+}
+/*Poly*/
+@font-face {
+  font-family: 'Poly';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Poly'),url('https://img.bjyyb.net/p/fonts/Poly-Regular.ttf');
+}
+/*SourceSansPro*/
+@font-face {
+  font-family: 'SourceSansPro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('SourceSansPro'),url('https://img.bjyyb.net/p/fonts/SourceSansPro-Regular.ttf');
+}
+/*Ubuntu*/
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('Ubuntu'),url('https://img.bjyyb.net/p/fonts/Ubuntu-Regular.ttf');
+}
+
+
+/*华文细黑*/
+@font-face {
+  font-family: '华文细黑';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('华文细黑'), local('华文细黑-Regular'), url('https://img.bjyyb.net/p/fonts/20201228152537171.ttf') format('ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*华文彩体*/
+@font-face {
+  font-family: '华文彩体';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('华文彩体'), local('华文彩体-Regular'), url('https://img.bjyyb.net/p/fonts/hwcy.ttf') format('ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*华文行楷*/
+@font-face {
+  font-family: '华文行楷';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('华文行楷'), local('华文行楷-Regular'), url('https://img.bjyyb.net/p/fonts/HWXK.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*华文彩云*/
+@font-face {
+  font-family: '华文彩云';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('华文彩云'), local('华文彩云-Regular'), url('https://img.bjyyb.net/p/fonts/hwcy.ttf') format('ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*正中黑简体*/
+@font-face {
+  font-family: '正中黑简体';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('正中黑简体'), local('正中黑简体-Regular'), url('https://img.bjyyb.net/p/fonts/FZZZHONGJW--GB1-0.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*造字工房尚黑G0v1纤细体*/
+@font-face {
+  font-family: '造字工房尚黑G0v1纤细体';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('造字工房尚黑G0v1纤细体'), local('造字工房尚黑G0v1纤细体-Regular'), url('https://img.bjyyb.net/p/fonts/NOTDEF.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*方正舒体*/
+@font-face {
+  font-family: '方正舒体';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src:local('方正舒体'), url('https://img.bjyyb.net/p/fonts/fzstk-webfont.woff2');
+}
+
+/*英文字体*/
+/*AngsanaUPC*/
+@font-face {
+  font-family: 'AngsanaUPC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('AngsanaUPC-Italic'), local('AngsanaUPC-Regular'), url('https://img.bjyyb.net/p/fonts/AngsanaUPC-Italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Aparajita*/
+@font-face {
+  font-family: 'Aparajita';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Aparajita-Italic'), local('Aparajita-Regular'), url('https://img.bjyyb.net/p/fonts/Aparajita-Italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*ArabicTypesetting*/
+@font-face {
+  font-family: 'ArabicTypesetting';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('ArabicTypesetting'), local('ArabicTypesetting-Regular'), url('https://img.bjyyb.net/p/fonts/ArabicTypesetting.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Arial MT*/
+@font-face {
+  font-family: 'Arial MT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('ArialMT'), local('ArialMT-Regular'), url('https://img.bjyyb.net/p/fonts/ArialMT.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Book Antiqua*/
+@font-face {
+  font-family: 'Book Antiqua';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('BookAntiqua'), local('BookAntiqua-Bold'), url('https://img.bjyyb.net/p/fonts/BookAntiqua-Bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Broadway*/
+@font-face {
+  font-family: 'Broadway';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Broadway'), local('Broadway-Regular'), url('https://img.bjyyb.net/p/fonts/Broadway.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Calisto MT*/
+@font-face {
+  font-family: 'Calisto MT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('CalistoMT'), local('CalistoMT-Italic'), url('https://img.bjyyb.net/p/fonts/CalistoMT-Italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Chaparral Pro*/
+@font-face {
+  font-family: 'Chaparral Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('ChaparralPro'), local('ChaparralPro-Regular'), url('https://img.bjyyb.net/p/fonts/ChaparralPro-Regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Cookie*/
+@font-face {
+  font-family: 'Cookie';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Cookie'), local('Cookie-Regular'), url('https://img.bjyyb.net/p/fonts/crMuSvy3krjox1JAKfe7Ew.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Mr De Haviland*/
+@font-face {
+  font-family: 'Mr De Haviland';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Mr De Haviland'), local('Mr De Haviland-Regular'), url('https://img.bjyyb.net/p/fonts/fD8y4L6PJ4vqDk7z8Y8e2xKslWWn1MxsLfxBDz9WLj0.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*KozGoPr6N*/
+@font-face {
+  font-family: 'KozGoPr6N';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('KozGoPr6N'), local('KozGoPr6N-Regular'), url('https://img.bjyyb.net/p/fonts/KozGoPr6N-ExtraLight-AlphaNum.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Dillenia UPC*/
+@font-face {
+  font-family: 'Dillenia UPC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('DilleniaUPC'), local('DilleniaUPC-Regular'), url('https://img.bjyyb.net/p/fonts/DilleniaUPC.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/*Edwardian Script ITC 草体*/
+@font-face {
+  font-family: 'Edwardian Script ITC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Edwardian Script ITC'), local('Edwardian Script ITC-Regular'), url('https://img.bjyyb.net/p/fonts/EdwardianScriptITC.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Forum*/
+@font-face {
+  font-family: 'Forum';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Forum'), local('Forum-Regular'), url('https://img.bjyyb.net/p/fonts/eMDvaUkVr_spjjcEeqYI5A.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Eucrosia UPC*/
+@font-face {
+  font-family: 'Eucrosia UPC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Eucrosia'), local('Eucrosia-Regular'), url('https://img.bjyyb.net/p/fonts/EucrosiaUPC.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Eucrosia UPC Bold*/
+@font-face {
+  font-family: 'Eucrosia UPC Bold';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Eucrosia UPC Bold'), local('Eucrosia UPC Bold-Bold'), url('https://img.bjyyb.net/p/fonts/EucrosiaUPCBoldItalic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Formula Serial*/
+@font-face {
+  font-family: 'Formula Serial';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Formula Serial'), local('Formula Serial-Light'), url('https://img.bjyyb.net/p/fonts/FormulaSerialLight.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Franklin Gothic Heavy*/
+@font-face {
+  font-family: 'Franklin Gothic Heavy';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Franklin Gothic Heavy'), local('Franklin Gothic Heavy-Regular'), url('https://img.bjyyb.net/p/fonts/FranklinGothic-Heavy.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Futura BT*/
+@font-face {
+  font-family: 'Futura BT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Futura BT'), local('Futura BT-Regular'), url('https://img.bjyyb.net/p/fonts/FuturaBT-Medium.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Gautami*/
+@font-face {
+  font-family: 'Gautami';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Gautami'), local('Gautami-Regular'), url('https://img.bjyyb.net/p/fonts/Gautami.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Gill Sans MT*/
+@font-face {
+  font-family: 'Gill Sans MT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Gill Sans MT'), local('Gill Sans MT-Regular'), url('https://img.bjyyb.net/p/fonts/GillSansMT.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Open Sans Condensed*/
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Open Sans Condensed Light'), local('OpenSansCondensed-Light'), url('https://img.bjyyb.net/p/fonts/gk5FxslNkTTHtojXrkp-xBEur64QvLD-0IbiAdTUNXE.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Open Sans Condensed-ext*/
+@font-face {
+  font-family: 'Open Sans Condensed-ext';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Open Sans Condensed-ext'), local('Open Sans Condensed-ext-Regular'), url('https://img.bjyyb.net/p/fonts/gk5FxslNkTTHtojXrkp-xIF8zhZCJ7x9Pr62cRgaVUA.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*IrisUPC*/
+@font-face {
+  font-family: 'IrisUPC ';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('IrisUPC'), local('IrisUPC-Bold'), url('https://img.bjyyb.net/p/fonts/IrisUPC.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Kunstler Script*/
+@font-face {
+  font-family: 'Kunstler Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Kunstler Script'), local('Kunstler Script-Regular'), url('https://img.bjyyb.net/p/fonts/KunstlerScript.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Leelawadee UI*/
+@font-face {
+  font-family: 'Leelawadee UI';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Leelawadee UI'), local('Leelawadee UI-Regular'), url('https://img.bjyyb.net/p/fonts/LeelawadeeUI.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Lucida Sans*/
+@font-face {
+  font-family: 'Lucida Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Lucida Sans'), local('Lucida Sans-Regular'), url('https://img.bjyyb.net/p/fonts/LucidaSans.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Microsoft Sans Serif微软细黑*/
+@font-face {
+  font-family: 'Microsoft Sans Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Microsoft Sans Serif'), local('Microsoft Sans Serif-Regular'), url('https://img.bjyyb.net/p/fonts/MicrosoftSansSerif.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Microsoft Tai Le*/
+@font-face {
+  font-family: 'Microsoft Tai Le';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Microsoft Tai Le'), local('Microsoft Tai Le-Bold'), url('https://img.bjyyb.net/p/fonts/MicrosoftTaiLe-Bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*MinionPro*/
+@font-face {
+  font-family: 'MinionPro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('MinionPro Regular'), local('MinionPro-Regular'), url('https://img.bjyyb.net/p/fonts/MinionPro-Regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*MinionPro-Italic*/
+@font-face {
+  font-family: 'MinionPro-Italic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('MinionPro-Italic'), local('MinionPro-Italic'), url('https://img.bjyyb.net/p/fonts/MinionPro-It.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*MyriadPro*/
+@font-face {
+  font-family: 'MyriadPro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('MyriadPro'), local('MyriadPro-Regular'), url('https://img.bjyyb.net/p/fonts/MyriadPro-Regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*MyriadPro-Bold*/
+@font-face {
+  font-family: 'MyriadProB';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('MyriadPro Bold'), local('MyriadPro-Bold'), url('https://img.bjyyb.net/p/fonts/MyriadPro-Bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Museo_500*/
+@font-face {
+  font-family: 'Museo_500';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Museo_500'), local('Museo_500'), url('https://img.bjyyb.net/p/fonts/Museo_500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Oswald*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Oswald'), local('Oswald-Bold'), url('https://img.bjyyb.net/p/fonts/Oswald-Bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Palace Script MT*/
+@font-face {
+  font-family: 'PalaceScriptMT';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('PalaceScriptMT'), local('PalaceScriptMT-Regular'), url('https://img.bjyyb.net/p/fonts/PalaceScriptMT.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Palatino Linotype*/
+@font-face {
+  font-family: 'Palatino';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Palatino'), local('Palatino-Regular'), url('https://img.bjyyb.net/p/fonts/PalatinoLinotype-Roman.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Perpetua*/
+@font-face {
+  font-family: 'Perpetua';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Perpetua'), local('Perpetua-Regular'), url('https://img.bjyyb.net/p/fonts/Perpetua.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Segoe UI*/
+@font-face {
+  font-family: 'SegoeUI';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('SegoeUI'), local('SegoeUI-Regular'), url('https://img.bjyyb.net/p/fonts/SegoeUI.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Segoe UI Semi*/
+@font-face {
+  font-family: 'Segoe UI Semi';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Segoe UI Semi'), local('Segoe UI Semi-Bold'), url('https://img.bjyyb.net/p/fonts/SegoeUI-Semibold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Simplified Arabic*/
+@font-face {
+  font-family: 'Simplified Arabic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Simplified'), local('Simplified-Regular'), url('https://img.bjyyb.net/p/fonts/SimplifiedArabic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Sylfaen*/
+@font-face {
+  font-family: 'Sylfaen';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Sylfaen'), local('Sylfaen-Regular'), url('https://img.bjyyb.net/p/fonts/Sylfaen.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Times New Roman 新罗马*/
+@font-face {
+  font-family: 'Times New Roman';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Times New Roman'), local('Times New Roman-Regular'), url('https://img.bjyyb.net/p/fonts/TimesNewRoman.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Urdu Typesetting*/
+@font-face {
+  font-family: 'Urdu Typesetting';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Urdu Typesetting'), local('Urdu Typesetting-Regular'), url('https://img.bjyyb.net/p/fonts/UrduTypesetting.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Vani*/
+@font-face {
+  font-family: 'Vani';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Vani Bold'), local('Vani-Bold'), url('https://img.bjyyb.net/p/fonts/Vani-Bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Verdana*/
+@font-face {
+  font-family: 'Verdana';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Verdana'), url('https://img.bjyyb.net/p/fonts/Verdana.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Vijaya*/
+@font-face {
+  font-family: 'Vijaya';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Vijaya'), local('Vijaya-Regular'), url('https://img.bjyyb.net/p/fonts/Vijaya.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Vladimir*/
+@font-face {
+  font-family: 'Vladimir';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Vladimir'), local('Vladimir-Regular'), url('https://img.bjyyb.net/p/fonts/VladimirScript.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Vrinda*/
+@font-face {
+  font-family: 'Vrinda';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Vrinda'), local('Vrinda-Regular'), url('https://img.bjyyb.net/p/fonts/Vrinda.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Sacramento*/
+@font-face {
+  font-family: 'Sacramento';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Sacramento'), local('Sacramento-Regular'), url('https://img.bjyyb.net/p/fonts/WFDkXpubrEwopJnSlHV6CPk_vArhqVIZ0nv9q090hN8.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Monoton*/
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Monoton'), local('Monoton-Regular'), url('https://img.bjyyb.net/p/fonts/y6oxFxU60dYw9khW6q8jGw.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Anton*/
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Anton Regular'), local('Anton-Regular'), url('https://img.bjyyb.net/p/fonts/o-91-t7-bPc7W26HmS2N4Q.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*HelveticaNeue*/
+@font-face {
+  font-family: 'HelveticaNeue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('HelveticaNeue Medium'), local('HelveticaNeue-Medium'), url('https://img.bjyyb.net/p/fonts/HelveticaNeue-Medium.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Roboto-Medium*/
+@font-face {
+  font-family: 'Roboto-Medium';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Roboto-Medium'), local('Roboto-Medium-Italic'), url('https://img.bjyyb.net/p/fonts/Roboto-Medium-Italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*SourceHanSansCN*/
+@font-face {
+  font-family: 'SourceHanSansCN';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('SourceHanSansCN'), local('SourceHanSansCN-Normal'), url('https://img.bjyyb.net/p/fonts/SourceHanSansCN-Normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*DUAL*/
+@font-face {
+  font-family: 'DUAL';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('DUAL'), local('DUAL-Normal'), url('https://img.bjyyb.net/p/fonts/DUAL-300.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Univers-CE-Medium*/
+@font-face {
+  font-family: 'Univers-CE-Medium';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Univers-CE-Medium'), local('Univers-CE-Medium-Normal'), url('https://img.bjyyb.net/p/fonts/Univers-CE-Medium.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*Univers-CE-Bold*/
+@font-face {
+  font-family: 'Univers-CE-Bold';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: local('Univers-CE-Bold'), local('Univers-CE-Bold-Normal'), url('https://img.bjyyb.net/p/fonts/Univers-CE-Bold.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/*end*/
+

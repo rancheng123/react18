@@ -1,11 +1,11 @@
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 export default class SingleDrag {
+  angle = undefined
+  tempX = undefined
+  tempY = undefined
   static init(mouse, type = 'client') {
     this.type = type;
     this.setTemp(mouse);
   }
-
   static getAngleByRadian(radian) {
     return radian * 180 / Math.PI;
   }
@@ -38,9 +38,3 @@ export default class SingleDrag {
   }
 
 }
-
-_defineProperty(SingleDrag, "angle", void 0);
-
-_defineProperty(SingleDrag, "tempX", void 0);
-
-_defineProperty(SingleDrag, "tempY", void 0);

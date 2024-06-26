@@ -16,8 +16,9 @@ let translateAllData = null
  * @param {*} props.close 卸载弹框方法
  * @param {*} props.opts  组件数据
  */
-// eslint-disable-next-line react/prop-types
-const TranslatePopup = ({ close, opts = {} }) => {
+const TranslatePopup = ({ close, opts }) => {
+
+    // console.log(Dispatcher.dispatch("getIframeData"));
 
     // 获取控件id
     const id = opts?.node?.current?.id || ''
@@ -60,6 +61,8 @@ const TranslatePopup = ({ close, opts = {} }) => {
     }, [])
 
 
+
+
     // 单独选择语言
     const handCheckboxChange = (event, id) => {
         setdataCopy(() => {
@@ -82,6 +85,7 @@ const TranslatePopup = ({ close, opts = {} }) => {
         })
 
     }
+    const [istranslate, setistranslate] = useState(false)
 
     /**
      * 单个控件翻译
@@ -299,8 +303,6 @@ const TranslatePopup = ({ close, opts = {} }) => {
         if (!arr || arr.length == 0) {
             return message.info('请选择要翻译的语言')
         }
-
-
         // 设置要翻译的数据
         setTranslateIngData(() => {
             const langList = arr.map(item => ({ ...item, status: 0 }))

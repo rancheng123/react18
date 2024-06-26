@@ -147,6 +147,7 @@ const PublicAttribute = {
       Dispatcher.dispatch(`${id}_set`, {
         args: [`theme_data.style.${ukey}`, unit]
       });
+      return () => {}
     }, []); //返回空
 
     return null;

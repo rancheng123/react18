@@ -265,6 +265,7 @@ export default class HeaderControler extends React.Component {
    */
 
   init() {
+    console.log('init', 11111111111);
     Dispatcher.register('setPageName', this.setPageName, this);
     Dispatcher.register('savePage', this.save, this);
   }

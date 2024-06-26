@@ -36,6 +36,7 @@ const SingleComponentEdit = {
     btnId,
     boxId
   }) {
+
     const {
       current: {
         layout: {
@@ -85,6 +86,7 @@ const SingleComponentEdit = {
         }
       }
     } = this;
+
 
     //判断是不是容器只有非容器，才继续执行
     if (feature != 'Container') {

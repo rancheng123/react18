@@ -18,7 +18,6 @@ import Dispatcher from "@/system/tools/dispatcher";
 export default class CustomControler extends React.Component {
   constructor(props) {
     super(props);
-
     //组件挂载前的初始化方法，整个生命周期内只执行一次
     this.init();
 
