@@ -103,8 +103,10 @@ export default class DragAdd {
 
       this.component.view ? this.component.view.close() : this.component.props.toolBarsclose();
 
-      //获取控件数据  
-      this.component.getData().then(component => opts.component = component);
+      //获取控件数据
+      this.component.getData().then(component => {
+        opts.component = component
+      });
     } else {
       //控件是否允许拖入
       if (this.isDragIn(opts.component)) {

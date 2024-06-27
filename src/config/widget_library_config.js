@@ -1,6 +1,10 @@
 const WidgetLibraryConfig = {
     "tabs": [
         {
+            "id": 1231,
+            "name": "语种切换"
+        },
+        {
             "id": 123,
             "name": "文本"
         },
@@ -106,6 +110,57 @@ const WidgetLibraryConfig = {
         }
     ],
     "group": {
+        // 语种切换  start
+        "1231": {
+            "tabs": [
+                {
+                    "id": 1,
+                    "name": "国旗与国家名称"
+                },
+                {
+                    "id": 2,
+                    "name": "国家名称"
+                },
+            ],
+            "group": {
+                "1": [
+                    {
+
+                        //"skin": "languages(type, reactKey).flagNationName(classname).s1.1",
+                        "skin": "languages.flagNationName.s1.1",
+                        // className
+                        "skinStyle": "languages-1",
+                        "id": 667,
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null,
+                        "component_type": 0
+                    },
+                    {
+                        "skin": "languages.flagNationName.s1.2",
+                        "skinStyle": "languages-2",
+                        "id": 667,
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null,
+                        "component_type": 0
+                    }
+                ],
+                "2": [
+                    {
+                        "skin": "messagepopup.messagepopup.s1.1",
+                        "skinStyle": "text-1",
+                        "id": 667,
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null,
+                        "component_type": 0
+                    }
+                ],
+            }
+        },
+        // 语种切换  end
+
         // 模拟弹框数据
         "666": {
             "tabs": [

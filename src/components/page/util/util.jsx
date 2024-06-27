@@ -97,6 +97,13 @@ async function getChild(component, data, page, type, context, clone, props) {
     const Component = await getComponent(componentType, type, skin);
 
     if (Component) {
+
+
+      console.log('comdata', comdata)
+      // if(!comdata){
+      //   debugger
+      // }
+
       //获取控件数据
       const {
         data: comdata

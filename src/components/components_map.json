@@ -1,4 +1,8 @@
 {
+  "languages": {
+    "path": "languages/languages_manager",
+    "name": "LanguagesManager"
+  },
   "messagepopup": {
     "path": "messagepopup/messagepopup_manager",
     "name": "MessagepopupManager"

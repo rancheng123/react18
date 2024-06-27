@@ -26,6 +26,7 @@ export default class WidgetLibraryControler extends React.Component {
     this.info = null;
     this.configType = configType; //类型为组件时
 
+
     if (configType == "component") {
       this.tabs = componentLibraryConfig.group[137].tabs || {}; // //currentTab=tabs[0].id,
 
@@ -312,6 +313,11 @@ export default class WidgetLibraryControler extends React.Component {
               <div className="imgTopic">
                 <div className="imgThemeStyle">
                   <ul id={`em-${e.id}`}>
+                    {(()=>{
+                      if(!group[e.id]){
+                        debugger
+                      }
+                    })()}
                     {group[e.id].map((t) => {
                       const { skin, videoPath, skinStyle } = t;
                       return (

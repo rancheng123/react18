@@ -156,6 +156,10 @@ const Drag = {
       if (i == len - 1 && (element == null || element.offsetWidth == 0)) {
         //标识元素为隐藏
         this.display = "none"; //获取父级节点
+
+
+
+
         element = window.public.dom.querySelector(`#${this.id}`);
       }
 
@@ -339,6 +343,7 @@ const Drag = {
                 point.indexOf(id) != -1)
             ) {
               //记录父级id 记录控件类型 当控件是容器，但不允许插入控件时给isinset赋false，表示允许循环容器内部，但不允许向容器内插入控件
+              console.log('mmmmmmm')
               (this.id = pid = id),
                 (this.name = componentType),
                 (isinsert = insertable); //控件可以被选中，则存储其控件名称 2020-11-17 wyq
@@ -456,6 +461,7 @@ const Drag = {
           ], // 第一个false 是 unrender， 第三个 false 是 isrecord
         });
         this.index = undefined;
+        console.log('mmmmmmmkkkkkkkkk')
         this.id = this.prevId = this.seatId = this.name = "";
       } //是否应用到所有页面的控件存在，执行新增操作
       else if (isApply) {
