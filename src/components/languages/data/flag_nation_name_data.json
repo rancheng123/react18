@@ -3,11 +3,11 @@
         "languages.flagNationName.s1.1": {
             "structure": {
                 "type": "Component",
-                "componentType": "em-Button",
+                "componentType": "em-Languages",
                 "skin": "languages.flagNationName.s1.1"
             },
             "data": {
-                "componentType": "em-Button",
+                "componentType": "em-Languages",
                 "label": "在线留言",
                 "icon": {
                     "iconName": ""

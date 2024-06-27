@@ -99,7 +99,7 @@ async function getChild(component, data, page, type, context, clone, props) {
     if (Component) {
 
 
-      console.log('comdata', comdata)
+
       // if(!comdata){
       //   debugger
       // }
