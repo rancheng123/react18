@@ -81,7 +81,12 @@ class SelectBox {
       }
     } = select.node; //当控件发生变化时，更新选中框
 
-    useEffect(select.loaded.bind(select, state, dots), [id + parseInt(x) + parseInt(y)]);
+
+    console.log(state[0], '========')
+
+    useEffect(()=>{
+      select.loaded.bind(select, state, dots)
+    }, [id + parseInt(x) + parseInt(y)]);
     // return React.createElement("div", {
     //   className: "ediBox",
     //   "data-id": select.id,
@@ -396,6 +401,8 @@ class SelectBox {
 
     y += this.iframeWindow.scrollY;
     x -= this.screenArea;
+
+    console.log(x,'x')
     const {
       node: {
         current: {

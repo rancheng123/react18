@@ -13,10 +13,6 @@
         "tabs": {
             "all": [
                 {
-                    "name": "buttonProperty",
-                    "type": "basic"
-                },
-                {
                     "name": "design",
                     "type": "design"
                 },
@@ -50,11 +46,6 @@
         },
         "btns": [
             {
-                "name": "buttonProperty",
-                "type": "basic",
-                "iconName": "&#xe7a0;"
-            },
-            {
                 "name": "design",
                 "type": "design",
                 "iconName": "&#xe79d;"
@@ -65,29 +56,9 @@
                 "iconName": "&#xe7a2;"
             },
             {
-                "name": "animation",
-                "type": "animation",
-                "iconName": "&#xe796;"
-            },
-            {
-                "name": "link",
-                "type": "link",
-                "iconName": "&#xe79a;"
-            },
-            {
                 "name": "style",
                 "type": "custom",
                 "iconName": "&#xe79e;"
-            },
-            {
-                "name": "translate",
-                "type": "translate",
-                "iconName": "&#xe7a4;"
-            },
-            {
-                "name": "quote",
-                "type": "quote",
-                "show": "Hoverbox 2"
             }
         ]
     },
