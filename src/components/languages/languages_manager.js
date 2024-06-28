@@ -1,6 +1,5 @@
 import { getAsyncComponent, componentBasePath } from '@/config/async_import_components_config'
-
-const importBasPath = 'button/'
+const importBasPath = 'languages/'
 
 /**
  * @module {ButtonManager} 按钮管理器模块
@@ -11,9 +10,9 @@ const LanguagesManager = {
         return getAsyncComponent(componentBasePath + importBasPath + `view/${opts.type}/${opts.cate}_${opts.name}_view.jsx`, opts.name)
     },
 
-    // getAttr() {
-    //     return import('./attr/button_attribute.js').then(module => module.ButtonAttribute);
-    // },
+    getAttr() {
+        return import('./attr/languages_attribute.js').then(module => module.LanguagesAttribute);
+    },
 
     getStyle(cate, type) {
         // return import(`./style/${type}/${cate}_css.json`).then(module => module.default);

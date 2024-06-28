@@ -381,6 +381,9 @@ export default class ComponentEditControler extends React.Component {
    */
   lookForCurrent(x, y, stop, id, componentData) {
     // console.log(x, y, stop, id, componentData);
+
+
+
     const component = componentData.component,
       element = window.public.dom.querySelector(`#${componentData.component.id}`);
 
@@ -426,6 +429,11 @@ export default class ComponentEditControler extends React.Component {
             };
           }
         }
+
+        // if(component.componentType === 'em-Languages'){
+        //   debugger
+        // }
+
 
         component.components && component.components.length && hidden != 1 && componentData.componentsList.push({
           component,
@@ -531,6 +539,10 @@ export default class ComponentEditControler extends React.Component {
    * @param {event} event 事件对象 
    */
   hover(event) {
+    if(event.target.innerText === '1111122222'){
+      debugger
+    }
+
     const top = document.querySelector("#ediMain").offsetTop,
       stop = event.currentTarget.parentNode.scrollTop;
     const initX = event.pageX;

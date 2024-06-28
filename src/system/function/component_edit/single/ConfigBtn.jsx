@@ -56,7 +56,6 @@ const ConfigBtnWaper = ({
   //   className: "controlName",
   //   style: scss
   // }, name), children);
-
   return (
     <div className={cls} style={style}>
       {/*  style={scss} */}

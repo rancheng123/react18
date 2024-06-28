@@ -53,7 +53,6 @@ export function Column() {
 
   // return Dom;
 
-
   const dom = (
     <div id={id} className={`${id}row_col rowcol${hidName} ${className}`}>
       {theme_data.background && (

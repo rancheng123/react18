@@ -461,7 +461,6 @@ const Drag = {
           ], // 第一个false 是 unrender， 第三个 false 是 isrecord
         });
         this.index = undefined;
-        console.log('mmmmmmmkkkkkkkkk')
         this.id = this.prevId = this.seatId = this.name = "";
       } //是否应用到所有页面的控件存在，执行新增操作
       else if (isApply) {
