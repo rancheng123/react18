@@ -371,7 +371,7 @@ window.public.lang = {
     tab: "选项卡",
     tabProperty: "选项卡属性",
     button: "按钮",
-    languages: "语言",
+    languages: "语种切换",
     buttonStyle: "按钮",
     styleButton: "按钮样式",
     btnTextStyle: "文本按钮",

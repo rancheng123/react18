@@ -9,6 +9,7 @@ import { BackgroundControler } from "../background/background_controler";
 import { PositionControler } from "../position/position_controler";
 export default class Text {
   constructor(controler) {
+
     /**@property controler 边框控制器实例 */
     this.controler = controler;
     this.tabs = this.tabs.bind(this);

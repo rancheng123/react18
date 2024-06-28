@@ -93,10 +93,13 @@ async function getChild(component, data, page, type, context, clone, props) {
     } = component,
       list = [];
 
+
+
     //获取控件结构
     const Component = await getComponent(componentType, type, skin);
 
     if (Component) {
+
 
 
 
@@ -111,7 +114,12 @@ async function getChild(component, data, page, type, context, clone, props) {
         args: [component, data]
       }); //获取控件样式
 
+
+
+
       const style = await Util.cssParser(component, comdata.theme_data, type); //解析样式
+
+
 
       // style && list.push(React.createElement("style", {
       //   key: `style_${id}`,
@@ -120,6 +128,8 @@ async function getChild(component, data, page, type, context, clone, props) {
       //     __html: style
       //   }
       // })); 
+
+
 
       style && list.push(
         <style

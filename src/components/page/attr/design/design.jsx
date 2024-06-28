@@ -78,8 +78,8 @@ const Design = {
     const [children, setChildren] = useState(null);
     useEffect(() => {
       const init = async () => {
-        let res = []
 
+        let res = []
         if (this.group.group.allShow) {
           // 如果所有项都显示，则直接显示所有项
           for (let index = 0; index < tabs.length; index++) {
