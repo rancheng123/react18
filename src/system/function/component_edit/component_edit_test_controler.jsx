@@ -430,9 +430,7 @@ export default class ComponentEditControler extends React.Component {
           }
         }
 
-        // if(component.componentType === 'em-Languages'){
-        //   debugger
-        // }
+
 
 
         component.components && component.components.length && hidden != 1 && componentData.componentsList.push({

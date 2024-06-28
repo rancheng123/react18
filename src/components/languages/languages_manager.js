@@ -17,7 +17,6 @@ const LanguagesManager = {
     getStyle(cate, type) {
         // return import(`./style/${type}/${cate}_css.json`).then(module => module.default);
         var res = getAsyncComponent(componentBasePath + importBasPath + `style/${type}/${cate}_css.json`)
-        debugger
         return res
     },
 

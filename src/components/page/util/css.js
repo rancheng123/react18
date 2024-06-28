@@ -26,11 +26,6 @@ function humpJoin(str, sign) {
  */
 export default async function cssParser(component, themeData, type) {
 
-
-  if(component.componentType === 'em-Languages'){
-    debugger
-  }
-
   var _component$componentT;
   const module = await componentsManager((_component$componentT = component.componentType) !== null && _component$componentT !== void 0 ? _component$componentT : 'document');
 

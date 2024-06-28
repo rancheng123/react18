@@ -3,6 +3,8 @@ import React from 'react';
 import Util from "@/components/page/util/util.jsx";
 import Component from "@/components/text/view/components/component.jsx";
 
+import News from './news'
+
 function s1() {
     const {
             state: {
@@ -54,7 +56,7 @@ function s1() {
             className={`listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`}
         >
             <div>
-                1111122222
+                <News></News>
             </div>
         </Util.linkDecorator>
 
