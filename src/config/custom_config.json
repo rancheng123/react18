@@ -1675,6 +1675,25 @@
                 ]
             }
         },
+        "languages": {
+            "tabs": [
+                {
+                    "id": "flagNationName",
+                    "name": "基础多语言11111"
+                }
+            ],
+            "group": {
+                "flagNationName": [
+                    {
+                        "skin": "languages.flagNationName.s1.1",
+                        "skinStyle": "rowLanguage-1",
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null
+                    }
+                ]
+            }
+        },
         "sidebar": {
             "tabs": [
                 {

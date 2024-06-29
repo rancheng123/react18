@@ -504,6 +504,7 @@ window.public.lang = {
     "basic": "属性",
     "animation": "出场动画",
     "style": "样式",
+    "newStyle": "样式",
     "itemManage": "项管理",
     "streak": "滑过",
 

@@ -16,6 +16,7 @@ class ImageCustomControler extends CustomControler {
      * @return {Object} 设置的新数据
      */
     selectedThemeData(themeData, state) {
+        debugger
         let style = state.datas.data.theme_data.style || {};
 
         if (style.paddingHeight) {
@@ -33,6 +34,7 @@ class ImageCustomControler extends CustomControler {
      * @return {Object} 设置的新数据
      */
     selectedData(defCompont, compontData, state) {
+        debugger
         let {
             datas: {
                 component: {
