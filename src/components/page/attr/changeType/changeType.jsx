@@ -3,6 +3,10 @@ import Widget from "@/system/widgets/widget";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+import WidgetList from "@/template/toolbar/widget_library/widgetList/index.jsx";
+import React from "react";
+import WidgetLibraryConfig from "@/config/widget_library_config.js";
+
 
 export default class ChangeType {
   constructor(controler) {
@@ -114,9 +118,36 @@ export default class ChangeType {
       name,
       value
     } = this.state;
+
+
+
+
+
+
+
+
+    var matched = WidgetLibraryConfig.tabs.find((tab)=>{
+      return tab.name === this.props.node.current.absolute.name
+    })
+
+    var json = WidgetLibraryConfig.group[matched.id]
+
     return (
-        <div>
-          111111
+        <div style={{
+          width: '318px',
+          margin: '0 auto'
+        }}>
+          <WidgetList
+              tabs={json.tabs}
+              group={json.group}
+              onMouseDown={(skin, event)=>{
+                debugger
+
+                //删除当前节点
+
+                //重新渲染选中的节点
+              }}
+          ></WidgetList>
         </div>
     )
   }

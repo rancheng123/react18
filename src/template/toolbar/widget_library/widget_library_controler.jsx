@@ -11,6 +11,7 @@ import DragAdd from '../drag_add';
 import componentsManager from '@/components/components_manager';
 // 导入 toolbar 模块
 import Toolbar from "../toolbar";
+import WidgetList from "@/template/toolbar/widget_library/widgetList/index.jsx";
 
 
 var nmbTerm = null; //用来存储切换控件库内选项的index
@@ -298,48 +299,15 @@ export default class WidgetLibraryControler extends React.Component {
   toolLibraryHtml() {
     let { tabs, group } = this.group[this.state.current.id];
     return (
-      <div className="content_2 content" style={{ position: "relative" }}>
-        {tabs.map((e, i) => {
-          return (
-            <div key={i}>
-              <a name={e.id} />
-              <div
-                className="toolSmalltit"
-                style={{ position: "relative" }}
-                id={e.id}
-              >
-                <h4>{e.name}</h4>
-              </div>
-              <div className="imgTopic">
-                <div className="imgThemeStyle">
-                  <ul id={`em-${e.id}`}>
-                    {group[e.id].map((t) => {
-                      const { skin, videoPath, skinStyle } = t;
-                      return (
-                        <li
-                          key={skin}
-                          data-key={skin}
-                          className={
-                            skinStyle || skin.split(".").slice(2, 4).join("-")
-                          }
-                          onMouseDown={(event) => this.start(skin, event)}
-                        >
-                          {this.video({ path: videoPath })}
-                          {t.need_pay ? (
-                            <div className="component_pay">
-                              <p></p>
-                            </div>
-                          ) : null}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+        <WidgetList
+            tabs={tabs}
+            group={group}
+            video={this.video}
+            onMouseDown={(skin, event)=>{
+              this.start(skin, event)
+            }}
+        ></WidgetList>
+
     );
   }
 
