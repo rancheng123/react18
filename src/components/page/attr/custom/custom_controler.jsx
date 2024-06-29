@@ -44,6 +44,8 @@ export default class CustomControler extends React.Component {
       node: node,
       config: config
     }));
+
+
     // ReactDOM.render(React.createElement(this, {
     //   id: node.current.id,
     //   node: node,

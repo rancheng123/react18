@@ -43,6 +43,9 @@ const PublicAttribute = {
         tab = ''
       }
     } = this;
+
+
+
     const sname = tab + props.sname,
           uname = tab + props.uname;
     const skey = prefix + sname,
@@ -112,7 +115,7 @@ const PublicAttribute = {
             { name: 'em', value: 'em', hidden: props.unem },
             { name: '%', value: '%', hidden: props.unpercent }
           ]}
-          change={props.change !== undefined ? props.change : this.controler.range.bind(this.controler, skey)}
+          change={props.change !== undefined ? props.change : (this.controler.range.bind(this.controler, skey))}
           selectChange={PublicAttribute.selectUnit.bind(this.controler, {
             skey,
             ukey,

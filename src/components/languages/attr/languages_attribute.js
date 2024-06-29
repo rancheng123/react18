@@ -28,7 +28,6 @@ LanguagesAttribute.custom = async function (opts) {
 };
 
 LanguagesAttribute.newCustom = async function (opts) {
-    debugger
     const {
         node: {
             current: {
@@ -37,7 +36,7 @@ LanguagesAttribute.newCustom = async function (opts) {
         }
     } = this;
     const custom = await PublicAttrManager.custom(type);
-    custom.newCustom(opts);
+    custom.custom(opts);
 };
 
 
