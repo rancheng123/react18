@@ -1,6 +1,8 @@
 
 // 导入 React 库
 import React from "react";
+import WidgetList from "@/template/toolbar/widget_library/widgetList/index.jsx";
+import WidgetLibraryConfig from "@/config/widget_library_config.js";
 
 /**
  * @class {Custom} 样式切换视图类
@@ -108,15 +110,35 @@ export default class Custom {
     let state = this.state || {},
       skin = state.skin;
     let list = state.group[state.currentTab] || [];
+
+
+    var matched = WidgetLibraryConfig.tabs.find((tab)=>{
+      return tab.name === '语种切换'
+    })
+
+    var json = WidgetLibraryConfig.group[matched.id]
+
     return list.map((e, i) => {
       let className = e.skin.split(".").slice(2, 4).join("-");
 
       return (
-          <div>
+          <div key={e.skin}>
+            <WidgetList
+                tabs={json.tabs}
+                group={json.group}
+
+                onMouseDown={(skin, event)=>{
+                  debugger
+                  // "languages.flagNationName.s1.1"
+
+                  this.controler.selected.call(this.controler, skin, event)
+                }}
+            ></WidgetList>
+
             <li
                 className={e.skin == skin ? `${e.skinStyle} selected` : e.skinStyle}
                 onClick={this.controler.selected.bind(this.controler, e.skin)}
-                key={e.skin}
+
             >
               {e.skin == skin ? <p className="conSelecte">✔</p> : null}
               {!e.videoPath ? null : (
