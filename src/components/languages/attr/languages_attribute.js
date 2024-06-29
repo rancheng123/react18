@@ -27,19 +27,6 @@ LanguagesAttribute.custom = async function (opts) {
     custom.custom(opts);
 };
 
-LanguagesAttribute.newCustom = async function (opts) {
-    const {
-        node: {
-            current: {
-                type
-            }
-        }
-    } = this;
-    const custom = await PublicAttrManager.custom(type);
-    custom.custom(opts);
-};
-
-
 /**
  * @method selectBefore 选中之前调用
  * @param {object} node 控件对象

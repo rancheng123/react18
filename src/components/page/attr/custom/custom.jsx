@@ -105,6 +105,7 @@ export default class Custom {
    * @method listHtml 样式选择列表
    */
   listHtml() {
+    debugger
     let state = this.state || {},
       skin = state.skin;
     let list = state.group[state.currentTab] || [];

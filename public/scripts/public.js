@@ -2,7 +2,7 @@
 //动画类
 var Animation = (function ($) {
     /**
-     * @class Animation 动画类
+     * @class ChangeType 动画类
      * @date 2020-04-03
      * @author wyq
      */

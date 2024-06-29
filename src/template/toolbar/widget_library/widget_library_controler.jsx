@@ -313,11 +313,6 @@ export default class WidgetLibraryControler extends React.Component {
               <div className="imgTopic">
                 <div className="imgThemeStyle">
                   <ul id={`em-${e.id}`}>
-                    {(()=>{
-                      if(!group[e.id]){
-                        debugger
-                      }
-                    })()}
                     {group[e.id].map((t) => {
                       const { skin, videoPath, skinStyle } = t;
                       return (

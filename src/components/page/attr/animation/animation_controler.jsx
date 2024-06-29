@@ -319,7 +319,7 @@ class AnimationControler extends React.Component {
   }
   /**
    * @Description: 挂载组件方法
-   * @Return: Animation
+   * @Return: ChangeType
    */
   render() {
     // return React.createElement(this.view.render, null);

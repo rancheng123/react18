@@ -347,6 +347,11 @@ const Attribute = {
     animation.animation(opts);
   },
 
+  async changeType(opts) {
+    const changeType = await PublicAttrManager.changeType();
+    changeType.changeType(opts);
+  },
+
   /**
    * @method custom 自定义选项属性
    * @param {object} opts 参数对象 

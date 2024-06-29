@@ -86,6 +86,14 @@ const PublicAttrManager = {
     return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
   },
 
+  changeType(name) {
+    let path = "changeType/changeType_controler.jsx",
+        moduleName = "ChangeTypeControler";
+    // return import(`./${path}`).then(module => module[moduleName]);
+    return getAsyncComponent(componentBasePath + importBasPath + path, moduleName)
+  },
+
+
   /**
    * @method custom 获取自定义样式模块
    * @return {CustomControler} 自定义样式模块
