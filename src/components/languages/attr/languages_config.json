@@ -21,8 +21,12 @@
                     "type": "setting"
                 },
                 {
-                    "name": "style",
+                    "name": "changeType",
                     "type": "changeType"
+                },
+                {
+                    "name": "style",
+                    "type": "custom"
                 }
             ]
         },
@@ -38,8 +42,13 @@
                 "iconName": "&#xe7a2;"
             },
             {
-                "name": "style",
+                "name": "changeType",
                 "type": "changeType",
+                "iconName": "&#xe79e;"
+            },
+            {
+                "name": "style",
+                "type": "custom",
                 "iconName": "&#xe79e;"
             }
         ],
@@ -76,6 +85,20 @@
                 }
             },
             "changeType": {
+                "all": {
+                    "include": "text|background|border|icon",
+                    "group": {
+                        "text": {
+                            "include": "family|size|color|marginLeft|marginRight"
+                        },
+                        "border": {
+                            "include": "borderTop|borderRight|borderBottom|borderLeft"
+                        },
+                        "allShow": true
+                    }
+                }
+            },
+            "custom": {
                 "all": {
                     "include": "text|background|border|icon",
                     "group": {

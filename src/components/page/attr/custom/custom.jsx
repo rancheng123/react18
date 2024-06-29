@@ -105,58 +105,41 @@ export default class Custom {
    * @method listHtml 样式选择列表
    */
   listHtml() {
-    debugger
     let state = this.state || {},
       skin = state.skin;
     let list = state.group[state.currentTab] || [];
     return list.map((e, i) => {
       let className = e.skin.split(".").slice(2, 4).join("-");
-      // return React.createElement("li", {
-      //   className: e.skin == skin ? `${e.skinStyle} selected` : e.skinStyle,
-      //   onClick: this.controler.selected.bind(this.controler, e.skin),
-      //   key: e.skin
-      // }, e.skin == skin ? React.createElement("p", {
-      //   className: "conSelecte"
-      // }, "✔") : null, !e.videoPath ? null : React.createElement("div", {
-      //   className: "desVideo",
-      //   onMouseEnter: e => e.currentTarget.querySelector("video").play(),
-      //   onMouseLeave: e => {
-      //     const _video = e.currentTarget.querySelector("video");
-
-      //     _video.currentTime = 0, _video.pause();
-      //   }
-      // }, React.createElement("video", {
-      //   src: `/desktop/Public/images/video/${videoPath}`,
-      //   onError: e => e.target.dataset.play = "false",
-      //   loop: true
-      // })));
 
       return (
-        <li
-          className={e.skin == skin ? `${e.skinStyle} selected` : e.skinStyle}
-          onClick={this.controler.selected.bind(this.controler, e.skin)}
-          key={e.skin}
-        >
-          {e.skin == skin ? <p className="conSelecte">✔</p> : null}
-          {!e.videoPath ? null : (
-            <div
-              className="desVideo"
-              onMouseEnter={e =>
-                e.currentTarget.querySelector("video").play()
-              }
-              onMouseLeave={e => {
-                const _video = e.currentTarget.querySelector("video");
-                _video.currentTime = 0, _video.pause();
-              }}
+          <div>
+            <li
+                className={e.skin == skin ? `${e.skinStyle} selected` : e.skinStyle}
+                onClick={this.controler.selected.bind(this.controler, e.skin)}
+                key={e.skin}
             >
-              <video
-                src={`/desktop/Public/images/video/${videoPath}`}
-                onError={e => (e.target.dataset.play = "false")}
-                loop
-              />
-            </div>
-          )}
-        </li>
+              {e.skin == skin ? <p className="conSelecte">✔</p> : null}
+              {!e.videoPath ? null : (
+                  <div
+                      className="desVideo"
+                      onMouseEnter={e =>
+                          e.currentTarget.querySelector("video").play()
+                      }
+                      onMouseLeave={e => {
+                        const _video = e.currentTarget.querySelector("video");
+                        _video.currentTime = 0, _video.pause();
+                      }}
+                  >
+                    <video
+                        src={`/desktop/Public/images/video/${videoPath}`}
+                        onError={e => (e.target.dataset.play = "false")}
+                        loop
+                    />
+                  </div>
+              )}
+            </li>
+          </div>
+
       )
     });
   }
