@@ -141,11 +141,7 @@ export default class ChangeType {
               tabs={json.tabs}
               group={json.group}
               onMouseDown={(skin, event)=>{
-                debugger
 
-                //删除当前节点
-
-                //重新渲染选中的节点
               }}
           ></WidgetList>
         </div>

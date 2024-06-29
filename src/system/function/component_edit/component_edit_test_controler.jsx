@@ -537,10 +537,6 @@ export default class ComponentEditControler extends React.Component {
    * @param {event} event 事件对象 
    */
   hover(event) {
-    if(event.target.innerText === '1111122222'){
-      debugger
-    }
-
     const top = document.querySelector("#ediMain").offsetTop,
       stop = event.currentTarget.parentNode.scrollTop;
     const initX = event.pageX;

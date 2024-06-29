@@ -111,54 +111,23 @@ export default class Custom {
       skin = state.skin;
     let list = state.group[state.currentTab] || [];
 
-
     var matched = WidgetLibraryConfig.tabs.find((tab)=>{
-      return tab.name === '语种切换'
+      return tab.name === this.props.node.current.absolute.name
     })
 
     var json = WidgetLibraryConfig.group[matched.id]
 
     return list.map((e, i) => {
-      let className = e.skin.split(".").slice(2, 4).join("-");
-
       return (
-          <div key={e.skin}>
-            <WidgetList
-                tabs={json.tabs}
-                group={json.group}
+          <WidgetList
+              key={e.skin}
+              tabs={json.tabs}
+              group={json.group}
 
-                onMouseDown={(skin, event)=>{
-                  this.controler.selected.call(this.controler, skin, event)
-                }}
-            ></WidgetList>
-
-            <li
-                className={e.skin == skin ? `${e.skinStyle} selected` : e.skinStyle}
-                onClick={this.controler.selected.bind(this.controler, e.skin)}
-
-            >
-              {e.skin == skin ? <p className="conSelecte">✔</p> : null}
-              {!e.videoPath ? null : (
-                  <div
-                      className="desVideo"
-                      onMouseEnter={e =>
-                          e.currentTarget.querySelector("video").play()
-                      }
-                      onMouseLeave={e => {
-                        const _video = e.currentTarget.querySelector("video");
-                        _video.currentTime = 0, _video.pause();
-                      }}
-                  >
-                    <video
-                        src={`/desktop/Public/images/video/${videoPath}`}
-                        onError={e => (e.target.dataset.play = "false")}
-                        loop
-                    />
-                  </div>
-              )}
-            </li>
-          </div>
-
+              onMouseDown={(skin, event)=>{
+                this.controler.selected.call(this.controler, skin, event)
+              }}
+          ></WidgetList>
       )
     });
   }

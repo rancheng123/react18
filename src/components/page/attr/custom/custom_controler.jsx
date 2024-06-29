@@ -248,8 +248,6 @@ export default class CustomControler extends React.Component {
    * @param {Object} state state对象
   */
   addSelect(componentType, component, state, event, skin) {
-    debugger
-
     let newComponent = {}; //类型为列表和表单时，所有数据都替换
     if (componentType == "em-List" || componentType == "em-Form" || componentType == "em-Search" || componentType == "em-Menu") {
       if (skin.indexOf('list.gallery') == 0) {
@@ -262,7 +260,6 @@ export default class CustomControler extends React.Component {
       newComponent = JSON.parse(JSON.stringify(component));
       newComponent = this.changeStyle(newComponent, state); //存在单独处理方法时
 
-      debugger
       if (this.selectedData) {
         //调用控件中写的单独方法，component 新数据  newComponent改完theme_data的数据  stata 状态对象
         let selectedData = this.selectedData(component, newComponent, state);
@@ -311,7 +308,6 @@ export default class CustomControler extends React.Component {
   * @param {string} skin 切换的皮肤
   */
   selected(skin, event) {
-    debugger
     event.persist();
     let state = this.state || {};
     this.setState({
@@ -323,7 +319,6 @@ export default class CustomControler extends React.Component {
 
       let componentType = state.datas.component.componentType; //获取控件类型
 
-      debugger
       if (componentType == "em-Box" || componentType == "em-SlideShow" || componentType == "em-MoFooter" || componentType == "em-Submenu" || componentType == "em-MoHeader" || componentType == "em-Panel") {
         let themeData = component.style || {},
           docData = component.data || {}; //只改样式数据时，控件中会写selectedThemeData方法
@@ -385,7 +380,6 @@ export default class CustomControler extends React.Component {
    * @return {object} 控件数据 
    */
   async getData(skin) {
-    debugger
     if (skin) {
       const [type, classname] = skin.split(".");
       const module = await componentsManager(type);

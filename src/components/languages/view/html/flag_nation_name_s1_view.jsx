@@ -56,7 +56,9 @@ function s1() {
             className={`listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`}
         >
             <div>
-                <News></News>
+                <News
+                    type={'flagName_laid'}
+                ></News>
             </div>
         </Util.linkDecorator>
 

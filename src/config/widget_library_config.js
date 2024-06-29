@@ -127,7 +127,7 @@ const WidgetLibraryConfig = {
                     {
 
                         //"skin": "languages(type, reactKey).flagNationName(classname).s1.1",
-                        "skin": "languages.flagNationName.s1.1",
+                        "skin": "languages.flagNationName.s1",
                         "skinStyle": "languages-1",
                         "id": 667,
                         "goods_id": null,
@@ -136,7 +136,7 @@ const WidgetLibraryConfig = {
                         "component_type": 0
                     },
                     {
-                        "skin": "languages.flagNationName.s1.2",
+                        "skin": "languages.flagNationName.s2",
                         "skinStyle": "languages-2",
                         "id": 668,
                         "goods_id": null,

@@ -76,7 +76,6 @@ class ShadowControler extends React.Component {
   }
 
   isShadowControler() {
-    debugger
     return (
       <Widget.OnOff
         title="openShadow"

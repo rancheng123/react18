@@ -1,10 +1,10 @@
 {
     "items": {
-        "languages.flagNationName.s1.1": {
+        "languages.flagNationName.s1": {
             "structure": {
                 "type": "Component",
                 "componentType": "em-Languages",
-                "skin": "languages.flagNationName.s1.1"
+                "skin": "languages.flagNationName.s1"
             },
             "data": {
                 "componentType": "em-Languages",
@@ -12,10 +12,10 @@
                 "icon": {
                     "iconName": ""
                 },
-                "skin": "languages.flagNationName.s1.1"
+                "skin": "languages.flagNationName.s1"
             },
             "style": {
-                "skin": "languages.flagNationName.s1.1",
+                "skin": "languages.flagNationName.s1",
                 "style": {
                     "marginTop": 1,
                     "marginRight": "auto",
@@ -73,11 +73,11 @@
                 }
             }
         },
-        "languages.flagNationName.s1.2": {
+        "languages.flagNationName.s2": {
             "structure": {
                 "type": "Component",
                 "componentType": "em-Languages",
-                "skin": "languages.flagNationName.s1.2"
+                "skin": "languages.flagNationName.s2"
             },
             "data": {
                 "componentType": "em-Languages",
@@ -85,10 +85,10 @@
                 "icon": {
                     "iconName": ""
                 },
-                "skin": "languages.flagNationName.s1.2"
+                "skin": "languages.flagNationName.s2"
             },
             "style": {
-                "skin": "languages.flagNationName.s1.2",
+                "skin": "languages.flagNationName.s2",
                 "style": {
                     "marginTop": 1,
                     "marginRight": "auto",

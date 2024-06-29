@@ -1,6 +1,4 @@
 import {useEffect, useState, useCallback} from "react";
-import {Select} from "antd";
-
 
 const News = () => {
 
@@ -47,9 +45,7 @@ const News = () => {
                                 )
                             }
                         })()}
-
                     </span>
-
                 )
             })}
         </div>

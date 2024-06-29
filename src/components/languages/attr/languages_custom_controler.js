@@ -15,8 +15,6 @@ class LanguagesCustomControler extends CustomControler {
    * @return {Object} 设置的新数据
    */
   selectedData(defCompont, compontData, state) {
-
-    debugger
     let data = compontData.data,
       defData = defCompont.data;
     compontData.data = {
