@@ -128,9 +128,6 @@ export default class Custom {
                 group={json.group}
 
                 onMouseDown={(skin, event)=>{
-                  debugger
-                  // "languages.flagNationName.s1.1"
-
                   this.controler.selected.call(this.controler, skin, event)
                 }}
             ></WidgetList>
