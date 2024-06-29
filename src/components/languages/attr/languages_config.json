@@ -23,24 +23,6 @@
                 {
                     "name": "style",
                     "type": "custom"
-                },
-                {
-                    "name": "animation",
-                    "type": "animation"
-                },
-                {
-                    "name": "link",
-                    "type": "link"
-                }
-            ],
-            "button.textBtn.s999": [
-                {
-                    "name": "design",
-                    "type": "design"
-                },
-                {
-                    "name": "setUp",
-                    "type": "setting"
                 }
             ]
         },
@@ -99,48 +81,12 @@
         "basic": {
             "all": {
                 "include": "controlsName|selectionContentSet|inputText|dataText|selectIcon|link|anchorSet|maxWidth|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s48": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s49": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s50": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s51": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s52": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s53": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s54": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.iconBtn.s425": {
-                "include": "controlsName|selectIcon|link|anchorSet|align|marginLeft|marginRight"
-            },
-            "button.textBtn.s443": {
-                "include": "controlsName|inputText|maxWidth|align|marginLeft|marginRight"
             }
         },
         "design": {
             "all": {
-                "include": "text|icon|background|border|radius|shadow|position",
-                "button.textBtn.s44": {
-                    "include": "text|background|border|radius|shadow|position"
-                },
-                "button.textBtn.s45": {
-                    "include": "text|background|border|radius|shadow|position"
-                },
-                "button.textBtn.s46": {
-                    "include": "text|background|border|radius|shadow|position"
-                },
-                "button.textBtn.s47": {
+                "include": "text|icon",
+                "languages.flagNationName.s1.1": {
                     "include": "text|background|border|radius|shadow|position"
                 },
                 "group": {
@@ -150,30 +96,6 @@
                     },
                     "allShow": true
                 }
-            },
-            "button.iconBtn.s48": {
-                "include": "icon|background|border|radius|shadow|position"
-            },
-            "button.iconBtn.s49": {
-                "include": "icon|background|border|radius|shadow|position"
-            },
-            "button.iconBtn.s50": {
-                "include": "icon|background|border|radius|shadow|position"
-            },
-            "button.iconBtn.s51": {
-                "include": "icon|background|border|radius|shadow|position"
-            },
-            "button.iconBtn.s52": {
-                "include": "icon|background|border|radius|shadow|position"
-            },
-            "button.iconBtn.s53": {
-                "include": "icon|background|border|radius|shadow|position"
-            },
-            "button.iconBtn.s54": {
-                "include": "icon|background|border|radius|shadow|position"
-            },
-            "button.iconBtn.s425": {
-                "include": "icon|background|border|radius|shadow|position"
             }
         },
         "setting": {

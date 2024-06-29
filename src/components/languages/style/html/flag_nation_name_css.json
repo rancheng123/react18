@@ -1,9 +1,9 @@
 {
   "languages.flagNationName.s1": {
     "css": {
-      ".%A":                     "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];",
-      ".%A .languageSwitchText": "display:[pchidden];max-width:[maxWidth][maxWidthUnit];font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];text-align:[textAlign];letter-spacing:[letterSpace][letterSpaceUnit];"
-
+      ".%A":                     "",
+      ".%A .languageSwitchText": "margin:[marginTop][marginTopUnit] [marginRight][marginRightUnit] [marginBottom][marginBottomUnit] [marginLeft][marginLeftUnit];display:[pchidden];max-width:[maxWidth][maxWidthUnit];font-style:[fontStyle];font-weight:[fontWeight];font-size:[textSize][textSizeUnit];font-family:[fontFamily];line-height:[lineHeight][lineHeightUnit];color:[textColor];background:[bgColor];background-image:[LinearGradient];border-radius:[borRadius];box-shadow:[shadow];border:[borWidth]px [borStyle] [borColor];border-left:[borLeftWidth]px [borLeftStyle] [borLeftColor];border-right:[borRightWidth]px [borRightStyle] [borRightColor];border-top:[borTopWidth]px [borTopStyle] [borTopColor];border-bottom:[borBottomWidth]px [borBottomStyle] [borBottomColor];text-align:[textAlign];letter-spacing:[letterSpace][letterSpaceUnit];",
+      ".%A .languageSwitchIcon": "font-size:[moiconSize][moiconSizeUnit];color:[moiconColor];"
     }
   }
 }

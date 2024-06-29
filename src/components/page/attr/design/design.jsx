@@ -53,6 +53,8 @@ const Design = {
     const DesignComponent = this.render.bind(this);
     this.config = opts.config
 
+    this.componentType = opts.node.current.componentType
+
 
     // 
     this.group = opts.list;
@@ -78,6 +80,7 @@ const Design = {
     const [children, setChildren] = useState(null);
     useEffect(() => {
       const init = async () => {
+
 
         let res = []
         if (this.group.group.allShow) {

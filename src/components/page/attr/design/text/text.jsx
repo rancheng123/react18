@@ -46,7 +46,7 @@ export default class Text {
     // }, this[e] && this[e]()))));
 
     return (
-      <div className="pcTextBox">
+      <div className="pcTextBox ggggg">
         <this.tabs />
         <ul className="pcConAttDesign" key={this.state.tab}>
           {this.state.list.map((e, i) => (

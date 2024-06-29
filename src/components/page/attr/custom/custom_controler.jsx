@@ -164,6 +164,7 @@ export default class CustomControler extends React.Component {
    * @return {Object} Margin数据
   */
   getStyleMargin(style) {
+
     // "marginTop":"0",
     // "marginRight":"32",
     // "marginBottom":"0", 

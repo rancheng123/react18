@@ -342,5 +342,5 @@ class TextControler extends React.Component {
 
 }
 
-_defineProperty(TextControler, "LIST", ["ceshi", "size", "letterSpace", "family", "color", "style", "align", "marginLeft", "marginRight"]);
+_defineProperty(TextControler, "LIST", ["size", "letterSpace", "family", "color", "style", "align", "marginLeft", "marginRight"]);
 export { TextControler }
