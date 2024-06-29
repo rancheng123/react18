@@ -125,20 +125,9 @@ const WidgetLibraryConfig = {
             "group": {
                 "1": [
                     {
-
-                        //"skin": "languages(type, reactKey).flagNationName(classname).s1.1",
                         "skin": "languages.flagNationName.s1",
                         "skinStyle": "languages-1",
                         "id": 667,
-                        "goods_id": null,
-                        "need_pay": false,
-                        "goods_status": null,
-                        "component_type": 0
-                    },
-                    {
-                        "skin": "languages.flagNationName.s2",
-                        "skinStyle": "languages-2",
-                        "id": 668,
                         "goods_id": null,
                         "need_pay": false,
                         "goods_status": null,
@@ -147,9 +136,9 @@ const WidgetLibraryConfig = {
                 ],
                 "2": [
                     {
-                        "skin": "messagepopup.messagepopup.s1.1",
-                        "skinStyle": "text-1",
-                        "id": 667,
+                        "skin": "languages.flagNation.s1",
+                        "skinStyle": "languages-2",
+                        "id": 668,
                         "goods_id": null,
                         "need_pay": false,
                         "goods_status": null,

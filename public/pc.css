@@ -1086,11 +1086,11 @@ input {
 
 #em-1 li.languages-1 {
   height: 52px;
-  background: url(../images/control/language1.jpg?v=1) no-repeat 0px 0px;
+  background: url(../images/control/language1.jpg?v=1) no-repeat 0px -271px;
   background-size: cover;
 }
 
-#em-1 li.languages-2 {
+#em-2 li.languages-2 {
   height: 52px;
   background: url(../images/control/language1.jpg?v=1) no-repeat 0px -53px;
   background-size: cover;

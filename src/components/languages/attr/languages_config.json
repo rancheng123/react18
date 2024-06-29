@@ -21,10 +21,6 @@
                     "type": "setting"
                 },
                 {
-                    "name": "changeType",
-                    "type": "changeType"
-                },
-                {
                     "name": "style",
                     "type": "custom"
                 }
@@ -40,11 +36,6 @@
                 "name": "setUp",
                 "type": "setting",
                 "iconName": "&#xe7a2;"
-            },
-            {
-                "name": "changeType",
-                "type": "changeType",
-                "iconName": "&#xe79e;"
             },
             {
                 "name": "style",
@@ -81,20 +72,6 @@
                                 }
                             }
                         }
-                    }
-                }
-            },
-            "changeType": {
-                "all": {
-                    "include": "text|background|border|icon",
-                    "group": {
-                        "text": {
-                            "include": "family|size|color|marginLeft|marginRight"
-                        },
-                        "border": {
-                            "include": "borderTop|borderRight|borderBottom|borderLeft"
-                        },
-                        "allShow": true
                     }
                 }
             },
