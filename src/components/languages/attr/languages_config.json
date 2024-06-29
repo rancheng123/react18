@@ -51,15 +51,43 @@
                 "type": "newCustom",
                 "iconName": "&#xe79e;"
             }
-        ]
+        ],
+        "group": {
+            "design": {
+                "all": {
+                    "include": "text|background|border|icon",
+                    "group": {
+                        "text": {
+                            "include": "family|size|color|marginLeft|marginRight"
+                        },
+                        "border": {
+                            "include": "borderTop|borderRight|borderBottom|borderLeft"
+                        },
+                        "allShow": true
+                    }
+                }
+            },
+            "setting": {
+                "all": {
+                    "tabs": [
+                        "hover"
+                    ],
+                    "group": {
+                        "hover": {
+                            "include": "text",
+                            "group": {
+                                "text": {
+                                    "include": "size|color"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     },
     "mo": {
         "tabs": [
-            {
-                "name": "buttonProperty",
-                "type": "basic",
-                "iconName": "&#xe7a0;"
-            },
             {
                 "name": "design",
                 "type": "design",
@@ -68,317 +96,13 @@
         ],
         "btns": [
             {
-                "name": "buttonProperty",
-                "type": "basic",
-                "iconName": "&#xe7a0;"
-            },
-            {
                 "name": "design",
                 "type": "design",
                 "iconName": "&#xe79d;"
             }
         ],
         "group": {
-            "basic": {
-                "all": {
-                    "include": "maxWidth|align|marginLeft|marginRight"
-                }
-            }
-        }
-    },
-    "group": {
-        "basic": {
-            "all": {
-                "include": "controlsName|selectionContentSet|inputText|dataText|selectIcon|link|anchorSet|maxWidth|align|marginLeft|marginRight"
-            }
-        },
-        "design": {
-            "all": {
-                "include": "text|icon",
-                "languages.flagNationName.s1.1": {
-                    "include": "text|background|border|radius|shadow|position"
-                },
-                "group": {
-                    "position": {
-                        "margin": "left|right",
-                        "padding": true
-                    },
-                    "allShow": true
-                }
-            }
-        },
-        "setting": {
-            "all": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "text|icon|background|animation|border|radius|shadow",
-                        "button.textBtn.s44": {
-                            "include": "text|background|animation|border|radius|shadow"
-                        },
-                        "button.textBtn.s45": {
-                            "include": "text|background|animation|border|radius|shadow"
-                        },
-                        "button.textBtn.s46": {
-                            "include": "text|background|animation|border|radius|shadow"
-                        },
-                        "button.textBtn.s47": {
-                            "include": "text|background|animation|border|radius|shadow"
-                        },
-                        "group": {
-                            "text": {
-                                "exclude": "align|letterSpace|marginLeft|marginRight"
-                            }
-                        }
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.textBtn.s44": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "text|background|animation|border|radius|shadow",
-                        "group": {
-                            "text": {
-                                "exclude": "align|letterSpace|marginLeft|marginRight"
-                            }
-                        },
-                        "allShow": true
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.textBtn.s45": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "text|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s48": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s49": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s50": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s51": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s52": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s53": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s54": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            },
-            "button.iconBtn.s425": {
-                "tabs": [
-                    "hover",
-                    "click",
-                    "double",
-                    "submit"
-                ],
-                "group": {
-                    "hover": {
-                        "include": "icon|background|animation|border|radius|shadow"
-                    },
-                    "click": {
-                        "include": "code"
-                    },
-                    "double": {
-                        "include": "code"
-                    },
-                    "submit": {
-                        "include": "code"
-                    }
-                }
-            }
-        },
-        "link": {
-            "all": {
-                "include": "noLink|pageAnchor|externalLinks|back|lightbox",
-                "layout": "vertical"
-            }
+
         }
     }
 }

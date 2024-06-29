@@ -107,7 +107,6 @@ export default class Custom {
   listHtml() {
     let state = this.state || {},
       skin = state.skin;
-    debugger
     let list = state.group[state.currentTab] || [];
     return list.map((e, i) => {
       let className = e.skin.split(".").slice(2, 4).join("-");

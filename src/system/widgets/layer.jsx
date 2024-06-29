@@ -440,6 +440,8 @@ const Layer = {
       }, [tab]);
     }
 
+    console.log(opts.tabs)
+    debugger
     return (
       <section
         className={`${opts.skin || ''} pcModal em-tab-layer ${animate} yq-layer`}
