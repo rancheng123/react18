@@ -119,8 +119,12 @@ const WidgetLibraryConfig = {
                 },
                 {
                     "id": 2,
-                    "name": "国家名称"
+                    "name": "国旗"
                 },
+                {
+                    "id": 3,
+                    "name": "国家名称"
+                }
             ],
             "group": {
                 "1": [
@@ -138,6 +142,17 @@ const WidgetLibraryConfig = {
                     {
                         "skin": "languages.flagNation.s1.1",
                         "skinStyle": "languages-2",
+                        "id": 668,
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null,
+                        "component_type": 0
+                    }
+                ],
+                "3": [
+                    {
+                        "skin": "languages.name.s1.1",
+                        "skinStyle": "languages-3",
                         "id": 668,
                         "goods_id": null,
                         "need_pay": false,
