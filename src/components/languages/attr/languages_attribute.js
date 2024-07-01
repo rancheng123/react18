@@ -1,6 +1,6 @@
-
-// 导入所需的模块
 import Attribute from '@/components/page/attr/attribute';
+
+// 修改这里
 import languagesConfig from './languages_config.json';
 import PublicAttrManager from '@/components/page/attr/public_attr_manager';
 import Dispatcher from '@/system/tools/dispatcher';

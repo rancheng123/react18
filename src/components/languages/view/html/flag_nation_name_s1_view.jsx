@@ -58,6 +58,7 @@ function s1() {
             <div>
                 <News
                     isHasFlag={true}
+                    isHasName={true}
                 ></News>
             </div>
         </Util.linkDecorator>

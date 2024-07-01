@@ -1,6 +1,6 @@
 import {useEffect, useState, useCallback} from "react";
 
-const News = ({isHasFlag}) => {
+const News = ({isHasFlag, isHasName}) => {
 
     let [languages, setLanguages] = useState([])
 
@@ -34,7 +34,14 @@ const News = ({isHasFlag}) => {
             {languages.map((language, index)=>{
                 return (
                     <span key={index}>
-                        <span className={'languageSwitchText'} value={language.name}>{language.name}</span>
+                        {(()=>{
+                            if(isHasName){
+                                return (
+                                    <span className={'languageSwitchText'} value={language.name}>{language.name}</span>
+                                )
+                            }
+                        })()}
+
                         {(()=>{
                             if(isHasFlag){
                                 return (
