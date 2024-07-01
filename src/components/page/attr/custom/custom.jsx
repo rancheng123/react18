@@ -107,29 +107,28 @@ export default class Custom {
    * @method listHtml 样式选择列表
    */
   listHtml() {
+
+
+    var map = {
+      'em-Languages': 1231
+    }
+
     let state = this.state || {},
       skin = state.skin;
     let list = state.group[state.currentTab] || [];
 
-    var matched = WidgetLibraryConfig.tabs.find((tab)=>{
-      return tab.name === this.props.node.current.absolute.name
-    })
+    var json = WidgetLibraryConfig.group[map[this.props.node.current.componentType]]
 
-    var json = WidgetLibraryConfig.group[matched.id]
+    return (
+        <WidgetList
+            tabs={json.tabs}
+            group={json.group}
 
-    return list.map((e, i) => {
-      return (
-          <WidgetList
-              key={e.skin}
-              tabs={json.tabs}
-              group={json.group}
-
-              onMouseDown={(skin, event)=>{
-                this.controler.selected.call(this.controler, skin, event)
-              }}
-          ></WidgetList>
-      )
-    });
+            onMouseDown={(skin, event)=>{
+              this.controler.selected.call(this.controler, skin, event)
+            }}
+        ></WidgetList>
+    )
   }
 
 }

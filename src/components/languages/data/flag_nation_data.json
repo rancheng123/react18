@@ -1,0 +1,150 @@
+{
+    "items": {
+        "languages.flagNation.s1.1": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Languages",
+                "skin": "languages.flagNation.s1.1"
+            },
+            "data": {
+                "componentType": "em-Languages",
+                "label": "在线留言",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "languages.flagNation.s1.1"
+            },
+            "style": {
+                "skin": "languages.flagNation.s1.1",
+                "style": {
+                    "marginTop": 1,
+                    "marginRight": "auto",
+                    "marginBottom": 1,
+                    "marginLeft": "auto",
+                    "paddingTop": 10,
+                    "paddingRight": 0,
+                    "paddingBottom": 10,
+                    "paddingLeft": 0,
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": 10,
+                    "mopaddingRight": "0",
+                    "mopaddingBottom": "10",
+                    "mopaddingLeft": "0",
+                    "padLeft": 10,
+                    "mopadLeft": 10,
+                    "bgColor": "#2196f3",
+                    "hoverbgColor": "#0542E7",
+                    "borRadius": "25px",
+                    "textSize": 1.5,
+                    "motextSize": "1.5",
+                    "textColor": "#fff",
+                    "textAlign": "center",
+                    "hovertextSize": "1.5",
+                    "hovertextColor": "#fff",
+                    "iconSize": 2,
+                    "moiconSize": "2",
+                    "borStyle": "solid",
+                    "textSizeUnit": "rem",
+                    "iconSizeUnit": "rem",
+                    "motextSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "maxWidthUnit": "rem",
+                    "maxWidth": 20,
+                    "momaxWidth": 20,
+                    "momaxWidthUnit": "rem",
+                    "padRightUnit": "px"
+                }
+            }
+        },
+        "languages.flagNation.s2.1": {
+            "structure": {
+                "type": "Component",
+                "componentType": "em-Languages",
+                "skin": "languages.flagNation.s2.1"
+            },
+            "data": {
+                "componentType": "em-Languages",
+                "label": "在线留言",
+                "icon": {
+                    "iconName": ""
+                },
+                "skin": "languages.flagNation.s2.1"
+            },
+            "style": {
+                "skin": "languages.flagNation.s2.1",
+                "style": {
+                    "marginTop": 1,
+                    "marginRight": "auto",
+                    "marginBottom": 1,
+                    "marginLeft": "auto",
+                    "paddingTop": 10,
+                    "paddingRight": 0,
+                    "paddingBottom": 10,
+                    "paddingLeft": 0,
+                    "momarginTop": "1",
+                    "momarginRight": "auto",
+                    "momarginBottom": "1",
+                    "momarginLeft": "auto",
+                    "mopaddingTop": 10,
+                    "mopaddingRight": "0",
+                    "mopaddingBottom": "10",
+                    "mopaddingLeft": "0",
+                    "padLeft": 10,
+                    "mopadLeft": 10,
+                    "bgColor": "#2196f3",
+                    "hoverbgColor": "#0542E7",
+                    "borRadius": "25px",
+                    "textSize": 1.5,
+                    "motextSize": "1.5",
+                    "textColor": "#fff",
+                    "textAlign": "center",
+                    "hovertextSize": "1.5",
+                    "hovertextColor": "#fff",
+                    "iconSize": 2,
+                    "moiconSize": "2",
+                    "borStyle": "solid",
+                    "textSizeUnit": "rem",
+                    "iconSizeUnit": "rem",
+                    "motextSizeUnit": "rem",
+                    "moiconSizeUnit": "rem",
+                    "marginTopUnit": "%",
+                    "paddingTopUnit": "px",
+                    "paddingRightUnit": "px",
+                    "paddingBottomUnit": "px",
+                    "paddingLeftUnit": "px",
+                    "marginBottomUnit": "%",
+                    "momarginTopUnit": "rem",
+                    "momarginBottomUnit": "rem",
+                    "mopaddingTopUnit": "px",
+                    "mopaddingRightUnit": "px",
+                    "mopaddingBottomUnit": "px",
+                    "mopaddingLeftUnit": "px",
+                    "padLeftUnit": "px",
+                    "motextAlign": "center",
+                    "maxWidthUnit": "rem",
+                    "maxWidth": 20,
+                    "momaxWidth": 20,
+                    "momaxWidthUnit": "rem",
+                    "padRightUnit": "px"
+                }
+            }
+        }
+    }
+}

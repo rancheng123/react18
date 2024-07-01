@@ -1,0 +1,8 @@
+{
+  "languages.flagNation.s1": {
+    "css": {
+      ".%A":                     "",
+      ".%A .languageSwitchIcon": "font-size:[iconSize][iconSizeUnit];color:[iconColor];"
+    }
+  }
+}

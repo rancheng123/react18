@@ -125,7 +125,7 @@ const WidgetLibraryConfig = {
             "group": {
                 "1": [
                     {
-                        "skin": "languages.flagNationName.s1",
+                        "skin": "languages.flagNationName.s1.1",
                         "skinStyle": "languages-1",
                         "id": 667,
                         "goods_id": null,
@@ -136,7 +136,7 @@ const WidgetLibraryConfig = {
                 ],
                 "2": [
                     {
-                        "skin": "languages.flagNation.s1",
+                        "skin": "languages.flagNation.s1.1",
                         "skinStyle": "languages-2",
                         "id": 668,
                         "goods_id": null,
