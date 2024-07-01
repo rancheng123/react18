@@ -45,7 +45,7 @@
         ],
         "group": {
             "design": {
-                "languages.flagNationName.s1": {
+                "languages.flagName.s1": {
                     "include": "text|background|border|icon",
                     "group": {
                         "text": {
@@ -57,7 +57,19 @@
                         "allShow": true
                     }
                 },
-                "languages.flagNation.s1": {
+                "languages.flagName.s2": {
+                    "include": "text|background|border|icon",
+                    "group": {
+                        "text": {
+                            "include": "family|size|color|marginLeft|marginRight"
+                        },
+                        "border": {
+                            "include": "borderTop|borderRight|borderBottom|borderLeft"
+                        },
+                        "allShow": true
+                    }
+                },
+                "languages.flag.s1": {
                     "include": "icon",
                     "group": {
                         "allShow": true
