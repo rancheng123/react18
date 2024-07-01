@@ -3,10 +3,13 @@ import React, {useState} from 'react';
 import Util from "@/components/page/util/util.jsx";
 import Component from "@/components/text/view/components/component.jsx";
 
-import News from './news/index.jsx'
+import News from '@/components/languages/view/html/languages/index.jsx'
+import useLanguageList from "@/components/languages/view/html/hooks/list.js";
 
 function s2() {
     let [currentLanguage, setCurrentLanguage] = useState('English')
+    let [ languages ] = useLanguageList()
+
     const {
             state: {
                 component: {
@@ -57,6 +60,8 @@ function s2() {
             className={`listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`}
         >
             <News
+                languages={languages}
+
                 type={'select'}
                 value={currentLanguage}
                 onChange={(newValue)=>{

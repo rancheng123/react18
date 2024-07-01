@@ -143,7 +143,7 @@ class Link {
    * @return {object} 页面链接组件结构
    */
   pageAnchor(prop, state) {
-    //linkTo //链接到  //navItem 导航项  templatePageQuick 模版页 news:"新闻",product:"产品","download":"下载","essay":"文章",
+    //linkTo //链接到  //navItem 导航项  templatePageQuick 模版页 languages:"新闻",product:"产品","download":"下载","essay":"文章",
     let linkToType = prop.linkToType || "menu",
       anchorType = prop.anchorType || "protogenesis",
       displayContent = prop.displayContent; //在初始赋值了，不用写默认值了 

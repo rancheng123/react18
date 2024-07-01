@@ -3,7 +3,7 @@ import React from 'react';
 import Util from "@/components/page/util/util.jsx";
 import Component from "@/components/text/view/components/component.jsx";
 
-import News from './news'
+import News from './languages'
 
 function s1() {
     const {

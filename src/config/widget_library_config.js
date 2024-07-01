@@ -294,7 +294,7 @@ const WidgetLibraryConfig = {
             "group": {
                 "100": [
                     {
-                        "skin": "list.news.s90.334",
+                        "skin": "list.languages.s90.334",
                         "skinStyle": "basicnewsList-1",
                         "id": 100,
                         "goods_id": null,
@@ -303,7 +303,7 @@ const WidgetLibraryConfig = {
                         "component_type": 0
                     },
                     {
-                        "skin": "list.news.s144.361",
+                        "skin": "list.languages.s144.361",
                         "skinStyle": "basicnewsList-2",
                         "id": 100,
                         "goods_id": null,
@@ -312,7 +312,7 @@ const WidgetLibraryConfig = {
                         "component_type": 0
                     },
                     {
-                        "skin": "list.news.s157.374",
+                        "skin": "list.languages.s157.374",
                         "skinStyle": "basicnewsList-3",
                         "id": 100,
                         "goods_id": null,
@@ -321,7 +321,7 @@ const WidgetLibraryConfig = {
                         "component_type": 0
                     },
                     {
-                        "skin": "list.news.s435.540",
+                        "skin": "list.languages.s435.540",
                         "skinStyle": "midImg_list_1",
                         "id": 100,
                         "goods_id": null,
@@ -330,7 +330,7 @@ const WidgetLibraryConfig = {
                         "component_type": "1"
                     },
                     {
-                        "skin": "list.news.s450.555",
+                        "skin": "list.languages.s450.555",
                         "skinStyle": "datatimeList-1",
                         "id": 100,
                         "goods_id": null,
@@ -339,7 +339,7 @@ const WidgetLibraryConfig = {
                         "component_type": "1"
                     },
                     {
-                        "skin": "list.news.s452.557",
+                        "skin": "list.languages.s452.557",
                         "skinStyle": "videoPopupList-1",
                         "id": 100,
                         "goods_id": null,
