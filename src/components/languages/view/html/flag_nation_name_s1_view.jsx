@@ -1,11 +1,14 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Util from "@/components/page/util/util.jsx";
 import Component from "@/components/text/view/components/component.jsx";
 
 import News from './news'
 
 function s1() {
+
+    let [currentLanguage, setCurrentLanguage] = useState('English')
+
     const {
             state: {
                 component: {
@@ -59,6 +62,10 @@ function s1() {
                 <News
                     isHasFlag={true}
                     isHasName={true}
+                    value={currentLanguage}
+                    onChange={(newValue)=>{
+                        setCurrentLanguage(newValue)
+                    }}
                 ></News>
             </div>
         </Util.linkDecorator>

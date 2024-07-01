@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import Util from "@/components/page/util/util.jsx";
 import Component from "@/components/text/view/components/component.jsx";
 
-import News from './news/index2.jsx'
+import News from './news/index.jsx'
 
 function s2() {
+    let [currentLanguage, setCurrentLanguage] = useState('English')
     const {
             state: {
                 component: {
@@ -55,7 +56,13 @@ function s2() {
             id={id}
             className={`listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`}
         >
-            <News></News>
+            <News
+                type={'select'}
+                value={currentLanguage}
+                onChange={(newValue)=>{
+                    setCurrentLanguage(newValue)
+                }}
+            ></News>
         </Util.linkDecorator>
 
     )
