@@ -129,7 +129,7 @@ const WidgetLibraryConfig = {
             "group": {
                 "1": [
                     {
-                        "skin": "languages.flagNationName.s1.1",
+                        "skin": "languages.flagName.s1.1",
                         "skinStyle": "languages-1",
                         "id": 667,
                         "goods_id": null,
@@ -138,7 +138,7 @@ const WidgetLibraryConfig = {
                         "component_type": 0
                     },
                     {
-                        "skin": "languages.flagNationName.s2.1",
+                        "skin": "languages.flagName.s2.1",
                         "skinStyle": "languages-4",
                         "id": 667,
                         "goods_id": null,
@@ -149,7 +149,7 @@ const WidgetLibraryConfig = {
                 ],
                 "2": [
                     {
-                        "skin": "languages.flagNation.s1.1",
+                        "skin": "languages.flag.s1.1",
                         "skinStyle": "languages-2",
                         "id": 668,
                         "goods_id": null,

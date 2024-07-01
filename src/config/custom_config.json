@@ -1678,14 +1678,14 @@
         "languages": {
             "tabs": [
                 {
-                    "id": "flagNationName",
+                    "id": "flagName",
                     "name": "基础多语言11111"
                 }
             ],
             "group": {
-                "flagNationName": [
+                "flagName": [
                     {
-                        "skin": "languages.flagNationName.s1.1",
+                        "skin": "languages.flagName.s1.1",
                         "skinStyle": "rowLanguage-1",
                         "goods_id": null,
                         "need_pay": false,
