@@ -136,6 +136,15 @@ const WidgetLibraryConfig = {
                         "need_pay": false,
                         "goods_status": null,
                         "component_type": 0
+                    },
+                    {
+                        "skin": "languages.flagNationName.s2.1",
+                        "skinStyle": "languages-4",
+                        "id": 667,
+                        "goods_id": null,
+                        "need_pay": false,
+                        "goods_status": null,
+                        "component_type": 0
                     }
                 ],
                 "2": [
