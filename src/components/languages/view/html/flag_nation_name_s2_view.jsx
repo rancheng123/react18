@@ -60,8 +60,9 @@ function s2() {
             className={`listTxt ${id}A ${overflowPart} ${hiddenClass} ${detailIClassenlarge}`}
         >
             <News
+                isHasFlag={true}
+                isHasName={true}
                 languages={languages}
-
                 type={'select'}
                 value={currentLanguage}
                 onChange={(newValue)=>{

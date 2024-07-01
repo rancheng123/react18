@@ -10,7 +10,7 @@ const News = ({
                   languages = []
 }) => {
     return (
-        <div className={'languageSwitch'} defaultValue="English">
+        <div className={'languageSwitch languageSwitchWrap '} defaultValue="English">
             {(()=>{
                 // 平铺式
                 if(type === 'tile'){

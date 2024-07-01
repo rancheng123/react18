@@ -11,13 +11,7 @@ function s1() {
 
 
     let [ languages, isDone ] = useLanguageList()
-    let [currentLanguage, setCurrentLanguage] = useState((()=>{
-        if(languages && languages.length){
-            return languages[0].name
-        }else{
-            return 'French'
-        }
-    })())
+    let [currentLanguage, setCurrentLanguage] = useState('')
 
 
     // 检测isDone 的变化
@@ -78,9 +72,9 @@ function s1() {
         >
             <div>
                 <News
-                    languages={languages}
                     isHasFlag={true}
                     isHasName={true}
+                    languages={languages}
                     value={currentLanguage}
                     onChange={(newValue)=>{
                         setCurrentLanguage(newValue)

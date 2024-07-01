@@ -1,11 +1,22 @@
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Util from "@/components/page/util/util.jsx";
 import Component from "@/components/text/view/components/component.jsx";
 
 import News from './languages'
+import useLanguageList from "@/components/languages/view/html/hooks/list.js";
 
 function s1() {
+
+    let [ languages, isDone ] = useLanguageList()
+    let [currentLanguage, setCurrentLanguage] = useState('')
+    // 检测isDone 的变化
+    useEffect(()=>{
+        if(languages && languages.length){
+            setCurrentLanguage(languages[0].name)
+        }
+    }, [isDone])
+
     const {
             state: {
                 component: {
@@ -59,6 +70,11 @@ function s1() {
                 <News
                     isHasFlag={true}
                     isHasName={false}
+                    languages={languages}
+                    value={currentLanguage}
+                    onChange={(newValue)=>{
+                        setCurrentLanguage(newValue)
+                    }}
                 ></News>
             </div>
         </Util.linkDecorator>
