@@ -3,6 +3,7 @@ import FlowCanvas from "@/components/languages/view/html/canvas/flowCanvas/index
 import FlowDetail from "@/components/languages/view/html/canvas/flowDetail/index.jsx";
 import {useState} from 'react'
 import './index.css'
+import Test from "@/components/languages/view/html/canvas/test/index.jsx";
 var FlowIndex = ()=>{
     var [router, setRouter] = useState('flowCanvas')
     return (
@@ -16,6 +17,13 @@ var FlowIndex = ()=>{
             }}>
                 {router}
             </div>
+
+            <div onClick={()=>{
+                setRouter('flowTest')
+            }}>
+                test
+            </div>
+
             {(()=>{
                 if(router === 'flowCanvas'){
                     return (
@@ -24,6 +32,10 @@ var FlowIndex = ()=>{
                 }else if(router === 'flowDetail'){
                     return (
                         <FlowDetail />
+                    )
+                }else if(router === 'flowTest'){
+                    return (
+                        <Test />
                     )
                 }
             })()}

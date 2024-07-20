@@ -5,6 +5,7 @@ import {NodeConfig} from "@/components/languages/view/html/canvas/const.js";
 import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
 const FlowNode = (props)=>{
 
+
     var actions = useContext(flowCanvasContext)
 
 
@@ -50,7 +51,7 @@ const FlowNode = (props)=>{
             width: NodeConfig.width
         }}
              onClick={()=>{
-                 props.onClick()
+                 props.onClick(props.node)
              }}
         >
             <div>
