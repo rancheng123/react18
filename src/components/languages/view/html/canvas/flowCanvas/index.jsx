@@ -3,7 +3,7 @@ import FlowNode from "@/components/languages/view/html/canvas/node/index.jsx";
 import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
 import './index.css'
 import {useFlowDetail} from "@/components/languages/view/html/canvas/hooks/flow.js";
-import {useRef, useReducer} from 'react'
+import {useRef, useReducer, useState} from 'react'
 import {useWindowSize} from "@/components/languages/view/html/canvas/hooks/windowSize.js";
 
 
@@ -24,6 +24,8 @@ useState, useReducer
 const FlowCanvas = ()=>{
     var [flowDetail, setFlowDetail] = useFlowDetail(1)
     var flowCanvasRef = useRef()
+
+    var [flowState1, setFlowState1] = useState(0)
 
     var [state, dispatch] = useReducer((state, action)=>{
         switch (action.type) {
@@ -83,6 +85,12 @@ const FlowCanvas = ()=>{
                     <FlowStatus
                         status={flowDetail.status}
                     ></FlowStatus>
+
+                    <div onClick={()=>{
+                        setFlowState1(flowState1+=1)
+                    }}>
+                        {flowState1}
+                    </div>
 
 
 
