@@ -1,10 +1,9 @@
 import './index.css'
 import Jilian from "@/components/languages/view/html/canvas/node/jilian/index.jsx";
-import {useContext, useMemo} from 'react'
+import {useContext, useMemo, memo} from 'react'
 import {NodeConfig} from "@/components/languages/view/html/canvas/const.js";
 import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
-const FlowNode = (props)=>{
-
+const FlowNode = memo((props)=>{
 
     var actions = useContext(flowCanvasContext)
 
@@ -83,5 +82,5 @@ const FlowNode = (props)=>{
 
         </div>
     )
-}
+})
 export default FlowNode

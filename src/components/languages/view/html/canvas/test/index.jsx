@@ -1,62 +1,44 @@
-import {useCallback} from 'react'
-const Test = ()=>{
+import React, { useCallback, useState } from 'react';
+/*
+useCallback
+    作用
+        记住函数的引用，优化性能（避免在每次渲染时都创建一个新的函数实例）。
 
-    var fn = ()=>{
-        console.log('普通fn')
-        debugger
+
+使用场景：
+
+
+
+
+*/
+function Test() {
+    var fn = () => {
+        console.log('This function is memoized and will not change unless its dependencies change.');
     }
-
-
-    /*
-    React.memo()  通过校验Props中的数据的内存地址是否改变  来决定组件是否重新渲染组件。
-    render时,便利队列，找到该函数，检查依赖是否改变
-
-
-    依赖不变, 返回旧函数地址
-    依赖变 ,  返回新函数地址
-    */
-    var memorizedFn = useCallback(()=>{
-        console.log('缓存fn')
-        debugger
-    },[])
-
+     //fn = useCallback(fn, []); // 第二个参数是依赖项数组，这里为空数组意味着该函数不依赖于任何 props 或 state，所以它将在组件的整个生命周期中保持不变
+    var [state1, setState1] = useState(0)
 
     return (
         <div>
-            11
+            <div onClick={()=>{
+                setState1(state1+=1)
+            }}>
+                {state1}
+            </div>
+            <ChildComponent onButtonClick={fn} />
         </div>
-    )
+    );
 }
-export default Test
 
+function ChildComponent({ onButtonClick }) {
+    return <button onClick={onButtonClick}>Click me</button>;
+}
 
-//
-// import {useCallBack,memo} from 'react';
-// /**父组件**/
-// const Parent = () => {
-//     const [parentState,setParentState] = useState(0);  //父组件的state
-//
-//     return (<div>
-//         <Button onClick={() => setParentState(val => val+1)}>
-//             点击我改变父组件中与Child组件无关的state
-//         </Button>
-//         //将父组件的函数传入子组件
-//         <Child fun={() => {
-//             console.log("需要传入子组件的函数");
-//         }}></Child>
-//         <div>)
-//             }
-//
-//             /**被memo保护的子组件**/
-//             const Child = memo(() => {
-//                 consolo.log("我被打印了就说明子组件重新构建了")
-//                 return <div><div>
-//             })
-//
-//
-//
-//             React.memo检测的是props中数据的栈地址是否改变。而父组件重新构建的时候，会重新构建父组件中的所有函数（旧函数销毁
-//             ，新函数创建，等于更新了函数地址）,新的函数地址传入到子组件中被props检测到栈地址更新。也就引发了子组件的重新渲染。
-//
-//             所以，在上面的代码示例里面，子组件是要被重新渲染的。
-//
+export default Test;
+
+/*
+在这个例子中，memoizedCallback 函数在 ParentComponent 中定义，并通过 ChildComponent 的 prop onButtonClick
+传递。由于 useCallback 的第二个参数是一个空数组，意味着该函数不依赖于任何外部值，因此它将在整个组件的生命周期中保持不变，
+避免了不必要的重复定义，从而提高了性能。
+
+*/

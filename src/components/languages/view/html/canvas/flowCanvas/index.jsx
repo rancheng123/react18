@@ -3,7 +3,7 @@ import FlowNode from "@/components/languages/view/html/canvas/node/index.jsx";
 import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
 import './index.css'
 import {useFlowDetail} from "@/components/languages/view/html/canvas/hooks/flow.js";
-import {useRef, useReducer, useState} from 'react'
+import {useRef, useReducer, useState, useCallback} from 'react'
 import {useWindowSize} from "@/components/languages/view/html/canvas/hooks/windowSize.js";
 
 
@@ -50,7 +50,6 @@ const FlowCanvas = ()=>{
 
     var onNodeClick = (node) => {
 
-        debugger
         if(locked){
             return
         }
@@ -76,9 +75,12 @@ const FlowCanvas = ()=>{
         )
     }
 
+    onNodeClick = useCallback(onNodeClick,[flowDetail])
+
     return (
         <flowCanvasContext.Provider value={{
             flowCanvasRef,
+            userName: '',
             onDelete: (deleteNode)=>{
                 flowDetail.nodes.forEach((node, index)=>{
                     if (node.id === deleteNode.id) {
