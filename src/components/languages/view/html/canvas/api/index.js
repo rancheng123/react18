@@ -6,7 +6,7 @@ export function getFlowDetail(){
                 data: {
                     id: 1,
                     name: '流程1',
-                    status: 1,
+                    status: 2,
                     nodes: [
                         {
                             id: 1,
@@ -16,7 +16,9 @@ export function getFlowDetail(){
                             top: 100,
                             data: {
                                 type: 'weixin',
-                                msg: '你好，明天来'
+                                msg: '你好，明天来',
+                                todayVisitors: 3,
+                                yesterdayVisitors: 8,
                             }
                         },
                         {
@@ -27,7 +29,9 @@ export function getFlowDetail(){
                             top: 200,
                             data: {
                                 type: 'weixin',
-                                msg: '你好，明天来'
+                                msg: '你好，明天来',
+                                todayVisitors: 0,
+                                yesterdayVisitors: 3,
                             }
                         }
                     ]

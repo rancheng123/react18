@@ -3,12 +3,18 @@ import FlowNode from "@/components/languages/view/html/canvas/node/index.jsx";
 import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
 import './index.css'
 import {useFlowDetail} from "@/components/languages/view/html/canvas/hooks/flow.js";
+import {useRef} from 'react'
+
 
 const FlowCanvas = ()=>{
     var [flowDetail, setFlowDetail] = useFlowDetail(1)
+    var flowCanvasRef = useRef()
+
+
 
 
     var actions = {
+        flowCanvasRef,
         onDelete: (deleteNode)=>{
             flowDetail.nodes.forEach((node, index)=>{
                 if (node.id === deleteNode.id) {
@@ -18,13 +24,25 @@ const FlowCanvas = ()=>{
             setFlowDetail({
                 ...flowDetail
             })
+        },
+        onEdit: (currentNode)=>{
+            currentNode.data.todayVisitors = 20
+            setFlowDetail({
+                ...flowDetail
+            })
         }
     }
+
+    var locked = flowDetail.status === 1
+
+
 
     return (
         <flowCanvasContext.Provider value={actions}>
 
-            <div className={'flowWrap'}>
+            <div className={'flowWrap'}
+                ref={flowCanvasRef}
+            >
                 <div className={'topBar'}>
                     <div>
                         {flowDetail.name}
@@ -34,15 +52,22 @@ const FlowCanvas = ()=>{
                     ></FlowStatus>
 
 
+
                 </div>
 
+                {/*节点 start*/}
                 <div>
                     {flowDetail.nodes.map((node, index) => {
                         return (
                             <FlowNode
                                 key={index}
                                 node={node}
+                                locked={locked}
                                 onClick={() => {
+
+                                    if(locked){
+                                        return
+                                    }
 
                                     flowDetail.nodes.forEach((node) => {
                                         node.active = false
@@ -69,6 +94,7 @@ const FlowCanvas = ()=>{
                         )
                     })}
                 </div>
+                {/*节点 end*/}
             </div>
         </flowCanvasContext.Provider>
 

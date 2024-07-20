@@ -16,7 +16,9 @@ const Jilian = (props)=>{
             }}>
                 删除
             </div>
-            <div>
+            <div onClick={()=>{
+                actions.onEdit(props.node)
+            }}>
                 编辑
             </div>
         </div>

@@ -1,5 +1,4 @@
 .flowNode{
-    width: 200px;
     border: 1px solid #cccccc;
     border-radius: 4px;
     position: absolute;
@@ -7,4 +6,7 @@
 }
 .active{
     border-color: red;
+}
+.locked{
+    cursor: not-allowed;
 }
