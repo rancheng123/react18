@@ -77,28 +77,33 @@ const FlowCanvas = ()=>{
 
     onNodeClick = useCallback(onNodeClick,[flowDetail])
 
-    return (
-        <flowCanvasContext.Provider value={{
-            flowCanvasRef,
-            userName: '',
-            onDelete: (deleteNode)=>{
-                flowDetail.nodes.forEach((node, index)=>{
-                    if (node.id === deleteNode.id) {
-                        flowDetail.nodes.splice(index, 1)
-                    }
-                })
-                setFlowDetail({
-                    ...flowDetail
-                })
-            },
-            onEdit: (currentNode)=>{
-                currentNode.data.todayVisitors = 20
-                setFlowDetail({
-                    ...flowDetail
-                })
-            }
-        }}>
+    var flowCanvasContextValue = {
+        flowCanvasRef,
+        userName: 'rancheng',
+        onDelete: (deleteNode)=>{
+            flowDetail.nodes.forEach((node, index)=>{
+                if (node.id === deleteNode.id) {
+                    flowDetail.nodes.splice(index, 1)
+                }
+            })
+            setFlowDetail({
+                ...flowDetail
+            })
+        },
+        onEdit: (currentNode)=>{
+            currentNode.data.todayVisitors = 20
+            setFlowDetail({
+                ...flowDetail
+            })
+        }
+    }
 
+    return (
+        <flowCanvasContext.Provider value={flowCanvasContextValue}>
+
+            <div>
+                {flowCanvasContextValue.userName}
+            </div>
             <>
                 Count: {state.count}
                 <button onClick={() => dispatch({type: 'decrement'})}>-</button>
