@@ -4,6 +4,7 @@ import flowCanvasContext from "@/components/languages/view/html/canvas/context.j
 import './index.css'
 import {useFlowDetail} from "@/components/languages/view/html/canvas/hooks/flow.js";
 import {useRef} from 'react'
+import {useWindowSize} from "@/components/languages/view/html/canvas/hooks/windowSize.js";
 
 
 const FlowCanvas = ()=>{
@@ -11,7 +12,8 @@ const FlowCanvas = ()=>{
     var flowCanvasRef = useRef()
 
 
-
+    //*******注意点： 虽然这个值没有被用到，但是 每次window.onresize后，会调用主函数
+    var [windowSize] = useWindowSize()
 
     var actions = {
         flowCanvasRef,
