@@ -10,17 +10,14 @@ const FlowCanvas = ()=>{
 
     var actions = {
         onDelete: (deleteNode)=>{
-
             flowDetail.nodes.forEach((node, index)=>{
                 if (node.id === deleteNode.id) {
                     flowDetail.nodes.splice(index, 1)
                 }
             })
-
             setFlowDetail({
                 ...flowDetail
             })
-
         }
     }
 
