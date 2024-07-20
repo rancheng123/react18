@@ -2,6 +2,9 @@ import './index.css'
 import Jilian from "@/components/languages/view/html/canvas/node/jilian/index.jsx";
 const FlowNode = (props)=>{
 
+
+
+
     return (
         <div className={(()=>{
             var res = 'flowNode'
@@ -25,7 +28,17 @@ const FlowNode = (props)=>{
             </div>
 
 
-            <Jilian></Jilian>
+            {(()=>{
+                if(props.node.active){
+                    return (
+                        <Jilian
+                            {...props}
+                        ></Jilian>
+                    )
+                }
+
+            })()}
+
 
         </div>
     )

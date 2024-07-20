@@ -6,6 +6,7 @@ export function getFlowDetail(){
                 data: {
                     id: 1,
                     name: '流程1',
+                    status: 1,
                     nodes: [
                         {
                             id: 1,
@@ -21,7 +22,7 @@ export function getFlowDetail(){
                         {
                             id: 2,
                             active: false,
-                            name: '节点1',
+                            name: '节点2',
                             left: 420,
                             top: 200,
                             data: {

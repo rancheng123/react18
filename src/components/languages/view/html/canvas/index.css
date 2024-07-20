@@ -7,4 +7,7 @@
   z-index: 10000;
   background: white;
 }
+.topBar{
+  display: flex;
+}
 

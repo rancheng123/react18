@@ -2,6 +2,9 @@ import {useEffect, useState} from "react";
 import {getFlowDetail} from "@/components/languages/view/html/canvas/api/index.js";
 import './index.css'
 import FlowNode from "@/components/languages/view/html/canvas/node/index.jsx";
+import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
+import FlowStatus from "@/components/languages/view/html/canvas/flowStatus/index.jsx";
+import flowCanvas from "@/components/languages/view/html/canvas/flowCanvas/index.jsx";
 var FlowCanvas = ()=>{
 
     var [flowDetail, setFlowDetail] = useState({
@@ -10,6 +13,7 @@ var FlowCanvas = ()=>{
         nodes: []
     })
 
+    window.flowDetail = flowDetail
 
     useEffect(
         ()=>{
@@ -41,31 +45,74 @@ var FlowCanvas = ()=>{
         []
     )
 
+    var actions = {
+        flowDetail:flowDetail,
+        onDelete: (deleteNode)=>{
+
+            flowDetail.nodes.forEach((node, index)=>{
+                if (node.id === deleteNode.id) {
+                    flowDetail.nodes.splice(index, 1)
+                }
+            })
+
+            setFlowDetail({
+                ...flowDetail
+            })
+
+        }
+    }
     return (
-        <div className={'flowWrap'}>
-                <div>
-                    {flowDetail.name}
+        <flowCanvasContext.Provider value={actions}>
+            FlowCanvas
+
+            <div className={'flowWrap'}>
+                <div className={'topBar'}>
+                    <div>
+                        {flowDetail.name}
+                    </div>
+                    <FlowStatus
+                        status={flowDetail.status}
+                    ></FlowStatus>
+
+
                 </div>
 
                 <div>
-                    {flowDetail.nodes.map((node, index)=>{
+                    {flowDetail.nodes.map((node, index) => {
                         return (
                             <FlowNode
                                 key={index}
                                 node={node}
-                                onClick={()=>{
+                                onClick={() => {
 
-                                    flowDetail.nodes.forEach((node)=>{
+                                    flowDetail.nodes.forEach((node) => {
                                         node.active = false
                                     })
                                     node.active = true
+
+
+                                    /*
+                                    错误的写法
+                                        setFlowDetail(flowDetail)
+                                    原因
+                                        浅比较 检测不到属性值的变化， 所以不会触发更新
+                                    */
+
+                                    // 正确的写法， 使用新的对象来替代旧的对象
+                                    setFlowDetail(
+                                        {
+                                            ...flowDetail
+                                        }
+                                    )
                                 }}
                             ></FlowNode>
 
                         )
                     })}
                 </div>
-        </div>
-)
+            </div>
+        </flowCanvasContext.Provider>
+
+    )
 }
 export default FlowCanvas
