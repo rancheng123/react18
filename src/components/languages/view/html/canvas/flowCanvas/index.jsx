@@ -48,6 +48,34 @@ const FlowCanvas = ()=>{
 
     var locked = flowDetail.status === 1
 
+    var onNodeClick = (node) => {
+
+        debugger
+        if(locked){
+            return
+        }
+
+        flowDetail.nodes.forEach((node) => {
+            node.active = false
+        })
+        node.active = true
+
+
+        /*
+        错误的写法
+            setFlowDetail(flowDetail)
+        原因
+            浅比较 检测不到属性值的变化， 所以不会触发更新
+        */
+
+        // 正确的写法， 使用新的对象来替代旧的对象
+        setFlowDetail(
+            {
+                ...flowDetail
+            }
+        )
+    }
+
     return (
         <flowCanvasContext.Provider value={{
             flowCanvasRef,
@@ -104,32 +132,7 @@ const FlowCanvas = ()=>{
                                 key={index}
                                 node={node}
                                 locked={locked}
-                                onClick={() => {
-
-                                    if(locked){
-                                        return
-                                    }
-
-                                    flowDetail.nodes.forEach((node) => {
-                                        node.active = false
-                                    })
-                                    node.active = true
-
-
-                                    /*
-                                    错误的写法
-                                        setFlowDetail(flowDetail)
-                                    原因
-                                        浅比较 检测不到属性值的变化， 所以不会触发更新
-                                    */
-
-                                    // 正确的写法， 使用新的对象来替代旧的对象
-                                    setFlowDetail(
-                                        {
-                                            ...flowDetail
-                                        }
-                                    )
-                                }}
+                                onClick={onNodeClick}
                             ></FlowNode>
 
                         )
