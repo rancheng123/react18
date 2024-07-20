@@ -1,48 +1,13 @@
 import FlowStatus from "@/components/languages/view/html/canvas/flowStatus/index.jsx";
 import FlowNode from "@/components/languages/view/html/canvas/node/index.jsx";
-import {useEffect, useState} from "react";
-import {getFlowDetail} from "@/components/languages/view/html/canvas/api/index.js";
 import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
 import './index.css'
+import {useFlowDetail} from "@/components/languages/view/html/canvas/hooks/flow.js";
 
 const FlowCanvas = ()=>{
-    var [flowDetail, setFlowDetail] = useState({
-        id: null,
-        name: '',
-        nodes: []
-    })
-
-    window.flowDetail = flowDetail
-
-    useEffect(
-        ()=>{
+    var [flowDetail, setFlowDetail] = useFlowDetail(1)
 
 
-            //编辑时， 调取详情数据
-            if(1){
-                getFlowDetail().then((res)=>{
-                    if(res.status === 200){
-                        setFlowDetail(res.data)
-                    }
-
-                })
-
-            }
-            // 新建时，创建首个节点
-            else{
-
-            }
-
-
-            console.log('componentDidMount')
-
-            return ()=>{
-                console.log('componentWillUnmount')
-            }
-        },
-        // 空数组保证仅在组件挂载时执行一次
-        []
-    )
     var actions = {
         onDelete: (deleteNode)=>{
 

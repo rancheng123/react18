@@ -1,3 +1,4 @@
+import './index.css'
 const FlowStatus = ({
                         status
                     })=>{
@@ -15,7 +16,7 @@ const FlowStatus = ({
     }
 
     return (
-        <div style={{background:map[status]?.color }}>
+        <div className={'flowStatus'} style={{background:map[status]?.color }}>
             {map[status]?.text}
         </div>
     )
