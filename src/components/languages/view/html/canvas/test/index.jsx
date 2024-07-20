@@ -1,44 +1,27 @@
-import React, { useCallback, useState } from 'react';
-/*
-useCallback
-    作用
-        记住函数的引用，优化性能（避免在每次渲染时都创建一个新的函数实例）。
+import { useCallback } from 'react';
 
-
-使用场景：
-
-
-
-
-*/
 function Test() {
+
+
+    // 每次都声明新的函数实例
     var fn = () => {
-        console.log('This function is memoized and will not change unless its dependencies change.');
+        alert(1)
     }
-     //fn = useCallback(fn, []); // 第二个参数是依赖项数组，这里为空数组意味着该函数不依赖于任何 props 或 state，所以它将在组件的整个生命周期中保持不变
-    var [state1, setState1] = useState(0)
+
+    // 缓存函数的指针（保存第一次声明函数的指针，如果依赖不变化，一直返回旧的指针），（避免每次都重新创建实例， 优化性能）。
+    fn = useCallback(fn, []);
 
     return (
-        <div>
-            <div onClick={()=>{
-                setState1(state1+=1)
-            }}>
-                {state1}
-            </div>
-            <ChildComponent onButtonClick={fn} />
-        </div>
+        /*react 比对是浅比较，只比较指针， 不缓存指针的话，每次都是新的函数指针，每次都要更新子组件，耗费性能*/
+        <Child onChoose={fn} />
     );
 }
 
-function ChildComponent({ onButtonClick }) {
-    return <button onClick={onButtonClick}>Click me</button>;
+function Child(){
+    return (
+        <div></div>
+    )
 }
 
+
 export default Test;
-
-/*
-在这个例子中，memoizedCallback 函数在 ParentComponent 中定义，并通过 ChildComponent 的 prop onButtonClick
-传递。由于 useCallback 的第二个参数是一个空数组，意味着该函数不依赖于任何外部值，因此它将在整个组件的生命周期中保持不变，
-避免了不必要的重复定义，从而提高了性能。
-
-*/

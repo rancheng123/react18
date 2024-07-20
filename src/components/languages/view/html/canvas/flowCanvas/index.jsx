@@ -77,7 +77,7 @@ const FlowCanvas = ()=>{
 
     onNodeClick = useCallback(onNodeClick,[flowDetail])
 
-    var flowCanvasContextValue = {
+    var [flowCanvasContextValue, setFlowCanvasContextValue] = useState({
         flowCanvasRef,
         userName: 'rancheng',
         onDelete: (deleteNode)=>{
@@ -96,7 +96,15 @@ const FlowCanvas = ()=>{
                 ...flowDetail
             })
         }
-    }
+    })
+
+
+    setTimeout(()=>{
+        flowCanvasContextValue.userName = 'caisujia'
+        setFlowCanvasContextValue({
+            ...flowCanvasContextValue
+        })
+    },2000)
 
     return (
         <flowCanvasContext.Provider value={flowCanvasContextValue}>
