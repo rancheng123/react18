@@ -10,6 +10,7 @@ import Background from "./components/background/index.jsx";
 import TranslatePopup from '@/components/publicComponents/TranslatePopup/TranslatePopup.jsx'
 import { getcustomerLangListtAPI } from '@/api/translate';
 import { getLan } from '@/utils/utils.js';
+import FlowCanvas from "@/components/languages/view/html/canvas/index.jsx";
 /**
  * @class {HeaderControler} 编辑页头部控制器类
  */
@@ -257,6 +258,8 @@ export default class HeaderControler extends React.Component {
         {this.state.editBackground && <Background close={() => this.setState({ editBackground: false })} />}
         {/* 全局翻译弹框 */}
         {this.state.translate && <TranslatePopup close={() => this.setState({ translate: false })} />}
+
+        <FlowCanvas></FlowCanvas>
       </header>
     )
   }

@@ -1,5 +1,6 @@
 import {useEffect, useState, useCallback} from "react";
 import {Select} from "antd";
+import FlowCanvas from '../canvas/index.jsx'
 
 const News = ({
                   isHasFlag,
@@ -10,7 +11,9 @@ const News = ({
                   languages = []
 }) => {
     return (
+
         <div className={'languageSwitch languageSwitchWrap '} defaultValue="English">
+
             {(()=>{
                 // 平铺式
                 if(type === 'tile'){
