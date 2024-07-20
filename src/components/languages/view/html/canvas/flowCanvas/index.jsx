@@ -3,44 +3,75 @@ import FlowNode from "@/components/languages/view/html/canvas/node/index.jsx";
 import flowCanvasContext from "@/components/languages/view/html/canvas/context.js";
 import './index.css'
 import {useFlowDetail} from "@/components/languages/view/html/canvas/hooks/flow.js";
-import {useRef} from 'react'
+import {useRef, useReducer} from 'react'
 import {useWindowSize} from "@/components/languages/view/html/canvas/hooks/windowSize.js";
+
+
+/*
+
+useState, useReducer
+相同点：
+    都是管理状态
+
+不同点
+    useState          状态之间 无  依赖关系
+    useReducer        状态之间 有  依赖关系
+
+
+*/
 
 
 const FlowCanvas = ()=>{
     var [flowDetail, setFlowDetail] = useFlowDetail(1)
     var flowCanvasRef = useRef()
 
+    var [state, dispatch] = useReducer((state, action)=>{
+        switch (action.type) {
+            case 'increment':
+                return {count: state.count + 1};
+            case 'decrement':
+                return {count: state.count - 1};
+            default:
+                throw new Error();
+        }
+    },{
+        count: 0
+    })
+
+
+
 
     //*******注意点： 虽然这个值没有被用到，但是 每次window.onresize后，会调用主函数
     var [windowSize] = useWindowSize()
 
-    var actions = {
-        flowCanvasRef,
-        onDelete: (deleteNode)=>{
-            flowDetail.nodes.forEach((node, index)=>{
-                if (node.id === deleteNode.id) {
-                    flowDetail.nodes.splice(index, 1)
-                }
-            })
-            setFlowDetail({
-                ...flowDetail
-            })
-        },
-        onEdit: (currentNode)=>{
-            currentNode.data.todayVisitors = 20
-            setFlowDetail({
-                ...flowDetail
-            })
-        }
-    }
-
     var locked = flowDetail.status === 1
 
-
-
     return (
-        <flowCanvasContext.Provider value={actions}>
+        <flowCanvasContext.Provider value={{
+            flowCanvasRef,
+            onDelete: (deleteNode)=>{
+                flowDetail.nodes.forEach((node, index)=>{
+                    if (node.id === deleteNode.id) {
+                        flowDetail.nodes.splice(index, 1)
+                    }
+                })
+                setFlowDetail({
+                    ...flowDetail
+                })
+            },
+            onEdit: (currentNode)=>{
+                currentNode.data.todayVisitors = 20
+                setFlowDetail({
+                    ...flowDetail
+                })
+            }
+        }}>
+
+            <>
+                Count: {state.count}
+                <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+            </>
+
 
             <div className={'flowWrap'}
                 ref={flowCanvasRef}
