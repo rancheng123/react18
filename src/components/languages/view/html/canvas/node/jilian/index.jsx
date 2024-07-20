@@ -5,24 +5,21 @@ import flowCanvasContext from "@/components/languages/view/html/canvas/context.j
 
 const Jilian = (props)=>{
 
-    var [flowCanvasContextValue] = useContext(flowCanvasContext)
+    var flowCanvasContextValue = useContext(flowCanvasContext)
 
 
     return (
         <div className={'jilian'}>
             <div onClick={()=>{
+                debugger
                 flowCanvasContextValue.onDelete(props.node)
 
             }}>
                 删除
             </div>
             <div onClick={()=>{
+                debugger
                 flowCanvasContextValue.onEdit(props.node)
-
-                flowCanvasContextValue.userName = 'caisu'
-                flowCanvasContextValue = {
-                    ...flowCanvasContextValue
-                }
             }}>
                 编辑
             </div>
