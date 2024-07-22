@@ -91,6 +91,7 @@ const FlowCanvas = ()=>{
             })
         },
         onEdit: (currentNode)=>{
+            // push
             currentNode.data.todayVisitors = 20
             setFlowDetail({
                 ...flowDetail
